@@ -4,4 +4,4 @@ SampleRepo
 My Sample Repo
 
 
-New and improved and committed again!
+New and improved and committed!
