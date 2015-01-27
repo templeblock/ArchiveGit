@@ -1,0 +1,151 @@
+﻿<Page
+	x:Class="MasterOfCoin.CalculatorsPage" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="using:ClassLibrary"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+	x:Name="This"
+>
+    <FrameworkElement.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <ImageBrush x:Key="HubBackgroundImageBrush" ImageSource="/Assets/HubBackground.png"/>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="HighContrast">
+                    <ImageBrush x:Key="HubBackgroundImageBrush" ImageSource="{x:Null}"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+
+            <DataTemplate x:Key="HubSectionHeaderTemplate">
+                <TextBlock Margin="0,0,0,-10" Text="{Binding}"/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </FrameworkElement.Resources>
+	
+	<!--Title="YinYangMoney Financial Calculators"--> 
+	<Grid>
+        <Hub Header="master of coin" Background="{ThemeResource HubBackgroundImageBrush}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+			<HubSection Header="Select a Scenario" Width="Auto">
+                <DataTemplate>
+					<ListView ItemsSource="{Binding Scenarios}" IsTabStop="False">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<StackPanel />
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<HyperlinkButton Command="{Binding DataContext.SelectScenarioCommand, ElementName=This}" CommandParameter="{Binding}">
+									<StackPanel>
+										<TextBlock Text="{Binding Title}" />
+										<TextBlock Text="{Binding SubTitle}" Margin="15,0,0,5" />
+									</StackPanel>
+								</HyperlinkButton>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ListView>
+				</DataTemplate>
+			</HubSection>
+			<HubSection Header="{Binding CalculationTitle}" Width="Auto" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                <DataTemplate>
+					<ScrollViewer>
+						<StackPanel MinWidth="400">
+							<StackPanel Visibility="{Binding Rate.IsVisible, Converter={StaticResource UniversalTwoStateConverter}}" Margin="0,4,0,4">
+								<RadioButton Content="{Binding Rate.Label}" GroupName="Targets" TabIndex="-1" Margin="0,-10,0,-20" IsChecked="{Binding Rate.IsSelected, Mode=TwoWay}" IsEnabled="{Binding Rate.IsSelectable, Converter={StaticResource UniversalTwoStateConverter}}" />
+								<StackPanel Orientation="Horizontal">
+									<c:Spacer MinWidth="35" />
+									<c:TextBoxFocusSelect Width="60" Text="{Binding Rate.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToNullableValueConverter}}" EnterKeyCommand="{Binding ComputeCommand}" />
+									<TextBlock Text=" %" VerticalAlignment="Center" />
+								</StackPanel>
+							</StackPanel>
+							<StackPanel Visibility="{Binding PresentValue.IsVisible, Converter={StaticResource UniversalTwoStateConverter}}" Margin="0,4,0,4">
+								<RadioButton Content="{Binding PresentValue.Label}" GroupName="Targets" TabIndex="-1" Margin="0,-10,0,-20" IsChecked="{Binding PresentValue.IsSelected, Mode=TwoWay}" IsEnabled="{Binding PresentValue.IsSelectable, Converter={StaticResource UniversalTwoStateConverter}}" />
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="$ " Width="35" TextAlignment="Right" VerticalAlignment="Center" />
+									<c:TextBoxFocusSelect Width="120" Text="{Binding PresentValue.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToNullableValueConverter}}" EnterKeyCommand="{Binding ComputeCommand}" />
+								</StackPanel>
+							</StackPanel>
+							<StackPanel Visibility="{Binding FutureValue.IsVisible, Converter={StaticResource UniversalTwoStateConverter}}" Margin="0,4,0,4">
+								<RadioButton Content="{Binding FutureValue.Label}" GroupName="Targets" TabIndex="-1" Margin="0,-10,0,-20" IsChecked="{Binding FutureValue.IsSelected, Mode=TwoWay}" IsEnabled="{Binding FutureValue.IsSelectable, Converter={StaticResource UniversalTwoStateConverter}}" />
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="$ " Width="35" TextAlignment="Right" VerticalAlignment="Center" />
+									<c:TextBoxFocusSelect Width="120" Text="{Binding FutureValue.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToNullableValueConverter}}" EnterKeyCommand="{Binding ComputeCommand}" />
+								</StackPanel>
+							</StackPanel>
+							<StackPanel Visibility="{Binding Payment.IsVisible, Converter={StaticResource UniversalTwoStateConverter}}" Margin="0,4,0,4">
+								<RadioButton Content="{Binding Payment.Label}" GroupName="Targets" TabIndex="-1" Margin="0,-10,0,-20" IsChecked="{Binding Payment.IsSelected, Mode=TwoWay}" IsEnabled="{Binding Payment.IsSelectable, Converter={StaticResource UniversalTwoStateConverter}}" />
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="$ " Width="35" TextAlignment="Right" VerticalAlignment="Center" />
+									<c:TextBoxFocusSelect Width="120" Text="{Binding Payment.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToNullableValueConverter}}" EnterKeyCommand="{Binding ComputeCommand}" />
+									<ComboBox SelectedIndex="{Binding PaymentFrequency, Mode=TwoWay, Converter={StaticResource EnumToIndex}}" Style="{StaticResource FlatComboBox}" Width="150">
+										<ComboBoxItem Content="Daily" />
+										<ComboBoxItem Content="Monthly" />
+										<ComboBoxItem Content="Annually" />
+										<ComboBoxItem Content="SemiAnnually" />
+										<ComboBoxItem Content="Quarterly" />
+									</ComboBox>
+								</StackPanel>
+							</StackPanel>
+							<StackPanel Visibility="{Binding Periods.IsVisible, Converter={StaticResource UniversalTwoStateConverter}}" Margin="0,4,0,4">
+								<RadioButton Content="{Binding Periods.Label}" GroupName="Targets" TabIndex="-1" Margin="0,-10,0,-20" IsChecked="{Binding Periods.IsSelected, Mode=TwoWay}" IsEnabled="{Binding Periods.IsSelectable, Converter={StaticResource UniversalTwoStateConverter}}" />
+								<StackPanel Orientation="Horizontal">
+									<c:Spacer MinWidth="35" />
+									<c:TextBoxFocusSelect Width="120" Text="{Binding Periods.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToNullableValueConverter}}" EnterKeyCommand="{Binding ComputeCommand}" />
+									<ComboBox SelectedIndex="{Binding PeriodsFrequency, Mode=TwoWay, Converter={StaticResource EnumToIndex}}" Style="{StaticResource FlatComboBox}" Width="150">
+										<ComboBoxItem Content="Days" />
+										<ComboBoxItem Content="Months" />
+										<ComboBoxItem Content="Years" />
+									</ComboBox>
+								</StackPanel>
+							</StackPanel>
+							<StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+								<Button Content="{Binding ComputeButtonText}" Command="{Binding ComputeCommand}" Style="{StaticResource NormalButton}" Width="300" Height="150" HorizontalContentAlignment="Center" />
+							</StackPanel>
+							<StackPanel Margin="0,4,0,4">
+								<TextBlock TextAlignment="Left" Text="Total Payments:" />
+								<StackPanel Orientation="Horizontal">
+									<c:Spacer MinWidth="35" />
+									<TextBlock Text="$" />
+									<TextBlock Text="{Binding TotalPayments}" />
+								</StackPanel>
+							</StackPanel>
+							<StackPanel Margin="0,4,0,4">
+								<TextBlock TextAlignment="Left" Text="Total Interest:" />
+								<StackPanel Orientation="Horizontal">
+									<c:Spacer MinWidth="35" />
+									<TextBlock Text="$" />
+									<TextBlock Text="{Binding TotalInterest}" />
+								</StackPanel>
+							</StackPanel>
+							<StackPanel Margin="0,14,0,4">
+								<TextBlock Text="Advanced Compounding:" />
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="Frequency" TextAlignment="Left" VerticalAlignment="Center" />
+									<c:Spacer Width="10" />
+									<ComboBox SelectedIndex="{Binding CompoundingFrequency, Mode=TwoWay, Converter={StaticResource EnumToIndex}}" Style="{StaticResource FlatComboBox}" Width="150">
+										<ComboBoxItem Content="Daily" />
+										<ComboBoxItem Content="Monthly" />
+										<ComboBoxItem Content="Annually" />
+										<ComboBoxItem Content="SemiAnnually" />
+										<ComboBoxItem Content="Quarterly" />
+									</ComboBox>
+								</StackPanel>
+							</StackPanel>
+						</StackPanel>
+					</ScrollViewer>
+				</DataTemplate>
+			</HubSection>
+		</Hub>
+		
+		<!-- Back button and page title -->
+		<Grid>
+			<Button Width="120" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=This}"
+						Style="{StaticResource NavigationBackButtonNormalStyle}"
+						VerticalAlignment="Top"
+						AutomationProperties.Name="Back"
+						AutomationProperties.AutomationId="BackButton"
+						AutomationProperties.ItemType="Navigation Button"/>
+		</Grid>
+	</Grid>
+</Page>
