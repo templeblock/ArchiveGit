@@ -1,0 +1,13 @@
+﻿<Window x:Class="ImageDownloaderApp.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:c="clr-namespace:ClassLibrary"
+		Title="Image Downloader"
+		Width="500" Height="250"
+>
+	<Grid>
+		<c:StretchPanel>
+			<Button Content="Build" Click="OnBuildClick" Width="100" FontSize="20" Margin="20" HorizontalAlignment="Right" />
+		</c:StretchPanel>
+	</Grid>
+</Window>
