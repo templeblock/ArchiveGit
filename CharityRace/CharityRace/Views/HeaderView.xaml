@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="CharityRace.HeaderView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+>
+	<Grid>
+		<Grid>
+			<Image Source="../Images/Header.jpg" Height="75" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="UniformToFill" />
+			<Grid Margin="10,0,0,0">
+				<TextBlock Text="Happy Face Road Race" FontSize="32" Margin="3,3,-3,-3" Foreground="Black" />
+				<TextBlock Text="Happy Face Road Race" FontSize="32">
+					<TextBlock.Foreground>
+						<ImageBrush ImageSource="../Images/GoldHeader.jpg" />
+					</TextBlock.Foreground>
+					<TextBlock.Effect>
+						<DropShadowEffect Color="Black" BlurRadius="5" />
+					</TextBlock.Effect>
+				</TextBlock>
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>

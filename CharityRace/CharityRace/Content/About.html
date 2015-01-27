@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title></title>
+		<style type="text/css">
+			a { color:CornflowerBlue; font-weight:bold; }
+			span { color:CornflowerBlue; font-weight:bold; }
+			h1 { color:Green; font-weight:bold; font-size:167%; }
+			h2 { color:Goldenrod; font-weight:bold; font-size:100%; }
+			.bodyText { color:DimGray; font-family:Trebuchet MS; font-size:18px; }
+		</style>
+	</head>
+	<body>
+		<div class="bodyText">
+			<h1>
+				About this Application
+			</h1>
+			This sample application was built by Jim McCurdy
+			(<a href="mailto:Jim.McCurdy@webtellect.com">Jim.McCurdy@webtellect.com</a>).
+			<br/>
+			<br />
+			It was developed as a WPF/Silverlight skills exercise for
+			<a href="http://possibleworldwide.com">Possible Worldwide</a>. I created this application 
+			specifically for this purpose, and drew upon the library of classes that I have 
+			developed over the last few years.  I can vouch for the fact that, to the best of my knowledge, 
+			I have developed all of the code contained in this project.<br />
+			<br />
+			The following concepts are being demonstrated in this application.
+			<h2>
+				MVVM:
+			</h2>
+			<div>
+			All classes containing the Views, ViewModels, and Models are clearly separated in the project.  
+			The ViewModels and Models have no knowledge of the Views.
+			The only code-behind in the Views are the simple MEF properties that wire them up the ViewModels 
+			or their sub-Views.
+			Had I used an MVVM framework (Prism, Caliburn, MVVM Light, Jounce/MEF, etc.), I could have avoided
+			these few additional properties, but there is something very enticing about the simplicity of 
+			MVVM using MEF and a good ViewModelBase class.
+			</div>
+			<h2>
+				UI Composition:
+			</h2>
+			<div>
+			MEF was used as a tool to compose and layout the application View. I love the simplicity of it, 
+			even over WPF Regions.  Inside the main ShellView, there are 3 top level Views; the top 
+			HeaderView, the left NavigationView, 
+			and the main ActiveContentView.  The ActiveContentView is further sub-divided into 5 views that 
+			are selectable by the Buttons in the NavigationView.
+			</div>
+			<h2>
+				Commands:
+			</h2>
+			<div>
+				Commanding was used by the buttons in the NavigationView to wire them up to actions in the 
+				MainViewModel.<br />
+			</div>
+			<h2>
+				Data Binding:
+			</h2>
+			<div>
+				Data binding was used to wire the DataGrids for Riders, Donors, and Donations to their 
+				respective ViewModels, and ultimately on to the sample Model data.
+				A CSV reader was used to load the sample Model data, and a bit of LINQ was used to show how 
+				the data can be filtered.<br />
+			</div>
+			<h2>
+				Custom Controls:
+			</h2>
+			<div>
+				Several custom controls were developed and used in the app.  First, a few simple XAML-less 
+				derived controls were added,
+				like my StretchPanel (a personal favorite), and the simple Spacer control.  Secondly a
+				templated control like 
+				RichTextBlock was based on RichTextBox.  RichTextBlock serves as a basis for my HtlmTextBlock 
+				control.  HtlmTextBlock is used for 
+				this AboutView and on the WelcomeView.  Right click the text content on the page to see 
+				evidence of 
+				one other custom control: a ContextMenuText control.<br />
+			</div>
+			<h2>
+				Value Converters:
+			</h2>
+			<div>
+				I included several value converters in the project, but one of them is used to convert the 
+				boolean state properties in the MainViewModel to the Visibility property of their 
+				corresponding Views.  This ValueIsNullFalseZeroEmpty converter is a multi-purpose 
+				converter that handles several different value types and target types.<br />
+			</div>
+			<h2>
+				Behaviors:
+			</h2>
+			<div>
+				As a bonus, I included my MouseWheelBehavior in the project but did have an opportunity to use it in the 
+				application.  It works well with Silverlight 3 apps as well as Silverlight 4 TreeViews and Sliders.<br />
+			</div>
+			<br/>
+			Thanks for your consideration.
+		</div>
+	</body>
+</html>

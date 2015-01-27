@@ -1,0 +1,631 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:c="clr-namespace:ClassLibrary"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+>
+	<!-- Constants -->
+	<!--<FontFamily x:Key="FontFamily">Comic Sans MS</FontFamily>-->
+	<FontFamily x:Key="FontFamily">Trebuchet MS, Segoe UI, Tahoma</FontFamily>
+	<sys:Double x:Key="FontSize">14</sys:Double>
+	<SolidColorBrush x:Key="FontBrush" Color="#FF303030" />
+
+	<sys:Double x:Key="MinButtonWidth">75</sys:Double>
+	<sys:Double x:Key="MinButtonHeight">25</sys:Double>
+
+	<LinearGradientBrush x:Key="CommonBackground" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="White" Offset="0" />
+		<GradientStop Color="Lemonchiffon" Offset="1" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="LightBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="White" Offset="0" />
+		<GradientStop Color="#FFD6EEFF" Offset="1" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="NavigationBrush" StartPoint="0,0" EndPoint="1,0">
+		<GradientStop Color="Wheat" Offset="0" />
+		<GradientStop Color="Goldenrod" Offset="1" />
+	</LinearGradientBrush>
+
+	<!-- Common Explicit Key'd Styles to base Implicit styles on -->
+	<Style x:Key="BaseStyle" TargetType="Control">
+		<Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+		<Setter Property="FontSize" Value="{StaticResource FontSize}" />
+		<Setter Property="Foreground" Value="{StaticResource FontBrush}" />
+	</Style>
+	<Style x:Key="BaseStyleCentered" TargetType="Control" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+	<Style x:Key="CommonTextBlock" TargetType="TextBlock">
+		<!-- Cannot be based on Control -->
+		<Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+		<Setter Property="FontSize" Value="{StaticResource FontSize}" />
+		<Setter Property="Foreground" Value="{StaticResource FontBrush}" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="TextTrimming" Value="WordEllipsis" />
+	</Style>
+	<Style x:Key="TextBlockMoney" TargetType="TextBlock" BasedOn="{StaticResource CommonTextBlock}">
+		<Setter Property="HorizontalAlignment" Value="Right" />
+	</Style>
+	<Style x:Key="CommonRichTextBlock" TargetType="c:RichTextBlock" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="c:ContextMenuTextService.List" Value="All" />
+	</Style>
+	<Style x:Key="CommonRichTextBox" TargetType="RichTextBox" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="c:ContextMenuTextService.List" Value="All" />
+	</Style>
+	<Style x:Key="CommonTextBox" TargetType="TextBox" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="c:ContextMenuTextService.List" Value="All" />
+		<Setter Property="AcceptsReturn" Value="False" />
+	</Style>
+	<Style x:Key="TextBoxMoney" TargetType="TextBox" BasedOn="{StaticResource CommonTextBox}">
+		<Setter Property="c:ContextMenuTextService.List" Value="All" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+		<Setter Property="HorizontalContentAlignment" Value="Right" />
+	</Style>
+	<Style x:Key="CommonCheckBox" TargetType="CheckBox" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="Cursor" Value="Hand" />
+	</Style>
+	<Style x:Key="CommonCheckBoxBlue" TargetType="CheckBox" BasedOn="{StaticResource CommonCheckBox}">
+		<Setter Property="Foreground" Value="CornflowerBlue" />
+	</Style>
+	<Style x:Key="CommonRadioButton" TargetType="RadioButton" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="Cursor" Value="Hand" />
+	</Style>
+	<Style x:Key="CommonButton" TargetType="Button" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="Padding" Value="10,0,10,0" />
+	</Style>
+	<Style x:Key="NormalButton" TargetType="Button" BasedOn="{StaticResource CommonButton}">
+		<Setter Property="MinWidth" Value="{StaticResource MinButtonWidth}" />
+		<Setter Property="MinHeight" Value="{StaticResource MinButtonHeight}" />
+	</Style>
+	<Style x:Key="CommonDatePicker" TargetType="sdk:DatePicker" BasedOn="{StaticResource BaseStyleCentered}">
+	</Style>
+	<Style x:Key="CommonCalendar" TargetType="sdk:Calendar" BasedOn="{StaticResource BaseStyleCentered}">
+	</Style>
+	<Style x:Key="CommonSlider" TargetType="Slider" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="Cursor" Value="Hand" />
+	</Style>
+	<Style x:Key="CommonHyperlinkButton" TargetType="HyperlinkButton" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="Foreground" Value="CornflowerBlue" />
+	</Style>
+	<Style x:Key="CommonHtmlTextBlock" TargetType="c:HtmlTextBlock" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="FontSize" Value="{StaticResource FontSize}" />
+		<Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+		<Setter Property="IsTabStop" Value="False" />
+	</Style>
+	<Style x:Key="CommonPasswordBox" TargetType="PasswordBox" BasedOn="{StaticResource BaseStyleCentered}">
+	</Style>
+	<Style x:Key="CommonDataGrid" TargetType="sdk:DataGrid" BasedOn="{StaticResource BaseStyle}">
+		<!--<Setter Property="c:MouseWheelProps.Enabled" Value="True" />-->
+	</Style>
+	<Style x:Key="CommonListBox" TargetType="ListBox" BasedOn="{StaticResource BaseStyleCentered}">
+		<!--<Setter Property="c:MouseWheelProps.Enabled" Value="True" />-->
+	</Style>
+	<Style x:Key="CommonListBoxItem" TargetType="ListBoxItem" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="Cursor" Value="Hand" />
+	</Style>
+	<Style x:Key="CommonComboBox" TargetType="ComboBox" BasedOn="{StaticResource BaseStyleCentered}">
+		<Setter Property="Cursor" Value="Hand" />
+	</Style>
+	<Style x:Key="CommonComboBoxItem" TargetType="ComboBoxItem" BasedOn="{StaticResource BaseStyleCentered}">
+	</Style>
+	<Style x:Key="CommonTreeView" TargetType="sdk:TreeView" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="Background" Value="{StaticResource CommonBackground}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="BorderBrush" Value="DarkGray" />
+	</Style>
+	<Style x:Key="CommonTabControl" TargetType="sdk:TabControl" BasedOn="{StaticResource BaseStyle}">
+	</Style>
+	<Style x:Key="CommonTabItem" TargetType="sdk:TabItem" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="Cursor" Value="Hand" />
+	</Style>
+	<Style x:Key="CommonImage" TargetType="Image">
+		<!-- Cannot be based on Control -->
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+	<Style x:Key="CommonScrollViewer" TargetType="ScrollViewer">
+		<!--<Setter Property="c:MouseWheelProps.Enabled" Value="True" />-->
+		<Setter Property="Background" Value="Transparent" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="VerticalContentAlignment" Value="Stretch" />
+		<Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+		<Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+	</Style>
+
+	<!-- Implicit non-Key'd Styles BasedOn Common Explicit Key'd Styles above -->
+	<Style TargetType="TextBlock" BasedOn="{StaticResource CommonTextBlock}">
+	</Style>
+	<Style TargetType="RichTextBox" BasedOn="{StaticResource CommonRichTextBox}">
+	</Style>
+	<Style TargetType="c:RichTextBlock" BasedOn="{StaticResource CommonRichTextBlock}">
+	</Style>
+	<Style TargetType="TextBox" BasedOn="{StaticResource CommonTextBox}">
+	</Style>
+	<Style TargetType="CheckBox" BasedOn="{StaticResource CommonCheckBox}">
+	</Style>
+	<Style TargetType="RadioButton" BasedOn="{StaticResource CommonRadioButton}">
+	</Style>
+	<Style TargetType="Button" BasedOn="{StaticResource CommonButton}">
+	</Style>
+	<Style TargetType="sdk:DatePicker" BasedOn="{StaticResource CommonDatePicker}">
+	</Style>
+	<Style TargetType="sdk:Calendar" BasedOn="{StaticResource CommonCalendar}">
+	</Style>
+	<Style TargetType="Slider" BasedOn="{StaticResource CommonSlider}">
+	</Style>
+	<Style TargetType="HyperlinkButton" BasedOn="{StaticResource CommonHyperlinkButton}">
+	</Style>
+	<Style TargetType="c:HtmlTextBlock" BasedOn="{StaticResource CommonHtmlTextBlock}">
+	</Style>
+	<Style TargetType="PasswordBox" BasedOn="{StaticResource CommonPasswordBox}">
+	</Style>
+	<Style TargetType="sdk:DataGrid" BasedOn="{StaticResource CommonDataGrid}">
+	</Style>
+	<Style TargetType="ListBox" BasedOn="{StaticResource CommonListBox}">
+	</Style>
+	<Style TargetType="ListBoxItem" BasedOn="{StaticResource CommonListBoxItem}">
+	</Style>
+	<Style TargetType="ComboBox" BasedOn="{StaticResource CommonComboBox}">
+	</Style>
+	<Style TargetType="ComboBoxItem" BasedOn="{StaticResource CommonComboBoxItem}">
+	</Style>
+	<Style TargetType="sdk:TreeView" BasedOn="{StaticResource CommonTreeView}">
+	</Style>
+	<Style TargetType="sdk:TabControl" BasedOn="{StaticResource CommonTabControl}">
+	</Style>
+	<Style TargetType="sdk:TabItem" BasedOn="{StaticResource CommonTabItem}">
+	</Style>
+	<Style TargetType="Image" BasedOn="{StaticResource CommonImage}">
+	</Style>
+	<Style TargetType="ScrollViewer" BasedOn="{StaticResource CommonScrollViewer}">
+	</Style>
+
+	<!-- Other Explicit Key'd styles -->
+	<!--<DropShadowEffect x:Key="DialogDropShadow" ShadowDepth="12" BlurRadius="15" Opacity="1" Direction="300" />-->
+	<!-- GLOW <DropShadowEffect x:Key="DialogDropShadow" Color="#FFFFFEBB" ShadowDepth="0" Direction="0" BlurRadius="100" />-->
+	<DropShadowEffect x:Key="DialogDropShadow" />
+	<Style x:Key="DialogRectangleStyle" TargetType="Rectangle">
+		<Setter Property="Stroke" Value="#FF5B5B5B" />
+		<Setter Property="StrokeThickness" Value="2" />
+		<Setter Property="Fill" Value="{StaticResource LightBackgroundBrush}" />
+		<Setter Property="RadiusX" Value="15" />
+		<Setter Property="RadiusY" Value="15" />
+		<Setter Property="Effect" Value="{StaticResource DialogDropShadow}" />
+	</Style>
+	<Style x:Key="DialogTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource CommonTextBlock}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="TextWrapping" Value="NoWrap" />
+		<Setter Property="FontSize" Value="20" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="Foreground" Value="#FFF4B42C" />
+	</Style>
+	<Style x:Key="RectangleRule" TargetType="Rectangle">
+		<Setter Property="Margin" Value="-7,8,-7,5"/>
+		<Setter Property="Height" Value="1"/>
+		<Setter Property="Fill" Value="#FF9b9b9b"/>
+		<Setter Property="VerticalAlignment" Value="Top"/>
+	</Style>
+	<Style x:Key="RectangleRuleLight" TargetType="Rectangle" BasedOn="{StaticResource RectangleRule}">
+		<Setter Property="Fill" Value="#FFDDDDDD"/>	
+	</Style>
+
+	<SolidColorBrush x:Key="FocusBrush" Color="Gray" />
+	<SolidColorBrush x:Key="MouseOverBrush" Color="CornflowerBlue" />
+
+	<!-- FlatButton: Control Template -->
+	<ControlTemplate x:Key="FlatButtonTemplate" TargetType="Button">
+		<Grid>
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal">
+						<!--MouseOut-->
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="MouseOverElement" Storyboard.TargetProperty="Opacity" To="0" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Pressed">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="PressedElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Disabled">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="Opacity" To=".55" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="MouseOver">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="MouseOverElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="FocusStates">
+					<VisualState x:Name="Focused">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Unfocused">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="0" />
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Border x:Name="MouseOverElement" BorderBrush="{StaticResource MouseOverBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" Background="{TemplateBinding Background}" Opacity="0" />
+			<ContentPresenter x:Name="contentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Padding}" />
+			<Rectangle x:Name="PressedElement" RadiusX="3" RadiusY="3" Fill="{TemplateBinding Background}" Opacity="0" />
+			<Rectangle x:Name="FocusVisualElement" RadiusX="3" RadiusY="3" Margin="0" Stroke="{StaticResource FocusBrush}" StrokeThickness="{TemplateBinding BorderThickness}" Opacity="0" IsHitTestVisible="false" />
+		</Grid>
+	</ControlTemplate>
+
+	<!-- FlatButton: Control Styles -->
+	<Style x:Key="FlatButton" TargetType="Button">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Padding" Value="3,1,3,1" />
+		<Setter Property="Margin" Value="2,0,1,0" />
+		<Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+		<Setter Property="FontSize" Value="{StaticResource FontSize}" />
+		<Setter Property="Foreground" Value="{StaticResource FontBrush}" />
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="Background" Value="#80FFFFFF" />
+		<Setter Property="Template" Value="{StaticResource FlatButtonTemplate}" />
+	</Style>
+	<Style x:Key="FlatButtonBlue" TargetType="Button" BasedOn="{StaticResource FlatButton}">
+		<Setter Property="Foreground" Value="CornflowerBlue" />
+	</Style>
+
+	<!-- FlatRepeatButton: Control Template -->
+	<ControlTemplate x:Key="FlatRepeatButtonTemplate" TargetType="RepeatButton">
+		<Grid>
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal">
+						<!--MouseOut-->
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="MouseOverElement" Storyboard.TargetProperty="Opacity" To="0" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Pressed">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="PressedElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Disabled">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="Opacity" To=".55" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="MouseOver">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="MouseOverElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="FocusStates">
+					<VisualState x:Name="Focused">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Unfocused">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="0" />
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Border x:Name="MouseOverElement" BorderBrush="{StaticResource MouseOverBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" Background="{TemplateBinding Background}" Opacity="0" />
+			<ContentPresenter x:Name="contentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Padding}" />
+			<Rectangle x:Name="PressedElement" RadiusX="3" RadiusY="3" Fill="{TemplateBinding Background}" Opacity="0" />
+			<Rectangle x:Name="FocusVisualElement" RadiusX="3" RadiusY="3" Margin="0" Stroke="{StaticResource FocusBrush}" StrokeThickness="{TemplateBinding BorderThickness}" Opacity="0" IsHitTestVisible="false" />
+		</Grid>
+	</ControlTemplate>
+
+	<!-- FlatRepeatButton: Control Styles -->
+	<Style x:Key="FlatRepeatButton" TargetType="RepeatButton">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Padding" Value="3,1,3,1" />
+		<Setter Property="Margin" Value="2,0,1,0" />
+		<Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+		<Setter Property="FontSize" Value="{StaticResource FontSize}" />
+		<Setter Property="Foreground" Value="{StaticResource FontBrush}" />
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="Background" Value="#80FFFFFF" />
+		<Setter Property="Template" Value="{StaticResource FlatRepeatButtonTemplate}" />
+	</Style>
+	<Style x:Key="FlatRepeatButtonBlue" TargetType="RepeatButton" BasedOn="{StaticResource FlatRepeatButton}">
+		<Setter Property="Foreground" Value="CornflowerBlue" />
+	</Style>
+
+	<!-- FlatToggleButton: Control Template -->
+	<ControlTemplate x:Key="FlatToggleButtonTemplate" TargetType="ToggleButton">
+		<Grid>
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal">
+						<!--MouseOut-->
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="MouseOverElement" Storyboard.TargetProperty="Opacity" To="0" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Pressed">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="PressedElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Disabled">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="Opacity" To=".55" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="MouseOver">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="MouseOverElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="FocusStates">
+					<VisualState x:Name="Focused">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Unfocused">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="0" />
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Border x:Name="MouseOverElement" BorderBrush="{StaticResource MouseOverBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" Background="{TemplateBinding Background}" Opacity="0" />
+			<ContentPresenter x:Name="contentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Padding}" />
+			<Rectangle x:Name="PressedElement" RadiusX="3" RadiusY="3" Fill="{TemplateBinding Background}" Opacity="0" />
+			<Rectangle x:Name="FocusVisualElement" RadiusX="3" RadiusY="3" Margin="0" Stroke="{StaticResource FocusBrush}" StrokeThickness="{TemplateBinding BorderThickness}" Opacity="0" IsHitTestVisible="false" />
+		</Grid>
+	</ControlTemplate>
+
+	<!-- FlatToggleButton: Control Styles -->
+	<Style x:Key="FlatToggleButton" TargetType="ToggleButton">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="Padding" Value="3,1,3,1" />
+		<Setter Property="Margin" Value="2,0,1,0" />
+		<Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+		<Setter Property="FontSize" Value="{StaticResource FontSize}" />
+		<Setter Property="Foreground" Value="{StaticResource FontBrush}" />
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="Background" Value="#80FFFFFF" />
+		<Setter Property="Template" Value="{StaticResource FlatToggleButtonTemplate}" />
+	</Style>
+	<Style x:Key="FlatToggleButtonBlue" TargetType="ToggleButton" BasedOn="{StaticResource FlatToggleButton}">
+		<Setter Property="Foreground" Value="CornflowerBlue" />
+	</Style>
+
+	<!-- FlatComboBox: Control Template -->
+	<ControlTemplate x:Key="FlatComboBoxTemplate" TargetType="ComboBox">
+		<Grid>
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal" />
+					<VisualState x:Name="MouseOver" />
+					<VisualState x:Name="Disabled" />
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="FocusStates">
+					<VisualState x:Name="Focused">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Unfocused" />
+					<VisualState x:Name="FocusedDropDown">
+						<Storyboard>
+							<ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+								<DiscreteObjectKeyFrame KeyTime="0">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Visible</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Border x:Name="ContentPresenterBorder">
+				<Grid>
+					<ToggleButton x:Name="DropDownToggle" Style="{StaticResource FlatToggleButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Padding="0" HorizontalContentAlignment="Left" Foreground="{TemplateBinding Foreground}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}">
+						<StackPanel Orientation="Horizontal">
+							<ContentPresenter x:Name="ContentPresenter" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+								<TextBlock Text="{TemplateBinding Tag}" />
+							</ContentPresenter>
+							<Polygon x:Name="BtnArrow" Height="4" Width="8" Stretch="Uniform" Points="0,0 12,0 6,7, 0,0" Margin="0,0,6,0" HorizontalAlignment="Right" Fill="{TemplateBinding Foreground}" />
+						</StackPanel>
+					</ToggleButton>
+				</Grid>
+			</Border>
+			<Rectangle x:Name="FocusVisualElement" RadiusX="3" RadiusY="3" Margin="0" Stroke="{StaticResource FocusBrush}" StrokeThickness="{TemplateBinding BorderThickness}" Opacity="0" IsHitTestVisible="false" />
+			<Popup x:Name="Popup">
+				<Border x:Name="PopupBorder" HorizontalAlignment="Stretch" Height="Auto" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFFFFF" Offset="0" />
+							<GradientStop Color="#FFFEFEFE" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<ScrollViewer x:Name="ScrollViewer" BorderThickness="0" Padding="1">
+						<ItemsPresenter />
+					</ScrollViewer>
+				</Border>
+			</Popup>
+		</Grid>
+	</ControlTemplate>
+
+	<!-- FlatComboBox: Control Styles -->
+	<Style x:Key="FlatComboBox" TargetType="ComboBox" BasedOn="{StaticResource CommonComboBox}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="Padding" Value="3,1,3,1" />
+		<Setter Property="Margin" Value="2,0,1,0" />
+		<Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+		<Setter Property="FontSize" Value="{StaticResource FontSize}" />
+		<Setter Property="Foreground" Value="{StaticResource FontBrush}" />
+		<Setter Property="Background" Value="#80FFFFFF" />
+		<Setter Property="ItemContainerStyle" Value="{StaticResource CommonComboBoxItem}" />
+		<Setter Property="Template" Value="{StaticResource FlatComboBoxTemplate}" />
+	</Style>
+	<Style x:Key="FlatComboBoxBlue" TargetType="ComboBox" BasedOn="{StaticResource FlatComboBox}">
+		<Setter Property="Foreground" Value="CornflowerBlue" />
+	</Style>
+
+	<!-- FlatComboMenu: Control Template -->
+	<ControlTemplate x:Key="FlatComboMenuTemplate" TargetType="ComboBox">
+		<Grid>
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal" />
+					<VisualState x:Name="MouseOver" />
+					<VisualState x:Name="Disabled" />
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="FocusStates">
+					<VisualState x:Name="Focused">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Unfocused" />
+					<VisualState x:Name="FocusedDropDown">
+						<Storyboard>
+							<ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+								<DiscreteObjectKeyFrame KeyTime="0">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Visible</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Border x:Name="ContentPresenterBorder">
+				<Grid>
+					<ToggleButton x:Name="DropDownToggle" Style="{StaticResource FlatToggleButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Padding="0" HorizontalContentAlignment="Left" Foreground="{TemplateBinding Foreground}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+						<StackPanel Orientation="Horizontal">
+							<Grid x:Name="ContentPresenter" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+								<TextBlock Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" />
+							</Grid>
+							<Polygon x:Name="BtnArrow" Height="4" Width="8" Stretch="Uniform" Points="0,0 12,0 6,7, 0,0" Margin="0,0,6,0" HorizontalAlignment="Right" Fill="{TemplateBinding Foreground}" />
+						</StackPanel>
+					</ToggleButton>
+				</Grid>
+			</Border>
+			<Rectangle x:Name="FocusVisualElement" RadiusX="3" RadiusY="3" Margin="0" Stroke="{StaticResource FocusBrush}" StrokeThickness="{TemplateBinding BorderThickness}" Opacity="0" IsHitTestVisible="false" />
+			<Popup x:Name="Popup">
+				<Border x:Name="PopupBorder" HorizontalAlignment="Stretch" Height="Auto" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFFFFF" Offset="0" />
+							<GradientStop Color="#FFFEFEFE" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<ScrollViewer x:Name="ScrollViewer" BorderThickness="0" Padding="1">
+						<ItemsPresenter />
+					</ScrollViewer>
+				</Border>
+			</Popup>
+		</Grid>
+	</ControlTemplate>
+
+	<!-- FlatComboMenu: Control Styles -->
+	<Style x:Key="FlatComboMenuBlue" TargetType="ComboBox" BasedOn="{StaticResource CommonComboBox}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="Padding" Value="3,1,3,1" />
+		<Setter Property="Margin" Value="2,0,1,0" />
+		<Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+		<Setter Property="FontSize" Value="{StaticResource FontSize}" />
+		<Setter Property="Foreground" Value="{StaticResource FontBrush}" />
+		<Setter Property="Background" Value="#80FFFFFF" />
+		<Setter Property="ItemContainerStyle" Value="{StaticResource CommonComboBoxItem}" />
+		<Setter Property="Template" Value="{StaticResource FlatComboMenuTemplate}" />
+		<Setter Property="Foreground" Value="CornflowerBlue" />
+	</Style>
+
+	<!-- FlatComboButton: Control Template -->
+	<ControlTemplate x:Key="FlatComboButtonTemplate" TargetType="ComboBox">
+		<Grid>
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal" />
+					<VisualState x:Name="MouseOver" />
+					<VisualState x:Name="Disabled" />
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="FocusStates">
+					<VisualState x:Name="Focused">
+						<Storyboard>
+							<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="1" />
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Unfocused" />
+					<VisualState x:Name="FocusedDropDown">
+						<Storyboard>
+							<ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+								<DiscreteObjectKeyFrame KeyTime="0">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Visible</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Border x:Name="ContentPresenterBorder">
+				<Grid>
+					<ToggleButton x:Name="DropDownToggle" Style="{StaticResource FlatToggleButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Padding="0" HorizontalContentAlignment="Left" Foreground="{TemplateBinding Foreground}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+						<StackPanel Orientation="Horizontal">
+							<ContentPresenter x:Name="ContentPresenter" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+								<TextBlock Text="{TemplateBinding Tag}" />
+							</ContentPresenter>
+							<!--<Polygon x:Name="BtnArrow" Height="4" Width="8" Stretch="Uniform" Points="0,0 12,0 6,7, 0,0" Margin="0,0,6,0" HorizontalAlignment="Right" Fill="{TemplateBinding Foreground}" />-->
+						</StackPanel>
+					</ToggleButton>
+				</Grid>
+			</Border>
+			<Rectangle x:Name="FocusVisualElement" RadiusX="3" RadiusY="3" Margin="0" Stroke="{StaticResource FocusBrush}" StrokeThickness="{TemplateBinding BorderThickness}" Opacity="0" IsHitTestVisible="false" />
+			<Popup x:Name="Popup">
+				<Border x:Name="PopupBorder" HorizontalAlignment="Stretch" Height="Auto" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3">
+					<Border.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFFFFF" Offset="0" />
+							<GradientStop Color="#FFFEFEFE" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<ScrollViewer x:Name="ScrollViewer" BorderThickness="0" Padding="1">
+						<ItemsPresenter />
+					</ScrollViewer>
+				</Border>
+			</Popup>
+		</Grid>
+	</ControlTemplate>
+
+	<!-- FlatComboButton: Control Styles -->
+	<Style x:Key="FlatComboButtonBlue" TargetType="ComboBox" BasedOn="{StaticResource CommonComboBox}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="Padding" Value="3,1,3,1" />
+		<Setter Property="Margin" Value="2,0,1,0" />
+		<Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+		<Setter Property="FontSize" Value="{StaticResource FontSize}" />
+		<Setter Property="Foreground" Value="{StaticResource FontBrush}" />
+		<Setter Property="Background" Value="#80FFFFFF" />
+		<Setter Property="ItemContainerStyle" Value="{StaticResource CommonComboBoxItem}" />
+		<Setter Property="Template" Value="{StaticResource FlatComboButtonTemplate}" />
+		<Setter Property="Foreground" Value="CornflowerBlue" />
+	</Style>
+</ResourceDictionary>

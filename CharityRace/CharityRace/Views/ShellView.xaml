@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="CharityRace.ShellView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="clr-namespace:ClassLibrary"
+>
+    <Grid>
+		<c:StretchPanel>
+			<Border x:Name="x_HeaderRegion" c:StretchPanel.Length="75" />
+			<c:StretchPanel Orientation="Horizontal" c:StretchPanel.Length="*">
+				<Border x:Name="x_NavigationRegion" c:StretchPanel.Length="120" />
+				<Border x:Name="x_ActiveContentRegion" c:StretchPanel.Length="*" />
+			</c:StretchPanel>
+		</c:StretchPanel>
+	</Grid>
+</UserControl>

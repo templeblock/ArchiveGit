@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="CharityRace.NavigationView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+>
+	<Grid>
+		<Grid Background="{StaticResource NavigationBrush}">
+			<StackPanel Margin="10">
+				<Button Content="Welcome!" Command="{Binding WelcomeActivateCommand}" Style="{StaticResource FlatButton}" />
+				<Button Content="Riders" Command="{Binding RiderActivateCommand}" Style="{StaticResource FlatButton}" />
+				<Button Content="Donors" Command="{Binding DonorActivateCommand}" Style="{StaticResource FlatButton}" />
+				<Button Content="Donations" Command="{Binding DonationActivateCommand}" Style="{StaticResource FlatButton}" />
+				<Button Content="About" Command="{Binding AboutActivateCommand}" Style="{StaticResource FlatButton}" />
+			</StackPanel>
+		</Grid>
+	</Grid>
+</UserControl>

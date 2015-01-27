@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary"
+>
+	<!-- IValueConverter resources -->
+	<c:DateTimeToLongString x:Key="DateTimeToLongString" />
+	<c:BoolToOpacity x:Key="BoolToOpacity" />
+	<c:ValueIsNullFalseZeroEmpty x:Key="ValueIsNullFalseZeroEmpty" />
+	<c:ValueIsNotNullFalseZeroEmpty x:Key="ValueIsNotNullFalseZeroEmpty" />
+	<c:ValueToString x:Key="ValueToString" />
+	<c:EnumToValue x:Key="EnumToValue" />
+	<c:EnumToName x:Key="EnumToName" />
+	<c:EnumToList x:Key="EnumToList" />
+	<c:DoubleRound x:Key="DoubleRound" />
+	<c:MillicentsToCurrency x:Key="MillicentsToCurrency" />
+	<c:MillicentsToDouble x:Key="MillicentsToDouble" />
+	<c:IconNameToImageUri x:Key="IconNameToImageUri" />
+</ResourceDictionary>

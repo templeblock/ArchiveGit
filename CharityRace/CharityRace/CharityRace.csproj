@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80E5FDF7-8B2F-4632-8E9B-B8AB919D4905}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CharityRace</RootNamespace>
+    <AssemblyName>CharityRace</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>CharityRace.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>CharityRace.App</SilverlightAppEntry>
+    <TestPageFileName>CharityRaceTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.Composition.Initialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Xml.Serialization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClassLibrary\AssemblySource.cs" />
+    <Compile Include="ClassLibrary\ColorFromString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassLibrary\Controls\ContextMenuText\ContextMenuBase.cs" />
+    <Compile Include="ClassLibrary\Controls\ContextMenuText\ContextMenuText.cs" />
+    <Compile Include="ClassLibrary\Controls\HtmlTextBlock\CssParser.cs" />
+    <Compile Include="ClassLibrary\Controls\HtmlTextBlock\HtmlParser.cs" />
+    <Compile Include="ClassLibrary\Controls\HtmlTextBlock\HtmlTextBlock.cs" />
+    <Compile Include="ClassLibrary\Controls\RichTextBlock\RichTextBlock.xaml.cs" />
+    <Compile Include="ClassLibrary\Controls\Spacer.cs" />
+    <Compile Include="ClassLibrary\Controls\StretchPanel.cs" />
+    <Compile Include="ClassLibrary\Commands\Command.cs" />
+    <Compile Include="ClassLibrary\Extensions.cs" />
+    <Compile Include="ClassLibrary\Helper.cs" />
+    <Compile Include="ClassLibrary\RegexHelper.cs" />
+    <Compile Include="ClassLibrary\ResourceFile.cs" />
+    <Compile Include="ClassLibrary\UriHelper.cs" />
+    <Compile Include="ClassLibrary\CsvReader.cs" />
+    <Compile Include="Models\Donor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Rider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Donation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassLibrary\ValueConverters\ValueConverters.cs" />
+    <Compile Include="ClassLibrary\ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\DonationViewModel.cs" />
+    <Compile Include="ViewModels\DonorViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\RiderViewModel.cs" />
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ActiveContentView.xaml.cs">
+      <DependentUpon>ActiveContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonationView.xaml.cs">
+      <DependentUpon>DonationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonorView.xaml.cs">
+      <DependentUpon>DonorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HeaderView.xaml.cs">
+      <DependentUpon>HeaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RiderView.xaml.cs">
+      <DependentUpon>RiderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\NavigationView.xaml.cs">
+      <DependentUpon>NavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WelcomeView.xaml.cs">
+      <DependentUpon>WelcomeView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="ClassLibrary\Controls\RichTextBlock\RichTextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AboutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ActiveContentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DonationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DonorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HeaderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WelcomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RiderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\SampleDonationData.csv" />
+    <Resource Include="Content\SampleDonorData.csv" />
+    <Resource Include="Content\SampleRiderData.csv" />
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Data.DataForm.Toolkit.dll" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Data.DataForm.Toolkit.extmap.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Data.DataForm.Toolkit.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Data.Toolkit.dll" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Data.Toolkit.extmap.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Data.Toolkit.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.DataVisualization.Toolkit.dll" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.DataVisualization.Toolkit.extmap.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.DataVisualization.Toolkit.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Input.Toolkit.dll" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Input.Toolkit.extmap.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Input.Toolkit.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Layout.Toolkit.dll" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Layout.Toolkit.extmap.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Layout.Toolkit.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Theming.Toolkit.dll" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Theming.Toolkit.extmap.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Theming.Toolkit.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Toolkit.dll" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Toolkit.extmap.xml" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Toolkit.Internals.dll" />
+    <Content Include="3rd Party Binaries\Toolkit\System.Windows.Controls.Toolkit.xml" />
+    <Resource Include="Images\GoldHeader.jpg" />
+    <Resource Include="Images\Header.jpg" />
+    <Resource Include="ClassLibrary\Controls\ContextMenuText\Images\Copy.png" />
+    <Resource Include="ClassLibrary\Controls\ContextMenuText\Images\Cut.png" />
+    <Resource Include="ClassLibrary\Controls\ContextMenuText\Images\Delete.png" />
+    <Resource Include="ClassLibrary\Controls\ContextMenuText\Images\Paste.png" />
+    <Resource Include="ClassLibrary\Controls\ContextMenuText\Images\Print.png" />
+    <Resource Include="ClassLibrary\Controls\ContextMenuText\Images\SelectAll.png" />
+    <Content Include="Content\About.html" />
+    <Content Include="Content\Welcome.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClassLibrary\Behaviors\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

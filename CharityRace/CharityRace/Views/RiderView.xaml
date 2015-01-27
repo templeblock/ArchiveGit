@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="CharityRace.RiderView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+>
+	<UserControl.Resources>
+		<sys:String x:Key="Html">[span style='color:Green; font-weight:bold; font-size:167%']All Riders[/span]</sys:String>
+	</UserControl.Resources>
+	<Grid>
+		<Grid Background="{StaticResource CommonBackground}">
+			<c:StretchPanel MaxWidth="750">
+				<c:Spacer MinHeight="20" />
+				<c:HtmlTextBlock FontSize="18" Html="{StaticResource Html}" />
+				<c:Spacer MinHeight="10" />
+				<sdk:DataGrid c:StretchPanel.Length="*" ItemsSource="{Binding AllRiders}" AutoGenerateColumns="True" SelectionMode="Single" CanUserReorderColumns="True" CanUserSortColumns="True" IsReadOnly="True" />
+				<c:Spacer MinHeight="20" />
+			</c:StretchPanel>
+		</Grid>
+	</Grid>
+</UserControl>
