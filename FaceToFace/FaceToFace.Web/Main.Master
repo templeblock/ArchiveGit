@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.Master.cs" Inherits="FaceToFace.Web.Site1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<title>"Face To Face Software</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=8"></meta>
+	<meta name="description" content="Face To Face Software offers contract software development for the Web or the Desktop. Jim McCurdy operates Face to Face Software, where he works designing, developing, and managing software development projects for a variety of clients. Jim has worked in the software industry since 1977 and has broad expertise in Web, Windows, and systems technologies. He has been a team player on many agile development projects throughout his career, and is a founding member at software startups Astral Development and Powerhouse Entertainment. Jim currently specializes in development projects for the C#/XAML stack: Window 8 (WinRT), WPF, Windows
+Phone, Xamarin, and Silverlight. Over his career, Jim has gained unique experience in the application areas of Imaging, Video, Graphics, User Experience (UX), and Animation.  Jim's blog can be found at YinYangMe.com."></meta>
+	<meta name="keywords" content="C#, XAML, Windows 8, WinRT, WPF, Windows Phone, Silverlight, consulting, contractor, software, development, application, Windows, C++, imaging, video, graphics, user experience, ux, animation, project, management, yinyangmoney, yinyangme, Jim McCurdy, Andover, Massachusetts"></meta>
+	<!-- Google Webmaster Tools site verification-->
+	<meta name="google-site-verification" content="wTZ2Z1suYVRqaMm9-2l0YM4029VossN-CeYMbt_k1B4"></meta>
+	<!-- Bing Webmaster Tools site verification-->
+	<meta name="msvalidate.01" content="419FBC9C538DB5B6E230350E69C7C25D"></meta>
+	<!-- Yahoo Webmaster Tools site verification-->
+	<meta name="y_key" content="fb8a2d9acd9f43c5"></meta>
+	<link href="Styles.css" type="text/css" rel="stylesheet" />
+	<asp:ContentPlaceHolder ID="x_HeadContent" runat="server" />
+
+	<%-- Google Analytics --%>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11420373-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function ()
+		{
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+<body>
+	<form id="form1" runat="server">
+	<div>
+		<table width="963" align="center">
+			<tr>
+				<td height="0">
+				</td>
+			</tr>
+			<tr>
+				<td class="im_header">
+					<div class="div_menu" style="margin-left: 0px;">
+						<a class="menu" href="Index.aspx">HOME</a></div>
+					<div class="div_menu" style="margin-left: 135px;">
+						<a class="menu" href="Experience.aspx">EXPERIENCE</a></div>
+					<div class="div_menu" style="margin-left: 270px;">
+						<a class="menu" href="Contacts.aspx">CONTACT US</a></div>
+					<div class="div_menu" style="margin-left: 682px;">
+						<a class="menu" href="Resume.aspx">JIM'S RESUME</a></div>
+					<div class="div_menu" style="margin-left: 817px;">
+						<a class="menu" href="http://yinyangme.com/" target="_blank">JIM'S BLOG</a></div>
+					<%--<a class="menu" href="About.aspx">ABOUT US</a>--%>
+					<%--<a class="menu" href="Services.aspx">SERVICES</a>--%>
+					<%--<a class="menu" href="Solutions.aspx">SOLUTIONS</a>--%>
+					<%--<a class="menu" href="Partners.aspx">PARTNERS</a>--%>
+					<div class="div_name">
+						Face To Face Software
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td height="20">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<asp:ContentPlaceHolder ID="x_BodyContent" runat="server" />
+				</td>
+			</tr>
+			<tr>
+				<td height="10">
+				</td>
+			</tr>
+			<tr>
+				<td class="line">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="copyright">
+						Copyright &#169; Face To Face Software, Inc. All rights reserved.<br />
+					</div>
+					<div class="div_menu_bottom">
+						<a href="Index.aspx" class="read">Home</a> &nbsp;&nbsp; | &nbsp;&nbsp; 
+						<a href="Experience.aspx" class="read">Experience</a> &nbsp;&nbsp; | &nbsp;&nbsp;
+						<a href="Contacts.aspx" class="read">Contact Us</a> &nbsp;&nbsp; | &nbsp;&nbsp;
+						<a href="Resume.aspx" class="read">Jim's Resume</a> &nbsp;&nbsp; | &nbsp;&nbsp;
+						<%--<a href="About.aspx" class="read">About us</a> &nbsp;&nbsp; | &nbsp;&nbsp;--%> 
+						<%--<a href="Services.aspx" class="read">Services</a> &nbsp;&nbsp; | &nbsp;&nbsp; --%>
+						<%--<a href="Solutions.aspx" class="read">Solutions</a> &nbsp;&nbsp; | &nbsp;&nbsp; --%>
+						<%--<a href="Partners.aspx" class="read">Partners</a> &nbsp;&nbsp; | &nbsp;&nbsp; --%>
+						<a href="http://yinyangme.com/" class="read" target="_blank">Jim's Blog</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	</form>
+</body>
+</html>
