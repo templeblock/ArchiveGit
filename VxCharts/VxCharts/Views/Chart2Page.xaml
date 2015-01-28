@@ -1,0 +1,138 @@
+﻿<navigation:Page x:Class="VxCharts.Chart2Page"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	xmlns:app="clr-namespace:VxCharts"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=VxChartsLibrary"
+	Title="Posts, Authors, Sites by Language" 
+	Style="{StaticResource PageStyle}"
+>
+	<Grid x:Name="LayoutRoot">
+		<Grid.Resources>
+			<app:SampleData x:Key="SampleData" />
+			<Style x:Key="OrangeStyle" TargetType="Control">
+				<Setter Property="Background" Value="Orange" />
+			</Style>
+			<Style x:Key="RedStyle" TargetType="Control">
+				<Setter Property="Background" Value="Red" />
+			</Style>
+			<Style x:Key="BlueStyle" TargetType="Control">
+				<Setter Property="Background" Value="Blue" />
+			</Style>
+			<Style x:Key="PurpleStyle" TargetType="Control">
+				<Setter Property="Background" Value="Purple" />
+			</Style>
+			<Style x:Key="GreenStyle" TargetType="Control">
+				<Setter Property="Background" Value="Green" />
+			</Style>
+		</Grid.Resources>
+		<ScrollViewer Style="{StaticResource PageScrollViewerStyle}">
+			<StackPanel>
+				<c:VxCharts
+					Title="Posts by Language"
+					DataContext="{StaticResource SampleData}">
+					<c:VxCharts.Series>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource OrangeStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoPostsArabic}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Arabic"/>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource RedStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoPostsUrdu}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Urdu"/>
+						<!--<c:VxLineSeries
+							DataPointStyle="{StaticResource BlueStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoPostsFarsi}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Farsi"/>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource PurpleStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoPostsPashto}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Pashto"/>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource GreenStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoPostsRussian}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Russian"/>-->
+					</c:VxCharts.Series>
+				</c:VxCharts>
+				<c:VxCharts Title="Authors by Language" DataContext="{StaticResource SampleData}">
+					<c:VxCharts.Series>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource OrangeStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoAuthorsArabic}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Arabic"/>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource RedStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoAuthorsUrdu}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Urdu"/>
+						<!--<c:VxLineSeries
+							DataPointStyle="{StaticResource BlueStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoAuthorsFarsi}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Farsi"/>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource PurpleStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoAuthorsPashto}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Pashto"/>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource GreenStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoAuthorsRussian}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Russian"/>-->
+					</c:VxCharts.Series>
+				</c:VxCharts>
+				<c:VxCharts Title="Sites by Language" DataContext="{StaticResource SampleData}">
+					<c:VxCharts.Series>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource OrangeStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoSitesArabic}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Arabic"/>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource RedStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoSitesUrdu}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Urdu"/>
+						<!--<c:VxLineSeries
+							DataPointStyle="{StaticResource BlueStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoSitesFarsi}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Farsi"/>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource PurpleStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoSitesPashto}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Pashto"/>
+						<c:VxLineSeries
+							DataPointStyle="{StaticResource GreenStyle}" 
+							ItemsSource="{Binding PointLanguageVolumeInfoSitesRussian}"
+							IndependentValuePath="Date"
+							DependentValuePath="VolumeCount"
+							Title="Russian"/>-->
+					</c:VxCharts.Series>
+				</c:VxCharts>
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</navigation:Page>

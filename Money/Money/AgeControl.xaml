@@ -1,0 +1,209 @@
+﻿<UserControl x:Class="Money.AgeControl"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+>
+	<Grid>
+		<Grid.Resources>
+			<Style x:Key="AgeButton" TargetType="Button" BasedOn="{StaticResource FlatButtonBlue}">
+			</Style>
+		</Grid.Resources>
+		<sdk:TabControl TabStripPlacement="Left">
+			<sdk:TabItem Header="00's 10's" Tag="20">
+				<StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="00" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="01" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="02" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="03" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="04" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="05" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="06" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="07" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="08" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="09" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="10" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="11" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="12" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="13" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="14" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="15" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="16" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="17" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="18" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="19" />
+					</StackPanel>
+				</StackPanel>
+			</sdk:TabItem>
+			<sdk:TabItem Header="20's 30's" Tag="40">
+				<StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="20" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="21" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="22" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="23" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="24" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="25" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="26" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="27" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="28" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="29" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="30" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="31" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="32" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="33" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="34" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="35" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="36" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="37" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="38" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="39" />
+					</StackPanel>
+				</StackPanel>
+			</sdk:TabItem>
+			<sdk:TabItem Header="40's 50's" Tag="60">
+				<StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="40" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="41" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="42" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="43" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="44" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="45" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="46" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="47" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="48" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="49" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="50" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="51" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="52" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="53" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="54" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="55" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="56" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="57" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="58" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="59" />
+					</StackPanel>
+				</StackPanel>
+			</sdk:TabItem>
+			<sdk:TabItem Header="60's 70's" Tag="80">
+				<StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="60" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="61" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="62" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="63" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="64" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="65" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="66" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="67" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="68" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="69" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="70" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="71" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="72" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="73" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="74" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="75" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="76" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="77" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="78" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="79" />
+					</StackPanel>
+				</StackPanel>
+			</sdk:TabItem>
+			<sdk:TabItem Header="80's 90's" Tag="100">
+				<StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="80" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="81" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="82" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="83" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="84" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="85" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="86" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="87" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="88" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="89" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="90" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="91" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="92" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="93" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="94" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="95" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="96" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="97" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="98" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="99" />
+					</StackPanel>
+				</StackPanel>
+			</sdk:TabItem>
+			<sdk:TabItem Header="100's" Tag="120">
+				<StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="100" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="101" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="102" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="103" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="104" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="105" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="106" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="107" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="108" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="109" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="110" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="111" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="112" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="113" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="114" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="115" />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="116" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="117" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="118" />
+						<Button Style="{StaticResource AgeButton}" Click="OnAgeClick" Content="119" />
+					</StackPanel>
+				</StackPanel>
+			</sdk:TabItem>
+		</sdk:TabControl>
+	</Grid>
+</UserControl>

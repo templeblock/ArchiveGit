@@ -1,0 +1,41 @@
+﻿<c:DialogPanel x:Class="Money.OpenSaveDialog"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	EnterKey="OnOpenClick"
+	EscapeKey="OnCancelClick"
+>
+	<!--
+	-->
+	<Grid>
+		<Rectangle Style="{StaticResource DialogRectangleStyle}" />
+		<StackPanel Margin="18">
+			<TextBlock Style="{StaticResource DialogTitleStyle}" x:Name="x_OpenTitle" Text="Open a document" />
+			<TextBlock Style="{StaticResource DialogTitleStyle}" x:Name="x_SaveTitle" Text="Save your document" Visibility="Collapsed" />
+			<c:Spacer MinHeight="10" />
+			<ListBox x:Name="x_FilePathList" SelectionChanged="OnSelectionChanged" Width="250" Height="175">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding Name}" />
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+			<c:Spacer MinHeight="10" />
+			<StackPanel x:Name="x_SavePanel">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock Text="File Name:" Width="80" />
+					<c:TextBoxEx x:Name="x_FilePath" TextChanged="OnFilePathChanged" Width="170" />
+				</StackPanel>
+				<c:Spacer MinHeight="5" />
+				<TextBlock x:Name="x_ErrorStatus" Text=" " Foreground="Red" TextAlignment="Center" TextWrapping="Wrap" />
+			</StackPanel>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+				<Button x:Name="x_Open" Style="{StaticResource NormalButton}" Content="Open" Click="OnOpenClick" Margin="8" />
+				<Button x:Name="x_Save" Style="{StaticResource NormalButton}" Content="Save" Click="OnSaveClick" Margin="8" Visibility="Collapsed" />
+				<Button x:Name="x_Cancel" Style="{StaticResource NormalButton}" Content="Cancel" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</c:DialogPanel>

@@ -1,0 +1,31 @@
+﻿<sdk:Page x:Class="Money.DebtPage" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:Money"
+	Title="YinYangMoney Plan Debt" NavigationCacheMode="Required"
+>
+	<Grid DataContext="{Binding UserServices.UserContext}">
+		<ScrollViewer>
+			<StackPanel Width="680">
+				<c:Selector Condition="{Binding User.IsAuthenticated}">
+					<c:Selector.WhenFalse>
+						<app:MustBeAuthenticatedControl />
+					</c:Selector.WhenFalse>
+					<c:Selector.WhenTrue>
+						<StackPanel>
+							<c:Spacer MinHeight="20" />
+							<c:HtmlTextBlock FontSize="18" Html="[span style='color:Green; font-weight:bold; font-size:167%']Input your debts and loans[/span]" />
+							<c:Spacer MinHeight="20" />
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="Coming soon..." FontSize="18" />
+							</StackPanel>
+						</StackPanel>
+					</c:Selector.WhenTrue>
+				</c:Selector>
+				<c:Spacer MinHeight="200" />
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</sdk:Page>

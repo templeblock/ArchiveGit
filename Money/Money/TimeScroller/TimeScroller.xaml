@@ -1,0 +1,34 @@
+﻿<ItemsControl x:Class="Money.TimeScroller"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:m="clr-namespace:Money"
+>
+	<!--The ItemsPresenter inside the template uses any specified ItemsPanelTemplate to layout the items;
+	if an ItemsPanelTemplate is not specified, the default is used (a vertical StackPanel)-->
+	<ItemsControl.Template>
+		<ControlTemplate>
+			<c:GridEx Rows="60,*">
+				<m:TimeScaleController Grid.Row="0" x:Name="x_TimeScaleController" MouseLeftButtonDown="OnTimeScaleControllerClick" />
+				<ScrollViewer Grid.Row="1" x:Name="x_ScrollViewer" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Padding="0">
+					<ItemsPresenter />
+				</ScrollViewer>
+			</c:GridEx>
+		</ControlTemplate>
+	</ItemsControl.Template>
+	<!--Use the ItemsPanel property to define the template panel that is used to hold the items-->
+	<ItemsControl.ItemsPanel>
+		<ItemsPanelTemplate>
+			<Canvas x:Name="x_ItemsPanel" Loaded="OnItemsPanelLoaded" Background="White" Cursor="Hand" 
+					MouseLeftButtonDown="OnItemsPanelLeftButtonDown" 
+					MouseLeftButtonUp="OnItemsPanelLeftButtonUp" 
+					MouseMove="OnItemsPanelMove" />
+		</ItemsPanelTemplate>
+	</ItemsControl.ItemsPanel>
+	<!--Use the ItemTemplate property to define the template for the individual items-->
+	<!--<ItemsControl.ItemTemplate>
+		<DataTemplate>
+			<c:TimeEvent />
+		</DataTemplate>
+	</ItemsControl.ItemTemplate>-->
+</ItemsControl>

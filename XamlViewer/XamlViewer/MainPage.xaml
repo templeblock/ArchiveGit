@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="XamlViewer.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:app="clr-namespace:XamlViewer"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+>
+	<c:StretchPanel>
+
+		<c:StretchPanel c:StretchPanel.Length="*" Orientation="Horizontal">
+
+			<app:EditingTextBox c:StretchPanel.Length="*" x:Name="editingTextBox" FontFamily="Courier New" FontSize="13" AcceptsReturn="True"
+                                HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible"
+                                TextChanged="OnEditingTextChanged" SelectionChanged="OnEditingSelectionChanged" BorderThickness="0" />
+
+			<sdk:GridSplitter Width="6" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
+
+			<Border c:StretchPanel.Length="*" x:Name="destinationElement" />
+		</c:StretchPanel>
+
+		<Border BorderBrush="Black" BorderThickness="1">
+			<Grid>
+				<TextBlock x:Name="statusTextBlock" HorizontalAlignment="Left" />
+				<TextBlock x:Name="positionTextBlock" HorizontalAlignment="Right" />
+			</Grid>
+		</Border>
+	</c:StretchPanel>
+</UserControl>
+

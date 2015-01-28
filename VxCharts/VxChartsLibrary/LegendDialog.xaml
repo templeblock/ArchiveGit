@@ -1,0 +1,25 @@
+﻿<c:DialogPanel x:Class="ClassLibrary.LegendDialog"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary" 
+>
+	<Grid>
+		<Rectangle Style="{StaticResource DialogRectangleStyle}" />
+		<StackPanel Margin="10" Orientation="Horizontal">
+			<TextBlock Style="{StaticResource DialogTitleStyle}" TextAlignment="Center" Text="{Binding Title}" />
+			<c:GridEx Rows="Auto,Auto" Columns="Auto,Auto">
+				<TextBlock Grid.Row="0" Grid.Column="0" MinWidth="100" TextAlignment="Right" Text="{Binding Balance, Converter={StaticResource MillicentsToCurrency}}" />
+				<TextBlock Grid.Row="1" Grid.Column="0" MinWidth="100" TextAlignment="Right" Text="{Binding TrendBalance, Converter={StaticResource MillicentsToCurrency}}" />
+				<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+					<Rectangle Width="8" Height="8" Fill="{Binding BalanceBrush}" Stroke="DarkGray" StrokeThickness="1" Margin="10,0,10,0" />
+					<TextBlock Text="{Binding Label}" />
+				</StackPanel>
+				<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+					<Rectangle Width="8" Height="8" Fill="#FF0077CC" Stroke="DarkGray" StrokeThickness="1" Margin="10,0,10,0" />
+					<TextBlock Text="Trend Line" />
+				</StackPanel>
+			</c:GridEx>
+		</StackPanel>
+	</Grid>
+</c:DialogPanel>

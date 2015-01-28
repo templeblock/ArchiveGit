@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{67A1142C-668F-4475-B8C0-52D7FC510682}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlViewer", "XamlViewer\XamlViewer.csproj", "{BDC9CFEA-64B9-4A6C-A8ED-31CDDDFB590A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlViewer.Web", "XamlViewer.Web\XamlViewer.Web.csproj", "{0F484C99-99A0-4CC4-9051-B89110B2729A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BDC9CFEA-64B9-4A6C-A8ED-31CDDDFB590A} = {BDC9CFEA-64B9-4A6C-A8ED-31CDDDFB590A}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67A1142C-668F-4475-B8C0-52D7FC510682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A1142C-668F-4475-B8C0-52D7FC510682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A1142C-668F-4475-B8C0-52D7FC510682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67A1142C-668F-4475-B8C0-52D7FC510682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDC9CFEA-64B9-4A6C-A8ED-31CDDDFB590A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDC9CFEA-64B9-4A6C-A8ED-31CDDDFB590A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDC9CFEA-64B9-4A6C-A8ED-31CDDDFB590A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDC9CFEA-64B9-4A6C-A8ED-31CDDDFB590A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F484C99-99A0-4CC4-9051-B89110B2729A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F484C99-99A0-4CC4-9051-B89110B2729A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F484C99-99A0-4CC4-9051-B89110B2729A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F484C99-99A0-4CC4-9051-B89110B2729A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,187 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+>
+	<!-- Constants -->
+	<sys:Double x:Key="_FontSize">14</sys:Double>
+	<FontFamily x:Key="_FontFamily">Trebuchet MS, Segoe UI, Tahoma</FontFamily>
+	<SolidColorBrush x:Key="_FontBrush" Color="#FF303030" />
+
+	<LinearGradientBrush x:Key="_ChartBackground" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="White" Offset="0" />
+		<GradientStop Color="Lemonchiffon" Offset="1" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="_AreaDataPointBackground" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="#8000FF00" Offset="0" />
+		<GradientStop Color="#80FFFFFF" Offset="1.5" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="_AlternateAreaDataPointBackground" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="#80FF0000" Offset="0" />
+		<GradientStop Color="#80FFFFFF" Offset="1.5" />
+	</LinearGradientBrush>
+
+	<!-- Common Explicit Key'd Styles to base Implicit styles on -->
+	<Style x:Key="_BaseStyle" TargetType="Control">
+		<Setter Property="FontFamily" Value="{StaticResource _FontFamily}" />
+		<Setter Property="FontSize" Value="{StaticResource _FontSize}" />
+		<Setter Property="Foreground" Value="{StaticResource _FontBrush}" />
+	</Style>
+	<Style x:Key="_BaseStyleCentered" TargetType="Control" BasedOn="{StaticResource _BaseStyle}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+	<Style x:Key="_TitleStyle" TargetType="toolkit:Title" BasedOn="{StaticResource _BaseStyle}">
+		<Setter Property="FontSize" Value="26" />
+		<Setter Property="Foreground" Value="Green" />
+		<Setter Property="FontWeight" Value="Bold" />
+	</Style>
+	<Style x:Key="_LegendStyle" TargetType="toolkit:Legend" BasedOn="{StaticResource _BaseStyle}">
+		<Setter Property="Margin" Value="10,0,0,0" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="BorderBrush" Value="Transparent" />
+		<Setter Property="Background" Value="Transparent" />
+		<!--<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="VerticalContentAlignment" Value="Top" />-->
+	</Style>
+	<Style x:Key="_HiddenLegendStyle" TargetType="toolkit:Legend" BasedOn="{StaticResource _BaseStyle}">
+		<Setter Property="Width" Value="0" />
+		<Setter Property="Height" Value="0" />
+	</Style>
+	<!-- ChartArea: The Panel that houses the PlotArea and Axes -->
+	<Style x:Key="_ChartAreaStyle" TargetType="Panel">
+		<!--<Setter Property="Background" Value="Yellow" />-->
+	</Style>
+	<!-- PlotArea: The Panel that houses the GridLines and Series DataPoints -->
+	<Style x:Key="_PlotAreaStyle" TargetType="Panel">
+		<Setter Property="Background" Value="{StaticResource _ChartBackground}" />
+	</Style>
+	<!-- Chart: The Control that houses the Title, Legend, and ChartArea -->
+	<Style x:Key="_ChartStyle" TargetType="toolkit:Chart" BasedOn="{StaticResource _BaseStyle}">
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="TitleStyle" Value="{StaticResource _TitleStyle}" />
+		<Setter Property="LegendStyle" Value="{StaticResource _LegendStyle}" />
+		<Setter Property="ChartAreaStyle" Value="{StaticResource _ChartAreaStyle}" />
+		<Setter Property="PlotAreaStyle" Value="{StaticResource _PlotAreaStyle}" />
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="Background" Value="Transparent" />
+		<!--<Setter Property="Title" Value="Title" />-->
+		<!--<Setter Property="LegendTitle" Value="Legend" />-->
+	</Style>
+	<DropShadowEffect x:Key="_DialogDropShadow" />
+	<Style x:Key="_AreaPathStyle" TargetType="Path">
+		<Setter Property="StrokeThickness" Value="1" />
+		<Setter Property="Stroke" Value="DarkGray" />
+		<Setter Property="Effect" Value="{StaticResource _DialogDropShadow}" />
+	</Style>
+
+	<ControlTemplate x:Key="_AreaDataPointTemplate" TargetType="toolkit:AreaDataPoint">
+		<!--Don't draw any data points; just an empty template-->
+		<Grid x:Name="Root" Opacity="1">
+			<!--<ToolTipService.ToolTip>
+				<StackPanel Margin="2,2,2,2">
+					<ContentControl Content="{TemplateBinding FormattedDependentValue}" />
+					<ContentControl Content="{TemplateBinding FormattedIndependentValue}" />
+				</StackPanel>
+			</ToolTipService.ToolTip>
+			<Ellipse StrokeThickness="{TemplateBinding BorderThickness}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" />-->
+		</Grid>
+	</ControlTemplate>
+	<Style x:Key="_AreaDataPointStyle" TargetType="toolkit:AreaDataPoint" BasedOn="{StaticResource _BaseStyle}">
+		<Setter Property="Background" Value="{StaticResource _AreaDataPointBackground}" />
+		<Setter Property="Template" Value="{StaticResource _AreaDataPointTemplate}" />
+		<!--<Setter Property="IndependentValueStringFormat" Value="{}{0:yyyy}" />
+		<Setter Property="DependentValueStringFormat" Value="{}{0:c0}" />
+		<Setter Property="BorderBrush" Value="White" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="IsTabStop" Value="False" />-->
+	</Style>
+	<Style x:Key="_AlternateAreaDataPointStyle" TargetType="toolkit:AreaDataPoint" BasedOn="{StaticResource _BaseStyle}">
+		<Setter Property="Background" Value="{StaticResource _AlternateAreaDataPointBackground}" />
+		<Setter Property="Template" Value="{StaticResource _AreaDataPointTemplate}" />
+	</Style>
+
+	<ControlTemplate x:Key="_LineDataPointTemplate" TargetType="toolkit:LineDataPoint">
+		<!--Don't draw any data points; just an empty template-->
+		<Grid x:Name="Root" Opacity="1">
+			<!--<ToolTipService.ToolTip>
+				<StackPanel Margin="2,2,2,2">
+					<ContentControl Content="{TemplateBinding FormattedDependentValue}" />
+					<ContentControl Content="{TemplateBinding FormattedIndependentValue}" />-->
+					<!--Example of how to access the bound business object-->
+					<!--<ContentControl Content="{Binding Amount}" DataContext="{TemplateBinding DataContext}" />-->
+				<!--</StackPanel>
+			</ToolTipService.ToolTip>-->
+			<!--<Ellipse StrokeThickness="{TemplateBinding BorderThickness}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" />-->
+		</Grid>
+	</ControlTemplate>
+	<Style x:Key="_LineDataPointStyle" TargetType="toolkit:LineDataPoint" BasedOn="{StaticResource _BaseStyle}">
+		<Setter Property="IndependentValueStringFormat" Value="{}{0:yyyy}" />
+		<Setter Property="DependentValueStringFormat" Value="{}{0:c0}" />
+		<Setter Property="Background" Value="#FF0077CC" />
+		<Setter Property="BorderBrush" Value="White" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="Template" Value="{StaticResource _LineDataPointTemplate}" />
+	</Style>
+	<Style x:Key="_LinePolylineStyle" TargetType="Polyline">
+		<Setter Property="StrokeThickness" Value="5" />
+		<Setter Property="Effect" Value="{StaticResource _DialogDropShadow}" />
+	</Style>
+
+	<ControlTemplate x:Key="_ColumnDataPointTemplate" TargetType="toolkit:ColumnDataPoint">
+		<Grid x:Name="Root" Opacity="1">
+			<ToolTipService.ToolTip>
+				<StackPanel Margin="2,2,2,2">
+					<ContentControl Content="{TemplateBinding FormattedDependentValue}" />
+					<ContentControl Content="{TemplateBinding FormattedIndependentValue}" />
+					<!--Example of how to access the bound business object-->
+					<!--<ContentControl Content="{Binding Amount}" DataContext="{TemplateBinding DataContext}" />-->
+				</StackPanel>
+			</ToolTipService.ToolTip>
+			<Rectangle StrokeThickness="{TemplateBinding BorderThickness}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" />
+		</Grid>
+	</ControlTemplate>
+	<Style x:Key="_ColumnDataPointStyle" TargetType="toolkit:ColumnDataPoint" BasedOn="{StaticResource _BaseStyle}">
+		<Setter Property="DependentValueStringFormat" Value="{}{0:c0}" />
+		<Setter Property="Background" Value="#FF0077CC" />
+		<Setter Property="BorderBrush" Value="White" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="Template" Value="{StaticResource _ColumnDataPointTemplate}" />
+	</Style>
+
+	<Style x:Key="_PieDataPointStyle" TargetType="toolkit:PieDataPoint" BasedOn="{StaticResource _BaseStyle}">
+		<Setter Property="DependentValueStringFormat" Value="{}{0:c0}" />
+	</Style>
+
+	<!-- Implicit non-Key'd Styles BasedOn Common Explicit Key'd Styles above -->
+	<Style TargetType="toolkit:Chart" BasedOn="{StaticResource _ChartStyle}">
+	</Style>
+	<Style TargetType="toolkit:AreaSeries">
+		<Setter Property="DataPointStyle" Value="{StaticResource _AreaDataPointStyle}" />
+		<Setter Property="PathStyle" Value="{StaticResource _AreaPathStyle}" />
+	</Style>
+	<Style TargetType="toolkit:LineSeries">
+		<Setter Property="DataPointStyle" Value="{StaticResource _LineDataPointStyle}" />
+		<Setter Property="PolylineStyle" Value="{StaticResource _LinePolylineStyle}" />
+	</Style>
+	<Style TargetType="toolkit:ColumnSeries">
+		<!-- We must reference the ColumnSeries styles directly since, unlike the other chart types, ImplicitStyleManager does not work -->
+		<Setter Property="DataPointStyle" Value="{StaticResource _ColumnDataPointStyle}" />
+	</Style>
+	<Style TargetType="toolkit:PieSeries">
+		<!--<Setter Property="DataPointStyle" Value="{StaticResource _PieDataPointStyle}" />-->
+	</Style>
+
+	<!-- Other Explicit Key'd styles -->
+	<Style x:Key="_DateTimeAxisLabelStyle" TargetType="toolkit:DateTimeAxisLabel">
+		<Setter Property="StringFormat" Value="{}{0:yyyy}" />
+	</Style>
+	<Style x:Key="_CurrencyAxisLabelStyle" TargetType="toolkit:NumericAxisLabel">
+		<Setter Property="StringFormat" Value="{}{0:c0}" />
+	</Style>
+
+</ResourceDictionary>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7418ac50-c37f-41a3-b205-78233806ffbe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://dreamnit.com/DBService.Web/DBService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DBService.xsd" MetadataType="Schema" ID="dae30524-b866-4d58-baf7-9352607477c3" SourceId="1" SourceUrl="http://dreamnit.com/DBService.Web/DBService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DBService.disco" MetadataType="Disco" ID="8cfdc43e-1e7d-4f9a-9536-1ff687fe59fc" SourceId="1" SourceUrl="http://dreamnit.com/DBService.Web/DBService.svc?disco" />
+    <MetadataFile FileName="DBService.wsdl" MetadataType="Wsdl" ID="4e47d17e-13db-410e-95b3-5e9a29cae026" SourceId="1" SourceUrl="http://dreamnit.com/DBService.Web/DBService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

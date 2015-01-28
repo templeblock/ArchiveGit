@@ -1,0 +1,35 @@
+Table,Variables,Expression,Alias,Type,Criteria,CriteriaOr,Group,SortType,SortOrder,FacetName,FilterPane,SortList,InfoPane,Format
+bb_Master,m.lahmanID,,_ID,int,,,FALSE,Ascending,0,$ItemID,FALSE,FALSE,FALSE,
+bb_Master,m.lahmanID,,_0,int,,,FALSE,NoSort,0,$ImageID,FALSE,FALSE,FALSE,####0
+bb_Master,i.fileID,MIN({0}),_1,int,,,FALSE,NoSort,0,$FileID,FALSE,FALSE,FALSE,
+bb_Master,"nameFirst, nameLast",{0} {1},_2,string,,,FALSE,NoSort,0,$Name,FALSE,FALSE,FALSE,
+bb_Master,"nameLast, nameFirst","GU/{0},+{1}",_3,string,,,FALSE,NoSort,0,$Url,FALSE,FALSE,FALSE,
+bb_Master,"item.bats, item.throws","Bats: {0}, Throws: {1}",_4,string,,,FALSE,NoSort,0,$Desc,FALSE,FALSE,FALSE,
+bb_Master,playerID,dbo.bb_PlayerIDToTeams({0}),_7,string[],,,FALSE,NoSort,0,Teams,TRUE,TRUE,TRUE,
+bb_Master,managerID,CAST((CASE WHEN {0} IS NULL THEN 'no' ELSE 'yes' END) AS Bit),_8,bool,,,FALSE,NoSort,0,Manager,TRUE,TRUE,TRUE,
+bb_Master,hofID,CAST((CASE WHEN {0} = 'Y' THEN 'yes' ELSE 'no' END) AS Bit),_9,bool,,,FALSE,NoSort,0,Hall Of Fame,TRUE,TRUE,TRUE,
+bb_Master,"birthYear, birthMonth, birthDay",CAST(RTRIM({0} * 10000 + {1} * 100 + {2}) AS datetime),_10,DateTime,,,FALSE,NoSort,0,Birth Date,TRUE,TRUE,TRUE,"MMMM dd, yyyy"
+bb_Master,"birthCity, birthState, birthCountry","{0} + ', ' +  {1} + ' ' + {2}",_11,string,,,FALSE,NoSort,0,Birth Place,TRUE,TRUE,TRUE,
+bb_Master,"deathYear, deathMonth, deathDay",CAST(RTRIM({0} * 10000 + {1} * 100 + {2}) AS datetime),_12,DateTime,,,FALSE,NoSort,0,Death Date,TRUE,TRUE,TRUE,"MMMM dd, yyyy"
+bb_Master,"deathCity, deathState, deathCountry","{0} + ', ' +  {1} + ' ' + {2}",_15,string,,,FALSE,NoSort,0,Death Place,TRUE,TRUE,TRUE,
+bb_Master,nameFirst,,_16,string,,,FALSE,NoSort,0,First Name,TRUE,TRUE,FALSE,
+bb_Master,nameLast,,_17,string,,,FALSE,NoSort,0,Last Name,TRUE,TRUE,FALSE,
+bb_Master,nameNote,,_18,string,,,FALSE,NoSort,0,Name Notes,TRUE,TRUE,TRUE,
+bb_Master,nameGiven,,_19,string,,,FALSE,NoSort,0,Given Name,TRUE,TRUE,TRUE,
+bb_Master,nameNick,,_20,string[],,,FALSE,NoSort,0,Nicknames,TRUE,TRUE,TRUE,
+bb_Master,weight,,_21,int,,,FALSE,NoSort,0,Weight,TRUE,TRUE,TRUE,
+bb_Master,height,,_22,double,,,FALSE,NoSort,0,Height,TRUE,TRUE,TRUE,0-00
+bb_Master,bats,,_23,string,,,FALSE,NoSort,0,Bats,TRUE,TRUE,TRUE,
+bb_Master,throws,,_24,string,,,FALSE,NoSort,0,Throws,TRUE,TRUE,TRUE,
+bb_Master,debut,,_25,DateTime,,,FALSE,NoSort,0,Debut Game,TRUE,TRUE,TRUE,"MMMM dd, yyyy"
+bb_Master,finalGame,,_26,DateTime,,,FALSE,NoSort,0,Final Game,TRUE,TRUE,TRUE,"MMMM dd, yyyy"
+bb_Master,college,,_27,string,,,FALSE,NoSort,0,College,TRUE,TRUE,TRUE,
+bb_Master,m.lahmanID,,_5,int,,,FALSE,NoSort,0,LahmanID,FALSE,FALSE,TRUE,####0
+bb_Master,playerID,,_6,string,,,FALSE,NoSort,0,PlayerID,FALSE,FALSE,TRUE,
+bb_Master,"bbrefID, playerID","Baseball Reference=BR/{0},Baseball Page=TBP/{1}",_29,Link[],,,FALSE,NoSort,0,More on this player:,FALSE,FALSE,TRUE,
+// Output is implied by the presence of a FacetName,,,,,,,,,,,,,,
+// Does Sort even matter?  Just Group By and FacetOrder,,,,,,,,,,,,,,
+// SortOrder and SortType can be combined and probably limited to a few,,,,,,,,,,,,,,
+// Aliases are auto-generated if empty,,,,,,,,,,,,,,
+// Tables can have aliases too,,,,,,,,,,,,,,
+"// Automatically generate the initial Facet name from the Table name, variable(column) and operation",,,,,,,,,,,,,,

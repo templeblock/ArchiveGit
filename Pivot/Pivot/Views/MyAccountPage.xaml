@@ -1,0 +1,62 @@
+﻿<sdk:Page x:Class="Pivot.MyAccountPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:Pivot"
+	Title="McPivot My Account" NavigationCacheMode="Required"
+>
+	<Grid DataContext="{Binding UserServices.UserContext}">
+		<ScrollViewer>
+			<StackPanel MaxWidth="680">
+				<c:Selector Condition="{Binding User.IsAuthenticated}">
+					<c:Selector.WhenFalse>
+						<app:MustBeAuthenticatedControl />
+					</c:Selector.WhenFalse>
+					<c:Selector.WhenTrue>
+						<StackPanel x:Name="x_MyAccountPanel">
+							<c:Spacer MinHeight="20" />
+							<c:HtmlTextBlock HtmlUri="Content/MyAccount.html" />
+							<c:Spacer MinHeight="10" />
+							<c:StretchPanel Orientation="Horizontal">
+								<TextBlock Text="Email address: " FontSize="18" />
+								<c:TextBoxEx c:StretchPanel.Length="1*" Text="{Binding User.MemberEmail, Mode=TwoWay}" FontSize="18" />
+							</c:StretchPanel>
+							<c:Spacer MinHeight="20" />
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="Language: " FontSize="18" />
+								<ComboBox Width="120" Style="{StaticResource FlatComboBoxBlue}" SelectedIndex="{Binding User.Language, Mode=TwoWay}" FontSize="18" Tag="Language">
+									<ComboBoxItem Content="English" />
+									<ComboBoxItem Content="Spanish" />
+									<ComboBoxItem Content="Italian" />
+									<ComboBoxItem Content="German" />
+									<ComboBoxItem Content="French" />
+								</ComboBox>
+							</StackPanel>
+							<c:Spacer MinHeight="20" />
+							<CheckBox Content="Email me about McPivot updates" IsChecked="{Binding User.OptInUpdates, Mode=TwoWay}" FontSize="18" />
+							<c:Spacer MinHeight="8" />
+							<StackPanel>
+								<Button Style="{StaticResource FlatButtonBlue}" Content="Update these settings" Click="OnUpdateSettingsClick" FontSize="18" />
+								<c:Spacer MinHeight="50" />
+								<Button Style="{StaticResource FlatButtonBlue}" Content="Change your password" Click="OnChangePasswordClick" FontSize="18" />
+								<c:Spacer MinHeight="8" />
+								<c:Selector Condition="{Binding User.MemberIsPremium}">
+									<c:Selector.WhenFalse>
+										<Button Style="{StaticResource FlatButtonBlue}" Content="Upgrade to a Premium membership" Click="OnUpgradePremiumClick" FontSize="18" />
+									</c:Selector.WhenFalse>
+									<c:Selector.WhenTrue>
+										<Button Style="{StaticResource FlatButtonBlue}" Content="Cancel your Premium membership" Click="OnCancelPremiumClick" FontSize="18" />
+									</c:Selector.WhenTrue>
+								</c:Selector>
+								<c:Spacer MinHeight="8" />
+								<Button Style="{StaticResource FlatButtonBlue}" Content="Delete your account" Click="OnDeleteAccountClick" FontSize="18" />
+							</StackPanel>
+						</StackPanel>
+					</c:Selector.WhenTrue>
+				</c:Selector>
+				<c:Spacer MinHeight="200" />
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</sdk:Page>

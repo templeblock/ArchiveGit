@@ -1,0 +1,388 @@
+body {
+	/*z-index: -100;*/
+	background-color: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+#header {
+	/*z-index: 2;*/
+	height: 78px;
+	background-color: #6C960C;
+	/*border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #739F0E;*/
+	/*border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #3D5904;*/
+	background-image: url(../images/header-bg.jpg);
+	background-repeat: repeat-x;
+}
+#header img { /* floats logo image left */
+	float:left;
+}
+#content {
+	clear: both;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 13px;
+	line-height: 170%;
+	color: #333;
+}
+#footer {
+	height: 45px;
+	color: #999;
+	padding-top: 20px;
+	margin-bottom: 15px;
+	-webkit-border-bottom-right-radius: 8px;
+	-webkit-border-bottom-left-radius: 8px;
+	background-image: url(../images/footer-shadow.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 11px;
+}
+a {
+	color: #4F7307;
+}
+#footer a {
+	color: #999;
+}
+
+/* Suckerfish Menu Styles
+----------------------------------------------------------------------------------------------------*/
+/*** GreenShade SKIN ***/
+.sf-menu {
+	float:			left;
+	margin-bottom:	0em;
+}
+/* 1st level menu items */
+.sf-menu li a {
+	border:			0;
+}
+/* 2nd level menu items */
+.sf-menu li li a {
+	border-left:	1px solid #000;
+	border-right:	1px solid #000;
+	border-bottom:	1px solid #000;
+	padding: 		8px;/* was .75em 1em*/
+	text-decoration:none;
+	font-size: 11px;
+}
+/* 2nd level menu items - first child */
+.sf-menu li li:first-child {
+	border-top:		1px solid #000;
+}
+.sf-menu a,
+.sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+	color:			#F4FDE1;
+}
+/* 1st level menu items */
+.sf-menu li {
+	background:		transparent;
+}
+/* 2nd level menu items */
+.sf-menu li li {
+	background:		#60860C;
+}
+/* 3rd level menu items */
+.sf-menu li li li {
+	background:		#60860C;
+}
+/* drop-down menu hover color */
+.sf-menu li:hover,
+.sf-menu li.sfHover,
+.sf-menu a:focus,
+.sf-menu a:hover,
+.sf-menu a:active {
+	background:		#446306;
+	outline:		0;
+}
+
+/* Type styles
+----------------------------------------------------------------------------------------------------*/
+p {
+	padding-bottom: 10px;
+}
+h1 {
+	color: #527608;
+	letter-spacing: -1px;
+	margin-bottom: 10px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 28px;
+	font-style: normal;
+	line-height: 34px;
+	font-weight: normal;
+	font-variant: normal;
+}
+h2 {
+	color: #719C0E;
+	margin-bottom: 10px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 22px;
+	line-height: 28px;
+	font-weight: normal;
+}
+h3 {
+	color: #666;
+	margin-bottom: 10px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 20px;
+	font-style: normal;
+	line-height: 26px;
+	font-weight: normal;
+	font-variant: normal;
+}
+h4 {
+	margin-bottom: 8px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	font-style: normal;
+	line-height: 24px;
+	font-weight: normal;
+	font-variant: normal;
+	color: #333;
+}
+h5 {
+	color: #333;
+	margin-bottom: 5px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 15px;
+	line-height: 20px;
+	font-weight: bold;
+}
+
+/* Navigation wrapper styles
+----------------------------------------------------------------------------------------------------*/
+#nav {
+	/*z-index: 10;*/
+	height: 33px;
+	margin-top: 20px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 13px;
+}
+
+/* Sidebar content and nav styles
+----------------------------------------------------------------------------------------------------*/
+.sidebarbox {
+	border: 1px solid #CCC;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin-bottom:15px;
+	background-color: #f5f3e5;
+	line-height: 150%;
+	font-size: 12px;
+	color: #333;
+}
+.sidebarbox h3 {
+	font-weight: normal;
+	color: #FFF;
+	font-size: 14px;
+	border-bottom: 1px solid #CCC;
+	line-height: normal;
+	margin-bottom: 0px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-topleft: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+	background-color: #577C0A;
+	padding-top: 6px;
+	padding-right: 6px;
+	padding-bottom: 6px;
+	padding-left: 8px;
+}
+.sidebarbox p {
+	padding:8px;
+}
+.sidebarbox ul {
+	margin: 0px;
+	padding: 3px 3px 2px 3px;
+	background: #FFF;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+}
+.sidebarbox ul li {
+	list-style: none;
+	display: inline;
+}
+.sidebarbox ul li a {
+	display: block;
+	padding: 4px 4px 6px 10px;
+	line-height: 18px;
+	text-decoration:none;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight:normal;
+	border-bottom:1px solid #FFF;
+	color: #333;
+	background-color: #f5f3e5;
+}
+.sidebarbox ul li a:hover {
+	text-decoration: none;
+	color: #FFF;
+	background-color: #719C0E;
+}
+.simple {
+	margin-bottom:15px;
+	font-size: 12px;
+	line-height: 150%;
+	color: #666;
+}
+.simple ul li a {
+	display: block;
+	padding: 4px 4px 6px 10px;
+	border-bottom:1px solid #EAEAEA;
+	line-height: 18px;
+	text-decoration:none;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight:normal;
+}
+.simple ul li a:hover {
+	text-decoration: none;
+	color: #333;
+	background-color: #f5f3e5;
+}
+
+
+/* Sub Feature Area Styles
+----------------------------------------------------------------------------------------------------*/
+
+#subfeature {
+	background-color: #F4FDE1;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #C1CDAB;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #000;
+}
+.subtitle {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 28px;
+	font-weight: normal;
+	letter-spacing: -1px;
+	color: #446306;
+	text-align: center;
+	
+}
+.subtext {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 15px;
+	color: #333;
+	text-align: center;
+	
+}
+.optinname, .optinemail {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 15px;
+	padding-top: 4px;
+	padding-right: 0px;
+	padding-bottom: 4px;
+	padding-left: 0px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 2px solid #000;
+	text-align: center;
+	width: 150px;
+	margin-right: 4px;
+	color: #FFF;
+	background-color: #5C8209;
+}
+.submitbtn {
+	font-weight: bold;
+	color: #405E04;
+	background-color: #F4FDE1;
+	width: 40px;
+	font-size: 22px;
+	cursor:pointer;
+	font-style: italic;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.smallitalic {
+	font-size: 11px;
+	font-style: italic;
+	color: #5C8209;
+	margin-top: 9px;
+	
+}
+
+/* Social media icons in navigation
+----------------------------------------------------------------------------------------------------*/
+
+.sf-menu li li a.facebook {
+	background-image: url(/images/social-media/facebook.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.sf-menu li li a.twitter {
+	background-image: url(/images/social-media/twitter.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.sf-menu li li a.youtube {
+	background-image: url(/images/social-media/youtube.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.sf-menu li li a.linkedin {
+	background-image: url(/images/social-media/linkedin.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.sf-menu li li a.flickr {
+	background-image: url(/images/social-media/flickr.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+
+
+/* Misc styles
+----------------------------------------------------------------------------------------------------*/
+
+.toppad { /* Generic style applied anywhere top padding needed */
+	padding-top:20px;
+}
+caption {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+}
+table {
+	border: 1px solid #577C0A;
+}
+td {
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	padding-left: 7px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #577C0A;
+}
+tr.even {
+	background-color: #F5FAF3;
+}
+tr.odd {
+	background-color: #C7E0B8;
+}
+th {
+	color: #FFF;
+	background-color: #577C0A;
+	padding-top: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	padding-left: 7px;
+	font-weight: bold;
+}

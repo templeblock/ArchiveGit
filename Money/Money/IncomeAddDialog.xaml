@@ -1,0 +1,36 @@
+﻿<c:DialogPanel x:Class="Money.IncomeAddDialog"
+	xmlns="http://schemas.microsoft.com/client/2007"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	EnterKey="OnAddClick"
+	EscapeKey="OnCancelClick"
+>
+	<!--
+	-->
+	<Grid>
+		<Rectangle Style="{StaticResource DialogRectangleStyle}" />
+		<StackPanel Margin="18">
+			<TextBlock Style="{StaticResource DialogTitleStyle}" Text="Add a new income source" />
+			<c:Spacer MinHeight="10" />
+			<StackPanel Orientation="Horizontal">
+				<ListBox x:Name="x_IncomeSourceList" SelectionChanged="OnSelectionChanged" Width="350" Height="400">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<Image Source="Images/Income.png" Stretch="None" Width="32" Height="32" HorizontalAlignment="Center" />
+								<TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="5,0,0,0" />
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				<c:Spacer MinWidth="10" />
+				<c:HtmlContent x:Name="x_Description" FontFamily="{StaticResource FontFamily}" FontSize="18" VerticalAlignment="Top" Width="350" />
+			</StackPanel>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+				<Button Content="Add" Click="OnAddClick" Margin="8" />
+				<Button Content="Cancel" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</c:DialogPanel>

@@ -1,0 +1,116 @@
+/* CSS Document */
+
+/* SuperStretch! - Experimental Fluid Layout Stylesheet - v.0.0.5 */
+/* 2010 MightyMeta www.mightymeta.co.uk */
+/* Licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php */
+
+/* Browser Resets */
+
+h1, h2, h3, h4, h5, h6, pre, code {
+	font-size:100%;
+}
+
+/* Main HTML element styles */
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 140%;
+	color: #fff;
+	background: #301849 url(gradient.png) repeat-x;
+}
+
+h1 {
+	font-size:3em;
+	padding:0 20px 0 0;
+	line-height:160%;
+	text-align:right;
+	text-shadow:#000 2px 2px;
+}
+
+p {
+	font-size: 1em;
+	padding-bottom: 1em;
+	padding-top: 0.8em;
+}
+
+a {
+	color: #fff;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/* Container Styles */
+
+#container {
+	border: 2px solid #fff;
+}
+
+/* Navigation */
+
+#nav {
+	border-right: 2px solid #fff;
+}
+#nav  a {
+	font-size: 0.9em;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-shadow:#000 1px 1px;
+	background: url(nav-bg.png) repeat;
+}
+#nav  a:hover {
+	background-image: none;
+	background-color: #ffcc66;
+}
+#nav  #nav-select {
+	background-image: none;
+	background-color: #ff9900;
+}
+.nav1 {
+	border-bottom: solid 2px #fff;
+}
+.nav2 {
+	border-bottom: solid 2px #fff;
+}
+.nav3 {
+	border-bottom: solid 2px #fff;
+}
+.nav4 {
+	border-bottom: solid 2px #fff;
+}
+.nav5 {
+	border-bottom: solid 2px #fff;
+}
+.nav6 {
+	border-bottom: solid 2px #fff;
+}
+.nav7 {
+	border-bottom: solid 2px #fff;
+}
+
+/* Content Area */
+
+#mainHeader {
+}
+
+#mainContent{
+	background: url(main-bg.png) repeat;
+}
+
+/* Footer Info */
+
+#footer {
+	font-size: 0.9em;
+	text-shadow:#000 1px 1px;
+}
+#footer a {
+	text-decoration: underline;
+	font-weight: normal;
+}
+#footer a:hover {
+	text-decoration: none;
+}

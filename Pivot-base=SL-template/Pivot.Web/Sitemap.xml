@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- For more information, visit http://www.sitemaps.org -->
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
+	<url><loc>http://yinyangmoney.com/app/Home/Welcome</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Home/Why_Us</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Home/FAQ</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Home/Buzz</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Home/Contact_Us</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Home/Privacy_Policy</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Home/My_Account</loc></url>
+
+	<url><loc>http://yinyangmoney.com/app/Profile/Info</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Profile/PlanDates</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Profile/Accounts</loc></url>
+
+	<url><loc>http://yinyangmoney.com/app/Plan/Income</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Plan/Spending</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Plan/Debt</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Plan/NetWorth</loc></url>
+	<url><loc>http://yinyangmoney.com/app/Plan/Categories</loc></url>
+
+	<url><loc>http://yinyangmoney.com/app/Calculators/Financial</loc></url>
+
+	<url><loc>http://yinyangmoney.com/app/Investment/Accounts</loc></url>
+
+	<url><loc>http://yinyangmoney.com/app/Community/Around_the_Globe</loc></url>
+</urlset>

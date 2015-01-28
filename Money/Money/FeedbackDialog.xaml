@@ -1,0 +1,35 @@
+﻿<c:DialogPanel x:Class="Money.FeedbackDialog"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	EscapeKey="OnCancelClick"
+>
+	<Grid DataContext="{Binding UserServices.UserContext}">
+		<Rectangle Style="{StaticResource DialogRectangleStyle}" />
+		<StackPanel Width="450" Margin="18">
+			<TextBlock Style="{StaticResource DialogTitleStyle}" x:Name="x_Title" Text="Send Us Your Feedback" />
+			<c:Spacer MinHeight="10" />
+			<c:HtmlTextBlock HtmlUri="Content/Feedback.html" />
+			<sdk:Label Content="Subject: " />
+			<c:TextBoxEx x:Name="x_Subject" />
+			<c:Spacer MinHeight="8" />
+			<sdk:Label Content="Your Email Address: " />
+			<c:TextBoxEx x:Name="x_FromEmailAddress" Text="{Binding User.MemberEmail}" />
+			<!--<c:TextBoxEx x:Name="x_FromEmailAddress" Text="{Binding User.MemberEmail}" Visibility="{Binding User.IsAuthenticated, Converter={StaticResource ValueIsNotNullFalseZeroEmpty}}" />-->
+			<TextBlock FontSize="12" Foreground="Gray" Text="(This is optional, but we need it if you want us to reply)" />
+			<c:Spacer MinHeight="8" />
+			<sdk:Label Content="Your Message: " />
+			<c:TextBoxEx x:Name="x_Message" AcceptsReturn="True" TextWrapping="Wrap" Height="74" VerticalScrollBarVisibility="Auto" /><!--Height = Rows * (FontSize+2) + 10-->
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock x:Name="x_ErrorStatus" TextWrapping="Wrap" Foreground="Red" MaxWidth="418" />
+			</StackPanel>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+				<Button x:Name="x_OK" Style="{StaticResource NormalButton}" Content="Send it!" Click="OnOkClick" Margin="8" />
+				<Button x:Name="x_Cancel" Style="{StaticResource NormalButton}" Content="Cancel" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</c:DialogPanel>

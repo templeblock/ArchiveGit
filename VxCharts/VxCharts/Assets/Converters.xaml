@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="clr-namespace:ClassLibrary"
+	xmlns:app="clr-namespace:VxCharts"
+>
+	<!-- IValueConverter resources -->
+	<c:StringFormatter x:Key="StringFormatter" />
+	<c:DateTimeToLongString x:Key="DateTimeToLongString" />
+	<c:BoolToOpacity x:Key="BoolToOpacity" />
+	<c:BoolToVisible x:Key="BoolToVisible" />
+	<c:BoolToCollapsed x:Key="BoolToCollapsed" />
+	<c:ValueIsNonZeroToVisible x:Key="ValueIsNonZeroToVisible" />
+	<c:ValueIsNonZeroToCollapsed x:Key="ValueIsNonZeroToCollapsed" />
+	<c:ValueIsNonZero x:Key="ValueIsNonZero" />
+	<c:ValueIsNonNegative x:Key="ValueIsNonNegative" />
+	<c:ValueToString x:Key="ValueToString" />
+	<c:EnumToValue x:Key="EnumToValue" />
+	<c:EnumToName x:Key="EnumToName" />
+	<c:EnumToList x:Key="EnumToList" />
+	<c:DoubleRound x:Key="DoubleRound" />
+	<c:IconNameToImageUri x:Key="IconNameToImageUri" />
+
+	<!--<app:DateRangeToVisible x:Key="DateRangeToVisible" />-->
+</ResourceDictionary>

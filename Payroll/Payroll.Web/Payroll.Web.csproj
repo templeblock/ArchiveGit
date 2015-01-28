@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A05D972-FAD5-48E9-9D2A-D161E69C9521}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Payroll.Web</RootNamespace>
+    <AssemblyName>Payroll.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AskQuestion.aspx" />
+    <Content Include="Benefits.aspx" />
+    <Content Include="ContactUs.aspx" />
+    <Content Include="Conversion.aspx" />
+    <Content Include="css\common.css" />
+    <Content Include="css\reset.css" />
+    <Content Include="Enroll.aspx" />
+    <Content Include="CreateAccount.aspx" />
+    <Content Include="CreateAccountPost.aspx" />
+    <Content Include="FAQ.aspx" />
+    <Content Include="css\960.css" />
+    <Content Include="css\blueprint\plugins\buttons\icons\cross.png" />
+    <Content Include="css\blueprint\plugins\buttons\icons\key.png" />
+    <Content Include="css\blueprint\plugins\buttons\icons\tick.png" />
+    <Content Include="css\blueprint\plugins\buttons\readme.txt" />
+    <Content Include="css\blueprint\plugins\buttons\screen.css" />
+    <Content Include="css\blueprint\plugins\fancy-type\readme.txt" />
+    <Content Include="css\blueprint\plugins\fancy-type\screen.css" />
+    <Content Include="css\blueprint\plugins\link-icons\icons\doc.png" />
+    <Content Include="css\blueprint\plugins\link-icons\icons\email.png" />
+    <Content Include="css\blueprint\plugins\link-icons\icons\external.png" />
+    <Content Include="css\blueprint\plugins\link-icons\icons\feed.png" />
+    <Content Include="css\blueprint\plugins\link-icons\icons\im.png" />
+    <Content Include="css\blueprint\plugins\link-icons\icons\pdf.png" />
+    <Content Include="css\blueprint\plugins\link-icons\icons\visited.png" />
+    <Content Include="css\blueprint\plugins\link-icons\icons\xls.png" />
+    <Content Include="css\blueprint\plugins\link-icons\readme.txt" />
+    <Content Include="css\blueprint\plugins\link-icons\screen.css" />
+    <Content Include="css\blueprint\plugins\rtl\readme.txt" />
+    <Content Include="css\blueprint\plugins\rtl\screen.css" />
+    <Content Include="css\grid.css" />
+    <Content Include="css\blueprint\ie.css" />
+    <Content Include="css\blueprint\print.css" />
+    <Content Include="css\blueprint\screen.css" />
+    <Content Include="images\main_test_calendar.jpg" />
+    <Content Include="swf\3steps.swf" />
+    <Content Include="swf\acclientflashdemo.swf" />
+    <Content Include="swf\acclientflashdemo2.swf" />
+    <Content Include="swf\acclientflashdemo_custom.swf" />
+    <Content Include="images\free.png" />
+    <Content Include="swf\home_style_landing_13.swf" />
+    <Content Include="swf\mini_generic_v11.swf" />
+    <Content Include="swf\mini_sample_simple_4.swf" />
+    <Content Include="images\scale9grid\background.png" />
+    <Content Include="images\checkmark_green.gif" />
+    <Content Include="images\social-media\delicious.png" />
+    <Content Include="images\social-media\digg.png" />
+    <Content Include="images\social-media\email.png" />
+    <Content Include="images\social-media\facebook.png" />
+    <Content Include="images\social-media\feed.png" />
+    <Content Include="images\social-media\flickr.png" />
+    <Content Include="images\social-media\friendfeed.png" />
+    <Content Include="images\social-media\linkedin.png" />
+    <Content Include="images\social-media\twitter.png" />
+    <Content Include="images\social-media\youtube.png" />
+    <Content Include="Default.aspx" />
+    <Content Include="swf\timeTrackingDemo.swf" />
+    <Content Include="jquery\jquery-1.4.4.js" />
+    <Content Include="jquery\scale9grid\jquery.scale9grid-0.9.3.js" />
+    <Content Include="jquery\scale9grid\jquery.scale9grid-0.9.3.min.js" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-bg_glass_55_fcf0ba_1x400.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-bg_highlight-hard_100_fafaf4_1x100.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-bg_highlight-hard_15_459e00_1x100.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-bg_highlight-hard_95_cccccc_1x100.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-bg_highlight-soft_25_67b021_1x100.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-bg_highlight-soft_95_ffedad_1x100.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-bg_inset-soft_15_2b2922_1x100.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-icons_808080_256x240.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-icons_847e71_256x240.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-icons_8dc262_256x240.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-icons_eeeeee_256x240.png" />
+    <Content Include="jquery\ui\css\greenshades\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="jquery\ui\css\greenshades\jquery-ui-1.8.6.custom.css" />
+    <Content Include="jquery\ui\css\south-street\images\ui-bg_glass_55_fcf0ba_1x400.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-bg_highlight-hard_100_fafaf4_1x100.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-bg_highlight-hard_15_459e00_1x100.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-bg_highlight-hard_95_cccccc_1x100.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-bg_highlight-soft_25_67b021_1x100.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-bg_highlight-soft_95_ffedad_1x100.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-bg_inset-soft_15_2b2922_1x100.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-icons_808080_256x240.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-icons_847e71_256x240.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-icons_8dc262_256x240.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-icons_eeeeee_256x240.png" />
+    <Content Include="jquery\ui\css\south-street\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="jquery\ui\css\south-street\jquery-ui-1.8.6.custom.css" />
+    <Content Include="jquery\ui\greenshades.html" />
+    <Content Include="jquery\ui\js\jquery-ui-1.8.6.custom.min.js" />
+    <Content Include="jquery\ui\south-street.html" />
+    <Content Include="jquery\jquery-1.4.4.min.js" />
+    <Content Include="js\common.js" />
+    <Content Include="js\Enroll.js" />
+    <Content Include="js\input_validators.js" />
+    <Content Include="Letter.aspx" />
+    <Content Include="Payroll.aspx" />
+    <Content Include="EnrollPost.aspx" />
+    <Content Include="robots.txt" />
+    <Content Include="superfish\superfish-1.4.8\changelog.txt" />
+    <Content Include="superfish\superfish-1.4.8\css\superfish-navbar.css" />
+    <Content Include="superfish\superfish-1.4.8\css\superfish-vertical.css" />
+    <Content Include="superfish\superfish-1.4.8\css\superfish.css" />
+    <Content Include="superfish\superfish-1.4.8\example.html" />
+    <Content Include="superfish\superfish-1.4.8\images\arrows-ffffff.png" />
+    <Content Include="superfish\superfish-1.4.8\images\shadow.png" />
+    <Content Include="superfish\superfish-1.4.8\js\hoverIntent.js" />
+    <Content Include="superfish\superfish-1.4.8\js\superfish.js" />
+    <Content Include="superfish\superfish-1.4.8\js\supersubs.js" />
+    <Content Include="themes\greenshades\css\style.css" />
+    <Content Include="themes\greenshades\GreenShades.html" />
+    <Content Include="themes\greenshades\GreenShades2.html" />
+    <Content Include="themes\greenshades\images\arrows-ffffff.png" />
+    <Content Include="themes\greenshades\images\footer-shadow.jpg" />
+    <Content Include="themes\greenshades\images\header-bg.jpg" />
+    <Content Include="themes\greenshades\images\logo.png" />
+    <Content Include="themes\greenshades\images\logo.png" />
+    <Content Include="themes\greenshades\images\logobackground.png" />
+    <Content Include="themes\greenshades\images\shadow.png" />
+    <Content Include="Tour.aspx" />
+    <Content Include="validation\css\template.css" />
+    <Content Include="validation\css\validationEngine.jquery.css" />
+    <Content Include="validation\js\jquery.validationEngine-en.js" />
+    <Content Include="validation\js\jquery.validationEngine-fr.js" />
+    <Content Include="validation\js\jquery.validationEngine.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AskQuestion.aspx.cs">
+      <DependentUpon>AskQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AskQuestion.aspx.designer.cs">
+      <DependentUpon>AskQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Benefits.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Benefits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactUs.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Conversion.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Conversion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enroll.aspx.cs">
+      <DependentUpon>Enroll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enroll.aspx.designer.cs">
+      <DependentUpon>Enroll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAccount.aspx.cs">
+      <DependentUpon>CreateAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateAccount.aspx.designer.cs">
+      <DependentUpon>CreateAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAccountPost.aspx.cs">
+      <DependentUpon>CreateAccountPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAQ.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Letter.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Letter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll.aspx.cs">
+      <DependentUpon>Payroll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payroll.aspx.designer.cs">
+      <DependentUpon>Payroll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EnrollPost.aspx.cs">
+      <DependentUpon>EnrollPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteBase.master.cs">
+      <DependentUpon>SiteBase.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteBase.master.designer.cs">
+      <DependentUpon>SiteBase.master</DependentUpon>
+    </Compile>
+    <Compile Include="SiteFooter.master.cs">
+      <DependentUpon>SiteFooter.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteFooter.master.designer.cs">
+      <DependentUpon>SiteFooter.master</DependentUpon>
+    </Compile>
+    <Compile Include="SiteHeader.master.cs">
+      <DependentUpon>SiteHeader.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteHeader.master.designer.cs">
+      <DependentUpon>SiteHeader.master</DependentUpon>
+    </Compile>
+    <Compile Include="SiteSidebar2.master.cs">
+      <DependentUpon>SiteSidebar2.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteSidebar2.master.designer.cs">
+      <DependentUpon>SiteSidebar2.master</DependentUpon>
+    </Compile>
+    <Compile Include="SiteSidebar1.master.cs">
+      <DependentUpon>SiteSidebar1.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteSidebar1.master.designer.cs">
+      <DependentUpon>SiteSidebar1.master</DependentUpon>
+    </Compile>
+    <Compile Include="Tour.aspx.cs">
+      <DependentUpon>Tour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tour.aspx.designer.cs">
+      <DependentUpon>Tour.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SiteBase.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SiteFooter.master" />
+    <Content Include="SiteHeader.master" />
+    <Content Include="SiteSidebar2.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SiteSidebar1.master" />
+    <None Include="swf\acclientflashdemo.sqf" />
+    <None Include="themes\greenshades\images\discountpayroll.psd" />
+    <None Include="themes\greenshades\images\greenshades.psd" />
+    <Content Include="Sitemap.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="email\" />
+    <Folder Include="themes\greenshades\psd\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>61036</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ClassLibrary.VxCharts"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:c="clr-namespace:ClassLibrary"
+	x:Name="this"
+>
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Assets/ChartStyles.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot">
+		<toolkit:Chart x:Name="x_Chart" MinWidth="100" MinHeight="100"
+		>
+			<!--Title="{Binding Title, ElementName=this}"
+			LegendTitle="{Binding LegendTitle, ElementName=this}"-->
+			<!--<toolkit:Chart.Axes>
+				<toolkit:CategoryAxis Orientation="Y" Location="Left"
+					MajorTickMarkStyle="{StaticResource PerformanceChartMajorTickMarkStyle}"
+					AxisLabelStyle="{StaticResource PerformanceChartYAxisStyle}"
+				/>
+				<toolkit:LinearAxis Orientation="X" Location="Bottom"
+					ShowGridLines="True"
+					Foreground="White"
+				/>
+			</toolkit:Chart.Axes>-->
+		</toolkit:Chart>
+	</Grid>
+</UserControl>

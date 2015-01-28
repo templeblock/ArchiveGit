@@ -1,0 +1,175 @@
+﻿<c:DialogPanel x:Class="Money.IncomeDialog"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:Money"
+	EscapeKey="OnCancelClick"
+>
+	<Grid>
+		<Rectangle Style="{StaticResource DialogRectangleStyle}" />
+		<StackPanel Margin="18">
+			<TextBlock Style="{StaticResource DialogTitleStyle}" x:Name="x_Title" Text="(Title)" />
+			<c:Spacer MinHeight="10" />
+			<StackPanel Orientation="Horizontal">
+				<c:GridEx Rows="Auto,Auto" Columns="Auto,Auto,Auto,Auto,Auto" >
+					<Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Source="Images/Income.png" Width="32" Height="32" Margin="0,2,10,2" />
+					<TextBlock Visibility="Collapsed" Grid.Row="0" Grid.Column="1" Text="Income Source Name" Margin="3,0,0,0" />
+					<TextBlock Grid.Row="0" Grid.Column="2" Text="Start Date" Margin="3,0,0,0" />
+					<TextBlock Grid.Row="0" Grid.Column="3" Text="End Date" Margin="3,0,0,0" />
+					<TextBlock Grid.Row="0" Grid.Column="4" Text="Attributed To"  Margin="3,0,0,0" />
+					<c:TextBoxEx Visibility="Collapsed" Grid.Row="1" Grid.Column="1" x:Name="x_Name" Text="{Binding Name, Mode=TwoWay}" Width="200" Margin="0,2,10,2" />
+					<app:ProfileDateComboMenu Grid.Row="1" Grid.Column="2" x:Name="x_StartDate" Style="{StaticResource FlatComboMenuBlue}" ProfileDate="{Binding StartProfileDate, Mode=TwoWay}" Width="120" Margin="0,2,10,2" />
+					<app:ProfileDateComboMenu Grid.Row="1" Grid.Column="3" x:Name="x_EndDate" Style="{StaticResource FlatComboMenuBlue}" ProfileDate="{Binding EndProfileDate, Mode=TwoWay}" Width="120" Margin="0,2,10,2" />
+					<ComboBox Grid.Row="1" Grid.Column="4" Style="{StaticResource FlatComboButtonBlue}" ItemsSource="{Binding ReceivedBy, Converter={StaticResource PersonNumToList}}" SelectedIndex="{Binding ReceivedBy, Mode=TwoWay, Converter={StaticResource PersonNumToIndex}}" DropDownClosed="OnDropDownClosed" MinWidth="120" />
+				</c:GridEx>
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<c:Spacer MinWidth="32" />
+				<c:Spacer MinWidth="8" />
+
+				<!-- Show/Hide Tax Emempt -->
+				<ToggleButton x:Name="x_ShowHideTaxEmempt" Style="{StaticResource FlatToggleButtonBlue}" Content="»" IsChecked="False" />
+				
+				<!-- Category Name -->
+				<c:SelectorOnFocus MinHeight="25">
+					<c:SelectorOnFocus.WhenFalse>
+						<Button Style="{StaticResource FlatButton}" Foreground="LightSlateGray" Content="{Binding Name}" />
+					</c:SelectorOnFocus.WhenFalse>
+					<c:SelectorOnFocus.WhenTrue>
+						<c:TextBoxEx Text="{Binding Name, Mode=TwoWay}" />
+					</c:SelectorOnFocus.WhenTrue>
+				</c:SelectorOnFocus>
+
+				<!-- Type -->
+				<ComboBox Style="{StaticResource FlatComboButtonBlue}" ItemsSource="{Binding Type, Converter={StaticResource EnumToList}}" SelectedItem="{Binding Type, Mode=TwoWay, Converter={StaticResource EnumToName}}" DropDownClosed="OnDropDownClosed" />
+
+				<!-- Amount -->
+				<c:SelectorOnFocus MinHeight="25">
+					<c:SelectorOnFocus.WhenFalse>
+						<Grid>
+							<Button Style="{StaticResource FlatButton}" Foreground="LightSlateGray" Content="{Binding Amount, Converter={StaticResource MillicentsToCurrency}, ConverterParameter='\{0:n2\}%'}" Visibility="{Binding Type, Converter={StaticResource TransactionTypeToAmountPercentVisible}}" />
+							<Button Style="{StaticResource FlatButton}" Foreground="LightSlateGray" Content="{Binding Amount, Converter={StaticResource MillicentsToCurrency}}" Visibility="{Binding Type, Converter={StaticResource TransactionTypeToAmountCurrencyVisible}}" />
+						</Grid>
+					</c:SelectorOnFocus.WhenFalse>
+					<c:SelectorOnFocus.WhenTrue>
+						<c:TextBoxEx Style="{StaticResource TextBoxMoney}" Text="{Binding Amount, Mode=TwoWay, Converter={StaticResource MillicentsToCurrency}, ConverterParameter='\{0:n3\}'}" />
+					</c:SelectorOnFocus.WhenTrue>
+				</c:SelectorOnFocus>
+
+				<!-- SourceAccountLabel -->
+				<!-- SourceAccount -->
+				<StackPanel Orientation="Horizontal" Visibility="{Binding Type, Converter={StaticResource TransactionTypeToSourceAccountVisible}}">
+					<TextBlock Text="{Binding Type, Converter={StaticResource TransactionTypeToSourceAccountLabel}}" />
+					<ComboBox Style="{StaticResource FlatComboButtonBlue}" ItemsSource="{Binding SourceAccount, Converter={StaticResource AccountTypeToList}}" SelectedItem="{Binding SourceAccount, Mode=TwoWay, Converter={StaticResource AccountTypeToName}}" DropDownClosed="OnDropDownClosed" />
+				</StackPanel>
+
+				<!-- TargetAccountLabel -->
+				<TextBlock Text="{Binding Type, Converter={StaticResource TransactionTypeToTargetAccountLabel}}" />
+
+				<!-- TargetAccount -->
+				<ComboBox Style="{StaticResource FlatComboButtonBlue}" ItemsSource="{Binding TargetAccount, Converter={StaticResource AccountTypeToList}}" SelectedItem="{Binding TargetAccount, Mode=TwoWay, Converter={StaticResource AccountTypeToName}}" DropDownClosed="OnDropDownClosed" />
+
+				<!-- Frequency -->
+				<ComboBox Style="{StaticResource FlatComboButtonBlue}" ItemsSource="{Binding Frequency, Converter={StaticResource EnumToList}}" SelectedItem="{Binding Frequency, Mode=TwoWay, Converter={StaticResource EnumToName}}" DropDownClosed="OnDropDownClosed" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Visibility="{Binding IsChecked, ElementName=x_ShowHideTaxEmempt, Converter={StaticResource ValueIsNotNullFalseZeroEmpty}}">
+				<c:Spacer MinWidth="32" />
+				<c:Spacer MinWidth="8" />
+				<c:Spacer MinWidth="22" />
+
+				<!-- Tax Emempt -->
+				<TextBlock Text="Exempt from " />
+				<CheckBox Style="{StaticResource CommonCheckBoxBlue}" IsChecked="{Binding TaxExempt.FICA, Mode=TwoWay}" Content="FICA, " />
+				<CheckBox Style="{StaticResource CommonCheckBoxBlue}" IsChecked="{Binding TaxExempt.Federal, Mode=TwoWay}" Content="Federal, " />
+				<CheckBox Style="{StaticResource CommonCheckBoxBlue}" IsChecked="{Binding TaxExempt.State, Mode=TwoWay}" Content="State, " />
+				<CheckBox Style="{StaticResource CommonCheckBoxBlue}" IsChecked="{Binding TaxExempt.Local, Mode=TwoWay}" Content="Local" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<Button Style="{StaticResource FlatButtonBlue}" Width="17" Padding="4,0,4,0" Margin="3,0,0,0" Click="OnAddDeductionClick">
+					<!--<Image Source="Images/Insert.png" Stretch="None" />-->
+					<TextBlock FontFamily="Courier New" Foreground="Green" Text="+" />
+				</Button>
+				<c:Spacer MinWidth="24" />
+				<TextBlock Style="{StaticResource DialogTitleStyle}" FontSize="16" Text="Additional voluntary deductions"/>
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<ItemsControl x:Name="x_ListControl" Visibility="Visible" IsTabStop="False">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Vertical">
+							<StackPanel Orientation="Horizontal">
+								<StackPanel Orientation="Horizontal">
+									<Button Style="{StaticResource FlatButton}" Width="17" Padding="4,0,4,0" Margin="3,0,0,0" Click="OnInsertClick">
+										<!--<Image Source="Images/Insert.png" Stretch="None" />-->
+										<TextBlock FontFamily="Courier New" Foreground="Green" Text="+" />
+									</Button>
+									<Button Style="{StaticResource FlatButton}" Width="17" Padding="4,0,4,0" Margin="0,0,3,0" Click="OnDeleteClick">
+										<!--<Image Source="Images/Delete.png" Stretch="None" />-->
+										<TextBlock FontFamily="Courier New" Foreground="Red" Text="x" />
+									</Button>
+								</StackPanel>
+
+								<!-- Show/Hide Tax Emempt -->
+								<ToggleButton x:Name="x_ShowHideTaxEmempt1" Style="{StaticResource FlatToggleButtonBlue}" Content="»" IsChecked="False" />
+
+								<!-- Category Name -->
+								<c:SelectorOnFocus MinHeight="25">
+									<c:SelectorOnFocus.WhenFalse>
+										<Button Style="{StaticResource FlatButton}" Foreground="LightSlateGray" Content="{Binding Name}" />
+									</c:SelectorOnFocus.WhenFalse>
+									<c:SelectorOnFocus.WhenTrue>
+										<c:TextBoxEx Text="{Binding Name, Mode=TwoWay}" />
+									</c:SelectorOnFocus.WhenTrue>
+								</c:SelectorOnFocus>
+
+								<!-- Type -->
+								<ComboBox Style="{StaticResource FlatComboButtonBlue}" ItemsSource="{Binding Type, Converter={StaticResource EnumToList}}" SelectedItem="{Binding Type, Mode=TwoWay, Converter={StaticResource EnumToName}}" DropDownClosed="OnDropDownClosed" />
+
+								<!-- Amount -->
+								<c:SelectorOnFocus MinHeight="25">
+									<c:SelectorOnFocus.WhenFalse>
+										<Grid>
+											<Button Style="{StaticResource FlatButton}" Foreground="LightSlateGray" Content="{Binding Amount, Converter={StaticResource MillicentsToCurrency}, ConverterParameter='\{0:n2\}%'}" Visibility="{Binding Type, Converter={StaticResource DeductionTypeToAmountPercentVisible}}" />
+											<Button Style="{StaticResource FlatButton}" Foreground="LightSlateGray" Content="{Binding Amount, Converter={StaticResource MillicentsToCurrency}}" Visibility="{Binding Type, Converter={StaticResource DeductionTypeToAmountCurrencyVisible}}" />
+										</Grid>
+									</c:SelectorOnFocus.WhenFalse>
+									<c:SelectorOnFocus.WhenTrue>
+										<c:TextBoxEx Style="{StaticResource TextBoxMoney}" Text="{Binding Amount, Mode=TwoWay, Converter={StaticResource MillicentsToCurrency}, ConverterParameter='\{0:n3\}'}" />
+									</c:SelectorOnFocus.WhenTrue>
+								</c:SelectorOnFocus>
+
+								<!-- TargetAccountLabel -->
+								<!-- TargetAccount -->
+								<StackPanel Orientation="Horizontal" Visibility="{Binding Type, Converter={StaticResource DeductionTypeToTargetAccountVisible}}">
+									<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Type, Converter={StaticResource DeductionTypeToTargetAccountLabel}}" />
+									<ComboBox Style="{StaticResource FlatComboButtonBlue}" ItemsSource="{Binding TargetAccount, Converter={StaticResource AccountTypeToList}}" SelectedItem="{Binding TargetAccount, Mode=TwoWay, Converter={StaticResource AccountTypeToName}}" DropDownClosed="OnDropDownClosed" />
+								</StackPanel>
+
+							</StackPanel>
+							<StackPanel Orientation="Horizontal" Visibility="{Binding IsChecked, ElementName=x_ShowHideTaxEmempt1, Converter={StaticResource ValueIsNotNullFalseZeroEmpty}}">
+								<c:Spacer MinWidth="32" />
+								<c:Spacer MinWidth="8" />
+								<c:Spacer MinWidth="22" />
+
+								<!-- Tax Emempt -->
+								<TextBlock Style="{StaticResource CommonTextBlock}" Text="Exempt from " />
+								<CheckBox Style="{StaticResource CommonCheckBoxBlue}" IsChecked="{Binding TaxExempt.FICA, Mode=TwoWay}" Content="FICA, " />
+								<CheckBox Style="{StaticResource CommonCheckBoxBlue}" IsChecked="{Binding TaxExempt.Federal, Mode=TwoWay}" Content="Federal, " />
+								<CheckBox Style="{StaticResource CommonCheckBoxBlue}" IsChecked="{Binding TaxExempt.State, Mode=TwoWay}" Content="State, " />
+								<CheckBox Style="{StaticResource CommonCheckBoxBlue}" IsChecked="{Binding TaxExempt.Local, Mode=TwoWay}" Content="Local" />
+							</StackPanel>
+						</StackPanel>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+				<Button Content="Save" Style="{StaticResource NormalButton}" Click="OnOkClick" Margin="8" />
+				<Button Content="Cancel" Style="{StaticResource NormalButton}" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</c:DialogPanel>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B76471D0-CC2F-4FBB-ACD5-3F1958386703}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Money.Web</RootNamespace>
+    <AssemblyName>Money.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplicationList>{6567CDBA-61F3-4636-974F-2910FE83661C}|..\Money\Money.csproj|ClientBin|False</SilverlightApplicationList>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;VERSION4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;VERSION4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ServiceModel.DomainServices.Tools">
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\RIA Services - Saved 4\v1.0\Libraries\Server\Microsoft.ServiceModel.DomainServices.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.DomainServices.EntityFramework">
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\RIA Services - Saved 4\v1.0\Libraries\Server\System.ServiceModel.DomainServices.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.DomainServices.Hosting">
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\RIA Services - Saved 4\v1.0\Libraries\Server\System.ServiceModel.DomainServices.Hosting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.DomainServices.Server">
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\RIA Services - Saved 4\v1.0\Libraries\Server\System.ServiceModel.DomainServices.Server.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Index.aspx" />
+    <Content Include="Index.html" />
+    <Content Include="SilverlightBeforeUnload.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Alert.cs" />
+    <Compile Include="ClassLibrary\Compression.cs" />
+    <Compile Include="ClassLibrary\Extensions.cs" />
+    <Compile Include="ClassLibrary\RoleHelper.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="ClassLibrary\Validate.cs" />
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\UserRegistrationService.cs" />
+    <Compile Include="SqlTableProfileProvider.cs" />
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EmailTemplates\Welcome.htm" />
+    <Content Include="EmailTemplates\PasswordRecovery.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="clientaccesspolicy.xml" />
+    <Content Include="ClientBin\YinYangMoney.xap" />
+    <Content Include="Content\Income\Alimony.html" />
+    <Content Include="Content\Income\Allowances.html" />
+    <Content Include="Content\Income\BonusesCommissions.html" />
+    <Content Include="Content\Income\Business.html" />
+    <Content Include="Content\Income\ChildSupport.html" />
+    <Content Include="Content\Income\ConsultingFreelance.html" />
+    <Content Include="Content\Income\DividendsInterest.html" />
+    <Content Include="Content\Income\ExerciseStockOptions.html" />
+    <Content Include="Content\Income\Gifts.html" />
+    <Content Include="Content\Income\Inheritances.html" />
+    <Content Include="Content\Income\InsuranceBenefits.html" />
+    <Content Include="Content\Income\MilitaryPay.html" />
+    <Content Include="Content\Income\PensionsAnnuities.html" />
+    <Content Include="Content\Income\PublicAssistance.html" />
+    <Content Include="Content\Income\RealEstateSales.html" />
+    <Content Include="Content\Income\RentalProperty.html" />
+    <Content Include="Content\Income\RetirementFunds.html" />
+    <Content Include="Content\Income\ReverseMortgage.html" />
+    <Content Include="Content\Income\Royalties.html" />
+    <Content Include="Content\Income\SalariesPaychecks.html" />
+    <Content Include="Content\Income\SavingsWithdrawal.html" />
+    <Content Include="Content\Income\SelfEmployment.html" />
+    <Content Include="Content\Income\SellPersonalProperty.html" />
+    <Content Include="Content\Income\SSBenefits.html" />
+    <Content Include="Content\Income\SSIBenefits.html" />
+    <Content Include="Content\Income\StockMutualFundSales.html" />
+    <Content Include="Content\Income\TemporaryAssistance.html" />
+    <Content Include="Content\Income\Unemployment.html" />
+    <Content Include="Content\Income\VeteransBenefits.html" />
+    <Content Include="Content\Income\Winnings.html" />
+    <Content Include="Content\Income\WorkersCompensation.html" />
+    <Content Include="Content\MustBeAuthenticated.html" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="EmailTemplates\ChangePassword.htm" />
+    <Content Include="Images\unknown.png" />
+    <Content Include="Content\Buzz.html" />
+    <Content Include="Content\Calculators.html" />
+    <Content Include="Content\ContactUs.html" />
+    <Content Include="Content\FAQ.html" />
+    <Content Include="Content\Feedback.html" />
+    <Content Include="Content\MyAccount.html" />
+    <Content Include="Content\Privacy.html" />
+    <Content Include="Content\ProfileAccounts.html" />
+    <Content Include="Content\ProfileInfo.html" />
+    <Content Include="Content\ProfilePlanDates.html" />
+    <Content Include="Content\Welcome.html" />
+    <Content Include="Content\WhyUs.html" />
+    <Content Include="robots.txt" />
+    <Content Include="Silverlight.js" />
+    <Content Include="Sitemap.xml" />
+    <Content Include="Images\Spacer.gif" />
+    <Content Include="SplashScreen.js" />
+    <Content Include="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>55820</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55822/Index.aspx#/Plan/Events</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://localhost:55822/Index.aspx#/Plan/Events</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Survey xmlns="SurveySchema">
+	<Group name="grp_Intro" back="" next="Continue">
+		<Question type="noresponse" indent="0">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<a href="http://www.google.com" target="_blank">Google Apps</a>
+					<u>
+						<h3>How to Complete the Questionnaire</h3>
+					</u>
+					<pre>Dear Credit Card taking department,</pre>
+					<span style="font-size:32px">
+						<ol></ol>
+						<ol>
+							<li>My Marital Status</li>
+							<li>
+								List<ul>
+									<li>My Marital Status</li>
+									<li>My Marital Status</li>
+								</ul>
+							</li>
+							<li>My Marital Status</li>
+							<li>My Marital Status</li>
+							<li>
+								List<ul>
+									<li>My Marital Status</li>
+									<li>My Marital Status</li>
+								</ul>
+							</li>
+							<li>My Marital Status</li>
+							<li>My Marital Status</li>
+							<li>
+								List<ul>
+									<li>My Marital Status</li>
+									<li>My Marital Status</li>
+								</ul>
+							</li>
+							<li>My Marital Status</li>
+							<li>My Marital Status</li>
+							<li>
+								List<ul>
+									<li>My Marital Status</li>
+									<li>My Marital Status</li>
+								</ul>
+							</li>
+							<li>My Marital Status</li>
+							<li>My Marital Status</li>
+							<li>
+								List<ul>
+									<li>My Marital Status</li>
+									<li>My Marital Status</li>
+								</ul>
+							</li>
+							<li>My Marital Status</li>
+						</ol>
+					</span>
+					<pre>Dear Credit Card taking department,</pre>
+					<p>
+						<span style="color:Green; font-size:20px">
+							If ANY questions answered with "no", your unit is not considered compliant. To reach compliance,
+							the risk(s) must be resolved and the self-assessment must be retaken to demonstrate compliance.
+						</span>
+					</p>
+					<p>You will need to complete the questionnaire in its entirety. Please plan enough time to complete in one sitting.</p>
+					<p>
+						Sincerely,<br />The Treasury Management Team
+					</p>
+					<p>To get started with the survey, please click the Next button.</p>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Continue">
+		<Question type="noresponse">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<h3>Questionnaire Reporting</h3>
+					<h4>Organization Information</h4>
+				</div>
+			</Statement>
+		</Question>
+		<Question name="1.1" type="yesno" default="No" list="false" responselayout="vertical" requiredtext="[answer required]" image="images/airplane_32.png" indent="100">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>1.1) Are all router, switches, wireless access points, and firewall configurations secured and do they conform to documented security standards?</b>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.1state" type="state" default="MA" list="true" responselayout="vertical" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>What state do you live in?</b>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.8" list="true" type="chooseone" default="N/A" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>1.8) What was the source of the contact information?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+				<Response>N/A</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="MaritalStatus" list="true" type="chooseany" default="I am married" responselayout="vertical">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>My Marital Status</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>I am single</Response>
+				<Response>I am married</Response>
+				<Response>I am divorced</Response>
+				<Response>I am widowed</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="Your_NAME" type="text" cols="10" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>Your_NAME:</b>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="Your_Age" type="text" cols="10" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>Your_Age:</b>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_ReportingUnit" back="Back" next="Next">
+		<Question type="noresponse">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<h3>Questionnaire Reporting</h3>
+					<h4>Organization Information</h4>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question hidden="true" name="HIDDEN" type="text" cols="10" maxchars="8" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>HIDDEN:</b>
+				</div>
+			</Statement>
+		</Question>
+		<Question name="PASSWORD" type="password" cols="10" maxchars="8" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>PASSWORD:</b>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="CORPORATE_NAME" type="text" cols="40" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>CORPORATE NAME:</b>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="PHONE" default="978-555-1212" type="text" cols="40" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>PHONE:</b>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="Biz_Desc" type="text" cols="40" rows="4">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>
+						Please include a brief description of your business. Please explain your business' role in the payment flow.
+						How and in what capacity does your business store, process and/or transmit cardholder data?
+					</b>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_SecureNetwork" back="Back" next="Next">
+		<Question type="noresponse">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<h3>Build and Maintain a Secure Network</h3>
+					<h4>Requirement 1: Install and maintain a firewall configuration to protect data</h4>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.2" type="chooseany" default="N/A" list="true">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>1.2) If wireless technology is used, is the access to the network limited to authorized devices?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+				<Response>N/A</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.3" type="chooseany" default="No" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>1.3) Are you familiar with the services we provide?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.4" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>1.4) Are you in a supervisory position?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.5" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>1.5) Have you asked us in the past to process deposit corrections for you?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.6" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>1.6) Have you asked us for assistance in PeopleSoft data entry or deposit processing?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.7" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>1.7) Was it easy to find our contact information?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+				<Response>N/A</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.9" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>1.9) How fast was our response time by answering your phone call or returning your message/email inquiry?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.10" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>1.10) How polite was our staff in responding to your email/phone inquiry?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="1.NA" type="text" cols="40" rows="4">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>Please provide any explanations for this section here. (For example, please clarify N/A responses.)</b>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_MaintainPolicy" back="Back" next="Finish">
+		<Question type="noresponse">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<h3>Maintain a policy that addresses information security</h3>
+					<h4>Requirement 12: Maintain a policy that addresses information security</h4>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.1" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.1) Are information security policies, including policies for access control, application and system development, operational, network and physical security, formally documented?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.2" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.2) Are information security policies and other relevant security information disseminated to all system users (including vendors, contractors, and business partners)?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.3" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.3) Are information security policies reviewed at least once a year and updated as needed?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.4" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.4) Have the roles and responsibilities for information security been clearly defined within the company?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.5" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.5) Is there an up-to-date information security awareness and training program in place for all system users?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.6" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.6) Are employees required to sign an agreement verifying they have read and understood the security policies and procedures?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.7" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.7) Is a background investigation (such as a credit- and criminal-record check, within the limits of local law) performed on all employees with access to account numbers?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.8" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.8) Are all third parties with access to sensitive cardholder data contractually obligated to comply with card association security standards?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.9" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.9) Is a security incident response plan formally documented and disseminated to the appropriate responsible parties?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.10" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.10) Are security incidents reported to the person responsible for security investigation? </b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.11" type="chooseone" requiredtext="[answer required]">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>12.11) Is there an incident response team ready to be deployed in case of a cardholder data compromise?</b>
+				</div>
+			</Statement>
+			<Responses>
+				<Response>Yes</Response>
+				<Response>No</Response>
+			</Responses>
+		</Question>
+	</Group>
+	<Group name="grp_NameStuff" back="Back" next="Next">
+		<Question name="12.NA" type="text" cols="40" rows="4">
+			<Statement>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<b>Please provide any explanations for this section here. (For example, please clarify N/A responses.)</b>
+				</div>
+			</Statement>
+		</Question>
+	</Group>
+</Survey>

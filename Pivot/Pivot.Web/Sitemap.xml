@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- For more information, visit http://www.sitemaps.org -->
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
+	<url><loc>http://mcpivot.com/app/Home/Welcome</loc></url>
+	<url><loc>http://mcpivot.com/app/Home/My_Account</loc></url>
+
+	<url><loc>http://mcpivot.com/app/Builder/Build</loc></url>
+
+	<url><loc>http://mcpivot.com/app/Viewer/View</loc></url>
+</urlset>

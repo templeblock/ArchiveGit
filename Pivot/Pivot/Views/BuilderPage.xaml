@@ -1,0 +1,138 @@
+﻿<sdk:Page x:Class="Pivot.BuilderPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	Title="McPivot Builder" NavigationCacheMode="Required"
+	Width="680" Height="1000"
+>
+	<Grid>
+		<ScrollViewer>
+			<StackPanel MaxWidth="680" >
+				<Border Margin="10" Padding="10" CornerRadius="10" BorderBrush="CornflowerBlue" BorderThickness="2">
+					<StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<Button Style="{StaticResource FlatButtonBlue}" Content="Load a set" />
+							<Button Style="{StaticResource FlatButtonBlue}" Content="Save this set" />
+						</StackPanel>
+					</StackPanel>
+				</Border>
+
+				<Border Margin="10" Padding="10" CornerRadius="10" BorderBrush="CornflowerBlue" BorderThickness="2">
+					<StackPanel>
+						<TextBlock Text="Tables" />
+						<TextBlock Text="Personal: Master, Teams, Schools, SchoolsPlayers, HallOfFame, AllStar, Awards, AwardsShare, Salaries, Appearances" />
+						<TextBlock Text="Teams, TeamsFranchises, SeriesPost, Salaries" />
+						<TextBlock Text="Batting, BattingPost" />
+						<TextBlock Text="Pitching, PitchingPost" />
+						<TextBlock Text="Fielding, FieldingOF, FieldingPost" />
+						<TextBlock Text="Managers: Master, Teams, Managers, HOF, AwardsManagers, AwardsShareManagers" />
+						<TextBlock Text="Awards, AwardsShare, AwardsManagers, AwardsShareManagers" />
+						<TextBlock Text="HallOfFame" />
+						<TextBlock Text="Schools, SchoolsPlayers" />
+
+						<CheckBox Content="Post Season" />
+					</StackPanel>
+				</Border>
+
+				<Border Margin="10" Padding="10" CornerRadius="10" BorderBrush="CornflowerBlue" BorderThickness="2">
+					<StackPanel>
+					<TextBlock Text="Columns Available" />
+						<StackPanel Orientation="Horizontal">
+							<ListBox MaxWidth="150" MaxHeight="150" />
+							<ListBox MaxWidth="150" MaxHeight="150" />
+							<ListBox MaxWidth="150" MaxHeight="150" />
+							<ListBox MaxWidth="150" MaxHeight="150" />
+						</StackPanel>
+					</StackPanel>
+				</Border>
+
+				<Border Margin="10" Padding="10" CornerRadius="10" BorderBrush="CornflowerBlue" BorderThickness="2">
+					<StackPanel>
+						<TextBlock Text="Label2" />
+					</StackPanel>
+				</Border>
+
+				<Border Margin="10" Padding="10" CornerRadius="10" BorderBrush="CornflowerBlue" BorderThickness="2">
+					<StackPanel>
+						<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+							<Image Source="../Images/Baseball64.png" Stretch="None" HorizontalAlignment="Left" Margin="0,0,5,0" />
+							<c:Spacer MinWidth="10" />
+							<c:HtmlTextBlock FontSize="18" Foreground="Goldenrod" Html="[i][b]Accounts and Starting Balances[/b][/i]" />
+						</StackPanel>
+						<c:StretchPanel Orientation="Horizontal" VerticalAlignment="Center">
+							<sdk:Label Content="Collection Name" c:StretchPanel.Length="150" />
+							<c:Spacer MinWidth="10" />
+							<sdk:Label Content="Collection Icon" c:StretchPanel.Length="180" />
+							<c:Spacer MinWidth="10" />
+							<sdk:Label Content="Images Location" c:StretchPanel.Length="120" />
+							<c:Spacer MinWidth="10" />
+							<sdk:Label Content="Hidden?" c:StretchPanel.Length="120" />
+						</c:StretchPanel>
+						<c:StretchPanel Orientation="Horizontal" VerticalAlignment="Center">
+							<sdk:Label c:StretchPanel.Length="150" />
+							<c:Spacer MinWidth="10" />
+							<c:TextBoxEx Width="180" />
+							<c:Spacer MinWidth="10" />
+							<c:TextBoxEx Width="120" />
+							<c:Spacer MinWidth="10" />
+							<CheckBox Content="" IsChecked="True" />
+						</c:StretchPanel>
+					</StackPanel>
+				</Border>
+
+				<Border Margin="10" Padding="10" CornerRadius="10" BorderBrush="CornflowerBlue" BorderThickness="2">
+					<StackPanel>
+						<TextBlock Text="Collection Info" />
+						<c:StretchPanel Orientation="Horizontal">
+							<sdk:Label Content="Collection Name" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+							<c:Spacer MinWidth="10" />
+							<c:TextBoxEx Width="120" />
+						</c:StretchPanel>
+						<c:StretchPanel Orientation="Horizontal">
+							<sdk:Label Content="Collection Icon" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+							<c:Spacer MinWidth="10" />
+							<c:TextBoxEx Width="120" />
+						</c:StretchPanel>
+						<c:StretchPanel Orientation="Horizontal">
+							<sdk:Label Content="Images Location" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+							<c:Spacer MinWidth="10" />
+							<c:TextBoxEx Width="120" />
+						</c:StretchPanel>
+					</StackPanel>
+				</Border>
+
+				<Border Margin="10" Padding="10" CornerRadius="10" BorderBrush="CornflowerBlue" BorderThickness="2">
+					<StackPanel>
+						<TextBlock Text="Item Info" />
+						<TextBlock Text="Name format" />
+						<TextBlock Text="Link format" />
+						<TextBlock Text="Description format" />
+						<TextBlock Text="Image URL format" />
+
+					</StackPanel>
+				</Border>
+
+				<Border Margin="10" Padding="10" CornerRadius="10" BorderBrush="CornflowerBlue" BorderThickness="2">
+					<StackPanel>
+						<TextBlock Text="Top 10 results" />
+						<TextBlock Text="from 9999 total" />
+						<Button Style="{StaticResource FlatButtonBlue}" Content="Refresh" />
+
+					</StackPanel>
+				</Border>
+
+				<Border Margin="10" Padding="10" CornerRadius="10" BorderBrush="CornflowerBlue" BorderThickness="2">
+					<StackPanel>
+						<TextBlock Text="Build Options" />
+						<Button Style="{StaticResource FlatButtonBlue}" Content="Build" />
+
+					</StackPanel>
+				</Border>
+
+
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</sdk:Page>

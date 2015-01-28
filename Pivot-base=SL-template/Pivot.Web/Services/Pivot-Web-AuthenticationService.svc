@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Service="Pivot.Web.AuthenticationService" Factory="Pivot.Web.AuthenticationServiceHostFactory" %>

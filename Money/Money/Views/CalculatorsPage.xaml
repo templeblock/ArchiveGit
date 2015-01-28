@@ -1,0 +1,122 @@
+﻿<sdk:Page x:Class="Money.CalculatorsPage" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	Title="YinYangMoney Financial Calculators" NavigationCacheMode="Required"
+>
+	<Grid>
+		<ScrollViewer>
+			<c:StretchPanel Width="750">
+				<c:Spacer MinHeight="20" />
+				<c:HtmlTextBlock FontSize="18" Html="[span style='color:Green; font-weight:bold; font-size:167%']Financial Calculators[/span]" />
+				<c:Spacer MinHeight="20" />
+				<c:StretchPanel Orientation="Horizontal">
+					<StackPanel Width="450">
+						<c:HtmlTextBlock FontSize="18" Html="We have some of the best financial calculators on the web.  Use them to finesse your monthly budget, compare borrowing costs and plan for your future.  Give them a try!" />
+						<c:Spacer MinHeight="20" />
+						<Border BorderBrush="MediumSeaGreen" BorderThickness="2" Background="Beige" VerticalAlignment="Center" Padding="6" CornerRadius="9">
+							<StackPanel>
+								<TextBlock x:Name="x_CalculationTitle" TextWrapping="Wrap" FontSize="24" Foreground="Green" />
+								<c:Spacer MinHeight="10" />
+								<c:StretchPanel x:Name="x_RatePanel" Orientation="Horizontal" Margin="0,4,0,4">
+									<TextBlock TextAlignment="Right" x:Name="x_LabelRate" Width="170" />
+									<RadioButton GroupName="Targets" TabIndex="-1" Width="20" Margin="10,0,10,0" x:Name="x_RateTarget" />
+									<c:Spacer MinWidth="15" />
+									<c:TextBoxFocusSelect Width="60" x:Name="x_Rate" />
+									<TextBlock Text="  %" />
+								</c:StretchPanel>
+								<c:StretchPanel x:Name="x_PresentValuePanel" Orientation="Horizontal" Margin="0,4,0,4">
+									<TextBlock TextAlignment="Right" x:Name="x_LabelPresentValue" Width="170" />
+									<RadioButton GroupName="Targets" TabIndex="-1" Width="20" Margin="10,0,10,0" x:Name="x_PresentValueTarget" />
+									<TextBlock Text="$" Width="15" />
+									<c:TextBoxFocusSelect Width="120" x:Name="x_PresentValue" />
+								</c:StretchPanel>
+								<c:StretchPanel x:Name="x_FutureValuePanel" Orientation="Horizontal" Margin="0,4,0,4">
+									<TextBlock TextAlignment="Right" x:Name="x_LabelFutureValue" Width="170" />
+									<RadioButton GroupName="Targets" TabIndex="-1" Width="20" Margin="10,0,10,0" x:Name="x_FutureValueTarget" />
+									<TextBlock Text="$" Width="15" />
+									<c:TextBoxFocusSelect Width="120" x:Name="x_FutureValue" />
+								</c:StretchPanel>
+								<c:StretchPanel x:Name="x_PaymentPanel" Orientation="Horizontal" Margin="0,4,0,4">
+									<TextBlock TextAlignment="Right" x:Name="x_LabelPayment" Width="170" />
+									<RadioButton GroupName="Targets" TabIndex="-1" Width="20" Margin="10,0,10,0" x:Name="x_PaymentTarget" />
+									<TextBlock Text="$" Width="15" />
+									<c:TextBoxFocusSelect Width="120" x:Name="x_Payment" />
+									<ComboBox x:Name="x_PaymentFrequency" Style="{StaticResource FlatComboBoxBlue}" Width="70" Tag="Select">
+										<ComboBoxItem Content="Daily" />
+										<ComboBoxItem Content="Monthly" />
+										<ComboBoxItem Content="Annually" />
+										<ComboBoxItem Content="Semi-Annually" />
+										<ComboBoxItem Content="Quarterly" />
+									</ComboBox>
+								</c:StretchPanel>
+								<c:StretchPanel x:Name="x_PeriodsPanel" Orientation="Horizontal" Margin="0,4,0,4">
+									<TextBlock TextAlignment="Right" x:Name="x_LabelPeriods" Width="170" />
+									<RadioButton GroupName="Targets" TabIndex="-1" Width="20" Margin="10,0,10,0" x:Name="x_PeriodsTarget" />
+									<c:Spacer MinWidth="15" />
+									<c:TextBoxFocusSelect Width="120" x:Name="x_Periods" />
+									<ComboBox x:Name="x_PeriodsFrequency" Style="{StaticResource FlatComboBoxBlue}" Width="70" Tag="Select">
+										<ComboBoxItem Content="Days" />
+										<ComboBoxItem Content="Months" />
+										<ComboBoxItem Content="Years" />
+									</ComboBox>
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="0,14,0,14" HorizontalAlignment="Center">
+									<Button x:Name="x_Compute" Style="{StaticResource NormalButton}" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="0,4,0,4">
+									<TextBlock TextAlignment="Right" x:Name="x_LabelTotalPayments" Width="170" Text="Total Payments" />
+									<c:Spacer MinWidth="40" />
+									<TextBlock Text="$" Width="15" />
+									<TextBlock Width="120" x:Name="x_TotalPayments" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="0,4,0,4">
+									<TextBlock TextAlignment="Right" x:Name="x_LabelTotalInterest" Width="170" Text="Total Interest" />
+									<c:Spacer MinWidth="40" />
+									<TextBlock Text="$" Width="15" />
+									<TextBlock Width="120" x:Name="x_TotalInterest" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="0,14,0,4">
+									<TextBlock Text="Advanced:" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="0,4,0,4">
+									<TextBlock TextAlignment="Right" x:Name="x_LabelCompoundingFrequency" Width="170" Text="Compounding frequency" />
+									<c:Spacer MinWidth="40" />
+									<c:Spacer MinWidth="15" />
+									<ComboBox x:Name="x_CompoundingFrequency" Style="{StaticResource FlatComboBoxBlue}" Width="70" Tag="Select">
+										<ComboBoxItem Content="Daily" />
+										<ComboBoxItem Content="Monthly" />
+										<ComboBoxItem Content="Annually" />
+										<ComboBoxItem Content="Semi-Annually" />
+										<ComboBoxItem Content="Quarterly" />
+									</ComboBox>
+								</c:StretchPanel>
+							</StackPanel>
+						</Border>
+					</StackPanel>
+					<c:Spacer MinWidth="20" />
+					<ScrollViewer Height="500" VerticalScrollBarVisibility="Visible">
+						<ItemsControl x:Name="x_CalculateItems" ItemsSource="{Binding Items}" IsTabStop="False">
+							<ItemsControl.ItemsPanel>
+								<ItemsPanelTemplate>
+									<StackPanel />
+								</ItemsPanelTemplate>
+							</ItemsControl.ItemsPanel>
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<StackPanel>
+										<TextBlock Text="{Binding Title}" />
+										<Button Style="{StaticResource FlatButtonBlue}" Content="{Binding SubTitle}" Click="OnCalculateItemClick" />
+										<c:Spacer MinHeight="5" />
+									</StackPanel>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</ScrollViewer>
+				</c:StretchPanel>
+				<c:Spacer MinHeight="200" />
+			</c:StretchPanel>
+		</ScrollViewer>
+	</Grid>
+</sdk:Page>

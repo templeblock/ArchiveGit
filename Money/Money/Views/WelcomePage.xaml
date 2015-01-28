@@ -1,0 +1,17 @@
+﻿<sdk:Page x:Class="Money.WelcomePage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	Title="YinYangMoney Welcome" NavigationCacheMode="Required"
+>
+	<Grid>
+		<ScrollViewer>
+			<StackPanel MaxWidth="680">
+				<c:Spacer MinHeight="20" />
+				<c:HtmlTextBlock HtmlUri="Content/Welcome.html" />
+				<c:Spacer MinHeight="200" />
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</sdk:Page>

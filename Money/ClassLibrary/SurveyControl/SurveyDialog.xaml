@@ -1,0 +1,58 @@
+﻿<c:DialogPanel x:Class="ClassLibrary.SurveyDialog"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary" 
+	EnterKey="OnNextClick"
+	EscapeKey="OnCancelClick"
+>
+	<!--
+	-->
+	<ContentControl.Resources>
+		<Style x:Key="SurveyStatement" TargetType="TextBlock" BasedOn="{StaticResource CommonTextBlock}">
+			<Setter Property="Margin" Value="0,8,0,8" />
+			<Setter Property="MaxWidth" Value="700" />
+			<Setter Property="Foreground" Value="CornflowerBlue" />
+			<Setter Property="TextAlignment" Value="Left" />
+			<Setter Property="HorizontalAlignment" Value="Stretch" />
+			<Setter Property="VerticalAlignment" Value="Stretch" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+		</Style>
+		<Style x:Key="SurveyListBox" TargetType="ListBox" BasedOn="{StaticResource CommonListBox}">
+		</Style>
+		<Style x:Key="SurveyListBoxItem" TargetType="ListBoxItem" BasedOn="{StaticResource CommonListBoxItem}">
+		</Style>
+		<Style x:Key="SurveyComboBox" TargetType="ComboBox" BasedOn="{StaticResource CommonComboBox}">
+		</Style>
+		<Style x:Key="SurveyComboBoxItem" TargetType="ComboBoxItem" BasedOn="{StaticResource CommonComboBoxItem}">
+		</Style>
+		<Style x:Key="SurveyTextBlock" TargetType="TextBlock" BasedOn="{StaticResource CommonTextBlock}">
+		</Style>
+		<Style x:Key="SurveyTextBox" TargetType="TextBox" BasedOn="{StaticResource CommonTextBox}">
+		</Style>
+		<Style x:Key="SurveyCheckBox" TargetType="CheckBox" BasedOn="{StaticResource CommonCheckBox}">
+		</Style>
+		<Style x:Key="SurveyRadioButton" TargetType="RadioButton" BasedOn="{StaticResource CommonRadioButton}">
+		</Style>
+		<Style x:Key="SurveyDatePicker" TargetType="sdk:DatePicker" BasedOn="{StaticResource CommonDatePicker}">
+		</Style>
+		<Style x:Key="SurveyPasswordBox" TargetType="PasswordBox" BasedOn="{StaticResource CommonPasswordBox}">
+		</Style>
+		<Style x:Key="SurveyImage" TargetType="Image" BasedOn="{StaticResource CommonImage}">
+		</Style>
+	</ContentControl.Resources>
+	<Grid>
+		<Rectangle Style="{StaticResource DialogRectangleStyle}" />
+		<StackPanel Margin="18">
+			<TextBlock Style="{StaticResource DialogTitleStyle}" x:Name="x_Title" Text="(Title)" />
+			<c:Spacer MinHeight="10" />
+			<StackPanel x:Name="x_SurveyPanel" Margin="0,8,0,8" Width="784" Height="400" />
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal" >
+				<Button x:Name="x_Back" Click="OnBackClick" Content="Back" Margin="8" />
+				<Button x:Name="x_Next" Click="OnNextClick" Content="Next" Margin="8" />
+				<Button x:Name="x_Cancel" Click="OnCancelClick" Content="Cancel" Margin="8" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</c:DialogPanel>

@@ -1,0 +1,10 @@
+# For more information, see http://www.robotstxt.org/.
+
+# We only need to disallow folders that some other page points to
+# Otherwise, the crawlers don't know the contents of the folders
+
+User-agent: *
+#Disallow: /ClientBin/
+
+# Sitemap files
+Sitemap: http://McPivot.com.com/Sitemap.xml

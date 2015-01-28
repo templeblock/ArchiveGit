@@ -1,0 +1,36 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VxCharts", "VxCharts\VxCharts.csproj", "{F33FF838-206D-474A-BB2B-D77CF1690392}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VxCharts.Web", "VxCharts.Web\VxCharts.Web.csproj", "{6BE2EF38-8D18-4E03-93A3-28A89CB89749}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VxChartsLibrary", "VxChartsLibrary\VxChartsLibrary.csproj", "{C62DF9FC-68F4-452A-B84F-B731CADE4B81}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F33FF838-206D-474A-BB2B-D77CF1690392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33FF838-206D-474A-BB2B-D77CF1690392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33FF838-206D-474A-BB2B-D77CF1690392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33FF838-206D-474A-BB2B-D77CF1690392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BE2EF38-8D18-4E03-93A3-28A89CB89749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BE2EF38-8D18-4E03-93A3-28A89CB89749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BE2EF38-8D18-4E03-93A3-28A89CB89749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BE2EF38-8D18-4E03-93A3-28A89CB89749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C62DF9FC-68F4-452A-B84F-B731CADE4B81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C62DF9FC-68F4-452A-B84F-B731CADE4B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C62DF9FC-68F4-452A-B84F-B731CADE4B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C62DF9FC-68F4-452A-B84F-B731CADE4B81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

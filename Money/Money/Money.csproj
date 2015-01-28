@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6567CDBA-61F3-4636-974F-2910FE83661C}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Money</RootNamespace>
+    <AssemblyName>Money</AssemblyName>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>YinYangMoney.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Money.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>false</ThrowErrorsInValidation>
+    <SignAssembly>false</SignAssembly>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <LinkedServerProject>..\Money.Web\Money.Web.csproj</LinkedServerProject>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <DelaySign>false</DelaySign>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;VERSION4</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>
+    </NoWarn>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;VERSION4</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Expression\Blend\Silverlight\v4.0\Libraries\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl">
+      <HintPath>..\..\..\Program Files\Bing Maps Silverlight Control\V1\Libraries\Microsoft.Maps.MapControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.Common">
+      <HintPath>..\..\..\Program Files\Bing Maps Silverlight Control\V1\Libraries\Microsoft.Maps.MapControl.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WebAnalytics" />
+    <Reference Include="Microsoft.WebAnalytics.Behaviors" />
+    <Reference Include="Microsoft.WebAnalytics.Navigation" />
+    <Reference Include="Google.WebAnalytics" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.Composition.Initialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Json, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\RIA Services - Saved 4\v1.0\Libraries\Silverlight\System.ServiceModel.DomainServices.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.DomainServices.Client.Web, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\RIA Services - Saved 4\v1.0\Libraries\Silverlight\System.ServiceModel.DomainServices.Client.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ServiceModel.Web.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.Data.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DomainServices, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\RIA Services - Saved 4\v1.0\Libraries\Silverlight\System.Windows.Controls.DomainServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Expression\Blend\Silverlight\v4.0\Libraries\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomNavigationContentLoader.cs" />
+    <Compile Include="CustomUriMapper.cs" />
+    <Compile Include="Models\Investment.cs" />
+    <Compile Include="Portfolio\EventWithDataArgs.cs" />
+    <Compile Include="Portfolio\InvestmentHistoryDataQuerier.cs" />
+    <Compile Include="Portfolio\InvestmentDataQuerier.cs" />
+    <Compile Include="Portfolio\ProxyUrl.cs" />
+    <Compile Include="Portfolio\InvestmentHistoryData.cs" />
+    <Compile Include="Portfolio\InvestmentData.cs" />
+    <Compile Include="Portfolio\StockDataEventHandler.cs" />
+    <Compile Include="Resx\ResxResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResxResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DBService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MustBeAuthenticatedControl.xaml.cs">
+      <DependentUpon>MustBeAuthenticatedControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NetWorthPanels.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AgeControl.xaml.cs">
+      <DependentUpon>AgeControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analytics.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AuthenticationDialog.xaml.cs">
+      <DependentUpon>AuthenticationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoriesPanels.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChartExtender.cs" />
+    <Compile Include="DatabasePackageDialog.xaml.cs">
+      <DependentUpon>DatabasePackageDialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBServiceBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DebugFunctionality.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DebugUserData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\IncomeAddPanel.cs" />
+    <Compile Include="IncomeDialog.xaml.cs">
+      <DependentUpon>IncomeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DragSourcePanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EditPackageDialog.xaml.cs">
+      <DependentUpon>EditPackageDialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FeedbackDialog.xaml.cs">
+      <DependentUpon>FeedbackDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommonDataGridPanels.cs" />
+    <Compile Include="ProfileDate.cs" />
+    <Compile Include="RiaServicesHelper.cs" />
+    <Compile Include="ViewPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\CommonChartData.cs" />
+    <Compile Include="LegendDialog.xaml.cs">
+      <DependentUpon>LegendDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogoControl.xaml.cs">
+      <DependentUpon>LogoControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommunityMapPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Account.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Balance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Deduction.cs" />
+    <Compile Include="Models\Document.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Income.cs" />
+    <Compile Include="Models\Model.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Package.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Profile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Tax.cs" />
+    <Compile Include="Models\TaxTable.cs" />
+    <Compile Include="Models\Transaction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NavigationHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenSaveDialog.xaml.cs">
+      <DependentUpon>OpenSaveDialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SpendingPackageDialogBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SpendingPackagesPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SpendingPackageTree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProfileCode.cs" />
+    <Compile Include="ProfileDateComboMenu.cs" />
+    <Compile Include="Resx\ResxResources.resx.cs" />
+    <Compile Include="Views\CommonChartPanels.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProfileDateControl.xaml.cs">
+      <DependentUpon>ProfileDateControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DBServiceQueries.cs" />
+    <Compile Include="TimelineControl.xaml.cs">
+      <DependentUpon>TimelineControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserServices.cs" />
+    <Compile Include="Views\CalculatorsPage.xaml.cs">
+      <DependentUpon>CalculatorsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommunityPage.xaml.cs">
+      <DependentUpon>CommunityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BuzzPage.xaml.cs">
+      <DependentUpon>BuzzPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactUsPage.xaml.cs">
+      <DependentUpon>ContactUsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FAQPage.xaml.cs">
+      <DependentUpon>FAQPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyAccountPage.xaml.cs">
+      <DependentUpon>MyAccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrivacyPolicyPage.xaml.cs">
+      <DependentUpon>PrivacyPolicyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WhyUsPage.xaml.cs">
+      <DependentUpon>WhyUsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvestmentsPage.xaml.cs">
+      <DependentUpon>InvestmentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoriesPage.xaml.cs">
+      <DependentUpon>CategoriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DebtPage.xaml.cs">
+      <DependentUpon>DebtPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IncomePage.xaml.cs">
+      <DependentUpon>IncomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NetWorthPage.xaml.cs">
+      <DependentUpon>NetWorthPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpendingPage.xaml.cs">
+      <DependentUpon>SpendingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfileAccountsPage.xaml.cs">
+      <DependentUpon>ProfileAccountsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfileInfoPage.xaml.cs">
+      <DependentUpon>ProfileInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlanDatesPage.xaml.cs">
+      <DependentUpon>PlanDatesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaitingWindow.xaml.cs">
+      <DependentUpon>WaitingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="AgeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Xpression Blend Test File.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ChartStyles.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Converters.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Resources.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Styles.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ZuneLike.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AuthenticationDialog.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DatabasePackageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IncomeDialog.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditPackageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FeedbackDialog.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LegendDialog.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LogoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OpenSaveDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProfileDateControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimelineControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CalculatorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CommunityPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BuzzPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContactUsPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FAQPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MustBeAuthenticatedControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MyAccountPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrivacyPolicyPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WhyUsPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InvestmentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CategoriesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DebtPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\IncomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NetWorthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SpendingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ProfileAccountsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ProfileInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PlanDatesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WaitingWindow.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WelcomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+    <Content Include="..\Money.Web\Content\Buzz.html">
+      <Link>Content\Buzz.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\Calculators.html">
+      <Link>Content\Calculators.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\ContactUs.html">
+      <Link>Content\ContactUs.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\FAQ.html">
+      <Link>Content\FAQ.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\Feedback.html">
+      <Link>Content\Feedback.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\MustBeAuthenticated.html">
+      <Link>Content\MustBeAuthenticated.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\MyAccount.html">
+      <Link>Content\MyAccount.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\Privacy.html">
+      <Link>Content\Privacy.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\ProfileAccounts.html">
+      <Link>Content\ProfileAccounts.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\ProfileInfo.html">
+      <Link>Content\ProfileInfo.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\ProfilePlanDates.html">
+      <Link>Content\ProfilePlanDates.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\Welcome.html">
+      <Link>Content\Welcome.html</Link>
+    </Content>
+    <Content Include="..\Money.Web\Content\WhyUs.html">
+      <Link>Content\WhyUs.html</Link>
+    </Content>
+    <Content Include="Content\Survey.xml" />
+    <None Include="Service References\DBService\configuration91.svcinfo" />
+    <None Include="Service References\DBService\configuration.svcinfo" />
+    <None Include="Service References\DBService\DBService1.wsdl" />
+    <None Include="Service References\DBService\DBService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DBService\Money.DBService.GetDeflateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DBService\Money.DBService.GetGZipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DBService\Money.DBService.GetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DBService\Money.DBService.GetSchemaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DBService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\DBService\DBService1.disco" />
+    <Content Include="ServiceReferences.ClientConfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{67A1142C-668F-4475-B8C0-52D7FC510682}</Project>
+      <Name>ClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Clouds.jpg" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Dependents.png" />
+    <Resource Include="Images\Edit.png" />
+    <Resource Include="Images\GoldHeader.jpg" />
+    <Resource Include="Images\GreenHeader.jpg" />
+    <Resource Include="Images\Insert.png" />
+    <Resource Include="Images\Me.png" />
+    <Resource Include="Images\Search.png" />
+    <Resource Include="Images\SearchStop.png" />
+    <Resource Include="Images\Spouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AppIcon064.png" />
+    <Resource Include="Images\Income.png" />
+    <Resource Include="Images\Calendar.png" />
+    <Resource Include="Images\Checkbook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resx\ResxResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResxResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DBService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>rem if /I "$(ConfigurationName)" == "Release" call "C:\My Projects\Money\Obfuscate.bat"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

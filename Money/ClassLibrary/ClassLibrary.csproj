@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67A1142C-668F-4475-B8C0-52D7FC510682}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClassLibrary</RootNamespace>
+    <AssemblyName>ClassLibrary</AssemblyName>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>false</ThrowErrorsInValidation>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;VERSION4</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;VERSION4</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animation.cs" />
+    <Compile Include="ApplicationEx.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="AssemblySource.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="Compression.cs" />
+    <Compile Include="ContextMenuText\ContextMenuBase.cs" />
+    <Compile Include="ContextMenuText\ContextMenuText.cs" />
+    <Compile Include="CsvReader.cs" />
+    <Compile Include="DeepSea\ObfuscationAttributes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmitProxy.cs" />
+    <Compile Include="ExtensionsForControls.cs" />
+    <Compile Include="GridUtils.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="IonicZlib\Crc32.cs" />
+    <Compile Include="IonicZlib\Deflate.cs" />
+    <Compile Include="IonicZlib\DeflateStream.cs" />
+    <Compile Include="IonicZlib\GZipStream.cs" />
+    <Compile Include="IonicZlib\Inflate.cs" />
+    <Compile Include="IonicZlib\InfTree.cs" />
+    <Compile Include="IonicZlib\ParallelDeflateOutputStream.cs" />
+    <Compile Include="IonicZlib\Tree.cs" />
+    <Compile Include="IonicZlib\Zlib.cs" />
+    <Compile Include="IonicZlib\ZlibBaseStream.cs" />
+    <Compile Include="IonicZlib\ZlibCodec.cs" />
+    <Compile Include="IonicZlib\ZlibConstants.cs" />
+    <Compile Include="IonicZlib\ZlibStream.cs" />
+    <Compile Include="MenuButton\MenuButton.cs" />
+    <Compile Include="ObservableCollectionSorted.cs" />
+    <Compile Include="QueryDesigner\DbHelper.cs" />
+    <Compile Include="QueryDesigner\QueryBuilder.cs" />
+    <Compile Include="QueryDesigner\QueryField.cs" />
+    <Compile Include="RichTextBlock\RichTextBlock.cs" />
+    <Compile Include="BrowserScreenInfo.cs" />
+    <Compile Include="Clone.cs" />
+    <Compile Include="ColorFromString.cs" />
+    <Compile Include="StretchPanel.cs" />
+    <Compile Include="Financial.cs" />
+    <Compile Include="HtmlTextBlock\HtmlTextBlock.cs" />
+    <Compile Include="StringOf.cs" />
+    <Compile Include="TiledBackground.cs" />
+    <Compile Include="TypeNameExtension.cs" />
+    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="GridEx.cs" />
+    <Compile Include="Spacer.cs" />
+    <Compile Include="Selector.cs" />
+    <Compile Include="TextBoxEx.cs" />
+    <Compile Include="ValueConverters.cs" />
+    <Compile Include="Cookie.cs" />
+    <Compile Include="FileInfoEx.cs" />
+    <Compile Include="IsolatedFile.cs" />
+    <Compile Include="DragDrop.cs" />
+    <Compile Include="JulianDate.cs" />
+    <Compile Include="GeoAddress.cs" />
+    <Compile Include="Extensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MD5.cs" />
+    <Compile Include="ResourceFile.cs" />
+    <Compile Include="Serializer.cs" />
+    <Compile Include="DialogPanel.cs" />
+    <Compile Include="MessageBoxDialog.xaml.cs">
+      <DependentUpon>MessageBoxDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BackgroundTask.cs" />
+    <Compile Include="WeakEventHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MenuButton\MenuButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="MessageBoxDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RichTextBlock\RichTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BandedStackPanel.cs" />
+    <Compile Include="ContentScaler.xaml.cs">
+      <DependentUpon>ContentScaler.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentScalerPresenter.cs" />
+    <Compile Include="HtmlTextBlock\CssParser.cs" />
+    <Compile Include="CustomSlider.cs" />
+    <Compile Include="ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlTextBlock\HtmlParser.cs" />
+    <Compile Include="HtmlPageInfo.cs" />
+    <Compile Include="IntBase.cs" />
+    <Compile Include="MouseButtonDoubleClick.cs" />
+    <Compile Include="MouseWheelProps.cs" />
+    <Compile Include="PageMethodInvoker.cs" />
+    <Compile Include="Pair.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="RegexHelper.cs" />
+    <Compile Include="PolynomialFit.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Spline.cs" />
+    <Compile Include="TransformAnimationBase.cs" />
+    <Compile Include="UriHelper.cs" />
+    <Compile Include="ClientRequestProxy.cs" />
+    <Resource Include="Images\MessageBoxError.png" />
+    <Resource Include="Images\MessageBoxWarning.png" />
+    <Resource Include="Images\MessageBoxInfo.png" />
+    <Resource Include="Images\MessageBoxQuestion.png" />
+    <Resource Include="ContextMenuText\Images\Copy.png" />
+    <Resource Include="ContextMenuText\Images\Cut.png" />
+    <Resource Include="ContextMenuText\Images\Delete.png" />
+    <Resource Include="ContextMenuText\Images\Paste.png" />
+    <Resource Include="ContextMenuText\Images\Print.png" />
+    <Resource Include="ContextMenuText\Images\SelectAll.png" />
+    <Content Include="IonicZlib\IonicZlib.csproj" />
+    <Content Include="IonicZlib\IonicZlib.csproj.user" />
+    <Content Include="IonicZlib\LICENSE.txt" />
+    <Content Include="ServiceReferences.ClientConfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ContentScaler.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ErrorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

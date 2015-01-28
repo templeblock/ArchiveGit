@@ -1,0 +1,211 @@
+﻿<c:DialogPanel x:Class="Money.AuthenticationDialog"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	EnterKey="OnEnterKeyDown"
+	EscapeKey="OnCancelClick"
+>
+	<!--
+	-->
+	<Grid DataContext="{Binding UserServices.UserContext}">
+		<Rectangle Style="{StaticResource DialogRectangleStyle}" />
+		<!-- The Sign in dialog panel -->
+		<StackPanel x:Name="x_SignInPanel" Width="400" Margin="18" Visibility="Visible">
+			<c:GridEx Columns="Auto,*">
+				<TextBlock Grid.Column="0" Style="{StaticResource DialogTitleStyle}" Text="Sign in to YinYangMoney" />
+				<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+					<Button Style="{StaticResource FlatButtonBlue}" Content="Forgot your password?" Click="OnSwitchToRecoverPanelClick" />
+				</StackPanel>
+			</c:GridEx>
+			<c:Spacer MinHeight="10" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Username:" Width="100"/>
+				<c:TextBoxEx x:Name="x_SignInUserName" Width="160" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Password:" Width="100" />
+				<PasswordBox x:Name="x_SignInPassword" Width="160" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock x:Name="x_SignInErrorStatus" Visibility="Collapsed" TextWrapping="Wrap" Foreground="Red" MaxWidth="364" />
+			</StackPanel>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal">
+				<c:Spacer MinWidth="92" />
+				<Button x:Name="x_Signin" Style="{StaticResource NormalButton}" Content="Sign in" Click="OnSigninClick" Margin="8" />
+				<Button x:Name="x_Cancel" Style="{StaticResource NormalButton}" Content="Cancel" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Need an account? " Foreground="DarkGray" />
+				<Button Style="{StaticResource FlatButtonBlue}" Content="Register now! " Click="OnSwitchToRegisterPanelClick" />
+				<TextBlock Text="It's quick, easy and free." Foreground="DarkGray" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Can't remember your sign in info?" Foreground="DarkGray" />
+				<Button Style="{StaticResource FlatButtonBlue}" Content="Recover it!" Click="OnSwitchToRecoverPanelClick" />
+			</StackPanel>
+		</StackPanel>
+		<!-- The Register dialog panel -->
+		<StackPanel x:Name="x_RegisterPanel" Width="400" Margin="18" Visibility="Visible" d:IsHidden="True">
+			<c:GridEx Columns="Auto,*">
+				<TextBlock Grid.Column="0" Style="{StaticResource DialogTitleStyle}" Text="Register a new account" />
+				<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+					<Button Style="{StaticResource FlatButtonBlue}" Content="Forgot your password?" Click="OnSwitchToRecoverPanelClick" />
+				</StackPanel>
+			</c:GridEx>
+			<c:Spacer MinHeight="10" />
+			<TextBlock Text="All we need is a username, password, and email address." Foreground="DarkGray" />
+			<TextBlock Text="It's free!" Foreground="DarkGray" />
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Username:" Width="100" />
+				<c:TextBoxEx x:Name="x_RegisterUserName" Width="160" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Password:" Width="100" />
+				<PasswordBox x:Name="x_RegisterPassword" Width="160" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Email Address:" Width="100" />
+				<c:TextBoxEx x:Name="x_RegisterEmail" Width="240" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<CheckBox x:Name="x_OptInUpdates" Content="Email me about YinYangMoney updates" IsChecked="True" />
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock x:Name="x_RegisterErrorStatus" Visibility="Collapsed" TextWrapping="Wrap" Foreground="Red" MaxWidth="364" />
+			</StackPanel>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal">
+				<c:Spacer MinWidth="92" />
+				<Button x:Name="x_Register" Style="{StaticResource NormalButton}" Content="Register!" Click="OnRegisterClick" Margin="8" />
+				<Button x:Name="x_RegisterCancel" Style="{StaticResource NormalButton}" Content="Cancel" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Already have an account? " Foreground="DarkGray" />
+				<Button Style="{StaticResource FlatButtonBlue}" Content="Sign in!" Click="OnSwitchToSignInPanelClick" />
+			</StackPanel>
+		</StackPanel>
+		<!-- The Recover dialog panel -->
+		<StackPanel x:Name="x_RecoverPanel" Width="400" Margin="18" Visibility="Visible" d:IsHidden="True">
+			<c:GridEx Columns="Auto,*">
+				<TextBlock Grid.Column="0" Style="{StaticResource DialogTitleStyle}" Text="Recover your sign in info" />
+				<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+					<Button Style="{StaticResource FlatButtonBlue}" Content="Sign in!" Click="OnSwitchToSignInPanelClick" />
+				</StackPanel>
+			</c:GridEx>
+			<c:Spacer MinHeight="10" />
+			<TextBlock Text="To recover your sign in info, just enter the email address you used to register with us.  We will immediately send you an email with instructions on how to reset your password and sign in." Foreground="DarkGray" TextWrapping="Wrap" />
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Email Address:" Width="100" />
+				<c:TextBoxEx x:Name="x_RecoverEmail" Width="240" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock x:Name="x_RecoverErrorStatus" Visibility="Collapsed" TextWrapping="Wrap" Foreground="Red" MaxWidth="364" />
+			</StackPanel>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal">
+				<c:Spacer MinWidth="92" />
+				<Button x:Name="x_Recover" Style="{StaticResource NormalButton}" Content="Send me a recovery email" Click="OnRecoverClick" Width="Auto" Margin="8" />
+				<Button x:Name="x_RecoverCancel" Style="{StaticResource NormalButton}" Content="Cancel" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Can't remember the email address?" Foreground="DarkGray" />
+				<Button Style="{StaticResource FlatButtonBlue}" Content="Register again." Click="OnSwitchToRegisterPanelClick" />
+			</StackPanel>
+		</StackPanel>
+		<!-- The ResetPassword dialog panel -->
+		<StackPanel x:Name="x_ResetPasswordPanel" Width="400" Margin="18" Visibility="Visible" d:IsHidden="True">
+			<c:GridEx Columns="Auto,*">
+				<TextBlock Grid.Column="0" Style="{StaticResource DialogTitleStyle}" Text="Reset your password" />
+			</c:GridEx>
+			<c:Spacer MinHeight="10" />
+			<TextBlock Text="Create a new password for the following account username." Foreground="DarkGray" />
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Username:" Width="100" />
+				<c:TextBoxEx x:Name="x_ResetUserName" Width="160" Text="jim1" Foreground="DarkGray" IsReadOnly="True" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Password:" Width="100" />
+				<PasswordBox x:Name="x_ResetPassword" Width="160" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock x:Name="x_ResetErrorStatus" Visibility="Collapsed" TextWrapping="Wrap" Foreground="Red" MaxWidth="364" />
+			</StackPanel>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal">
+				<c:Spacer MinWidth="92" />
+				<Button x:Name="x_Reset" Style="{StaticResource NormalButton}" Content="Reset your password" Click="OnResetPasswordClick" Width="Auto" Margin="8" />
+				<Button x:Name="x_ResetCancel" Style="{StaticResource NormalButton}" Content="Cancel" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+		</StackPanel>
+		<!-- The Delete dialog panel -->
+		<StackPanel x:Name="x_DeletePanel" Width="400" Margin="18" Visibility="Visible" d:IsHidden="True">
+			<c:GridEx Columns="Auto,*">
+				<StackPanel Grid.Column="0" Orientation="Horizontal">
+					<TextBlock Style="{StaticResource DialogTitleStyle}" Text="Delete YinYangMoney account '" />
+					<TextBlock Style="{StaticResource DialogTitleStyle}" Text="{Binding User.Name}" />
+					<TextBlock Style="{StaticResource DialogTitleStyle}" Text="'" />
+				</StackPanel>
+			</c:GridEx>
+			<c:Spacer MinHeight="10" />
+			<TextBlock Text="Are you really, really sure you want to delete your YinYangMoney account?  We can't bring it back if you change your mind later." TextWrapping="Wrap" Foreground="DarkGray" />
+			<c:Spacer MinHeight="8" />
+			<TextBlock Text="Clicking 'Delete account' below will delete this account and any files or settings saved on our servers." TextWrapping="Wrap" Foreground="DarkGray" />
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock x:Name="x_DeleteErrorStatus" Visibility="Collapsed" TextWrapping="Wrap" Foreground="Red" MaxWidth="364" />
+			</StackPanel>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal">
+				<c:Spacer MinWidth="92" />
+				<Button x:Name="x_Delete" Style="{StaticResource NormalButton}" Content="Delete account" Click="OnDeleteClick" Width="Auto" Margin="8" />
+				<Button x:Name="x_DeleteCancel" Style="{StaticResource NormalButton}" Content="Cancel" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+		</StackPanel>
+		<!-- The Change dialog panel -->
+		<StackPanel x:Name="x_ChangePanel" Width="400" Margin="18" Visibility="Visible" d:IsHidden="True">
+			<c:GridEx Columns="Auto,*">
+				<TextBlock Grid.Column="0" Style="{StaticResource DialogTitleStyle}" Text="Change your password" />
+			</c:GridEx>
+			<c:Spacer MinHeight="10" />
+			<TextBlock Text="Enter your current password, and a new password." Foreground="DarkGray" />
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Current password:" Width="120" />
+				<PasswordBox x:Name="x_ChangeCurrentPassword" Width="160" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="New Password:" Width="120" />
+				<PasswordBox x:Name="x_ChangeNewPassword" Width="160" />
+			</StackPanel>
+			<c:Spacer MinHeight="8" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock x:Name="x_ChangeErrorStatus" Visibility="Collapsed" TextWrapping="Wrap" Foreground="Red" MaxWidth="364" />
+			</StackPanel>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal">
+				<c:Spacer MinWidth="112" />
+				<Button x:Name="x_Change" Style="{StaticResource NormalButton}" Content="Change password" Click="OnChangeClick" Width="Auto" Margin="8" />
+				<Button x:Name="x_ChangeCancel" Style="{StaticResource NormalButton}" Content="Cancel" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</c:DialogPanel>

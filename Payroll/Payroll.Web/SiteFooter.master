@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" MasterPageFile="SiteHeader.Master" AutoEventWireup="true" CodeBehind="SiteFooter.master.cs" ClientIDMode="Static" Inherits="Payroll.Web.SiteFooter" %>
+
+<asp:Content ContentPlaceHolderID="x_HeadContent" runat="server">
+	<asp:ContentPlaceHolder ID="x_HeadContent" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="x_BodyHeader" runat="server">
+	<asp:ContentPlaceHolder ID="x_BodyHeader" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="x_BodyContent" runat="server">
+	<asp:ContentPlaceHolder ID="x_BodyContent" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="x_BodyFooter" runat="server">
+	<asp:ContentPlaceHolder ID="x_BodyFooter" runat="server" />
+	<div id="footer">
+		<div class="container">
+			<div class="span-12">
+				Copyright &copy; 2011 DiscountPayroll.net
+			</div>
+			<div class="span-12 last" style="text-align: right;">
+				<a href="/">Home</a> | <a href="Payroll.aspx">Access Your Payoll</a> | <a href="ContactUs.aspx">Contact Us</a>
+			</div>
+		</div>
+	</div>
+</asp:Content>

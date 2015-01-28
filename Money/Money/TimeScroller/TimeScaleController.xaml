@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Money.TimeScaleController"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:m="clr-namespace:Money"
+>
+    <Grid x:Name="LayoutRoot">
+        <Canvas>
+            <m:TimeScale x:Name="x_Panel0" />
+            <m:TimeScale x:Name="x_Panel1" />
+            <m:TimeScale x:Name="x_Panel2" />
+        </Canvas>
+    </Grid>
+</UserControl>

@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" MasterPageFile="SiteSidebar1.master" AutoEventWireup="true" CodeBehind="SiteSidebar2.master.cs" ClientIDMode="Static" Inherits="Payroll.Web.SiteSidebar2" %>
+
+<asp:Content ContentPlaceHolderID="x_HeadContent" runat="server">
+	<asp:ContentPlaceHolder ID="x_HeadContent" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="x_BodyHeader" runat="server">
+	<asp:ContentPlaceHolder ID="x_BodyHeader" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="x_BodyContent" runat="server">
+	<div class="span-14">
+		<asp:ContentPlaceHolder ID="x_BodyContent" runat="server" />
+	</div>
+	<div class="span-5 last">
+		<div class="sidebarbox">
+			<h3>Get started today</h3>
+			<p>You can <a href="Enroll.aspx">Enroll here</a>.  Remember that the service is FREE until you run your first 
+			payroll.
+			</p>
+		</div>
+		<div class="sidebarbox">
+			<h3>No hidden charges</h3>
+			<p>Do payroll as often as you want, at no extra charge. There are no setup fees, and you can 
+			cancel at any time.
+			</p>
+		</div>
+		<div class="sidebarbox">
+			<h3>Setup is quick and easy</h3>
+			<p>We guide you through the setup process. You enter salary or hourly rate of pay for each 
+			employee, along with company information. Setting up a new account takes about an hour depending 
+			on the number of employees. On payday, you should be able to do payroll in under five minutes. 
+			DiscountPayroll.net’s unique, “Do-It-With-You” system guides you through the entire payroll 
+			process.
+			</p>
+		</div>
+		<%--<div class="sidebarbox">
+			<h3>Quick Links</h3>
+			<ul>
+				<li><a href="Benefits.aspx">Features and Benefits</a></li>
+				<li><a href="Enroll.aspx">Enroll</a></li>
+				<li><a href="ContactUs.aspx">Contact Us</a></li>
+				<li><a href="Letter.aspx">Letter from the Founder</a></li>
+				<li><a href="Tour.aspx">Take a Quick Tour!</a></li>
+				<li><a href="Payroll.aspx?cmd=/sample/createSBASample.jsp">Take a Test Drive!</a></li>
+			</ul>
+		</div>--%>
+	</div>
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="x_BodyFooter" runat="server">
+	<asp:ContentPlaceHolder ID="x_BodyFooter" runat="server" />
+</asp:Content>

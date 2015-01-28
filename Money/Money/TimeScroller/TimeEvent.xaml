@@ -1,0 +1,22 @@
+﻿<Control x:Class="Money.TimeEvent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:m="clr-namespace:Money"
+>
+	<Control.Style>
+		<Style TargetType="m:TimeEvent">
+			<Setter Property="Background" Value="Lavender" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Grid>
+							<Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}" Padding="2">
+								<TextBlock x:Name="x_EventName" FontSize="12" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" />
+							</Border>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Control.Style>
+</Control>

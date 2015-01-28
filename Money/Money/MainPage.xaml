@@ -1,0 +1,397 @@
+﻿<UserControl x:Class="Money.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:Money"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ignore="http://site.com/ignore"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:ga="clr-namespace:Google.WebAnalytics;assembly=Google.WebAnalytics"
+	xmlns:mwab="clr-namespace:Microsoft.WebAnalytics.Behaviors;assembly=Microsoft.WebAnalytics.Behaviors"
+	mc:Ignorable="ignore"
+	Width="1024"
+	Height="768"
+>
+	<UserControl.Resources>
+		<!-- Storyboard resources -->
+		<Storyboard x:Key="ScaleUp">
+			<DoubleAnimation Duration="00:00:01.00" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+				<DoubleAnimation.EasingFunction>
+					<BackEase EasingMode="EaseOut" Amplitude=".75" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+			<DoubleAnimation Duration="00:00:01.00" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+				<DoubleAnimation.EasingFunction>
+					<BackEase EasingMode="EaseOut" Amplitude=".75" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+		</Storyboard>
+
+		<Storyboard x:Key="ScaleDown">
+			<DoubleAnimation Duration="00:00:00.50" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+				<DoubleAnimation.EasingFunction>
+					<BackEase EasingMode="EaseIn" Amplitude=".75" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+			<DoubleAnimation Duration="00:00:00.50" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+				<DoubleAnimation.EasingFunction>
+					<BackEase EasingMode="EaseIn" Amplitude=".75" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+		</Storyboard>
+
+		<Storyboard x:Key="RotateZForward">
+			<DoubleAnimation Duration="00:00:01.00" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+				<DoubleAnimation.EasingFunction>
+					<BackEase EasingMode="EaseOut" Amplitude="1.25" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+		</Storyboard>
+
+		<Storyboard x:Key="RotateZReverse">
+			<DoubleAnimation Duration="00:00:00.50" To="-90" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+				<DoubleAnimation.EasingFunction>
+					<BackEase EasingMode="EaseIn" Amplitude="1.25" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+		</Storyboard>
+
+		<Storyboard x:Key="OpacityForward">
+			<DoubleAnimation Duration="00:00:00.25" To="1" Storyboard.TargetProperty="Opacity"/>
+		</Storyboard>
+
+		<Storyboard x:Key="OpacityReverse">
+			<DoubleAnimation Duration="00:00:00.25" To="0" Storyboard.TargetProperty="Opacity"/>
+		</Storyboard>
+
+	</UserControl.Resources>
+
+	<Canvas x:Name="x_LayoutRoot">
+		<c:StretchPanel>
+			<!--<i:Interaction.Behaviors>
+				<ga:GoogleAnalytics WebPropertyId="UA-11388284-1" Category="YinYangMoney"/>
+			</i:Interaction.Behaviors>-->
+			<StackPanel>
+				<StackPanel.Background>
+					<ImageBrush ImageSource="Images/GreenHeader.jpg" />
+				</StackPanel.Background>
+				<c:StretchPanel Orientation="Horizontal" Margin="5">
+					<!--<Border BorderThickness="1" BorderBrush="Yellow">
+						<app:LogoControl Width="87" Height="87" />
+					</Border>-->
+					<Button Style="{StaticResource FlatButton}" Margin="0,0,5,0" Click="OnLogoClick" AutomationProperties.AcceleratorKey="L">
+						<Grid Margin="0,0,0,5">
+							<TextBlock Text="{Binding Resource.AppName, Source={StaticResource ResxResources}}" FontSize="24" Margin="2,2,-2,-2" Foreground="Black" />
+							<TextBlock Text="{Binding Resource.AppName, Source={StaticResource ResxResources}}" FontSize="24">
+								<TextBlock.Foreground>
+									<ImageBrush ImageSource="Images/GoldHeader.jpg" />
+								</TextBlock.Foreground>
+								<TextBlock.Effect>
+									<DropShadowEffect Color="Black" BlurRadius="5" />
+								</TextBlock.Effect>
+							</TextBlock>
+						</Grid>
+					</Button>
+					<Grid Margin="0,0,10,5">
+						<TextBlock Text="beta" FontSize="16" Margin="2,2,-2,-2" Foreground="Black" />
+						<TextBlock Text="beta" FontSize="16" Foreground="Gold">
+							<TextBlock.Effect>
+								<DropShadowEffect Color="Black" BlurRadius="5" />
+							</TextBlock.Effect>
+						</TextBlock>
+					</Grid>
+					<Border Background="#80408040" VerticalAlignment="Center" Padding="2" CornerRadius="3" >
+						<StackPanel Orientation="Horizontal">
+							<c:Spacer MinWidth="5" />
+							<c:Selector Condition="{Binding UserServices.UserContext.User.IsAuthenticated}">
+								<c:Selector.WhenFalse>
+									<StackPanel Orientation="Horizontal">
+										<c:RichTextBlock>
+											<Paragraph Foreground="Aquamarine"><Run Text="Hello Guest!"/></Paragraph>
+										</c:RichTextBlock>
+										<c:Spacer MinWidth="5" />
+										<Button Style="{StaticResource FlatButton}" Content="Sign in" Click="OnSigninClick" />
+										<c:Spacer MinWidth="5" />
+										<Button Style="{StaticResource FlatButton}" Content="Register" Click="OnRegisterClick" />
+									</StackPanel>
+								</c:Selector.WhenFalse>
+								<c:Selector.WhenTrue>
+									<StackPanel Orientation="Horizontal">
+										<Button Style="{StaticResource FlatButton}" Click="OnMyAccountClick">
+											<StackPanel Orientation="Horizontal">
+												<TextBlock Text="{Binding UserServices.UserContext.User.Name, StringFormat='Hello \{0\}! '}" Foreground="Aquamarine" />
+											</StackPanel>
+										</Button>
+										<c:Spacer MinWidth="5" />
+										<Button Style="{StaticResource FlatButton}" Content="Sign out" Click="OnSignoutClick" />
+										<c:Spacer MinWidth="5" />
+										<c:Selector Condition="{Binding UserServices.UserContext.User.MemberIsPremium}">
+											<c:Selector.WhenFalse>
+												<Button Style="{StaticResource FlatButton}" Content="Upgrade to Premium" Click="OnUpgradePremiumClick" />
+											</c:Selector.WhenFalse>
+											<c:Selector.WhenTrue>
+												<TextBlock Text="Premium Member" Foreground="Gold" />
+											</c:Selector.WhenTrue>
+										</c:Selector>
+										<c:Spacer MinWidth="5" />
+										<TextBlock Text="Admin" Visibility="{Binding UserServices.UserContext.User.MemberIsAdmin, Converter={StaticResource ValueIsNotNullFalseZeroEmpty}}" />
+									</StackPanel>
+								</c:Selector.WhenTrue>
+							</c:Selector>
+							<c:Spacer MinWidth="5" />
+						</StackPanel>
+					</Border>
+					<Grid c:StretchPanel.Length="*" />
+					<Border Background="#80408040" VerticalAlignment="Center" Padding="2" CornerRadius="3" >
+						<StackPanel Orientation="Horizontal">
+							<Button Style="{StaticResource FlatButton}" Content="Feedback" Click="OnFeedbackClick" />
+							<c:Spacer MinWidth="5" />
+							<c:MenuButton Content="Help" Style="{StaticResource FlatMenuButton}">
+								<c:MenuButton.Items>
+									<toolkit:MenuItem Header="Help" />
+									<toolkit:MenuItem Header="Forum" />
+									<toolkit:MenuItem Header="Blog" />
+									<toolkit:MenuItem Header="Tools" />
+									<toolkit:MenuItem Header="FAQ" />
+									<toolkit:MenuItem Header="Give YinYangMoney" />
+									<toolkit:MenuItem Header="Redeem a Gift!" />
+								</c:MenuButton.Items>
+							</c:MenuButton>
+							<c:Spacer MinWidth="5" />
+							<Button Style="{StaticResource FlatButton}" Content="FullScreen" Click="OnFullScreenClick" />
+							<c:Spacer MinWidth="5" />
+							<c:MenuButton Content="Debug" Style="{StaticResource FlatMenuButton}">
+								<c:MenuButton.Items>
+									<toolkit:MenuItem Header="Open profile" Click="OnOpenProfileISOClick" />
+									<toolkit:MenuItem Header="Import profile from disk" Click="OnOpenProfileFileClick" />
+									<toolkit:MenuItem Header="Save profile" Click="OnSaveProfileISOClick" />
+									<toolkit:MenuItem Header="Clear profile" Click="OnCreateProfileClick" />
+									<toolkit:MenuItem Header="Open plan" Click="OnOpenDocumentISOClick" />
+									<toolkit:MenuItem Header="Import plan from disk" Click="OnOpenDocumentFileClick" />
+									<toolkit:MenuItem Header="Save plan" Click="OnSaveDocumentISOClick" />
+									<toolkit:MenuItem Header="Clear plan" Click="OnCreateDocumentClick" />
+									<toolkit:MenuItem Header="Open sample plan" Click="OnCreateDummyDocumentClick" />
+									<toolkit:MenuItem Header="Upload new spending categories" Click="OnCreateDatabasePackageClick" />
+									<!--<toolkit:MenuItem Header="Survey test" Click="OnSurveyClick" />-->
+									<toolkit:MenuItem Header="Run" Click="OnRunClick" />
+								</c:MenuButton.Items>
+							</c:MenuButton>
+						</StackPanel>
+					</Border>
+				</c:StretchPanel>
+				<sdk:TabControl x:Name="x_MainTabControl" Style="{StaticResource MainTabControl}" SelectionChanged="OnMainTabControlChanged" >
+					<sdk:TabItem Style="{StaticResource MainTabItem}" Header="Home" Tag="/Home">
+						<sdk:TabControl Style="{StaticResource SubTabControl}" SelectionChanged="OnSubTabControlChanged">
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Welcome" Tag="/Home/Welcome" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Why Us?" Tag="/Home/Why_Us" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="FAQ" Tag="/Home/FAQ" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Buzz" Tag="/Home/Buzz" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Contact Us" Tag="/Home/Contact_Us" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Privacy Policy" Tag="/Home/Privacy_Policy" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="My Account" Tag="/Home/My_Account" />
+						</sdk:TabControl>
+					</sdk:TabItem>
+					<sdk:TabItem Style="{StaticResource MainTabItem}" Header="Profile" Tag="/Profile">
+						<sdk:TabControl Style="{StaticResource SubTabControl}" SelectionChanged="OnSubTabControlChanged">
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Info" Tag="/Profile/Info" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Plan Dates" Tag="/Profile/PlanDates" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Accounts" Tag="/Profile/Accounts" />
+						</sdk:TabControl>
+					</sdk:TabItem>
+					<sdk:TabItem Style="{StaticResource MainTabItem}" Header="Plan" Tag="/Plan">
+						<sdk:TabControl Style="{StaticResource SubTabControl}" SelectionChanged="OnSubTabControlChanged">
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Income" Tag="/Plan/Income" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Spending" Tag="/Plan/Spending" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Debt" Tag="/Plan/Debt" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Net Worth" Tag="/Plan/NetWorth" />
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Categories" Tag="/Plan/Categories" />
+						</sdk:TabControl>
+					</sdk:TabItem>
+					<sdk:TabItem Style="{StaticResource MainTabItem}" Header="Calculators" Tag="/Calculators">
+						<sdk:TabControl Style="{StaticResource SubTabControl}" SelectionChanged="OnSubTabControlChanged">
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Financial" Tag="/Calculators/Financial" />
+						</sdk:TabControl>
+					</sdk:TabItem>
+					<sdk:TabItem Style="{StaticResource MainTabItem}" Header="Investment" Tag="/Investment">
+						<sdk:TabControl Style="{StaticResource SubTabControl}" SelectionChanged="OnSubTabControlChanged">
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Accounts" Tag="/Investment/Accounts" />
+						</sdk:TabControl>
+					</sdk:TabItem>
+					<sdk:TabItem Style="{StaticResource MainTabItem}" Header="Community" Tag="/Community">
+						<sdk:TabControl Style="{StaticResource SubTabControl}" SelectionChanged="OnSubTabControlChanged">
+							<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Around the Globe" Tag="/Community/AroundTheGlobe" />
+							<!--<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Your Rank" Tag="/Community/YourRank" />-->
+						</sdk:TabControl>
+					</sdk:TabItem>
+				</sdk:TabControl>
+
+				<!--RichTextBlock has no FontSource, Text, LineHeight, LineStackingStrategy, TextTrimming-->
+				<!--<c:TextBoxEx Text="{Binding Xaml, ElementName=x_RichTextBox, Mode=TwoWay}" Height="200" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" />
+				<c:RichTextBlock x:Name="x_RichTextBox">
+					<Paragraph FontSize="14" FontFamily="Trebuchet MS" Foreground="#FF303030" FontWeight="Normal" FontStyle="Normal" FontStretch="Normal" TextAlignment="Left">
+						<Run FontSize="30.0599994659424" FontFamily="Trebuchet MS" Foreground="#FF008000" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" Text="Welcome to YinYangMoney " />
+						<LineBreak FontSize="30.0599994659424" FontFamily="Trebuchet MS" Foreground="#FF008000" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" />
+						<LineBreak FontSize="30.0599994659424" FontFamily="Trebuchet MS" Foreground="#FF008000" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="The easiest way to build a financial plan online." />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FFDAA520" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" Text="How YinYangMoney works: " />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FFDAA520" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FFDAA520" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Fill out your family " />
+						<Hyperlink FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF6495ED" FontWeight="Bold" FontStyle="Normal" TextDecorations="Underline" TargetName="profile" MouseOverForeground="#FFED6E00">
+							<Run Text="Profile," />
+						</Hyperlink>
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text=" then start on your " />
+						<Hyperlink FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF6495ED" FontWeight="Bold" FontStyle="Normal" TextDecorations="Underline" TargetName="plan" MouseOverForeground="#FFED6E00">
+							<Run Text="Plan." />
+						</Hyperlink>
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Add in your budget items and goals" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Balance your plan" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="As a supplement to our planning tools, try our " />
+						<Hyperlink FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF6495ED" FontWeight="Bold" FontStyle="Normal" TextDecorations="Underline" TargetName="calc" MouseOverForeground="#FFED6E00">
+							<Run Text="Financial Calculators." />
+						</Hyperlink>
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Experiment!" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Learn More, Get Started" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FFDAA520" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" Text="What can I do with YinYangMoney? " />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FFDAA520" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FFDAA520" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Understand your spending habits" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Know where your money goes" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="See how others spend" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Setup a budget" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Know where you are overspending" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Pay off your debts" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Decide where to cut back" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Know what you can afford" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Setup goals and wants" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Encourage you to start saving" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Track your progress" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Show you how your investments are performing" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Plan for retirement" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FFDAA520" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" Text="Get started right away " />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FFDAA520" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FFDAA520" FontWeight="Bold" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="No setup required" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Arial" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="    " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="•  " />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="No bookkeeping required" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Start planning for Free!" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+						<Run FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Text="Try out YinYangMoney yourself. Create an account today and start getting your head around a life of making money decisions. " />
+						<LineBreak FontSize="18" FontFamily="Trebuchet MS" Foreground="#FF696969" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" />
+					</Paragraph>
+				</c:RichTextBlock>-->
+			</StackPanel>
+
+			<Grid c:StretchPanel.Length="*" Background="{StaticResource LightBackgroundBrush}">
+				<sdk:Frame x:Name="x_NavigationFrame">
+					<i:Interaction.Triggers>
+						<!--<i:EventTrigger EventName="Navigated">
+							<mwab:TrackAction Category="AppEvents"/>
+						</i:EventTrigger>-->
+					</i:Interaction.Triggers>
+					<sdk:Frame.ContentLoader>
+						<app:CustomNavigationContentLoader />
+					</sdk:Frame.ContentLoader>
+					<sdk:Frame.UriMapper>
+						<app:CustomUriMapper>
+							<app:CustomUriMapping Uri="" MappedUri="/Views/WelcomePage.xaml" />
+							<app:CustomUriMapping Uri="/Home/Welcome" MappedUri="/Views/WelcomePage.xaml" />
+							<app:CustomUriMapping Uri="/Home/Why_Us" MappedUri="/Views/WhyUsPage.xaml" />
+							<app:CustomUriMapping Uri="/Home/FAQ" MappedUri="/Views/FAQPage.xaml" />
+							<app:CustomUriMapping Uri="/Home/Buzz" MappedUri="/Views/BuzzPage.xaml" />
+							<app:CustomUriMapping Uri="/Home/Contact_Us" MappedUri="/Views/ContactUsPage.xaml" />
+							<app:CustomUriMapping Uri="/Home/Privacy_Policy" MappedUri="/Views/PrivacyPolicyPage.xaml" />
+							<app:CustomUriMapping Uri="/Home/My_Account" MappedUri="/Views/MyAccountPage.xaml" />
+							<app:CustomUriMapping Uri="/Profile/Info" MappedUri="/Views/ProfileInfoPage.xaml" />
+							<app:CustomUriMapping Uri="/Profile/PlanDates" MappedUri="/Views/PlanDatesPage.xaml" />
+							<app:CustomUriMapping Uri="/Profile/Accounts" MappedUri="/Views/ProfileAccountsPage.xaml" />
+							<app:CustomUriMapping Uri="/Plan/Income" MappedUri="/Views/IncomePage.xaml" />
+							<app:CustomUriMapping Uri="/Plan/Spending" MappedUri="/Views/SpendingPage.xaml" />
+							<app:CustomUriMapping Uri="/Plan/Debt" MappedUri="/Views/DebtPage.xaml" />
+							<app:CustomUriMapping Uri="/Plan/NetWorth" MappedUri="/Views/NetWorthPage.xaml" />
+							<app:CustomUriMapping Uri="/Plan/Categories" MappedUri="/Views/CategoriesPage.xaml" />
+							<app:CustomUriMapping Uri="/Calculators/Financial" MappedUri="/Views/CalculatorsPage.xaml" />
+							<app:CustomUriMapping Uri="/Investment/Accounts" MappedUri="/Views/InvestmentsPage.xaml" />
+							<app:CustomUriMapping Uri="/Community/AroundTheGlobe" MappedUri="/Views/CommunityPage.xaml" />
+							<app:CustomUriMapping Uri="/{mainCommand}/{subCommand}" MappedUri="/Views/WelcomePage.xaml#/{mainCommand}{subCommand}" />
+							<app:CustomUriMapping Uri="/{mainCommand}" MappedUri="/Views/WelcomePage.xaml#/{mainCommand}" />
+						</app:CustomUriMapper>
+						<!--<sdk:UriMapper>
+							<sdk:UriMapping Uri="" MappedUri="/Views/WelcomePage.xaml" />
+						</sdk:UriMapper>-->
+					</sdk:Frame.UriMapper>
+
+				</sdk:Frame>
+			</Grid>
+		</c:StretchPanel>
+	</Canvas>
+</UserControl>

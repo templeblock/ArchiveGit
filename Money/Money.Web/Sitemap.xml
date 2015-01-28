@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- For more information, visit http://www.sitemaps.org -->
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
+	<url><loc>http://yinyangmoney.com/?cmd=/Home/Welcome</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Home/Why_Us</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Home/FAQ</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Home/Buzz</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Home/Contact_Us</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Home/Privacy_Policy</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Home/My_Account</loc></url>
+
+	<url><loc>http://yinyangmoney.com/?cmd=/Profile/Info</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Profile/PlanDates</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Profile/Accounts</loc></url>
+
+	<url><loc>http://yinyangmoney.com/?cmd=/Plan/Income</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Plan/Spending</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Plan/Debt</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Plan/NetWorth</loc></url>
+	<url><loc>http://yinyangmoney.com/?cmd=/Plan/Categories</loc></url>
+
+	<url><loc>http://yinyangmoney.com/?cmd=/Calculators/Financial</loc></url>
+
+	<url><loc>http://yinyangmoney.com/?cmd=/Investment/Accounts</loc></url>
+
+	<url><loc>http://yinyangmoney.com/?cmd=/Community/Around_the_Globe</loc></url>
+</urlset>

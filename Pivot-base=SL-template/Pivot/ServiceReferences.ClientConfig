@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_DBService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://dreamnit.com/Money.Web/Services/DBService.svc"
+                binding="customBinding" bindingConfiguration="CustomBinding_DBService"
+                contract="DBService.DBService" name="CustomBinding_DBService" />
+        </client>
+    </system.serviceModel>
+</configuration>

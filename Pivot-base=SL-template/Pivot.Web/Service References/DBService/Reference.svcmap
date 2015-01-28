@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b4c5c97e-d4ff-4ca2-a3f5-9bdd5f9ee7da" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://dreamnit.com/Money.Web/Services/DBService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DBService.xsd" MetadataType="Schema" ID="e3b550cf-4a7b-4d52-abab-20e67878b7a3" SourceId="1" SourceUrl="http://dreamnit.com/Money.Web/Services/DBService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DBService.wsdl" MetadataType="Wsdl" ID="61829726-b591-435c-b738-5f88f7cbfe77" SourceId="1" SourceUrl="http://dreamnit.com/Money.Web/Services/DBService.svc?wsdl" />
+    <MetadataFile FileName="DBService.disco" MetadataType="Disco" ID="a8fad6ea-5a57-496a-a356-b4c4bebfca30" SourceId="1" SourceUrl="http://dreamnit.com/Money.Web/Services/DBService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

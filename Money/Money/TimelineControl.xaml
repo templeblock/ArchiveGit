@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="Money.TimelineControl"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+>
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Border BorderBrush="MediumSeaGreen" BorderThickness="2" Background="Beige" Padding="6" CornerRadius="9" >
+			<c:GridEx Columns="Auto,Auto,*">
+				<c:GridEx Grid.Column="0" Margin="5" Columns="Auto,Auto,Auto" Rows="Auto,Auto">
+					<StackPanel Grid.Column="0">
+						<RepeatButton Style="{StaticResource FlatRepeatButtonBlue}" Height="18" Click="OnYearDownClick">
+							<Polygon Height="10" Width="6" Stretch="Uniform" Points="0,5 6,10 6,0 0,5" Fill="CornflowerBlue" />
+						</RepeatButton>
+						<RepeatButton Style="{StaticResource FlatRepeatButtonBlue}" Height="18" Click="OnMonthDownClick">
+							<Polygon Height="10" Width="6" Stretch="Uniform" Points="0,5 6,10 6,0 0,5" Fill="CornflowerBlue" />
+						</RepeatButton>
+						<RepeatButton Style="{StaticResource FlatRepeatButtonBlue}" Height="18" Click="OnWeekDownClick">
+							<Polygon Height="10" Width="6" Stretch="Uniform" Points="0,5 6,10 6,0 0,5" Fill="CornflowerBlue" />
+						</RepeatButton>
+						<RepeatButton Style="{StaticResource FlatRepeatButtonBlue}" Height="18" Click="OnDayDownClick">
+							<Polygon Height="10" Width="6" Stretch="Uniform" Points="0,5 6,10 6,0 0,5" Fill="CornflowerBlue" />
+						</RepeatButton>
+					</StackPanel>
+					<StackPanel Grid.Column="1">
+						<TextBlock HorizontalAlignment="Center" Height="18" Text="Year" />
+						<TextBlock HorizontalAlignment="Center" Height="18" Text="Month" />
+						<TextBlock HorizontalAlignment="Center" Height="18" Text="Week" />
+						<TextBlock HorizontalAlignment="Center" Height="18" Text="Day" />
+					</StackPanel>
+					<StackPanel Grid.Column="2">
+						<RepeatButton Style="{StaticResource FlatRepeatButtonBlue}" Height="18" Click="OnYearUpClick">
+							<Polygon Height="10" Width="6" Stretch="Uniform" Points="6,5 0,0 0,10 6,5" Fill="CornflowerBlue" />
+						</RepeatButton>
+						<RepeatButton Style="{StaticResource FlatRepeatButtonBlue}" Height="18" Click="OnMonthUpClick">
+							<Polygon Height="10" Width="6" Stretch="Uniform" Points="6,5 0,0 0,10 6,5" Fill="CornflowerBlue" />
+						</RepeatButton>
+						<RepeatButton Style="{StaticResource FlatRepeatButtonBlue}" Height="18" Click="OnWeekUpClick">
+							<Polygon Height="10" Width="6" Stretch="Uniform" Points="6,5 0,0 0,10 6,5" Fill="CornflowerBlue" />
+						</RepeatButton>
+						<RepeatButton Style="{StaticResource FlatRepeatButtonBlue}" Height="18" Click="OnDayUpClick">
+							<Polygon Height="10" Width="6" Stretch="Uniform" Points="6,5 0,0 0,10 6,5" Fill="CornflowerBlue" />
+						</RepeatButton>
+					</StackPanel>
+					<StackPanel Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+						<Button Style="{StaticResource FlatButtonBlue}" Click="OnTodayClick" Content="Today" />
+					</StackPanel>
+				</c:GridEx>
+				<c:GridEx Grid.Column="1" Margin="5" MinWidth="140">
+					<ItemsControl x:Name="x_PersonList" IsTabStop="False">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<StackPanel />
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Height="18" Text="{Binding}" />
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+				</c:GridEx>
+				<StackPanel Grid.Column="2" Orientation="Vertical" Margin="5">
+					<TextBlock Margin="5" x:Name="x_DateLabel" HorizontalAlignment="Center" />
+					<c:StretchPanel Orientation="Horizontal">
+						<TextBlock x:Name="x_YearLabelStart" Text=" " />
+						<TextBlock c:StretchPanel.Length="*" x:Name="x_YearLabelEnd" Text=" " HorizontalAlignment="Right" />
+					</c:StretchPanel>
+					<c:CustomSlider x:Name="x_PositionSlider" />
+				</StackPanel>
+			</c:GridEx>
+		</Border>
+	</Grid>
+</UserControl>

@@ -1,0 +1,174 @@
+﻿<UserControl x:Class="Pivot.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:Pivot"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ignore="http://site.com/ignore"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:ga="clr-namespace:Google.WebAnalytics;assembly=Google.WebAnalytics"
+	xmlns:mwab="clr-namespace:Microsoft.WebAnalytics.Behaviors;assembly=Microsoft.WebAnalytics.Behaviors"
+	mc:Ignorable="ignore"
+	Width="1024"
+	Height="768"
+>
+	<UserControl.Resources>
+		<Style x:Key="FlatButtonWhite" TargetType="Button" BasedOn="{StaticResource FlatButton}">
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+		<Style x:Key="FlatMenuButtonWhite" TargetType="c:MenuButton" BasedOn="{StaticResource FlatMenuButton}">
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+	</UserControl.Resources>
+	<Canvas x:Name="x_LayoutRoot">
+		<Grid>
+			<Image Source="Images/Header.jpg" Height="75" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="UniformToFill" />
+			<c:StretchPanel>
+				<i:Interaction.Behaviors>
+					<ga:GoogleAnalytics WebPropertyId="UA-11388284-1" Category="McPivot"/>
+				</i:Interaction.Behaviors>
+				<StackPanel>
+					<c:StretchPanel Orientation="Horizontal" Margin="5">
+						<!--<Border BorderThickness="1" BorderBrush="Yellow">
+							<app:LogoControl Width="87" Height="87" />
+						</Border>-->
+						<Button Style="{StaticResource FlatButtonWhite}" Margin="0,0,5,0" Click="OnLogoClick" AutomationProperties.AcceleratorKey="L">
+							<Grid Margin="0,0,0,5">
+								<TextBlock Text="{Binding Resource.AppName, Source={StaticResource ResxResources}}" FontSize="24" Margin="2,2,-2,-2" Foreground="Black" />
+								<TextBlock Text="{Binding Resource.AppName, Source={StaticResource ResxResources}}" FontSize="24">
+								<TextBlock.Foreground>
+									<ImageBrush ImageSource="Images/GoldHeader.jpg" />
+								</TextBlock.Foreground>
+								<TextBlock.Effect>
+									<DropShadowEffect Color="Black" BlurRadius="5" />
+								</TextBlock.Effect>
+								</TextBlock>
+							</Grid>
+						</Button>
+						<Grid Margin="0,0,10,5">
+							<TextBlock Text="beta" FontSize="16" Margin="2,2,-2,-2" Foreground="Black" />
+							<TextBlock Text="beta" FontSize="16" Foreground="Gold">
+							<TextBlock.Effect>
+								<DropShadowEffect Color="Black" BlurRadius="5" />
+							</TextBlock.Effect>
+							</TextBlock>
+						</Grid>
+						<Border Background="#80408040" VerticalAlignment="Center" Padding="2" CornerRadius="3" >
+							<StackPanel Orientation="Horizontal">
+								<c:Spacer MinWidth="5" />
+								<c:Selector Condition="{Binding UserServices.UserContext.User.IsAuthenticated}">
+									<c:Selector.WhenFalse>
+										<StackPanel Orientation="Horizontal">
+											<c:RichTextBlock>
+												<Paragraph Foreground="Aquamarine">
+													<Run Text="Hello Guest!"/>
+												</Paragraph>
+											</c:RichTextBlock>
+											<c:Spacer MinWidth="5" />
+											<Button Style="{StaticResource FlatButtonWhite}" Content="Sign in" Click="OnSigninClick" />
+											<c:Spacer MinWidth="5" />
+											<Button Style="{StaticResource FlatButtonWhite}" Content="Register" Click="OnRegisterClick" />
+										</StackPanel>
+									</c:Selector.WhenFalse>
+									<c:Selector.WhenTrue>
+										<StackPanel Orientation="Horizontal">
+											<Button Style="{StaticResource FlatButtonWhite}" Click="OnMyAccountClick">
+												<StackPanel Orientation="Horizontal">
+													<TextBlock Text="{Binding UserServices.UserContext.User.Name, StringFormat='Hello \{0\}! '}" Foreground="Aquamarine" />
+												</StackPanel>
+											</Button>
+											<c:Spacer MinWidth="5" />
+											<Button Style="{StaticResource FlatButtonWhite}" Content="Sign out" Click="OnSignoutClick" />
+											<c:Spacer MinWidth="5" />
+											<c:Selector Condition="{Binding UserServices.UserContext.User.MemberIsPremium}">
+												<c:Selector.WhenFalse>
+													<Button Style="{StaticResource FlatButtonWhite}" Content="Upgrade to Premium" Click="OnUpgradePremiumClick" />
+												</c:Selector.WhenFalse>
+												<c:Selector.WhenTrue>
+													<TextBlock Text="Premium Member" Foreground="Gold" />
+												</c:Selector.WhenTrue>
+											</c:Selector>
+											<c:Spacer MinWidth="5" />
+											<TextBlock Text="Admin" Visibility="{Binding UserServices.UserContext.User.MemberIsAdmin, Converter={StaticResource ValueIsNotNullFalseZeroEmpty}}" />
+										</StackPanel>
+									</c:Selector.WhenTrue>
+								</c:Selector>
+								<c:Spacer MinWidth="5" />
+							</StackPanel>
+						</Border>
+						<Grid c:StretchPanel.Length="*" />
+						<Border Background="#80408040" VerticalAlignment="Center" Padding="2" CornerRadius="3" >
+							<StackPanel Orientation="Horizontal">
+								<Button Style="{StaticResource FlatButtonWhite}" Content="Feedback" Click="OnFeedbackClick" />
+								<c:Spacer MinWidth="5" />
+								<c:MenuButton Content="Help" Style="{StaticResource FlatMenuButtonWhite}">
+									<c:MenuButton.Items>
+										<toolkit:MenuItem Header="Help" />
+										<toolkit:MenuItem Header="Forum" />
+										<toolkit:MenuItem Header="Blog" />
+										<toolkit:MenuItem Header="Tools" />
+										<toolkit:MenuItem Header="FAQ" />
+									</c:MenuButton.Items>
+								</c:MenuButton>
+								<c:Spacer MinWidth="5" />
+								<Button Style="{StaticResource FlatButtonWhite}" Content="FullScreen" Click="OnFullScreenClick" />
+
+							</StackPanel>
+						</Border>
+					</c:StretchPanel>
+					<sdk:TabControl x:Name="x_MainTabControl" Style="{StaticResource MainTabControl}" SelectionChanged="OnMainTabControlChanged" >
+						<sdk:TabItem Style="{StaticResource MainTabItem}" Header="Home" Tag="/Home">
+							<sdk:TabControl Style="{StaticResource SubTabControl}" SelectionChanged="OnSubTabControlChanged">
+								<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Welcome" Tag="/Home/Welcome" />
+								<sdk:TabItem Style="{StaticResource SubTabItem}" Header="FAQ" Tag="/Home/FAQ" />
+								<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Contact Us" Tag="/Home/Contact_Us" />
+								<sdk:TabItem Style="{StaticResource SubTabItem}" Header="My Account" Tag="/Home/My_Account" />
+							</sdk:TabControl>
+						</sdk:TabItem>
+						<sdk:TabItem Style="{StaticResource MainTabItem}" Header="Builder" Tag="/Builder">
+							<sdk:TabControl Style="{StaticResource SubTabControl}" SelectionChanged="OnSubTabControlChanged">
+								<sdk:TabItem Style="{StaticResource SubTabItem}" Header="Build" Tag="/Builder/Build" />
+							</sdk:TabControl>
+						</sdk:TabItem>
+						<sdk:TabItem Style="{StaticResource MainTabItem}" Header="Viewer" Tag="/Viewer">
+							<sdk:TabControl Style="{StaticResource SubTabControl}" SelectionChanged="OnSubTabControlChanged">
+								<sdk:TabItem Style="{StaticResource SubTabItem}" Header="View" Tag="/Viewer/View" />
+							</sdk:TabControl>
+						</sdk:TabItem>
+					</sdk:TabControl>
+				</StackPanel>
+				<Grid c:StretchPanel.Length="*" Background="{StaticResource LightBackgroundBrush}">
+					<sdk:Frame x:Name="x_NavigationFrame">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Navigated">
+								<mwab:TrackAction Category="AppEvents"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+						<sdk:Frame.ContentLoader>
+							<app:CustomNavigationContentLoader />
+						</sdk:Frame.ContentLoader>
+						<sdk:Frame.UriMapper>
+							<app:CustomUriMapper>
+								<app:CustomUriMapping Uri="" MappedUri="/Views/WelcomePage.xaml" />
+								<app:CustomUriMapping Uri="/Home/Welcome" MappedUri="/Views/WelcomePage.xaml" />
+								<app:CustomUriMapping Uri="/Home/FAQ" MappedUri="/Views/FAQPage.xaml" />
+								<app:CustomUriMapping Uri="/Home/Contact_Us" MappedUri="/Views/ContactUsPage.xaml" />
+								<app:CustomUriMapping Uri="/Home/My_Account" MappedUri="/Views/MyAccountPage.xaml" />
+								<app:CustomUriMapping Uri="/Builder/Build" MappedUri="/Views/BuilderPage.xaml" />
+								<app:CustomUriMapping Uri="/Viewer/View" MappedUri="/Views/ViewerPage.xaml" />
+								<app:CustomUriMapping Uri="/{mainCommand}/{subCommand}" MappedUri="/Views/WelcomePage.xaml#/{mainCommand}{subCommand}" />
+								<app:CustomUriMapping Uri="/{mainCommand}" MappedUri="/Views/WelcomePage.xaml#/{mainCommand}" />
+							</app:CustomUriMapper>
+							<!--<sdk:UriMapper>
+							<sdk:UriMapping Uri="" MappedUri="/Views/WelcomePage.xaml" />
+						</sdk:UriMapper>-->
+						</sdk:Frame.UriMapper>
+
+					</sdk:Frame>
+				</Grid>
+			</c:StretchPanel>
+		</Grid>
+	</Canvas>
+</UserControl>

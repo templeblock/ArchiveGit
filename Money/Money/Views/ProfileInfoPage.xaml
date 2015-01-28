@@ -1,0 +1,133 @@
+﻿<sdk:Page x:Class="Money.ProfileInfoPage" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	Title="YinYangMoney Profile Info" NavigationCacheMode="Required"
+>
+	<Grid DataContext="{Binding ProfileHolder.Profile}">
+		<ScrollViewer>
+			<StackPanel MaxWidth="680">
+				<c:Spacer MinHeight="20" />
+				<c:HtmlTextBlock x:Name="x_ProfileInfoContent" HtmlUri="Content/ProfileInfo.html" />
+				<c:Spacer MinHeight="10" />
+				<StackPanel>
+					<StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+						<Image Source="../Images/Me.png" Stretch="None" HorizontalAlignment="Left" Margin="0,0,5,0" />
+						<c:Spacer MinWidth="10" />
+						<c:HtmlTextBlock FontSize="18" Foreground="Goldenrod" Html="[i][b]Myself[/b][/i]" />
+					</StackPanel>
+					<c:StretchPanel Orientation="Horizontal">
+						<sdk:Label Content="First Name" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+						<c:Spacer MinWidth="10" />
+						<c:TextBoxEx Text="{Binding Me.FirstName, Mode=TwoWay}" Width="120" />
+						<c:Spacer MinWidth="5" />
+						<ComboBox Style="{StaticResource FlatComboBoxBlue}" ItemsSource="{Binding Me.Gender, Converter={StaticResource EnumToList}}" SelectedItem="{Binding Me.Gender, Mode=TwoWay, Converter={StaticResource EnumToName}}" Tag="Gender" />
+						<ComboBox Style="{StaticResource FlatComboBoxBlue}" ItemsSource="{Binding Me.RelationshipStatus, Converter={StaticResource EnumToList}}" SelectedItem="{Binding Me.RelationshipStatus, Mode=TwoWay, Converter={StaticResource EnumToName}}" Tag="Relationship Status" />
+					</c:StretchPanel>
+					<c:StretchPanel Orientation="Horizontal" VerticalAlignment="Center" >
+						<sdk:Label Content="Date of Birth" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+						<c:Spacer MinWidth="10" />
+						<sdk:DatePicker SelectedDate="{Binding Me.BirthDate, Mode=TwoWay, Converter={StaticResource JulianToDateTime}}" Width="120" />
+						<c:Spacer MinWidth="5" />
+						<Button Style="{StaticResource FlatButtonBlue}" Content="Life Expectancy" Tag="{Binding Me}" Click="OnUpdateLifeExpectancyClick" />
+						<TextBlock Text=" is " />
+						<sdk:Label TabNavigation="Once" TabIndex="-1" Content="{Binding Me.LifeExpectancy, Converter={StaticResource DoubleRound}}" Width="30" />
+						<c:CustomSlider Minimum="0" Maximum="120" SmallChange="1" LargeChange="10" Value="{Binding Me.LifeExpectancy, Mode=TwoWay, Converter={StaticResource DoubleRound}}" Width="120" />
+					</c:StretchPanel>
+					<c:StretchPanel Orientation="Horizontal" VerticalAlignment="Center" >
+						<sdk:Label Content="Zip Code" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+						<c:Spacer MinWidth="10" />
+						<c:TextBoxEx Text="{Binding Me.Location.PostalCode, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" Width="120" />
+						<c:Spacer MinWidth="10" />
+						<sdk:Label Content="{Binding Me.Location.Text}" />
+					</c:StretchPanel>
+					<c:Spacer MinHeight="10" />
+				</StackPanel>
+				<StackPanel>
+					<StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+						<Image Source="../Images/Spouse.png" Stretch="None" HorizontalAlignment="Left" Margin="0,0,5,0" />
+						<c:Spacer MinWidth="10" />
+						<c:HtmlTextBlock FontSize="18" Foreground="Goldenrod" Html="[i][b]Spouse or Partner[/b][/i]" Width="210" />
+						<CheckBox Content="Include in the plan" IsChecked="{Binding IncludeSpouse, Mode=TwoWay}" />
+					</StackPanel>
+					<StackPanel Visibility="{Binding IncludeSpouse, Converter={StaticResource ValueIsNotNullFalseZeroEmpty}}">
+						<c:StretchPanel Orientation="Horizontal" VerticalAlignment="Center" >
+							<sdk:Label Content="First Name" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+							<c:Spacer MinWidth="10" />
+							<c:TextBoxEx Text="{Binding Spouse.FirstName, Mode=TwoWay}" Width="120" />
+							<c:Spacer MinWidth="5" />
+							<ComboBox Style="{StaticResource FlatComboBoxBlue}" ItemsSource="{Binding Spouse.Gender, Converter={StaticResource EnumToList}}" SelectedItem="{Binding Spouse.Gender, Mode=TwoWay, Converter={StaticResource EnumToName}}" Tag="Gender" />
+							<ComboBox Style="{StaticResource FlatComboBoxBlue}" ItemsSource="{Binding Spouse.RelationshipStatus, Converter={StaticResource EnumToList}}" SelectedItem="{Binding Spouse.RelationshipStatus, Mode=TwoWay, Converter={StaticResource EnumToName}}" Tag="Relationship Status" />
+						</c:StretchPanel>
+						<c:StretchPanel Orientation="Horizontal" VerticalAlignment="Center" >
+							<sdk:Label Content="Date of Birth" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+							<c:Spacer MinWidth="10" />
+							<sdk:DatePicker SelectedDate="{Binding Spouse.BirthDate, Mode=TwoWay, Converter={StaticResource JulianToDateTime}}" Width="120" />
+							<c:Spacer MinWidth="5" />
+							<Button Style="{StaticResource FlatButtonBlue}" Content="Life Expectancy" Tag="{Binding Spouse}" Click="OnUpdateLifeExpectancyClick" />
+							<TextBlock Text=" is " />
+							<sdk:Label Content="{Binding Spouse.LifeExpectancy, Converter={StaticResource DoubleRound}}" Width="30" />
+							<c:CustomSlider Minimum="0" Maximum="120" SmallChange="1" LargeChange="10" Value="{Binding Spouse.LifeExpectancy, Mode=TwoWay, Converter={StaticResource DoubleRound}}" Width="120" />
+						</c:StretchPanel>
+						<c:StretchPanel Orientation="Horizontal" VerticalAlignment="Center" >
+							<sdk:Label Content="Zip Code" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+							<c:Spacer MinWidth="10" />
+							<c:TextBoxEx Text="{Binding Spouse.Location.PostalCode, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" Width="120" />
+							<c:Spacer MinWidth="10" />
+							<sdk:Label Content="{Binding Spouse.Location.Text}" />
+						</c:StretchPanel>
+						<c:Spacer MinHeight="10" />
+					</StackPanel>
+				</StackPanel>
+				<StackPanel>
+					<StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+						<Image Source="../Images/Dependents.png" Stretch="None" HorizontalAlignment="Left" Margin="0,0,5,0" />
+						<c:Spacer MinWidth="10" />
+						<c:HtmlTextBlock FontSize="18" Foreground="Goldenrod" Html="[i][b]Dependents[/b][/i]" Width="210" />
+						<CheckBox Content="Include in the plan" IsChecked="{Binding IncludeDependents, Mode=TwoWay}" />
+					</StackPanel>
+					<StackPanel Visibility="{Binding IncludeDependents, Converter={StaticResource ValueIsNotNullFalseZeroEmpty}}">
+						<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="72,0,0,5" >
+							<Button Style="{StaticResource FlatButtonBlue}" Click="OnAddDependentClick" Content="Add" />
+							<Button Style="{StaticResource FlatButtonBlue}" Click="OnRemoveDependentClick" Content="Remove" />
+						</StackPanel>
+						<ItemsControl ItemsSource="{Binding Dependents}" IsTabStop="False" >
+							<ItemsControl.ItemsPanel>
+								<ItemsPanelTemplate>
+									<StackPanel />
+								</ItemsPanelTemplate>
+							</ItemsControl.ItemsPanel>
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<StackPanel>
+										<c:StretchPanel Orientation="Horizontal" VerticalAlignment="Center" >
+											<sdk:Label Content="First Name" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+											<c:Spacer MinWidth="10" />
+											<c:TextBoxEx Text="{Binding FirstName, Mode=TwoWay}" Width="120" />
+											<c:Spacer MinWidth="5" />
+											<ComboBox Style="{StaticResource FlatComboBoxBlue}" ItemsSource="{Binding Gender, Converter={StaticResource EnumToList}}" SelectedItem="{Binding Gender, Mode=TwoWay, Converter={StaticResource EnumToName}}" Tag="Gender" />
+										</c:StretchPanel>
+										<c:StretchPanel Orientation="Horizontal" VerticalAlignment="Center" >
+											<sdk:Label Content="Date of Birth" HorizontalAlignment="Right" c:StretchPanel.Length="150" />
+											<c:Spacer MinWidth="10" />
+											<sdk:DatePicker SelectedDate="{Binding BirthDate, Mode=TwoWay, Converter={StaticResource JulianToDateTime}}" Width="120" />
+											<c:Spacer MinWidth="5" />
+											<Button Style="{StaticResource FlatButtonBlue}" Content="Life Expectancy" Tag="{Binding}" Click="OnUpdateLifeExpectancyClick" />
+											<TextBlock Text=" is " VerticalAlignment="Center" />
+											<sdk:Label Content="{Binding LifeExpectancy, Converter={StaticResource DoubleRound}}" Width="30" />
+											<c:CustomSlider Minimum="0" Maximum="120" SmallChange="1" LargeChange="10" Value="{Binding LifeExpectancy, Mode=TwoWay, Converter={StaticResource DoubleRound}}" Width="120" />
+										</c:StretchPanel>
+										<c:Spacer MinHeight="10" />
+									</StackPanel>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</StackPanel>
+				</StackPanel>
+				<c:Spacer MinHeight="200" />
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</sdk:Page>

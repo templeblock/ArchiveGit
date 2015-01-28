@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="SurveySchema" attributeFormDefault="unqualified" elementFormDefault="qualified" 
+	xmlns:xh11d="http://www.w3.org/1999/xhtml/datatypes/" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+	xmlns:this="SurveySchema"
+>
+	<xs:import namespace="http://www.w3.org/1999/xhtml"/>
+	<!--<xs:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"/>-->
+	<!--<xs:import schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-legacy-1.xsd"/>-->
+	<!--<xs:import schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml-legacy-1.xsd"/>-->
+	<xs:simpleType name="layoutType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="horizontal"/>
+			<xs:enumeration value="vertical"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="questionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="text"/>
+			<xs:enumeration value="password"/>
+			<xs:enumeration value="date"/>
+			<xs:enumeration value="yesno"/>
+			<xs:enumeration value="state"/>
+			<xs:enumeration value="chooseone"/>
+			<xs:enumeration value="chooseany"/>
+			<xs:enumeration value="noresponse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Survey">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="Group">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="Question">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Statement" minOccurs="1" >
+											<xs:complexType mixed="true">
+												<xs:sequence>
+													<xs:element ref="xhtml:div" minOccurs="0" maxOccurs="1" />
+													<!--<xs:any namespace="http://www.w3.org/1999/xhtml" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>-->
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="Responses">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="Response" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="type" type="this:questionType" use="required" />
+									<xs:attribute name="indent" type="xs:unsignedByte" use="optional" />
+									<xs:attribute name="name" type="xs:string" use="optional" />
+									<xs:attribute name="default" type="xs:string" use="optional" />
+									<xs:attribute name="list" type="xs:boolean" use="optional" />
+									<xs:attribute name="questionlayout" type="this:layoutType" use="optional" />
+									<xs:attribute name="responselayout" type="this:layoutType" use="optional" />
+									<xs:attribute name="requiredtext" type="xs:string" use="optional" />
+									<xs:attribute name="image" type="xs:string" use="optional" />
+									<xs:attribute name="cols" type="xs:unsignedByte" use="optional" />
+									<xs:attribute name="hidden" type="xs:boolean" use="optional" />
+									<xs:attribute name="maxchars" type="xs:unsignedByte" use="optional" />
+									<xs:attribute name="rows" type="xs:unsignedByte" use="optional" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+						<xs:attribute name="back" type="xs:string" use="required" />
+						<xs:attribute name="next" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

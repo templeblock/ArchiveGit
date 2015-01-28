@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="ClassLibrary.ContentScaler"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:c="clr-namespace:ClassLibrary"
+>
+	<Grid>
+		<VisualStateManager.VisualStateGroups>			<VisualStateGroup x:Name="CommonStates">				<VisualState x:Name="Normal">					<Storyboard>						<DoubleAnimation Storyboard.TargetName="presenter"                                         Storyboard.TargetProperty="ScaleX" To="1" Duration="0:0:0.75" />						<DoubleAnimation Storyboard.TargetName="presenter"                                         Storyboard.TargetProperty="ScaleY" To="1" Duration="0:0:0.75" />					</Storyboard>				</VisualState>				<VisualState x:Name="MouseOver">					<Storyboard>						<DoubleAnimation Storyboard.TargetName="presenter"                                         Storyboard.TargetProperty="ScaleX" To="1.25" Duration="0:0:.50" BeginTime="0:0:0.0" />						<DoubleAnimation Storyboard.TargetName="presenter"                                         Storyboard.TargetProperty="ScaleY" To="1.25" Duration="0:0:.50" BeginTime="0:0:0.0" />					</Storyboard>				</VisualState>			</VisualStateGroup>		</VisualStateManager.VisualStateGroups>		<c:ContentScalerPresenter x:Name="presenter" />
+
+	</Grid>
+</UserControl>

@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" MasterPageFile="SiteBase.Master" AutoEventWireup="true" CodeBehind="SiteHeader.master.cs" ClientIDMode="Static" Inherits="Payroll.Web.SiteHeader" %>
+
+<asp:Content ContentPlaceHolderID="x_HeadContent" runat="server">
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-20306161-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function ()
+		{
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	<asp:ContentPlaceHolder ID="x_HeadContent" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="x_BodyHeader" runat="server">
+	<div id="header">
+		<div class="container">
+			<div class="span-24 last">
+				<a href="/">
+					<img src="themes/greenshades/images/logo.png" style="width:385px; height:78px;" alt="Home" />
+				</a>
+				<div id="nav">
+					<ul class="sf-menu sf-shadow">
+						<li><a href="/">Home</a> </li>
+						<li><a href="#">Quick Links</a>
+							<ul>
+								<li><a href="Benefits.aspx">Features and Benefits</a></li>
+								<li><a href="Enroll.aspx">Enroll</a></li>
+								<li><a href="ContactUs.aspx">Contact Us</a></li>
+								<li><a href="Letter.aspx">Letter from the Founder</a></li>
+								<li><a href="Tour.aspx">Take a Quick Tour!</a></li>
+								<li><a href="Payroll.aspx?cmd=/sample/createSBASample.jsp">Take a Test Drive!</a></li>
+								<%--<li><a href="FAQ.aspx">FAQ</a></li>--%>
+								<%--<li><a href="Conversion.aspx">Conversion</a></li>--%>
+							</ul>
+						</li>
+						<li><a href="Payroll.aspx">Access Your Payoll</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<asp:ContentPlaceHolder ID="x_BodyHeader" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="x_BodyContent" runat="server">
+	<asp:ContentPlaceHolder ID="x_BodyContent" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="x_BodyFooter" runat="server">
+	<asp:ContentPlaceHolder ID="x_BodyFooter" runat="server" />
+</asp:Content>
