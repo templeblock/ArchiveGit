@@ -1,4 +1,0 @@
-SampleRepo
-==========
-
-My Sample Repo
