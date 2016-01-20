@@ -1,0 +1,458 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\border.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,2
+ PRODUCTVERSION 1,0,0,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Firmenname", "\0"
+            VALUE "Dateibeschreibung", "border DLL\0"
+            VALUE "Dateiversion", "1, 0, 0, 2\0"
+            VALUE "InternerName", "border\0"
+            VALUE "Copyright", "Copyright (C) 1998\0"
+            VALUE "Original-Dateiname", "border.DLL\0"
+            VALUE "Produktname", "border Dynamic Link Library\0"
+            VALUE "Produktversion", "1, 0, 0, 2\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Übersetzung", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE_AS,        VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CLEAR,          VIRTKEY, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&Datei"
+    BEGIN
+        MENUITEM "&Speichern unter...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Zu&rücksetzen",                     ID_REVERT
+        MENUITEM SEPARATOR
+        MENUITEM "Umrandung fertig",         ID_APP_EXIT
+    END
+    POPUP "B&earbeiten"
+    BEGIN
+        MENUITEM "Z&urück\tStrg+Z",               ID_EDIT_UNDO
+        MENUITEM "Wiede&rholen\tStrg+Y",               ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "&Ausschneiden\tStrg+X",                ID_EDIT_CUT
+        MENUITEM "&Kopieren\tStrg+C",               ID_EDIT_COPY
+        MENUITEM "&Einfügen\tStrg+V",              ID_EDIT_PASTE
+        MENUITEM "&Löschen\tDel",                 ID_EDIT_CLEAR
+    END
+    POPUP "&V Ansicht"
+    BEGIN
+        MENUITEM "&Vergrößern",                    ID_ZOOM_IN
+        MENUITEM "&Verkleinern",                   ID_ZOOM_OUT
+        MENUITEM SEPARATOR
+        MENUITEM "&Striche ziehen",                 ID_SHOW_HANDLES, CHECKED
+        MENUITEM "&Werkzeugleiste",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Statusleiste",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Umrandung"
+    BEGIN
+        MENUITEM "&Bild einfügen/ändern...",      ID_CHOOSE_GRAPHIC
+        MENUITEM "&Hintergrundfarbe...",        ID_CHOOSE_BG_COLOR
+        MENUITEM "Randein&stellungen...",           ID_SETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "&Ränder auswählen",               ID_SELECT_EDGES
+        MENUITEM "&Ecken auswählen",             ID_SELECT_CORNERS
+        MENUITEM "&Alle auswählen\tStrg+A",         ID_EDIT_SELECT_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Symmetrisch ziehen",              ID_DRAG_SYMMETRY, CHECKED
+    END
+    POPUP "&Anordnen"
+    BEGIN
+        MENUITEM "&Horizontal umkehren",            ID_FLIP_HORIZONTAL
+        MENUITEM "&Vertikal umkehren",              ID_FLIP_VERTICAL
+        MENUITEM "&Um 90° drehen",                 ID_ROTATE_90
+        MENUITEM SEPARATOR
+        MENUITEM "&Hinüberkopieren",                ID_COPY_ACROSS
+        MENUITEM "In &Rand kopieren",              ID_COPY_EDGES
+        MENUITEM "In &Ecken kopieren",            ID_COPY_CORNERS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_VERTICAL            BITMAP  DISCARDABLE     "res\\vertical.bmp"
+IDB_HORIZONTAL          BITMAP  DISCARDABLE     "res\\horizont.bmp"
+IDB_HATCH               BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
+IDR_TOOLBAR             BITMAP  DISCARDABLE     "res\\mainfram.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_WE                  CURSOR  DISCARDABLE     "res\\we.cur"
+IDC_NS                  CURSOR  DISCARDABLE     "res\\ew1.cur"
+IDC_NWSE                CURSOR  DISCARDABLE     "res\\nwse.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SETTINGS DIALOG DISCARDABLE  0, 0, 238, 119
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Einstellungen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,173,15,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,173,35,50,14
+    GROUPBOX        "Ränder",IDC_TILING,10,10,147,102
+    CONTROL         "Eingestellte Felderzahl verwenden",IDC_USE_TILING,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,25,120,10
+    EDITTEXT        IDC_ED_N_TILES,100,40,44,14,ES_AUTOHSCROLL
+    LTEXT           "Anzahl der Felder:",IDC_N_TILES,47,43,50,8
+    LTEXT           "Bereichsgröße (cm):",IDC_REGION_SIZE,32,93,66,8
+    EDITTEXT        IDC_ED_SIZE,100,90,44,14,ES_AUTOHSCROLL
+    CONTROL         "Spin2",IDC_TILE_SPIN,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_ARROWKEYS,142,40,11,14
+    EDITTEXT        IDC_ED_MAX_TILES,100,57,44,14,ES_AUTOHSCROLL
+    LTEXT           "Maximale Felderanzahl:",IDC_MAX_TILES,17,60,80,8
+    CONTROL         "Spin2",IDC_MAX_TILE_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,142,57,
+                    11,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_TOOLBAR TOOLBAR DISCARDABLE  24, 23
+BEGIN
+    BUTTON      ID_CHOOSE_GRAPHIC
+    BUTTON      ID_CHOOSE_BG_COLOR
+    SEPARATOR
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    SEPARATOR
+    BUTTON      ID_FLIP_HORIZONTAL
+    BUTTON      ID_FLIP_VERTICAL
+    BUTTON      ID_ROTATE_90
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "BorderPlus\n\nBorder\n\n\nBorderdum.Document\nBorder Document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "BorderPlus"
+    AFX_IDS_IDLEMESSAGE     "Bereit"
+    IDS_SELECT_ALL          "Alle &wählen\tStrg+A"
+    IDS_DESELECT_ALL        "Alle &abwählen\tStrg+A"
+    IDS_SELECT_CORNERS      "&Ecken wählen"
+    IDS_DESELECT_CORNERS    "E&cken abwählen"
+    IDS_SELECT_EDGES        "&Rand wählen"
+    IDS_DESELECT_EDGES      "Ra&nd abwählen"
+    IDS_REVERT              "Möchten Sie wirklich alle in dieser Sitzung vorgenommenen Änderungen verlieren?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Neues Dokument erstellen\nNeu"
+    ID_FILE_OPEN            "Vorhandenes Dokument öffnen\nÖffnen"
+    ID_FILE_CLOSE           "Aktives Dokument schließen\nSchließen"
+    ID_FILE_SAVE            "Aktives Dokument speichern\nSpeichern"
+    ID_FILE_SAVE_AS         "Aktives Dokument unter neuem Namen speichern\nSpeichern unter"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE2       "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE3       "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE4       "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE5       "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE6       "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE7       "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE8       "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE9       "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE10      "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE11      "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE12      "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE13      "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE14      "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE15      "Dieses Dokument öffnen"
+    ID_FILE_MRU_FILE16      "Dieses Dokument öffnen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Grafiken aus Auswhl(en) entfernen\nLöschen"
+    ID_EDIT_CLEAR_ALL       "Alles löschen\nAlles löschen"
+    ID_EDIT_COPY            "Auswahl in Zwischenablage kopieren\nKopieren"
+    ID_EDIT_CUT             "Auswahl ausschneiden und in Zwischenablage ablegen\nAusschneiden"
+    ID_EDIT_FIND            "Bestimmten Text finden\nSuchen"
+    ID_EDIT_PASTE           "Inhalt der Zwischenablage einfügen\nEinfügen"
+    ID_EDIT_REPEAT          "Letzten Vorgang wiederholen\nWiederholen"
+    ID_EDIT_REPLACE         "Bestimmten Text durch anderen Text ersetzen\nErsetzen"
+    ID_EDIT_SELECT_ALL      "Alle Bearbeitungsbereiche auswählen\nAuswählen"
+    ID_EDIT_UNDO            "Letzte Handlung rückgängig machen\nRückgängig"
+    ID_EDIT_REDO            "Rückgängig gemachte Handlung wiederholen\nWiederherstellen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Aktives Fenster unterteilen\nUnterteilen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Programminformationen, Versionsnummer und Copyright anzeigen\nÜber"
+    ID_APP_EXIT             "Bearbeitung der Umrandung abgeschlossen; zurück zum Hauptmenü; Speicheraufforderung für Dokumente erscheint\n BorderPlus beenden"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Zum nächsten Fensterabschnitt\nNächster Abschnitt"
+    ID_PREV_PANE            "Zurück zum vorigen Abschnitt\nVoriger Abschnitt"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "ERW"
+    ID_INDICATOR_CAPS       "GROSS"
+    ID_INDICATOR_NUM        "NF"
+    ID_INDICATOR_SCRL       "RF"
+    ID_INDICATOR_OVR        "ÜB"
+    ID_INDICATOR_REC        "MAK"
+    IDS_BORDER_EDITOR       "BorderPlus"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Werkzeugleiste anzeigen oder verbergen\nWerkzeugleiste ein/aus"
+    ID_VIEW_STATUS_BAR      "Statusleiste anzeigen oder verbergen\nStatusleiste ein/aus"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Fenstergröße ändern"
+    AFX_IDS_SCMOVE          "Fensterposition ändern"
+    AFX_IDS_SCMINIMIZE      "Fenster auf Symbolgröße verkleinern"
+    AFX_IDS_SCMAXIMIZE      "Fenster auf volle Größe maximieren"
+    AFX_IDS_SCNEXTWINDOW    "Zum nächsten Dokumentfenster gehen"
+    AFX_IDS_SCPREVWINDOW    "Zum vorigen Dokumentfenster gehen"
+    AFX_IDS_SCCLOSE         "Aktives Fenster schließen; Speicheraufforderung erscheint"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Fenster wieder auf normale Größe bringen"
+    AFX_IDS_SCTASKLIST      "Task-Liste aktivieren"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SELECT_EDGES         "Randbearbeitungsbereiche auswählen\nRänder auswählen"
+    ID_SELECT_CORNERS       "Eckenbearbeitungsbereiche auswählen\nEcken auswählen"
+    ID_SETTINGS             "Einstellungen für Eckenbereiche ändern\nEckeneinstellungen"
+    ID_FLIP_VERTICAL        "Auswahl(en) vertikal umkehren\nVertikal umkehren"
+    ID_FLIP_HORIZONTAL      "Auswahl(en) horizontal umkehren\nHorizontal umkehren"
+    ID_ROTATE_90            "Auswahl(en) um 90 Grad im Uhrzeigersinn drehen\nDrehen"
+    IDS_PaletteNone         "Keine"
+    ID_ZOOM_IN              "Umrandung aus der Nähe ansehen\nVergrößern"
+    ID_ZOOM_OUT             "Umrandung aus der Entfernung ansehen\nVerkleinern"
+    ID_DRAG_SYMMETRY        "Symmetrische Striche einzeln oder getrennt bewegen\nSymmetrisch ziehen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SELECT_V_EDGES       "Vertikale Randbearbeitungsbereiche wählen\nVertikale Ränder wählen"
+    ID_CHOOSE_BG_COLOR      "Hintergrundfarbe auswählen\nHintergrundfarbe"
+    ID_COPY_ACROSS          "Gewählten in gegenüberliegenden Rand kopieren\nHinüberkopieren"
+    ID_SHOW_HANDLES         "Zugstriche zeigen oder verbergen\nZugstriche"
+    ID_REVERT               "Alle neuen Änderungen der Umrandung verlieren"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_CHOOSE_GRAPHIC       "Bild in gewählte Bereiche einfügen\nKunstgalerie"
+    IDS_PaletteMore         "Mehr..."
+    IDS_PaletteColor        "Farbe..."
+    ID_COPY_EDGES           "Gewählten Rand in andere Ränder kopieren\nIn Ränder kopieren"
+    ID_COPY_CORNERS         "Gewählte Ecke in andere Ecken kopieren\nIn Ecken kopieren"
+    ID_SELECT_H_EDGES       "Horizontale Randbearbeitungsbereiche auswählen\nHorizontale Ränder auswählen"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\border.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED

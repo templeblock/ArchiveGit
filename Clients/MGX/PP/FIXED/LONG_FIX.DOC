@@ -1,0 +1,71 @@
+LONG_FIXED Programmers Guide
+Version 1.0
+October 6, 1994
+
+LONG_FIXED is a C++ Class for 64 bit fixed-point arithmetic. It allows a
+programmer the ability to write programs for Real numbers without a math
+coprocessor at math coprocessor speeds.
+
+LONG_FIXED numbers allow 9 significant digits before and after the decimal
+point.
+
+The LONG_FIXED Class is very easy to use. You only have to learn one
+function. All the rest of the functionality of this Class comes from
+operator overloading. 
+
+All the standard operators are available:
+ +  -  *  /  >>  <<  +=  -=  *=  /=  >>=  <<=  ==  !=  >  >=  <  <=
+
+You may have noted the ommission of the % ++ -- operators. I felt that
+when dealing with Real numbers these didn't make sense. This doesn't
+mean you can't derive a Class from this one that includes them. You may
+also have noted the operators >> << though not normally associated with
+Real numbers for speed purposes I added them. (Shifting by 1 is much faster
+that multiplying or dividing by 2).
+
+I also added the functions abs(), round(), ceil() and floor(). These could
+have been put into a derived class but I felt that they are useful functions
+and that, in the cases of round, ceil, and floor I needed a way to convert
+LONG_FIXED to longs and ints.
+
+The only new function you will see in the Class is the value() function,
+which converts LONG_FIXED to long doubles.
+
+The last thing I added was the ostream << operator to make displaying the
+values of LONG_FIXED easier. It just converts the LONG_FIXED number to a
+long double and adds the long double to the ostream.
+
+I added two example programs to use with the libraries. The first is
+REAL.EXE. This program uses almost all the operators in the Class and
+can be used as further documention. The second TEST.EXE does a comparison
+of a LONG_FIXED and double times for execution. (TEST.EXE can only be
+compiled using Borland 3.1, the Timer Class seems to be missing from 4.0).
+
+You will find when you run TEST that the times will be similar if your
+computer has a math coprocessor (sometimes LONG_FIXED will be slower,
+especially for fast 486DXs). If the computer does not have a coprocessor
+you will see significant speed improvements with LONG_FIXED.
+
+The libraries are compiled using the large memory model and requires the
+linking of the floating point library. (I needed them to convert floats
+doubles and long doubles to and from LONG_FIXED numbers).
+
+The Class can be used as you see fit. A donation to me if you feel the
+Class is worth it wouldn't upset me in the least.
+
+If you want the source code it will cost you $10.00.
+
+Mail a check to:
+    Stephen R. G. Fraser
+    7701 Warner Ave Apt #P228
+    Huntington Beach, CA 92647
+    USA.
+
+(If the check does not have the correct address enclose the correct address
+ in the envelope as well).
+
+For any questions, suggestions, etc my Compuserve ID is: 73074,3560
+
+I hope you enjoy using the LONG_FIXED Class.
+Stephen R. G. Fraser
+

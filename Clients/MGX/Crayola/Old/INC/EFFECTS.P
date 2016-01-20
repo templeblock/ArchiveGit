@@ -1,0 +1,15 @@
+// Source file: effects.c
+BOOL DoEffects( LPIMAGE lpImage, LPSTR lpFileName, LPRECT lpEditRect, BOOL SwitchOn, int SlideSet);
+static BOOL EffectLoad( HWND hWnd, LPSTR lpFXFile );
+static void EffectInit( LPFRAME lpFrame );
+static void EffectUnload( void );
+static LPFRAME EffectExec( LPFRAME lpFrame, LPRECT lpFrameRect, LPMASK lpMask, LPRECT lpApplyRect );
+static BOOL EffectMask( LPMASK lpMask, LPRECT lpFrameRect, LPRECT lpEditRect );
+int     EXPORT DLL_Message( int idStr, ... );
+int     EXPORT DLL_AstralClockCursor( int part, int whole );
+LPTR    EXPORT DLL_frame_ptr( int Depth, int x, int y, BOOL bModify );
+LPTR    EXPORT DLL_frame_set( LPTR lpFrame );
+void    EXPORT DLL_frame_close( LPFRAME lpFrame );
+LPFRAME EXPORT DLL_frame_open( WORD Depth, WORD x_size, WORD y_size, WORD Resolution );
+int     EXPORT DLL_frame_write( int x, int y, int dx, LPTR pixels, int count );
+

@@ -1,0 +1,27 @@
+// Source file: engine.c
+BOOL ReadEngineSelObj(LPIMAGE lpImage, LPRECT lpEditRect, LPREADDATAPROC lpReadDataProc);
+static BOOL ReadProcessObj(LPIMAGE lpImage, LPOBJECT lpObject, BOOL fReadAlpha, LPRECT lpRect, LPREADDATAPROC lpReadDataProc);
+void SetEngineDef(LPENGINE lpEngine);
+void SetEngineOld(LPENGINE lpEngine,BOOL fEditAlpha, LPRECT lpEditRect, LPCOLORINFO lpColor,LPFRAME lpSrcFrame, BOOL FlipHorz, BOOL FlipVert,LPDATAPROC lpDataProc,LPMASKPROC lpMaskProc,int Opacity, MERGE_MODE MergeMode);
+void SetEngineDraw(LPENGINE lpEngine,LPDATAPROC lpDataProc, int Opacity, MERGE_MODE MergeMode);
+void SetEngineColor(LPENGINE lpEngine,LPCOLORINFO lpColor, int Opacity, MERGE_MODE MergeMode);
+BOOL LineEngineSelObj(LPIMAGE lpImage, LPENGINE lpEngine, int dirty);
+BOOL LineEngineObj(LPIMAGE lpImage, LPOBJECT lpObject, LPENGINE lpEngine, int dirty);
+static BOOL LineProcessObj(LPIMAGE lpImage, LPOBJECT lpObject, LPENGINE lpEngine, LPMASK lpMask);
+BOOL LineProcessPixmap(LPPIXMAP lpPixmap, int PixOffX, int PixOffY, LPENGINE lpEngine, LPMASK lpMask);
+void WriteLine(LPTR lpSrcData, LPPIXMAP lpDstPix, LPMASK lpMask,int y, int offx, int offy);
+void mload(int xs,int ys,int dx,int dy, LPTR pm, LPTR pd, int depth, LPMASK lpMask);
+void mload8(int xs,int ys,int dx,int dy, LPTR pm, LPTR pd, LPMASK lpMask);
+void mload24(int xs,int ys,int dx,int dy, LPTR pm, LPRGB pd, LPMASK lpMask);
+void mload32(int xs,int ys,int dx,int dy, LPTR pm, LPCMYK pd, LPMASK lpMask);
+void LoadColor(LPFRAME lpFrame, LPTR lpBuf, int iCount, LPCOLORINFO lpColor);
+BOOL LoadSourceData(LPPIXMAP lpPixmap, PIXMAP_TYPE pmType, int x, int y, int dx, int dy, LPTR lpData, LPRECT lpRect, BOOL HorzFlip, BOOL VertFlip);
+BOOL LoadTiledData(LPPIXMAP lpPixmap, PIXMAP_TYPE pmType, int x, int y, int dx, int dy, LPTR lpData, LPRECT lpRect, BOOL HorzFlip, BOOL VertFlip);
+BOOL LoadMirroredData(LPPIXMAP lpPixmap, PIXMAP_TYPE pmType, int x, int y, int dx, int dy, LPTR lpData, LPRECT lpRect, BOOL HorzFlip, BOOL VertFlip);
+void copyifset( LPTR lptr1, LPTR lptr2, int count );
+void TexturizeData24(LPRGB lpDst, LPTR lpMsk, int iCount);
+void TexturizeData8(LPTR lpDst, LPTR lpMsk, int iCount);
+void TexturizeData32(LPCMYK lpDst, LPTR lpMsk, int iCount);
+void ScaleData8( LPTR lpDst, int iCount, BYTE factor );
+void ScaleDataBuf8( LPTR lpDst, int iCount, LPTR lpMsk );
+

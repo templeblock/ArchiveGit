@@ -1,0 +1,14 @@
+<!-- Usage:
+	<div class="share_and_hide clearfix s_and_h_big">
+		<a href="{YourShareUrl}" title="{YourShareTitle}" class="share" onclick="return share_click(this)" target="_blank">Share</a>
+	</div>
+-->
+<script type="text/javascript">
+	function share_click(element)
+	{
+		u = encodeURIComponent(element.href);
+		t = encodeURIComponent('MyTitle');
+		window.open('http://www.facebook.com/sharer.php?u=' + u + '&t=' + t, 'sharer', 'toolbar=0,status=0,resizable=1,width=460,height=380');
+		return false;
+	}
+</script>

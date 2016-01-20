@@ -1,0 +1,9 @@
+// Source file: layout.c
+BOOL WINPROC EXPORT DlgMainProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+void ColorInit( HWND hDlg );
+void ColorCommand( HWND hDlg, WPARAM wParam, LPARAM lParam );
+static void LayoutMDIClient( HWND hWindow );
+static void LayoutPaintMain( HWND hWindow );
+void LayoutPaint( HWND hWindow );
+void RibbonInit( HWND hWindow );
+

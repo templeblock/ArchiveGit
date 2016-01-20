@@ -1,0 +1,32 @@
+HKCR
+{
+	AgOutlookAddIn.JMExplorerBand.1 = s 'JMExplorerBand Class'
+	{
+		CLSID = s '{F8B5C2ED-0329-413A-AEE6-4134E93C3E38}'
+	}
+	AgOutlookAddIn.JMExplorerBand = s 'JMExplorerBand Class'
+	{
+		CLSID = s '{F8B5C2ED-0329-413A-AEE6-4134E93C3E38}'
+		CurVer = s 'AgOutlookAddIn.JMExplorerBand.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F8B5C2ED-0329-413A-AEE6-4134E93C3E38} = s '&Creata Mail'
+		{
+			'Implemented Categories'
+			{
+				{00021493-0000-0000-C000-000000000046}
+				{
+				}
+			}
+			ProgID = s 'AgOutlookAddIn.JMExplorerBand.1'
+			VersionIndependentProgID = s 'AgOutlookAddIn.JMExplorerBand'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EDDBDEA4-5C07-453F-BE8C-81D738984381}'
+		}
+	}
+}

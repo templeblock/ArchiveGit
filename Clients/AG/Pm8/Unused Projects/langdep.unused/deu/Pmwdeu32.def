@@ -1,0 +1,5 @@
+; PMWDEU32.def : Declares the module parameters for the DLL.
+
+LIBRARY      PMWDEU32
+DESCRIPTION  'PrintMaster German 32-bit Resources'
+

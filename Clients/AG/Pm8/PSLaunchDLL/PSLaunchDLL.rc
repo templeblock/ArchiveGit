@@ -1,0 +1,1038 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "LaunchResource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""LaunchResource.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\PSLaunchDLL.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,302
+ PRODUCTVERSION 1,0,0,302
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "PSLaunchDLL Module\0"
+            VALUE "FileVersion", "1, 0, 0, 302\0"
+            VALUE "InternalName", "PSLAUNCHDLL\0"
+            VALUE "LegalCopyright", "Copyright 1997\0"
+            VALUE "OriginalFilename", "PSLAUNCHDLL.DLL\0"
+            VALUE "ProductName", "PSLaunchDLL Module\0"
+            VALUE "ProductVersion", "1, 0, 0, 302\0"
+            VALUE "OLESelfRegister", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_CARD_SHOP           BITMAP  DISCARDABLE     "res\\PSCardShop.bmp"
+IDB_TEXT_GREETINGCARD   BITMAP  DISCARDABLE     "res\\TextGreetingCard.bmp"
+IDB_GREETINGCARD_FORMAT BITMAP  DISCARDABLE     "res\\PSGreetingCard.bmp"
+IDB_PREVIEW_GREETINGCARD BITMAP  DISCARDABLE     "res\\bitmap10.bmp"
+IDB_PREVIEW_HALFFOLD_TALL BITMAP  DISCARDABLE     "res\\QFoldTall.bmp"
+IDB_PREVIEW_HALFFOLD_WIDE BITMAP  DISCARDABLE     "res\\QFoldWide.bmp"
+IDB_PREVIEW_PLACEHOLDER BITMAP  DISCARDABLE     "res\\preview_placeholder.bmp"
+IDB_PLACEHOLDER_BUTTON  BITMAP  DISCARDABLE     "res\\PlaceHolderButton.bmp"
+IDB_PLACEHOLDER_QSL     BITMAP  DISCARDABLE     "res\\PlaceHolderQSL.bmp"
+IDB_PLACEHOLDER_SCRATCH BITMAP  DISCARDABLE     "res\\PlaceHolderScratch.bmp"
+IDB_PLACEHOLDER_PAPER   BITMAP  DISCARDABLE     "res\\PlaceHolderPaper.bmp"
+IDB_PREVIEW_WIDE        BITMAP  DISCARDABLE     "res\\preview_wide.bmp"
+IDB_PREVIEW_TALL        BITMAP  DISCARDABLE     "res\\preview_.bmp"
+IDB_CATEGORY_CARDSHOP   BITMAP  DISCARDABLE     "res\\CardShop.bmp"
+IDB_WORKSPACE_SIDE      BITMAP  DISCARDABLE     "res\\WorkspaceSide.bmp"
+IDB_CATEGORY_PHOTO      BITMAP  DISCARDABLE     "res\\CategoryPhoto.bmp"
+IDB_CATEGORY_ALL        BITMAP  DISCARDABLE     "res\\CategoryAll.bmp"
+IDB_CATEGORY_CREATIVE   BITMAP  DISCARDABLE     "res\\CategoryCreative.bmp"
+IDB_WORKSPACE_TOP       BITMAP  DISCARDABLE     "res\\WorkspaceTop.bmp"
+IDB_WORKSPACE_SPLASH    BITMAP  DISCARDABLE     "res\\WorkspaceSplash.bmp"
+IDB_CATEGORY_INTERNET   BITMAP  DISCARDABLE     "res\\CategoryInternet.bmp"
+IDB_PROJECT_WEBSITE     BITMAP  DISCARDABLE     "res\\ProjectWebSites.bmp"
+IDB_CATEGORY_CLASSROOM  BITMAP  DISCARDABLE     "res\\CategoryClassroom.bmp"
+IDB_CATEGORY_OPEN       BITMAP  DISCARDABLE     "res\\CategoryOpen.bmp"
+IDB_CATEGORY_WORKPLACE  BITMAP  DISCARDABLE     "res\\CategoryWorkplace.bmp"
+IDB_PREVIEW_WEBSITE     BITMAP  DISCARDABLE     "res\\PreviewWebsite.bmp"
+IDB_PREVIEW_NEWSLETTER  BITMAP  DISCARDABLE     "res\\PreviewNewsletter.bmp"
+IDB_CATEGORY_ALL_FOCUS  BITMAP  DISCARDABLE     "res\\CategoryAllFocus.bmp"
+IDB_CATEGORY_CARDSHOP_FOCUS BITMAP  DISCARDABLE     "res\\CardShopFocus.bmp"
+IDB_CATEGORY_PHOTO_FOCUS BITMAP  DISCARDABLE     "res\\CategoryPhotoFocus.bmp"
+IDB_CATEGORY_CLASSROOM_FOCUS BITMAP  DISCARDABLE     "res\\CategoryClassroomFocus.bmp"
+IDB_CATEGORY_CREATIVE_FOCUS BITMAP  DISCARDABLE     "res\\CategoryCreativeFocus.bmp"
+IDB_CATEGORY_WORKPLACE_FOCUS BITMAP  DISCARDABLE     "res\\CategoryWorkplaceFocus.bmp"
+IDB_CATEGORY_INTERNET_FOCUS BITMAP  DISCARDABLE     "res\\CategoryInternetFocus.bmp"
+IDB_CATEGORY_OPEN_FOCUS BITMAP  DISCARDABLE     "res\\CategoryOpenFocus.bmp"
+IDB_PROJECT_WORKSPACE   BITMAP  DISCARDABLE     "res\\ProjectWorkspace.bmp"
+IDB_TEXT_NEWSLETTER     BITMAP  DISCARDABLE     "res\\TextNewsletter.bmp"
+IDB_TEXT_WEBSITE        BITMAP  DISCARDABLE     "res\\TextWebsite.bmp"
+IDB_LIST_GREETINGCARDS  BITMAP  DISCARDABLE     "res\\ListGreetingCard.bmp"
+IDB_PROJECT_PHOTOQUICKPRINTS BITMAP  DISCARDABLE     "res\\ProjectPhotoQuickPrint.bmp"
+IDB_PROJECT_PHOTOCOLLAGES BITMAP  DISCARDABLE     "res\\ProjectPhotoCollages.bmp"
+IDB_PROJECT_PHOTOPAGES  BITMAP  DISCARDABLE     "res\\ProjectPhotoPages.bmp"
+IDB_PROJECT_PHOTOBALBUMS BITMAP  DISCARDABLE     "res\\ProjectPhotoAlbums.bmp"
+IDB_TEXT_PHOTOPROJECT   BITMAP  DISCARDABLE     "res\\TextPhotoProject.bmp"
+IDB_TEXT_SIGN           BITMAP  DISCARDABLE     "res\\TextSign.bmp"
+IDB_PROJECT_BLANKPAGES  BITMAP  DISCARDABLE     "res\\ProjectBlankPages.bmp"
+IDB_PREVIEW_LABEL5196   BITMAP  DISCARDABLE     "res\\Label5196.bmp"
+IDB_PREVIEW_LABEL3261SMALL BITMAP  DISCARDABLE     "res\\Label3261Small.bmp"
+IDB_PREVIEW_LABEL5160   BITMAP  DISCARDABLE     "res\\Label5160.bmp"
+IDB_PREVIEW_LABEL5161   BITMAP  DISCARDABLE     "res\\Label5161.bmp"
+IDB_PREVIEW_LABEL5162   BITMAP  DISCARDABLE     "res\\Label5162.bmp"
+IDB_PREVIEW_LABEL5163   BITMAP  DISCARDABLE     "res\\Label5163.bmp"
+IDB_PREVIEW_LABEL5164   BITMAP  DISCARDABLE     "res\\Label5164.bmp"
+IDB_PREVIEW_LABEL3261LARGE BITMAP  DISCARDABLE     "res\\Label3261Large.bmp"
+IDB_TEXT_LABEL          BITMAP  DISCARDABLE     "res\\TextLabel.bmp"
+IDB_PREVIEW_LABELS      BITMAP  DISCARDABLE     "res\\PreviewLabels.bmp"
+IDB_CALENDAR_YEARLY     BITMAP  DISCARDABLE     "res\\CalendarYearly.bmp"
+IDB_CALENDAR_MONTHLY    BITMAP  DISCARDABLE     "res\\CalendarMonthly.bmp"
+IDB_CALENDAR_WEEKLY     BITMAP  DISCARDABLE     "res\\CalendarWeekly.bmp"
+IDB_CALENDAR_DAILY      BITMAP  DISCARDABLE     "res\\CalendarDaily.bmp"
+IDB_TEXT_CALENDAR       BITMAP  DISCARDABLE     "res\\TextCalendar.bmp"
+IDB_PREVIEW_CALENDAR_YEARLY BITMAP  DISCARDABLE     "res\\PreviewCalendarYearly.bmp"
+IDB_PREVIEW_CALENDAR_MONTHLY BITMAP  DISCARDABLE     "res\\PreviewCalendarMonthly.bmp"
+IDB_PREVIEW_CALENDAR_WEEKLY BITMAP  DISCARDABLE     "res\\PreviewCalendarWeekly.bmp"
+IDB_PREVIEW_CALENDAR_DAILY BITMAP  DISCARDABLE     "res\\PreviewCalendarDaily.bmp"
+IDB_TEXT_ENVELOPE       BITMAP  DISCARDABLE     "res\\TextEnvelope.bmp"
+IDB_ENVELOPE_STOCK      BITMAP  DISCARDABLE     "res\\EnvelopeStock.bmp"
+IDB_LIST_ENVELOPE       BITMAP  DISCARDABLE     "res\\ListEnvelope.bmp"
+IDB_ENVELOPE_PS         BITMAP  DISCARDABLE     "res\\EnvelopePS.bmp"
+IDB_PREVIEW_ENVELOPE_PS BITMAP  DISCARDABLE     "res\\EnvelopePrintShop.bmp"
+IDB_PREVIEW_ENVELOPE_9x6 BITMAP  DISCARDABLE     "res\\Envelope9x6.bmp"
+IDB_PREVIEW_ENVELOPE_BUSINESS BITMAP  DISCARDABLE     "res\\EnvelopeBusiness.bmp"
+IDB_PREVIEW_ENVELOPE_NOTECARD BITMAP  DISCARDABLE     "res\\EnvelopeNoteCard.bmp"
+IDB_PREVIEW_ENVELOPE_6x4p75 BITMAP  DISCARDABLE     "res\\Envelope6x4p75.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 217, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About PSLaunch"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "PSLaunch Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 1998",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+END
+
+IDD_CATEGORY_ALL DIALOG DISCARDABLE  0, 0, 359, 273
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Next",IDC_NEXT,245,218,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,290,218,40,14
+    LISTBOX         IDC_PROJECT_LIST,3,4,178,258,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         262,IDC_PREVIEW,"Static",SS_BITMAP,203,4,121,132
+END
+
+IDD_CATEGORY_CARD_SHOP DIALOG DISCARDABLE  0, 0, 359, 273
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP,0,0,359,273
+    PUSHBUTTON      "Create a Greeting Card",IDC_GREETING_CARDS,114,30,124,
+                    16
+    PUSHBUTTON      "Create an On-Line Greeting",IDC_ONLINE_GREETINGS,97,217,
+                    141,16,WS_DISABLED
+END
+
+IDD_CATEGORY_CREATIVE DIALOG DISCARDABLE  0, 0, 368, 226
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Blank Pages",IDC_PROJECT_OPTION1,0,9,58,59
+    PUSHBUTTON      "Photo Collage",IDC_PROJECT_OPTION2,62,9,58,59
+    PUSHBUTTON      "Photo Novelties",IDC_PROJECT_OPTION3,124,9,58,59
+    PUSHBUTTON      "Name Tags",IDC_PROJECT_OPTION4,186,9,58,59
+    PUSHBUTTON      "Banners",IDC_PROJECT_OPTION5,248,9,58,59
+    PUSHBUTTON      "Calendars",IDC_PROJECT_OPTION6,310,9,58,59
+    PUSHBUTTON      "Gift Bags",IDC_PROJECT_OPTION7,0,82,58,59
+    PUSHBUTTON      "Gift Tags",IDC_PROJECT_OPTION8,62,82,58,59
+    PUSHBUTTON      "Gift Wrap",IDC_PROJECT_OPTION9,124,82,58,59
+    PUSHBUTTON      "Greeting Cards",IDC_PROJECT_OPTION10,186,82,58,59
+    PUSHBUTTON      "Photo Albums",IDC_PROJECT_OPTION11,248,82,58,59
+    PUSHBUTTON      "Placemats",IDC_PROJECT_OPTION12,310,82,58,59
+    PUSHBUTTON      "Post-it Notes",IDC_PROJECT_OPTION13,0,156,58,59
+    PUSHBUTTON      "Scrapbook",IDC_PROJECT_OPTION14,62,156,58,59
+    PUSHBUTTON      "Table Cards",IDC_PROJECT_OPTION15,124,156,58,59
+    PUSHBUTTON      "T-Shirts",IDC_PROJECT_OPTION16,186,156,58,59
+    PUSHBUTTON      "Transfers",IDC_PROJECT_OPTION17,248,156,58,59
+    PUSHBUTTON      "Year Book",IDC_PROJECT_OPTION18,310,156,58,59
+END
+
+IDD_CATEGORY_PHOTO_PROJECTS DIALOG DISCARDABLE  0, 0, 358, 226
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "",IDC_PROJECT_OPTION1,35,78,58,59
+    PUSHBUTTON      "",IDC_PROJECT_OPTION2,109,78,58,59
+    PUSHBUTTON      "",IDC_PROJECT_OPTION3,181,78,58,59
+    PUSHBUTTON      "",IDC_PROJECT_OPTION4,253,78,58,59
+END
+
+IDD_PROJECT_FORMAT_GREETINGCARD DIALOG DISCARDABLE  0, 0, 359, 274
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         233,IDC_STATIC,"Static",SS_BITMAP,0,0,341,258
+    CONTROL         135,IDC_TEXT_HEADER,"Static",SS_BITMAP,10,6,275,29
+    CONTROL         235,IDC_STATIC,"Static",SS_BITMAP,19,53,175,154
+    LISTBOX         IDC_FORMAT_LIST,20,54,168,147,LBS_NOINTEGRALHEIGHT | NOT 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP
+    CONTROL         262,IDC_PREVIEW,"Static",SS_BITMAP,205,53,121,133
+    CONTROL         205,IDC_STATIC,"Static",SS_BITMAP,1,206,193,42
+    LISTBOX         IDC_PAPER_LIST,65,212,123,29,LBS_NOINTEGRALHEIGHT | NOT 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Back",IDC_BACK,201,218,40,14
+    PUSHBUTTON      "OK",IDOK,245,218,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,290,218,40,14
+END
+
+IDD_PROJECT_METHOD DIALOG DISCARDABLE  0, 0, 359, 273
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         233,IDC_STATIC,"Static",SS_BITMAP,0,0,20,20
+    CONTROL         135,IDC_TEXT_HEADER,"Static",SS_BITMAP,10,6,275,29
+    CONTROL         "Customize a QSL",IDC_START_CUSTOMIZE,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,21,53,74,89
+    CONTROL         203,IDC_STATIC,"Static",SS_BITMAP,103,60,92,77
+    CONTROL         262,IDC_STATIC,"Static",SS_BITMAP,204,53,20,20
+    CONTROL         204,IDC_STATIC,"Static",SS_BITMAP,22,159,77,77
+    CONTROL         "Start from Scratch",IDC_START_SCRATCH,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,103,153,74,89
+    PUSHBUTTON      "Back",IDC_BACK,201,218,40,14
+    PUSHBUTTON      "Next",IDC_NEXT,245,218,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,290,218,40,14
+END
+
+IDD_PROJECT_GREETINGCARD_QSL DIALOG DISCARDABLE  0, 0, 359, 274
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         136,IDC_STATIC,"Static",SS_BITMAP,0,0,341,258
+    LTEXT           "QSLs",IDC_STATIC,93,119,18,8
+    PUSHBUTTON      "Back",IDC_BACK,201,218,40,14
+    PUSHBUTTON      "OK",IDOK,245,218,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,290,218,40,14
+END
+
+IDD_PROJECT_GREETINGCARD_THEME DIALOG DISCARDABLE  0, 0, 359, 274
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         134,IDC_STATIC,"Static",SS_BITMAP,0,0,341,258
+    LTEXT           "Themes",IDC_STATIC,93,119,26,8
+    PUSHBUTTON      "Back",IDC_BACK,201,218,40,14
+    PUSHBUTTON      "Next",IDC_NEXT,245,218,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,290,218,40,14
+END
+
+IDD_PSLAUNCH_DIALOG DIALOG DISCARDABLE  0, 0, 517, 327
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CLIPCHILDREN | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "The Print Shop"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         214,IDC_STATIC_TOPBAR,"Static",SS_BITMAP,0,0,533,35
+    GROUPBOX        "",IDC_STATIC,240,0,277,31
+    CTEXT           "Select the type of Project you want to create or open an existing one from the Main Menu on the left of your screen.",
+                    IDC_INFO_TEXT,241,5,273,24
+    CONTROL         215,IDC_WORKSPACE_SPLASH,"Static",SS_BITMAP,154,72,323,
+                    217
+    CONTROL         "",IDC_STATIC_WORKAREA,"Static",SS_BLACKFRAME | NOT 
+                    WS_VISIBLE,125,45,379,273
+    CONTROL         210,IDC_STATIC,"Static",SS_BITMAP,0,35,104,292
+    CONTROL         "The Card Shop",IDC_CARDSHOP,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,0,35,109,18
+    CONTROL         "Photo Projects",IDC_PHOTO_PROJECTS,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,0,53,109,18
+    CONTROL         "Creative Corner",IDC_CREATIVE_CORNER,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,0,71,109,18
+    CONTROL         "&Class Room",IDC_CATEGORY_CLASSROOM,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,0,89,109,18
+    CONTROL         "&Workplace",IDC_CATEGORY_WORKPLACE,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,0,107,109,18
+    CONTROL         "&Internet World",IDC_PROJECTS_INTERNET,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,0,125,109,18
+    CONTROL         "All Projects",IDC_PROJECTS_ALL,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,0,143,109,18
+    CONTROL         "&Open",IDC_CATEGORY_OPEN,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,0,161,109,18
+END
+
+IDD_PROJECT_FORMAT DIALOG DISCARDABLE  0, 0, 359, 274
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         233,IDC_STATIC,"Static",SS_BITMAP,0,0,20,20
+    CONTROL         135,IDC_TEXT_HEADER,"Static",SS_BITMAP,10,6,275,29
+    CONTROL         "&Tall",IDC_FORMAT_TALL,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,15,53,74,89
+    CONTROL         "&Wide",IDC_FORMAT_WIDE,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,109,53,74,89
+    CONTROL         265,IDC_PREVIEW,"Static",SS_BITMAP,205,53,121,133
+    CONTROL         205,IDC_STATIC,"Static",SS_BITMAP,1,206,193,42
+    LISTBOX         IDC_PAPER_LIST,65,212,123,28,LBS_NOINTEGRALHEIGHT | NOT 
+                    WS_BORDER | WS_TABSTOP
+    PUSHBUTTON      "Back",IDC_BACK,201,218,40,14
+    PUSHBUTTON      "OK",IDOK,245,218,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,290,218,40,14
+END
+
+IDD_CATEGORY_INTERNETWORLD DIALOG DISCARDABLE  0, 0, 358, 226
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Digital Postcards",IDC_PROJECT_OPTION1,68,79,58,59
+    PUSHBUTTON      "&Web Sites",IDC_PROJECT_OPTION2,141,79,58,59
+    PUSHBUTTON      "Animated Greetings",IDC_PROJECT_OPTION3,216,79,58,59
+END
+
+IDD_PROJECT_WEBSITE_METHOD DIALOG DISCARDABLE  0, 0, 359, 273
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         233,IDC_STATIC,"Static",SS_BITMAP,0,0,20,20
+    CONTROL         234,IDC_TEXT_HEADER,"Static",SS_BITMAP,10,6,275,29
+    CONTROL         202,IDC_STATIC,"Static",SS_BITMAP,21,53,20,20
+    CONTROL         203,IDC_STATIC,"Static",SS_BITMAP,103,60,92,77
+    CONTROL         262,IDC_STATIC,"Static",SS_BITMAP,204,53,20,20
+    CONTROL         204,IDC_STATIC,"Static",SS_BITMAP,22,159,77,77
+    CONTROL         "Start from Scratch",IDC_START_SCRATCH,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,103,153,74,89
+    PUSHBUTTON      "Back",IDC_BACK,201,218,40,14
+    PUSHBUTTON      "&OK",IDOK,245,218,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,290,218,40,14
+END
+
+IDD_CATEGORY_CLASSROOM DIALOG DISCARDABLE  0, 0, 368, 226
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Blank Pages",IDC_PROJECT_OPTION1,0,10,58,59
+    PUSHBUTTON      "Name Tags",IDC_PROJECT_OPTION2,62,10,58,59
+    PUSHBUTTON      "Banners",IDC_PROJECT_OPTION3,124,10,58,59
+    PUSHBUTTON      "Calendars",IDC_PROJECT_OPTION4,186,10,58,59
+    PUSHBUTTON      "Certificates",IDC_PROJECT_OPTION5,248,10,58,59
+    PUSHBUTTON      "????",IDC_PROJECT_OPTION6,310,10,58,59
+    PUSHBUTTON      "Labels",IDC_PROJECT_OPTION7,0,83,58,59
+    PUSHBUTTON      "Online Greetings",IDC_PROJECT_OPTION8,62,83,58,59
+    PUSHBUTTON      "Placemats",IDC_PROJECT_OPTION9,124,83,58,59
+    PUSHBUTTON      "Table Cards",IDC_PROJECT_OPTION10,186,83,58,59
+    PUSHBUTTON      "Signs",IDC_PROJECT_OPTION11,248,83,58,59
+    PUSHBUTTON      "Booklets",IDC_PROJECT_OPTION12,310,83,58,59
+    PUSHBUTTON      "Pamphlets",IDC_PROJECT_OPTION13,21,157,58,59
+    PUSHBUTTON      "Flyers",IDC_PROJECT_OPTION14,87,157,58,59
+    PUSHBUTTON      "Newlsetters",IDC_PROJECT_OPTION15,153,157,58,59
+    PUSHBUTTON      "Reports",IDC_PROJECT_OPTION16,219,157,58,59
+    PUSHBUTTON      "Web Sites",IDC_PROJECT_OPTION17,285,157,58,59
+END
+
+IDD_CATEGORY_WORKPLACE DIALOG DISCARDABLE  0, 0, 368, 248
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Blank Pages",IDC_PROJECT_OPTION1,0,0,58,59
+    PUSHBUTTON      "Name Tags",IDC_PROJECT_OPTION2,77,0,58,59
+    PUSHBUTTON      "Banners",IDC_PROJECT_OPTION3,154,0,58,59
+    PUSHBUTTON      "Business Cards",IDC_PROJECT_OPTION4,231,0,58,59
+    PUSHBUTTON      "Calendars",IDC_PROJECT_OPTION5,308,0,58,59
+    PUSHBUTTON      "Certificates",IDC_PROJECT_OPTION6,0,63,58,59
+    PUSHBUTTON      "Envelopes",IDC_PROJECT_OPTION7,77,63,58,59
+    PUSHBUTTON      "Lables",IDC_PROJECT_OPTION8,154,63,58,59
+    PUSHBUTTON      "Letterhead",IDC_PROJECT_OPTION9,231,63,58,59
+    PUSHBUTTON      "Digital Postcards",IDC_PROJECT_OPTION10,308,63,58,59
+    PUSHBUTTON      "Postcards",IDC_PROJECT_OPTION11,0,126,58,59
+    PUSHBUTTON      "Post-it Notes",IDC_PROJECT_OPTION12,77,126,58,59
+    PUSHBUTTON      "Signs",IDC_PROJECT_OPTION13,154,126,58,59
+    PUSHBUTTON      "Booklets",IDC_PROJECT_OPTION14,231,126,58,59
+    PUSHBUTTON      "Pamphlets",IDC_PROJECT_OPTION15,308,126,58,59
+    PUSHBUTTON      "Flyers",IDC_PROJECT_OPTION16,0,189,58,59
+    PUSHBUTTON      "Letters",IDC_PROJECT_OPTION17,62,189,58,59
+    PUSHBUTTON      "Newsletters",IDC_PROJECT_OPTION18,124,189,58,59
+    PUSHBUTTON      "Reports",IDC_PROJECT_OPTION19,186,189,58,59
+    PUSHBUTTON      "Resumes",IDC_PROJECT_OPTION20,248,189,58,59
+    PUSHBUTTON      "Websites",IDC_PROJECT_OPTION21,310,189,58,59
+END
+
+IDD_CATEGORY_OPEN DIALOG DISCARDABLE  0, 0, 358, 226
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Start of open project paths",IDC_STATIC,133,95,84,8
+END
+
+IDD_PROJECT_FORMAT_LABEL DIALOG DISCARDABLE  0, 0, 359, 274
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         233,-1,"Static",SS_BITMAP,0,0,341,258
+    CONTROL         241,IDC_TEXT_HEADER,"Static",SS_BITMAP,10,6,275,29
+    CONTROL         235,-1,"Static",SS_BITMAP,19,53,175,154
+    LISTBOX         IDC_FORMAT_LIST,20,54,168,147,LBS_NOINTEGRALHEIGHT | NOT 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP
+    CONTROL         262,IDC_PREVIEW,"Static",SS_BITMAP,205,53,121,133
+    PUSHBUTTON      "Back",IDC_BACK,201,218,40,14
+    PUSHBUTTON      "OK",IDOK,245,218,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,290,218,40,14
+END
+
+IDD_PROJECT_CALENDAR_TYPE DIALOG DISCARDABLE  0, 0, 358, 274
+STYLE DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         260,IDC_TEXT_HEADER,"Static",SS_BITMAP | WS_GROUP,10,6,
+                    275,29
+    CONTROL         "",IDC_CALENDAR,"{8E27C92B-1264-101C-8A2F-040224009C02}",
+                    WS_TABSTOP,8,45,197,147
+    CONTROL         262,IDC_PREVIEW,"Static",SS_BITMAP,213,52,121,133
+    CONTROL         "Radio1",IDC_CALENDAR_YEARLY,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | WS_TABSTOP,3,199,50,45
+    CONTROL         "Radio1",IDC_CALENDAR_MONTHLY,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,55,199,50,
+                    45
+    CONTROL         "Radio1",IDC_CALENDAR_WEEKLY,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE,107,199,50,45
+    CONTROL         "Radio1",IDC_CALENDAR_DAILY,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE,159,199,50,45
+    PUSHBUTTON      "Next",IDC_NEXT,250,193,40,14,WS_GROUP
+    PUSHBUTTON      "Back",IDC_BACK,250,213,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,250,233,40,14
+END
+
+IDD_PROJECT_FORMAT_ENVELOPE DIALOG DISCARDABLE  0, 0, 359, 274
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         233,IDC_STATIC,"Static",SS_BITMAP,0,0,341,258
+    CONTROL         276,IDC_TEXT_HEADER,"Static",SS_BITMAP,10,6,275,29
+    CONTROL         "&S",IDC_ENVELOPE_STOCK,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | WS_TABSTOP,31,46,50,40
+    CONTROL         "&P",IDC_ENVELOPE_PS,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | WS_DISABLED,128,46,50,40
+    CONTROL         262,IDC_PREVIEW,"Static",SS_BITMAP,205,53,121,133
+    CONTROL         277,IDC_STATIC,"Static",SS_BITMAP,19,94,175,102
+    LISTBOX         IDC_FORMAT_LIST,20,95,168,96,LBS_NOINTEGRALHEIGHT | NOT 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP
+    CONTROL         205,IDC_STATIC,"Static",SS_BITMAP,1,206,193,42
+    LISTBOX         IDC_PAPER_LIST,65,212,123,29,LBS_NOINTEGRALHEIGHT | 
+                    WS_DISABLED | NOT WS_BORDER | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Back",IDC_BACK,201,218,40,14
+    PUSHBUTTON      "OK",IDOK,245,218,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,290,218,40,14
+END
+
+IDD_PROJECT_SETUP DIALOGEX 0, 0, 359, 274
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         233,IDC_STATIC,"Static",SS_BITMAP,0,0,20,20
+    CONTROL         266,IDC_TEXT_HEADER,"Static",SS_BITMAP,10,6,275,29
+    PUSHBUTTON      "Back",IDC_BACK,171,237,40,14
+    PUSHBUTTON      "OK",IDOK,215,237,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,260,237,40,14
+    LTEXT           "",IDC_STATIC_PREVIEW,136,43,196,189,0,WS_EX_CLIENTEDGE
+    LTEXT           "Number Of:",IDC_STATIC,24,46,37,8
+    LTEXT           "&Pages:",IDC_STATIC,24,60,23,8
+    EDITTEXT        IDC_PAGES,82,58,33,13,ES_AUTOHSCROLL
+    CONTROL         "Generic1",IDC_PAGES_CTRL,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,111,59,11,14
+    LTEXT           "&Columns:",IDC_STATIC,24,76,30,8
+    EDITTEXT        IDC_COLUMNS,82,74,33,13,ES_AUTOHSCROLL
+    CONTROL         "Generic4",IDC_COLUMNS_CTRL,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,111,73,11,14
+    CTEXT           "Include:",IDC_STATIC,24,96,24,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,23,93,104,1
+    CONTROL         "&Masthead",IDC_MASTHEAD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,107,47,10
+    CONTROL         "Line &Between Columns",IDC_LINES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,24,119,93,10
+    CONTROL         "He&ader",IDC_HEADER,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,145,39,10
+    LTEXT           "Start On",IDC_STATIC,72,133,27,8
+    COMBOBOX        IDC_HEADER_START,71,143,53,44,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "&Footer",IDC_FOOTER,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,159,36,10
+    COMBOBOX        IDC_FOOTER_START,71,158,53,51,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,23,178,104,1
+    LTEXT           "&Top:",IDC_STATIC,23,194,25,8,NOT WS_GROUP
+    EDITTEXT        IDC_TOPMARGIN,56,192,42,12,ES_AUTOHSCROLL | WS_GROUP
+    CONTROL         "Spin1",IDC_TOPSPIN,"msctls_updown32",UDS_ALIGNRIGHT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,105,192,
+                    11,14
+    LTEXT           "&Bottom:",IDC_STATIC,23,208,27,8,NOT WS_GROUP
+    EDITTEXT        IDC_BOTTOMMARGIN,56,206,42,12,ES_AUTOHSCROLL | WS_GROUP
+    CONTROL         "Spin2",IDC_BOTTOMSPIN,"msctls_updown32",UDS_ALIGNRIGHT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,105,205,
+                    11,14
+    LTEXT           "&Left:",IDC_STATIC,23,222,25,8,NOT WS_GROUP
+    EDITTEXT        IDC_LEFTMARGIN,56,220,42,12,ES_AUTOHSCROLL | WS_GROUP
+    CONTROL         "Spin3",IDC_LEFTSPIN,"msctls_updown32",UDS_ALIGNRIGHT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,105,220,
+                    11,14
+    LTEXT           "&Right:",IDC_STATIC,23,236,25,8,NOT WS_GROUP
+    EDITTEXT        IDC_RIGHTMARGIN,56,234,42,12,ES_AUTOHSCROLL | WS_GROUP
+    CONTROL         "Spin4",IDC_RIGHTSPIN,"msctls_updown32",UDS_ALIGNRIGHT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,105,234,
+                    11,14
+    LTEXT           "in.",IDC_STATIC_UNITS1,100,196,9,8
+    LTEXT           "in.",IDC_STATIC_UNITS2,100,210,9,8
+    LTEXT           "in.",IDC_STATIC_UNITS3,100,224,9,8
+    LTEXT           "in.",IDC_STATIC_UNITS4,100,238,9,8
+    LTEXT           "Margins:",IDC_STATIC,24,181,28,8
+END
+
+IDD_PROJECT_FORMAT_PRESSWRITER DIALOG DISCARDABLE  0, 0, 359, 274
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         233,IDC_STATIC,"Static",SS_BITMAP,0,0,20,20
+    CONTROL         266,IDC_TEXT_HEADER,"Static",SS_BITMAP,10,6,275,29
+    CONTROL         "&Tall",IDC_FORMAT_TALL,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,15,53,74,89
+    CONTROL         "&Wide",IDC_FORMAT_WIDE,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,109,53,74,89
+    CONTROL         265,IDC_PREVIEW,"Static",SS_BITMAP,205,53,121,133
+    CONTROL         205,IDC_STATIC,"Static",SS_BITMAP,1,206,193,42
+    LISTBOX         IDC_PAPER_LIST,65,212,123,28,LBS_NOINTEGRALHEIGHT | NOT 
+                    WS_BORDER | WS_TABSTOP
+    PUSHBUTTON      "&Back",IDC_BACK,201,218,40,14
+    PUSHBUTTON      "&Next",IDC_NEXT,245,218,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,290,218,40,14
+END
+
+IDD_PROJECT_QSL_PRESSWRITER DIALOG DISCARDABLE  0, 0, 359, 273
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         233,IDC_STATIC,"Static",SS_BITMAP,0,0,20,20
+    CONTROL         266,IDC_TEXT_HEADER,"Static",SS_BITMAP,10,6,275,29
+    LTEXT           "P&aper Size",IDC_STATIC,7,44,58,8
+    COMBOBOX        IDC_PAPER,6,55,72,44,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Paper &Orientation",IDC_STATIC,7,72,58,8
+    COMBOBOX        IDC_ORIENT,6,83,72,37,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Include:",IDC_STATIC,8,134,26,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,6,145,73,1
+    CONTROL         "Sample &Text",IDC_SAMPLETEXT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,148,55,10
+    CONTROL         "Sample &Graphics",IDC_SAMPLEGRAPHICS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,159,69,10
+    LISTBOX         IDC_LIST1,136,43,196,189,LBS_SORT | LBS_OWNERDRAWFIXED | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Back",IDC_BACK,171,237,40,14
+    PUSHBUTTON      "OK",IDOK,215,237,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,260,237,40,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\PSLaunchDLL.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+    END
+
+    IDD_CATEGORY_ALL, DIALOG
+    BEGIN
+    END
+
+    IDD_CATEGORY_CARD_SHOP, DIALOG
+    BEGIN
+    END
+
+    IDD_CATEGORY_CREATIVE, DIALOG
+    BEGIN
+    END
+
+    IDD_CATEGORY_PHOTO_PROJECTS, DIALOG
+    BEGIN
+    END
+
+    IDD_PROJECT_FORMAT_GREETINGCARD, DIALOG
+    BEGIN
+    END
+
+    IDD_PROJECT_METHOD, DIALOG
+    BEGIN
+    END
+
+    "IDD_PROJECT_GREETINGCARD_QSL", DIALOG
+    BEGIN
+    END
+
+    IDD_PROJECT_GREETINGCARD_THEME, DIALOG
+    BEGIN
+    END
+
+    IDD_PSLAUNCH_DIALOG, DIALOG
+    BEGIN
+    END
+
+    IDD_PROJECT_FORMAT, DIALOG
+    BEGIN
+    END
+
+    IDD_CATEGORY_INTERNETWORLD, DIALOG
+    BEGIN
+    END
+
+    IDD_PROJECT_WEBSITE_METHOD, DIALOG
+    BEGIN
+    END
+
+    IDD_CATEGORY_CLASSROOM, DIALOG
+    BEGIN
+    END
+
+    IDD_CATEGORY_WORKPLACE, DIALOG
+    BEGIN
+    END
+
+    IDD_CATEGORY_OPEN, DIALOG
+    BEGIN
+    END
+
+    IDD_PROJECT_FORMAT_LABEL, DIALOG
+    BEGIN
+    END
+
+    IDD_PROJECT_CALENDAR_TYPE, DIALOG
+    BEGIN
+    END
+
+    IDD_PROJECT_FORMAT_ENVELOPE, DIALOG
+    BEGIN
+    END
+
+    IDD_PROJECT_SETUP, DIALOG
+    BEGIN
+    END
+
+    IDD_PROJECT_FORMAT_PRESSWRITER, DIALOG
+    BEGIN
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_PSLAUNCHDATA        REGISTRY DISCARDABLE    "res\\PSLaunchData.rgs"
+IDR_PSLAUNCHCTRL        REGISTRY DISCARDABLE    "res\\PSLaunchCtrl.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PROJECT_CALENDAR_TYPE DLGINIT
+BEGIN
+    IDC_CALENDAR, 0x37a, 417, 0
+0x0000, 0x0000, 0x0023, 0x0000, 0x0001, 0x0000, 0x001b, 0x0000, 0x0001, 
+0x8001, 0x0000, 0x000c, 0x0000, 0x001a, 0x0000, 0x0002, 0x8001, 0x0001, 
+0x0000, 0x0000, 0x0800, 0x9800, 0x001e, 0xb400, 0x0018, 0xce00, 0x0a07, 
+0x1000, 0xff00, 0xffff, 0x0000, 0x0000, 0x0000, 0xa000, 0x1000, 0x0000, 
+0x0080, 0xa000, 0x0000, 0x0100, 0x0200, 0x0000, 0x0100, 0x0000, 0x0100, 
+0x0000, 0x0100, 0x0000, 0x0100, 0x0000, 0x0100, 0x0000, 0x0100, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0100, 0x0000, 0xbc00, 0x4402, 0x0142, 
+0x0500, 0x7241, 0x6169, 0x016c, 0x0000, 0x9000, 0x4401, 0x0142, 0x0500, 
+0x7241, 0x6169, 0x016c, 0x0000, 0xbc00, 0xc002, 0x01d4, 0x0500, 0x7241, 
+0x6169, "\154" 
+    0
+END
+
+IDD_PROJECT_SETUP DLGINIT
+BEGIN
+    IDC_HEADER_START, 0x403, 7, 0
+0x6150, 0x6567, 0x3120, "\000" 
+    IDC_HEADER_START, 0x403, 7, 0
+0x6150, 0x6567, 0x3220, "\000" 
+    IDC_FOOTER_START, 0x403, 7, 0
+0x6150, 0x6567, 0x3120, "\000" 
+    IDC_FOOTER_START, 0x403, 7, 0
+0x6150, 0x6567, 0x3220, "\000" 
+    0
+END
+
+IDD_PROJECT_QSL_PRESSWRITER DLGINIT
+BEGIN
+    IDC_PAPER, 0x403, 7, 0
+0x654c, 0x7474, 0x7265, "\000" 
+    IDC_PAPER, 0x403, 6, 0
+0x654c, 0x6167, 0x006c, 
+    IDC_PAPER, 0x403, 3, 0
+0x3441, "\000" 
+    IDC_ORIENT, 0x403, 9, 0
+0x6f50, 0x7472, 0x6172, 0x7469, "\000" 
+    IDC_ORIENT, 0x403, 10, 0
+0x614c, 0x646e, 0x6373, 0x7061, 0x0065, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJNAME            "PSLaunchDLL"
+    IDS_ABOUTBOX            "&About PSLaunch..."
+    IDS_SETUP_PAGE          "Page %d"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJECT_ANIMATED_GREETINGS "Animated Greetings"
+    IDS_PROJECT_BLANK_PAGES "Blank Pages"
+    IDS_PROJECT_BANNERS     "Banners"
+    IDS_PROJECT_BOOKLETS    "Booklets"
+    IDS_PROJECT_BROCHURES   "Brochures/Pamhlets"
+    IDS_PROJECT_BUSINESS_CARDS "Business Cards"
+    IDS_PROJECT_CALENDARS   "Calendars"
+    IDS_PROJECT_CERTIFICATES "Certificates"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJECT_ENVELOPES   "Envelopes"
+    IDS_PROJECT_FLASHCARDS  "Flash Cards"
+    IDS_PROJECT_FLYERS      "Flyers"
+    IDS_PROJECT_GIFT_BAGS   "Gift Bags"
+    IDS_PROJECT_GIFT_TAGS   "Gift Tags"
+    IDS_PROJECT_GIFT_WRAP   "Gift Wrap"
+    IDS_PROJECT_GREETING_CARDS "Greeting Cards"
+    IDS_PROJECT_HEAT_TRANSFERS "Heat Transfers"
+    IDS_PROJECT_LABELS      "Labels"
+    IDS_PROJECT_LETTERHEADS "Letterheads"
+    IDS_PROJECT_LETTERS     "Letters"
+    IDS_PROJECT_NAME_TAGS   "Name Tags"
+    IDS_PROJECT_NEWSLETTERS "Newsletters"
+    IDS_PROJECT_ONLINE_GREETINGS "OnLine Greetings"
+    IDS_PROJECT_PAMPHLETS   "Pamphlets"
+    IDS_PROJECT_PHOTO_ALBUMS "Photo Albums"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJECT_PHOTO_COLLAGES "Photo Collages"
+    IDS_PROJECT_PHOTO_NOVELTIES "Photo Novelties"
+    IDS_PROJECT_PHOTO_QUICKPRINTS "Photo Quick Prints"
+    IDS_PROJECT_PLACEMATS   "Placemats"
+    IDS_PROJECT_POSTCARDS   "Postcards"
+    IDS_PROJECT_POSTIT_NOTES "Post-It Notes"
+    IDS_PROJECT_REPORTS     "Reports"
+    IDS_PROJECT_RESUMES     "Resumes"
+    IDS_PROJECT_SCRAPBOOKS  "Scrapbooks"
+    IDS_PROJECT_SIGNS       "Signs"
+    IDS_PROJECT_TABLE_CARDS "Table Cards"
+    IDS_PROJECT_TSHIRTS     "Tee Shirts"
+    IDS_PROJECT_WEBSITES    "Web Sites"
+    IDS_PROJECT_YEARBOOKS   "Yearbooks"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FORMAT_QUARTERFOLD_TALL "Quarter-Fold Tall"
+    IDS_FORMAT_QUARTERFOLD_WIDE "Quarter-Fold Wide"
+    IDS_FORMAT_HALFFOLD_TALL "Half-Fold Tall"
+    IDS_FORMAT_HALFFOLD_WIDE "Half-Fold Wide"
+    IDS_FORMAT_NOTECARD_TALL "Note Card Tall"
+    IDS_FORMAT_NOTECARD_WIDE "Note Card Wide"
+    IDS_FORMAT_TRIFOLD_TALL "Tri-Fold Tall"
+    IDS_FORMAT_TRIFOLD_WIDE "Tri-Fold Wide"
+    IDS_FORMAT_PHOTOCARD35_TALL 
+                            "Avery Photo Frame Card #3258 - Tall 3.5"" x 5"" photo"
+    IDS_FORMAT_PHOTOCARD35_WIDE 
+                            "Avery Photo Frame Card #3258 - Wide 3.5"" x 5"" photo"
+    IDS_FORMAT_PHOTOCARD46_TALL 
+                            "Avery Photo Frame Card #3258 - Tall 4"" x 6"" photo"
+    IDS_FORMAT_PHOTOCARD46_WIDE 
+                            "Avery Photo Frame Card #3258 - Wide 4"" x 6"" photo"
+    IDS_FORMAT_MINIFOLDCARDTALL "Avery Mini-Folded Card #3264 - Tall"
+    IDS_FORMAT_MINIFOLDCARDWIDE "Avery Mini-Folded Card #3264 - Wide"
+    IDS_FORMAT_HALFFOLDEMBOSSEDTALL 
+                            "Avery Embossed Half-Fold Card #3260 - Tall"
+    IDS_FORMAT_HALFFOLDEMBOSSEDWIDE 
+                            "Avery Embossed Half-Fold Card #3260 - Wide"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PAPER_USLETTER      "US Letter"
+    IDS_PAPER_USLEGAL       "US Legal"
+    IDS_PAPER_USTABLOID     "US Tabloid"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INFOTEXT_DEFAULT    "Select the type of Project you want to create or open an existing one from the Main Menu on the left of your screen."
+    IDS_INFOTEXT_CATEGORY_CARDSHOP 
+                            "The Card Shop is where you can make the perfect card for ANY occasion.  Select the type of card you wish to make by clicking on one of the icons below."
+    IDS_INFOTEXT_CATEGORY_PHOTO 
+                            "Photo Projects now bring powerful photoragphy tools directly into your home or business.  Click an icon below to start using your photo studio."
+    IDS_INFOTEXT_CATEGORY_CREATIVE 
+                            "Creative Projects is the place where you will find all the fun and useful projects that you will need to satisfy your creative printing needs."
+    IDS_INFOTEXT_CATEGORY_CLASSROOM 
+                            "School Projects enable students to really shine in their school work and activities.  Find everything the young scholar needs for doing A+ print and publication by clicking on a topic below."
+    IDS_INFOTEXT_CATEGORY_WORKPLACE 
+                            "Business Projects allow the business owner large or small to have the power of their very own printing department.  Simply click an icon below to solve your business printing issues."
+    IDS_INFOTEXT_CATEGORY_INTERNET 
+                            "Internet World give you a place to easily create and post your web sites or e-mail greeting.  Click on an icon below to find out how easy it is."
+    IDS_INFOTEXT_CATEGORY_ALL 
+                            "Select from the list below by double clicking hte line item or hilite and click the choose button."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INFOTEXT_CATEGORY_OPEN "Open an existing project."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FORMAT_LABEL3261SMALL "Label 3261 Small"
+    IDS_FORMAT_LABEL3261LARGE "Label 3261 Large"
+    IDS_FORMAT_LABEL5160    "Avery Laser Label #5160 - Address"
+    IDS_FORMAT_LABEL5161    "Avery Laser Label #5161 - Address"
+    IDS_FORMAT_LABEL5162    "Avery Laser Label #5162 - Address"
+    IDS_FORMAT_LABEL5163    "Avery Laser Label #5163 - Address/Shipping"
+    IDS_FORMAT_LABEL5164    "Avery Laser Label #5164 - Address/Shipping"
+    IDS_FORMAT_LABEL5196    "Avery Laser Label #5196 - 3.5"" Disk"
+    IDS_FORMAT_LABEL5197    "Avery Laser Label #5197 - 5.25"" Disk"
+    IDS_FORMAT_LABEL5198    "Avery Laser Label #5198 - Audio Cassette"
+    IDS_FORMAT_LABEL5199FACE "Avery Laser Label #5199 (face) - Video Cassette"
+    IDS_FORMAT_LABEL5199SPINE 
+                            "Avery Laser Label #5199 (spine) - Video Cassette"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FORMAT_LABEL5267    "Avery Laser Label #5267 - Return Address"
+    IDS_FORMAT_LABEL5385    "Avery Laser Label #5385 - Rotary Card"
+    IDS_FORMAT_LABEL5386    "Avery Laser Label #5386 - Rotary Card"
+    IDS_FORMAT_LABEL5824    "Avery Laser Label #5824 - CD"
+    IDS_FORMAT_LABELC2160   "Avery Laser Label #C2160 - Mailing"
+    IDS_FORMAT_LABELC2163   "Avery Laser Label #C2163 - Mailing"
+    IDS_FORMAT_LABELC2180   "Avery Laser Label #C2180 - Mini Address"
+    IDS_FORMAT_LABELC2166   "Avery Laser Label #C2166 - 3.5"" Disk"
+    IDS_FORMAT_LABELC2241   "Avery Laser Label #C2241 - Rectangle"
+    IDS_FORMAT_LABELC2242   "Avery Laser Label #C2242 - Square"
+    IDS_FORMAT_LABELC2245   "Avery Laser Label #C2245 - Full page"
+    IDS_FORMAT_LABELL7160   "Avery Laser Label #L7160 - Address"
+    IDS_FORMAT_LABELL7161   "Avery Laser Label #L7161 - Address"
+    IDS_FORMAT_LABELL7162   "Avery Laser Label #L7162 - Address"
+    IDS_FORMAT_LABELL7163   "Avery Laser Label #L7163 - Address"
+    IDS_FORMAT_LABELL7164   "Avery Laser Label #L7164 - Address"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FORMAT_LABELL7165   "Avery Laser Label #L7165 - Address/Shipping"
+    IDS_FORMAT_LABELL7166   "Avery Laser Label #L7166 - Address/Shipping"
+    IDS_FORMAT_LABELL7168   "Avery Laser Label #L7168 - Shipping"
+    IDS_FORMAT_LABELL7651   "Avery Laser Label #L7651 - Mini Address"
+    IDS_FORMAT_LABELL7655   "Avery Laser Label #L7655 - Audio Cassette"
+    IDS_FORMAT_LABELL7664   "Avery Laser Label #L7664 - 3.5"" Disk Wraparound"
+    IDS_FORMAT_LABELL7671FACE 
+                            "Avery Laser Label #L7671 (face) - Video Cassette"
+    IDS_FORMAT_LABELL7674SPINE 
+                            "Avery Laser Label #L7674 (spine) - Video Cassette"
+    IDS_FORMAT_NAMEBADGE5361 "Avery Laser Label #5361 - Name Badge"
+    IDS_FORMAT_NAMEBADGE5390 "Avery Laser Label #5390 - Name Badge"
+    IDS_FORMAT_NAMEBADGE5395 "Avery Laser Label #5395 - Name Badge"
+    IDS_FORMAT_NAMEBADGEL7418 "Avery Laser Label #L7418 - Name Badge"
+    IDS_FORMAT_PINFED4030   "Avery Pinfed Label #4030 - Address"
+    IDS_FORMAT_PINFED4031   "Avery Pinfed Label #4031 - Address"
+    IDS_FORMAT_PINFED4060   "Avery Pinfed Label #4060 - Address"
+    IDS_FORMAT_PINFED4061   "Avery Pinfed Label #4061 - Address"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FORMAT_PINFED4062   "Avery Pinfed Label #4062 - Address"
+    IDS_FORMAT_PINFED4065   "Avery Pinfed Label #4065 - Address"
+    IDS_FORMAT_PINFED4067   "Avery Pinfed Label #4067 - Address"
+    IDS_FORMAT_PINFED4088   "Avery Pinfed Label #4088 - Shipping"
+    IDS_FORMAT_PINFED4143   "Avery Pinfed Label #4143 - Address"
+    IDS_FORMAT_PINFED4145   "Avery Pinfed Label #4145 - Address"
+    IDS_FORMAT_PINFED4240   "Avery Pinfed Label #4240 - 5.25"" Disk"
+    IDS_FORMAT_PINFED4241   "Avery Pinfed Label #4241 - 3.5"" Disk"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FORMAT_EMBOSSEDTALL "Avery Embossed Note Card #3259 - Tall, two per sheet"
+    IDS_FORMAT_EMBOSSEDWIDE "Avery Embossed Note Card #3259 - Wide, two per sheet"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FORMAT_BUSINESSENVELOPE10 "Business Envelope #10"
+    IDS_FORMAT_STOCKENVELOPE9X6 "Stock Envelope 9 x 6"
+    IDS_FORMAT_STOCKENVELOPE4X3 "Stock Envelope 4 1/2 x 3 1/4"
+    IDS_FORMAT_STOCKENVELOPE6X4 "Stock Envelope 6 x 4 3/4"
+    IDS_FORMAT_STOCKENVELOPE_C4 "Stock Envelope C4"
+    IDS_FORMAT_STOCKENVELOPE_C5 "Stock Envelope C5"
+    IDS_FORMAT_STOCKENVELOPE_C6 "Stock Envelope C6"
+    IDS_FORMAT_STOCKENVELOPE_DL "Stock Envelope DL"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FORMAT_NOTECARD_ENVELOPE "Notecard Envelope"
+    IDS_FORMAT_AVERY3258ENVELOPE "Avery Photo Frame Envelope #3258"
+    IDS_FORMAT_AVERY3259ENVELOPE "Avery Embossed Note Card Envelope #3259"
+    IDS_FORMAT_AVERY3260ENVELOPE "Avery Embossed Note Card Envelope #3260"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DIR_QSL             "QuickStart"
+    IDS_DIR_NEWSLETTER      "Newsletters"
+    IDS_DIR_QSLBROCHURE     "Brochures"
+    IDS_DIR_QSLREPORT       "Reports"
+    IDS_DIR_QSLBOOKLET      "Booklets"
+    IDS_DIR_QSLLETTER       "Letters"
+    IDS_DIR_QSLFLYER        "Flyers"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CDDIR_QSL           "Pspw2\\Quikstrt"
+    IDS_CDDIR_QSLNEWSLETTER "Newsltrs"
+    IDS_CDDIR_QSLBROCHURE   "Brochure"
+    IDS_CDDIR_QSL_REPORT    "Reports"
+    IDS_CDDIR_QSLBOOKLET    "Booklets"
+    IDS_CDDIR_QSLLETTER     "Letters"
+    IDS_CDDIR_QSLFLYERS     "Flyers"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\PSLaunchDLL.rc2"  // non-Microsoft Visual C++ edited resources
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,2432 @@
+<HTML>
+	<HEAD>
+		<TITLE>AmericanGreetings.com - Introducing Paper Cards</TITLE><script language="javascript">
+<!--
+//Generic Open Window
+function OpenNewWindow(url,winwidth,winheight,bar)
+{
+  NewWindow = window.open(url,'descr','toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,copyhistory=no,width='+winwidth+',height='+winheight+',scrollbars='+bar)
+}
+//-->
+		</script>
+		<script language="javascript">
+	<!--
+	function IsValidPhoneNo(s)
+	{
+		var ValidChars=["-"," ","&nbsp;","(",")"]
+		var ch
+		var len = s.length
+		for(var i = 0; i < len; i++)
+		{
+			ch = s.charAt(i);
+			
+			if(isNaN(ch))
+			{
+				var j
+				for (j = 0; j < ValidChars.length; j++) 
+				{
+					if(ch == ValidChars[j])
+						break;
+				}
+				if(j == ValidChars.length)
+					return false;				
+			}
+			
+		}
+		return true;	
+	}
+
+	function isBlank(s) {
+		
+		var blankCharacters = [" ", "&nbsp;", "&#032;"];
+		var macMsg, space;	
+		macFlag = 0;
+		
+		for (var i = 0; i < blankCharacters.length; i++) {	
+			
+				s = s.replace(eval("/" + blankCharacters[i] + "/gi"), "");		
+			
+		} 
+		
+			
+		
+		return (s == "") ? true:false;
+	}
+
+	function HasBlank(s)
+	{
+		var blankCharacters = [" ", "&nbsp;", "&#032;"];
+		var ch
+		var len = s.length
+		for(var i = 0; i < len; i++)
+		{
+			ch = s.charAt(i);
+			for (var j = 0; j < blankCharacters.length; j++) 
+			{
+				if(ch == blankCharacters[j])
+					return true;
+			}		
+		}
+		return false;
+	}
+
+	//-->
+		</script>
+		<!--
+'-----------------------------------------------------'
+'Version 			: 3.0.2.100
+'Product Version	: 3.0
+'Author				: Vijay
+'Comment			: Base file
+'-----------------------------------------------------'
+-->
+		<SCRIPT LANGUAGE="javascript">
+<!--
+	function isNaTN(sTelNo)
+	{	
+		var len, cnt
+		var ch
+		
+		len = sTelNo.length
+		for(cnt=0;cnt<len;cnt++)
+		{			
+			ch = sTelNo.charAt(cnt)
+			if(isNaN(ch)==true)
+			{
+				if(ch != "-" && ch != " ")
+					return true;
+			}
+		}
+		return false		
+	}
+
+	function window_onload()
+	{
+		document.shipmain.ShipToFName.focus();
+	}
+
+		
+		
+	function CheckRecipient() 
+	{ 
+		
+		thisYear = 2004; 
+		thismonth = 9; 
+		thisday = 1; 
+		
+				
+		//check if date blank
+		if(document.shipmain.ShipDay.value == "")
+		{ 
+			alert("Ship date should not be blank");
+			document.shipmain.ShipDay.focus();
+			return false;
+		}
+		
+		//check if date less than the current day + 1
+		if (parseInt(document.shipmain.ShipYr.value) == parseInt(thisYear) && (document.shipmain.ShipMon.value) == (thismonth))
+		{
+			if(document.shipmain.ShipDay.value < thisday)
+			{ 
+				alert("Ship day cannot be less than or equal to the current day");
+				document.shipmain.ShipDay.focus();
+				return false;
+			}
+		}		
+				
+		//check if date not between 1-31
+		if (document.shipmain.ShipDay.value < 1 || 31  < document.shipmain.ShipDay.value)
+		{ 
+			alert("Ship day should be within expiration limit ");
+			document.shipmain.ShipDay.focus();
+			return false;
+		}   
+				
+		//check if date is not numeric	
+		if (isNaN(document.shipmain.ShipDay.value)){
+			alert("Ship Day Should Be Number"); 
+			document.shipmain.ShipDay.focus();
+			return false;
+		}   
+				
+		//check if month blank
+		if(document.shipmain.ShipMon.value=="")
+		{ 
+			alert("Ship Month should not be blank");
+			document.shipmain.ShipMon.focus();
+			return false;
+		}
+
+		//check if month not between 1-12     
+		if(document.shipmain.ShipMon.value < 1  || 12 < document.shipmain.ShipMon.value )
+		{ 
+			alert("Ship Month should  be within the expiration limit");
+			document.shipmain.ShipMon.focus();
+			return false;
+		}  
+			
+		//check if month is not numeric     
+		if (isNaN(document.shipmain.ShipMon.value))
+		{
+			alert("Ship Month Should Be Number"); 
+			document.shipmain.ShipMon.focus();
+			return false;
+		}
+
+		//check if year blank		
+		if(document.shipmain.ShipYr.value=="")
+		{ 
+			alert("Ship Year should not be blank");
+			document.shipmain.ShipYr.focus();
+			return false;
+		}
+
+		//check if year is not numeric	     
+		if (isNaN(document.shipmain.ShipYr.value))
+		{
+			alert("Ship Year Should Be Number"); 
+			document.shipmain.ShipYr.focus();
+			return false;
+		}       
+				
+		//check if year has 4 digits	  	  
+		if(document.shipmain.ShipYr.value.length < 4 || 4 < document.shipmain.ShipYr.value.length )
+		{ 
+			alert("Ship Year  should  be of four digit only ");
+			document.shipmain.ShipYr.focus();
+			return false;
+		}
+		
+		//check if entered year is greater than or equal to current year
+		var check =1; 
+		if (document.shipmain.ShipYr.value < thisYear  || document.shipmain.ShipYr.value < 1999 )
+		{ 
+			alert ("Year entered should be greater than or equal to current Year");
+			document.shipmain.ShipYr.focus();
+			check = 0;
+			return false;
+		}  
+			    
+		//checking  for the months other than February
+		if (document.shipmain.ShipMon.value == 1  || document.shipmain.ShipMon.value == 3 || document.shipmain.ShipMon.value == 5 || document.shipmain.ShipMon.value == 7 || document.shipmain.ShipMon.value== 8 || document.shipmain.ShipMon.value == 10 || document.shipmain.ShipMon.value == 12 )
+		{
+			if (document.shipmain.ShipDay.value < 1 || document.shipmain.ShipDay.value > 31)
+			{ 
+			alert("Ship day should be within expiration limit ");
+			document.shipmain.ShipDay.focus();
+			return false;
+			} 
+		}    
+				
+		if ( document.shipmain.ShipMon.value ==4  || document.shipmain.ShipMon.value== 6 || document.shipmain.ShipMon.value == 9 || document.shipmain.ShipMon.value == 11 )
+		{               
+			if(document.shipmain.ShipDay.value < 1 || document.shipmain.ShipDay.value > 30)
+			{ 
+				alert("Ship day should be within expiration limit ");
+				document.shipmain.ShipDay.focus();
+				return false;
+			} 
+		}	            
+
+		if (document.shipmain.ShipYr.value != "") 
+		{ // if entered year is leap year
+			if ((document.shipmain.ShipYr.value % 4 == 0 && document.shipmain.ShipYr.value % 100 != 0) || document.shipmain.ShipYr.value % 400 == 0)
+			{   
+				if (document.shipmain.ShipMon.value == 2)
+				{
+					if(document.shipmain.ShipDay.value < 1 || 29 < document.shipmain.ShipDay.value)
+					{ 
+						alert("Ship day should be within expiration limit since year entered is leap yr");
+						document.shipmain.ShipDay.focus();
+						return false;
+					} 
+				}
+			}			
+			//if entered year is not leap year
+			else
+			{
+				//for FEBRUARY of the leap year						            
+				if  (document.shipmain.ShipMon.value == 2) 
+				{   
+					if(document.shipmain.ShipDay.value < 1 || 28 < document.shipmain.ShipDay.value)
+					{ 
+						alert("Ship day should be within expiration limit");
+						document.shipmain.ShipDay.focus();
+						return false;
+					} 
+							           
+				} 
+			}  
+		}
+  
+   		//check if month less than the current month
+		if (parseInt(document.shipmain.ShipYr.value) == parseInt(thisYear))
+		{
+			if((document.shipmain.ShipMon.value) < (thismonth))
+			{ 
+				alert("Ship Month should be greater than the current month");
+				document.shipmain.ShipMon.focus();
+				return false;
+			}
+		}
+			
+			
+			if(document.shipmain.RAFName.value=="")
+			{
+				alert("Person's first name should not be blank");
+				document.shipmain.RAFName.focus();
+				return false;
+			}
+
+			if(document.shipmain.RALName.value=="")
+			{
+				alert("Person's last name should not be blank");
+				document.shipmain.RALName.focus();
+				return false;
+			}
+
+			if (document.shipmain.RAStreet1.value=="")
+			{
+				alert("Street Address should not be blank");
+				document.shipmain.RAStreet1.focus();
+				return false;
+			}
+
+			
+			if(document.shipmain.RACity.value=="")
+			{
+				alert("City should not be blank");
+				document.shipmain.RACity.focus();
+				return false;
+			}
+			
+			if (document.shipmain.elements["RACountry"][document.shipmain.elements["RACountry"].selectedIndex].text== "USA")
+			{
+				if (document.shipmain["RAState"][document.shipmain.elements["RAState"].selectedIndex].value=="")
+				{
+					alert("Please select the state");
+					document.shipmain.RAState.focus();
+					return false;
+				}
+			}
+					
+			if (document.shipmain.RAZip.value=="")      
+			{
+				alert("Zip should not be blank");
+				document.shipmain.RAZip.focus();
+				return false;
+			}
+
+			if (document.shipmain.RAZip.value.length > 10)      
+			{
+				alert("Zip should not be greater than ten characters");
+				document.shipmain.RAZip.focus();
+				return false;
+			}
+
+			if(document.shipmain.RATel.value.length > 15)
+			{ 
+				alert("Telephone should not be greater than 15 digits");
+				document.shipmain.RATel.focus();
+				return false;
+			}    
+		
+			if (document.shipmain.RATel.value != "") 
+			{ 
+				if(!IsValidPhoneNo(document.shipmain.RATel.value)) 
+				{
+					alert("Telephone number contains invalid characters."); 
+				    document.shipmain.RATel.focus();
+				    return false;
+				}
+				if (parseInt(document.shipmain.RATel.value)<= 0 || parseInt(document.shipmain.RATel.value)== "NaN")
+				{
+					alert("Telephone should start with a number.");
+					document.shipmain.RATel.focus();
+					return false;
+				}
+			}
+		
+		
+		if(document.shipmain.ShipToFName.value=="")
+		{
+			alert("Person's first name should not be blank");
+			document.shipmain.ShipToFName.focus();
+			return false;
+		}
+
+		if(document.shipmain.ShipToLName.value=="")
+		{
+			alert("Person's last name should not be blank");
+			document.shipmain.ShipToLName.focus();
+			return false;
+		}
+
+		if (document.shipmain.ShipToStreet1.value=="")
+		{
+			alert("Street Address should not be blank");
+			document.shipmain.ShipToStreet1.focus();
+			return false;
+		}
+
+		if(document.shipmain.ShipToCity.value=="")
+		{
+			alert("City should not be blank");
+			document.shipmain.ShipToCity.focus();
+			return false;
+		}
+
+		if (document.shipmain.elements["STCountry"][document.shipmain.elements["STCountry"].selectedIndex].text== "USA")
+		{
+			if (document.shipmain["ShipToState"][document.shipmain.elements["ShipToState"].selectedIndex].value=="")
+			{
+				alert("Please select the state");
+				document.shipmain.ShipToState.focus();
+				return false;
+			}
+		}
+				
+		if (document.shipmain.ShipToZip.value=="")      
+		{
+			alert("Zip should not be blank");
+			document.shipmain.ShipToZip.focus();
+			return false;
+		}
+
+		if (document.shipmain.ShipToZip.value.length > 10)      
+		{
+			alert("Zip should not be greater than ten characters");
+			document.shipmain.ShipToZip.focus();
+			return false;
+		}
+ 
+		if(document.shipmain.ShipTel.value.length > 15)
+		{ 			
+			alert("Telephone should not be greater than 15 digits");
+			document.shipmain.ShipTel.focus();
+			return false;
+		}   
+		
+		if (document.shipmain.ShipTel.value != "") 
+		{ 
+			if(!IsValidPhoneNo(document.shipmain.ShipTel.value)) 
+			{
+				alert("Telephone number contains invalid characters."); 
+			    document.shipmain.ShipTel.focus();
+			    return false;
+			}
+			if (parseInt(document.shipmain.ShipTel.value)<= 0 || parseInt(document.shipmain.ShipTel.value)== "NaN")
+			{
+				alert("Telephone should start with a number.");
+				document.shipmain.ShipTel.focus();
+				return false;
+			}
+			return true;
+		}
+		 
+	return true;
+}
+
+//-->
+		</SCRIPT>
+		<SCRIPT LANGUAGE="javascript">
+	<!--
+
+	
+function onBrowserClose() 
+	{  
+		//Uncomment below line to skip survey
+		//If (1 == 2) ; return true
+		
+		if (document.all)
+		{
+			var top=self.screenTop;
+			if (top>9000)
+			{
+				NoThanks();
+			}
+		}
+	}
+
+function NoThanks()
+	{
+			popup = window.open("/Miscellaneous/8/feedback.asp?","_blank","height=490,width=520,scrollbars=no,resizable=no,comphistory=no")
+			popup.focus()
+	}
+
+	
+		var isNav = (navigator.appName.indexOf("Netscape")!= -1 );
+		
+		function SortBy(aLetter)
+		{
+			document.shipmain.FromPage.value = "shipmain";
+			document.shipmain.Sort.value = "sort";
+			document.shipmain.Job.value = "sortByAlpha";
+			document.shipmain.AddrOrderby.value = aLetter;
+			document.shipmain.action = "/shipping/8/shipmain.asp?sort=t"
+			document.shipmain.method="post";
+			document.shipmain.submit();
+		}	
+		
+		function Delete()
+		{
+			document.shipmain.FromPage.value = "shipmain";
+			document.shipmain.Sort.value = "delete";
+			document.shipmain.action = "FYSPage2.htm";
+			document.shipmain.method="post";
+			document.shipmain.submit();
+		}	
+		
+		function DeleteAll()
+		{
+			document.shipmain.FromPage.value = "shipmain";
+			document.shipmain.Sort.value = "deleteall";
+			document.shipmain.action = "FYSPage2.htm";
+			document.shipmain.method="post";
+			document.shipmain.submit();
+		}		
+		function SortByField()
+		{
+			document.shipmain.FromPage.value = "shipmain";
+			document.shipmain.Sort.value = "sort";
+			document.shipmain.method="post";
+			document.shipmain.submit();
+		}	
+		
+		function ShowAll()
+		{
+			document.shipmain.FromPage.value = "shipmain";
+			document.shipmain.Sort.value = "sort";
+			document.shipmain.Job.value = "ShowAll";
+			document.shipmain.AddrOrderby.value = ""
+			document.shipmain.method="post";
+			document.shipmain.submit();
+		}	
+		
+		function EditShipAddress(SrNo,Type)
+		{
+			if (isNav)
+				popup = window.open("EditShipAddress.asp?action=edit&srno="+SrNo+"&addresstype="+Type,"_blank","height=520,width=440,scrollbars=no,resizable=no,comphistory=no")
+			else
+				popup = window.open("EditShipAddress.asp?action=edit&srno="+SrNo+"&addresstype="+Type,"_blank","height=470,width=305,scrollbars=no,resizable=no,comphistory=no")
+		}
+			
+		function returnAddress()
+		{
+			popup = window.open("EditReturnAddress.asp?action=edit","_blank","height=450,width=310,scrollbars=no,resizable=no,comphistory=no")
+			
+		}
+		
+		function Continue()
+		{
+			if (document.shipmain.ShipToFName.value != "" || document.shipmain.ShipToLName.value != "")
+			{
+				if (CheckRecipient() == true)
+				{
+					//check for international shipments
+					if(document.shipmain.STCountry.value!=1 && document.shipmain.ShipType.value!=1)
+					{
+						//session("shippingError") = "We're sorry, we only offer the services of the U.S. Postal Service for international shipments.<br>Please choose US Postal Service as the shipping method and click Continue."   
+						alert("We're sorry, we only offer the services of the U.S. Postal Service for international shipments.\nPlease choose US Postal Service as the shipping method and click Continue.")
+						document.shipmain.ShipType.focus();
+						return;
+					}
+					
+					document.shipmain.FromPage.value = "shipmain";
+					document.shipmain.Continue.value = "Continue";
+					document.shipmain.action = "FYSPage2.htm"
+					document.shipmain.method="post";
+					document.shipmain.submit();
+				}
+				else
+				return;
+			}
+			else
+			{
+				document.shipmain.FromPage.value = "shipmain";
+				document.shipmain.Continue.value = "Continue";
+				document.shipmain.action = "FYSPage2.htm"
+				document.shipmain.method="post";
+				document.shipmain.submit();
+			}
+		}	
+		
+		
+		function ContinueSingle()
+		{
+			if (CheckRecipient() == true)
+			{
+				//check for international shipments
+					if(document.shipmain.STCountry.value!=1 && document.shipmain.ShipType.value!=1)
+					{
+						alert("We offer only US Postal service for International shipments.\n Please choose US Postal service and click Continue.")
+						document.shipmain.ShipType.focus();
+						return;
+					}
+				
+				document.shipmain.FromPage.value = "shipmain";
+				document.shipmain.Continue.value = "Continue";
+				document.shipmain.action = "FYSPage2.htm"
+				document.shipmain.method="post";
+				document.shipmain.submit();
+			}
+			else
+			return;
+		}	
+		
+		function Cancel()
+		{
+			document.shipmain.FromPage.value = "shipmain";
+			document.shipmain.Continue.value = "Cancel";
+			document.shipmain.action = "FYSPage2.htm"
+			document.shipmain.method="post";
+			document.shipmain.submit();
+		}	
+		
+		function addtolist()
+		{
+			if (CheckRecipient() == true)
+			{
+				document.shipmain.FromPage.value = "shipmain";
+				document.shipmain.addtoaddresslist.value = "addtoaddresslist";
+				document.shipmain.action = "FYSPage2.htm"
+				document.shipmain.method="post";
+				document.shipmain.submit();
+			}
+			else
+				return;
+		}
+
+		function onClick_AdBook()
+		{
+			var strUrl;
+			
+			strUrl = "/Shipping/8/shipmain.asp?RAId=" + document.shipmain.cmbAddress[document.shipmain.cmbAddress.selectedIndex].value;
+					
+			document.shipmain.action = strUrl
+			document.shipmain.method = "post"
+			document.shipmain.submit();
+		}
+		
+		function gotoPage(page, orderByAlph, sortByField)
+		{
+			window.open ="shipmain.Asp?Pages="+page+"&sort="+orderByAlph+"&field="+sortByField
+			//href="shipmain.Asp?Pages=&amp;sort=&amp;field=">-->
+			//EditShipAddress.asp?action=edit&srno="+SrNo+"&addresstype="+Type,")
+		
+		}
+		
+		function onclick_PageNo(inextstart, Page, PagesortedLetter, SortBy)
+		{
+			var sPage
+			if(inextstart != "")
+			{
+				sPage = "/shipping/8/shipmain.asp?inextstart=" + inextstart + "&field=" + PagesortedLetter + "&sort=" + SortBy;
+			}
+			else
+			{
+				sPage = "/shipping/8/shipmain.asp?Page=" + Page + "&field=" + PagesortedLetter + "&sort=" + SortBy;
+			}
+			
+			document.shipmain.action = sPage
+			document.shipmain.method = "post"
+			document.shipmain.submit();
+		}
+		
+		function checkaddressfilled()
+		{			
+			var ansConfirm;			
+			if (isBlank(document.shipmain.RAId.value) && !isBlank(document.shipmain.RAFName.value)  && !isBlank(document.shipmain.RALName.value))
+			{				
+				ansConfirm = window.confirm("Do you want to save your Return Address details.");
+				if (ansConfirm)
+				{
+					if (isBlank(document.shipmain.RAStreet1.value))
+					{
+						alert("Please enter Street1");
+						document.shipmain.RAStreet1.focus();
+						return ;
+					}	
+					if (isBlank(document.shipmain.RACity.value))
+					{
+						alert("Please enter the City");
+						document.shipmain.RACity.focus();
+						return ;
+					}
+					if (document.shipmain.elements["RACountry"][document.shipmain.elements["RACountry"].selectedIndex].text== "USA")
+					{
+						if (document.shipmain["RAState"][document.shipmain.elements["RAState"].selectedIndex].value=="")
+						{
+							alert("Please select the State");
+							document.shipmain.RAState.focus();
+							return ;
+						}
+					}
+					if (isBlank(document.shipmain.RAZip.value))
+					{
+						alert("Please enter the Zip");
+						document.shipmain.RAZip.focus();
+						return ;
+					}
+					return true;
+				}
+				else
+				{
+					window.location = "/shipping/8/Exit.asp?midmodulerequest=bulkmail&cardsrno={FC18AC72-AD13-46E4-9FA1-18CAAFE46490}"
+				}
+			}
+			else
+			{
+				window.location = "/shipping/8/Exit.asp?midmodulerequest=bulkmail&cardsrno={FC18AC72-AD13-46E4-9FA1-18CAAFE46490}"
+			}
+		}
+		
+		function uploadAddress()
+		{
+			if (checkaddressfilled() == true)
+			{
+				document.shipmain.SaveShippingUploadAddr.value = "Y"; 
+				document.shipmain.action = "FYSPage2.htm";
+				document.shipmain.method="post";
+				document.shipmain.submit();
+			}			
+		}
+		
+		function Link_onClickAfterCheck(str,TargetLocation,sErrMsg,NextMod,ModAction)
+		{
+			var retOpt;	
+			retOpt = window.confirm (sErrMsg);  		
+			if (str == 0)
+			{		
+				if (retOpt)
+				{
+					window.location = TargetLocation;
+					return true;
+				}
+			}
+
+			if (str == 1) 
+			{		
+				if (retOpt)
+				{
+					document.Form.hdNextModule.value = NextMod;
+					document.Form.hdNextModAction.value = ModAction;
+					document.Form.submit();
+					return true;	
+				}
+			}
+		}
+	//-->
+		</SCRIPT>
+		<link rel="stylesheet" href="https://secure.4yoursoul.com/sitegraphics/C8/8_StyleSheet_win_ie.css"
+			type="text/css">
+	</HEAD>
+	<BODY onunload="javascript: onBrowserClose()" text="#000000" vLink="#efb642" aLink="#efb642"
+		link="#efb642" bgColor="#ffffff" leftMargin="0" topMargin="0" marginwidth="0" marginheight="0">
+		<CENTER>
+			<SCRIPT LANGUAGE="javascript">
+<!--
+	function fnAlertMsg(nShowMsg, sURL, sMessage ) //if nShowMsg > 0 then show alert msg
+	{
+		var retOpt;
+		if (nShowMsg > 0)
+		{
+			retOpt = window.confirm(sMessage);
+			if (retOpt)
+			{
+				document.location = sURL;
+			}
+		}
+		else
+		{
+			document.location = sURL;
+		}
+	}
+//-->
+			</SCRIPT>
+			<!--master table-->
+			<TABLE cellSpacing="0" cellPadding="0" width="770" bgColor="#ffffff" border="0" ID="Table3">
+				<TBODY>
+					<TR> <!--Top space-->
+						<TD vAlign="top" colspan="3" width="721" style="WIDTH: 721px"><IMG height="5" src="https://secure.4yoursoul.com/sitegraphics/C8/8_space.gif" width="770"
+								border="0"></TD>
+					</TR>
+					<TR>
+						<TD vAlign="top" align="center" width="722" colspan="3" style="WIDTH: 722px">
+							<form name="shipmain" method="get" ID="Form1">
+								<TABLE cellSpacing="0" cellPadding="0" border="0" width="100%" ID="Table4">
+									<TBODY>
+										<TR>
+											<!--left nav-->
+											<TD class="textb" vAlign="top" align="left" width="197" bgColor="#e7e3e7" style="WIDTH: 197px">
+												<TABLE cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table5">
+													<TBODY>
+														<TR bgcolor="#fde03e">
+															<TD vAlign="middle" align="center" height="50"><IMG src="https://secure.4yoursoul.com/sitegraphics/C8/8_Yellow_Address.gif" border="0"></TD>
+														</TR>
+														<TR>
+															<TD vAlign="top">
+																<table border="0" valign="top" cellspacing="0" cellpadding="2" width="100%" ID="Table6">
+																	<tr>
+																		<td valign="top">
+																			<table border="0" valign="top" cellspacing="0" cellpadding="0" ID="Table7" style="WIDTH: 184px; HEIGHT: 394px">
+																				<TBODY>
+																					<tr height="5">
+																						<td colspan="3">
+																							<table border="0" width="100%" cellpadding="0" cellspacing="0" leftmargin="0" topmargin="0"
+																								ID="Table8">
+																								<tr>
+																									<td align="left" height="24" valign="bottom"><font class="thumbsbold" border="0">&nbsp;Instructions</font></td>
+																								</tr>
+																							</table>
+																						</td>
+																					</tr>
+																					<tr height="5">
+																						<td colspan="3"></td>
+																					</tr>
+																					<tr>
+																						<td valign="top"><font class="thumbs">&nbsp;1.</font></td>
+																						<td>&nbsp;</td>
+																						<td valign="top"><font class="thumbs">Specify when (mm/dd/yyyy) you want us to ship 
+																								your card.</font></td>
+																					</tr>
+																					<tr height="5">
+																						<td colspan="3"></td>
+																					</tr>
+																					<tr>
+																						<td valign="top"><font class="thumbs">&nbsp;2.</font></td>
+																						<td>&nbsp;</td>
+																						<td><font class="thumbs">Choose the type of shipping you desire.</font></td>
+																					</tr>
+																					<tr height="5">
+																						<td colspan="3"></td>
+																					</tr>
+																					<tr>
+																						<td valign="top"><font class="thumbs">&nbsp;3.</font></td>
+																						<td>&nbsp;</td>
+																						<td><font class="thumbs">Enter your return address information.</font></td>
+																					</tr>
+																					<tr height="5">
+																						<td colspan="3"></td>
+																					</tr>
+																					<tr>
+																						<td valign="top"><font class="thumbs">&nbsp;4.</font></td>
+																						<td>&nbsp;</td>
+																						<td><font class="thumbs">Enter recipient address information.</font></td>
+																					</tr>
+																					<tr height="5">
+																						<td colspan="3"></td>
+																					</tr>
+																					<tr>
+																						<td valign="top"><font class="thumbs">&nbsp;5.</font></td>
+																						<td>&nbsp;</td>
+																						<td><font class="thumbs">Choose to :</font></td>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td><font class="thumbs">&nbsp;</font></td>
+																		<td>&nbsp;</td>
+																		<td><font class="thumbs">&nbsp;&nbsp;- Continue</font></td>
+																		</FONT>
+																	</tr>
+																	<tr>
+																		<td><font class="thumbs">&nbsp;</font></td>
+																		<td>&nbsp;</td>
+																		<td><font class="thumbs">&nbsp;&nbsp;- Add Another Recipient</font></td>
+																		</FONT>
+																	</tr>
+																	<tr>
+																		<td><font class="thumbs">&nbsp;</font></td>
+																		<td>&nbsp;</td>
+																		<td><font class="thumbs">&nbsp;&nbsp;- Upload Addresses</font>
+																		</td>
+																		</FONT>
+																	</tr>
+																	<tr>
+																		<td>&nbsp;</td>
+																		<td>&nbsp;</td>
+																		<td><font class="thumbs">&nbsp;&nbsp;- Cancel</font></td>
+																		</FONT>
+																	</tr>
+																	<tr>
+																		<td><font class="thumbs">&nbsp;</font></td>
+																		<td>&nbsp;</td>
+																		<td><font class="thumbs">by clicking the associated button.</font></td>
+																		</FONT>
+																	</tr>
+																	<tr height="5">
+																		<td colspan="3"></td>
+																	</tr>
+																</table>
+															</TD>
+														</TR>
+													</TBODY>
+												</TABLE>
+											</TD>
+										<TR>
+										</TR>
+									</TBODY>
+								</TABLE>
+								<BR>
+						</TD>
+						<!--end left nav-->
+						<!--space between left & right-->
+						<TD vAlign="top" align="center" width="1" bgColor="#ffffff" style="WIDTH: 1px"><IMG height="5" src="https://secure.4yoursoul.com/sitegraphics/C8/8_space.gif" width="5"
+								border="0"></TD>
+						<!--end of space between left & right-->
+						<!--right nav-->
+						<TD vAlign="top" align="center" width="595" bgColor="#ffffff">
+							<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#f2b63a" ID="Table9">
+								<tr>
+									<td>
+										<TABLE cellSpacing="0" cellPadding="0" width="514" border="0" bgcolor="#ffffff" ID="Table10"
+											style="WIDTH: 514px; HEIGHT: 1075px">
+											<tr>
+												<td style="WIDTH: 556px">
+													<TABLE valign="top" cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table11">
+														<TBODY>
+															<TR bgcolor="#f2b63a">
+																<TD vAlign="middle" align="center"><IMG src="https://secure.4yoursoul.com/sitegraphics/C8/8_steps_1_1.gif" border="0"></TD>
+																<TD vAlign="top" align="center">
+																	<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" ID="Table12">
+																		<tr>
+																			<td align="left">
+																				<IMG src="https://secure.4yoursoul.com/sitegraphics/C8/8_steps_3_2.gif">
+																			</td>
+																		</tr>
+																	</TABLE>
+																</TD>
+															</TR>
+														</TBODY>
+													</TABLE>
+												</td>
+											</tr>
+											<tr>
+												<td style="WIDTH: 556px">
+													<TABLE cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table13">
+														<TBODY>
+															<TR>
+																<TD valign="top">
+																	<!----------------------------------------------------------------------------------------->
+																	<table border="0" width="100%" align="left" valign="top" cellspacing="0" cellpadding="0"
+																		ID="Table14">
+																		<tr>
+																			<!--column for ship details - date ship type etc.  -->
+																			<td align="left" valign="top">
+																				<table border="0" bordercolor="#f7b639" align="left" width="100%" valign="top" cellspacing="0"
+																					cellpadding="0" ID="Table15">
+																					<tr>
+																						<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																								height="12"></td>
+																					</tr>
+																					<tr>
+																						<td colspan="2">
+																							<table border="0" cellspacing="0" cellpadding="0" ID="Table16">
+																								<tr>
+																									<td width="10">&nbsp;</td>
+																									<td><font class="thumbsbold">When do you want us to ship your card(s)?&nbsp;</font></td>
+																									<td align="left" valign="top" colspan="10">
+																										<input type="text" size="2" maxlength="2" id="ShipMon" name="ShipMon" value="09">
+																										<input type="text" size="2" maxlength="2" id="ShipDay" name="ShipDay" value="01">
+																										<input type="text" size="4" maxlength="4" id="ShipYr" name="ShipYr" value="2004">
+																										<font class="thumbsbrown" valign="top">&nbsp;&nbsp;(MM/DD/YYYY) </font>
+																									</td>
+																								</tr>
+																							</table>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																								height="12"></td>
+																					</tr>
+																					<tr>
+																						<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_yellowspacer.gif'
+																								width='100%' height="3"></td>
+																					</tr>
+																					<tr>
+																						<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																								height="12"></td>
+																					</tr>
+																					<tr>
+																						<td colspan="2">
+																							<table border="0" cellspacing="0" cellpadding="0" ID="Table17">
+																								<tr>
+																									<td width="10">&nbsp;</td>
+																									<td>&nbsp;<font class="thumbsbold">How would you like us to ship it ?&nbsp;</font></td>
+																									<td align="left" valign="top" colspan="10">
+																										&nbsp;
+																										<Select style='WIDTH: 201px; HEIGHT: 22px' name="ShipType" ID="Select1">
+																											<Option Value="1" selected>
+																											U.S. Postal Service
+																											<Option Value="2">
+																											U.S. Express Mail
+																											<Option Value="3">Fedex</Option>
+																										</Select>
+																									</td>
+																								</tr>
+																							</table>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td colspan="2" style="HEIGHT: 6px"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																								height="12"></td>
+																					</tr>
+																					<tr>
+																						<td colspan="2" style="HEIGHT: 2px"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_yellowspacer.gif'
+																								width='100%' height="3"></td>
+																					</tr>
+																					<tr>
+																						<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																								height="12"></td>
+																					</tr>
+																					<tr>
+																						<td valign="top" align="left" colspan="2" style="HEIGHT: 288px">
+																							<table border="0" cellspacing="0" cellpadding="0" ID="Table18" style="WIDTH: 306px; HEIGHT: 281px">
+																								<tr>
+																									<td width="5">&nbsp;</td>
+																									<td valign="top" align="left">&nbsp;<font class="thumbsbold">What is your Return 
+																											Address? </font>
+																									</td>
+																									<td colspan="2">&nbsp;</td>
+																								</tr>
+																								<tr>
+																									<td colspan="4"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																											height="12"></td>
+																								</tr>
+																								<tr>
+																									<td colspan="4" style="HEIGHT: 235px">
+																										<table border="0" cellspacing="0" cellpadding="0" ID="Table19">
+																											<tr>
+																												<td align="left" width="11" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* First Name:</font></td>
+																												<td align="left">&nbsp;</td>
+																												<td align="left">
+																													<input type="text" align="left" name="RAFName" size="26" maxlength="30" value="jim" ID="Text1">
+																												</td>
+																												<td align="left">&nbsp;</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* Last Name:</font></td>
+																												<td align="left">&nbsp;</td>
+																												<td align="left">
+																													<input type="text" align="left" name="RALName" size="26" maxlength="30" value="mcc" ID="Text2">
+																												</td>
+																												<td align="left">&nbsp;</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* Address1:</font></td>
+																												<td align="left">&nbsp;</td>
+																												<td align="left">
+																													<input type="text" align="left" name="RAStreet1" size="26" maxlength="30" value="354" ID="Text3">
+																												</td>
+																												<td align="left">&nbsp;</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">Address2:</font></td>
+																												<td align="left">&nbsp;</td>
+																												<td align="left">
+																													<input type="text" align="left" name="RAStreet2" size="26" maxlength="30" ID="Text4">
+																												</td>
+																												<td align="left">&nbsp;</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* City:</font></td>
+																												<td align="left">&nbsp;</td>
+																												<td align="left">
+																													<input type="text" align="left" name="RACity" size="15" maxlength="20" value="andover"
+																														ID="Text5">
+																												</td>
+																												<td align="left">&nbsp;</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* State:</font></td>
+																												<td align="left">&nbsp;</td>
+																												<td align="left">
+																													<select id="RAState" align="left" name="RAState" style="WIDTH: 180px; HEIGHT: 22px">
+																														<option value="">
+																														&nbsp;-&nbsp;Click to Select
+																														<option value="AA">
+																														AA&nbsp;-&nbsp;Air Atlantic
+																														<option value="AE">
+																														AE&nbsp;-&nbsp;Air Europe
+																														<option value="AP">
+																														AP&nbsp;-&nbsp;Air Pacific
+																														<option value="AK">
+																														AK&nbsp;-&nbsp;Alaska
+																														<option value="AL">
+																														AL&nbsp;-&nbsp;Alabama
+																														<option value="AR">
+																														AR&nbsp;-&nbsp;Arkansas
+																														<option value="AS">
+																														AS&nbsp;-&nbsp;American Samoa
+																														<option value="AZ">
+																														AZ&nbsp;-&nbsp;Arizona
+																														<option value="CA">
+																														CA&nbsp;-&nbsp;California
+																														<option value="CO">
+																														CO&nbsp;-&nbsp;Colorado
+																														<option value="CT">
+																														CT&nbsp;-&nbsp;Connecticut
+																														<option value="DC">
+																														DC&nbsp;-&nbsp;District of Columbia
+																														<option value="DE">
+																														DE&nbsp;-&nbsp;Delaware
+																														<option value="FL">
+																														FL&nbsp;-&nbsp;Florida
+																														<option value="GA">
+																														GA&nbsp;-&nbsp;Georgia
+																														<option value="GU">
+																														GU&nbsp;-&nbsp;Guam
+																														<option value="HI">
+																														HI&nbsp;-&nbsp;Hawaii
+																														<option value="IA">
+																														IA&nbsp;-&nbsp;Iowa
+																														<option value="ID">
+																														ID&nbsp;-&nbsp;Idaho
+																														<option value="IL">
+																														IL&nbsp;-&nbsp;Illinois
+																														<option value="IN">
+																														IN&nbsp;-&nbsp;Indiana
+																														<option value="KS">
+																														KS&nbsp;-&nbsp;Kansas
+																														<option value="KY">
+																														KY&nbsp;-&nbsp;Kentucky
+																														<option value="LA">
+																														LA&nbsp;-&nbsp;Louisiana
+																														<option value="MA" selected>
+																														MA&nbsp;-&nbsp;Massachusetts
+																														<option value="MD">
+																														MD&nbsp;-&nbsp;Maryland
+																														<option value="ME">
+																														ME&nbsp;-&nbsp;Maine
+																														<option value="MH">
+																														MH&nbsp;-&nbsp;Marshall Islands
+																														<option value="MI">
+																														MI&nbsp;-&nbsp;Michigan
+																														<option value="MN">
+																														MN&nbsp;-&nbsp;Minnesota
+																														<option value="MO">
+																														MO&nbsp;-&nbsp;Missouri
+																														<option value="MP">
+																														MP&nbsp;-&nbsp;Marianas Islands
+																														<option value="MS">
+																														MS&nbsp;-&nbsp;Mississippi
+																														<option value="MT">
+																														MT&nbsp;-&nbsp;Montana
+																														<option value="NC">
+																														NC&nbsp;-&nbsp;North Carolina
+																														<option value="ND">
+																														ND&nbsp;-&nbsp;North Dakota
+																														<option value="NE">
+																														NE&nbsp;-&nbsp;Nebraska
+																														<option value="NH">
+																														NH&nbsp;-&nbsp;New Hampshire
+																														<option value="NJ">
+																														NJ&nbsp;-&nbsp;New Jersey
+																														<option value="NM">
+																														NM&nbsp;-&nbsp;New Mexico
+																														<option value="NV">
+																														NV&nbsp;-&nbsp;Nevada
+																														<option value="NY">
+																														NY&nbsp;-&nbsp;New York
+																														<option value="OH">
+																														OH&nbsp;-&nbsp;Ohio
+																														<option value="OK">
+																														OK&nbsp;-&nbsp;Oklahoma
+																														<option value="OR">
+																														OR&nbsp;-&nbsp;Oregon
+																														<option value="PA">
+																														PA&nbsp;-&nbsp;Pennsylvania
+																														<option value="PR">
+																														PR&nbsp;-&nbsp;Puerto Rico
+																														<option value="PW">
+																														PW&nbsp;-&nbsp;Palau
+																														<option value="RI">
+																														RI&nbsp;-&nbsp;Rhode Island
+																														<option value="SC">
+																														SC&nbsp;-&nbsp;South Carolina
+																														<option value="SD">
+																														SD&nbsp;-&nbsp;South Dakota
+																														<option value="TN">
+																														TN&nbsp;-&nbsp;Tennessee
+																														<option value="TX">
+																														TX&nbsp;-&nbsp;Texas
+																														<option value="UT">
+																														UT&nbsp;-&nbsp;Utah
+																														<option value="VA">
+																														VA&nbsp;-&nbsp;Virginia
+																														<option value="VI">
+																														VI&nbsp;-&nbsp;U.S. Virgin Islands
+																														<option value="VT">
+																														VT&nbsp;-&nbsp;Vermont
+																														<option value="WA">
+																														WA&nbsp;-&nbsp;Washington
+																														<option value="WI">
+																														WI&nbsp;-&nbsp;Wisconsin
+																														<option value="WV">
+																														WV&nbsp;-&nbsp;West Virginia
+																														<option value="WY">
+																														WY&nbsp;-&nbsp;Wyoming
+																														<option value="NA">
+																															NA&nbsp;-&nbsp;Not Applicable</option>
+																													</select>
+																												</td>
+																												<td align="left">&nbsp;</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* Zip:</font></td>
+																												<td align="left">&nbsp;</td>
+																												<td align="left">
+																													<input name="RAZip" align="left" size="10" maxlength="10" value="01810" ID="Text6">
+																												</td>
+																												<td align="left">&nbsp;</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* Country:</font></td>
+																												<td align="left">&nbsp;</td>
+																												<td align="left">
+																													<Select style='WIDTH: 180px; HEIGHT: 22px' name="RACountry" ID="Select2">
+																														<Option Value="1" selected>
+																														USA
+																														<Option Value="10">
+																														Albania
+																														<Option Value="101">
+																														Indo
+																														<Option Value="102">
+																														Iran
+																														<Option Value="103">
+																														Iraq
+																														<Option Value="104">
+																														Ireland
+																														<Option Value="105">
+																														Israel
+																														<Option Value="106">
+																														Italy
+																														<Option Value="107">
+																														Ivory Coast
+																														<Option Value="108">
+																														Jamaica
+																														<Option Value="109">
+																														Japan
+																														<Option Value="11">
+																														Algeria
+																														<Option Value="110">
+																														Jordan
+																														<Option Value="111">
+																														Kazakhstan
+																														<Option Value="112">
+																														Kenya
+																														<Option Value="113">
+																														Kuwait
+																														<Option Value="114">
+																														Kyrgyzstan
+																														<Option Value="115">
+																														Laos
+																														<Option Value="116">
+																														Latvia
+																														<Option Value="117">
+																														Lebanon
+																														<Option Value="118">
+																														Lesotho
+																														<Option Value="119">
+																														Liberia
+																														<Option Value="12">
+																														American Samoa
+																														<Option Value="120">
+																														Libya
+																														<Option Value="121">
+																														Liechtenstein
+																														<Option Value="122">
+																														Lithuania
+																														<Option Value="123">
+																														Luxembourg
+																														<Option Value="124">
+																														Macau
+																														<Option Value="125">
+																														Macedonia
+																														<Option Value="126">
+																														Madagascar
+																														<Option Value="127">
+																														Malawi
+																														<Option Value="128">
+																														Malaysia
+																														<Option Value="129">
+																														Mali
+																														<Option Value="13">
+																														Andorra
+																														<Option Value="130">
+																														Malta
+																														<Option Value="131">
+																														Marshall Islands
+																														<Option Value="132">
+																														Martinique
+																														<Option Value="133">
+																														Mauritania
+																														<Option Value="134">
+																														Mauritius
+																														<Option Value="135">
+																														Mexico
+																														<Option Value="136">
+																														Micronesia
+																														<Option Value="137">
+																														Moldova
+																														<Option Value="138">
+																														Monaco
+																														<Option Value="139">
+																														Mongolia
+																														<Option Value="14">
+																														Angola
+																														<Option Value="140">
+																														Montserrat
+																														<Option Value="141">
+																														Morocco
+																														<Option Value="142">
+																														Mozambique
+																														<Option Value="143">
+																														Myanmar/Burma
+																														<Option Value="144">
+																														Namibia
+																														<Option Value="145">
+																														Nepal
+																														<Option Value="146">
+																														Netherlands Antilles
+																														<Option Value="147">
+																														Netherlands
+																														<Option Value="148">
+																														New Caledonia
+																														<Option Value="149">
+																														New Zealand
+																														<Option Value="15">
+																														Anguilla
+																														<Option Value="150">
+																														Nicaragua
+																														<Option Value="151">
+																														Niger
+																														<Option Value="152">
+																														Nigeria
+																														<Option Value="153">
+																														Norway
+																														<Option Value="154">
+																														Oman
+																														<Option Value="155">
+																														Pakistan
+																														<Option Value="156">
+																														Palau
+																														<Option Value="157">
+																														Panama
+																														<Option Value="158">
+																														Papua New Guinea
+																														<Option Value="159">
+																														Paraguay
+																														<Option Value="16">
+																														Antigua
+																														<Option Value="160">
+																														Peru
+																														<Option Value="161">
+																														Philippines
+																														<Option Value="162">
+																														Poland
+																														<Option Value="163">
+																														Portugal
+																														<Option Value="164">
+																														Puerto Rico
+																														<Option Value="165">
+																														Qatar
+																														<Option Value="166">
+																														Reunion
+																														<Option Value="167">
+																														Romania
+																														<Option Value="168">
+																														Russia
+																														<Option Value="169">
+																														Rwanda
+																														<Option Value="17">
+																														Argentina
+																														<Option Value="170">
+																														Saba
+																														<Option Value="171">
+																														Saipan
+																														<Option Value="172">
+																														San Marino
+																														<Option Value="173">
+																														Saudi Arabia
+																														<Option Value="174">
+																														Senegal
+																														<Option Value="175">
+																														Seychelles
+																														<Option Value="176">
+																														Sierra Leone
+																														<Option Value="177">
+																														Singapore
+																														<Option Value="178">
+																														Slovak Republic
+																														<Option Value="179">
+																														Slovenia
+																														<Option Value="18">
+																														Armenia
+																														<Option Value="180">
+																														Somalia
+																														<Option Value="181">
+																														South Africa
+																														<Option Value="182">
+																														South Korea
+																														<Option Value="183">
+																														Spain
+																														<Option Value="184">
+																														Sri Lanka
+																														<Option Value="185">
+																														St. Barthelemy
+																														<Option Value="186">
+																														St. Croix
+																														<Option Value="187">
+																														St. Eustatius
+																														<Option Value="188">
+																														St. Kitts and Nevis
+																														<Option Value="189">
+																														St. Lucia
+																														<Option Value="19">
+																														Aruba
+																														<Option Value="190">
+																														St. Maarten/St. Martin
+																														<Option Value="191">
+																														St. Thomas
+																														<Option Value="192">
+																														St. Vincent
+																														<Option Value="193">
+																														Sudan
+																														<Option Value="194">
+																														Suriname
+																														<Option Value="195">
+																														Swaziland
+																														<Option Value="196">
+																														Sweden
+																														<Option Value="197">
+																														Switzerland
+																														<Option Value="198">
+																														Syria
+																														<Option Value="199">
+																														Taiwan
+																														<Option Value="2">
+																														India
+																														<Option Value="20">
+																														Australia
+																														<Option Value="200">
+																														Tanzania
+																														<Option Value="201">
+																														Thailand
+																														<Option Value="202">
+																														Togo
+																														<Option Value="203">
+																														Tortola
+																														<Option Value="204">
+																														Trinidad and Tobago
+																														<Option Value="205">
+																														Tunisia
+																														<Option Value="206">
+																														Turkey
+																														<Option Value="207">
+																														Turkmenistan
+																														<Option Value="208">
+																														Turks and Caicos Islands
+																														<Option Value="209">
+																														U.S. Virgin Islands
+																														<Option Value="21">
+																														Austria
+																														<Option Value="210">
+																														Uganda
+																														<Option Value="211">
+																														Ukraine
+																														<Option Value="212">
+																														United Arab Emirates
+																														<Option Value="213">
+																														United Kingdom
+																														<Option Value="214">
+																														Uruguay
+																														<Option Value="216">
+																														Uzbekistan
+																														<Option Value="217">
+																														Vanuatu
+																														<Option Value="218">
+																														Vatican City
+																														<Option Value="219">
+																														Venezuela
+																														<Option Value="22">
+																														Azerbaijan
+																														<Option Value="220">
+																														Vietnam
+																														<Option Value="221">
+																														Wallis &amp; Futuna
+																														<Option Value="222">
+																														Yemen
+																														<Option Value="223">
+																														Zambia
+																														<Option Value="224">
+																														Zimbabwe
+																														<Option Value="23">
+																														Bahamas
+																														<Option Value="24">
+																														Bahrain
+																														<Option Value="25">
+																														Bangladesh
+																														<Option Value="26">
+																														Barbados
+																														<Option Value="27">
+																														Barbuda
+																														<Option Value="28">
+																														Belarus
+																														<Option Value="29">
+																														Belgium
+																														<Option Value="3">
+																														UK
+																														<Option Value="30">
+																														Belize
+																														<Option Value="31">
+																														Benin
+																														<Option Value="32">
+																														Bermuda
+																														<Option Value="33">
+																														Bhutan
+																														<Option Value="34">
+																														Bolivia
+																														<Option Value="35">
+																														Bonaire
+																														<Option Value="36">
+																														Botswana
+																														<Option Value="37">
+																														Brazil
+																														<Option Value="38">
+																														British Virgin Islands
+																														<Option Value="39">
+																														Brunei
+																														<Option Value="4">
+																														North Korea
+																														<Option Value="40">
+																														Bulgaria
+																														<Option Value="41">
+																														Burkina Faso
+																														<Option Value="42">
+																														Burundi
+																														<Option Value="43">
+																														Cambodia
+																														<Option Value="44">
+																														Cameroon
+																														<Option Value="45">
+																														Canada - English
+																														<Option Value="46">
+																														Canada - Francais
+																														<Option Value="47">
+																														Cape Verde
+																														<Option Value="48">
+																														Cayman Islands
+																														<Option Value="49">
+																														Central African Republic
+																														<Option Value="5">
+																														Germany
+																														<Option Value="50">
+																														Chad
+																														<Option Value="51">
+																														Channel Islands
+																														<Option Value="52">
+																														Chile
+																														<Option Value="53">
+																														China
+																														<Option Value="54">
+																														Colombia
+																														<Option Value="55">
+																														Congo-Brazzaville
+																														<Option Value="56">
+																														Congo-Kinshasa
+																														<Option Value="57">
+																														Cook Islands
+																														<Option Value="58">
+																														Costa Rica
+																														<Option Value="59">
+																														Croatia
+																														<Option Value="6">
+																														Turkistan
+																														<Option Value="60">
+																														Curacao
+																														<Option Value="61">
+																														Cyprus
+																														<Option Value="62">
+																														Czech Republic
+																														<Option Value="63">
+																														Denmark
+																														<Option Value="64">
+																														Djibouti
+																														<Option Value="65">
+																														Dominica
+																														<Option Value="66">
+																														Dominican Republic
+																														<Option Value="67">
+																														Ecuador
+																														<Option Value="68">
+																														Egypt
+																														<Option Value="69">
+																														El Salvador
+																														<Option Value="7">
+																														UAE
+																														<Option Value="70">
+																														Equatorial Guinea
+																														<Option Value="71">
+																														Eritrea
+																														<Option Value="72">
+																														Estonia
+																														<Option Value="73">
+																														Ethiopia
+																														<Option Value="74">
+																														Faroe Islands
+																														<Option Value="75">
+																														Fiji
+																														<Option Value="76">
+																														Finland
+																														<Option Value="77">
+																														France
+																														<Option Value="78">
+																														French Guiana
+																														<Option Value="79">
+																														French Polynesia
+																														<Option Value="8">
+																														Taiwan
+																														<Option Value="80">
+																														Gabon
+																														<Option Value="81">
+																														Gambia
+																														<Option Value="82">
+																														Georgia
+																														<Option Value="83">
+																														Germany
+																														<Option Value="84">
+																														Ghana
+																														<Option Value="85">
+																														Gibraltar
+																														<Option Value="86">
+																														Greece
+																														<Option Value="87">
+																														Greenland
+																														<Option Value="88">
+																														Grenada
+																														<Option Value="89">
+																														Guadeloupe
+																														<Option Value="9">
+																														Indonasia
+																														<Option Value="90">
+																														Guam
+																														<Option Value="91">
+																														Guatemala
+																														<Option Value="92">
+																														Guinea Bissau
+																														<Option Value="93">
+																														Guinea
+																														<Option Value="94">
+																														Guyana
+																														<Option Value="95">
+																														I
+																														<Option Value="96">
+																														Honduras
+																														<Option Value="97">
+																														Hong Kong
+																														<Option Value="98">
+																														Hungary
+																														<Option Value="99">Iceland</Option>
+																													</Select>
+																												</td>
+																												<td align="left">&nbsp;</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">Telephone:</font></td>
+																												<td align="left">&nbsp;</td>
+																												<td align="left">
+																													<input name="RATel" align="left" size="15" ID="Text7">
+																												</td>
+																												<td align="left">&nbsp;</td>
+																											</tr>
+																											<tr>
+																												<td colspan="3">&nbsp;</td>
+																												<td><font class="thumbsbrown">* denotes required fields</font></td>
+																											</tr>
+																										</table>
+																									</td>
+																								</tr>
+																							</table>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																								height="12"></td>
+																					</tr>
+																					<tr>
+																						<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_yellowspacer.gif'
+																								width='100%' height="3"></td>
+																					</tr>
+																					<tr>
+																						<td valign="top">
+																							<table border="0" width="304" align="left" valign="top" cellspacing="0" cellpadding="0"
+																								ID="Table20" style="WIDTH: 304px; HEIGHT: 399px">
+																								<tr>
+																									<td colspan="4" style="WIDTH: 320px; HEIGHT: 5px"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																											height="12"></td>
+																								</tr>
+																								<tr>
+																									<td colspan="4" align="left" style="WIDTH: 320px; HEIGHT: 11px">&nbsp;&nbsp;&nbsp; <font class="thumbsbold">
+																											Where would you like to ship it?</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+																								</tr>
+																								<tr>
+																									<td colspan="4" style="WIDTH: 320px"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																											height="12"></td>
+																								</tr>
+																								<tr>
+																									<td colspan="4" style="WIDTH: 320px">
+																										<table cellpadding="0" cellspacing="0" border="0" ID="Table21">
+																											<tr>
+																												<td align="left" width="11" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><NoBR><font class="thumbsbrown">* First Name:</font></NoBR></td>
+																												<td align="left" style="WIDTH: 4px">&nbsp;</td>
+																												<td align="left" style="WIDTH: 195px">
+																													<input type="text" align="left" name="ShipToFName" size="26" maxlength="30" ID="Text8">
+																												</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* Last Name:</font></td>
+																												<td align="left" style="WIDTH: 4px">&nbsp;</td>
+																												<td align="left" style="WIDTH: 195px">
+																													<input type="text" align="left" name="ShipToLName" size="26" maxlength="30" ID="Text9">
+																												</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* Address1:</font></td>
+																												<td align="left" style="WIDTH: 4px">&nbsp;</td>
+																												<td align="left" style="WIDTH: 195px">
+																													<input type="text" align="left" name="ShipToStreet1" size="26" maxlength="30" ID="Text10">
+																												</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown"> Address2:</font></td>
+																												<td align="left" style="WIDTH: 4px">&nbsp;</td>
+																												<td align="left" style="WIDTH: 195px">
+																													<input type="text" align="left" name="ShipToStreet2" size="26" maxlength="30" ID="Text11">
+																												</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* City:</font></td>
+																												<td align="left" style="WIDTH: 4px">&nbsp;</td>
+																												<td align="left" style="WIDTH: 195px">
+																													<input type="text" align="left" name="ShipToCity" size="15" maxlength="20" ID="Text12">
+																												</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* State:</font></td>
+																												<td align="left" style="WIDTH: 4px">&nbsp;</td>
+																												<td align="left" style="WIDTH: 195px">
+																													<select id="ShipToState" align="left" name="ShipToState" style="WIDTH: 180px; HEIGHT: 22px">
+																														<option value="" selected>
+																														&nbsp;-&nbsp;Click to Select
+																														<option value="AA">
+																														AA&nbsp;-&nbsp;Air Atlantic
+																														<option value="AE">
+																														AE&nbsp;-&nbsp;Air Europe
+																														<option value="AP">
+																														AP&nbsp;-&nbsp;Air Pacific
+																														<option value="AK">
+																														AK&nbsp;-&nbsp;Alaska
+																														<option value="AL">
+																														AL&nbsp;-&nbsp;Alabama
+																														<option value="AR">
+																														AR&nbsp;-&nbsp;Arkansas
+																														<option value="AS">
+																														AS&nbsp;-&nbsp;American Samoa
+																														<option value="AZ">
+																														AZ&nbsp;-&nbsp;Arizona
+																														<option value="CA">
+																														CA&nbsp;-&nbsp;California
+																														<option value="CO">
+																														CO&nbsp;-&nbsp;Colorado
+																														<option value="CT">
+																														CT&nbsp;-&nbsp;Connecticut
+																														<option value="DC">
+																														DC&nbsp;-&nbsp;District of Columbia
+																														<option value="DE">
+																														DE&nbsp;-&nbsp;Delaware
+																														<option value="FL">
+																														FL&nbsp;-&nbsp;Florida
+																														<option value="GA">
+																														GA&nbsp;-&nbsp;Georgia
+																														<option value="GU">
+																														GU&nbsp;-&nbsp;Guam
+																														<option value="HI">
+																														HI&nbsp;-&nbsp;Hawaii
+																														<option value="IA">
+																														IA&nbsp;-&nbsp;Iowa
+																														<option value="ID">
+																														ID&nbsp;-&nbsp;Idaho
+																														<option value="IL">
+																														IL&nbsp;-&nbsp;Illinois
+																														<option value="IN">
+																														IN&nbsp;-&nbsp;Indiana
+																														<option value="KS">
+																														KS&nbsp;-&nbsp;Kansas
+																														<option value="KY">
+																														KY&nbsp;-&nbsp;Kentucky
+																														<option value="LA">
+																														LA&nbsp;-&nbsp;Louisiana
+																														<option value="MA">
+																														MA&nbsp;-&nbsp;Massachusetts
+																														<option value="MD">
+																														MD&nbsp;-&nbsp;Maryland
+																														<option value="ME">
+																														ME&nbsp;-&nbsp;Maine
+																														<option value="MH">
+																														MH&nbsp;-&nbsp;Marshall Islands
+																														<option value="MI">
+																														MI&nbsp;-&nbsp;Michigan
+																														<option value="MN">
+																														MN&nbsp;-&nbsp;Minnesota
+																														<option value="MO">
+																														MO&nbsp;-&nbsp;Missouri
+																														<option value="MP">
+																														MP&nbsp;-&nbsp;Marianas Islands
+																														<option value="MS">
+																														MS&nbsp;-&nbsp;Mississippi
+																														<option value="MT">
+																														MT&nbsp;-&nbsp;Montana
+																														<option value="NC">
+																														NC&nbsp;-&nbsp;North Carolina
+																														<option value="ND">
+																														ND&nbsp;-&nbsp;North Dakota
+																														<option value="NE">
+																														NE&nbsp;-&nbsp;Nebraska
+																														<option value="NH">
+																														NH&nbsp;-&nbsp;New Hampshire
+																														<option value="NJ">
+																														NJ&nbsp;-&nbsp;New Jersey
+																														<option value="NM">
+																														NM&nbsp;-&nbsp;New Mexico
+																														<option value="NV">
+																														NV&nbsp;-&nbsp;Nevada
+																														<option value="NY">
+																														NY&nbsp;-&nbsp;New York
+																														<option value="OH">
+																														OH&nbsp;-&nbsp;Ohio
+																														<option value="OK">
+																														OK&nbsp;-&nbsp;Oklahoma
+																														<option value="OR">
+																														OR&nbsp;-&nbsp;Oregon
+																														<option value="PA">
+																														PA&nbsp;-&nbsp;Pennsylvania
+																														<option value="PR">
+																														PR&nbsp;-&nbsp;Puerto Rico
+																														<option value="PW">
+																														PW&nbsp;-&nbsp;Palau
+																														<option value="RI">
+																														RI&nbsp;-&nbsp;Rhode Island
+																														<option value="SC">
+																														SC&nbsp;-&nbsp;South Carolina
+																														<option value="SD">
+																														SD&nbsp;-&nbsp;South Dakota
+																														<option value="TN">
+																														TN&nbsp;-&nbsp;Tennessee
+																														<option value="TX">
+																														TX&nbsp;-&nbsp;Texas
+																														<option value="UT">
+																														UT&nbsp;-&nbsp;Utah
+																														<option value="VA">
+																														VA&nbsp;-&nbsp;Virginia
+																														<option value="VI">
+																														VI&nbsp;-&nbsp;U.S. Virgin Islands
+																														<option value="VT">
+																														VT&nbsp;-&nbsp;Vermont
+																														<option value="WA">
+																														WA&nbsp;-&nbsp;Washington
+																														<option value="WI">
+																														WI&nbsp;-&nbsp;Wisconsin
+																														<option value="WV">
+																														WV&nbsp;-&nbsp;West Virginia
+																														<option value="WY">
+																														WY&nbsp;-&nbsp;Wyoming
+																														<option value="NA">
+																															NA&nbsp;-&nbsp;Not Applicable</option>
+																													</select>
+																												</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* Zip:</font></td>
+																												<td align="left" style="WIDTH: 4px">&nbsp;</td>
+																												<td align="left" style="WIDTH: 195px">
+																													<input name="ShipToZip" align="left" size="10" maxlength="10" ID="Text13">
+																												</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">* Country:</font></td>
+																												<td align="left" style="WIDTH: 4px">&nbsp;</td>
+																												<td align="left" style="WIDTH: 195px">
+																													<Select style='WIDTH: 180px; HEIGHT: 22px' name="STCountry" ID="Select3">
+																														<Option Value="1" selected>
+																														USA
+																														<Option Value="10">
+																														Albania
+																														<Option Value="101">
+																														Indo
+																														<Option Value="102">
+																														Iran
+																														<Option Value="103">
+																														Iraq
+																														<Option Value="104">
+																														Ireland
+																														<Option Value="105">
+																														Israel
+																														<Option Value="106">
+																														Italy
+																														<Option Value="107">
+																														Ivory Coast
+																														<Option Value="108">
+																														Jamaica
+																														<Option Value="109">
+																														Japan
+																														<Option Value="11">
+																														Algeria
+																														<Option Value="110">
+																														Jordan
+																														<Option Value="111">
+																														Kazakhstan
+																														<Option Value="112">
+																														Kenya
+																														<Option Value="113">
+																														Kuwait
+																														<Option Value="114">
+																														Kyrgyzstan
+																														<Option Value="115">
+																														Laos
+																														<Option Value="116">
+																														Latvia
+																														<Option Value="117">
+																														Lebanon
+																														<Option Value="118">
+																														Lesotho
+																														<Option Value="119">
+																														Liberia
+																														<Option Value="12">
+																														American Samoa
+																														<Option Value="120">
+																														Libya
+																														<Option Value="121">
+																														Liechtenstein
+																														<Option Value="122">
+																														Lithuania
+																														<Option Value="123">
+																														Luxembourg
+																														<Option Value="124">
+																														Macau
+																														<Option Value="125">
+																														Macedonia
+																														<Option Value="126">
+																														Madagascar
+																														<Option Value="127">
+																														Malawi
+																														<Option Value="128">
+																														Malaysia
+																														<Option Value="129">
+																														Mali
+																														<Option Value="13">
+																														Andorra
+																														<Option Value="130">
+																														Malta
+																														<Option Value="131">
+																														Marshall Islands
+																														<Option Value="132">
+																														Martinique
+																														<Option Value="133">
+																														Mauritania
+																														<Option Value="134">
+																														Mauritius
+																														<Option Value="135">
+																														Mexico
+																														<Option Value="136">
+																														Micronesia
+																														<Option Value="137">
+																														Moldova
+																														<Option Value="138">
+																														Monaco
+																														<Option Value="139">
+																														Mongolia
+																														<Option Value="14">
+																														Angola
+																														<Option Value="140">
+																														Montserrat
+																														<Option Value="141">
+																														Morocco
+																														<Option Value="142">
+																														Mozambique
+																														<Option Value="143">
+																														Myanmar/Burma
+																														<Option Value="144">
+																														Namibia
+																														<Option Value="145">
+																														Nepal
+																														<Option Value="146">
+																														Netherlands Antilles
+																														<Option Value="147">
+																														Netherlands
+																														<Option Value="148">
+																														New Caledonia
+																														<Option Value="149">
+																														New Zealand
+																														<Option Value="15">
+																														Anguilla
+																														<Option Value="150">
+																														Nicaragua
+																														<Option Value="151">
+																														Niger
+																														<Option Value="152">
+																														Nigeria
+																														<Option Value="153">
+																														Norway
+																														<Option Value="154">
+																														Oman
+																														<Option Value="155">
+																														Pakistan
+																														<Option Value="156">
+																														Palau
+																														<Option Value="157">
+																														Panama
+																														<Option Value="158">
+																														Papua New Guinea
+																														<Option Value="159">
+																														Paraguay
+																														<Option Value="16">
+																														Antigua
+																														<Option Value="160">
+																														Peru
+																														<Option Value="161">
+																														Philippines
+																														<Option Value="162">
+																														Poland
+																														<Option Value="163">
+																														Portugal
+																														<Option Value="164">
+																														Puerto Rico
+																														<Option Value="165">
+																														Qatar
+																														<Option Value="166">
+																														Reunion
+																														<Option Value="167">
+																														Romania
+																														<Option Value="168">
+																														Russia
+																														<Option Value="169">
+																														Rwanda
+																														<Option Value="17">
+																														Argentina
+																														<Option Value="170">
+																														Saba
+																														<Option Value="171">
+																														Saipan
+																														<Option Value="172">
+																														San Marino
+																														<Option Value="173">
+																														Saudi Arabia
+																														<Option Value="174">
+																														Senegal
+																														<Option Value="175">
+																														Seychelles
+																														<Option Value="176">
+																														Sierra Leone
+																														<Option Value="177">
+																														Singapore
+																														<Option Value="178">
+																														Slovak Republic
+																														<Option Value="179">
+																														Slovenia
+																														<Option Value="18">
+																														Armenia
+																														<Option Value="180">
+																														Somalia
+																														<Option Value="181">
+																														South Africa
+																														<Option Value="182">
+																														South Korea
+																														<Option Value="183">
+																														Spain
+																														<Option Value="184">
+																														Sri Lanka
+																														<Option Value="185">
+																														St. Barthelemy
+																														<Option Value="186">
+																														St. Croix
+																														<Option Value="187">
+																														St. Eustatius
+																														<Option Value="188">
+																														St. Kitts and Nevis
+																														<Option Value="189">
+																														St. Lucia
+																														<Option Value="19">
+																														Aruba
+																														<Option Value="190">
+																														St. Maarten/St. Martin
+																														<Option Value="191">
+																														St. Thomas
+																														<Option Value="192">
+																														St. Vincent
+																														<Option Value="193">
+																														Sudan
+																														<Option Value="194">
+																														Suriname
+																														<Option Value="195">
+																														Swaziland
+																														<Option Value="196">
+																														Sweden
+																														<Option Value="197">
+																														Switzerland
+																														<Option Value="198">
+																														Syria
+																														<Option Value="199">
+																														Taiwan
+																														<Option Value="2">
+																														India
+																														<Option Value="20">
+																														Australia
+																														<Option Value="200">
+																														Tanzania
+																														<Option Value="201">
+																														Thailand
+																														<Option Value="202">
+																														Togo
+																														<Option Value="203">
+																														Tortola
+																														<Option Value="204">
+																														Trinidad and Tobago
+																														<Option Value="205">
+																														Tunisia
+																														<Option Value="206">
+																														Turkey
+																														<Option Value="207">
+																														Turkmenistan
+																														<Option Value="208">
+																														Turks and Caicos Islands
+																														<Option Value="209">
+																														U.S. Virgin Islands
+																														<Option Value="21">
+																														Austria
+																														<Option Value="210">
+																														Uganda
+																														<Option Value="211">
+																														Ukraine
+																														<Option Value="212">
+																														United Arab Emirates
+																														<Option Value="213">
+																														United Kingdom
+																														<Option Value="214">
+																														Uruguay
+																														<Option Value="216">
+																														Uzbekistan
+																														<Option Value="217">
+																														Vanuatu
+																														<Option Value="218">
+																														Vatican City
+																														<Option Value="219">
+																														Venezuela
+																														<Option Value="22">
+																														Azerbaijan
+																														<Option Value="220">
+																														Vietnam
+																														<Option Value="221">
+																														Wallis &amp; Futuna
+																														<Option Value="222">
+																														Yemen
+																														<Option Value="223">
+																														Zambia
+																														<Option Value="224">
+																														Zimbabwe
+																														<Option Value="23">
+																														Bahamas
+																														<Option Value="24">
+																														Bahrain
+																														<Option Value="25">
+																														Bangladesh
+																														<Option Value="26">
+																														Barbados
+																														<Option Value="27">
+																														Barbuda
+																														<Option Value="28">
+																														Belarus
+																														<Option Value="29">
+																														Belgium
+																														<Option Value="3">
+																														UK
+																														<Option Value="30">
+																														Belize
+																														<Option Value="31">
+																														Benin
+																														<Option Value="32">
+																														Bermuda
+																														<Option Value="33">
+																														Bhutan
+																														<Option Value="34">
+																														Bolivia
+																														<Option Value="35">
+																														Bonaire
+																														<Option Value="36">
+																														Botswana
+																														<Option Value="37">
+																														Brazil
+																														<Option Value="38">
+																														British Virgin Islands
+																														<Option Value="39">
+																														Brunei
+																														<Option Value="4">
+																														North Korea
+																														<Option Value="40">
+																														Bulgaria
+																														<Option Value="41">
+																														Burkina Faso
+																														<Option Value="42">
+																														Burundi
+																														<Option Value="43">
+																														Cambodia
+																														<Option Value="44">
+																														Cameroon
+																														<Option Value="45">
+																														Canada - English
+																														<Option Value="46">
+																														Canada - Francais
+																														<Option Value="47">
+																														Cape Verde
+																														<Option Value="48">
+																														Cayman Islands
+																														<Option Value="49">
+																														Central African Republic
+																														<Option Value="5">
+																														Germany
+																														<Option Value="50">
+																														Chad
+																														<Option Value="51">
+																														Channel Islands
+																														<Option Value="52">
+																														Chile
+																														<Option Value="53">
+																														China
+																														<Option Value="54">
+																														Colombia
+																														<Option Value="55">
+																														Congo-Brazzaville
+																														<Option Value="56">
+																														Congo-Kinshasa
+																														<Option Value="57">
+																														Cook Islands
+																														<Option Value="58">
+																														Costa Rica
+																														<Option Value="59">
+																														Croatia
+																														<Option Value="6">
+																														Turkistan
+																														<Option Value="60">
+																														Curacao
+																														<Option Value="61">
+																														Cyprus
+																														<Option Value="62">
+																														Czech Republic
+																														<Option Value="63">
+																														Denmark
+																														<Option Value="64">
+																														Djibouti
+																														<Option Value="65">
+																														Dominica
+																														<Option Value="66">
+																														Dominican Republic
+																														<Option Value="67">
+																														Ecuador
+																														<Option Value="68">
+																														Egypt
+																														<Option Value="69">
+																														El Salvador
+																														<Option Value="7">
+																														UAE
+																														<Option Value="70">
+																														Equatorial Guinea
+																														<Option Value="71">
+																														Eritrea
+																														<Option Value="72">
+																														Estonia
+																														<Option Value="73">
+																														Ethiopia
+																														<Option Value="74">
+																														Faroe Islands
+																														<Option Value="75">
+																														Fiji
+																														<Option Value="76">
+																														Finland
+																														<Option Value="77">
+																														France
+																														<Option Value="78">
+																														French Guiana
+																														<Option Value="79">
+																														French Polynesia
+																														<Option Value="8">
+																														Taiwan
+																														<Option Value="80">
+																														Gabon
+																														<Option Value="81">
+																														Gambia
+																														<Option Value="82">
+																														Georgia
+																														<Option Value="83">
+																														Germany
+																														<Option Value="84">
+																														Ghana
+																														<Option Value="85">
+																														Gibraltar
+																														<Option Value="86">
+																														Greece
+																														<Option Value="87">
+																														Greenland
+																														<Option Value="88">
+																														Grenada
+																														<Option Value="89">
+																														Guadeloupe
+																														<Option Value="9">
+																														Indonasia
+																														<Option Value="90">
+																														Guam
+																														<Option Value="91">
+																														Guatemala
+																														<Option Value="92">
+																														Guinea Bissau
+																														<Option Value="93">
+																														Guinea
+																														<Option Value="94">
+																														Guyana
+																														<Option Value="95">
+																														I
+																														<Option Value="96">
+																														Honduras
+																														<Option Value="97">
+																														Hong Kong
+																														<Option Value="98">
+																														Hungary
+																														<Option Value="99">Iceland</Option>
+																													</Select>
+																												</td>
+																											</tr>
+																											<tr>
+																												<td align="left" style="WIDTH: 11px">&nbsp;</td>
+																												<td align="right"><font class="thumbsbrown">Telephone:</font></td>
+																												<td align="left" style="WIDTH: 4px">&nbsp;</td>
+																												<td align="left" style="WIDTH: 195px">
+																													<input name="ShipTel" align="left" maxlength="15" size="15" ID="Text14">
+																												</td>
+																											</tr>
+																											<tr>
+																												<td colspan="3" style="WIDTH: 89px">&nbsp;</td>
+																												<td style="WIDTH: 195px"><font class="thumbsbrown">* denotes required fields</font></td>
+																											</tr>
+																											<tr>
+																												<td colspan="4" style="WIDTH: 296px">&nbsp;</td>
+																											</tr>
+																											<tr>
+																												<td colspan="3" style="WIDTH: 89px">&nbsp;</td>
+																												<td style="WIDTH: 195px">
+																													<table border="0" cellpadding="0" cellspacing="0" ID="Table22">
+																														<tr>
+																															<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																																	height="12"></td>
+																														</tr>
+																														<tr>
+																															<td width="165">&nbsp;</td>
+																															<td>
+																																<font class="thumbsbold"><a href="javascript:addtolist()"><img border="0" src="https://secure.4yoursoul.com/sitegraphics/C8/8_AddAnotherAdd.gif"></a>&nbsp;&nbsp;
+																																</font>
+																															</td>
+																														</tr>
+																														<tr>
+																															<td>&nbsp;</td>
+																															<td>
+																																<font class="thumbsbold"><a href="javascript:uploadAddress()"><img border="0" src="https://secure.4yoursoul.com/sitegraphics/C8/8_UploadAddList.gif"></a>&nbsp;&nbsp;
+																																</font>
+																															</td>
+																														</tr>
+																														<tr>
+																															<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																																	height="12"></td>
+																														</tr>
+																													</table>
+																												</td>
+																											</tr>
+																										</table>
+																									</td>
+																								</tr>
+																							</table>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_yellowspacer.gif'
+																								width='100%' height="3"></td>
+																					</tr>
+																					<tr>
+																						<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																							<table border="0" cellpadding="0" cellspacing="0" ID="Table23">
+																								<tr>
+																									<td width="450">&nbsp;</td>
+																									<td>
+																										<font class="thumbsbold"><a href="javascript:Continue()"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_continue.gif" border="0"></a>&nbsp;
+																										</font>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>&nbsp;</td>
+																									<td>
+																										<font class="thumbsbold"><a href="shipOption.asp"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_cancel.gif" border="0"></a>
+																										</font>
+																									</td>
+																								</tr>
+																							</table>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td colspan="2"><img border="0" src='https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif' width="1"
+																								height="12"></td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																	</table>
+																	<input type="hidden" name="FromPage" id="FromPage" value="shipmain"> <input type="hidden" name="AddrOrderby" id="AddrOrderby">
+																	<input type="hidden" name="Sort" id="Sort"> <input type="hidden" name="Continue" id="Continue">
+																	<input type="hidden" name="addtoaddresslist" id="addtoaddresslist"> <input type="hidden" name="RAId" id="RAId" value="{4F2EB8B0-A562-4175-BD58-84FEDCBC9941}">
+																	<input type="hidden" name="ReturnAddrStatus" ID="Hidden1"> <input type="hidden" name="Job" id="Job">
+																	<input type="hidden" name="SaveShippingUploadAddr" id="SaveShippingUploadAddr" value="N"> <!-- If upload address is clicked and whether to save the Return Address Details-->
+																	<!----------------------------------------------------------------------------------------->
+																</TD>
+															</TR>
+														</TBODY>
+													</TABLE>
+												</td>
+											</tr>
+										</TABLE>
+									</td>
+								</tr>
+							</table>
+						</TD>
+						<!--end of right nav-->
+					</TR>
+				</TBODY>
+			</TABLE>
+			</FORM> 
+			<!--end master table--> </TD></TR></TBODY></TABLE>
+		</CENTER>
+	</BODY>
+</HTML>

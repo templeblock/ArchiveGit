@@ -1,0 +1,12 @@
+// Source file: RULERS.C
+void EnableRulers(BOOL bEnable);
+void UpdateRulers( void );
+int GetRulerSize( void );
+BOOL CreateRulers( void );
+void DestroyRulers( void );
+void SetupAllRulers( void );
+void SetupRulers( void );
+void SetRulerTicks(LPARAM lParam);
+void SizeRulers( void );
+long WINPROC EXPORT RulerControl( HWND hWindow, unsigned message, WORD wParam, long lParam );
+

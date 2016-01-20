@@ -1,0 +1,5 @@
+// Source file: terase.c
+BOOL WINPROC EXPORT DlgEraserProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+int EraserProc( HWND hWindow, LPARAM lParam, UINT msg );
+int AltEraserProc( HWND hWindow, LPARAM lParam, UINT msg );
+

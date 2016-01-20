@@ -1,0 +1,5 @@
+[autorun]
+open=jungle.exe
+icon=jungle.ico
+shell\test=Read &Me
+shell\test\command=write readme.wri

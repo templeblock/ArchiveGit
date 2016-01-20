@@ -1,0 +1,10 @@
+// Source file: OBJIO.C
+BOOL objrdr( LPSTR lpFileName, int outDepth, LPINT lpDataType, LPOBJECTLIST lpObjList);
+BOOL ReadObjData( LPSTR lpFileName, LPOBJECTLIST lpObjList, int outDepth, LPINT lpDataType, LPRECT lpScaleRect, LPINT lpFullFileX, LPINT lpFullFileY, LPINT lpFullResolution);
+int objwrt(LPIMAGE lpImage, LPSTR lpFileName, int idFileType, LPRECT lpRect, int flag, BOOL fCompressed);
+BOOL ReadObjHeader(LPSTR lpFileName, LPINT lpDataType, LPTIFFHEADER lpHeader );
+WORD GetNextWord(LPWORD *lplpWord);
+long GetNextLong(LPLONG *lplpLong);
+void SetNextWord(LPWORD *lplpWord, WORD w);
+void SetNextLong(LPLONG *lplpLong, long l);
+

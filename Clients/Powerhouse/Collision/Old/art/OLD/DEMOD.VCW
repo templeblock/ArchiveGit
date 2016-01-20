@@ -1,0 +1,18 @@
+[MSVC Status File]
+Version=1.00
+ProjectType=10
+External=0
+BrkptCount=2
+BrkptType1=0
+BrkptActive1=1
+BrkptAmbig1=0
+BrkptIndex1=-1
+BrkptLoc1={,d:\dev\power\gameguts\offscren.cpp,} .220
+BrkptType2=0
+BrkptActive2=1
+BrkptAmbig2=0
+BrkptIndex2=-1
+BrkptLoc2={,d:\dev\power\gameguts\dib.cpp,} .677
+WatchCount=2
+WatchExpr1=this
+WatchExpr2=pdibDst

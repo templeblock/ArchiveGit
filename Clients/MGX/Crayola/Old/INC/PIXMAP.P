@@ -1,0 +1,18 @@
+// Source file: PIXMAP.C
+void PixmapSetup( LPPIXMAP lpPixmap, LPFRAME lpFrame, BOOL NoUndo);
+BOOL PixmapInitUndo( LPPIXMAP lpPixmap );
+BOOL PixmapGetInfo(LPPIXMAP lpPixmap, PIXMAP_TYPE pmType, LPINT lpXSize, LPINT lpYSize, LPINT lpDepth, LPFRMDATATYPE lpType);
+LPTR PixmapPtr( LPPIXMAP lpPixmap, PIXMAP_TYPE pmType, int x, int y, BOOL bModify );
+void PixmapCheck( LPPIXMAP lpPixmap, PIXMAP_TYPE pmType, int x, int y, BOOL bModify );
+BOOL PixmapWrite( LPPIXMAP lpPixmap, PIXMAP_TYPE pmType, int sx, int sy, int dx, LPTR pixels, int count );
+VOID PixmapSyncLines( LPPIXMAP lpPixmap );
+VOID PixmapExchLines( LPPIXMAP lpPixmap, BYTE flag );
+LPFRAME CALLBACK EXPORT PixmapFrame(LPPIXMAP lpPixmap, PIXMAP_TYPE pmType);
+void PixmapFree( LPPIXMAP lpPixmap );
+void PixmapFreeUndo( LPPIXMAP lpPixmap );
+void PixmapAddUndoArea(LPPIXMAP lpPixmap, LPRECT lpUndo);
+BOOL PixmapEditInit( LPPIXMAP lpPixmap, BOOL UseApply);
+void PixmapEditUndo( LPPIXMAP lpPixmap );
+void PixmapEditApply( LPPIXMAP lpPixmap );
+void PixmapNewFrame( LPPIXMAP lpPixmap, LPFRAME lpNewFrame, LPRECT lpEditRect, BOOL fUseApply);
+

@@ -1,0 +1,4 @@
+// Source file: CACHE.C
+BOOL ImgEditInitSelObj( LPIMAGE lpImage, BOOL fInitData, BOOL fInitAlpha, BOOL fCreatingNewFrame );
+void ImgEditUndoSelObj( LPIMAGE lpImage );
+

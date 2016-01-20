@@ -1,0 +1,65 @@
+; Mobilize Distribution Unit
+; Reference this software distribution package from a page on your Web site
+; Components are usually addressed by the CODEBASE attribute of an object tag on a Web page
+;
+;<object codebase="http://.../Mobilize.cab#version=1,0,0,0" classid="clsid:00000000-3473-4e85-92CF-6B2944607C01" />
+
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.0
+
+[DefaultInstall]
+AddReg=MyAddReg
+CopyFiles=MyCopyFiles,MyCopyInf
+
+[MyAddReg]
+; reg-root-string,(subkey),(value-name),(flag),(value)
+;HKLM,"Software\Microsoft\<tla rid="tla_ie" />\Extensions\{00000001-3473-4e85-92CF-6B2944607C01}","HotIcon",,"C:\DownloadDemo\ColorButton.ico"
+
+; Destination directory for files in the CopyFiles section
+[DestinationDirs]
+MyCopyFiles=30,MobilizeFolder	; New folder at boot drive root
+MyCopyInf=17 ; Windows\Inf folder
+
+[MyCopyFiles]
+MyIcon=MobilizeButton.ico
+MyHotIcon=MobilizeButtonHot.ico
+MyScript=Mobilize.htm
+
+[MyCopyInf]
+MyInfFile=Mobilize.inf
+
+; Source location for specified platform version
+[MyIcon]
+file-win32-x86=thiscab
+FileVersion=1,0,0,0
+
+; Source location for specified platform version
+[MyHotIcon]
+file-win32-x86=thiscab
+FileVersion=1,0,0,0
+
+; Source location for specified platform version
+[MyScript]
+file-win32-x86=thiscab
+FileVersion=1,0,0,0
+
+; Source location for specified platform version
+[MyInfFile]
+file-win32-x86=thiscab
+FileVersion=1,0,0,0
+INFFile=Mobilize.inf
+
+; This section must not be present
+;[Setup Hooks]
+
+; This section must not be present
+;[Add.Code]
+;MyComObject=ComObject.dll
+
+;[MyComObject]
+;file-win32-x86=thiscab
+;clsid={BB383206-6DA1-4e80-B62A-3DF950FCC697}
+;FileVersion=3,6,5091,0
+;DestDir=11
+;RegisterServer=yes

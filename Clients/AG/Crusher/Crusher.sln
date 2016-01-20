@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Crusher", "Crusher.vcproj", "{D1B0B982-B67B-4AF2-8369-5A3542196E15}"
+	ProjectSection(ProjectDependencies) = postProject
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C} = {68228D2F-1484-4E15-A0B6-9A48D9048B7C}
+		{9205B43E-F898-4D11-996C-AF712BAED1A9} = {9205B43E-F898-4D11-996C-AF712BAED1A9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "..\Shared\Shared.vcproj", "{68228D2F-1484-4E15-A0B6-9A48D9048B7C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JpegLib", "..\JpegLib\JpegLib.vcproj", "{9205B43E-F898-4D11-996C-AF712BAED1A9}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 4
+		SccProjectName0 = \u0022$/AgApplications/Crusher\u0022,\u0020GRBAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = false
+		SccProjectUniqueName1 = Crusher.vcproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+		SccProjectUniqueName2 = ..\\Shared\\Shared.vcproj
+		SccProjectName2 = \u0022$/AgApplications/Shared\u0022,\u0020LOBAAAAA
+		SccLocalPath2 = ..\\Shared
+		CanCheckoutShared = false
+		SccProjectUniqueName3 = ..\\JpegLib\\JpegLib.vcproj
+		SccProjectName3 = \u0022$/AgApplications/JpegLib\u0022,\u0020TDEAAAAA
+		SccLocalPath3 = ..\\JpegLib
+		CanCheckoutShared = false
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1B0B982-B67B-4AF2-8369-5A3542196E15}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D1B0B982-B67B-4AF2-8369-5A3542196E15}.Debug|Win32.Build.0 = Debug|Win32
+		{D1B0B982-B67B-4AF2-8369-5A3542196E15}.Release|Win32.ActiveCfg = Release|Win32
+		{D1B0B982-B67B-4AF2-8369-5A3542196E15}.Release|Win32.Build.0 = Release|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Debug|Win32.Build.0 = Debug|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Release|Win32.ActiveCfg = Release|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Release|Win32.Build.0 = Release|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Debug|Win32.Build.0 = Debug|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Release|Win32.ActiveCfg = Release|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

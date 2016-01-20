@@ -1,0 +1,592 @@
+//***********************************************************************
+IDD_STRMBSTRI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_STRMBSTRI GAMETABLE
+//***********************************************************************
+{
+"
+	// target pieces
+	item=drop.bmp,tcells=1,fcells=0,color=1;","
+	item=drop.bmp,tcells=1,fcells=0,color=2;","
+	item=drop.bmp,tcells=1,fcells=0,color=4;","
+	item=drop.bmp,tcells=1,fcells=0,color=5;","
+	item=drop.bmp,tcells=1,fcells=0,color=9;","
+	item=drop.bmp,tcells=1,fcells=0,color=249;","
+	item=drop.bmp,tcells=1,fcells=0,color=250;","
+	item=drop.bmp,tcells=1,fcells=0,color=251;","
+	item=drop.bmp,tcells=1,fcells=0,color=252;","
+	item=drop.bmp,tcells=1,fcells=0,color=253;","
+
+	Penalty=0;","
+	PickInOrder=1;","
+	gamearea=47 30 592 433;","
+	dropspeed=120,droptimer=12;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=265;","
+	PlayerSpeed=500;","
+	Player=player.bmp,PlayerCells=16;","
+	LeftBasket =  0 0  32 38;","
+	RightBasket=101 0 999 38;","
+	PainterBmp=painter.bmp,PainterCells=6,PainterPos=101 379;","
+	introwave=intro1.wav,gotonewave=gotone.wav,badcatchwave=badcatch.wav;","
+	successlevel=succi.wav succi.wav succi.wav succi.wav;","
+	keyboardmove=20;","
+	RainbowBmp=4whole.bmp,RainbowPos=100 80;"," 
+	StripePos1=101 81,StripePos2=110 91,StripePos3=120 101,StripePos4=128 109,","
+	StripePos5=138 119,StripePos6=145 129,StripePos7=156 138,StripePos8=166 148,;","
+	StripeBmp1=s4_1.bmp,StripeBmp2=s4_2.bmp,StripeBmp3=s4_3.bmp,StripeBmp4=s4_4.bmp;","
+	PreviewBmp=preview.bmp,PreviewLoc=455 37,PreviewHeight=30;","
+	// RGB value of the drop color to change
+	srcred=128,srcgreen=132,srcblue=150;","
+",0
+}
+
+//***********************************************************************
+IDD_STRMBSTRI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene24\\backgni.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=291 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,	hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0,	hot=218 441,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0,	hot=389 441,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=options.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_NEXT=0 0,		hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans,fg=help.bmp, hint=helphint.wav, wave=help.wav;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_SPANSTRMBSTRI GAMETABLE
+//***********************************************************************
+{
+"
+	// target pieces
+	item=drop.bmp,tcells=1,fcells=0,color=1;","
+	item=drop.bmp,tcells=1,fcells=0,color=2;","
+	item=drop.bmp,tcells=1,fcells=0,color=4;","
+	item=drop.bmp,tcells=1,fcells=0,color=5;","
+	item=drop.bmp,tcells=1,fcells=0,color=9;","
+	item=drop.bmp,tcells=1,fcells=0,color=249;","
+	item=drop.bmp,tcells=1,fcells=0,color=250;","
+	item=drop.bmp,tcells=1,fcells=0,color=251;","
+	item=drop.bmp,tcells=1,fcells=0,color=252;","
+	item=drop.bmp,tcells=1,fcells=0,color=253;","
+
+	Penalty=0;","
+	PickInOrder=1;","
+	gamearea=47 30 592 433;","
+	dropspeed=120,droptimer=12;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=265;","
+	PlayerSpeed=500;","
+	Player=player.bmp,PlayerCells=16;","
+	LeftBasket =  0 0  32 38;","
+	RightBasket=101 0 999 38;","
+	PainterBmp=painter.bmp,PainterCells=6,PainterPos=101 379;","
+	introwave=spintro1.wav,gotonewave=gotone.wav,badcatchwave=badcatch.wav;","
+	successlevel=spsucci.wav spsucci.wav spsucci.wav spsucci.wav;","
+	keyboardmove=20;","
+	RainbowBmp=4whole.bmp,RainbowPos=100 80;","
+	StripePos1=101 81,StripePos2=110 91,StripePos3=120 101,StripePos4=128 109,","
+	StripePos5=138 119,StripePos6=145 129,StripePos7=156 138,StripePos8=166 148,;","
+	StripeBmp1=s4_1.bmp,StripeBmp2=s4_2.bmp,StripeBmp3=s4_3.bmp,StripeBmp4=s4_4.bmp;","
+	PreviewBmp=preview.bmp,PreviewLoc=455 37,PreviewHeight=30;","
+	// RGB value of the drop color to change
+	srcred=128,srcgreen=132,srcblue=150;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANSTRMBSTRI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene24\\backgni.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=291 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,	hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=spprev.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=spmain.wav;","
+	/IDC_SOUNDBOX=0 0,	hot=218 441,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=spsounds.wav;","
+	/IDC_OPTIONS=0 0,	hot=389 441,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=spoption.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=spactivy.wav;","
+	/IDC_NEXT=0 0,		hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=spnext.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans,fg=help.bmp, cmd=IDC_HELP, hint=sphelp1.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_STRMBSTR1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_STRMBSTR1 GAMETABLE
+//***********************************************************************
+{
+"
+	// target pieces
+	item=drop.bmp,tcells=1,fcells=0,color=1;","
+	item=drop.bmp,tcells=1,fcells=0,color=2;","
+	item=drop.bmp,tcells=1,fcells=0,color=4;","
+	item=drop.bmp,tcells=1,fcells=0,color=5;","
+	item=drop.bmp,tcells=1,fcells=0,color=9;","
+	item=drop.bmp,tcells=1,fcells=0,color=249;","
+	item=drop.bmp,tcells=1,fcells=0,color=250;","
+	item=drop.bmp,tcells=1,fcells=0,color=251;","
+	item=drop.bmp,tcells=1,fcells=0,color=252;","
+	item=drop.bmp,tcells=1,fcells=0,color=253;","
+
+	Penalty=0;","
+	PickInOrder=1;","
+	gamearea=47 30 592 433;","
+	dropspeed=120,droptimer=12;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=265;","
+	PlayerSpeed=500;","
+	Player=player.bmp,PlayerCells=16;","
+	LeftBasket =  0 0  32 38;","
+	RightBasket=101 0 999 38;","
+	PainterBmp=painter.bmp,PainterCells=6,PainterPos=101 379;","
+	introwave=intro1.wav,gotonewave=gotone.wav,badcatchwave=badcatch.wav;","
+	successlevel=succ1.wav succ1.wav succ1.wav succ1.wav;","
+	keyboardmove=20;","
+	RainbowBmp=4whole.bmp,RainbowPos=100 80;","
+	StripePos1=101 81,StripePos2=110 91,StripePos3=120 101,StripePos4=128 109,","
+	StripePos5=138 119,StripePos6=145 129,StripePos7=156 138,StripePos8=166 148,;","
+	StripeBmp1=s4_1.bmp,StripeBmp2=s4_2.bmp,StripeBmp3=s4_3.bmp,StripeBmp4=s4_4.bmp;","
+	PreviewBmp=preview.bmp,PreviewLoc=455 37,PreviewHeight=30;","
+	// RGB value of the drop color to change
+	srcred=128,srcgreen=132,srcblue=150;","
+
+",0
+}
+
+//***********************************************************************
+IDD_STRMBSTR1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene24\\backgnd.bmp,clip=CL CT CR CB,","
+	
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+",0
+}
+
+//***********************************************************************
+IDD_SPANSTRMBSTR1 GAMETABLE
+//***********************************************************************
+{
+"
+	// target pieces
+	item=drop.bmp,tcells=1,fcells=0,color=1;","
+	item=drop.bmp,tcells=1,fcells=0,color=2;","
+	item=drop.bmp,tcells=1,fcells=0,color=4;","
+	item=drop.bmp,tcells=1,fcells=0,color=5;","
+	item=drop.bmp,tcells=1,fcells=0,color=9;","
+	item=drop.bmp,tcells=1,fcells=0,color=249;","
+	item=drop.bmp,tcells=1,fcells=0,color=250;","
+	item=drop.bmp,tcells=1,fcells=0,color=251;","
+	item=drop.bmp,tcells=1,fcells=0,color=252;","
+	item=drop.bmp,tcells=1,fcells=0,color=253;","
+
+	Penalty=0;","
+	PickInOrder=1;","
+	gamearea=47 30 592 433;","
+	dropspeed=120,droptimer=12;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=265;","
+	PlayerSpeed=500;","
+	Player=player.bmp,PlayerCells=16;","
+	LeftBasket =  0 0  32 38;","
+	RightBasket=101 0 999 38;","
+	PainterBmp=painter.bmp,PainterCells=6,PainterPos=101 379;","
+	introwave=spintro1.wav,gotonewave=gotone.wav,badcatchwave=badcatch.wav;","
+	successlevel=spsucc1.wav spsucc1.wav spsucc1.wav spsucc1.wav;","
+	keyboardmove=20;","
+	RainbowBmp=4whole.bmp,RainbowPos=100 80;","
+	StripePos1=101 81,StripePos2=110 91,StripePos3=120 101,StripePos4=128 109,","
+	StripePos5=138 119,StripePos6=145 129,StripePos7=156 138,StripePos8=166 148,;","
+	StripeBmp1=s4_1.bmp,StripeBmp2=s4_2.bmp,StripeBmp3=s4_3.bmp,StripeBmp4=s4_4.bmp;","
+	PreviewBmp=preview.bmp,PreviewLoc=455 37,PreviewHeight=30;","
+	// RGB value of the drop color to change
+	srcred=128,srcgreen=132,srcblue=150;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANSTRMBSTR1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene24\\backgnd.bmp,clip=CL CT CR CB,","
+	
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+",0
+}
+
+//***********************************************************************
+IDD_STRMBSTR2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_STRMBSTR2 GAMETABLE
+//***********************************************************************
+{
+"
+	// target pieces
+	item=drop.bmp,tcells=1,fcells=0,color=1;","
+	item=drop.bmp,tcells=1,fcells=0,color=2;","
+	item=drop.bmp,tcells=1,fcells=0,color=4;","
+	item=drop.bmp,tcells=1,fcells=0,color=5;","
+	item=drop.bmp,tcells=1,fcells=0,color=6;","
+	item=drop.bmp,tcells=1,fcells=0,color=9;","
+	item=drop.bmp,tcells=1,fcells=0,color=10;","
+	item=drop.bmp,tcells=1,fcells=0,color=249;","
+	item=drop.bmp,tcells=1,fcells=0,color=250;","
+	item=drop.bmp,tcells=1,fcells=0,color=251;","
+	item=drop.bmp,tcells=1,fcells=0,color=252;","
+	item=drop.bmp,tcells=1,fcells=0,color=253;","
+
+	Penalty=0;","
+	PickInOrder=1;","
+	gamearea=47 30 592 433;","
+	dropspeed=120,droptimer=12;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=265;","
+	PlayerSpeed=500;","
+	Player=player.bmp,PlayerCells=16;","
+	LeftBasket =  0 0  32 38;","
+	RightBasket=101 0 999 38;","
+	PainterBmp=painter.bmp,PainterCells=6,PainterPos=101 379;","
+	introwave=intro2.wav,gotonewave=gotone.wav,badcatchwave=badcatch.wav;","
+	successlevel=succ2.wav succ2.wav succ2.wav succ2.wav;","
+	keyboardmove=20;","
+	RainbowBmp=6whole.bmp,RainbowPos=100 80;","
+	StripePos1=101 81,StripePos2=110 91,StripePos3=120 101,StripePos4=128 109,","
+	StripePos5=138 119,StripePos6=145 129,StripePos7=156 138,StripePos8=166 148,;","
+	StripeBmp1=s6_1.bmp,StripeBmp2=s6_2.bmp,StripeBmp3=s6_3.bmp,StripeBmp4=s6_4.bmp;","
+	StripeBmp5=s6_5.bmp,StripeBmp6=s6_6.bmp,","
+	PreviewBmp=preview.bmp,PreviewLoc=455 37,PreviewHeight=30;","
+	// RGB value of the drop color to change
+	srcred=128,srcgreen=132,srcblue=150;","
+
+",0
+}
+
+//***********************************************************************
+IDD_STRMBSTR2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene24\\backgnd.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANSTRMBSTR2 GAMETABLE
+//***********************************************************************
+{
+"
+	// target pieces
+	item=drop.bmp,tcells=1,fcells=0,color=1;","
+	item=drop.bmp,tcells=1,fcells=0,color=2;","
+	item=drop.bmp,tcells=1,fcells=0,color=4;","
+	item=drop.bmp,tcells=1,fcells=0,color=5;","
+	item=drop.bmp,tcells=1,fcells=0,color=6;","
+	item=drop.bmp,tcells=1,fcells=0,color=9;","
+	item=drop.bmp,tcells=1,fcells=0,color=10;","
+	item=drop.bmp,tcells=1,fcells=0,color=249;","
+	item=drop.bmp,tcells=1,fcells=0,color=250;","
+	item=drop.bmp,tcells=1,fcells=0,color=251;","
+	item=drop.bmp,tcells=1,fcells=0,color=252;","
+	item=drop.bmp,tcells=1,fcells=0,color=253;","
+
+	Penalty=0;","
+	PickInOrder=1;","
+	gamearea=47 30 592 433;","
+	dropspeed=120,droptimer=12;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=265;","
+	PlayerSpeed=500;","
+	Player=player.bmp,PlayerCells=16;","
+	LeftBasket =  0 0  32 38;","
+	RightBasket=101 0 999 38;","
+	PainterBmp=painter.bmp,PainterCells=6,PainterPos=101 379;","
+	introwave=spintro2.wav,gotonewave=gotone.wav,badcatchwave=badcatch.wav;","
+	successlevel=spsucc2.wav spsucc2.wav spsucc2.wav spsucc2.wav;","
+	keyboardmove=20;","
+	RainbowBmp=6whole.bmp,RainbowPos=100 80;","
+	StripePos1=101 81,StripePos2=110 91,StripePos3=120 101,StripePos4=128 109,","
+	StripePos5=138 119,StripePos6=145 129,StripePos7=156 138,StripePos8=166 148,;","
+	StripeBmp1=s6_1.bmp,StripeBmp2=s6_2.bmp,StripeBmp3=s6_3.bmp,StripeBmp4=s6_4.bmp;","
+	StripeBmp5=s6_5.bmp,StripeBmp6=s6_6.bmp,","
+	PreviewBmp=preview.bmp,PreviewLoc=455 37,PreviewHeight=30;","
+	// RGB value of the drop color to change
+	srcred=128,srcgreen=132,srcblue=150;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANSTRMBSTR2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene24\\backgnd.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+
+",0
+}
+
+//***********************************************************************
+IDD_STRMBSTR3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_STRMBSTR3 GAMETABLE
+//***********************************************************************
+{
+"
+	// target pieces
+	item=drop.bmp,tcells=1,fcells=0,color=1;","
+	item=drop.bmp,tcells=1,fcells=0,color=2;","
+	item=drop.bmp,tcells=1,fcells=0,color=4;","
+	item=drop.bmp,tcells=1,fcells=0,color=5;","
+	item=drop.bmp,tcells=1,fcells=0,color=6;","
+	item=drop.bmp,tcells=1,fcells=0,color=9;","
+	item=drop.bmp,tcells=1,fcells=0,color=10;","
+	item=drop.bmp,tcells=1,fcells=0,color=249;","
+	item=drop.bmp,tcells=1,fcells=0,color=250;","
+	item=drop.bmp,tcells=1,fcells=0,color=251;","
+	item=drop.bmp,tcells=1,fcells=0,color=252;","
+	item=drop.bmp,tcells=1,fcells=0,color=253;","
+
+	Penalty=1;","
+	PickInOrder=1;","
+	gamearea=47 30 592 433;","
+	dropspeed=120,droptimer=12;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=265;","
+	PlayerSpeed=500;","
+	Player=player.bmp,PlayerCells=16;","
+	LeftBasket =  0 0  32 38;","
+	RightBasket=101 0 999 38;","
+	PainterBmp=painter.bmp,PainterCells=6,PainterPos=101 379;","
+	introwave=intro3.wav,gotonewave=gotone.wav,badcatchwave=badcatch.wav;","
+	successlevel=succ3.wav succ3.wav succ3.wav succ3.wav;","
+	keyboardmove=20;","
+	RainbowBmp=8whole.bmp,RainbowPos=100 80;","
+	StripePos1=101 81,StripePos2=110 91,StripePos3=120 101,StripePos4=128 109,","
+	StripePos5=138 119,StripePos6=145 129,StripePos7=156 138,StripePos8=166 148,;","
+	StripeBmp1=s8_1.bmp,StripeBmp2=s8_2.bmp,StripeBmp3=s8_3.bmp,StripeBmp4=s8_4.bmp;","
+	StripeBmp5=s8_5.bmp,StripeBmp6=s8_6.bmp,StripeBmp7=s8_7.bmp,StripeBmp8=s8_8.bmp,","
+	PreviewBmp=preview.bmp,PreviewLoc=455 37,PreviewHeight=30;","
+	// RGB value of the drop color to change
+	srcred=128,srcgreen=132,srcblue=150;","
+
+",0
+}
+
+
+//***********************************************************************
+IDD_STRMBSTR3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene24\\backgnd.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+",0	
+}
+
+
+//***********************************************************************
+IDD_SPANSTRMBSTR3 GAMETABLE
+//***********************************************************************
+{
+"
+	// target pieces
+	item=drop.bmp,tcells=1,fcells=0,color=1;","
+	item=drop.bmp,tcells=1,fcells=0,color=2;","
+	item=drop.bmp,tcells=1,fcells=0,color=4;","
+	item=drop.bmp,tcells=1,fcells=0,color=5;","
+	item=drop.bmp,tcells=1,fcells=0,color=6;","
+	item=drop.bmp,tcells=1,fcells=0,color=9;","
+	item=drop.bmp,tcells=1,fcells=0,color=10;","
+	item=drop.bmp,tcells=1,fcells=0,color=249;","
+	item=drop.bmp,tcells=1,fcells=0,color=250;","
+	item=drop.bmp,tcells=1,fcells=0,color=251;","
+	item=drop.bmp,tcells=1,fcells=0,color=252;","
+	item=drop.bmp,tcells=1,fcells=0,color=253;","
+
+	Penalty=1;","
+	PickInOrder=1;","
+	gamearea=47 30 592 433;","
+	dropspeed=120,droptimer=12;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=265;","
+	PlayerSpeed=500;","
+	Player=player.bmp,PlayerCells=16;","
+	LeftBasket =  0 0  32 38;","
+	RightBasket=101 0 999 38;","
+	PainterBmp=painter.bmp,PainterCells=6,PainterPos=101 379;","
+	introwave=spintro3.wav,gotonewave=gotone.wav,badcatchwave=badcatch.wav;","
+	successlevel=spsucc3.wav spsucc3.wav spsucc3.wav spsucc3.wav;","
+	keyboardmove=20;","
+	RainbowBmp=8whole.bmp,RainbowPos=100 80;","
+	StripePos1=101 81,StripePos2=110 91,StripePos3=120 101,StripePos4=128 109,","
+	StripePos5=138 119,StripePos6=145 129,StripePos7=156 138,StripePos8=166 148,;","
+	StripeBmp1=s8_1.bmp,StripeBmp2=s8_2.bmp,StripeBmp3=s8_3.bmp,StripeBmp4=s8_4.bmp;","
+	StripeBmp5=s8_5.bmp,StripeBmp6=s8_6.bmp,StripeBmp7=s8_7.bmp,StripeBmp8=s8_8.bmp,","
+	PreviewBmp=preview.bmp,PreviewLoc=455 37,PreviewHeight=30;","
+	// RGB value of the drop color to change
+	srcred=128,srcgreen=132,srcblue=150;","
+
+",0
+}
+
+
+//***********************************************************************
+IDD_SPANSTRMBSTR3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene24\\backgnd.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+",0	
+}

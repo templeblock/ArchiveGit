@@ -1,0 +1,55 @@
+body
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+	background-color: #ffffff;
+}
+input, textarea, select
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #c04040;
+}
+tr
+{
+	background-color: #e6ecfb;
+	border: 3px solid #ff0000 
+}
+.tborder
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+	background-color: #c04040;
+	padding: 4px;
+}
+.header
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #132f6f;
+}
+.color
+{
+	cursor: hand;
+	width: 20px;
+}
+a
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #444444;
+	text-decoration: none;
+}
+a:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}

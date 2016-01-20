@@ -1,0 +1,83 @@
+IMPORTANT - READ THIS BEFORE INSTALLING: By installing, using, or
+reproducing the enclosed materials, you are agreeing to be bound by the
+terms of this agreement.  If you do not agree to them, do not install
+or use this software.
+
+Intel Indeo(R) video Software License Agreement
+
+LICENSE: Subject to the Restrictions below, Intel Corporation ("Intel")
+grants to you the following non-exclusive, non-assignable, royalty-free
+copyright licenses in the "Materials" below, which are identified
+specifically in the enclosed documentation.
+End-User Documentation includes textual materials intended for end
+users.  You may copy, modify and distribute them.
+Licensed Binaries are redistributable code provided in binary form.
+You may copy and distribute Licensed Binaries with your product.
+
+RESTRICTIONS: You will make reasonable efforts to discontinue
+distribution of the enclosed Materials upon Intel's release of an
+update, upgrade or new version of the Materials and to make reasonable
+efforts to distribute such updates, upgrades or new versions to your
+customers who have received the Materials herein.
+
+You may not reverse-assemble, reverse-compile, or otherwise
+reverse-engineer any software provided solely in binary form.
+
+Distribution of the Materials is also subject to the following
+limitations you (i) shall be solely responsible to your customers for
+any update or support obligation or other liability which may arise
+from the distribution, (ii) do not make any statement that your product
+is "certified," or that its performance is guaranteed, by Intel, (iii)
+do not use Intel's name or trademarks to market your product without
+written permission, (iv) shall prohibit disassembly and reverse
+engineering, and (v) shall indemnify, hold harmless, and defend Intel
+and its suppliers from and against any claims or lawsuits, including
+attorney's fees, that arise or result from your distribution of any
+product.
+
+COPYRIGHT: Title to the Materials and all copies thereof remain with
+Intel or its suppliers.  The Materials are copyrighted and are
+protected by United States copyright laws and international treaty
+provisions.  You will not remove any copyright notice from the
+Materials.  You agree to prevent any unauthorized copying of the
+Materials.  Except as expressly provided herein, Intel does not grant
+any express or implied right to you under Intel patents, copyrights,
+trademarks, or trade secret information.
+
+REPLACEMENTS: The Materials are provided "AS IS" without warranty of
+any kind.  If the media on which the Materials are furnished are found
+to be defective in material or workmanship under normal use for a
+period of ninety (90) days from the date of receipt, Intel's entire
+liability and your exclusive remedy shall be the replacement of the
+media.  This offer is void if the media defect results from accident,
+abuse, or misapplication.
+
+LIMITATION OF LIABILITY: THE ABOVE REPLACEMENT PROVISION IS THE ONLY
+WARRANTY OF ANY KIND.  INTEL OFFERS NO OTHER WARRANTY EITHER EXPRESS OR
+IMPLIED INCLUDING THOSE OF MERCHANTABILITY, NONINFRINGEMENT OF THIRD-
+PARTY INTELLECTUAL PROPERTY OR FITNESS FOR A PARTICULAR PURPOSE.
+NEITHER INTEL NOR ITS SUPPLIERS SHALL BE LIABLE FOR ANY DAMAGES
+WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS
+PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR OTHER
+LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN
+IF INTEL HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  BECAUSE
+SOME JURISDICTIONS PROHIBIT THE EXCLUSION OR LIMITATION OF LIABILITY
+FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATION MAY NOT
+APPLY TO YOU.
+
+TERMINATION OF THIS LICENSE: Intel may terminate this license at any
+time if you are in breach of any of its terms and conditions.  Upon
+termination, you will immediately destroy the Materials or return all
+copies of the Materials to Intel along with any copies you have made.
+
+U.S. GOVERNMENT RESTRICTED RIGHTS: The Materials are provided with
+"RESTRICTED RIGHTS."  Use, duplication or disclosure by the Government
+is subject to restrictions set forth in FAR52.227-14 and
+DFAR252.227-7013 et seq. or its successor.  Use of the Materials by
+the Government constitutes acknowledgment of Intel's rights in them.
+
+APPLICABLE LAWS: Any claim arising under or relating to this Agreement
+shall be governed by the internal substantive laws of the State of
+Delaware or federal courts located in Delaware, without regard to
+principles of conflict of laws.  You may not export the Materials in
+violation of applicable export laws.

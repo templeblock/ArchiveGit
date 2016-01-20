@@ -1,0 +1,167 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}{\f14\fnil\fcharset2\fprq2{\*\panose 05000000000000000000}Wingdings;}{\f27\fmodern\fcharset0\fprq1{\*\panose 00000000000000000000}Letter Gothic;}}{\colortbl;\red0\green0\blue0;
+\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;
+\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\nowidctlpar\widctlpar\adjustright \fs20\cgrid \snext0 Normal;}{\s1\sb240\sa60\keepn\nowidctlpar\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\sbasedon0 \snext0 heading 1;}{\s2\li720\sb240\sa60\keepn\nowidctlpar\widctlpar\adjustright \b\f1\cgrid \sbasedon0 \snext0 heading 2;}{\s3\li1440\sa60\keepn\nowidctlpar\widctlpar\adjustright \f1\cgrid \sbasedon0 \snext0 heading 3;}{
+\s4\li2160\sa60\keepn\nowidctlpar\widctlpar\adjustright \b\f1\cgrid \sbasedon0 \snext0 heading 4;}{\*\cs10 \additive Default Paragraph Font;}{\s15\nowidctlpar\widctlpar\adjustright \f1\cgrid \sbasedon0 \snext15 Body Text;}{\s16\nowidctlpar\widctlpar
+\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext16 header;}{\s17\nowidctlpar\widctlpar\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext17 footer;}}{\*\listtable{\list\listtemplateid-296583166\listsimple{\listlevel\levelnfc0
+\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'02\'00);}{\levelnumbers\'01;}\fbias0 \fi-360\li1080\jclisttab\tx1080 }{\listname ;}\listid22634541}{\list\listtemplateid67698703\listsimple{\listlevel\levelnfc0\leveljc0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'02\'00.;}{\levelnumbers\'01;}\fi-360\li360\jclisttab\tx360 }{\listname ;}\listid485626938}{\list\listtemplateid67698703\listsimple{\listlevel\levelnfc0\leveljc0\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\'02\'00.;}{\levelnumbers\'01;}\fi-360\li360\jclisttab\tx360 }{\listname ;}\listid489097303}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360\jclisttab\tx360 }{\listname ;}\listid635985172}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360\jclisttab\tx360 }{\listname ;}\listid943347672}{\list\listtemplateid67698703\listsimple{\listlevel\levelnfc0\leveljc0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\'02\'00.;}{\levelnumbers\'01;}\fi-360\li360\jclisttab\tx360 }{\listname ;}\listid1304308275}}{\*\listoverridetable{\listoverride\listid489097303\listoverridecount0\ls1}{\listoverride\listid485626938\listoverridecount0\ls2}{\listoverride\listid943347672
+\listoverridecount0\ls3}{\listoverride\listid1304308275\listoverridecount0\ls4}{\listoverride\listid635985172\listoverridecount0\ls5}{\listoverride\listid22634541\listoverridecount0\ls6}}{\info{\title Collision Keys}{\author Mike Christian}
+{\operator Mike Christian}{\creatim\yr1997\mo2\dy20\hr16\min6}{\revtim\yr1997\mo6\dy13\hr13\min9}{\printim\yr1997\mo6\dy13\hr13}{\version29}{\edmins237}{\nofpages6}{\nofwords914}{\nofchars5215}{\*\company Powerhouse}{\nofcharsws6404}{\vern71}}
+\widowctrl\ftnbj\aenddoc\lytprtmet\hyphcaps0\formshade\viewkind1\viewscale114\viewzk2\pgbrdrhead\pgbrdrfoot \fet0\sectd \linex0\endnhere\sectdefaultcl {\header \pard\plain \s16\qc\nowidctlpar\widctlpar\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid {
+\b\f27\fs28 {\field{\*\fldinst SYMBOL 176 \\f "Wingdings" \\s 14}{\fldrslt\f14\fs28}}}{\b\f27\fs28  Collision Player Guide }{\b\f27\fs28 {\field{\*\fldinst SYMBOL 176 \\f "Wingdings" \\s 14}{\fldrslt\f14\fs28}}}{\b\f27\fs28 
+\par }}{\footer \pard\plain \s17\qc\nowidctlpar\widctlpar\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid {\f27\cgrid0 {\field{\*\fldinst SYMBOL 175 \\f "Wingdings" \\s 10}{\fldrslt\f14\fs20}}}{\f27\cgrid0  Page }{\field{\*\fldinst {\f27\cgrid0  PAGE }
+}{\fldrslt {\f27\lang1024\cgrid0 4}}}{\f27\cgrid0  of }{\field{\*\fldinst {\f27\cgrid0  NUMPAGES }}{\fldrslt {\f27\lang1024\cgrid0 6}}}{\f27\cgrid0  }{\f27\cgrid0 {\field{\*\fldinst SYMBOL 175 \\f "Wingdings" \\s 10}{\fldrslt\f14\fs20}}}{\f27 
+\par }}{\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}
+{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \s15\nowidctlpar\widctlpar\adjustright \f1\cgrid {\b 
+\par 
+\par }\pard\plain \s1\sb240\sa60\keepn\nowidctlpar\widctlpar\outlinelevel0\adjustright \b\f1\fs28\kerning28\cgrid {Function Keys
+\par }\pard\plain \s15\nowidctlpar\widctlpar\adjustright \f1\cgrid {\b 
+\par }\pard \s15\fi-2160\li2880\nowidctlpar\widctlpar\adjustright {F1 - F12 \tab Cheat to switch levels. (except F10, don\rquote t hit F10 - F9 toggles between level 9 and level 10)
+\par }\pard \s15\li720\sa240\nowidctlpar\widctlpar\adjustright {1 \endash  9\tab \tab \tab Select weapons
+\par }\pard\plain \s3\li2880\sa60\keepn\nowidctlpar\widctlpar\outlinelevel2\adjustright \f1\cgrid {1 - Scrap Gun
+\par 2 - Machine Gun
+\par 3 - Rockets
+\par 4 - ION Cannon
+\par 5 - Mine
+\par 6 \endash  Jack
+\par 7 - LEROI
+\par 8 - Spine Killer
+\par 9 - Thumper
+\par }\pard\plain \nowidctlpar\widctlpar\adjustright \fs20\cgrid {
+\par }\pard\plain \s15\li720\nowidctlpar\widctlpar\adjustright \f1\cgrid {Tab\tab \tab \tab Select next weapon
+\par C\tab \tab \tab Open a custom level file
+\par D\tab \tab \tab Manually move the target sight to the left
+\par E\tab \tab \tab Spend energy to clear the windshield
+\par F\tab \tab \tab Fires the selected weapon
+\par G\tab \tab \tab Manually move the target sight to the right
+\par L\tab \tab \tab Run a scripted list of shots (demo)
+\par Q\tab \tab \tab Toggle the Energy Cheat on and off
+\par }\pard\plain \s3\li720\sa60\keepn\nowidctlpar\widctlpar\outlinelevel2\adjustright \f1\cgrid {R\tab \tab \tab Toggle radar between Full Screen and Normal views
+\par }\pard\plain \s15\li720\nowidctlpar\widctlpar\adjustright \f1\cgrid {S\tab \tab \tab Toggle the music on and off
+\par T\tab \tab \tab Toggle the turn/navigation effects on and off
+\par W\tab \tab \tab Toggle the 3D weapon grid on and off
+\par Left arrow\tab \tab Turn left
+\par Right arrow\tab \tab Turn right
+\par Down arrow\tab \tab Turnaround
+\par Backspace\tab \tab Instant death
+\par Escape\tab \tab Go back to main menu
+\par Pause\tab \tab \tab Pause the video
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {
+\par 
+\par }\pard\plain \s1\sb240\sa60\keepn\nowidctlpar\widctlpar\outlinelevel0\adjustright \b\f1\fs28\kerning28\cgrid {\page Mouse Operations
+\par }\pard\plain \s15\nowidctlpar\widctlpar\adjustright \f1\cgrid {
+\par }\pard \s15\li720\nowidctlpar\widctlpar\adjustright {Left button\tab \tab Fires the selected weapon
+\par Right button\tab \tab Left side of video to turn left
+\par }\pard \s15\fi720\li2160\nowidctlpar\widctlpar\adjustright {Right side of video to turn right
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {
+\par }\pard\plain \s1\sb240\sa60\keepn\nowidctlpar\widctlpar\outlinelevel0\adjustright \b\f1\fs28\kerning28\cgrid {Insider\rquote s Guide to the Level Challenges
+\par }\pard\plain \s15\fi-2160\li2880\nowidctlpar\widctlpar\adjustright \f1\cgrid {
+\par }\pard \s15\fi-1440\li2160\nowidctlpar\widctlpar\adjustright {1.\tab Find a key shaped like a guitar, then find and drive to the EXIT POINT.
+\par 
+\par 2.\tab Find the Cul De Sac that has THE GHOST OF EXCALIBUR Excalibur can not be reached without encountering a HELLION drone. The only way the player can an encounter with a Hellion is to first collect a }{\b\i Fire Extinguisher}{.
+\par 
+\par 3.\tab The player must find and destroy ALL THE DRONES on this level.
+\par 
+\par 4.\tab The player must find 6 "MUSICAL NOTES"; each note is in a different CUL DE SAC.
+\par 
+\par 5.\tab The player must navigate around the "HILT" 3 times. He does that by find the three CELL-ON SWITCHES and hitting them three times each. Each time a CELL-ON SWITCH is hit, a segment of the sword map will appear.
+ The player will not be able to exit until all segments are enabled.
+\par 
+\par 6.\tab The player must collect 7 letters (1 letter is in 7 different Cul De Sacs); the letters "I" "N" "T" "H" "E" "B" "E" "G", then navigate to the exit point.
+\par 
+\par 7.\tab The player must collect 5 pieces of the upside-down Chrysler ICON then drive to the exit point.
+\par \page 
+\par 8.\tab The player must destroy 8 specific opponent cars\emdash each one is named after A REINDEER in the famous "
+'Twas the Night Before Christmas" poem--Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen.   Each "reindeer-car" is identified on our HUD.  If the player accidentally kill a 9}{\super th}{
+ (Rudolph) opponent car, all the other reindeer-cars The player has destroyed come back to life and the player has to start over.  After the player has destroyed the 8 cars the player must drive to the exit point.
+\par 
+\par 9.\tab The player must collect 4 "Go-girls".  Then he must drive to Exit Point.
+\par 
+\par 10.\tab The player must kill the 'Mystery Man'. 
+\par 
+\par 11.\tab The player must collect a minimum number of special Spine-Killer Mines AND make sure he never collides with a SPINE IMMORTACON.  Even one collision with a SPINE IMMORTACON KILLS THE PLAYER.
+\par 
+\par 12.\tab 1) The player must collect 8 images of 2) The player must destroy all drones on this level  AND 3) then THE REAL SPINE APPEARS ON OUR RADAR and The player must destroy this almost unbeatable power.
+\par }\pard \s15\fi-2160\li2880\nowidctlpar\widctlpar\adjustright {
+\par }\pard\plain \s1\sb240\sa60\keepn\nowidctlpar\widctlpar\outlinelevel0\adjustright \b\f1\fs28\kerning28\cgrid {Drone Table
+\par }\trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw10 \trbrdrl\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrh\brdrs\brdrw10 \trbrdrv\brdrs\brdrw10 \clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr
+\brdrs\brdrw10 \cltxlrtb \cellx1530\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx4680\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr
+\brdrs\brdrw10 \cltxlrtb \cellx7650\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx9990\pard \s1\sb240\sa60\keepn\nowidctlpar\widctlpar\intbl\outlinelevel0\adjustright {Drone\cell 
+Collision Effect\line }{\b0\fs20 (all drain energy as default)}{\cell Other Abnormalities\cell Manifest Level\cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \fs20\cgrid {\row }\trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw10 \trbrdrl
+\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrh\brdrs\brdrw10 \trbrdrv\brdrs\brdrw10 \clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx1530\clvertalt\clbrdrt
+\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx4680\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx7650\clvertalt\clbrdrt
+\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx9990\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Grunt\cell \cell \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 1\cell }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Detonator\cell Explodes\cell \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 1\cell }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Con Drone\cell \cell Shoots a machine gun\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 1\cell }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Hellion\cell Melts your engine if you don't have a fire extinguisher\cell Fires drone mines\cell }\pard 
+\qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 2\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Flea\cell \cell Coward\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {
+\fs24 3\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Nightron\cell Blacks out your screen for twenty seconds\cell Shoots drone mines\cell }\pard 
+\qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 3\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Thwart\cell Steals your collectables\cell \cell }\pard 
+\qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 4\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Parhelion\cell Blinds you with light for twenty seconds\cell Shoots drone mines
+\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 4\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Flasher\cell Strobe for twenty seconds\cell \cell }\pard 
+\qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 5\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Dogger\cell \cell Shoots a machine gun, and follows you everywhere.\cell }\pard 
+\qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 5\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 ElectroShark\cell Electrocutes you with yellow electricity.\cell 
+Shoots drone mines\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 5\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Medicator\cell 
+Gives you energy or cures you of a virus.\cell \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 6\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Viralion\cell 
+Gives you a radar virus for 50 seconds.\cell \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 6\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Draniac\cell 
+Huge power drain and dims screen for 20 seconds.\cell \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 7\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Killer\cell 
+Massive power drain.\cell \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 7\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Slamatron\cell 
+Purple flash and slams you in the opposite direction into the cell behind you.\cell \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 8\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\fs24 Dreadnought\cell \cell Shoots a machine gun, and drone mines\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 8\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\fs24 The Reindeer\cell \cell Shoots drone mines\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 8\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\fs24 Rudolph\cell \cell Kill him and all dead reindeer drones come back to life.\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 8\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 
+\row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Psychotech\cell Green electricity, teleports you to a random cell.\cell \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 9\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {
+\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Painulator\cell Electrocutes with multicolored electricity.\cell \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 10\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {
+\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Paragon\cell Multicolored strobe.\cell \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 11\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\fs24 Spine Immortacon\cell \cell Can't be killed.\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 11\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\trowd \trgaph108\trleft-108
+\trbrdrt\brdrs\brdrw10 \trbrdrl\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrh\brdrs\brdrw10 \trbrdrv\brdrs\brdrw10 \clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb 
+\cellx1530\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx4680\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx7650
+\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx9990\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Spine\cell \cell He is real, not a drone. Can onl
+y be killed with a sufficient number of spine killers.\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 12\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard\plain 
+\s1\sb240\sa60\keepn\nowidctlpar\widctlpar\outlinelevel0\adjustright \b\f1\fs28\kerning28\cgrid {
+\par \page Weapons Table
+\par }\trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw10 \trbrdrl\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrh\brdrs\brdrw10 \trbrdrv\brdrs\brdrw10 \clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr
+\brdrs\brdrw10 \cltxlrtb \cellx1530\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx6030\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr
+\brdrs\brdrw10 \cltxlrtb \cellx7650\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx9990\pard \s1\sb240\sa60\keepn\nowidctlpar\widctlpar\intbl\outlinelevel0\adjustright {Name\cell 
+Description\cell }\pard \s1\qc\sb240\sa60\keepn\nowidctlpar\widctlpar\intbl\outlinelevel0\adjustright {Strength\cell Manifest Level\cell }\pard\plain \nowidctlpar\widctlpar\intbl\adjustright \fs20\cgrid {\row }\trowd \trgaph108\trleft-108\trbrdrt
+\brdrs\brdrw10 \trbrdrl\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrh\brdrs\brdrw10 \trbrdrv\brdrs\brdrw10 \clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx1530
+\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx6030\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx7650\clvertalt
+\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx9990\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Scrap Gun\cell }{
+Feeds your enemies an endless supply of scrap metal forced through a pipe by compressed air}{\fs24 \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 3\cell 1\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\fs24 Machine Gun\cell }{Commands respect with a wall of bullets.
+\par }{\fs24 \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 5\cell 1\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Rockets\cell 
+Send drones to the scrap heat with these explosive missiles.\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 15\cell 2\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {
+\fs24 Dog Rockets\cell Rockets that can sniff-out enemies.\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 15\cell 6\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 
+Ion Cannon\cell Pound enemies will balls of Ions. Use it sparingly, for it taps into your power source.\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 20\cell 4\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\fs24 Spreadfire\cell Three bursts of Ions.\cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 20\cell 7\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\fs24 Mine\cell }{Tired of being followed and back-stabbed by cowardly drones? Leave a mine for them to trip over. Your hapless victims will cease to exist before they hit the ground}{\fs24 \cell }\pard 
+\qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 200\cell 5\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 Jack\cell }{No child\rquote s toy, more like a drone\rquote 
+s nightmare. It has a taste for metal and will latch onto a drone and bust it open like a ripe melon dropped from a five story building}{\fs24 \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 50\cell 8\cell }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard \nowidctlpar\widctlpar\intbl\adjustright {\fs24 LEROI\cell }{LEROI is a weapon with a life of his own. He is quite content with flying by your side until a drone ente
+rs the cell. Then, he attacks with the ferocity of a wild animal and the force of a tsunami.}{\fs24 \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 2000\cell 9\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\fs24 Spine Killer\cell }{It packs as much punch as a city-leveling meteor. Spine has good reason to fear this weapon.}{\fs24 \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 100\cell 11\cell 
+}\pard \nowidctlpar\widctlpar\intbl\adjustright {\b\fs24 \row }\trowd \trgaph108\trleft-108\trbrdrt\brdrs\brdrw10 \trbrdrl\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrh\brdrs\brdrw10 \trbrdrv\brdrs\brdrw10 \clvertalt\clbrdrt
+\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx1530\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx6030\clvertalt\clbrdrt
+\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx7650\clvertalt\clbrdrt\brdrs\brdrw10 \clbrdrl\brdrs\brdrw10 \clbrdrb\brdrs\brdrw10 \clbrdrr\brdrs\brdrw10 \cltxlrtb \cellx9990\pard 
+\nowidctlpar\widctlpar\intbl\adjustright {\fs24 Thumper\cell }{Armageddon weapon of choice.1}{\fs24 \cell }\pard \qc\nowidctlpar\widctlpar\intbl\adjustright {\fs24 Kills all in 3 cell radius.\cell 3\cell }\pard \nowidctlpar\widctlpar\intbl\adjustright {
+\b\fs24 \row }\pard\plain \s1\sb240\sa60\keepn\nowidctlpar\widctlpar\outlinelevel0\adjustright \b\f1\fs28\kerning28\cgrid {
+\par \page Notes
+\par }\pard\plain \s15\nowidctlpar\widctlpar\adjustright \f1\cgrid {
+\par }\pard \s15\li720\nowidctlpar\widctlpar\adjustright {When an opponent approaches you, you will see the drone name followed by a colon and a number. Example, }{\b Grunt:5}{. The number represents that drone's current strength. 
+\par }\pard \s15\nowidctlpar\widctlpar\adjustright {
+\par }\pard \s15\li720\nowidctlpar\widctlpar\adjustright {When driving around the cell in front of your current cell becomes visible. If there is no cell visible, either there is no cell or the cell is not enabled yet via a Cell On switch.
+\par 
+\par Opponent generators are implemented, most of the levels have one. Level three has four of them.
+\par 
+\par Opponent generator off switches have been implemented. They are on level three.
+\par 
+\par Cell On switches have been implemented. Level two has these. There are four that turn on the cross bones.
+\par 
+\par }}

@@ -1,0 +1,53 @@
+HKCR
+{
+	AppID
+	{
+		ForceRemove '%APPID%' = s '3GPlugin'
+		ForceRemove '3GPlugin.dll'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+
+	* { shellex { ContextMenuHandlers
+	{
+		ForceRemove 3GPlugin.ShellExtension = s '{89D72376-67AA-4021-B089-AF4FC1458BAC}'
+	} } }
+} 
+
+HKLM
+{
+	Software { Microsoft { Windows { CurrentVersion { Explorer { 'Browser Helper Objects'
+	{
+		ForceRemove '{D29F1EC9-E53A-4A05-8A8C-5BB2E58E3E3D}' = s '3GPlugin.BrowserHelper'
+		{
+			val 'NoExplorer' = d '1'
+		}
+	} } } } } }
+}
+
+HKCU
+{
+	Software { Microsoft { 'Internet Explorer' { MenuExt
+	{
+		ForceRemove 'Mobilize All!' = s 'res://3GPlugin.dll/MobilizeAll.htm'
+		{
+			val Contexts = d '255'
+		}
+
+		ForceRemove 'Mobilize Video!' = s 'res://3GPlugin.dll/MobilizeVideo.htm'
+		{
+			val Contexts = d '255'
+		}
+
+		ForceRemove 'Mobilize This!' = s 'res://3GPlugin.dll/MobilizeThis.htm'
+		{
+			val Contexts = d '58'
+		}
+
+		ForceRemove 'Paste a page Mobilizer here!' = s 'res://3GPlugin.dll/MobilizePaste.htm'
+		{
+			val Contexts = d '4'
+		}
+	} } } }
+}

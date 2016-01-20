@@ -1,0 +1,657 @@
+AWSTATS DATA FILE 6.5 (build 1.857)
+# If you remove this file, all statistics for date 200803 will be lost/reset.
+
+# Position (offset in bytes) in this file of beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1864                
+POS_TIME 2551                
+POS_VISITOR 3472                
+POS_DAY 9389                
+POS_DOMAIN 10182               
+POS_LOGIN 10413               
+POS_ROBOT 10568               
+POS_WORMS 11115               
+POS_EMAILSENDER 11246               
+POS_EMAILRECEIVER 11389               
+POS_SESSION 11465               
+POS_SIDER 11662               
+POS_FILETYPES 12295               
+POS_OS 12517               
+POS_BROWSER 12652               
+POS_SCREENSIZE 12983               
+POS_UNKNOWNREFERER 13057               
+POS_UNKNOWNREFERERBROWSER 13588               
+POS_ORIGIN 13874               
+POS_SEREFERRALS 14014               
+POS_PAGEREFS 14202               
+POS_SEARCHWORDS 14577               
+POS_KEYWORDS 16009               
+POS_MISC 2214                
+POS_ERRORS 17067               
+POS_CLUSTER 10269               
+POS_SIDER_404 17180               
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20080401001606 2230 492363 66331763728
+FirstTime 20080301001307
+LastTime 20080331203512
+LastUpdate 20080426122146 2230 243 1964 0 22
+TotalVisits 178                 
+TotalUnique 150                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 152                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 34 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 13 19 199607 7 12 73101
+1 7 13 124714 4 9 38447
+2 7 11 89354 38 47 170628
+3 17 26 181292 27 32 61621
+4 7 11 119124 16 18 38338
+5 6 12 88169 27 28 88627
+6 4 7 45327 13 15 60657
+7 5 13 63287 9 9 22150
+8 7 15 126468 1 2 1830
+9 16 22 175371 6 6 10585
+10 7 9 109673 5 7 12164
+11 4 8 18290 2 2 3698
+12 12 16 245888 2 3 5114
+13 11 17 339851 8 8 78487
+14 15 38 280958 6 10 43628
+15 8 16 129075 8 9 16094
+16 25 66 4137406 5 8 11016
+17 24 99 15633798 7 12 44438
+18 13 43 3590758 6 13 50498
+19 12 16 251335 6 10 20301
+20 13 22 6993652 12 15 29921
+21 14 28 282307 9 18 49465
+22 11 13 157267 6 13 42615
+23 15 26 244770 13 18 120587
+END_TIME
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 152
+74.52.245.146 10 10 27579 20080331062826
+66.31.124.32 10 66 6974775 20080312025919
+38.105.83.11 10 10 148429 20080313135300
+124.82.19.129 7 9 27281 20080327003759
+82.161.231.16 5 5 11255 20080327035006
+193.238.230.109 5 5 16230 20080312194710
+38.104.58.118 5 7 82895 20080327215824
+157.254.98.203 5 5 179307 20080331033328
+207.58.192.150 5 5 6835387 20080320204615
+67.202.60.139 5 5 13903 20080305133443
+208.80.193.46 1 1 824 20080322123823
+193.99.40.89 2 2 36263 20080319151951
+85.18.201.167 1 3 7805 20080314153052
+41.232.151.4 1 3 7805 20080312013527
+208.80.193.32 2 2 1648 20080331051823
+212.122.113.39 2 2 36263 20080310160535
+69.84.207.39 3 3 39413 20080318034928
+59.160.53.66 1 3 7776 20080317163417
+88.252.48.221 1 3 7805 20080317141917
+83.172.144.69 2 2 36263 20080303161148
+217.113.65.13 2 2 36263 20080311175404
+203.144.143.13 2 5 41219 20080327085751
+218.38.13.69 2 2 36234 20080319012159
+216.163.188.203 1 1 3246 20080302222923
+194.72.238.16 3 3 2529 20080325203254
+70.188.153.193 1 3 7805 20080323014913
+87.238.199.54 2 2 36263 20080315174316
+65.212.167.178 1 1 32979 20080321210713
+210.210.63.147 1 3 7877 20080311050746
+82.47.213.42 1 3 7805 20080302183937
+67.94.76.156 2 5 41219 20080325201949
+208.80.193.38 2 2 1648 20080314104347
+71.158.174.162 1 3 36636 20080324230423
+66.228.161.111 1 1 3246 20080323104648
+12.15.146.254 2 5 41219 20080311144406
+208.80.193.31 1 1 3246 20080310023645
+125.127.177.207 1 3 7805 20080315031812
+208.80.193.53 1 1 3246 20080305214515
+38.105.83.12 2 2 36225 20080312093420
+38.100.41.113 1 1 0 20080309122004
+60.51.83.218 1 1 60711 20080310021758
+38.100.41.105 4 4 71252 20080307053050
+78.53.144.8 1 3 7805 20080309124030
+210.14.24.252 1 2 6516 20080309030511
+98.207.22.30 2 4 11051 20080331004809
+200.72.35.226 1 3 7776 20080327165203
+208.80.193.42 1 1 824 20080306104246
+89.101.8.101 1 1 3217 20080301181657
+65.198.96.66 2 4 11051 20080326204539
+64.202.165.201 2 2 6540 20080325212009
+216.163.188.200 2 2 6492 20080302223315
+24.34.196.126 1 3 7805 20080321024244
+72.185.155.110 1 3 7805 20080319131932
+203.252.60.194 1 3 7805 20080305065836
+72.82.195.120 1 3 7805 20080301225204
+84.47.122.225 1 3 7805 20080319214605
+86.148.146.33 1 3 7805 20080316104126
+24.147.209.53 1 1 177647 20080326135507
+72.35.208.4 1 1 60711 20080327161502
+74.57.2.20 1 3 7805 20080321173234
+195.238.172.13 2 2 36263 20080311165651
+24.131.52.224 1 3 36636 20080326164601
+82.210.83.126 1 1 60711 20080318192749
+38.99.203.110 2 2 36196 20080301161835
+213.156.52.97 1 3 7805 20080305125648
+65.160.238.180 1 1 32979 20080324174717
+66.93.118.22 1 3 7776 20080307072720
+76.69.231.71 1 3 7805 20080325191621
+216.230.119.11 1 3 36636 20080324174718
+201.233.253.60 0 2 4559 
+64.202.165.132 1 1 3270 20080316044039
+72.18.150.50 1 1 3265 20080313104504
+216.207.124.226 4 12 33860 20080325162047
+124.43.134.8 1 3 7776 20080329093940
+189.5.132.15 1 3 7805 20080309045451
+210.14.24.251 1 3 34823 20080309030622
+62.215.196.130 2 6 73272 20080316095818
+76.254.27.4 3 3 67795 20080312233215
+209.85.136.136 1 1 33003 20080330213733
+85.196.88.214 2 2 36234 20080319014155
+89.54.67.53 1 3 7805 20080321151447
+60.231.193.249 1 3 36636 20080313074006
+38.103.134.10 1 3 36636 20080324210526
+77.253.148.19 1 3 7805 20080309160148
+72.27.113.150 1 3 36636 20080331203512
+129.187.148.240 1 1 3241 20080328220621
+24.158.103.60 1 3 7805 20080303235221
+84.217.203.59 1 3 7776 20080317174434
+221.221.152.159 1 3 7805 20080303082357
+194.60.207.200 2 2 36234 20080318174521
+24.63.4.114 1 1 1837 20080320111823
+134.88.76.155 1 3 36636 20080327194610
+216.246.248.33 1 3 7805 20080330234726
+76.28.80.206 1 3 36636 20080302032455
+85.183.145.155 1 3 7805 20080309144545
+212.143.139.126 3 8 49024 20080331110836
+68.163.241.97 1 3 7805 20080320170157
+88.156.96.17 1 3 36636 20080311141403
+121.72.150.231 1 3 36636 20080329015007
+59.92.178.93 2 5 41219 20080326083454
+70.43.96.142 1 3 7805 20080326165253
+201.51.146.57 1 1 60711 20080317000342
+75.128.147.72 1 1 60711 20080303154829
+69.36.158.39 3 3 96936 20080305103059
+84.235.234.250 1 3 7776 20080317212107
+208.80.193.36 1 1 3217 20080301001307
+217.170.1.50 2 2 36263 20080302220629
+201.153.26.153 0 2 3657 
+206.209.220.20 1 1 60711 20080307212026
+61.11.110.16 1 3 7805 20080324070659
+208.80.193.35 2 2 6492 20080326023606
+74.196.13.192 1 1 60711 20080325224104
+64.80.7.66 1 3 7776 20080328143609
+63.193.29.130 4 6 17543 20080313185859
+142.162.136.47 1 1 60711 20080317214650
+189.68.186.82 2 6 15610 20080322215011
+64.81.245.11 4 9 138566 20080326005101
+205.178.184.153 1 3 36636 20080317140009
+69.124.14.197 2 39 9426995 20080301173628
+89.242.109.25 1 3 7805 20080330185929
+91.86.29.200 2 2 36263 20080310221459
+70.253.130.171 1 3 36636 20080330053214
+72.18.150.6 1 1 32998 20080313104746
+213.186.45.167 2 2 36263 20080315123148
+67.71.132.83 1 3 7776 20080301035057
+69.36.158.65 3 3 96936 20080313190121
+64.233.178.136 1 1 3270 20080309020244
+70.90.63.238 1 3 7805 20080315160053
+65.199.34.69 2 2 6530 20080331124847
+193.64.31.88 2 2 36234 20080318231216
+84.222.15.23 1 3 7805 20080330202419
+63.246.208.106 1 3 7805 20080303143546
+64.202.165.131 1 1 3270 20080316044039
+199.238.129.156 2 2 36263 20080303140913
+75.68.231.20 2 21 3150435 20080301180607
+208.80.193.39 1 1 3217 20080317213838
+69.36.158.63 1 1 824 20080312151549
+66.25.123.146 1 3 7805 20080322184847
+205.178.184.155 2 4 11051 20080317134032
+70.44.239.156 1 3 7776 20080307212708
+62.193.74.241 1 3 7805 20080323072510
+82.194.66.30 2 2 36263 20080316041303
+206.61.226.138 1 3 7862 20080319151406
+65.112.5.1 1 3 36636 20080320133404
+125.17.177.62 1 1 60711 20080324202046
+62.203.161.75 1 3 7805 20080306110647
+74.226.33.202 1 1 60711 20080329181435
+208.80.193.41 4 4 8140 20080330133349
+82.59.122.125 3 3 96993 20080313141844
+91.103.216.11 2 2 36263 20080302194523
+15.227.137.69 2 12 3150464 20080313154633
+76.10.181.25 2 2 65958 20080314191752
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 29
+20080301 17 131 22676846 10
+20080302 9 13 126705 6
+20080303 9 23 158672 7
+20080305 13 17 165920 6
+20080306 9 11 60122 4
+20080307 5 9 111290 4
+20080309 9 22 83653 9
+20080310 9 11 205823 6
+20080311 8 15 158258 5
+20080312 16 21 176615 7
+20080313 18 24 392358 9
+20080314 4 6 74587 4
+20080315 7 13 124772 5
+20080316 6 10 87244 5
+20080317 10 22 203459 9
+20080318 9 9 173416 5
+20080319 9 15 132203 6
+20080320 8 12 6881665 4
+20080321 6 14 67445 6
+20080322 3 7 16434 3
+20080323 3 7 18856 3
+20080324 9 17 248471 8
+20080325 12 25 151821 7
+20080326 11 22 375775 8
+20080327 20 31 231548 8
+20080328 5 7 190324 5
+20080329 4 8 105123 4
+20080330 14 24 121006 7
+20080331 11 20 107330 8
+END_DAY
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 273 566 33627741
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 12
+surveybot 45 120717 20080331041044 0
+googlebot 15 192700 20080330185630 0
+slurp 10 53402 20080330052203 0
+jeeves 9 59089 20080328204008 0
+\wbot[\/\-] 6 44556 20080328234459 0
+msnbot 3 69261 20080324135823 0
+mnogosearch 3 7088 20080328102443 0
+baiduspider 3 9738 20080312191100 0
+psbot 2 36234 20080329140440 0
+turnitinbot 2 93728 20080329004126 0
+ia_archiver 1 3265 20080313193021 0
+robot 2 65996 20080325060627 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+1h+ 2
+5mn-15mn 5
+15mn-30mn 2
+30s-2mn 9
+2mn-5mn 4
+0s-30s 156
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 15
+/index.aspx 150 485994 112 82
+/resume.htm 59 1946151 22 54
+/App_dreamingit/default.aspx 18 14122 17 14
+/JimMcCurdy.doc 16 971395 12 14
+/caseysphotos/index.htm 7 14188 3 5
+/ScrubberBar.zip 6 356954 6 6
+/CreateAndPrintPluginSetup.msi 5 6835387 1 1
+/App_fm/default.aspx 3 1830 2 0
+/caseysphotos/pictures.htm 2 4045 0 0
+/App_dreamingit/resume.htm 2 3674 2 1
+/App_fm/Login.aspx 1 5028 0 0
+/caseysphotos/ 1 1344 1 0
+/App_fm/App_fm/WebResource.axd 1 0 0 1
+/App_fm/Default.aspx 1 597 0 0
+/App_fm/Register.aspx 1 9046 0 0
+END_SIDER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 10
+htm 70 1968058 0 0
+aspx 174 516617 0 0
+zip 6 356954 0 0
+html 1 1344 0 0
+js 4 19242 0 0
+msi 5 6835387 0 0
+jpg 199 22859971 0 0
+axd 1 0 0 0
+doc 16 971395 0 0
+gif 90 98773 0 0
+END_FILETYPES
+
+# OS ID - Hits
+BEGIN_OS 9
+winlong 126
+winxp 301
+winnt 6
+win2000 22
+linuxfedora 7
+linux 16
+macosx 25
+win2003 26
+Unknown 37
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 21
+msie6.0 126
+firefox2.0.0.8 9
+msie3.0 5
+libwww 6
+opera 8
+firefox2.0.0.6 3
+firefox2.0.0.12 63
+firefox2.0.0.13 10
+msie8.0 3
+firefox1.0.7 7
+konqueror 6
+firefox1.0 10
+mozilla 10
+firefox2.0.0.9 1
+firefox2.0.0.3 3
+msie7.0 268
+netscape4.0 1
+msie5.0 1
+Unknown 22
+safari 3
+firefox1.5.0.7 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 10
+EasyDL/3.04__http://keywen.com/Encyclopedia/Bot 20080314191752
+Mozilla/4.0_(compatible;_MSIE_6.0;_MS_Web_Services_Client_Protocol_2.0.50727.1433) 20080312025919
+Mozilla/5.0_(compatible) 20080312194710
+panscient.com 20080327215825
+Mozilla/4.0 20080324174717
+- 20080331124847
+libwww-perl/5.805 20080313104746
+wwwster/1.4_(Beta,_mailto:gue@cis.uni-muenchen.de) 20080328220621
+Mozilla/4.0_(compatible;) 20080331033328
+Java/1.6.0_05 20080312233215
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 5
+EasyDL/3.04__http://keywen.com/Encyclopedia/Bot 20080314191752
+- 20080331124847
+wwwster/1.4_(Beta,_mailto:gue@cis.uni-muenchen.de) 20080328220621
+Java/1.6.0_05 20080312233215
+panscient.com 20080327215825
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 164 174
+From1 0 0
+From2 83 83
+From3 9 13
+From4 17 296
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 4
+google 68 68
+search 1 1
+msn 1 1
+yahoo 13 13
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 6
+http://readrun.com/item.php 5 5
+http://209.85.135.104/translate_c 1 3
+http://readrun.com 1 1
+http://www.zoominfo.com/Search/CompanyDetail.aspx 1 1
+http://translate.google.com/translate 1 1
+http://64.233.179.104/translate_c 0 2
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 40
+face+to+face+software 21
+face+software 18
+face+animation+software 3
+software+face-to-face 2
+face+software+inc 2
+jim+mccurdy+face+to+face 2
+james+mccurdy 2
+vibrint+technologies+woburn 1
+crayola+amazing+art+download 1
+new+bedford+%23+software+computer+games+and+electronic+publishing 1
+technology+coordinator+desktop+develop+monitor+software+communication+audio+project+management+filetype+doc 1
+program+face+to+face 1
+create+face+software 1
+credentials+of+printing+companies 1
+face+creating+software 1
+creat+face+software 1
+seal+of+quality+web+graphics 1
+face+softwate 1
+crayola+amazing+art+adventure+download 1
+powerhouse+inc+richardson+tx 1
+micrografx+photomagic+plugins 1
+mci+errors+using+hallmark+card+studio 1
+the+house+that+had+enough 1
+jim+mccurdy+face+to+face+software 1
+astral+development+corporation+software 1
+software+face+face 1
+printing+company+credential 1
+consumer+application+developer+seattle+atl+c+win32 1
+crayola+computer+software+1996 1
+designing+face+program 1
+download+micrografx+for+kids+crayola+art+software 1
+james+s.+mccurdy 1
+db+contractors+inc.+andover+ma+01810 1
+3guppies 1
+faces+software 1
+jungle+book+windows+game+live-action 1
+farm+goat+house+3d+graphic+plan 1
+connect+mac+to+video+teleconference 1
+software+face+to+face 1
+face+on+face+software 1
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 106
+face 84
+software 59
+to 27
+mccurdy 6
+crayola 4
+inc 3
+james 3
+jim 3
+download 3
+animation 3
+live-action 1
+db 1
+that 1
+corporation 1
+credentials 1
+richardson 1
+program 2
+on 1
+plan 1
+mac 1
+hallmark 1
+video 1
+printing 2
+farm 1
+technology 1
+computer 2
+credential 1
+and 1
+contractors 1
+games 1
+errors 1
+of 2
+desktop 1
+web 1
+powerhouse 1
+developer 1
+electronic 1
+quality 1
+house 2
+seal 1
+create 1
+tx 1
+faces 1
+art 3
+3guppies 1
+companies 1
+using 1
+01810 1
+vibrint 1
+inc. 1
+teleconference 1
+game 1
+the 1
+%23 1
+technologies 1
+adventure 1
+windows 1
+astral 1
+ma 1
+amazing 2
+bedford 1
+goat 1
+new 1
+doc 1
+designing 1
+1996 1
+atl 1
+softwate 1
+studio 1
+for 1
+enough 1
+graphic 1
+kids 1
+s. 1
+c 1
+graphics 1
+card 1
+development 1
+creating 1
+mci 1
+management 1
+andover 1
+filetype 1
+plugins 1
+project 1
+woburn 1
+monitor 1
+photomagic 1
+win32 1
+develop 1
+audio 1
+creat 1
+coordinator 1
+company 1
+connect 1
+consumer 1
+had 1
+publishing 1
+application 1
+micrografx 2
+seattle 1
+book 1
+3d 1
+jungle 1
+face-to-face 2
+communication 1
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 3
+206 1 60779
+301 4 1716
+404 218 275741
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 17
+/mobilize/images/sample.jpg 78 http://www.3guppies.com/ringtones/module/OpenLocker/action/Mobilize
+/robots.txt 96 -
+/App_dreamingit/application/x-silverlight 2 -
+/smil2mms.exe 2 -
+/casey'sphotos 2 -
+/mex 1 -
+/CreateAndPrintPluginSetup.msi 1 -
+/App_dreamingit/info.txt 1 -
+/App_fm/robots.txt 5 http://www.whois.sc/
+/caseypictures 2 -
+/default.aspx 11 -
+/casey's%20pictures 1 -
+/info.txt 1 -
+/App_dreamingit/JimMcCurdy.doc 1 -
+/App_dreamingit/Firefox/ 2 -
+/App_dreamingit/robots.txt 10 http://www.whois.sc/
+/caseyphotos 2 -
+END_SIDER_404

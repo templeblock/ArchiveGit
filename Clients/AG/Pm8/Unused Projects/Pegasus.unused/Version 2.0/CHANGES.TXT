@@ -1,0 +1,3120 @@
+CHANGES.TXT
+December 12, 1998
+PICTools version 2.00.51
+
+This file contains a revision history of changes to the PICTools
+Development Kits since version 1.03.05.
+
+=====================================================================
+Version 2.00.51 changes from 2.00.50 - December 12, 1998
+
+PICN1020, PICN1220 - OP_D2S, OP_D2SE
+1.  Fixed a problem with odd-width (e.g. 599) images and 1-1-1
+    subsampling.
+
+ViewMed 1.0.0.54
+1.  Included 2.0.51 libraries.
+
+=====================================================================
+Version 2.00.50 changes from 2.00.49 - December 9, 1998
+
+PICN1120, PICN1820 - OP_S2D, OP_SE2D
+1.  16-25% faster
+2.  Fixed non-zero status when no error and PF_NoCrossBlockSmoothing
+3.  Fixed expand gray with invalid subsampling.
+
+PICN4620, PICN6220 - OP_LIP3, OP_LIP3PLUS
+1.  LJPG: Faster with assembly optimization
+2.  LJPG: Allow application-provided huffman table to be used.
+
+=====================================================================
+Version 2.00.49 changes from 2.00.48 - December 2, 1998
+
+PICN8520, PICN8120 - OP_F2DPLUS, OP_F2D
+1.  G4 expand could GP for a sufficiently long black run.
+2.  G4 expand speedup of 5-6% for predominately black images.
+
+EZTEST 1.05, WAVEPACK 1.03, WAVEUNPK 1.03
+1.  ezwave.c - changed to eliminate any dependency on PegasusQuery.
+
+=====================================================================
+Version 2.00.48 changes from 2.00.47 - November 17, 1998
+
+PICN1220, PICN1020 - OP_D2SE, OP_D2S
+1.  YUV input would always return ERR_BAD_WIDTH_OR_HEIGHT even when the
+    height was divisible by 2.
+2.  Exif output now outputs APP3/"Exif" instead of APP3/"Meta".
+
+PICN1820, PICN1120 - OP_SE2D, OP_S2D
+1.  Input APP3/"Exif" and APP3/"Meta" tags are merged into PIC2List
+    LOC_APP3IFD P2PktTiffTag packets.  "Exif" tags supersede "Meta"
+    tags.
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Exif output now outputs APP3/"Exif" instead of APP3/"Meta".
+2.  Input APP3/"Exif" and APP3/"Meta" tags are merged into PIC2List
+    LOC_APP3IFD P2PktTiffTag packets.  "Exif" tags supersede "Meta"
+    tags.  The result is output as APP3/"Exif" instead of APP3/"Meta".
+
+PICN8420, PICN8020 - OP_D2FPLUS, OP_D2F
+1.  TIFF output of bilevel input files now supports 1-dimensional
+    G3 and 2-dimensional G3 (TIFF Compression = 3).  Set u.F2D.Compression
+    to 3 and u.F2D.Dimension to 0 (1D) or 1 (2D).
+
+Minerva 1.0.0.90
+1.  msutil80.c - added G3-1D and G3-2D Tiff compression options.
+
+=====================================================================
+Version 2.00.47 changes from 2.00.46 - November 16, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Fixed situations where RES_ERR and negative status might be returned
+    incorrectly.
+
+=====================================================================
+Version 2.00.46 changes from 2.00.45 - November 12, 1998
+
+PICN1220, PICN1020 - OP_D2SE, OP_D2S
+1.  Over twice as fast as before on MMX!
+
+PICN2320, PICN2220 - OP_ROR, OP_RORE
+1.  Continued fixes for converting gray scale input to color output
+    (see 2.00.44)
+
+PICN20D, PICW20D - debug dispatcher
+1.  Added tracing for PF_ConvertToColor flag.
+
+PICMT 1.07
+1.  picopchk.c: PicOpChkQuery: make sure pp->Status starts off set
+    to ERR_NONE.
+2.  picopmt.c: WaitListThreadProc: Don't wait if waiting list is
+    empty.  Don't launch operation thread if Abort already signalled.
+3.  picopmt.c: PicAsyncInit: return error if nMaxThreads == 0.
+4.  picop.c: PicOpTerm: free Put queue when PicOpTerm is used to abort
+    an active operation and Put queue is marked FreeAtTerm.
+5.  picop.c: PicOpDefault: was doing default error processing on
+    incorrect sense of OPF_RES_ERR.
+6.  picop.c: PicParmInit: set ParmVerMinor to 1 only when it's 0.
+
+Documentation added:
+picop.doc - describing PICMT PicOpChk, PicAsyncOp and PicOp API's
+
+=====================================================================
+Version 2.00.45 changes from 2.00.44 - November 9, 1998
+
+PICN2320 - OP_RORE
+1.  Joining two images crashed if one of the images were a gray scale
+    converted to color using ROR and the other were color.
+
+=====================================================================
+Version 2.00.44 changes from 2.00.43 - November 4, 1998
+
+Opcode dll added
+picn9320 - OP_WSQE - wsq wavelet expand
+
+Sample code added:
+eztest   - test program using a simpler wavelet api
+wavepack - test program using still simpler wavelet api
+waveunpk - test program using still simpler wavelet api
+picmt    - test program for multithreaded/tiled wavelet/lossless jpeg
+wsqennw  - test program for picn9320.ssm
+
+=====================================================================
+Version 2.00.43 changes from 2.00.42 - November 3, 1998
+
+PICN9020 - OP_D2W
+1.  Adjust MaxTransformLevel internally if needed so that it is sensible
+    as related to the image width/height -- particularly with chunks and
+    more particular with tiny remainder chunks at the right/bottom edge
+    of the image.
+
+=====================================================================
+Version 2.00.42 changes from 2.00.41 - November 3, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Setting PF_YieldPut for Exif output could still result in error
+    -9015 (2.00.33 fixed some cases, and created some more).
+
+PICN4920 - OP_PNGE
+1.  Add MinReadData to tell level 3 the minimum bytes of space needed
+    to satisfy a RES_GET_NEED_DATA request.
+
+=====================================================================
+Version 2.00.41 changes from 2.00.40 - October 29, 1998
+
+PICN1820, PICN1120 - OP_SE2D, OP_S2D
+1.  Retrieve/return exif tags only if exif thumbnail is being expanded
+    or returned or if PIC2ListSize != 0.
+
+PICN9320 - OP_WSEQ
+1.  Reverse and pad in opcode instead of in calling code.
+
+Dispatcher - PegasusQuery()
+1.  Return PF_IsExif set in u.QRY.PicFlags2 if the input image is
+    a JPEG Exif image.
+
+Minerva 1.0.0.89
+1.  pic2list.c - change P2LAlloc size size < 0 works correctly (less than
+    any requested size).
+
+=====================================================================
+Version 2.00.40 changes from 2.00.39 - October 26, 1998
+
+PICN9020 - OP_D2W
+1.  Wavelet library 1.08F.
+2.  Allocate intermediate chunk buffer once only for all chunks for a single
+    image.
+
+PICN9120 - OP_W2D
+1.  Wavelet library 1.08F.
+2.  Allocate intermediate chunk buffer once only for all chunks for a single
+    image.
+
+=====================================================================
+Version 2.00.39 changes from 2.00.38 - October 21, 1998
+
+PICN9120 - OP_W2D
+1.  Made more tolerant of input file Bpp as reported by BITMAPINFO
+    or Region packet.  PICMT was setting actual Bpp for tiles instead of 
+    normalized (8,16,24) Bpp so PICMT couldn't expand them.
+
+=====================================================================
+Version 2.00.38 changes from 2.00.37 - October 15, 1998
+
+PICN9020 - OP_D2W
+1.  Allow explicit width/height to be specified for chunks.  Set
+    u.WAVE.ChunkType to 3 and set u.WAVE.ChunkWidth and u.WAVE.ChunkHeight
+    to the desired height.  If Width is 0, then the chunk width is the
+    image width (horizontal strips).  If Height is 0, then the chunk
+    height is the image height (vertical strips -- not recommended).
+
+PICN8520, PICN8120 - OP_F2DPLUS, OP_F2D
+1.  Add support for G4 uncompressed mode images.
+
+=====================================================================
+Version 2.00.37 changes from 2.00.36 - October 7, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Version 32 broke passing non-exif app markers through
+    from input to output for exif output.
+
+=====================================================================
+Version 2.00.36 changes from 2.00.35 - October 5, 1998
+
+PICN20D, PICW20D - debug dispatcher
+1.  Added definition of OP_WSQE for log file.
+
+PICN8420, PICN8020 - OP_D2F
+1.  G3/G4 write broken if a white or black runlength mod 2560 was less
+    than 64.
+
+PICN8920 - OP_ZOOM
+1.  Switched to MSC (smaller, faster).
+
+PICN9020 - OP_D2W
+1.  Changed stack-handling to reduce memory requirement.
+
+PICN9020 - OP_W2D
+1.  Changed stack-handling to reduce memory requirement.
+
+Minerva 1.0.0.88
+1.  mswavlet.c - was using QuantizationThreshold mod 256 instead
+    of full 1..1000 value
+
+=====================================================================
+Version 2.00.35 changes from 2.00.34 - September 24, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Exif thumbnail can be any size > 4 && < image size.  Set the
+    ExifThumbnailToMake to the larger desired dimension for the
+    thumbnail.
+
+PICN1220, PICN1020 - OP_D2SE, OP_S2S
+1.  Exif thumbnail can be any size > 4 && < image size.  Set the
+    ExifThumbnailToMake to the larger desired dimension for the
+    thumbnail.
+
+Minerva 1.0.0.87
+1.  mxrotate.c - show ExifThumbnailToMake can be any size.
+2.  msseqjpg.c - show ExifThumbnailToMake can be any size.
+
+=====================================================================
+Version 2.00.34 changes from 2.00.33 - September 22, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Non tiff-tag PIC2List packets set before REQ_INIT were being
+    deleted just before REQ_INIT/RES_DONE.
+
+Minerva 1.0.0.86
+1.  mxrotate.c - changed to use P2LAlloc in RES_EXTEND_PIC2LIST event
+    handling.  Adds a Software tag to Exif output "Made by Minerva".
+    Exif output PIC2List handling not implemented in 16-bit medium
+    model because the pic2list.c functions would need to be (slightly)
+    changed to do that.
+2.  pic2list.c - looks like the 1.0.0.85 change didn't actually make
+    it into the devkit source so it is really.
+
+=====================================================================
+Version 2.00.33 changes from 2.00.32 - September 22, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Setting PF_PutYield could cause an error -9015 on Exif output.
+
+PICN20D.DLL - Debug dispatcher
+1.  Added WSQ Wavelet tracing.
+2.  Spurious pre-emptive reentry error message if Exif output were
+    creating a thumbnail.
+
+=====================================================================
+Version 2.00.32 changes from 2.00.31 - September 16, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Added support for Exif tag editing.  At REQ_INIT/RES_DONE, PIC2List
+    has TiffTag packets for all the Exif tags which will be output,
+    including default tags, overridden by input image tags, overridden
+    by PIC2List tags present at REQ_INIT.  At REQ_EXEC, output Exif
+    tags are taken from PIC2List.  Prior to REQ_EXEC tags may be
+    added, changed or deleted from the PIC2List as desired.
+2.  It is no longer necessary to set AppsToMake bits 1, 2 and 3 in order
+    to preserve input image Exif tags.  It is better to leave those
+    bits clear for Exif output.  Otherwise, if the input image is
+    Jfif and has APP1, APP2 or APP3 markers, the input image marker
+    data is written to the Exif output image, which is not in strict
+    conformance with the Exif specifiation.
+3.  Set PF_NoImageChanges in u.ROR.PicFlags to signal that the input
+    image compressed data should be written to the output image with
+    no entropy coding, quantization table, or other image pixel data
+    changes.  In that case, the image compressed data and tables are
+    copied from input to output without other processing.
+
+PICN20D.DLL - Debug dispatcher
+1.  If a PICTOOLS entry point were never called by the thread causing
+    PICN20D.DLL to be loaded, a spurious diagnostic message occurred
+    when PICN20D.DLL were unloaded.
+2.  If an Exif image were expanded after OP_RORE/OP_ROR were used to
+    convert an image to Exif while creating a thumbnail, then the
+    debug dispatcher logged spurious diagnostic messages, but could
+    also GP when PICN20D.DLL were unloaded.
+    
+Minerva 1.0.0.85
+1.  pic2list.c - added P2LAlloc() so a PIC2List can be enlarged, if
+    needed, to a specific size.
+2.  mxrotate.c - added RES_EXTEND_PIC2LIST implementation to REQ_INIT
+    response processing.  Added comments about PF_NoImageChanges and
+    editing PIC2List prior to REQ_EXEC.
+
+=====================================================================
+Version 2.00.31 changes from 2.00.30 - September 14, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Rotating by 90 degrees and inverting could GP if the image
+    height and width differed by > 0 && < 1 MCU (16 pixels if subsampled
+    else 8 pixels)
+2.  (RORE) Added padding options (see u.ROR.Pad comments).
+
+=====================================================================
+Version 2.00.30 changes from 2.00.29 - September 11, 1998
+
+PICN20D.DLL, PICW20D.DLL - Debug dispatcher
+1.  Added logging of new LOSSLESS3 fields and PF_SyncRestart flag.
+
+PICN6320, PCN4720 - OP_LIE3PLUS, OP_LIE3
+1.  Updated code from SSM fixing older 4-bit PPMD image problem,
+    BMP output problems and changing use of UniversalCT.
+
+ViewMed 1.0.0.48
+1.  No source change.
+2.  Updated PICTools toolkit to 2.00.30 version.  The significant
+    change was the 2.00.30 change to PICN6320.DLL.
+
+=====================================================================
+Version 2.00.29 changes from 2.00.28 - September 10, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Bad output image for certain settings of Y scale for certain
+    degenerate quantization table values.
+2.  Adding to PIC2List, as is done internally for Exif output, could GP.
+3.  Corrected PIC.H comments about u.ROR.YScale, CbScale and CrScale to
+    show they can range from -128 to 127.
+4.  Corrected a problem padding at bottom when inserting.
+
+PICN1820, PICN1120 - OP_SE2D, OP_S2D
+1.  Adding to PIC2List, as is done internally for Exif input, could GP.
+
+PICN1220, PICN1020 - OP_D2SE, OP_D2S
+1.  Adding to PIC2List, as is done internally for Exif output, could GP.
+
+Minerva 1.0.0.84
+1.  pic2list.c - AddTiffTag supports a count of -1 for TIF_ASCII and
+    TIF_UNDEFINED types.  In that case it computes the count as
+    strlen(Data) + 1.  Previously it didn't add 1 to the strlen.
+2.  pic2list.c - P2LAdd could GP.
+3.  mxrotate.c - changed range checking for u.ROR.YScale, CbScale and
+    CrScale to -128..127.
+
+=====================================================================
+Version 2.00.28 changes from 2.00.27 - September 10, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Don't put JFIF header in Exif thumbnail.
+2.  Supply default FlashPixVersion tag in EXIF IFD for Exif output.
+
+Minerva 1.0.0.83
+1.  mxrotate.c - set to remove PIC1 marker whenever Exif output now
+    instead of just of all markers are being removed for Exif output.
+
+=====================================================================
+Version 2.00.27 changes from 2.00.26 - September 9, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Exif output when exif input image had an exif ifd would GP.
+2.  Add PIC2 output format to OP_ROR.
+
+Minerva 1.0.0.82
+1.  mxrotate.c - enable pic2 output radio button for OP_ROR.
+
+=====================================================================
+Version 2.00.26 changes from 2.00.25 - September 8, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Error attempting to include a thumbnail in an exif output image
+    using u.ROR.ExifThumbnailToMake.
+2.  If PICN20D.DLL (debug dispatcher) were used and UseLoadLibrary=On
+    in PDEBUG.INI and u.ROR.ExifThumbnailToMake were used to make an
+    Exif thumbnail, and the sequential JPEG expand or sequential
+    JPEG pack opcode DLL's weren't both already loaded, a memory
+    underrun could cause a GP.
+
+Minerva 1.0.0.81
+1.  mxrotate.c - changed exif thumbnail size from thumb_64 to thumb16.
+
+=====================================================================
+Version 2.00.25 changes from 2.00.24 - August 30, 1998
+
+PICN6220, PICN4620 - OP_LIPPLUS/OP_LIP
+1.  Updated code from SSM fixing BLACK.BMP problem.
+
+PICN6320, PICN4720 - OP_LIEPLUS/OP_LIE
+1.  Updated code from SSM fixing 1.LJP and MCC0002.LJP problems.
+
+=====================================================================
+Version 2.00.24 changes from 2.00.23 - August 28, 1998
+
+PICN1820, PICN1120 - OP_SE2D, OP_S2D
+1.  Support Exif input images.
+    A.  Input image Exif tags are returned in PIC2List if
+    PIC2ListLen == -1 at REQ_INIT.  All tags are returned by
+    REQ_INIT/RES_DONE.
+    B.  If u.J2D.ExifThumbnail points to a buffer of length
+    u.J2D.ExifThumbnailLen, the thumbnail compressed data is
+    returned in the provided buffer by REQ_INIT/RES_DONE.  The
+    actual length of the thumbnail data is returned in
+    u.J2D.ExifThumbnailLen.
+    C.  Set PF_ExpandThumbnail in u.J2D.PicFlags to expand the
+    Exif thumbnail to DIB instead of expanding the primary image 
+    to DIB.
+    D.  If there's an Exif thumbnail, the length is returned in
+    u.J2D.ExifThumbnailLen by REQ_INIT/RES_DONE even when the
+    thumbnail compressed data isn't returned.  This could be used
+    to determine the exact size needed for the ExifThumbnail
+    buffer.
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Exif tags supplied in PIC2List or input image APP2 data weren't
+    added to the output image if the tag data were SHORT.
+
+PICN1220, PICN1020 - OP_D2SE, OP_D2S
+1.  Exif tags supplied in PIC2List or input image APP2 data weren't
+    added to the output image if the tag data were SHORT.
+
+PICN20D, PICW20D - Debug dispatcher
+1.  Added tracing for various new flags, error codes and fields
+2.  Fixed stack overflow if InstanceId=On in PDEBUG.INI.
+
+PV: PICN1620.SSM, PICN1820.SSM, PICN2220.SSM, PICN8220.SSM, PICN8920.SSM
+1.  Although registration data is required, the above were GP'ing if it
+    weren't supplied.
+
+Minerva 1.0.0.80
+1.  msseqjpg.c - set THUMB_16 for saved jpeg files so an exif
+    file has a thumbnail.
+2.  moseqjpg.c - set PIC2List to -1 and handle RES_EXTEND_PIC2LIST
+    responses so Exif tags are returned.  Presently they aren't
+    displayed or accessible.
+
+=====================================================================
+Version 2.00.23 changes from 2.00.22 - August 25, 1998
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Fixed so result shift/scale YCbCr translation is clipped more
+    gracefully.  Min/Max values are now -256 to 255 instead of
+    -128 to 127.
+
+SE2DDDW.EXE - OP_SE2D DOS/4GWcommand-line test program
+1.  Changed to use PD1820LW.LIB
+
+ViewMed 1.0.0.46
+1.  No source change.
+2.  Updated PICTools toolkit to 2.00.23 version.  The significant
+    change was the 2.00.20 change to PICN6320.DLL adding support
+    for certain lossless JPEG images whose Huffman table were valid,
+    but larger than necessary.
+
+Minerva 1.0.0.79
+1.  mxrotate.c allow ROR shift/scale from -256 to 255.
+
+SAMPLES\S2D\SE2DDDW*.* added
+Watcom project files for SE2DDDW.EXE
+
+LIB\PD1820LW.LIB added
+Watcom DOS/4GW static library for OP_SE2D
+
+=====================================================================
+Version 2.00.22 changes from 2.00.21 - August 24, 1998
+
+PICN20, PICN20D, PICW20, PICW20D, PWL20ML.LIB PICN20.LIB, PICN20M.LIB,
+PICN20B.LIB
+1.  2.00.20 fix caused a stack overflow if REQ_TERM were called with
+    PIC_PARM.Reserved == 0.
+
+PICN1020, PICN1220 - OP_D2S, OP_D2SE
+1.  Fixed PIC2 output.
+2.  Switched to MSC
+
+=====================================================================
+Version 2.00.21 changes from 2.00.20 - August 22, 1998
+
+Various compatible source changes for shared-source PV release.  See
+BIN.PV\*.* and LIB.PV\*.* if present.
+
+D2SEDDW.EXE and D2SDDW.EXE are currently broken for PIC2 output (and
+probably for Exif output) as a result of the 2.0.19 change.
+
+PICN2220 - OP_ROR
+1.  Removed RESAM features saving about 5K in the .SSM.
+
+Minerva 1.0.0.78
+1.  MOPRGJPG.C wasn't freeing comment/appfield correctly on RES_ERR.
+
+=====================================================================
+Version 2.00.20 changes from 2.00.19 - August 21, 1998
+
+PICN20, PICN20D, PICW20, PICW20D, PWL20ML.LIB PICN20.LIB, PICN20M.LIB,
+PICN20B.LIB
+1.  Memory leak if the dispatcher returned RES_ERR/ERR_OPCODE_INTERNAL_ERROR
+    and the application didn't call Pegasus(REQ_TERM).
+
+PICN4720, PICN6320 - OP_LIE3, OP_LIE3PLUS
+1.  Lossless JPEG expand failed for certain specific types of images whose
+    Huffman table was valid, but was larger than it strictly needed to be.
+
+LIB\PWL20ML.LIB added
+This is a 16-bit MS large-model static library dispatcher.  Opcode DLL's
+must be registered or an error ERR_OPCODE_INTERNAL_ERROR is returned.
+Link with PWL20ML.LIB instead of PICW.LIB.  Be sure to call
+PegasusLibInit(hInstance) with the instance handle for your application
+before calling any other Pegasus function or ERR_LIB_NOT_INIT will be
+returned.  Be sure to call PegasusLibTerm() after calling all other
+Pegasus functions or memory will be leaked (even after your application
+terminates).
+
+SAMPLES\MINERVA\MINERLML.MAK added
+This is a MS 16-bit large-model make file using LIB\PWL20ML.LIB and
+including PICN1820.SSM as a resource.  As provided, it will return
+ERR_OPCODE_INTERNAL_ERROR (-2103) on every attempt to expand a
+sequential JPEG image until PICN1820.SSM is registered.
+
+=====================================================================
+Version 2.00.19 changes from 2.00.18 - August 15, 1998
+
+PICW20, PICW20D - 16-bit dispatcher
+1.  Motorola format TIFF not correctly evaluating long values.
+
+PICN1020, PICN1220 - OP_D2S, OP_D2SE
+1.  Added Exif output.
+
+PICN2320 - OP_RORE
+1.  Joining two images with different subsampling could GP.
+
+Minerva 1.0.0.77
+1.  Added Exif output option to save as sequential jpeg
+
+=====================================================================
+Version 2.00.18 changes from 2.00.17 - August 15, 1998
+
+PICW20, PICW20D - 16-bit dispatcher
+1.  Was thunking queue pointers incorrectly so it was barely possible
+    to pass an incorrect Front, Rear or End pointer to the opcode.
+2.  Queue pointer comparison to determine if they are outside of the
+    queue was incorrect.
+
+PICN8220 - OP_UTL
+1.  2.0.11 change allowing compile with signed chars didn't fix a similar
+    problem converting from 4-bit or 1-bit DIB's to other sizes.
+
+=====================================================================
+Version 2.00.17 changes from 2.00.16 - August 14, 1998
+
+PICN8520, PICN8120 - OP_F2DPLUS, OP_F2D
+1.  TIFF G32D or G4 images with certain strictly invalid combinations
+    of codes were not allowed although the combinations are produced
+    by some writers and are easily allowed.
+
+PICN9020 - OP_D2W
+1.  A 24-bit RGB image passed to OP_D2W using Region, and where the
+    stride is not equal to the DIB width (e.g. when chunking external
+    to OP_D2W), wasn't working correctly.
+
+PICN2320, PICN2220 - OP_RORE, OP_ROR
+1.  Support for join of two images with different subsampling.
+2.  Support for forcing quantization values to be used even if they
+    imply a higher quality than the existing values (not recommended
+    unless the output quantization table must exactly meet a spec).
+3.  Support for convert to gray and convert to color.
+
+=====================================================================
+Version 2.00.16 changes from 2.00.15 - August 3, 1998
+
+PICN2320, PICN2220 - OP_ROR, OP_RORE
+1.  Output default ExifVersion tag with Undefined type instead of Ascii type.
+2.  2-1-1 subsampled input GP'ed.
+
+PICN9113 - OP_W2D
+1.  A chunked input image leaked temporary memory for each chunk.
+
+ViewMed 1.0.0.45
+1.  PICN9113 change above.
+2.  PegasusQuery now returns ERR_GET_BUFF_ERR instead of BAD_IMAGE_TYPE
+    if it finds a JPEG SOI, but doesn't find the SOF.  If a raw image
+    (no .rawdef file) happens to have SOI, it didn't appear to ViewMed
+    as though it was raw and so you couldn't set Raw Settings.
+3.  BI_LJPG is a PIC2-format version of BI_JPGL (lossless JPEG) which
+    ViewMed didn't know about.
+
+Minerva 1.00.76
+1.  BI_LJPG is a PIC2-format version of BI_JPGL (lossless JPEG) which
+    Minerva didn't know about.
+
+=====================================================================
+Version 2.00.15 changes from 2.00.14 - July 30, 1998
+
+PICN2320, PICN2220 - OP_ROR, OP_RORE
+1.  Changed to unique error codes for unexpected or internal errors so
+    we can uniquely identify the source location of the problem.
+
+Minerva 1.0.0.75
+1.  pic2list.h/pic2list.c - moved REALLOC_BUMP to .c from .h, no change
+    to minerva binary.
+
+=====================================================================
+Version 2.00.14 changes from 2.00.13 - July 30, 1998
+
+PICN8020, PICN8420 - OP_F2D
+1.  Tiff output, particularly multi-image, could write invalid image
+    data if the Put queue were smaller than the size of the full
+    output image.
+
+Minerva 1.0.0.75
+1.  msutil80.c wasn't handling RES_PUTQ_GET_NEED_DATA correctly if
+    the put queue were smaller than the size of the full output image.
+
+=====================================================================
+Version 2.00.13 changes from 2.00.12 - July 27, 1998
+
+PICN20, PICN20D, PICW20, PICW20D, PICN20M, PICN20B - dispatcher
+1.  Changes in support of the nested opcode calls required to
+    create thumbnails for ror exif output.
+
+PICN1020, PICN1220 - OP_D2S, OP_SE2D - sequential JPEG pack
+1.  Was allowing JT_PIC to be set for output format.
+
+PICN1820, PICN1120 - OP_SE2D/OP_S2D, Sequential JPEG expand
+1.  Was returning spurious PIC_PARM.Status > 0 (non-terminal error).
+
+PICN2220, PICN2320 - OP_RORE/OP_ROR, Advanced JPEG features
+1.  Added Exif output.
+
+PICN6220, PICN4620 - OP_LIPPLUS/OP_LIP
+1.  Updated code from SSM.
+
+PICN6320, PICN4720 - OP_LIEPLUS/OP_LIE
+1.  Updated code from SSM.
+
+Minerva 1.0.0.74
+1.  msseqjpg.c wasn't handling RES_POKE correctly so PIC2 format output
+    wasn't polished correctly.
+2.  mxrotate.c added Exif output radio button.  Wasn't handling RES_POKE
+    correctly so PIC2 format output wasn't polished correctly.
+
+=====================================================================
+Version 2.00.12 changes from 2.00.11 - July 15, 1998
+
+PICN2220, PICN2320 - OP_RORE/OP_ROR, Advanced JPEG features
+1.  Was returning spurious PIC_PARM.Status > 0 (non-terminal error).
+
+=====================================================================
+Version 2.00.11 changes from 2.00.10 - July 10, 1998
+
+PICN20, PICN20D, PICW20, PICW20D, PICN20M, PICN20B - dispatcher
+1.  Allow opcode dll's to be embedded in application or DLL
+    resources.  Using your resource editor, you create a binary
+    resource from the opcode DLL file (e.g., PICN1820.SSM).  The
+    resource type is "SSM".  The resource name is the base name of
+    the DLL (e.g., "PICN1820").  The dispatcher will search the
+    resource when you pass the module instance handle to a new
+    function PegasusLoadFromRes.  It will also search the resource
+    when you call Pegasus() if you set PIC_PARM.LoadResInstance
+    to the module instance handle (see comments in PIC.H).
+2.  PIC_PARM.LoadPath is added to force an opcode DLL to be loaded
+    from a specific directory as though you had called PegasusLoad
+    for the opcode with a specific path.
+
+PICN20M.LIB, PICN20B.LIB - MS and Borland static library versions of
+PICN20.DLL added
+1.  Since static libraries don't receive implicit notifications of
+    process and thread creation/destruction, API calls are added to
+    initialize/cleanup the PIC libraries.
+    PegasusLibInit - called before any other PIC library function
+    PegasusLibTerm - called after all other PIC library functions
+    PegasusLibThreadInit - called before any other PIC library function
+        in any other thread calling PIC library functions
+    PegasusLibThreadTerm - called after all other PIC library functions
+        in any thread which called PegasusLibThreadInit
+
+PICN20, PICN20D, PICW20, PICW20D, PN20LM, PN20LB
+1.  PegasusQuery: Set QBIT_BICOMPRESSION in u.QRY.BitFlagsAck and set
+    Head.biCompression to BI_JPEG after FF/D8 is recognized.  If this
+    has occurred, and too little of the image is in the Get buffer to
+    determine the height/width/bitcount, then ERR_GET_BUFF_ERR is
+    returned instead of ERR_BAD_IMAGE_TYPE.
+2.  Added debug version tracing for the remaining PIC_PARM union types.
+3.  Debug version tracing for PNG was displaying a spurious Q_REVERSE warning.
+4.  Evaluation version dialog could be obscured by an application window.
+
+PICN1820, PICN1120 - OP_SE2D/OP_S2D, Sequential JPEG expand
+1.  Return non-terminal ( > 0 ) ERR_RESTART_ATTEMPT_AFTER_BAD_DATA so certain
+    types of corrupt JPEG images can still be expanded, although with invalid
+    blocks of data in the expanded image.
+
+PICN2220, PICN2320 - OP_RORE/OP_ROR, Advanced JPEG features
+1.  Return non-terminal ( > 0 ) ERR_RESTART_ATTEMPT_AFTER_BAD_DATA so certain
+    types of corrupt JPEG images can still be expanded, although with invalid
+    blocks of data in the expanded image.
+
+PICN6220, PICN4620 - OP_LIPPLUS/OP_LIP
+1.  Updated code from SSM, re-2.0'ed
+
+PICN6320, PICN4720 - OP_LIEPLUS/OP_LIE
+1.  Updated code from SSM, re-2.0'ed
+2.  No palette was returned expanding an older IMStar grayscale image.
+
+PICN8220 - OP_UTL - Image/Color utilities
+1.  Off-by-one error in subcode 4 where ERR_TOO_MANY_COLORS_IN_COLORMAP
+    or ERR_COLOR_COUNT_MISMATCH were not returned if the maximum color
+    were one larger than the limit.
+2.  Return grayscale palette when appropriate instead of forcing the
+    caller to create their own.
+3.  Corrected a sign-extension problem forcing unsigned-char compiler
+    settings.
+4.  Compiled with MS 5.0 instead of Watcom 11.0a.
+
+PICN8420, PICN8020 - OP_D2F/OP_D2FPLUS
+1.  TIFF files output with YResolution and XResolution tags were invalid.
+
+PICN9020, PICN9120 - OP_D2W/OP_W2D - Wavelet pack/expand
+1.  Version 1.08D library fixing a problem expanding some RGB images
+    where data is stored one byte past the end of a correctly-sized
+    output buffer.
+
+ROREDDW.EXE - Advanced ePIC features DOS command-line test program
+1.  Fixed stack fault when output were PIC2 format.
+
+ViewMed 1.0.0.44
+1.  PICN6220, PICN6320, PICN1820, PICN9020, PICN9120 changes above.
+2.  Changed mvwave.c so it doesn't infate the decompression output
+    buffer by 1 byte.
+
+Minerva 1.0.0.73
+1.  moseqjpg.c - show example of looking for an opcode dll in resource
+    data.  PICN1820 and PICN1120 are loaded from Minerva's resource
+    data if present, otherwise they are loaded as before (from disk).
+    If jpeg expand returns any output data, whatever is returned is
+    displayed.  If the returned Status is non-zero, then a message
+    is displayed that the image contains invalid data.
+2.  minerva.c - opcode dll's are loaded initially from Minerva's resource
+    data, if present, otherwise they are loaded as before (from disk).
+3.  minerva.c - show example of calling PegasusLibInit before any
+    call to the Pegasus library and calling PegasusLibTerm after all
+    calls to the Pegasus library.  These calls are necessary when
+    linking to the static library dispatcher picn20m.lib or picn20b.lib.
+4.  mopen.c - show example of calling PegasusLibThreadInit and
+    PegasusLibThreadTerm.  These calls are necessary when linking to the
+    static library dispatcher picn20m.lib or picn20b.lib.
+5.  mopen.c - thread handle wasn't being closed.
+6.  mowavlet.c - it's no longer necessary to allocate an output buffer
+    one byte larger than the size of the image when expanding wavelet
+    images.
+7.  mtutil82.c - it's no longer necessary to create your own gray palette
+    when converting an image to gray scale.  Now it's returned from
+    OP_UTL.
+8.  mtutil82.c - it hasn't been necessary for some time to try to
+    independently detect the number of colors returned from creating
+    an optimal palette.  It's returned by OP_UTL.
+9.  mxrotate.c - allow and report non-terminal invalid errors to
+    proceed to completion.
+10. minerlnm.exe - changed from using static libraries, to using the
+    dispatcher static library PICN20M.LIB and embedding PICN1820.SSM
+    into the minerlnm.exe executable as resource data by #define'ing
+    SSM_RES for the resource compiler.
+11. minerlnb.exe - changed from using static libraries, to using the
+    dispatcher static library PICN20B.LIB and embedding PICN1820.SSM
+    into the minerlnb.exe executable as resource data by #define'ing
+    SSM_RES for the resource compiler.
+
+=====================================================================
+Version 2.00.10 changes from 2.00.9 - July 6, 1998
+
+PICN20, PICN20D, PICW20, PICW20D, PN20LM, PN20LB - PegasusQuery
+1.  If a PIC2 file has a Region packet, it is returned in u.QRY.Region.
+2.  PIC_PARM.Head.biSizeImage was computed incorrectly if a PIC2
+    file a Region packet and not a Bitmapinfoheader packet.
+
+PICN9020 - Wavelet pack
+1.  If a raw image input Region specification and a non-zero Offset
+    (the input file had a header), then that non-zero Offset was
+    output in the PIC2 file Region packet.  On expand, that non-zero
+    Offset was assumed to have come from the expanding application
+    to control the image placement in the output buffer.  Thus an
+    output buffer -- exactly the right size for the pixels --
+    resulted in a ERR_PUT_BUFF_ERR
+2.  If a raw image input Region specified 8-bpp and PT_GRAY, the
+    packer still required that the ColorTable have a uniform gray
+    palette.
+
+PICN9120 - Wavelet expand
+1.  If the application decided to ignore a particular PIC2List packet
+    during RES_EXTEND_PIC2LIST, the PIC2ListLen wasn't restored to 
+    the correct value by the expander.
+
+ViewMed 1.0.0.43
+1.  The hourglass cursor changed back to the arrow cursor after a
+    evaluation dialog was displayed, even though open or save operation
+    wasn't finished.
+
+ViewMed 1.0.0.42
+1.  No source change, updated the version number to reflect the
+    PICN9020, PICN9120 fixes above.  Note that the changes have no
+    effect on ViewMed, but they could have an effect on someone
+    developing using the medical imaging toolkit.
+
+=====================================================================
+Version 2.00.9 changes from 2.00.8 - July 2, 1998
+
+Most opcodes
+1.  Adjust compiler optimization settings for better performance
+    for some opcodes.
+
+PICN20D, PICW20D - Debug dispatcher
+1.  Added a variety of new flags, responses, error codes, etc.
+    Added new fields from 2.0 PIC_PARM and J2D and D2J unions.
+    Added ZOOM union.
+
+PICN8920 - OP_ZOOM
+1.  Optimized certain special case dimensions for shrinking.  Any of
+    these special cases can use BI_YUY2, BI_RGB or gray scale  formats.
+    BI_YUY2 can be output by sequential JPEG expand and can be input
+    to sequential JPEG pack.
+2.  Change Put queue behavior so it allows the output queue to be
+    exactly as big as required.  (Previously it required that the
+    output queue be at least 1 byte larger than necessary).
+3.  No RES_PUT_DATA_YIELD responses returned unles PF_YieldPut is set.
+
+MINERVA 1.00.72
+1.  Changed ZOOM so percent size refers to image area instead of
+    image height/width.
+
+=====================================================================
+Version 2.00.8 changes from 2.00.7 - June 29, 1998
+
+All opcodes
+1.  Fixed a problem resulting in RES_ERR/ERR_NONE for all subsequent
+    Pegasus calls when an opcode error occurred after the registration
+    dialog was displayed.
+
+PICN9020, PICN9120 - OP_D2W, OP_W2D
+1.  Could leak the wavelet library instance on an opcode error.
+2.  Explicitly check for error when creating a wavelet library
+    decompressor instance instead of relying on a NULL instance
+    to signal an error.
+
+ViewMed 1.0.0.41
+1.  mvpic.c/PicReq was returning TRUE if RES_ERR/ERR_NONE were returned.
+    The subsequent call to REQ_TERM then returned the misleading error
+    ERR_OPERATION_NOT_INIT.  Now RES_ERR/ERR_NONE results in:
+    "0: An unrecognized error occurred processing the image <filename>"
+
+=====================================================================
+Version 2.00.7 changes from 2.00.6 - June 29, 1998
+
+PICN9020, PICN9120 - OP_D2W, OP_W2D
+1.  1.08C library
+
+MINERVA 1.0.0.71
+1.  Still possible to get a GP during Transform/Rotate while Try'ing
+    Options.
+
+=====================================================================
+Version 2.00.6 changes from 2.00.5 - June 29, 1998
+
+PICN20.DLL, PICN20D.DLL - Dispatcher
+1.  Fix multi-threaded memory leak which also had the effect of causing
+    DLL loads (therefore eval dialog) when not strictly needed.
+
+PICN1620 - OP_P2S
+1.  Allow 2-byte quantization tables even when 8-bit/sample.
+
+PICN2220 - OP_ROR
+1.  Disallow join/region/brightness.
+
+MINERVA 1.0.0.70
+1.  Support Transform/Rotate options to change brightness/contrast.
+2.  Transform/Rotate when the options dialog were OK'ed or Cancel'ed
+    after using Try Options some number of times.
+3.  Zoom was leaking memory in the case where the input image had to
+    be converted to 24-bits per pixel.
+
+=====================================================================
+Version 2.00.5 changes from 2.00.4 - June 26, 1998
+
+PICN20.DLL, PICN20D.DLL - Dispatcher
+1.  Thread-safe opcode access for multi-processor systems.
+
+PICN4920 - OP_PNGE - PNG expand
+1.  Return error ERR_PNG_UNSUPPORTED_FEATURE for 2-bit images,
+    and for interlaced images < 8 bits-per-pixel.
+
+PICN2220, PICN2330, PN2320LM - OP_ROR, OP_RORE
+1.  Allow image brightness/contrast to be adjusted without recompression.
+
+MINERVA 1.0.0.69
+1.  Open multiple images from File/Open dialog each in a separate thread
+    in MSC Win32 Version.
+2.  For opcodes with two flavors such as OP_F2DPLUS and OP_F2D, the
+    rejected flavor wasn't being unloaded until the end of the session.
+
+=====================================================================
+Version 2.00.4 changes from 2.00.3 - June 23, 1998
+
+PICN9020, PICN9120 - OP_W2D, OP_D2W - wavelet expand/pack
+1.  Version 1.08B library grandfathering images created with the 107I
+    library (development kit versions 1.3.79 - 1.3.103) to be expanded.
+
+PICN4920 - OP_PNGE - PNG expand
+1.  Support for interlaced images and support for bit depths which
+    don't readily translate to Windows DIB's.  (1-bit interlaced
+    appears to be broken).
+
+=====================================================================
+Version 2.00.3 changes from 2.00.2 - June 17, 1998
+
+******** NOTE ********
+Please note that PIC_PARM.ParmVer is now 20.  If you have not already
+done so in your source, we suggest you change your assignment statement
+to PIC_PARM.ParmVer = CURRENT_PARMVER.  PIC_PARM.ParmVerMinor should
+remain set as before.  For OP_LIE3, OP_LIP3, OP_PNGE, OP_D2W and OP_W2D,
+ParmVerMinor must be 2.  For all other opcodes, ParmVerMinor should be 1.
+
+PICN20, PICN20D - 32-bit Windows Dispatcher
+1.  Implement support for embedding .SSM's in a resource and loading
+    them from the resource.
+
+PICW20, PICW20D - 16-bit Windows dispatcher
+1.  Implement support for embedding .SSM's in a resource and loading
+    them from the resource.
+2.  WEP wasn't being called.
+
+PICN1320 - OP_P2D
+1.  Was returning RES_ERR/ERR_NONE even if the registration code
+    were valid.
+
+=====================================================================
+Version 2.00.2 changes from 2.00.1 - June 14, 1998
+
+General:
+
+1.  Added 4 more ReservedPtr's to the main part of PIC_PARM and split
+    them out as ReservedPtr1..ReservedPtr8 instead of ReservedPtrs[4];
+2.  Moved PicFlags in ZOOM to its union-independent position and added
+    PicFlags2.
+3.  Added PicFlags/PicFlags2 to INTERNAL.
+4.  Added opcode description text to each evaluation dialog.
+5.  Programmer's Guide/Programmer's Reference changes to reflect
+    PIC_PARM changes.
+6.  Disallow PIC1-format output from sequential JPEG pack.
+7.  Fixed bad opcode number displayed in 16-bit evaluation dialog for
+    opcodes >= 66.
+
+The following changes in mainline versions 1.03.107 and 1.03.108 are
+also included 2.00.2 and are described in the following:
+
+PICN9020 - OP_D2W
+1.  Explicitly disallow motorola byte-ordering.  When F_Raw is specified
+    and PT_GRAYM is specified and Bpp > 8 an error ERR_BAD_REGION_TYPE
+    is returned.
+
+PICN2220, PICN2320, PN2220LM, PN2320LM.LIB - OP_ROR, OP_RORE
+1.  Support for multiple rectangular regions to be specified, each
+    with its own luminance/chrominance quality (or complete quantization
+    tables) to be specified.
+
+MINERVA 1.0.0.68
+1.  MOUTIL81 and MSUTIL80 were silent if RES_ERR/ERR_NONE were returned
+    from F2D and D2F.
+
+=====================================================================
+Version 2.00.1 changes from 2.00.0 - June 10, 1998
+
+General 2.0 changes:
+1.  Implemented evaluation version.
+2.  Changed "thttp://..." to "http://...".
+
+Version changes 1.03.104 through 1.03.107 are also included in 2.00.1
+and are described in the following:
+(mainline 1.03.107 also includes new picn2213/picn2313 which is not
+ included in 2.00.1)
+
+PICN20, PICN20D, PICW20, PICW20D, PN20LM, PN20LB - PegasusQuery
+1.  Make sure we accept a TIFF tag count of 0.
+2.  Divide-by-zero error for 16-bit grayscale TIFF.
+
+PICN1020, PICN1220 - OP_D2S, OP_SE2D - sequential JPEG pack
+1.  PIC2 output with a output buffer too small to hold the entire output
+    image could lock up if a color palette were also being output and
+    the Put queue didn't have 3*<color table colors> bytes of empty space
+    after all the compressed image data had been output.
+
+PICN1120, PICN1820, PN1820LM, PN1820LB - OP_SE2D, OP_S2D
+1.  MMX color conversion enhanced to exactly preserve pure white.
+2.  up to 10% speedup.
+
+PICN4620, PICN6220 - OP_LIP3, OP_LIP3PLUS
+1.  If the Put queue is empty after RES_PUT_NEED_SPACE, Front and Rear
+    are reset to Start, eliminating some possible error conditions in
+    the following code.
+
+PICN4720, PICN6320 - OP_LIE3, OP_LIE3PLUS
+1.  Accept a predictor of 0, treating it as though it were 1, rather
+    than GP'ing.
+2.  Accept fixed huffman tables coding more values than can exist
+    in the image, rather than GP'ing.
+
+PICN8020, PICN8420 - OP_D2F, OP_D2FPLUS
+1.  Motorola-byte-order TIFF Output wasn't ouputting offsets to tag data
+    correctly unless the tag data type were long.  The most likely symptom
+    was an invalid color table for color-mapped images.
+2.  Now setting PIC_PARM.Status to ERR_NONE at exit without error -- it
+    should already have been 0 == ERR_NONE, but now it is definite.
+3.  If PF_YieldGet is set, then returns a RES_GET_DATA_YIELD response
+    after every 16 rows are input.
+
+PICN8120, PICN8520 - OP_F2D, OP_F2DPLUS
+1.  Make sure we accept a TIFF tag count of 0.
+2.  If PF_YieldPut is set, then returns a RES_PUT_DATA_YIELD response
+    every u.F2D.YieldCount rows are output (every row if YieldCount is 0).
+
+PICN9020, PICN9120 - OP_D2W, OP_W2D
+1.  Initializing the Put queue pointers such that:
+        Put.Front == Put.Rear && Put.Front != Put.Start
+    errored out with an ERR_PUT_BUFF_ERR.
+2.  Version 1.07J library fixing a GP with large images with certain
+    image data characteristics.
+3.  Version 1.08 library fixing a GP on certain 24-bit RGB images
+    at certain quality settings.
+
+MINERVA 1.0.0.67
+1.  TIFF output: If a RES_PUT_NEED_SPACE were returned writing a TIFF image,
+    then it was possible for data in the queue at RES_DONE not to be copied
+    to the output buffer.
+2.  TIFF output: TIFF Put.QFlags weren't cleared so they remained as set by
+    the image open operation.  An image open setting Q_REVERSE -- for example
+    sequential JPEG expand -- failed when saving as TIFF.
+3.  PCX/TGA/GIF/BMP output: A RES_PUT_NEED_SPACE would GP for outputting
+    to these image types.
+4.  Some variable rearrangement in MXZOOM.C to lighten stack usage for
+    MINERVMM.EXE.
+
+=====================================================================
+Version 2.00.0 changes from 1.03.103 - May 28, 1998
+
+PICN1120, PICN1820 - OP_S2D, OP_SE2D
+1.  Implemented evaluation version.
+
+General 2.00.0 changes:
+
+A recompile of all code accessing PIC opcodes is required because PIC_PARM
+has been considerably rearranged and CURRENT_PARMVER is now 20.
+
+When you purchase a devkit, you will receive a registration code for each
+purchased opcode.  You will also receive instructions for the correct
+use of this registration code.
+
+=====================================================================
+Version 1.03.103 changes from 1.03.102 - May 28, 1998
+
+PICN13, PICN13D, PICW13, PICW13D, PN13LM, PN13LB - PegasusQuery
+1.  Version 1.3.51 broke PegasusQuery determining the file type
+    for PIC2-format images with a Manifest File Length of -1
+    (not polished).
+
+PICN8113, PICN8513 - OP_F2D, OP_F2DPLUS
+1.  An input BMP file was rejected if the Reserved1 and Reserved2
+    fields in the BITMAPFILEHEADER were 0.
+2.  TIFF input wasn't yielding if PF_YieldPut were set.
+
+PICN8013, PICN8413 - OP_D2F, OP_D2FPLUS
+2.  TIFF output wasn't yielding if PF_YieldGet were set.
+
+PICN1413 - OP_S2P
+1.  Allows chrominance scan parameters to be specified even when
+    the input image is gray scale, instead of returning an error.
+
+PICN1113, PICN1813 - OP_S2D, OP_SE2D
+1.  YUV -> RGB conversion in MMX changed so that RGB output for pixels
+    where U and V are 0 is the same RGB output as in the non-MMX case.
+
+MINERVA 1.00.66
+1.  Added code to test yield on OP_F2D and OP_D2F.
+2.  If a comment were present, and the open error'ed out, you could
+    get a Kernel exception free'ing the comment during cleanup.
+
+=====================================================================
+Version 1.03.102 changes from 1.03.101 - May 19, 1998
+
+PICW13, PICW13D - Dispatcher
+1   Versions 100 and 101 were compiled with masm 6.12 update
+    which broke some computations in the thunk code.  Using
+    Masm 6.13 update starting this version, but fixed the
+    thunk code.
+
+=====================================================================
+Version 1.03.101 changes from 1.03.100 - May 19, 1998
+
+PICN13, PICN13D, PICW13, PICW13D, PN13LM, PN13LB - PegasusQuery
+1.  Returns PIC_PARM.Head.biXPelsPerMeter and biYPelsPerMeter for
+    JFIF images whose JFIF header has horizontal/vertical pixel
+    density in pixels/inch or pixels/cm.  Pixels/cm conversion is
+    exact.  Pixels/inch conversion is the same as JPEG expand:
+    bi?PelsPerMeter = floor( ( <?pixels/inch> * 10000 ) / 254 )
+
+=====================================================================
+Version 1.03.100 changes from 1.03.99 - May 19, 1998
+
+PICN1413 - OP_S2P
+1.  Didn't work for gray scale images.
+
+=====================================================================
+Version 1.03.99 changes from 1.03.98 - May 18, 1998
+
+PICN13, PICN13D, PICW13, PICW13D, PN13LM, PN13LB - PegasusQuery
+1.  Version 1.03.95 also broke JPEG reporting so that lossless
+    JPEG images with a bit depth > 8 would not be returned as
+    an invalid image type.
+
+=====================================================================
+Version 1.03.98 changes from 1.03.97 - May 14, 1998
+
+PICN13, PICN13D, PICW13, PICW13D, PN13LM, PN13LB - PegasusQuery
+1.  Version 1.03.95 broke JPEG reporting so that raw JPEG images were
+    returned with positive or 0 height causing an error or causing
+    the image to be expanded upside down.
+
+=====================================================================
+Version 1.03.97 changes from 1.03.96 - May 14, 1998
+
+PICN9013 - OP_D2W
+1.  8-bit raw whose stride wasn't evenly divisible by 4 and 16-bit
+    raw whose stride implied padding weren't handled correctly.
+
+=====================================================================
+Version 1.03.96 changes from 1.03.95 - May 13, 1998
+
+PICCLIB
+1.  PicMemset fixed for direction flag reversed and size % 4 != 0.
+    Broken in 1.03.90.
+
+PICN4913 - OP_PNGE Beta
+1.  PNG fixes.  No interlaced, no 16-bit components and rgb with
+    alpha looks like it may be incorrect.
+
+MINERVA 1.00.65
+1.  Support for PNG 8-bit gray-scale with alpha by discarding alpha.
+
+=====================================================================
+Version 1.03.95 changes from 1.03.94 - May 13, 1998
+
+PICN13, PICN13D, PICW13, PICW13D, PN13LM, PN13LB - PegasusQuery
+1.  Attempting to scan through header data for JPEG ff/d8 would
+    incorrectly detect JPEG in some cases.  Now, if a frame header
+    appears somewhere in the data following the ff/d8, we require
+    8-bit precision (as does OP_S2D/SE2D) and 1, 3 or 4 components
+    (as does OP_S2D/SE2D).
+2.  A GIF image with an incorrect block size for some extension
+    block would report an error -- even if the block size embedded
+    in the extension block itself were correct.
+
+PICN8113, PICN8513 - OP_F2D, OP_F2DPLUS
+1.  PCX images might pad each line of their image data.  If so, a GP
+    could occur, depending on the required DIB padding for the image
+    width.
+2.  A GIF image with an incorrect block size for some extension
+    block would report an error -- even if the block size embedded
+    in the extension block itself were correct.
+
+PICN1113, PICN1813 - OP_S2D, OP_SE2D
+1.  Support for expand to YUV formats.  Set PF_YuvOutput in u.J2D.PicFlags
+    for YUV output.  Set u.J2D.YuvOutputType to select Microsoft
+    UYVY or YUY2 pixel format.  Default output for YUV is top-down
+    versus the default output for RGB/gray formats which is bottom-up.
+
+PICN1013, PICN1213 - OP_D2S, OP_D2SE
+1.  Support for pack from YUV formats.  Set PIC_PARM.Head.biCompression to
+    BI_UYVY or BI_YUY2 to indicate that the input format is YUV.  The
+    default input orientation is assumed to be top-down versus the
+    default for DIB input of bottom-up.
+
+MINERVA 1.00.64
+1.  Fixed GP during cleanup after attempting to expand an invalid BMP.
+
+=====================================================================
+Version 1.03.94 changes from 1.03.93 - May 12, 1998
+
+PICN13, PICN13D, PICW13, PICW13D, PN13LM, PN13LB - PegasusQuery
+1.  Support for returning information about PNG images.  BI_PNG
+    is returned in Head.biCompression.
+
+PICN4913 - OP_PNGE - Beta PNG expand added
+1.  Ordinarily you will be using Q_REVERSE for the DIB buffer in the
+    Put queue.
+2.  Interlaced images are not supported in this release.
+
+MINERVA 1.00.63
+1.  PNG support added.  16-bit component depth and 8-bit gray+alpha
+    are not supported in Minerva yet.
+
+PNGETEST.EXE - OP_PNGE test program added.
+
+=====================================================================
+Version 1.03.93 changes from 1.03.92 - May 8, 1998
+
+PICN8013, PICN8413 - OP_D2F, OP_D2FPLUS
+1.  Color map wasn't properly saved to an output TIFF palette color image.
+
+GUIDE.DOC
+1.  Revisions and added examples.
+
+=====================================================================
+Version 1.03.92 changes from 1.03.91 - May 7, 1998
+
+PICN1613 - OP_P2S
+1.  Fix for images with empty huffman tables.
+
+=====================================================================
+Version 1.03.91 changes from 1.03.90 - May 7, 1998
+
+PICN1813, PICN1113 - OP_SE2D, OP_S2D
+1.  ELS-coded images were expanded incorrectly if PF_NoCrossBlockSmoothing
+    were set.
+
+PICN4713, PICN6313 - OP_LIE3, OP_LIE3PLUS
+1.  Lossless JPEG can now expand JPEG images with restart markers.
+2.  Extra non-zero low-order bits could be discarded in certain images.
+
+=====================================================================
+Version 1.03.90 changes from 1.03.89 - May 4, 1998
+
+PICN8113, PICN8513 - OP_F2D, OP_F2DPLUS
+1.  G4 expand speedup.
+
+=====================================================================
+Version 1.03.89 changes from 1.03.88 - May 1, 1998
+
+MINERVA 1.00.62
+1.  Also in Save GIF Default options, the sense of the test of the
+    transparent check box in the image options validation was reversed
+    so it was incorrectly deciding whether to validate the transparent
+    color index.
+
+=====================================================================
+Version 1.03.88 changes from 1.03.87 - April 30, 1998
+
+PICN8013, PICN8413 - OP_D2F, OP_D2FPLUS
+1.  Save Interlaced GIF GP'ed starting in version 78
+
+MINERVA 1.00.61
+1.  Save GIF was setting an incorrect u.D2F.ImageType.
+2.  Also in Save GIF, the sense of the test of the transparent check
+    box in the image options validation was reversed so it was incorrectly
+    deciding whether to validate the transparent color index.
+
+=====================================================================
+Version 1.03.87 changes from 1.03.86 - April 30, 1998
+
+PICN2213, PICN2313 - OP_ROR, OP_RORE
+1.  Invalid output from rotating PIC2 Els-coded input.
+
+=====================================================================
+Version 1.03.86 changes from 1.03.85 - April 30, 1998
+
+PICN13D, PICW13D - Debug dispatcher
+1.  Added new RES_* and Q_* values.
+
+PICN8113, PICN8513, PICN8013, PICN8413 - OP_F2D, OP_F2DPLUS, OP_D2F,
+    OP_D2FPLUS
+1.  Various queue handling fixes primarily for multi-image tiff write.
+
+MINERVA 1.00.60
+1.  TIFF Save options dialog asserted for non G3/G4 images.
+2.  Queue handling changes for OP_F2D/OP_D2F.
+
+=====================================================================
+Version 1.03.85 changes from 1.03.84 - April 24, 1998
+
+PICN13, PICN13D, PICW13, PICW13D, PN13LM, PN13LB - PegasusQuery
+1.  Now returns u.QRY.AllowedBitErr for lossless JPEG images.  Actual
+    bits used in the image is Head.biBitCount - u.QRY.AllowedBitErr.
+    Original bits in the image is Head.biBitCount and u.QRY.AllowedBitErr
+    is the number of bits discarded during compression.
+
+PICN8113, PICN8513 - OP_F2D, OP_F2DPLUS
+1.  G3/G4 decode now takes about 80% as long.
+2.  A G3 image missing the EOL and/or RTC on its last data line would
+    error out.  Now the remainder of the image is white (or black for
+    BlackIsZero images).
+
+PICN8013, PICN8413 - OP_D2F, OP_D2FPLUS
+1.  Minerva changes for get/put queue testing exposed some get/put queue
+    bugs.
+
+PICN9013, PICN9113 - OP_D2W, OP_W2D
+1.  Some Win16 change source rearrangement.
+2.  Changes in support of changing ChunkSize to Megabytes / 10 instead
+    of Megabytes.  In this release it's still Megabytes.
+
+MINERVA - 1.00.59
+1.  Added Timing/Queue Size dialog to OP_D2F TIF save so get/put queues
+    smaller than full image size can be tested.
+2.  Fixed version 56 timing using RDTSC -- it wasn't.
+3.  OP_F2D timing dialog settings were being saved in the ini sections
+    "Open %s settings" instead of, for example "Open TIFF settings".
+
+=====================================================================
+Version 1.03.84 changes from 1.03.83 - April 20, 1998
+
+PICN2213, PICN2313
+1.  Overlay one JPEG file onto another by specifying the top-left
+    corner of the overlaying image onto the overlaid image.
+2.  Fixed a bug which could make multiscan JPEG files crash.
+
+=====================================================================
+Version 1.03.83 changes from 1.03.82 - April 17, 1998
+
+PICN8113, PICN8513 - OP_F2D, OP_F2DPLUS
+1.  Support for 32-bit RGB and 16-bit RGB TIFF images.
+2.  Support for CMYK TIFF images returned as CMYK DIB's.
+3.  Fix Get/Put queue problems for size < full size image.
+4.  Fix Aux chunk problem for tags with data size > 4.
+
+PICN13, PICN13D, PICW13, PICW13D, PIC13LN - PegasusQuery
+1.  Supporting 32-bit RGB, 16-bit RGB TIFF images and CMYK TIFF.
+    Returns BI_TIFK for CMYK.
+
+MINERVA - 1.00.58
+1.  Added Timing/Queue Size dialog to OP_F2D open so get/put queues
+    smaller than full image size can be tested.
+2.  Aux data is now retrieved, although it isn't presented to the user.
+
+=====================================================================
+Version 1.03.82 changes from 1.03.81 - April 16, 1998
+
+PICN8013, PICN8413 - OP_D2F, OP_D2FPLUS
+1.  A Put queue smaller than the output image would result in an
+    ERR_INTERNAL error.
+
+=====================================================================
+Version 1.03.81 changes from 1.03.80 - April 15, 1998
+
+PICN9013, PICN9113 - OP_D2W, OP_W2D
+1.  Changes to operate in 16-bit environments with PICW13.DLL
+
+PICN1113, PICN1813 - OP_SE2D, OP_S2D
+1.  Changed to avoid GP with huffman tables which are invalid because
+    they are too long.
+
+PICN2213, PICN2313 - OP_ROR, OP_RORE
+1.  Changed to allow invalid 176-value huffman table in sequential
+    JPEG input.
+2.  Support for input of files whose components aren't interleaved.
+
+PICN1413 - OP_S2P
+1.  Changed to allow invalid 176-value huffman table in sequential
+    JPEG input.
+
+MINERVA - 1.00.57
+1.  Changed so wavelet pack doesn't report a put queue error.
+2.  Took wavelet expand/pack code out which evaluated QlutLibPath using
+    GetModuleFilename which doesn't work correctly when the PICN/PICW
+    DLL loader is used.
+3.  Changed to using Q_READING instead of Q_IS_OUTPUT in assert so
+    debug compile works again after 1.3.80 broke it.
+
+=====================================================================
+Version 1.03.80 changes from 1.03.79 - April 10, 1998
+
+PICN8013, PICN8413 - OP_D2F, OP_D2FPLUS
+1.  On reflection, inverted the sense and name of Q_IS_OUTPUT, changing
+    it to Q_READING so a generic Put queue handler can be written which
+    correctly deals with OP_D2F as well as dealing with other opcodes'
+    Put queues.  If Q_READING is set, then the Put queue data have not
+    been modified by OP_D2F and may be discarded when handling
+    RES_PUT_NEED_SPACE if the data are available at another location.
+    Q_IS_OUTPUT is no longer definedl
+2.  On reflection, changed the SeekInfo definition at RES_PUT_NEED_SPACE
+    back to its prior meaning of undefined.  SeekInfo still has the correct
+    location to start reading when RES_PUTQ_GET_NEED_DATA is returned.
+    Therefore, a correct handler for RES_PUTQ_GET_NEED_DATA, which
+    reads from the correct file location while preserving the correct
+    file position for a following RES_PUT_NEED_SPACE with Q_READING
+    clear is:
+
+    case RES_PUTQ_GET_NEED_DATA:
+        fseek(f, PIC_PARM.SeekInfo & SEEK_OFFSET, SEEK_SET);
+        len = fread(
+            PIC_PARM.Put.Start,
+            1,
+            PIC_PARM.Put.End - PIC_PARM.Put.Start - 1,
+            f);
+        PIC_PARM.Put.Front = PIC_PARM.Put.Start;
+        PIC_PARM.Put.Rear = PIC_PARM.Put.Front + len;
+        if ( ferror(f) )
+            PIC_PARM.Put.QFlags |= Q_IO_ERR;
+        else if ( feof(f) )
+            PIC_PARM.Put.QFlags |= Q_EOF;
+        fseek(f, PIC_PARM.SeekInfo & SEEK_OFFSET, SEEK_SET);
+        /* ^ restore to file position corresponding to Put.Front
+           so RES_PUT_NEED_SPACE with Q_READING clear can unconditionally
+           be written to the file at the current file position */
+        break;
+
+=====================================================================
+Version 1.03.79 changes from 1.03.78 - April 10, 1998
+
+PICN9013, PICN9113 - OP_D2W, OP_W2D Wavelet pack/expand
+1.  Version 107IM library fixing problems packing large 9-16 bit images
+    with odd with.
+
+=====================================================================
+Version 1.03.78 changes from 1.03.77 - April 9, 1998
+
+PICN8013, PICN8413 - OP_D2F, OP_D2FPLUS
+1.  Added TIF G3/G4 compression writing.  The PIC_PARM.u.D2F.Compression
+    field is used for TIF images to set the desired Compression: 0 or 1
+    for uncompressed; 2 for Modified G3; 4 for G4.
+2.  Added NegateImage so the TIFF writer's algorithm for determining
+    whether the input DIB is WhiteIsZero or BlackIsZero can be reversed.
+    Otherwise, the TIFF writer assumes WhiteIsZero when the luminance
+    of color index 0 is greater than the luminance for color index 1.
+3.  Set PF_MultiImage in PIC_PARM.u.D2F.PicFlags to append the output TIFF
+    image to an existing TIFF file containing 0 or more images.  As an
+    optimization, the size of the TIFF file may be set as
+    PIC_PARM.u.D2F.MultiImageSize.  The size of the resulting TIFF file
+    with the new image appended is returned in u.D2F.MultiImageSize.
+
+    Data from the existing TIFF file is supplied to OP_D2F using the Put
+    queue.  The easiest way to do this is to have a Put queue which is
+    large enough for the complete result TIFF file.  Initialize the Put
+    queue as an empty queue.  Read the existing TIFF file into the Put
+    queue.  Set Put.Rear to the first byte following the existing TIFF
+    file.  Set Q_EOF in Put.QFlags as an optimization to avoid having
+    to set u.D2F.MultiImageSize and to avoid any RES_SEEK and
+    RES_PUTQ_GET_NEED_DATA (see below) responses from Pegasus().  
+    
+    Alternatively, a smaller Put queue may be used.  In that case, you
+    would respond to RES_PUTQ_GET_NEED_DATA responses by suppling the
+    queue with data starting at the current offset in the existing TIFF
+    file offset.  When RES_PUTQ_GET_NEED_DATA is returned, the Put queue
+    will always be empty.  When EOF is reached in the existing TIFF
+    file, set Q_EOF in Put.QFlags in addition to supplying the remainder
+    of the existing TIFF file data, if any.
+
+    When RES_PUT_NEED_SPACE is returned, the Q_IS_OUTPUT flag in Put.QFlags
+    is set or clear depending upon whether any Put queue data has been
+    changed by OP_D2F.  If Q_IS_OUTPUT is clear, and the corresponding
+    existing file data is still available from another location, then the
+    queue data could be discarded by simply setting Front to Rear.
+
+    When RES_PUT_NEED_SPACE is returned and when RES_PUTQ_GET_NEED_DATA
+    is returned, PIC_PARM.SeekInfo has the file offset in the result
+    TIFF file which corresponds to the data pointed to by Put.Front.
+    Note that SEEK_FILE is set indicating that the offset refers to
+    the Put queue.  Therefore the actual file offset is:
+    ( PIC_PARM.SeekInfo & SEEK_OFFSET ).
+
+
+PICN8113, PICN8513, PN8513LM - OP_F2D, OP_F2DPLUS
+1.  Added PIC_PARM.u.F2D.Compression to return the compression type
+    for the image.  Values are the same as the TIFF Compression tag
+    except G3-2D is returned as -3.
+
+MINERVA Version 1.00.56
+1.  Added TIFF Write options dialog to set G3/G4 writer options.
+2.  32-bit wasn't seeing accelerator key events (Alt-Enter, etc.)
+3.  Added TIFF compression type to TIFF Image Properties dialog.
+4.  On F2D Open, if "Use Image's Bits/Pixel and Colors" were unchecked,
+    the varions options weren't being used to open the image and
+    the options weren't being enabled.
+5.  Changed the operation timing to use the Pentium Time Stamp Counter
+    for 32-bit version running on a Pentium.  This can be disabled
+    by setting:
+    [Settings]
+    RDTSC=0
+    in MINERVA.INI or by passing -RDTSC on the Minerva command line.
+    It can be forced on for a CPU which doesn't look to Windows like
+    a Pentium by RDTSC=1 in MINERVA.INI or by passing +RDTSC on the
+    Minerva command line.  Forcing it on could GP on a CPU which doesn't
+    recognize the Pentium RDTSC instruction as valid.
+6.  Reading TIFF image number 2 or greater wasn't working correctly
+    unless all the images had the same height.
+
+=====================================================================
+Version 1.03.77 changes from 1.03.76 - March 31, 1998
+
+PICN13, PICN13D, PICW13, PICW13D, PN13LM, PN13LB - Dispatcher
+1.  PegasusQuery changed to report the number of images for
+    TIF files in PIC_PARM.u.QRY.NumImages.
+2.  PegasusQuery changed to report parameters for one TIF image
+    in a multi-image TIF file.  The image reported is the one
+    whose image number is PIC_PARM.ImageNumber.  If ImageNumber
+    is 0, the image reported is image number 1.
+2.  MSC 5.0 DLL's can now be loaded by the dispatcher.
+
+PICN8113, PICN8513, PN8513LM - Beta OP_F2D, OP_F2DPLUS
+1.  Raw fax (BI_G3, BI_G32D) wasn't supported.  if PIC_PARM.Head.
+    biCompression == BI_G3, a 1-D G3 image is expanded.  If BI_G32D,
+    a 2-D G3 image is expanded.  At RES_DONE, u.QRY.BiOut.biWidth/biHeight
+    has the width/height encountered.  Set u.F2D.RawG3FillOrder to
+    1 or 2 (0 is the same as 2) according as the fill order of the bits
+    within the image bytes corresponds to TIFF FillOrder 1 or 2.
+    Ordinarily a raw fax image will have a FillOrder of 2.  Set
+    u.F2D.RawG3PhotometricInterpretation to 1 if the image is negative.
+    The raw fax image is written top-down to the DIB buffer because
+    the image height isn't known.  This will make the resulting image
+    look inverted unless you reverse the lines.
+2.  Specifying ImageNumber > 1 wasn't working.
+
+MINERVA Version 1.00.55
+1.  Added # Images report to OP_F2D image properties.
+2.  Added Image Number edit field to OP_F2D Image Open dialog.
+
+=====================================================================
+Version 1.03.76 changes from 1.03.75 - March 30, 1998
+
+PICN1113, PICN1813, PN1813LM, PN1813LB - beta OP_S2D, OP_SE2D
+1.  Support for files whose components aren't interleaved.
+
+PICN13, PICN13D, PICW13, PICW13D, PN13LM, PN13LB - Dispatcher
+1.  PegasusQuery changed so that a bilevel TIF file missing a
+    PhotometricInterpretation tag is accepted.  The tag is defaulted
+    to WhiteIsZero.
+2.  MSC 5.0 DLL's can now be loaded by the dispatcher.
+
+PICN8113, PICN8513, PN8513LM - Beta OP_F2D, OP_F2DPLUS
+1.  G3/G4 speedup.
+2.  Multi-image TIFF supported.  Set PIC_PARM.ImageNumber to the
+    image number (1..N).  ImageNumber 0 and 1 both return the first image.
+3.  G4 now supports multi-strip images.  Previously the support was flawed.
+4.  Fixed GP on certain invalid TIFF-LZW images.
+5.  If the very first G4 code was Horizontal with a white run of 0,
+    a 512-byte white run was created in error.
+
+PICN4613, PICN4713, PN4713LM, PN4713LB, PICN6213, PICN6313 -
+    Beta OP_LIE3, OP_LIE3PLUS, OP_LIP3, OP_LIP3PLUS
+1.  Merged IMStar source.  PICN6?13 supports up to 16-bit lossless
+    JPEG expand and pack.  PICN4?13 supports up to 8-bit lossless
+    JPEG expand and pack only.  Both versions PPMD and LOCO support
+    is identical.
+2.  PICN6?13 use opcodes OP_LIP3PLUS and OP_LIE3PLUS.
+3.  PICN4?13 use opcodes OP_LIP3 and OP_LIE3.
+
+
+MINERVA Version 1.00.54
+1.  F2D leaked CtrlData on an open error.
+2.  Changes to support use of either OP_LIP3/OP_LIP3PLUS and OP_LIE3/
+    OP_LIE3PLUS depending upon which is present.
+
+Added:
+
+LIE3PNNW, LIP3PNNW - OP_LIP3PLUS, OP_LIE3PLUS command-line test programs
+
+=====================================================================
+Version 1.03.75 changes from 1.03.74 - March 20, 1998
+
+PICN2213, PICN2313 - OP_ROR, OP_RORE
+1.  Join added.
+
+PICN1313, PICN1513, PICN2113, PICN6213
+1.  Were being compiled with debug symbols.
+
+=====================================================================
+Version 1.03.74 changes from 1.03.73 - March 19, 1998
+
+PICN1313 - OP_P2D
+
+PICN6213, PICN6313 - alpha 1-16 bit lossless jpeg pack/expand
+1.  Significantly faster expand.
+2.  Supports application comments.
+
+=====================================================================
+Version 1.03.73 changes from 1.03.72 - March 12, 1998
+
+PICN9013.DLL - OP_D2W Wavelet
+1.  Chunk height set to be evenly divisible by
+    1 << ( Y.MaxTransformLevel + 1 ).
+
+PICN9113.DLL - OP_W2D Wavelet
+1.  Return gray scale palette for 8-bit gray scale images.
+
+MINERVA Version 1.00.53
+1.  Raw 16-bit wavelet images might return a negative biHeight.  All
+    references to this biHeight (MOPEN, MCHILD) where changed to labs().
+    Now 16-bit wavelet images can be displayed -- although since they are
+    displayed as 16-bit rgb, they are pretty garish and the high bit is
+    discarded.
+
+=====================================================================
+Version 1.03.72 changes from 1.03.71 - March 10, 1998
+
+PICN9013.DLL, PICN9113.DLL - OP_W2D, OP_D2W Wavelet
+1.  New library version.  Chunk width set to be evenly divisible
+    by 1 << ( Y.MaxTransformLevel + 1 ).
+
+=====================================================================
+Version 1.03.71 changes from 1.03.70 - March 10, 1998
+
+PICW13.DLL, PICW13D.DLL (PegasusQuery)
+1.  Was emitting debug trace messages when an opcode dll weren't found.
+
+PICN2213.DLL, PICN2213.SSM, PN2213LM.LIB - OP_ROR
+PICN2313.DLL, PICN2313.SSM, PN2313LM.LIB - OP_RORE
+1.  1.03.70 broke PIC2-format input
+
+PICN1413.DLL - OP_S2P
+1.  Comments were being output with APP2 marker instead of COM marker.
+
+MINERVA Version 1.00.52
+1.  All opens except sequential/progressive JPEG no offer a choice to
+    use the image settings for Bits/Pixel and Colors.  Not only is this
+    the usual choice, but it speeds up opens dramatically for images
+    with small Bits/Pixel (G3/G4 for example) where the color reduction
+    and pixel expansion can take seconds where the image expand itself
+    takes less than tenths of a second.
+
+=====================================================================
+Version 1.03.70 changes from 1.03.69 - March 6, 1998
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB (PegasusQuery)
+1.  VisualOrient for JPEG images is returned as:
+    a.  PIC2 VisualOrient packet if present
+    b.  PIC APP1 marker FileOrient ^ O_inverted otherwise.
+    This is a change for PIC1 files with a positive biHeight (PIC1 JPEG
+    stored bottom-up instead of the normal top-down)
+2.  1.03.58 fixed a problem where an IMStar PIC2 image could be recognized
+    as JPEG if the image data happened to contain an FF/D8.  In so doing,
+    it broke the return of height/width and other data for JPEG PIC2 images
+    with a cluster header packet (such as the output from ROR).
+
+PICN1113.SSM, PICN1113.DLL, PICN1813.SSM, PICN1813.DLL,
+PN1813LM.LIB, PN1813LB.LIB - OP_S2D and OP_SE2D
+1.  VisualOrient is returned as:
+    a.  PIC2 VisualOrient packet if present
+    b.  PIC APP1 marker FileOrient ^ O_inverted otherwise.
+    This is not a change for PIC1 files with a positive biHeight (PIC1 JPEG
+    stored bottom-up instead of the normal top-down).  It is a change for
+    all other files.
+
+
+PICN1313.DLL, PICN1313.SSM - OP_P2D
+1.  VisualOrient is returned as:
+    a.  PIC2 VisualOrient packet if present
+    b.  PIC APP1 marker FileOrient ^ O_inverted otherwise.
+    This is not a change for PIC1 files with a positive biHeight (PIC1 JPEG
+    stored bottom-up instead of the normal top-down).  It is a change for
+    all other files.
+
+PICN1013.DLL, PICN1013.SSM, PICN1213.DLL, PICN1213.SSM - OP_D2S, OP_D2SE
+1.  PIC APP1 marker FileOrient is set to VisualOrient ^ O_inverted.
+    This is a change for all files where a positive PIC_PARM.Head.biHeight
+    is input to Pegasus() indicating that the input DIB is top-down.
+2.  After the above change, the sign of the input PIC_PARM.Head.biHeight
+    is no longer significant.
+
+PICN1513.DLL, PICN1513.SSM - OP_D2J
+PICN1013.DLL, PICN1013.SSM, PICN1213.DLL, PICN1213.SSM - OP_D2S, OP_D2SE
+1.  PIC APP1 marker FileOrient is set to VisualOrient ^ O_inverted.
+    This is a change for all files where a positive PIC_PARM.Head.biHeight
+    is input to Pegasus() indicating that the input DIB is top-down.
+2.  After the above change, the sign of the input PIC_PARM.Head.biHeight
+    is no longer significant.
+
+PICN2213.DLL, PICN2213.SSM, PN2213LM.LIB - OP_ROR
+PICN2313.DLL, PICN2313.SSM, PN2313LM.LIB - OP_RORE
+1.  PIC APP1 Marker FileOrient is unconditionally set to O_inverted.  This
+    is a chnage to all files.
+2.  ROR now scans forward to find the JPEG FF/D8 SOI (start of image marker)
+    if necessary.  This corresponds to the JPEG expand change in 1.3.48
+
+
+MINERVA Version 1.00.51
+1.  Selecting multiple files in a drive's root directory in the File/Open
+    dialog didn't work.
+
+=====================================================================
+Version 1.03.69 changes from 1.03.68 - February 26, 1998
+
+PICN13.DLL, PICN13D.DLL
+1.  Added call to imports cleanup routine at DLL exit (not needed yet).
+
+PICW13.DLL, PICW13D.DLL
+1.  Compiled with structure packing set to 1-byte fixing GP following
+    adding of #pragma pack fixes in 1.03.60/1.03.63
+
+PN13LB.LIB
+1.  Took out attempt for borland to restore previous structure packing.
+    Now bmp.h, pic.h and pic2file.h set packing to 1 and don't attempt
+    to restore the previous value.
+
+MINERVA Version 1.00.50
+1.  1.03.68 version of Minerva 1.00.49 (version resource shows 1.00.48)
+    was inadvertently changed to include some debugging code which only
+    worked in 32-bit and GP'ed in 16 bit.
+
+=====================================================================
+Version 1.03.68, 66, 65, 64 changes from 1.03.63 - February 21, 1998 - internal
+
+PICN9013.DLL, PICN9113.DLL - OP_W2D, OP_D2W Wavelet
+
+=====================================================================
+Version 1.03.63 changes from 1.03.62 - February 18, 1998
+
+PIC2FILE.H
+1.  Changing PIC.H to restore pack settings in 1.03.60 broke
+    PIC2FILE.H include in Minerva as PIC2FILE.H structures
+    were no longer packed.
+
+PICN9013.DLL, PICN9113.DLL
+1.  Wavelet includes stride.
+
+=====================================================================
+Version 1.03.62 changes from 1.03.61 - February 18, 1998
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB
+1.  PegasusQuery now honors a PIC2 file region packet and allows
+    the PIC2 file to be a multi-image file, although it still only
+    reports on the first image.
+
+=====================================================================
+Version 1.03.61 changes from 1.03.60 - February 17, 1998
+
+PICN1313.DLL, PICN1313.SSM - OP_P2D
+1.  Allow images to have DHT (huffman table) markers with a marker
+    length of 2 (0-length huffman table)
+
+PICN2213.DLL, PICN2213.SSM, PN2213LM.LIB - OP_ROR
+PICN2313.DLL, PICN2313.SSM, PN2313LM.LIB - OP_RORE
+1.  Allow images to have DHT (huffman table) markers with a marker
+    length of 2 (0-length huffman table)
+
+=====================================================================
+Version 1.03.60 changes from 1.03.59 - February 13, 1998
+
+PIC.H, BMP.H
+1.  Changed to restore structure packing settings to previous setting
+    (Microsoft 32-bit, Watcom) or command-line setting (Microsoft 16-bit,
+    Borland).
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB
+1.  PegasusQuery was always returning -biHeight for a PIC1-format
+    JPEG, even if the PIC1 header had a positive biHeight indicating
+    a bottom up row ordering.
+1.  PegasusQuery was reporting bit depth incorrectly for lossless jpeg
+    JFIF images -- previously they were reported as number of components
+    * 8, now they are reported as number of components * precision
+
+MINERVA Version 1.00.49
+1.  Zoom dialog variables weren't long enough to hold dimensions > 999
+    including commas.
+
+PICN6213.DLL, PICN6313.DLL - alpha 1-16 bit lossless jpeg pack/expand
+
+=====================================================================
+Version 1.03.59 changes from 1.03.58 - February 6, 1998
+
+PICN9013.DLL, PICN9113.DLL
+1.  Correct a sometimes GP on application exit after loading a wavelet
+    image.
+
+=====================================================================
+Version 1.03.58 changes from 1.03.57 - February 2, 1998
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB
+1.  PegasusQuery might incorrectly identify an IMStar image compressed
+    using the continuous tone method as a Targa image.
+
+=====================================================================
+Version 1.03.57 changes from 1.03.56 - February 2, 1998
+
+PICN1013.DLL, PICN1013.SSM, PICN1213.DLL, PICN1213.SSM - OP_D2S, OP_D2SE
+1.  MMX optimizations added.
+2.  PIC_PARM.Head.biHeight needn't be known before starting.  If
+    PIC_PARM.Head.biHeight is set to 0, then OP_D2S compresses image
+    data as long as it is supplied.  When Q_EOF is or'ed into 
+    PIC_PARM.Get.QFlags, then OP_D2S compresses any remaining data
+    and returns the actual PIC_PARM.Head.biHeight.  RES_DONE is
+    returned with PIC_PARM.Status set to ERR_UNEXPECTED_EOF.  Since
+    the actual height must appear in the JPEG header data, and only if
+    the Put queue weren't large enough to hold all of the JPEG data, then
+    a RES_POKE response will be returned.  PIC_PARM.SeekInfo contains
+    the offset from the beginning of the output data.  PIC_PARM.Put.FrontEnd
+    has points to the start of the data to be poked at that offset.
+    The length of the data to be poked is PIC_PARM.Put.RearEnd -
+    PIC_PARM.Put.FrontEnd.  For example, if the JPEG data where being
+    written to a file, you would:
+
+    lseek(file, PicParm.SeekInfo, 0);
+    write(file, PicParm.Put.FrontEnd, PicParm.Put.RearEnd - PicParm.Put.FrontEnd);
+
+3.  The format for quantization table input is changed.  The new format
+    is described in PIC.H.  An example of text file input of quantization
+    table(s) is implemented in SAMPLES\D2S\JPACK.C.  A sample text file
+    quantization table is in SAMPLES\D2S\DQT.TXT
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL
+1.  PegasusLoad could cause a GP in NT 3.51 for an Opcode DLL which
+    was not compiled with Watcom.
+
+=====================================================================
+Version 1.03.56 changes from 1.03.55 - January 30, 1998
+
+PICW13.DLL, PICW13D.DLL
+1.  Look at environment directly for path instead of using c library
+    to save about 8K in PICW13.DLL by eliminating c library memory
+    management.
+
+=====================================================================
+Version 1.03.55 changes from 1.03.54 - January 29, 1998
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL
+1.  If the path to an opcode DLL were longer than about 115 characters
+    or so, it would be reported not found even though it were present.
+
+PICN9013.DLL - OP_D2W
+1.  The Qthr field in PIC_PARM.u.WAVE was a BYTE, but its value can
+    range from 0 to 1000.
+
+=====================================================================
+Version 1.03.54 changes from 1.03.53 - January 28, 1998
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB (PegasusQuery)
+1.  PegasusQuery now returns u.QRY.SubSampling for JPEG images and
+    returns u.QRY.LumFactor and u.QRY.ChromFactor for PIC JPEG images
+    (JPEG images with a PIC APP1 marker).  If it is a PIC JPEG image
+    then QBIT_PICJPEG is set in u.QRY.BitFlagsAck.  There were
+    sufficient data in the Get queue to set SubSampling, if height
+    and width were set so SubSampling has been set any time
+    QBIT_BIHEIGHT is set in u.QRY.BitFlagsAck.
+
+PICN9013.DLL - OP_D2W - Wavelet Pack Alpha is still at release 1.03.53
+PICN9113.DLL - OP_W2D - Wavelet Expand Alpha is still at release 1.03.53
+
+=====================================================================
+Version 1.03.53 changes from 1.03.52 - January 23, 1998
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL
+1.  PegasusLoad could cause a first chance exception access violation
+    which was handled by Kernel.
+
+PICN8513.DLL, PN8513LM.LIB - OP_F2DPLUS
+1.  GIF required a full-image Put queue even if transparency wasn't
+    being applied.
+
+F2DNNW.EXE, F2DPNNW.EXE - OP_F2D/PLUS command-line test programs added
+D2FNNW.EXE, D2FPNNW.EXE - OP_D2F/PLUS command-line test programs added
+PALNNW.EXE - OP_UTL/Subcode 1&2 command-line test program added
+SUB7NNW.EXE - OP_UTL/Subcode 7 command-line test program added
+SUB8NNW.EXE - OP_UTL/Subcode 8 command-line test program added
+
+=====================================================================
+Version 1.03.52 changes from 1.03.51 - January 16, 1998
+
+S2PNNW
+1.  Changed to use CURRENT_PARMVER instead of 11 so it finds
+    PICN1413.DLL instead of failing to find PICN1411.DLL.
+
+MINERVA Version 1.00.46
+1.  Stack overflow during zoom fixed by enlarging the stack to
+    16K.
+2.  Redefined assert() macro in MINERVA.H so there aren't as many
+    static strings in DGROUP in debug compile.
+
+=====================================================================
+Version 1.03.51 changes from 1.03.50 - January 15, 1998
+
+PICW13.DLL, PICW13D.DLL
+1.  Switched to Watcom 11.0a compiler at version 1.03.48 and broke
+    PICW 16-bit/32-bit pointer thunking.  Watcom 11.0a generates
+    incorrect code for 16:16 huge pointer addition and subtraction.
+
+=====================================================================
+Version 1.03.50 changes from 1.03.49 - January 12, 1998
+
+PICN1113.SSM, PICN1113.DLL, PICN1813.SSM, PICN1813.DLL,
+PN1813LM.LIB, PN1813LB.LIB - OP_S2D and OP_SE2D
+1.  Fix thumbnails with enhanced decompress off.
+
+=====================================================================
+Version 1.03.49 changes from 1.03.48 - January 8, 1998
+
+PICN1113.SSM, PICN1113.DLL, PICN1813.SSM, PICN1813.DLL,
+PN1813LM.LIB, PN1813LB.LIB - OP_S2D and OP_SE2D
+1.  Version 47 speedup could lock up on unlikely invalid images.
+
+=====================================================================
+Version 1.03.48 changes from 1.03.47 - January 7, 1998
+
+PICN1113.SSM, PICN1113.DLL, PICN1813.SSM, PICN1813.DLL,
+PN1813LM.LIB, PN1813LB.LIB - OP_S2D and OP_SE2D
+1.  Allow invalid JPEG images which have extra bytes preceding restart
+    markers and ERR_JUNK_BYTES_BEFORE_RESTART is returned (on RES_DONE
+    as this is not forced as an error).
+2.  ERR_JUNK_BYTES_IN_HEADER is returned (on RES_DONE as this is not
+    forced as an error) if the JPEG image didn't start with SOI
+    (see item 2. Version 47).
+3.  ERR_JUNK_BYTES_BEFORE_RESTART
+4.  PF_UsedMMX is returned if the MMX instruction set was recognized
+    and used on expand.
+
+=====================================================================
+Version 1.03.47 changes from 1.03.46 - January 6, 1998
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB, PN13LB.LIB
+        - PegasusQuery
+1.  If a buffer is not determined to be a BMP, JPEG, Targa, Tiff, GIF or
+    PCX image, then the data in the Get queue is scanned for a JPEG
+    SOI (0xff, 0xd8) and data from that point is evaluated to see if
+    it appears to be valid JPEG data.  If so, the image type is returned
+    as JPEG.  See also OP_S2D, OP_SE2D notes following.
+
+    Note: Since only the data in the Get queue is scanned, the length of
+    that data should be limited, for example less than 2K, in any application
+    where PegasusQuery might be used on many files which are not images.
+    One example might be an application which scans all the files on a disk
+    to develop a list of image files.
+
+PICN1113.SSM, PICN1113.DLL, PICN1813.SSM, PICN1813.DLL,
+PN1813LM.LIB, PN1813LB.LIB - OP_S2D and OP_SE2D
+1.  MMX version speed ups.
+2.  A buffer whose first two bytes are not JPEG SOI (0xff, 0xd8) is scanned
+    to find SOI.  Some JPEG writers prefix valid JPEG data with their own
+    header.  This change allows these files to be expanded.
+
+=====================================================================
+Version 1.03.46 changes from 1.03.45 - December 26, 1997
+
+PN85LM.LIB - OP_F2DPLUS convert image format to DIB
+1.  Turned off all MSC optimization fixing problem with group 4 fax.
+
+PICN8513.DLL, PICN8513.SSM - OP_F2DPLUS convert image format to DIB
+1.  Turned debug on for compile (still off for link) so certain
+    compile optimizations are turned off, fixing problem with
+    group 4 fax.
+
+
+PICN8113.DLL, PICN8113.SSM - OP_F2D convert image format to DIB
+1.  Turned debug on for compile (still off for link) so certain
+    compile optimizations are turned off, fixing problem with
+    group 4 fax.
+2.  Allow a differencing predictor (which really only has meaning
+    for LZW) so long as the predictor specified is "none".  Previously
+    it would error out unnecessarily since the predictor wasn't supported.
+
+
+=====================================================================
+Version 1.03.45 changes from 1.03.44
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB, PN13LB.LIB
+        - PegasusQuery
+1.  A buffer containing a protected PIC2 file which had been successfully
+    expanded by any opcode would no longer be reported as protected.
+
+PICN1113.SSM, PICN1113.DLL, PICN1813.SSM, PICN1813.DLL,
+PN1813LM.LIB, PN1813LB.LIB - OP_S2D and OP_SE2D
+PICN2313.DLL, PICN2313.SSM, PN2313LM.LIB - OP_RORE
+PICN4613.DLL, PICN4613.SSM - OP_LIE3
+PICN9113.DLL - OP_WAVE
+1.  After a buffer with a protected PIC2 file had been expanded, it
+    couldn't be re-expanded without being re-read from disk.
+
+MINERVA Version 1.00.46
+1.  If a protected PIC2 file were expanded with OP_S2D, OP_SE2D with
+    a Get queue smaller than the full image, Transform/Rotate/Enhance
+    couldn't be used on the window.
+2.  Compressing IMStar or Sequential JPEG images where the output image
+    were larger than the input and the Put queue were smaller than the
+    input image caused an unnecessary error.
+3.  Rotate/Enhance where the output image were larger than the input and
+    the Put queue were smaller than the input image caused an unnecessary
+    error.
+
+=====================================================================
+Version 1.03.44 changes from 1.03.43
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL - Dispatcher
+1.  Further changed to load opcode DLL's compiled with MSC as well
+    as Watcom C.
+
+MINERVA Version 1.00.45
+1.  Wavelet save options Default button would erase the legend 
+    describing the inverted image checkbox.
+
+=====================================================================
+Version 1.03.43 changes from 1.03.42 - October 21, 1997
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL - Dispatcher
+1.  Changed to load opcode DLL's compiled with MSC as well as Watcom C.
+
+=====================================================================
+Version 1.03.42 changes from 1.03.41 - October 16, 1997
+
+PICN2313.DLL, PICN2313.SSM, PN2313LM.LIB - OP_RORE
+1.  Was setting an incorrect protect flag bit in the cluster header
+    of a protected PIC2 output file.
+
+PICN1213.DLL, PICN1213.SSM - OP_D2SE
+1.  Was setting an incorrect protect flag bit in the cluster header
+    of a protected PIC2 output file.
+
+PICN4713.DLL, PICN4713.SSM, PN4713LM.LIB - OP_LIE3
+1.  Expanding a protected image whose Manifest File packet
+    length wasn't polished (still -1) would GP.
+
+PICN4613.DLL, PICN4613.SSM - OP_LIE3
+1.  The manifest file length was 8 bytes too small if the file were
+    protected and the full image fit in the Put queue.
+2.  ERR_BAD_WRITE was returned if Put.Rear == Put.End after RES_PUT_NEED_SPACE
+    even if Put.Front == Put.Rear.
+
+MINERVA Version 1.00.44
+1.  Fixed Save As to report an invalid path better.
+2.  Default Wavelet transform filters to b09.asc from c06.asc.
+3.  Wavelet quantization threshold ranges from 0 to 1000 instead of 0 to 100.
+
+MINERVA Version 1.00.43
+1.  Added alpha wavelet support.
+2.  An edit field invalid data error wasn't selecting the invalid data
+    as it set focus to the edit field.
+3.  Save IMStar had a memory leak.
+4.  Save IMStar wasn't putting a watermark in the image when it should.
+5.  Save IMStar wasn't RES_POKE'ing requested data so the PIC2 file
+    length and manifest file lengths weren't correctly set unless the
+    output buffer was large enough for the entire image.
+6.  Open IMStar could leak memory if the image couldn't be opened.
+7.  Setting an Open IMStar password would assert.
+8.  Each Open IMStar PIC2List packet was allocated 5 bytes smaller than
+    requested as a testing aid which I forgot to undo.
+
+Added:
+
+PICN9013.DLL - OP_D2W - Wavelet Pack Alpha
+PICN9113.DLL - OP_W2D - Wavelet Expand Alpha
+
+=====================================================================
+Version 1.03.41 changes from 1.03.40 - October 10, 1997
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB, PN13LB.LIB
+        - PegasusQuery
+1.  Changed so that any four-component JPEG is reported as BI_JPEG
+    and 32-bits per pixel.
+
+PICN1113.SSM, PICN1113.DLL, PICN1813.SSM, PICN1813.DLL,
+PN1813LM.LIB, PN1813LB.LIB - OP_S2D and OP_SE2D
+1.  Changed to deliver the complement of the version 1.03.40 value for
+    each component C, M, Y and K.
+
+=====================================================================
+Version 1.03.40 changes from 1.03.39 - October 9, 1997
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB, PN13LB.LIB
+        - PegasusQuery
+1.  Added support for detecting CMYK JPEG images.  Any four-component
+    JPEG is reported as BI_CMYK and 32-bits per pixel.
+
+PICN1113.SSM, PICN1113.DLL, PICN1813.SSM, PICN1813.DLL,
+PN1813LM.LIB, PN1813LB.LIB - OP_S2D and OP_SE2D
+1.  Added CYMK expand support.  Any four-component JPEG is expanded to a
+    32-bit DIB where each DIB pixel consists of one byte each of a C,
+    Y, M and K component.
+2.  Fixed a problem where certain combinations of crop offset and crop
+    width or height would GP.
+
+PN1313LB.LIB, PN4713LB.LIB, PN8213LB.LIB - Various Borland static libraries
+1.  Removed debug symbols and browse data
+
+PN1313LB.LIB
+1.  Changed MMX_Flag and ImaBigEndian symbols to xeMMX_Flag and
+    xeImaBigEndian to remove an innocuous symbol name conflict
+    with PN1813LB.LIB
+
+PN1313LB.LIB, PN1813LB.LIB, PN4713LB.LIB, PN8213LB.LIB
+1.  Renamed STKHQQ to STKHQQxx (xx = 13, 18, 47 or 82) to remove
+    symbol name conflicts.
+
+=====================================================================
+Version 1.03.39 changes from 1.03.38 - October 6, 1997
+
+MINERVA Version 1.00.42
+1.  Added OP_P2D Progressive JPEG expand support.
+2.  Borland compile was putting an incorrect signature in a palette file
+    created by Tools/Make Palette
+3.  Added file type legend to Properties dialog titles and Open Options
+    dialog titles.
+
+PN13LB.LIB - Borland static library dispatcher added
+1.  This library provides an approximate replacement for PICN13.DLL,
+    the opcode dispatcher DLL.  PN13LB.LIB is required by all opcode
+    libraries since it contains certain functions shared by all opcode
+    libraries.  Therefore it must always be linked to your application
+    in addition to an opcode static library.
+2.  PN13LB.LIB must be linked after all PIC opcode static libraries.
+3.  PegasusQuery() is present, but is linked only if referenced
+    by your executable.  Pegasus(), PegasusLoad() and PegasusUnload()
+    are present, but all are linked only if any one of them is referenced
+    by your executable.  They may be referenced by your application
+    exactly as though you were using opcode DLL's.  Thus you can postpone
+    until link time the decision as to whether to use static libraries
+    or DLL's.
+4.  In an application where the additional 1K of executable size is
+    important, Pegasus() can be bypassed for opcode XX by calling a
+    function named PegasusXX, replacing XX by the decimal number (00-99)
+    associated with the opcode.  For example, to bypass Pegasus() when
+    calling OP_SE2D, call Pegasus18() in PN1813LB.LIB.
+5.  Presently, your application should either use PIC opcode static
+    libraries or PIC opcode DLL's.  However, to use both static libraries
+    and DLL's, link to PICN.LIB before linking to PN13LM.LIB and call the
+    static lib opcodes as described in 4 above (PegasusXX).
+
+Added:
+PN13LB.LIB   - Borland static library dispatcher (see above)
+PN1313LB.LIB - OP_P2D Borland static library (progressive JPEG expand)
+PN1813LB.LIB - OP_SE2D Borland static library (sequential enhanced JPEG
+               expand)
+PN4713LB.LIB - OP_LIE3 Borland static library (IMStar and Lossless JPEG
+               expand)
+PN8213LB.LIB - OP_UTL Borland static library (color conversion utility)
+
+=====================================================================
+Version 1.03.38 changes from 1.03.37 - September 29, 1997
+
+DOC\GUIDE.DOC
+1.  Updated to describe use of PIC2List for setting, retrieving comments,
+    application data, watermarks and scripts -- currently only for OP_LIE3
+    and OP_LIP3.
+
+DOC\PROGREF.DOC
+1.  Updated to describe OP_LIP3 and OP_LIE3, lossless IMStar compression
+    and expansion.
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB - PegasusQuery
+1.  Was returning QBIT_PALETTE for a JPEG image with a version 3 PIC APP1
+    marker even if there were no colors in the palette.
+
+PICN4713.DLL, PICN4713.SSM, PN4713LM.LIB - OP_LIE3
+1.  A non-zero AllowedBitErr was allowed expanding a lossless
+    JPEG image, although it is inappropriate in that case and
+    would result in invalid brightness levels.
+2.  Set PF_IsTransparency if no LossLess packet is present or
+    if u.LL3.Transparent is not -1.
+
+PICN4613.DLL, PICN4613.SSM - OP_LIE3
+1.  If a LossLess packet is written, set the transparency index
+    in the packet to -1 unless PF_HaveTransparency is set.
+2.  GP if PF_HaveWatermark were set for a gray scale image, but no
+    P2P_Watermark packet were supplied in PIC2List.
+
+=====================================================================
+Version 1.03.37 changes from 1.03.36
+
+MINERVA Version 1.00.41
+1.  IMStar properties truncated "PIC2 Continuous Tone" compression
+    method.
+
+PN4713LM.LIB - OP_LIE3
+1.  Redefined an unnecessarily public symbol as a local symbol to
+    remove a name conflict with PN1813LM.LIB.
+
+PN4513LM.LIB - OP_LIE
+1.  Changed a number of public symbol names to remove conflicts with
+    PN4713LM.LIB's names.
+
+=====================================================================
+Version 1.03.36 changes from 1.03.35
+
+MINERVA Version 1.00.40
+1.  Fixed GP in Win 3.x in MINERVML.EXE About dialog box.
+2.  Changed IMStar Save Options dialog box compression type legends.
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB - PegasusQuery
+1.  PegasusQuery returns Head.biCompression == BI_JPGL for standard
+    Lossless JPEG images.
+
+PICN2213.DLL, PICN2213.SSM, PN2213LM.LIB - OP_ROR
+PICN2313.DLL, PICN2313.SSM, PN2313LM.LIB - OP_RORE
+1.  JFIF APPA..APPF markers would have been returned as RawData "APP:"..
+    "APP?" markers.
+
+PICN4613.DLL, PICN4613.SSM - OP_LIP3
+1.  u.LL3.CritMass1..u.LL3.CritMass4 and u.LL3.InitOpCt have been removed
+    and replaced with u.LL3.PTuning. PTuning should currently be set to
+    0 for default compression tuning parameters. In future releases,
+    additional PTuning values may be provided.
+2.  ParmVerMinor must be 2 or greater.  ParmVerMinor = 2 enables PIC2List
+    behavior for supplying data to be embedded data such as comment(s),
+    application data, watermark(s) and/or script(s). See the description
+    of PIC2List behavior at the end of this Version 1.03.36 section.
+
+PICN4713.DLL, PICN4713.SSM, PN4713LM.LIB - OP_LIE3
+1.  u.LL3.CritMass1.u.LL3.CritMass4 and u.LL3.InitOpCt have been removed
+    and replaced with u.LL3.PTuning.  The PTuning value returned is the
+    value which was specified when the image was created.
+2.  ParmVerMinor must be 2 or greater.  ParmVerMinor = 2 enables PIC2List
+    behavior for returning embedded data such as comment(s), application
+    data, watermark(s) and/or script(s).  See the description of PIC2List
+    behavior at the end of this Version 1.03.36 section.
+3.  OP_LIE3 will now expand a standard Lossless JPEG file (as distinct
+    from OP_LIP3 Lossless JPEG compression in PIC2 file format which
+    OP_LIE3 also expands).  When expanding standard Lossless JPEG,
+    Q_REVERSE and reversed queue behavior (e.g. initially setting
+    Put.Front and Put.Rear to Put.End) are required so the DIB is
+    correctly oriented.  This is because a standard Lossless JPEG
+    image is oriented top-down and DIB's are oriented bottom-up.
+
+MINERVA Version 1.00.39
+1.  Changes in support of IMStar version 1.03.36.
+
+Added:
+PIC2FILE.H - PIC2 file packet definitions for PIC2List and PIC2 files
+PN4713LM.LIB - OP_LIE3 MS static library
+LIE3LNM.EXE - OP_LIE3 command-line test program using MS static library
+
+Removed:
+PICN4413.DLL, PICN4413.SSM - OP_LIP DLL's replaced by OP_LIP3 DLL's
+    (PICN4613.DLL, PICN4613.SSM)
+LIENNW.EXE, LIEWWW.EXE, LIELNM.EXE - OP_LIE command-line test programs
+    replaced by OP_LIE3 command-line test programs (LIE3NNW.EXE,
+    LIE3LNM.EXE)
+LIPNNW.EXE, LIPWWW.EXE - OP_LIP command-line test programs replaced
+    by OP_LIP3 command-line test program (LIP3NNW.EXE)
+
+.....................................................................
+
+PIC2List behavior:
+
+See SAMPLES\MINERVA\MOIMSTAR.C, SAMPLES\MINERVA\MSIMSTAR.C,
+SAMPLES\LIE3\LIETEST.C and SAMPLES\LIP3\LIPTEST.C for source code
+examples of PIC2List behavior.
+
+PIC2List, PIC2ListLen and PIC2ListSize replace the Comment, CommentLen
+and CommentSize fields of PIC_PARM respectively.  PIC2List points to a
+buffer which has one or more PIC2 data packets.  Each packet immediately
+follows the preceding packet.  A binary null EOF BYTE follows the last
+packet.  Each packet consists of a BYTE Type, followed by a DWORD Length,
+followed by Length BYTE's of data whose structure depends upon the type
+of packet.  See PIC2FILE.H in INCLUDE for a list of supported packet types
+and packet data structure layouts.  
+
+For IMStar images (OP_LIE3/OP_LIP3), the relevant packet types are:
+
+P2P_Script      (type 2)        /* .Script is ASCIIZ - syntax is reserved */
+P2P_Comment     (type 22)       /* .Comment is ASCIIZ */
+P2P_RawData     (type 23)       /* .RawDescription is "APPL"
+                                   .RawLength is length of application data
+                                   .RawData has any format */
+P2P_Watermark   (type 24)       /* .Watermark is ASCIIZ */
+
+Except for P2P_Watermark, the PIC2List may have multiple packets of a
+given type and the packets may occur in any order.  Packets of a given
+type will be returned from OP_LIE3 in the same order they were presented
+to OP_LIP3.
+
+
+OP_LIP3:
+
+PIC2ListLen is set to the total length of the PIC2List buffer
+including a binary null EOF BYTE following the last packet. 
+PIC2ListSize does not have to be set.  If multiple P2P_Watermark
+packets are present in the PIC2List buffer, only the last packet is
+used for the image watermark.  Preceding P2P_Watermark packets, if
+any, are output as P2P_Watermark packets, but are not used for the
+image watermark.  The last P2P_Watermark packet is not output as a
+P2P_Watermark packet.
+
+Otherwise all packets present in PIC2List are included in the image,
+even packets whose type is invalid or whose type is probably be
+inappropriate (such as manifest file or color palette).  For OP_LIP3,
+it is recommended that the packet types be limited to the P2P_Script,
+P2P_Watermark, P2P_Comment and P2P_RawData types.
+
+
+OP_LIE3:
+
+If PIC2ListSize is set to 0, then no PIC2List packets will be
+returned and no buffer need be allocated for PIC2List.
+
+If PIC2ListSize is set to -1, then you do not need to allocate a
+PIC2List buffer during PIC_PARM initialization, but PIC2List packets
+can still be returned.  You will receive a RES_EXTEND_PIC2LIST
+response from Pegasus() when data is encountered which is
+appropriately returned in a PIC2List packet.  PacketType has the
+packet type for the data so you can decide whether or not you care
+about the packet.  When you receive a RES_EXTEND_PIC2LIST response,
+PIC2ListLen holds the total length required for PIC2List to be large
+enough to hold the entire packet.  If a smaller buffer is
+(re)allocated, then the new packet's data is truncated and the
+packet's length is adjusted to reflect the new, truncated length.  On
+Pegasus(REQ_CONT) after RES_EXTEND_PIC2LIST, If PIC2LisSize is too
+small for at least the packet BYTE Type plus the packet DWORD Length,
+then none of the packet is returned.  If data is subsequently
+encountered, another RES_EXTEND_PIC2LIST response is returned from
+Pegasus().
+
+Otherwise if you allocate a PIC2List buffer during PIC_PARM 
+initialization, then PIC2ListSize is set to the allocated size of the
+PIC2List buffer.  You will receive a RES_EXTEND_PIC2LIST response
+from Pegasus() only if data is encountered which will not fit in the
+then unused portion of PIC2List.  At that time PIC2ListLen contains
+the new total length required for PIC2List to be large enough to hold
+the entire packet.
+
+=====================================================================
+Version 1.03.35 changes from 1.03.34
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB - PegasusQuery
+1.  PegasusQuery was returning an incorrect type for protected PIC2 JPEG
+    files -- BI_PICJ instead of BI_PC2E for example.
+
+PICN4613.DLL, PICN4613.SSM - OP_LIP3 Beta
+1.  Fixed PPMD GP most likely to occur for order 1, least likely for
+    order 3 and not at all for order 4.
+
+MINERVA Version 1.00.38
+1.  GIF options were displayed for F2D Image Options even for non-GIF.
+2.  IMStar with no comment and no overtext would still put a 1-byte null
+    comment in the output.
+3.  If the input DIB were small enough that the compressed output were
+    actually larger than the input, then the Put buffer wasn't being
+    extended correctly for Save IMStar and Save Sequential JPEG.
+        
+=====================================================================
+Version 1.03.34 changes from 1.03.33
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB - PegasusQuery
+1.  PegasusQuery wasn't returning the orientation (or PF_IsProtected)
+    properly for IMStar images.
+2.  PegasusQuery was returning TRUE for PIC2 images even if they were
+    detectably incorrect, so long as the PIC2 signature were present.
+    In that case PegasusQuery set Status to an error value, but there
+    would be no reason to check it because TRUE had been returned.
+
+PICN4613.DLL, PICN4613.SSM, PICN4713.DLL, PICN4713.SSM, OP_LIE3, OP_LIP3 Beta
+1.  OP_LIP3 placed OverText string into PIC2 file as a Comment packet instead
+    of as an OverText packet.
+2.  Return input file CritMass1..CritMass4 and InitOpCt settings from OP_LIE3.
+
+MINERVA Version 1.00.37
+1.  Add additional PPMD-Version 3 properties and Other Options
+    properties to Open IMStar properties dialog.
+2.  Add Save IMStar.
+3.  Open F2D using embedded palette allowed bit depths greater than
+    the source bit depth.  Now it just allows bit depths equal to the
+    source bit depth.
+
+=====================================================================
+Version 1.03.33 changes from 1.03.32
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL, PN13LM.LIB - PegasusQuery
+1.  PegasusQuery now returns the lossless image version in PicVer.
+
+PICN4613.DLL, PICN4613.SSM, PICN4713.DLL, PICN4713.SSM, OP_LIE3, OP_LIP3 Beta
+1.  Packing or expanding using PPMD compression method could GP.
+
+MINERVA Version 1.00.36
+1.  Uses lossless image version to select between PICN4513.DLL and
+    PICN4713.DLL so all lossless image versions can be expanded.
+2.  Open IMStar using embedded palette allowed bit depths greater than
+    the source bit depth.  Now it just allows bit depths equal to the
+    source bit depth.
+
+=====================================================================
+Version 1.03.32 Beta changes from 1.03.31
+
+MINERVA Version 1.00.35
+1.  Open IMStar changed to use OP_LIE3.
+
+PICN4613.DLL, PICN4613.SSM - OP_LIP3 DLL added using LOSSLESS3 structure
+PICN4713.DLL, PICN4713.SSM - OP_LIE3 DLL added using LOSSLESS3 structure
+LIP3NNW.EXE - OP_LIP3 NT command-line test program added
+LIE3NNW.EXE - OP_LIE3 NT command-line test program added
+
+=====================================================================
+Version 1.03.31 changes from 1.03.30
+
+PICN2213.DLL, PICN2213.SSM, PN2213LM.LIB - OP_ROR
+PICN2313.DLL, PICN2313.SSM, PN2313LM.LIB - OP_RORE
+1.  Added protected JFIF output.  If the input image is not a JFIF
+    format image, and the output image is to be protected, then a
+    JFIF header is added to the output image.
+2.  Removed the ability to strip the JFIF header APP0 marker segment
+    if present in the input image and if an output JFIF image is to
+    be protected.
+3.  Insert a PIC/APP1 marker segment into a JFIF output image if the
+    input image doesn't have a PIC/APP1 marker segment, unless the
+    PIC/APP1 marker is to be stripped according to u.ROR.AppsToKeep.
+4.  If the output format is JFIF and an non-null OutputKeyField (any
+    byte non-null) is specified and u.ROR.AppsToKeep specifies that
+    the PIC/APP1 marker is to be stripped, then ERR_CONFLICTING_REQUEST
+    is returned.
+5.  Applying OP_ROR or OP_RORE to a protected PIC2 file could GP if
+    the Get queue were smaller than the image.
+
+PICN1113.DLL, PICN1113.SSM - OP_S2D
+PICN1813.DLL, PICN1813.SSM, PN1813LM.LIB - OP_SE2D
+1.  AppField data was stored in a PIC2 file as an APP2 RawData packet
+    but expand was looking for an APP RawData packet.
+2.  Expanding a protected PIC2 file could GP if the Get queue were
+    smaller than the image.
+
+MINERVA Version 1.00.34
+1.  Open IMStar Image Properties implemented.
+2.  Fixed delayed image refresh following timing dialog dependent upon
+    image options.
+3.  Properties dialogs would display an 8-character filename with 
+    a 3-character extension as C:\DIR\...ENAME.EXT rather than
+    C:\...\FILENAME.EXT.
+
+PICN1413.DLL, PICN1413.SSM - OP_S2P DLL added
+S2PDDW.EXE - OP_S2P DOS/4GW command-line test program added
+S2PNNW.EXE - OP_S2P NT command-line test program added
+PICN1613.DLL, PICN1613.SSM - OP_P2S DLL added
+P2SDDW.EXE - OP_P2S DOS/4GW command-line test program added
+P2SNNW.EXE - OP_P2S NT command-line test program added
+
+=====================================================================
+Version 1.03.30 changes from 1.03.29
+
+PICN13.DLL, PICW13.DLL PICN13D.DLL, PICW13D.DLL, PN13LM.LIB - PegasusQuery
+1.  PIC_PARM.Head.biHeight is now > 0 for PIC2 IMStar images since their
+    orientation is the same as DIB.
+2.  PIC_PARM.Head.biHeight is now < 0 for PIC2 JPEG images whether or not
+    they are protected, whether or not biHeight has been incorrectly stored
+    negated in the PIC2 BITMAPINFOHEADER packet.
+3.  PICUnion=On in PDEBUG.INI wasn't being honored for OP_D2SE.
+
+PICN1013.DLL, PICN1013.SSM, PICN1213.DLL, PICN1213.SSM - OP_D2S, OP_D2SE
+1.  For a protected PIC2 output image, biHeight was stored in a PIC2
+    BITMAPINFOHEADER packet exactly as it were passed to OP_D2S(E) in
+    PIC_PARM.Head.  If < 0 in PIC_PARM.Head, it was therefore incorrectly
+    < 0 in the PIC2 packet.
+2.  If PIC_PARM.Head.biClrUsed is 0 for a <= 8 bit input image, it is
+    set to the correct number of colors according to the bit depth.
+    Then if biClrImportant is 0, it is set to biClrUsed.  This corrects
+    a problem where an invalid PIC2 output image resulted if the input
+    bit depth were <= 8 and biClrImportant were left as 0.
+
+MINERVA Version 1.00.33
+1.  Open IMStar implemented except for Image/Properties.
+2.  Save Sequential JPEG changed to set Head.biHeight to its absolute
+    value to pass to OP_D2S.  Previously the code assumed that the
+    BMP PIC_PARM had left biHeight negative so that negating it for
+    OP_D2S was the same as the absolute value.
+
+=====================================================================
+Version 1.03.29 changes from 1.03.28
+
+PICN2213.DLL, PICN2213.SSM, PN2213LM.LIB - OP_ROR
+PICN2313.DLL, PICN2313.SSM, PN2313LM.LIB - OP_RORE
+1.  Add the ability to add a comment to the output, while still
+    retaining or deleting comments from the input image.  If
+    PIC_PARM.CommentLen is not 0 and PIC_PARM.Comment is not 0
+    then the comment pointed to by PIC_PARM.Comment and whose
+    length is PIC_PARM.CommentLen is added to the output image.
+
+MINERVA Version 1.00.32
+1.  Support OP_ROR, OP_RORE feature to add a comment to the output.
+2.  Modified Sequential JPEG open so that multiple image comments are
+    displayed in the properties dialog if present.
+
+=====================================================================
+Version 1.03.28 changes from 1.03.27
+
+PICN8213.SSM, PICN8213.DLL, PN8213LM.LIB - OP_UTL
+1.  Return the actual number of colors from subcodes 2 and 7.
+
+MINERVA Version 1.00.31
+1.  Disallow PIC2 output from OP_ROR (allow for OP_RORE only).
+2.  If PICN2313 weren't present, and PICN2213 were present, then
+    File/Transform/Rotate would GP.
+3.  Save/As GIF would display the wrong error message if the input
+    image bit depth weren't 1, 4 or 8.
+4.  Display some internal error messages on various unexpected conditions
+    if the file type changes in the Save As dialog box.
+5.  A Save Options dialog box title contained the name of the input
+    file rather than the output file name.
+
+=====================================================================
+Version 1.03.27 changes from 1.03.26
+
+PICN1813.DLL, PICN1813.SSM, PN1813LM.LIB - OP_SE2D
+1.  Blocky result for Els-coded image on non-MMX machine if
+    cross-block smoothing is off.
+
+PICN2313.DLL, PICN2313.SSM, PN2313LM.LIB - OP_RORE - Enhanced OP_ROR
+1.  GP if PIC2 output and input has a color table and output sets
+    u.ROR.KeepColors.
+2.  PIC2 output file would be protected with a garbage password
+    if u.ROR.KeyField[x] != 0 for any x -- even if u.ROR.KeyField[0]
+    == 0.  u.ROR.KeyField[0] == 0 means the PIC2 output is not to
+    be protected.
+
+ROREDDW.EXE - OP_RORE command-line test program
+1.  Was allowing ELS-coded, JT_RAW output.
+
+MINERVA Version 1.00.30
+1.  Support Transform\Rotate and Trasform\Rotate/Enhanced menu
+    selections using OP_ROR and OP_RORE opcodes respectively.
+
+=====================================================================
+Version 1.03.26 changes from 1.03.25
+
+PICN13D.DLL, PICW13D.DLL - Debug Dispatcher
+1.  SeekInfo is now reported correctly in the debug trace.
+
+PICW13.DLL
+1.  Now optimized for size (5K smaller).
+
+PICN2313.DLL, PICN2313.SSM - OP_RORE - Enhanced OP_ROR
+1.  Allows PIC2 output.
+2.  Allows the PIC2 file to be protected with a different password
+    from that used to protect the input file.
+
+MINERVA Version 1.00.29
+1.  Changing the Save As file type now changes the file extension
+    to match the new file type.
+2.  Windows Bitmap (*.BMP) now shows as a File/Open type even if
+    both PICN8113.DLL and PICN8513.DLL are present.
+3.  Cleaned up some BoundsChecker errors and some Borland compile
+    warnings.
+4.  File/Defaults/Transform/Rotate options dialog implemented
+    (although the Rotate transform itself isn't actually implemented
+    yet).
+
+=====================================================================
+Version 1.03.25 changes from 1.03.24
+
+PICN13.DLL, PICW13.DLL PICN13D.DLL, PICW13D.DLL, PN13LM.LIB - PegasusQuery
+1.  PIC_PARM.Head.biHeight is now < 0 for PIC2 images when appropriate, even
+    if the image is protected.
+
+PICN2313.DLL, PICN2313.SSM - OP_RORE - Enhanced OP_ROR
+1.  Added OP_RORE enhanced OP_ROR.  This opcode will additionally 
+    requantize an image to increase compression ratio with little
+    or no loss in image quality.  A later version of OP_RORE will
+    allow ELS-coded JPEG output to PIC2-format files, regardless
+    of whether the input JPEG were Huffman-coded or ELS-coded and
+    regardless of the input file format.  See the RORTEST.C file
+    and PIC.H in INCLUDE\ in SAMPLES\ROR for information about
+    accessing these new features.
+
+PICN1013.DLL, PICN1013.SSM, PICN1213.DLL, PICN1213.SSM - OP_D2S, OP_D2SE
+1.  PIC_PARM.PercentDone was counting down from 100 instead of counting
+    up to 100.
+
+PICN1313.DLL, PICN1313.SSM - OP_P2D
+1.  Enhanced with MMX optimizations
+
+PN4513LM.LIB - OP_LIE library
+1.  Change the definition of CurrentReserved so OP_LIE library can be
+    linked to an application which also requres OP_SE2D.
+
+Minerva Version 1.00.28
+1.  Change handling of multiple comments in open sequential jpeg.
+    Now it allows the image to be opened and warns, for each comment
+    after the first, that only the last comment will be reported in
+    the properties dialog.  A later version will display all the
+    comments if there are more than one.
+
+PICN2313.DLL, PICN2313.SSM - OP_RORE DLL added
+PN2213LM.LIB - OP_ROR Microsoft static library added
+PN2313LM.LIB - OP_RORE Microsoft static library added
+RORNLM.EXE   - OP_ROR command-line test program using PN2213LM.LIB added
+RORENLM.EXE  - OP_RORE command-line test program using PN2313LM.LIB added
+P2DNNW.EXE   - OP_P2D command-line test program using PICN1313.DLL added
+P2DLNM.EXE   - OP_P2D command-line test program using PN1313LM.LIB added
+XETST*.EXE   - renamed to P2D*.EXE
+SAMPLES\ROR  - source/make for RORNLM.EXE, RORENLM.EXE added
+SAMPLES\P2D  - source/make for P2DNNW.EXE, P2DLNM.EXE added
+
+=====================================================================
+Version 1.03.24 changes from 1.03.23
+
+PICN2213.SMM, PICN2213.DLL - Rotate JPEG to JPEG
+1.  O_r270 and O_r90_in could GP if the image width weren't evenly
+    divisible by a block size (ordinarily 8, sometimes 16).
+
+=====================================================================
+Version 1.03.23 changes from 1.03.22
+
+PICN13.DLL, PICW13.DLL PICN13D.DLL, PICW13D.DLL, PN13LM.LIB - PegasusQuery
+1.  QBIT_BICLRIMPORTANT is now set for GIF images.
+
+PN1313LM.LIB - OP_P2D Microsoft static library added
+XETSTLNM.EXE - OP_P2D command-line test program using PN1313LM.LIB
+SAMPLES\XETSTLNM - source/make for XETSTLNM.EXE
+
+=====================================================================
+Version 1.03.22 changes from 1.03.21
+
+PICN13D.DLL, PICW13D.DLL - Debug Dispatcher
+1.  Updated to include newer opcodes, newer PIC_PARM reserved area
+    definition and newer error codes.
+2.  A pointer was being allocated using the Watcom library strdup
+    and freed using GlobalFreePtr (GlobalHandle and GlobalFree)
+    resulting in a diagnostic in NT.
+
+=====================================================================
+Version 1.03.21 changes from 1.03.20
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL - PegasusQuery()
+1.  Any image format except PIC2 might intermittently be reported as
+    ERR_BAD_DATA even though the image were valid.  Before the correction,
+    if the first 4 bytes of the image are not 'PIC2' and the 4 bytes
+    preceding PIC_PARM->Get.Front are 0, the image will be incorrectly
+    identified as having a PIC2 signature, but will fail subsequent PIC2
+    validity checks, returning ERR_BAD_DATA.
+
+=====================================================================
+Version 1.03.20 changes from 1.03.19
+
+MINERVA 1.00.27
+1.  MOUTIL81.C was honoring PF_ApplyTransparency even if the input
+    image weren't a GIF.  The effect was to fill the DIB with a pattern.
+    The problem was if the DIB wasn't 8-bits-per-pixel because the
+    fill assumed 8 bits per pixel and overran the DIB buffer.
+
+PICN4413.SSM, PICN4413.DLL - OP_LIP
+1.  If BITMAPFILEHEADER.bfSize and/or BITMAPFILEHEADER.bfOffBits
+    were incorrect, OP_LIP might GP or might enter a RES_GET_NEED_DATA
+    loop instead of returning ERR_UNEXPECTED_EOF.
+
+PICN8213.SSM, PICN8213.DLL - OP_UTL
+1.  There was a 1 in 4 chance that the Green and Red components for
+    the maximum color index would be copied incorrectly to ColorTable.
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL - PegasusQuery()
+1.  A Version 2.5 PCX image was incorrectly reported as a Type 1
+    Targa image with no color table and 0 biBitCount.
+
+=====================================================================
+Static LIB's version 1.03.19
+
+MINERVA 1.00.26 (MINERMSL.EXE == Minerm32 using Microsoft static libs)
+1.  The provided MINERMSL.MAK file uses the PN1813LM.LIB (OP_SE2D)
+    library only.  Insert any other Microsoft opcode static libraries
+    in the Microsoft IDE Project/Settings/Link options tab to add
+    additional opcode capability to Minerva.
+
+PN13LM.LIB
+1.  This library provides an approximate replacement for PICN13.DLL,
+    the opcode dispatcher DLL.  PN13LM.LIB is required by all opcode
+    libraries since it contains certain functions shared by all opcode
+    libraries.  Therefore it must always be linked to your application
+    in addition to an opcode static library.
+3.  PegasusQuery() is present, but is linked only if referenced
+    by your executable.  Pegasus(), PegasusLoad() and PegasusUnload()
+    are present, but all are linked only if any one of them is referenced
+    by your executable.  They may be referenced by your application
+    exactly as though you were using opcode DLL's.  Thus you can postpone
+    until link time the decision as to whether to use static libraries
+    or DLL's.
+4.  In an application where the additional 1K of executable size is
+    important, Pegasus() can be bypassed for opcode XX by calling a
+    function named PegasusXX, replacing XX by the decimal number (00-99)
+    associated with the opcode.  For example, to bypass Pegasus() when
+    calling OP_SE2D, call Pegasus18() in PN1813LM.LIB.
+5.  Presently, your application should either use PIC opcode static
+    libraries or PIC opcode DLL's.  However, to use both static libraries
+    and DLL's, link to PICN.LIB before linking to PN13LM.LIB and call the
+    static lib opcodes as described in 4 above (PegasusXX).
+6.  Except for 5 above, the link order of opcode libraries and PN13LM.LIB
+    is not important.
+
+PN1813LM.LIB - OP_SE2D library
+PN4513LM.LIB - OP_LIE library
+PN8213LM.LIB - OP_UTL library
+PN8413LM.LIB - OP_D2FPLUS library
+PN8513LM.LIB - OP_F2DPLUS library
+
+=====================================================================
+Version 1.03.19 changes from 1.03.18
+
+MINERVA 1.00.26
+1.  Added support for PICN8413 OP_D2FPLUS.  If PICN8413 is present, it
+    is used in place of PICN8013.DLL.  Otherwise, if PICN8013.DLL is
+    present, it is used.  Otherwise the OP_D2F input image formats are
+    not available.
+2.  GIF output has an options dialog allowing the output image to be
+    interlaced and allowing a transparent color index to be enabled
+    and specified.
+3.  Added a GIF image options dialog so that transparency can be
+    explicitly shown or not.
+
+PICN8413.DLL, PICN8413.SSM - OP_D2FPLUS convert DIB to image format
+1.  PICN8413 converts DIB's to all image formats exactly the same as PIC8013.
+2.  PICN8413 adds support for GIF images.
+3.  The output GIF image is interlaced if PIC_PARM.u.D2F.ImageType ==
+    BI_GIFI, otherwise it is not interlaced.
+4.  The output GIF image bit depth is the smallest bit depth large enough
+    to represent the input DIB's PIC_PARM.Head.biClrImportant. Thus, if the
+    input DIB is 8 bits-per-pixel and its biClrImportant is 32, then the
+    output GIF image will be 5 bits-per-pixel. Because the GIF format
+    supports at most 8 bits-per-pixel, the input DIB can only be 1, 4 or 8
+    bits-per-pixel.
+5.  If PF_ApplyTransparency is set in PIC_PARM.u.D2F.PicFlags, then
+    PIC_PARM.u.D2F.TransparentColorIndex is considered to be the
+    color table index of the transparent color.
+6.  If PIC_PARM.Comment points to a buffer of PIC_PARM.CommentLen bytes,
+    then a GIF89a comment extension block is output containing the comment.
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL - PegasusQuery()
+1.  GIF was returning positive biHeight.
+2.  GIF wasn't returning the global color table if present and accessible.
+3.  GIF wasn't returning biClrImportant (now returned == biClrUsed).
+4.  GIF wasn't returning Transparency status.  Now returns
+    PF_IsTransparency in PIC_PARM.u.QRY.PicFlags if there is a
+    transparent color.
+
+PICN8513.DLL, PICN8513.SSM - OP_F2DPLUS convert image format to DIB
+1.  AUXCODES.H was added to the include directory.
+2.  Extension blocks are returned as AUX_GIF_* blocks.  See AUXCODES.H
+    for the AUX_GIF_* values.  The entire extension block is returned
+    including the extension introducer (0x21), the extension label and
+    the extension terminator sub-block.
+3.  The transparent color index, if any, is returned in
+    PIC_PARM.u.F2D.TransparentColorIndex.  In that case, PF_IsTransparency
+    is set in PIC_PARM.u.F2D.PicFlags;
+
+=====================================================================
+Version 1.03.18 changes from 1.03.17
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL - PegasusQuery()
+1.  Support added for GIF images and for TIFF/LZW images.  BI_GIFN
+    (GIF not-interlaced), BI_GIFI (GIF interlaced), BI_GIFu (unknown GIF),
+    BI_TIFL (TIFF/LZW) may be returned as PIC_PARM.Head.biCompression.
+
+PICN8513.DLL, PICN8513.SSM - OP_F2DPLUS convert image format to DIB
+1.  PICN8513 converts all image formats exactly the same as PIC8113.
+2.  PICN8513 adds support for GIF images.  OP_F2D only decodes the first
+    image from a multiple image GIF file.  Set PIC_PARM.Head.biCompression
+    to BI_GIFN, BI_GIFI or BI_GIFu to decode a GIF image using OP_F2D.  The
+    decoded image will be 8-bits-per-pixel regardless of the input image
+    bit depth.
+3.  GIF support outputs interlaced images according to the setting of
+    u.F2D.Progressive.  Progressive == 2 (output final DIB only) is the only
+    setting which has been recently tested so far although no meaningful
+    change should have occurred since the other settings were tested.  For
+    other settings (see F2D_STRUC comments in PIC.H), RES_DONE will be
+    returned from REQ_EXEC after each "layer" is complete in the Put queue.
+    Call Pegasus(&PicParm, REQ_CONT) at that point to get the next layer.
+4.  GIF support optionally outputs transparency if present in the
+    input image.  Set PF_ApplyTransparency in u.F2D.PicFlags to output
+    only pixels which are not transparent, skipping the other,
+    transparent pixels.  If PF_ApplyTransparency is set, the Put queue
+    must be at least as big as the output DIB (plus the BMP header if
+    PF_IncludeBMPHead is set).  In order for the output image to be
+    sensible, the DIB over which the input image is to be overlaid should
+    be copied into the Put queue -- without adjusting the Rear pointer --
+    before calling REQ_EXEC.
+5.  PICN8513 adds support for TIFF/LZW images (Compression tag == 5).  A
+    Predictor tag of 2 is supported for 8-bit and 24-bit images only.  Set
+    PIC_PARM.Head.biCompression to BI_TIFL to decode a TIFF/LZW image using
+    OP_F2D.  The decoded image will have the same bit-depth as the input image.
+
+MINERVA 1.00.25
+1.  Added support for PICN8513 OP_F2DPLUS.  If PICN8513 is present, it
+    is used in place of PICN8113.DLL.  Otherwise, if PICN8113.DLL is
+    present, it is used.  Otherwise the OP_F2D input image formats are
+    not available.
+
+PICN1113.DLL, PICN1113.SSM, PICN1813.DLL, PICN1813.SSM - OP_S2D, OP_SE2D
+1.  Now return ERR_INVALID_KEY instead of unknown error -1602 if the
+    key for a PIC2 image is incorrect.
+
+PICN4413.SSM, PICN4413.DLL, PICN4513.SSM, PICN4513.DLL - OP_LIE, OP_LIP
+1.  Corrections for queue handling.  Now RES_PUT_NEED_SPACE is not
+    returned unless there is additional data to place in the Put queue
+    and the Put queue doesn't have enough room.  Previously
+    RES_PUT_NEED_SPACE would be returned after all data was placed in
+    the Put queue, regardless of the size of the Put queue.
+
+=====================================================================
+Version 1.03.17 changes from 1.03.16
+
+PICN1113.DLL, PICN1113.SSM, PICN1813.DLL, PICN1813.SSM - OP_S2D, OP_SE2D
+1.  Fixed expanding to very small DIB (< 8 pixels wide) on MMX CPU's
+
+PICN4413.SSM, PICN4413.DLL, PICN4513.SSM, PICN4513.DLL - OP_LIE, OP_LIP
+1.  Corrections for pack GP's on certain images, expand GP on certain
+    images and miscompare between expand'ed and original images on
+    certain images.
+2.  Added watermark support.  When packing, if PF_HaveWatermark is set
+    in PIC_PARM.LL.PicFlags, then PIC_PARM.LL.OverText points to an
+    ASCIIZ string containing a watermark to be associated with the
+    image when packing.  When expanding, if PIC_PARM.LL.OverTextSize
+    is not 0, and the image has a watermark, then PF_HaveWatermark will
+    be set by OP_LIE in PIC_PARM.LL.PicFlags and the watermark data
+    will be copied to PIC_PARM.LL.OverText.
+    
+=====================================================================
+Version 1.03.16 changes from 1.03.15
+
+PICN8013.SSM, PICN8013.DLL - OP_D2F convert DIB to image format
+1.  Added support for 8 bits/pixel "K" TIFF.  If a 32-bit DIB is
+    input and (BYTE)D2F.Expansion1 == 0, then a 32-bit CMYK TIFF
+    image is output.  If (BYTE)D2F.Expansion1 == 1, then an
+    8 bpp "K" Tiff image is output.
+
+=====================================================================
+Version 1.03.15 changes from 1.03.14
+
+PICN4413.SSM, PICN4413.DLL, PICN4513.SSM, PICN4513.DLL - OP_LIE, OP_LIP
+        Enhanced Lossless Pack/Expand
+1.  Replacing OP_LIME (PICN43*.*) and OP_LIMP (PICN42*.*).
+
+PICN4213.SSM, PICN4213.DLL, PICN4313.SSM, PICN4313.DLL - OP_LIME, OP_LIMP
+        Lossless Pack/Expand
+1.  Replaced by OP_LIE (PICN45*.*) and OP_LIP (PICN44*.*).
+
+PICN13.DLL, PICN13D.DLL, PICW13.DLL, PICW13D.DLL - PegasusQuery()
+1.  PegasusQuery() now sets PF_IsProtected in PIC_PARM.u.QRY.PicFlags
+    if the image is protected (requires a password in KeyField to
+    expand).
+
+S2D??W.EXE, SE2D??W.EXE - Sequential JPEG and Enhanced Sequential JPEG
+        expand command-line sample program
+1.  An expand error during REQ_EXEC wasn't detected because of
+    some missing braces.  The code looped forever.
+
+PICN1013.DLL, PICN1013.SSM, PICN1213.DLL, PICN1213.SSM - OP_D2S, OP_D2SE
+        Sequential JPEG and Enhanced Sequential JPEG pack
+1.  Source DIB bit depth was stored in a protected PIC2 BMP
+    packet instead of the JPEG bit depth (8 for gray scale
+    or 24 for color).  Since PegasusQuery would report the
+    BMP packet bit depth, an application using the JPEG bit
+    depth from PegasusQuery to determine whether the image
+    is gray scale or color would be incorrect.
+2.  Changed to PIC2 Protect2.  The KeyField password must now be
+    null-terminated if less than 8 characters for PIC2 Protect2.
+
+PICN1113.DLL, PICN1113.SSM, PICN1813.DLL, PICN1813.SSM - OP_S2D, OP_SE2D
+        Sequential JPEG and Enhanced Sequential JPEG expand
+1.  Changed to PIC2 Protect2.  The KeyField password must now be
+    null-terminated if less than 8 characters for PIC2 Protect2.
+
+=====================================================================
+Version 1.03.14 changes from 1.03.12
+
+PICN13.DLL, PICW13.DLL, PICN13D.DLL, PICW13D.DLL - PegasusQuery()
+1.  PegasusQuery now returns the visual orientation according
+    to the PIC2 Orientation packet, if present, otherwise
+    according to image data from Manifest file packet, if present
+
+PICN1113.DLL, PICN1113.SSM, PICN1813.DLL, PICN1813.SSM - OP_S2D, OP_SE2D
+        Sequential JPEG and Enhanced Sequential JPEG expand
+1.  Some high-frequency image data was expanded incorrectly if
+    an MMX CPU were present.
+2.  Making colors with dithering off sometimes GP'ed.
+
+PICN8013.DLL, PICN8013.SSM - OP_D2F convert DIB to image format
+1.  BMP output (PF_IncludeBMPHead) BITMAPFILEHEADER.bfOffBits
+    and BITMAPINFOHEADER.bfSize were incorrect.
+
+MINERVA 1.00.24
+1.  In Transform Options, if the width were changed, and then
+    focus was tabbed to the OK button, the width might change
+    back.
+2.  A maximized image smaller than the frame window (centered
+    with a border) could be grabbed with the left mouse button
+    and would then sometimes be displayed shifted strangely and
+    incorrectly.
+3.  In Open Image Options, if you clicked from 24-bits to a
+    bit-depth without a corresponding internal palette, the
+    Make Palette option would be pushed, but the number of
+    colors edit field wasn't enabled.
+4.  Holding down the scroll up or down arrow will cause the line
+    scrolling to be faster.
+
+=====================================================================
+Version 1.03.13 - internal
+
+=====================================================================
+Version 1.03.12 changes from 1.03.11
+
+PICN8013.DLL, PICN8013.SSM - OP_D2F convert DIB to image format
+1.  Compiled for unsigned char instead of signed char, fixing no
+    known problem.
+2.  Fixed output of TIFF image where image dimensions are such that
+    only one strip is output.  Result image used to be color shifted
+    and displaced.
+
+PICN8113.DLL, PICN8113.SSM - OP_F2D convert image format to DIB
+1.  Compiled for unsigned char instead of signed char, fixing no
+    known problem.
+
+PICN8213.DLL, PICN8213.SSM - OP_UTL image utility
+1.  Compiled for unsigned char instead of signed char, fixing a
+    problem with color reduction from 8-bit or 4-bit DIB's where
+    color values are sign-extended before being used as a color
+    index and are therefore incorrect.
+
+=====================================================================
+Version 1.03.11 changes from 1.03.10
+
+PICN13D.DLL
+1.   UseLoadLibrary=On in PDEBUG.INI wouldn't work -- no opcode DLL's
+     would be loaded.
+
+PICN1113.DLL
+1.   Split Enhanced JPEG (Els-coder) off to PICN1813.DLL.  PICN1113.DLL
+     is OP_S2D.  PICN1813.DLL is OP_SE2D.  Both will expand huffman-
+     coded sequential JPEG images in PIC, JFIF or PIC2 format.
+     PICN1813.DLL is required for enhanced JPEG (Els-coded).
+
+PICN1013.DLL
+1.   Split Enhanced JPEG (Els-coder) off to PICN1213.DLL.  PICN1013.DLL
+     is OP_D2S.  PICN1213.DLL is OP_D2SE.  Both will create huffman-
+     coded sequential JPEG images in PIC, JFIF or PIC2 format.
+     PICN1213.DLL is required to create enhanced JPEG (Els-coded).
+
+JETST??W.EXE
+1.   Changed to S2D??W.EXE and SE2D??W.EXE.
+
+JPTST??W.EXE
+1.   Changed to D2S??W.EXE and D2SE??W.EXE.
+
+MINERVA 1.00.23
+1.  Select between OP_S2D, OP_SE2D, OP_D2SE, OP_D2S as appropriate
+    according to which DLL's are present.
+
+MINERVA 1.00.22
+1.  Add 1-bit option to Bitmap/PCX/Targa/TIFF file input.
+2.  You can now click and drag within an image to scroll the image.
+3.  Added hourglass cursor to Tools/Make Palette.
+4.  Added timing measurement to Tools/Make Palette and
+    Bitmap/PCX/Targa/TIFF file input.
+
+MINERVA 1.00.21
+1.  Implement Tools/Make Color (MTUTIL82.C).
+2.  Implement Bitmap/PCX/Targa/TIFF file input and output (MOUTIL81.C
+    and MSUTIL80.C).
+3.  Allow <= 8 bit images to be zoomed by using opcode 82 function,
+    if available, to upsample to 24 bits.
+4.  On a palettized display, create an optimum palette for 24-bit
+    images so they can be displayed properly.
+5.  Allow JPEG images with bad data to be displayed as much as possible.
+6.  Handle PIC2 open with invalid password by calling REQ_INIT again
+    with the invalid password, which has the effect of restoring
+    the image data to its original state so a new password can be
+    attempted.
+7.  Dialogs, including message boxes, displayed during dialog processing
+    weren't parented to the dialog.
+8.  Add the image filename to the title for Properties and Options
+    dialog boxes pertaining to the image.
+9.  Set the initial window dimensions to the smaller of the image size
+    or the application frame window size for width and height.
+10. Allow multiple image files to be selected in the file open dialog.
+11. Handle maximized child window scroll bars better.
+
+=====================================================================
+Version 1.03.10 changes from 1.03.09
+
+PICN1113.SSM, PICN1113.DLL - OP_S2D Compress DIB to sequential JPEG
+1.  Expanding an Els-coded image with a lot of blue sky without
+    enhanced decompression resulted in a DIB with vertical pink bars.
+2.  Expanding a PIC2 image to a bit depth of 8 or 4 and using an
+    embedded palette resulted in an UNEXPECTED_EOF error.
+
+JETSTDDW.EXE
+1.  Expanding a JFIF image to an 8-bit .BMP and making a palette
+    could GP.  Fixed by applying the latest Watcom patches to the
+    Version 10.5 compiler used to create this executable.
+
+MINERVA 1.00.20
+1.  When saving as sequential JPEG, making 256 primary colors and 0
+    secondary colors resulted in an output image with 256 primary
+    colors and 16 secondary colors.
+
+=====================================================================
+Version 1.03.09 changes from 1.03.08
+
+PICN1113.SSM, PICN1113.DLL - OP_S2D Compress DIB to sequential JPEG
+1.  Fixed 4-bit make-gray option.
+
+MINERVA 1.00.19
+1.  Support for PIC2-format files.
+2.  If the wrong password were supplied to JPEG expand, entering
+    the correct password in the password dialog wouldn't expand
+    the image.
+3.  An 8-character password wasn't null-terminated properly so it
+    could assert as too long when loaded from the dialog control.
+4.  The 32-bit version in NT didn't deal correctly with dialog
+    control events.  Thus, for example, the Make Gray checkbox in
+    the sequential JPEG expand dialog couldn't be checked.
+5.  Sequential JPEG Save no longer allows you to make a gray scale
+    image with a palette if the input image is gray scale and you
+    select the option to use the embedded palette and the output format
+    is JFIF.
+6.  Sequential JPEG Save no longer allows the Use External Palette
+    option if the input DIB is <= 8-bit DIB.  If needed, for PIC
+    and JFIF output (not yet PIC2), this could be implemented by
+    copying the external palette into the correct place in the
+    output image after RES_DONE.
+7.  Sequential JPEG Save supports SS_211v subsampling.  The
+    subsampling options are presented differently now.  They
+    are two check boxes, one for 2 to 1 horizontal and one for
+    2 to 1 vertical subsampling.  If neither check box is checked,
+    there is no subsampling (SS_111).  If 2 to 1 horiz is checked
+    subsampling is SS_211.  If 2 to 1 vert is checked, subsampling
+    is SS_211v.  If both are checked, subsampling is SS_411.
+8.  Open Sequential JPEG wouldn't change the window size if you didn't
+    have Timings/Yield to Windows checked and you changed to a thumbnail.
+9.  Open Sequential JPEG would shrink the window to a little larger than
+    the thumbnail if Timings/Yield to Windows was checked and the original
+    image had scroll bars.
+10. Open Sequential JPEG supports image cropping.
+    
+=====================================================================
+Version 1.03.08 changes from 1.03.07
+
+PICN13.DLL, PICW13.DLL - PegasusQuery()
+1.  Support for PIC2-format files.  A PIC2 file's biCompression will
+    be returned as BI_PC2J (huffman-coded sequential JPEG) or BI_PC2E
+    (Els Arithmetic Entropy Coded JPEG).
+
+PICN2213.SMM, PICN2213.DLL - Rotate JPEG to JPEG
+1.  Support for PIC2-format input files.  If the input file is protected,
+    the Get queue must contain the entire image or
+    ERR_FULL_IMAGE_NOT_PRESENT will be returned.
+
+PICN1013.SSM, PICN1013.DLL - OP_S2D Compress DIB to sequential JPEG
+1.  Support for PIC2-format output files.  If the output file is protected,
+    the Put queue must contain the entire image or
+    ERR_FULL_IMAGE_NOT_PRESENT will be returned.  Specify:
+        PIC_PARM.u.D2S.JpegType = JT_PIC2
+    for a PIC2-format output file.
+2.  Added RES_POKE response.  After all image data has been output,
+    RES_POKE is returned for PIC2 files only if the Put queue was not large
+    enough to hold all output data.  The data to be poked extends from
+    PIC_PARM.Put.FrontEnd to, but not including, PIC_PARM.Put.RearEnd.
+    The data will not wrap around in the queue.  PIC_PARM.SeekInfo holds
+    the offset within the output stream to poke the data.  The output
+    image is a valid PIC2 image if the RES_POKE response is ignored.
+    If a color table(s) were to be made, they will not be present
+    in the output image if RES_POKE is ignored.
+
+PICN1113.SSM, PICN1113.DLL - OP_S2D Expand sequential JPEG to DIB
+1.  Support for PIC2-format input files.  If the input file is protected,
+    the Get queue must contain the entire image or
+    ERR_FULL_IMAGE_NOT_PRESENT will be returned.
+2.  Optimized Els Arithmetic Entropy Coded JPEG expand.
+
+=====================================================================
+Version 1.03.07 changes from 1.03.06
+
+PICN13.DLL, PICW13.DLL - PegasusQuery()
+1.  If PIC_PARM.Head.biCompression == BI_JPGE, then the image is
+    Els Arithmetic Entropy Coded sequential JPEG.
+
+PICN1113.SSM, PICN1113.DLL - OP_S2D Expand sequential JPEG to DIB
+1.  Support added for expanding Els Arithmetic Entropy Coded JPEG
+    images. PIC_PARM.Head.biCompression == BI_JPGE for a sequential
+    JPEG image which is Els Arithmetic Entropy Coded.
+2.  If the image data is invalid, 1.03.06 returned PIC_PARM.Status
+    <> 0, but returned RES_DONE as if no error had occurred.  With
+    this version, both RES_ERR and PIC_PARM.Status are returned if
+    the image data is invalid.  A partial image can still be displayed
+    if any strips were output.
+
+PICN1013.SSM, PICN1013.DLL - OP_S2D Compress DIB to sequential JPEG
+1.  Support added for packing DIB's to sequential JPEG using Els
+    Arithmetic Entropy Coding.  PIC_PARM.D2S.JpegType == JT_RAW
+    (modified-JFIF format) is the only output format currently
+    supported.
+
+---------------------------------------------------------------------
+Version 1.03.06 changes from 1.03.05
+
+PICW13.DLL, PICW13N.DLL, PICW13D.DLL,
+1.  Expanding an image whose size was an integer multiple of 64K bytes
+    would GP.  Making the output buffer one byte larger than the image
+    size was previously a work-around, but is no longer necessary.
+
+
+PICN1113.SSM, PICN1113.DLL - OP_S2D Expand sequential JPEG to DIB
+1.  If the image data contains invalid data, an output DIB is now
+    produced using all the image data preceding the invalid data.
+    This includes producing an optimum color table when requested
+    based on the output data.  Previously, the entire strip containing
+    the invalid data was not output and no color table was produced
+    if requested.
+2.  If F_Crop is set in PIC_PARM.Flags, then PIC_PARM.CropWidth,
+    PIC_PARM.CropHeight, PIC_PARM.CropXoff and PIC_PARM.CropYoff
+    are used to select a rectangle within the image which is to
+    be expanded to a DIB.  CropXoff is the rectangle's horizontal offset
+    from the image's left edge in pixels.  CropYOff is the rectangle's
+    vertical offset from the image's top edge in pixels.
+
+
+PICN1013.SSM, PICN1013.DLL - OP_D2S Compress DIB to sequential JPEG
+1.  Set PF_UseYbCrColorsForColors in PIC_PARM.u.D2S.PicFlags to allow
+    optimum YCbCr colors to be selected (and converted to RGB) instead
+    of selecting optimum RGB colors.  Optimum YCbCr colors are frequently
+    a better choice than optimum RGB colors.
+2.  SS_211v sub-sampling is supported.  Cb and Cr are 2-to-1 sub-sampled
+    vertically as contrasted with SS_211 where Cb and Cr are 2-to-1
+    sub-sampled horizontally.
+3.  WidthPad can be any value an application requires if PF_WidthPadKnown
+    is set.  This allows an arbitrary rectangle within the DIB to be
+    compressed.  For biBitCounts >= 8, the rectangle is passed to PICN1013
+    by copying the data to the Get buffer starting with byte containing the
+    top-left corner of the rectangle.  WidthPad is set to the actual DIB
+    width.  Head.biWidth is set to the width of the desired rectangle.
+4.  Get queue strips are no longer reversed within the Get queue itself.
+    This allows the same DIB buffer to be used for display as is used
+    for being compressed.
+5.  Minimum put queue buffer size is now 1K.  REQ_INIT no longer GP's
+    if the put queue is too small.
+6.  PF_App1Pal now puts the color table only in the APP1 marker data
+    even for JT_BMP and JT_PIC.
+7.  If the Get queue is less than StripSize bytes, Pegasus no longer
+    GP's.
+   
+
+=====================================================================
+<end of CHANGES.TXT>

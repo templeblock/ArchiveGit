@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--Copyright © 2004 AmericanGreetings.com-->
+<pack host="http://www.imgag.com/">
+  <collection name="Spring Wedding" id="105689" occasion="wedding" keywords="flowers,flower,spring,wedding"
+   thumb="product/thumbs/3062475t.gif" lifestyle="product/thumbs/3062475t.gif">
+    <projectref id="3067814" seq="10"></projectref>
+    <projectref id="3062475" seq="20"></projectref>
+    <artref id="1500005" seq="10"> </artref>
+    <artref id="1500015" seq="20"> </artref>
+    <verseref id="401237" seq="30"/>
+  </collection>
+  <collection name="Fall Wedding" id="109089" keywords="leaves,leaf,fall,autumn,wedding"
+    thumb="product/thumbs/3062475t.gif" lifestyle="product/thumbs/3062475t.gif">
+    <projectref id="3067814" seq="10"></projectref>
+    <projectref id="3062475" seq="20"></projectref>
+  </collection>
+  <project name="RSVP Card" id="3062475" type="card" occasion="wedding" keywords="rsvp,response,flowers,flower,rose" 
+     projectpath="product/createprint/3062475f.ctp" thumb="product/thumbs/3062475t.gif" 
+     preview="product/thumbs/3062475t.gif" license="1234567" instructions="blah blah....">
+    <artref id="1500005" seq="10"> </artref>
+    <artref id="1500015" seq="20"> </artref>
+  </project>
+  <project name="RSVP Card" id="3067814" type="card" occasion="wedding" keywords="rsvp,response,flowers,flower,rose" 
+     projectpath="product/createprint/3067814f.ctp" thumb="product/thumbs/3067814t.gif" 
+     preview="product/thumbs/3067814t.gif" license="1234567" instructions="blah blah....">
+    <artref id="1500005" seq="10"> </artref>
+    <artref id="1500015" seq="20"> </artref>
+    <verseref id="401237" seq="30"/>
+  </project>
+  <art name="Rose" id="1500005" occasion="wedding" keywords="flowers,flower,rose" recolorable="true"  
+     type="clip" artpath="product/thumbs/1500005t.gif" thumb="product/thumbs/1500005t.gif" license="1234567" />
+  <art name="Rose" id="1500015" occasion="wedding" keywords="flowers,flower,rose" recolorable="true"  
+     type="clip" artpath="product/thumbs/1500015t.gif" thumb="product/thumbs/1500015t.gif" license="1234567"/>
+  <verse name="Wedding Poetry" id="401237" occasion="wedding" keywords="flowers,flower,rose,poetry">
+    <![CDATA[Roses are <BR> red violets are <BR> blue blah blah blah ]]>
+  </verse>
+</pack>

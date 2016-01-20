@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PackageMsi", "PackageMsi.vdproj", "{78BA1CA6-5B93-4364-A493-121AC6804271}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PackageCab", "..\PackageCab\PackageCab.vdproj", "{0FE03A7C-4CF9-4574-9188-B6FA3442CCA6}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78BA1CA6-5B93-4364-A493-121AC6804271}.Debug|Default.ActiveCfg = Debug
+		{78BA1CA6-5B93-4364-A493-121AC6804271}.Debug|Default.Build.0 = Debug
+		{78BA1CA6-5B93-4364-A493-121AC6804271}.Release|Default.ActiveCfg = Release
+		{78BA1CA6-5B93-4364-A493-121AC6804271}.Release|Default.Build.0 = Release
+		{0FE03A7C-4CF9-4574-9188-B6FA3442CCA6}.Debug|Default.ActiveCfg = Debug
+		{0FE03A7C-4CF9-4574-9188-B6FA3442CCA6}.Debug|Default.Build.0 = Debug
+		{0FE03A7C-4CF9-4574-9188-B6FA3442CCA6}.Release|Default.ActiveCfg = Release
+		{0FE03A7C-4CF9-4574-9188-B6FA3442CCA6}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,27 @@
+// Source file: TRACER.C
+int Tracer(
+    int             x, 
+    int             y, 
+    RECT            iRect, 
+    LPGETMASKPIXEL  GetPixelProc, 
+    LPPUTMASKPIXEL  PutPixelProc, 
+    LPINMASKREGION  InRegionProc, 
+    LPPOINT         lpFirstPoint, 
+    LPTR            lpFirstCode, 
+    int             max_points, 
+    BOOL            DoDisplay, 
+    LPINT           npoints, 
+    LPADDSHAPE      lpAddProc);
+
+int TraceHoles(
+    RECT 			iRect,
+    LPGETMASKPIXEL 	GetPixelProc,
+    LPPUTMASKPIXEL	PutPixelProc, 
+    LPINMASKREGION	InRegionProc,
+    LPPOINT 		lpFirstPoint,
+    LPTR 			lpFirstCode,
+    int 			max_points,
+    BOOL 			DoDisplay,
+    LPINT 			npoints,
+    LPADDSHAPE 		lpAddProc);
+

@@ -1,0 +1,13 @@
+// Source file: drawfram.c
+int DrawFrame( LPFRAME lpFrame, HDC hDC, LPRECT lpSourceRect, LPRECT lpDestRect, LPRECT lpRepairRect );
+LPTR FrameExpand8to24( LPTR lpLineIn, int iCount, LPCOLORMAP lpColorMap );
+HBITMAP CALLBACK EXPORT FrameToBitmap( LPFRAME lpFrame, LPRECT lpRect );
+HGLOBAL FrameToMetafile( LPFRAME lpFrame, LPRECT lpRect );
+LPBITMAPINFOHEADER BitmapToDIB( HDC hDC, HBITMAP hBitmap, HPALETTE hPal );
+LPFRAME BitmapToFrame( HDC hDC, HBITMAP hBitmap, HPALETTE hPal );
+void DrawBitmap( HDC hDCscreen, HBITMAP hBitmap, int cx, int cy );
+HBITMAP DrawTransDIB( HDC hDCscreen, HBITMAP hBMobject, HBITMAP hBMmask, int cx, int cy );
+HBITMAP MakeBitmapMono( HDC hDCmask, HDC hDCobject, HBITMAP hBMobject, LPBITMAP lpBM );
+static void Change16ColorDither( BOOL bOn );
+
+

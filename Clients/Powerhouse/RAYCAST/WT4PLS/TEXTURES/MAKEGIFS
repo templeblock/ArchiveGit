@@ -1,0 +1,8 @@
+#!/bin/sh
+set -x
+for i in /home/thomas/gifs/*.gif
+do
+  giftopnm $i | pnmflip -r270 > `basename $i .gif`.pnm
+  ppmtogif `basename $i .gif`.pnm > `basename $i` 
+  rm `basename $i .gif`.pnm  
+done

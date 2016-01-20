@@ -1,0 +1,41 @@
+;---------------------------------------------------------------------------;
+;
+;   waveconv.def
+;   
+;   DESCRIPTION:
+;       this is the module definition file...
+;
+;---------------------------------------------------------------------------;
+
+NAME        WAVECONV        WINDOWAPI
+
+DESCRIPTION 'Windows 3.1 Microsoft Wave Converter Application'
+
+EXETYPE     WINDOWS 3.1
+
+PROTMODE
+
+STUB        'WINSTUB.EXE'
+
+CODE        MOVEABLE            LOADONCALL
+DATA        MOVEABLE MULTIPLE   PRELOAD
+
+SEGMENTS    _TEXT           MOVEABLE                PRELOAD
+            MSADPCM_TEXT    MOVEABLE DISCARDABLE    LOADONCALL
+            WAVEIO_TEXT     MOVEABLE DISCARDABLE    LOADONCALL
+            WAVESUP_TEXT    MOVEABLE DISCARDABLE    LOADONCALL
+
+;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -;
+;   NOTE: some of the functions that are called in this test application
+;   require a LOT of stack space: most notably are the COMMDLG functions
+;   (ie GetOpenFileName, etc). a stacksize of ~8k is ok if we don't get
+;   too deep...
+;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -;
+
+HEAPSIZE    4196
+STACKSIZE   8192
+
+EXPORTS     WndProcApp
+            DlgProcAbout
+            DlgProcConvert
+;	    DlgProcINFOEdit

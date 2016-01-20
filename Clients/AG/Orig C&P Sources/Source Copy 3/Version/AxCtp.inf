@@ -1,0 +1,12 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.0
+
+[Add.Code]
+AxCtp.dll=AxCtp.dll
+
+[AxCtp.dll]
+file-win32-x86=thiscab
+clsid={38578BF0-0ABB-11D3-9330-0080C6F796A1}
+FileVersion=1,0,0,0
+RegesterServer=yes

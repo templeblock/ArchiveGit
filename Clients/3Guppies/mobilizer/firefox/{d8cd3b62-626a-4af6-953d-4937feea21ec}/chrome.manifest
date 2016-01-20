@@ -1,0 +1,4 @@
+content	mobilizer	content/
+locale	mobilizer	en-US	locale/en-US/
+skin	mobilizer	classic/1.0	skin/
+overlay	chrome://browser/content/browser.xul	chrome://mobilizer/content/firefoxOverlay.xul

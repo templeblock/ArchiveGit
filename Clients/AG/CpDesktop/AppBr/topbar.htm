@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd"-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title></title>
+		<style type="text/css">
+			body
+				{ margin: 0px; }
+			div, span, a, td
+				{ white-space:nowrap; }
+			a
+				{ color:#1A4C8F; text-decoration:none; }
+			a:hover
+				{ color:#FF0000; text-decoration:underline; }
+			.text
+				{ font-family:Verdana,sans-serif; font-size: 8pt; vertical-align:top; }
+		</style>
+		<script language="javascript">
+			function OnLoad()
+			{
+				RemoveFocus();
+			}
+			function Help()
+			{
+				var strURL = GetPath(window.location.href);
+				strURL += 'cphelp.htm';
+
+				return RaiseClickEvent('Help', strURL);
+			//	var strOptions = 'top=0, left=0, height=500, width=450, location=no, menubar=no, resizable=yes, scrollbars=no, status=no, titlebar=yes, toolbar=no';
+			//	window.open('cphelp.htm', 'cphelp', strOptions );
+			//	return false;
+			}
+			function SpecialOffer(strUrl)
+			{
+				return ThumbsSetUrl('specialoffer.htm');
+			}
+		</script>
+		<script language="javascript" src="navigation.js"></script>
+	</head>
+	<body onload="OnLoad()">
+		<div style="left:0px; top:0px; width:100%; height:91; background-image:url(images/bgtop.gif); background-repeat:repeatx; position:absolute; z-index:1; ">
+		</div>
+		<div style="left:0px; top:0px; width:200; height:91; background-image:url(images/aglogo.jpg); position:absolute; z-index:1; ">
+			<a style="width:100%; height:100%; " href="javascript:// Go online to Create &amp; Print"
+				onclick="return GoToSite('350');">
+			</a>
+		</div>
+		<div style="left:200px; top:0px; width:2; height:91; background-image:url(images/topvdiv.gif); position:absolute; z-index:1; ">
+		</div>
+		<div style="left:220px; top:20px; width:62; height:20; background-image:url(images/back.gif); position:absolute; z-index:1; ">
+			<a name="back" style="width:100%; height:100%; " href="javascript:// Back" onclick="return Back();"
+				onmouseout="back.style.backgroundImage='url(images/back.gif)'" onmouseover="back.style.backgroundImage='url(images/backover.gif)'">
+			</a>
+		</div>
+		<div style="left:312px; top:20px; width:82; height:20; background-image:url(images/forward.gif); position:absolute; z-index:1; ">
+			<a name="forward" style="width:100%; height:100%; " href="javascript:// Forward" onclick="return Forward();"
+				onmouseout="forward.style.backgroundImage='url(images/forward.gif)'" onmouseover="forward.style.backgroundImage='url(images/forwardover.gif)'">
+			</a>
+		</div>
+		<div style="left:424px; top:20px; width:105; height:20; background-image:url(images/offer.gif); position:absolute; z-index:1; ">
+			<a name="offer" style="width:100%; height:100%; " href="javascript:// Special Offer" onclick="return SpecialOffer();"
+				onmouseout="offer.style.backgroundImage='url(images/offer.gif)'" onmouseover="offer.style.backgroundImage='url(images/offerover.gif)'">
+			</a>
+		</div>
+		<div style="left:220px; top:55px; width:100%; height:25; position:absolute; z-index:1; ">
+			<span id="categoryLabel" class="text">&nbsp;</span>
+			<a name="category" class="text" style="width:100%; height:100%; " href="javascript://" onclick="return BreadCrumbs();">
+			</a>
+		</div>
+	</body>
+</html>

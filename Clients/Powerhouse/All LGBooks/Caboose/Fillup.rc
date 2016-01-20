@@ -1,0 +1,574 @@
+//***********************************************************************
+IDD_FILLUPI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_FILLUPI GAMETABLE
+//***********************************************************************
+{
+"
+	num_parts=6;","
+	
+	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=1,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=2,	class=2;","
+	
+	partbmp=JAR.BMP,		x=110,y=134,	id=3,	class=1;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=4,	class=1;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=5,	class=2;","
+    
+    speed1=75;","
+    speed2=40;","
+	start_score=3;","
+
+	introwav=intro1.wav;","   
+	successwavs=succi.wav succ1.wav succ2.wav succ3.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_FILLUPI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\bg.bmp,clip=CL CT CR CB, flags=hintson,","
+		prev=TRANS_PREV,","
+		next=TRANS_NEXT,","
+		jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+	
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,  hot=31 444,  flags=noclip click autobutton alwaysenabled ,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0, hot=213 446,  flags=noclip click autobutton,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0, hot=406 443,  flags=noclip click autobutton,cmd=IDC_OPTIONS,fg=options.bmp,hint=options.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip click autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=needhelp.wav;","
+	/IDC_NEXT=0 0,     hot=568 444,  flags=noclip click autobutton alwaysenabled,cmd=IDC_SKIPNEXT,fg=next.bmp,hint=next.wav;"," 
+	
+",0
+}  
+
+
+//***********************************************************************
+IDD_SPANFILLUPI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_SPANFILLUPI GAMETABLE
+//***********************************************************************
+{
+"
+	num_parts=6;","
+	
+	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=1,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=2,	class=2;","
+	
+	partbmp=JAR.BMP,		x=110,y=134,	id=3,	class=1;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=4,	class=1;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=5,	class=2;","
+    
+    speed1=75;","
+    speed2=40;","
+	start_score=3;","
+
+	introwav=spintro1.wav;","   
+	successwavs=spsucci.wav spsucc1.wav spsucc2.wav spsucc3.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANFILLUPI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\bg.bmp,clip=CL CT CR CB, flags=hintson,","
+		prev=TRANS_PREV,","
+		next=TRANS_NEXT,","
+		jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+	
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,  hot=31 444,  flags=noclip click autobutton alwaysenabled ,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=sprev.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=sactctr.wav;","
+	/IDC_SOUNDBOX=0 0, hot=213 446,  flags=noclip click autobutton,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=ssndbox.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=smainmnu.wav;","
+	/IDC_OPTIONS=0 0, hot=406 443,  flags=noclip click autobutton,cmd=IDC_OPTIONS,fg=options.bmp,hint=soptscrn.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip click autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=sneedhlp.wav;","
+	/IDC_NEXT=0 0,     hot=568 444,  flags=noclip click autobutton alwaysenabled,cmd=IDC_SKIPNEXT,fg=next.bmp,hint=snext.wav;","
+	
+",0
+}  
+
+
+//***********************************************************************
+IDD_FILLUP1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_FILLUP1 GAMETABLE
+//***********************************************************************
+{
+"
+	num_parts=6;","
+	
+	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=1,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=2,	class=2;","
+	
+	partbmp=JAR.BMP,		x=110,y=134,	id=3,	class=1;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=4,	class=1;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=5,	class=2;","
+ 
+    speed1=75;","
+    speed2=40;","
+    start_score=3;","
+    
+	introwav=intro1.wav;","   
+	successwavs=succi.wav succ1.wav succ2.wav succ3.wav;","
+
+",0
+}
+
+
+//***********************************************************************
+IDD_FILLUP1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\bg.bmp,clip=CL CT CR CB, flags=hintson,","
+		prev=TRANS_PREV,","
+		next=TRANS_NEXT,","
+		jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+//	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+	
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK, fg=back.bmp, hint=story.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=mainmenu.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip click autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=needhelp.wav;","
+	 
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans,		   cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANFILLUP1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_SPANFILLUP1 GAMETABLE
+//***********************************************************************
+{
+"
+	num_parts=6;","
+	
+	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=1,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=2,	class=2;","
+	
+	partbmp=JAR.BMP,		x=110,y=134,	id=3,	class=1;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=4,	class=1;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=5,	class=2;","
+ 
+    speed1=75;","
+    speed2=40;","
+    start_score=3;","
+    
+	introwav=spintro1.wav;","   
+	successwavs=spsucci.wav spsucc1.wav spsucc2.wav spsucc3.wav;","
+
+",0
+}
+
+
+//***********************************************************************
+IDD_SPANFILLUP1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\bg.bmp,clip=CL CT CR CB, flags=hintson,","
+		prev=TRANS_PREV,","
+		next=TRANS_NEXT,","
+		jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+//	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+	
+//****** These are the lines for the buttons on the action strip ******//
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK,fg=back.bmp, hint=sgoback.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=sactctr.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=smainmnu.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip click autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=sneedhlp.wav;","
+
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans,		   cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+
+
+
+
+//***********************************************************************
+IDD_FILLUP2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_FILLUP2 GAMETABLE
+//***********************************************************************
+{
+"
+	num_parts=6;","
+	
+/*	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=BUCKET.BMP,		x=185,y=46,		id=1,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=2,	class=2;","
+	partbmp=COFFEE.BMP,		x=335,y=46,		id=3,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=4,	class=2;","
+	partbmp=JAR.BMP,		x=110,y=134,	id=5,	class=1;","
+	partbmp=MUG.BMP,		x=185,y=134,	id=6,	class=2;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=7,	class=1;","
+	partbmp=PLAID.BMP,		x=335,y=134,	id=8,	class=2;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=9,	class=2;","
+*/
+	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=1,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=2,	class=2;","
+	
+	partbmp=JAR.BMP,		x=110,y=134,	id=3,	class=1;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=4,	class=1;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=5,	class=2;","
+    
+    speed1=125;","
+    speed2=75;","
+    start_score=1;","
+    
+	introwav=intro2.wav;","   
+	successwavs=succi.wav succ1.wav succ2.wav succ3.wav;","
+
+",0
+}
+
+
+//***********************************************************************
+IDD_FILLUP2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\bg.bmp,clip=CL CT CR CB, flags=hintson,","
+		prev=TRANS_PREV,","
+		next=TRANS_NEXT,","
+		jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+//	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+	
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","	
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=mainmenu.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip click autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=needhelp.wav;","
+	 
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans,		   cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+
+
+
+//***********************************************************************
+IDD_SPANFILLUP2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_SPANFILLUP2 GAMETABLE
+//***********************************************************************
+{
+"
+	num_parts=6;","
+	
+/*	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=BUCKET.BMP,		x=185,y=46,		id=1,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=2,	class=2;","
+	partbmp=COFFEE.BMP,		x=335,y=46,		id=3,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=4,	class=2;","
+	partbmp=JAR.BMP,		x=110,y=134,	id=5,	class=1;","
+	partbmp=MUG.BMP,		x=185,y=134,	id=6,	class=2;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=7,	class=1;","
+	partbmp=PLAID.BMP,		x=335,y=134,	id=8,	class=2;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=9,	class=2;","
+*/
+	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=1,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=2,	class=2;","
+	
+	partbmp=JAR.BMP,		x=110,y=134,	id=3,	class=1;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=4,	class=1;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=5,	class=2;","
+    
+    speed1=125;","
+    speed2=75;","
+    start_score=1;","
+    
+	introwav=spintro2.wav;","   
+	successwavs=spsucci.wav spsucc1.wav spsucc2.wav spsucc3.wav;","
+
+",0
+}
+
+
+//***********************************************************************
+IDD_SPANFILLUP2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\bg.bmp,clip=CL CT CR CB, flags=hintson,","
+		prev=TRANS_PREV,","
+		next=TRANS_NEXT,","
+		jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+//	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+	
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK,fg=back.bmp, hint=sgoback.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=sactctr.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=smainmnu.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip click autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=sneedhlp.wav;","
+	 
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans,		   cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+
+
+
+//***********************************************************************
+IDD_FILLUP3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_FILLUP3 GAMETABLE
+//***********************************************************************
+{
+"
+	num_parts=6;","
+	
+/*	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=BUCKET.BMP,		x=185,y=46,		id=1,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=2,	class=2;","
+	partbmp=COFFEE.BMP,		x=335,y=46,		id=3,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=4,	class=2;","
+	partbmp=JAR.BMP,		x=110,y=134,	id=5,	class=1;","
+	partbmp=MUG.BMP,		x=185,y=134,	id=6,	class=2;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=7,	class=1;","
+	partbmp=PLAID.BMP,		x=335,y=134,	id=8,	class=2;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=9,	class=2;","
+*/
+	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=1,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=2,	class=2;","
+	
+	partbmp=JAR.BMP,		x=110,y=134,	id=3,	class=1;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=4,	class=1;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=5,	class=2;","
+    
+    speed1=135;","
+    speed2=90;","
+    start_score=1;","
+    
+	introwav=intro3.wav;","   
+	successwavs=succi.wav succ1.wav succ2.wav succ3.wav;","
+
+",0
+}
+
+
+//***********************************************************************
+IDD_FILLUP3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\bg.bmp,clip=CL CT CR CB, flags=hintson,","
+		prev=TRANS_PREV,","
+		next=TRANS_NEXT,","
+		jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+//	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+	
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=mainmenu.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip click autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=needhelp.wav;","
+	
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans,		   cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANFILLUP3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_SPANFILLUP3 GAMETABLE
+//***********************************************************************
+{
+"
+	num_parts=6;","
+	
+/*	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=BUCKET.BMP,		x=185,y=46,		id=1,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=2,	class=2;","
+	partbmp=COFFEE.BMP,		x=335,y=46,		id=3,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=4,	class=2;","
+	partbmp=JAR.BMP,		x=110,y=134,	id=5,	class=1;","
+	partbmp=MUG.BMP,		x=185,y=134,	id=6,	class=2;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=7,	class=1;","
+	partbmp=PLAID.BMP,		x=335,y=134,	id=8,	class=2;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=9,	class=2;","
+*/
+	partbmp=BOTTLE.BMP,		x=110,y=46,		id=0,	class=1;","
+	partbmp=CHECKER.BMP,	x=260,y=46,		id=1,	class=2;","
+	partbmp=ICE.BMP,		x=410,y=46,		id=2,	class=2;","
+	
+	partbmp=JAR.BMP,		x=110,y=134,	id=3,	class=1;","
+	partbmp=PITCHER.BMP,	x=260,y=134,	id=4,	class=1;","
+	partbmp=POLKADOT.BMP,	x=410,y=134,	id=5,	class=2;","
+    
+    speed1=135;","
+    speed2=90;","
+    start_score=1;","
+    
+	introwav=spintro3.wav;","   
+	successwavs=spsucci.wav spsucc1.wav spsucc2.wav spsucc3.wav;","
+
+",0
+}
+
+
+//***********************************************************************
+IDD_SPANFILLUP3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\bg.bmp,clip=CL CT CR CB, flags=hintson,","
+		prev=TRANS_PREV,","
+		next=TRANS_NEXT,","
+		jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+//	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+	
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK,fg=back.bmp, hint=sgoback.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=sactctr.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=smainmnu.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip click autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=sneedhlp.wav;","
+	
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans,		   cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}

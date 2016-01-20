@@ -1,0 +1,33 @@
+<!--?xml version="1.0"?--> 
+<!--!DOCTYPE smil PUBLIC "-//W3C//DTD SMIL 2.0//EN" "http://www.w3.org/2001/SMIL20/SMIL20.dtd"-->
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+	<head>
+		<meta name="title" content="AG Greeting"/>
+		<meta name="author" content="Jim McCurdy"/>
+		<meta name="copyright" content="ag.com"/>
+		<meta name="abstract" content=""/>
+		<layout>
+			<root-layout width="176" height="216" title="AG Greeting" background-color="#ffffff" />
+			<region id="Image" width="176" height="144" left="0" top="0" />
+			<region id="Text" width="176" height="72" left="0" top="144" />
+		</layout>
+	</head>
+	<body>
+		<!--seq-->
+		<par dur="30000ms">
+			<text src="../Opening.txt" region="Text">
+				<param name="foreground-color" value="#8000ff" />
+				<param name="textsize" value="small" />
+			</text>
+		</par>
+		<par dur="30000ms">
+			<img src="graphic.jpg" region="Image" />
+			<text src="text.txt" region="Text"></text>
+			<!--audio src="music.mid" /-->
+		</par>
+		<par dur="30000ms">
+			<text src="../Closing.txt" region="Text"></text>
+		</par>
+		<!--/seq-->
+	</body>
+</smil>

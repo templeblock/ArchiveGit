@@ -1,0 +1,32 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                   register.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Register the app with Micrografx.
+ Date Created:  2/8/94
+       Author:  Ray
+
+*****************************************************************************/
+
+#ifndef REGISTER_P
+#define REGISTER_P
+
+/****************************** Public Functions ****************************/
+
+BOOL CheckRegistration(BOOL bAskforCode);
+int GetLockType( void );
+
+/****************************************************************************/
+
+#endif
+

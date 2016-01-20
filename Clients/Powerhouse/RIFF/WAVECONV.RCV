@@ -1,0 +1,9 @@
+#include <ver.h>
+#include "wavever.h"
+
+#define MMVERSIONNAME               "waveconv.exe\0"
+#define MMVERSIONDESCRIPTION        "Waveform Converter Sample Code\0"
+#define MMVERSIONTYPE               VFT_APP
+#define MMVERSIONSUBTYPE            VFT2_UNKNOWN
+
+#include "wavever.ver"

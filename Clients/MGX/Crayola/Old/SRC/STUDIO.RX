@@ -1,0 +1,1156 @@
+// (c) Copyright 1993 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+
+//************************************************************************
+// Include files
+//************************************************************************
+#include "mgxrx.rh"
+#include "id.h"
+#include "rx.rh"
+
+#include "app.rx"
+
+rxinclude "app.rc"
+rxinclude "studio.rc"
+
+/*
+#include "app.rc"           // AUTOMAKE hack to force dependency!
+#include "studio.rc"        // AUTOMAKE hack to force dependency!
+*/
+
+//************************************************************************
+// The DIALOG BOX definitions
+//************************************************************************
+
+/******************************* Room Dialogs *******************************/
+
+/****************************************************************************/
+
+//DIALOG("",RM_ARTROOM) MODELESS SPACEIN(0,0) PWH(640,480)
+//    HOTSPOT(HS_BADGE        )   RECT(260,96 ,314,163)
+//    HOTSPOT(HS_BOOKS        )   RECT(120,382,225,441)
+//    HOTSPOT(HS_CERTIFICATE  )   RECT(372,96 ,458,161)
+//    HOTSPOT(HS_EASEL        )   RECT(454,176,559,261)
+//    HOTSPOT(HS_EXIT         )   RECT(142,119,221,328)
+//    HOTSPOT(HS_GALLERY      )   RECT(34 ,71 ,90 ,195)
+//    HOTSPOT(HS_PAPER        )   RECT(14 ,307,87 ,346)
+//    HOTSPOT(HS_PUZZLE       )   RECT(306,392,387,451)
+//    HOTSPOT(HS_TOUR         )   RECT(48 ,208,98 ,281)
+//    HOTSPOT(HS_SLIDESHOW    )   RECT(328,178,392,239)
+//    HOTSPOT(HS_JOKEPHONE    )   RECT(459,295,532,355)
+//
+//	ANIMATED_TOY(HS_HORN,"0602")PXY(517,392)
+//	ANIMATED_TOY(-1,"0404")     PXY(75, 332)    // devil
+//	ANIMATED_TOY(-1,"0603")     PXY(223,200)    // guitar
+//	ANIMATED_TOY(-1,"0501")     PXY(5, 247)     // pen
+//	ANIMATED_TOY(-1,"0105")     PXY(540, 250)   // lizard
+//	ANIMATED_TOY(IDC_CAT_SCARED,"0103")     PXY(360, 335)   // scared cat
+//	ANIMATED_TOY(IDC_CAT_WALK,  "0104")     PXY(360, 335)   // walking cat
+//
+////    HOTSPOT(HS_HORN         )   RECT(519,395,621,466)
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_BADGE          /L "Go to Badge Maker."
+//    string /X HS_BOOKS          /L "Go to Coloring Books."
+//    string /X HS_CERTIFICATE    /L "Go to Certificate Maker."
+//    string /X HS_EASEL          /L "Paint a new picture."
+//    string /X HS_EXIT           /L "Quit the program."
+//    string /X HS_GALLERY        /L "Go to the Gallery."
+//    string /X HS_PAPER          /L "Go to Note Paper Maker."
+//    string /X HS_PUZZLE         /L "Go to Word Puzzler."
+//    string /X HS_SLIDESHOW      /L "Go to Picture Show Maker."
+//    string /X HS_JOKEPHONE      /L "Click the phone to hear a joke."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_BADGES) MODELESS SPACEIN(0,0) PWH(640,480)
+//    HOTSPOT(HS_BADGE1       )   RECT(337,111,409,212)
+//    HOTSPOT(HS_BADGE2       )   RECT(423,136,496,271)
+//    HOTSPOT(HS_BADGE3       )   RECT(519,129,591,203)
+//    HOTSPOT(HS_BADGE4       )   RECT(238,306,311,366)
+//    HOTSPOT(HS_BADGE5       )   RECT(293,226,361,291)
+//    HOTSPOT(HS_BADGE6       )   RECT(374,290,519,333)
+//    HOTSPOT(HS_BADGE7       )   RECT(524,224,604,334)
+//    HOTSPOT(HS_BADGE8       )   RECT(42 ,394,191,447)
+//    HOTSPOT(HS_BADGE9       )   RECT(220,336,295,445)
+//    HOTSPOT(HS_BADGE10      )   RECT(319,324,384,445)
+//    HOTSPOT(HS_BADGE11      )   RECT(411,359,494,443)
+//    HOTSPOT(HS_BADGE12      )   RECT(526,359,590,441)
+//    HOTSPOT(HS_BACKART      )   RECT(536,15 ,640,115)
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_BADGE1         /L "Click to color this badge."
+//    string /X HS_BADGE2         /L "Click to color this badge."
+//    string /X HS_BADGE3         /L "Click to color this badge."
+//    string /X HS_BADGE4         /L "Click to color this badge."
+//    string /X HS_BADGE5         /L "Click to color this badge."
+//    string /X HS_BADGE6         /L "Click to color this badge."
+//    string /X HS_BADGE7         /L "Click to color this badge."
+//    string /X HS_BADGE8         /L "Click to color this badge."
+//    string /X HS_BADGE9         /L "Click to color this badge."
+//    string /X HS_BADGE10        /L "Click to color this badge."
+//    string /X HS_BADGE11        /L "Click to color this badge."
+//    string /X HS_BADGE12        /L "Click to color this badge."
+//    string /X HS_BACKART        /L "Go back to the Art room."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_BOARDWALK) MODELESS SPACEIN(0,0) PWH(640,480)
+//    OBJLISTRX("", IDC_HIDDEN_IMAGE) PXY(20,23) PWH(480,360)
+//    HOTSPOT(HS_COVER        )   PXY(504,21 ) PWH(20,42)
+//    HOTSPOT(HS_TAB1         )   PXY(504,69 ) PWH(21,42)
+//    HOTSPOT(HS_TAB2         )   PXY(504,113) PWH(23,42)
+//    HOTSPOT(HS_TAB3         )   PXY(504,153) PWH(24,42)
+//    HOTSPOT(HS_TAB4         )   PXY(504,193) PWH(26,42)
+//    HOTSPOT(HS_TAB5         )   PXY(504,236) PWH(27,42)
+//    HOTSPOT(HS_TAB6         )   PXY(504,276) PWH(29,42)
+//    HOTSPOT(HS_TAB7         )   PXY(504,318) PWH(30,42)
+//    HOTSPOT(HS_TAB8         )   PXY(504,359) PWH(32,42)
+//    HOTSPOT(HS_BACKBOOKS    )   PXY(538,28)  PWH(100,100)
+//    TOY(HS_LOGO_BOARDWALK   )   PXY( 16,407) DISABLED
+//    TOY(HS_XTRA_BOARDWALK   )   PXY(182,406)
+//    TOY(HS_COLORME          )   PXY(555,174)
+//    TOY(HS_SHOWME           )   PXY( 17,415)
+//    IMAGERX("", IDC_HIDDEN_LEGEND) RECT(280,413,336,469)
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_COVER          /L "Show the cover."
+//    string /X HS_TAB1           /L "Show page 1."
+//    string /X HS_TAB2           /L "Show page 2."
+//    string /X HS_TAB3           /L "Show page 3."
+//    string /X HS_TAB4           /L "Show page 4."
+//    string /X HS_TAB5           /L "Show page 5."
+//    string /X HS_TAB6           /L "Show page 6."
+//    string /X HS_TAB7           /L "Show page 7."
+//    string /X HS_TAB8           /L "Show page 8."
+//    string /X HS_BACKBOOKS      /L "Pick another coloring book."
+//    string /X HS_COLORME        /L "Color this page."
+//    string /X HS_SHOWME         /L "Show the correct answer."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_BOOKS) MODELESS SPACEIN(0,0) PWH(640,480)
+//    HOTSPOT(HS_BOOK1        )   RECT(20 ,179,153,282)
+//    HOTSPOT(HS_BOOK2        )   RECT(176,179,309,282)
+//    HOTSPOT(HS_BOOK3        )   RECT(331,179,466,282)
+//    HOTSPOT(HS_BOOK4        )   RECT(487,179,620,282)
+//    HOTSPOT(HS_BOOK5        )   RECT(20 ,303,153,406)
+//    HOTSPOT(HS_BOOK6        )   RECT(176,303,309,406)
+//    HOTSPOT(HS_BOOK7        )   RECT(331,303,466,406)
+//    HOTSPOT(HS_BOOK8        )   RECT(487,303,620,406)
+//    HOTSPOT(HS_BACKART      )   RECT(494,44 ,628,145)
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_BOOK1          /L "Show My Trip To Europe coloring book."
+//    string /X HS_BOOK2          /L "Show Fashion Designer coloring book."
+//    string /X HS_BOOK3          /L "Show On the Boardwalk coloring book."
+//    string /X HS_BOOK4          /L "Show Occupational Jokes coloring book."
+//    string /X HS_BOOK5          /L "Show Mail Maze Madness coloring book."
+//    string /X HS_BOOK6          /L "Show African Wildlife coloring book."
+//    string /X HS_BOOK7          /L "Show Vehicle Designer coloring book."
+//    string /X HS_BOOK8          /L "Show Where Am I coloring book."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_CERTIFICATES) MODELESS SPACEIN(0,0) PWH(640,480)
+//    HOTSPOT(HS_CERTIFICATE1 )   PXY( 17,196) PWH(141,111)
+//    HOTSPOT(HS_CERTIFICATE2 )   PXY(172,196) PWH(141,111)
+//    HOTSPOT(HS_CERTIFICATE3 )   PXY(329,196) PWH(141,111)
+//    HOTSPOT(HS_CERTIFICATE4 )   PXY(484,196) PWH(141,111)
+//    HOTSPOT(HS_CERTIFICATE5 )   PXY( 17,320) PWH(141,111)
+//    HOTSPOT(HS_CERTIFICATE6 )   PXY(172,320) PWH(141,111)
+//    HOTSPOT(HS_CERTIFICATE7 )   PXY(329,320) PWH(141,111)
+//    HOTSPOT(HS_CERTIFICATE8 )   PXY(484,320) PWH(141,111)
+//    HOTSPOT(HS_BACKART      )   RECT(536,22 ,640,122)
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_CERTIFICATE1   /L "Color #1 Dad certificate."
+//    string /X HS_CERTIFICATE2   /L "Color #1 Mom certificate."
+//    string /X HS_CERTIFICATE3   /L "Color All Purpose certificate."
+//    string /X HS_CERTIFICATE4   /L "Color Congratulations certificate."
+//    string /X HS_CERTIFICATE5   /L "Color Creativity Award certificate."
+//    string /X HS_CERTIFICATE6   /L "Color Great Job certificate."
+//    string /X HS_CERTIFICATE7   /L "Color Most Valuable Player certificate."
+//    string /X HS_CERTIFICATE8   /L "Color Outstanding Performance certificate."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_EUROPE) MODELESS SPACEIN(0,0) PWH(640,480)
+//    OBJLISTRX("", IDC_HIDDEN_IMAGE) PXY(20,23) PWH(480,360)
+//    HOTSPOT(HS_COVER        )   PXY(504,21 ) PWH(20,42)
+//    HOTSPOT(HS_TAB1         )   PXY(504,69 ) PWH(21,42)
+//    HOTSPOT(HS_TAB2         )   PXY(504,113) PWH(23,42)
+//    HOTSPOT(HS_TAB3         )   PXY(504,153) PWH(24,42)
+//    HOTSPOT(HS_TAB4         )   PXY(504,193) PWH(26,42)
+//    HOTSPOT(HS_TAB5         )   PXY(504,236) PWH(27,42)
+//    HOTSPOT(HS_TAB6         )   PXY(504,276) PWH(29,42)
+//    HOTSPOT(HS_TAB7         )   PXY(504,318) PWH(30,42)
+//    HOTSPOT(HS_TAB8         )   PXY(504,359) PWH(32,42)
+//    HOTSPOT(HS_BACKBOOKS    )   PXY(538,28)  PWH(100,100)
+//    TOY(HS_LOGO_EUROPE      )   PXY( 16,407) DISABLED
+//    TOY(HS_XTRA_EUROPE      )   PXY(135,415) DISABLED
+//    TOY(HS_COLORME          )   PXY(555,174)
+//    TOY(HS_SHOWME           )   PXY( 17,415)
+//    TOY(IDC_TIMER_BLK       )   PXY(456,415) DISABLED
+//    TEXTRX("44", IDC_TIMER_TEXT)   RECT(473,425,533,465) /E+ SS_CENTER /E+ TCS_BKTRANSPARENT /T-
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_TIMER_BLK     /L "This is the game timer."
+//    string /X IDC_TIMER_TEXT    /L "This is the game timer."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_FASHION) MODELESS SPACEIN(0,0) PWH(640,480)
+//    OBJLISTRX("", IDC_MIXUP_IMAGE) PXY(20,23) PWH(480,360)
+//    HOTSPOT(HS_COVER        )   PXY(504,21 ) PWH(20,42)
+//    HOTSPOT(HS_TAB1         )   PXY(504,69 ) PWH(21,42)
+//    HOTSPOT(HS_TAB2         )   PXY(504,113) PWH(23,42)
+//    HOTSPOT(HS_TAB3         )   PXY(504,153) PWH(24,42)
+//    HOTSPOT(HS_TAB4         )   PXY(504,193) PWH(26,42)
+//    HOTSPOT(HS_TAB5         )   PXY(504,236) PWH(27,42)
+//    HOTSPOT(HS_TAB6         )   PXY(504,276) PWH(29,42)
+//    HOTSPOT(HS_TAB7         )   PXY(504,318) PWH(30,42)
+//    HOTSPOT(HS_TAB8         )   PXY(504,359) PWH(32,42)
+//    HOTSPOT(HS_BACKBOOKS    )   PXY(538,28)  PWH(100,100)
+//    TOY(HS_LOGO_FASHION     )   PXY( 16,407) DISABLED
+//    TOY(HS_MIXUP_FHEAD      )   PXY( 60,410)
+//    TOY(HS_MIXUP_FTOP       )   PXY(220,410)
+//    TOY(HS_MIXUP_FBOTTOM    )   PXY(380,410)
+//    TOY(HS_COLORME          )   PXY(555,174)
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_MIXUP_FHEAD    /L "Change the head."
+//    string /X HS_MIXUP_FTOP     /L "Change the top of the body."
+//    string /X HS_MIXUP_FBOTTOM  /L "Change the bottom of the body."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_JOKES) MODELESS SPACEIN(0,0) PWH(640,480)
+//    OBJLISTRX("", IDC_HIDDEN_IMAGE) PXY(20,23) PWH(480,360)
+//    HOTSPOT(HS_COVER        )   PXY(504,21 ) PWH(20,42)
+//    HOTSPOT(HS_TAB1         )   PXY(504,69 ) PWH(21,42)
+//    HOTSPOT(HS_TAB2         )   PXY(504,113) PWH(23,42)
+//    HOTSPOT(HS_TAB3         )   PXY(504,153) PWH(24,42)
+//    HOTSPOT(HS_TAB4         )   PXY(504,193) PWH(26,42)
+//    HOTSPOT(HS_TAB5         )   PXY(504,236) PWH(27,42)
+//    HOTSPOT(HS_TAB6         )   PXY(504,276) PWH(29,42)
+//    HOTSPOT(HS_TAB7         )   PXY(504,318) PWH(30,42)
+//    HOTSPOT(HS_TAB8         )   PXY(504,359) PWH(32,42)
+//    HOTSPOT(HS_BACKBOOKS    )   PXY(538,28)  PWH(100,100)
+//    TOY(HS_LOGO_JOKES       )   PXY( 16,407) DISABLED
+//    TOY(HS_XTRA_JOKES       )   PXY(135,415) DISABLED
+//    TOY(HS_COLORME          )   PXY(555,174)
+//    TOY(HS_SHOWME           )   PXY( 17,415)
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_MAILMAZE) MODELESS SPACEIN(0,0) PWH(640,480)
+//    OBJLISTRX("", IDC_HIDDEN_IMAGE) PXY(20,23) PWH(480,360)
+//    HOTSPOT(HS_COVER        )   PXY(504,21 ) PWH(20,42)
+//    HOTSPOT(HS_TAB1         )   PXY(504,69 ) PWH(21,42)
+//    HOTSPOT(HS_TAB2         )   PXY(504,113) PWH(23,42)
+//    HOTSPOT(HS_TAB3         )   PXY(504,153) PWH(24,42)
+//    HOTSPOT(HS_TAB4         )   PXY(504,193) PWH(26,42)
+//    HOTSPOT(HS_TAB5         )   PXY(504,236) PWH(27,42)
+//    HOTSPOT(HS_TAB6         )   PXY(504,276) PWH(29,42)
+//    HOTSPOT(HS_TAB7         )   PXY(504,318) PWH(30,42)
+//    HOTSPOT(HS_TAB8         )   PXY(504,359) PWH(32,42)
+//    HOTSPOT(HS_BACKBOOKS    )   PXY(538,28)  PWH(100,100)
+//    TOY(HS_LOGO_MAILMAZE    )   PXY( 16,407) DISABLED
+//    TOY(HS_XTRA_MAILMAZE    )   PXY(122,415) DISABLED
+//    TOY(HS_COLORME          )   PXY(555,174)
+//    TOY(HS_SHOWME           )   PXY( 17,415)
+//    TOY(HS_RESTART          )   PXY(432,415)
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_RESTART        /L "Click to start over."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_PAPER) MODELESS SPACEIN(0,0) PWH(640,480)
+//    HOTSPOT(HS_PAPER1       )   PXY( 17,143) PWH(134,110)
+//    HOTSPOT(HS_PAPER2       )   PXY(325,143) PWH(134,110)
+//    HOTSPOT(HS_PAPER3       )   PXY( 17,256) PWH(134,110)
+//    HOTSPOT(HS_PAPER4       )   PXY(170,256) PWH(134,110)
+//    HOTSPOT(HS_PAPER5       )   PXY(325,256) PWH(134,110)
+//    HOTSPOT(HS_PAPER6       )   PXY(481,256) PWH(134,110)
+//    HOTSPOT(HS_PAPER7       )   PXY( 17,368) PWH(134,110)
+//    HOTSPOT(HS_PAPER8       )   PXY(170,368) PWH(134,110)
+//    HOTSPOT(HS_PAPER9       )   PXY(325,368) PWH(134,110)
+//    HOTSPOT(HS_PAPER10      )   PXY(481,368) PWH(134,110)
+//    HOTSPOT(HS_BACKART      )   RECT(539, 25,640,125)
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_PAPER1         /L "Color Circus Scene\nnote paper."
+//    string /X HS_PAPER2         /L "Color Naughty Cat\nnote paper."
+//    string /X HS_PAPER3         /L "Color Crayon Design\nnote paper."
+//    string /X HS_PAPER4         /L "Color Dinosaur\nnote paper."
+//    string /X HS_PAPER5         /L "Color Sea Creatures\nnote paper."
+//    string /X HS_PAPER6         /L "Color Musical\nnote paper."
+//    string /X HS_PAPER7         /L "Color Spring Things\nnote paper."
+//    string /X HS_PAPER8         /L "Color Playground Fun\nnote paper."
+//    string /X HS_PAPER9         /L "Color Let\'s Party\nnote paper."
+//    string /X HS_PAPER10        /L "Color Wacky Animals\nnote paper."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_PUZZLESTART) MODELESS SPACEIN(0,0) PWH(640,480)
+//    HOTSPOT(HS_PUZZLE_EASY   )   RECT( 16, 283, 160, 426)
+//    HOTSPOT(HS_PUZZLE_TOUGH  )   RECT(183, 313, 362, 475)
+//    HOTSPOT(HS_PUZZLE_HARD   )   RECT(382, 266, 634, 477)
+//    HOTSPOT(HS_BACKART       )   RECT(494,  45, 629, 145)
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_PUZZLE_EASY    /L "Go to Easy Word Puzzler."
+//    string /X HS_PUZZLE_TOUGH   /L "Go to Regular Word Puzzler."
+//    string /X HS_PUZZLE_HARD    /L "Go to Hard Word Puzzler."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_PUZZLE) MODELESS SPACEIN(0,0) PWH(640,480)
+//    OBJLISTRX("", IDC_PUZZLE_IMAGE) PXY(18,17) PWH(491,367) /T-
+//    HOTSPOT(HS_SHOWMEPUZZLE  )   RECT( 17, 403, 117, 461)  /T-
+//    HOTSPOT(HS_PUZZLE_NEWGAME)   RECT(521, 403, 621, 461)  /T-
+//    EDITRX(IDC_PUZZLE_NAME)      RECT(143, 414, 497, 448)  /T-
+//    TEXTRX("44", IDC_PUZZLE_CHANGES)   RECT(545, 263, 593, 287) /E+ SS_CENTER /T-
+//    HOTSPOT(HS_BACKPUZZLE    )   RECT(494,  45, 629, 145)  /T-
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_PUZZLE_NEWGAME /L "Start a new game."
+//    string /X HS_BACKPUZZLE     /L "Pick a new game level."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_SAFARI) MODELESS SPACEIN(0,0) PWH(640,480)
+//    OBJLISTRX("", IDC_HIDDEN_IMAGE) PXY(20,23) PWH(480,360)
+//    HOTSPOT(HS_COVER        )   PXY(504,21 ) PWH(20,42)
+//    HOTSPOT(HS_TAB1         )   PXY(504,69 ) PWH(21,42)
+//    HOTSPOT(HS_TAB2         )   PXY(504,113) PWH(23,42)
+//    HOTSPOT(HS_TAB3         )   PXY(504,153) PWH(24,42)
+//    HOTSPOT(HS_TAB4         )   PXY(504,193) PWH(26,42)
+//    HOTSPOT(HS_TAB5         )   PXY(504,236) PWH(27,42)
+//    HOTSPOT(HS_TAB6         )   PXY(504,276) PWH(29,42)
+//    HOTSPOT(HS_TAB7         )   PXY(504,318) PWH(30,42)
+//    HOTSPOT(HS_TAB8         )   PXY(504,359) PWH(32,42)
+//    HOTSPOT(HS_BACKBOOKS    )   PXY(538,28)  PWH(100,100)
+//    TOY(HS_LOGO_SAFARI      )   PXY( 16,407) DISABLED
+//    TOY(HS_COLORME          )   PXY(555,174)
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_SLIDE) MODELESS SPACEIN(0,0) PWH(640,480)
+//    HOTSPOT(HS_BACKART		)	RECT(543, 32,625,109)
+//
+//	HOTSPOT(HS_IMAGE1_DEL	)	RECT( 19,277, 52,296)
+//	HOTSPOT(HS_IMAGE2_DEL	)	RECT(176,277,208,296)
+//	HOTSPOT(HS_IMAGE3_DEL	)	RECT(334,277,366,296)
+//	HOTSPOT(HS_IMAGE4_DEL	)	RECT(491,277,522,296)
+//	HOTSPOT(HS_IMAGE5_DEL	)	RECT( 19,415, 52,434)
+//	HOTSPOT(HS_IMAGE6_DEL	)	RECT(176,415,208,434)
+//	HOTSPOT(HS_IMAGE7_DEL	)	RECT(334,415,366,434)
+//	HOTSPOT(HS_IMAGE8_DEL	)	RECT(491,415,522,434)
+//
+//	HOTSPOT(HS_IMAGE1_INS	)	RECT( 57,277, 91,296)
+//	HOTSPOT(HS_IMAGE2_INS	)	RECT(215,277,247,296)
+//	HOTSPOT(HS_IMAGE3_INS	)	RECT(373,277,404,296)
+//	HOTSPOT(HS_IMAGE4_INS	)	RECT(529,277,561,296)
+//	HOTSPOT(HS_IMAGE5_INS	)	RECT( 57,415, 91,434)
+//	HOTSPOT(HS_IMAGE6_INS	)	RECT(215,415,247,434)
+//	HOTSPOT(HS_IMAGE7_INS	)	RECT(373,415,404,434)
+//	HOTSPOT(HS_IMAGE8_INS	)	RECT(529,415,561,434)
+//
+//	HOTSPOT(HS_IMAGE1_EFF	)	RECT( 97,277,147,296)
+//	HOTSPOT(HS_IMAGE2_EFF	)	RECT(254,277,303,296)
+//	HOTSPOT(HS_IMAGE3_EFF	)	RECT(411,277,461,296)
+//	HOTSPOT(HS_IMAGE4_EFF	)	RECT(568,277,619,296)
+//	HOTSPOT(HS_IMAGE5_EFF	)	RECT( 97,415,147,434)
+//	HOTSPOT(HS_IMAGE6_EFF	)	RECT(254,415,303,434)
+//	HOTSPOT(HS_IMAGE7_EFF	)	RECT(411,415,461,434)
+//	HOTSPOT(HS_IMAGE8_EFF	)	RECT(568,415,619,434)
+//
+//	IMAGERX("",IDC_SLIDE_IMAGE1)  PXY( 26,177) PWH(115, 90)
+//	IMAGERX("",IDC_SLIDE_IMAGE2)  PXY(183,177) PWH(115, 90)
+//	IMAGERX("",IDC_SLIDE_IMAGE3)  PXY(340,177) PWH(115, 90)
+//	IMAGERX("",IDC_SLIDE_IMAGE4)  PXY(497,177) PWH(115, 90)
+//	IMAGERX("",IDC_SLIDE_IMAGE5)  PXY( 26,317) PWH(115, 90)
+//	IMAGERX("",IDC_SLIDE_IMAGE6)  PXY(183,317) PWH(115, 90)
+//	IMAGERX("",IDC_SLIDE_IMAGE7)  PXY(340,317) PWH(115, 90)
+//	IMAGERX("",IDC_SLIDE_IMAGE8)  PXY(497,317) PWH(115, 90)
+//
+//	TOY(HS_SLIDE_NEXTPAGE)		PXY(570,438)
+//	TOY(HS_SLIDE_PREVPAGE)		PXY( 10,438)
+//	TOY(HS_SLIDE_PLAYMOVIE)		PXY(257,445) 
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_IMAGE1_DEL	    /L "Click to delete this picture."
+//    string /X HS_IMAGE2_DEL	    /L "Click to delete this picture."
+//    string /X HS_IMAGE3_DEL	    /L "Click to delete this picture."
+//    string /X HS_IMAGE4_DEL	    /L "Click to delete this picture."
+//    string /X HS_IMAGE5_DEL	    /L "Click to delete this picture."
+//    string /X HS_IMAGE6_DEL	    /L "Click to delete this picture."
+//    string /X HS_IMAGE7_DEL	    /L "Click to delete this picture."
+//    string /X HS_IMAGE8_DEL	    /L "Click to delete this picture."
+//
+//    string /X HS_IMAGE1_INS	    /L "Click to insert a picture."
+//    string /X HS_IMAGE2_INS	    /L "Click to insert a picture."
+//    string /X HS_IMAGE3_INS	    /L "Click to insert a picture."
+//    string /X HS_IMAGE4_INS	    /L "Click to insert a picture."
+//    string /X HS_IMAGE5_INS	    /L "Click to insert a picture."
+//    string /X HS_IMAGE6_INS	    /L "Click to insert a picture."
+//    string /X HS_IMAGE7_INS	    /L "Click to insert a picture."
+//    string /X HS_IMAGE8_INS	    /L "Click to insert a picture."
+//
+//    string /X HS_IMAGE1_EFF	    /L "Click to apply a special effect."
+//    string /X HS_IMAGE2_EFF	    /L "Click to apply a special effect."
+//    string /X HS_IMAGE3_EFF	    /L "Click to apply a special effect."
+//    string /X HS_IMAGE4_EFF	    /L "Click to apply a special effect."
+//    string /X HS_IMAGE5_EFF	    /L "Click to apply a special effect."
+//    string /X HS_IMAGE6_EFF	    /L "Click to apply a special effect."
+//    string /X HS_IMAGE7_EFF	    /L "Click to apply a special effect."
+//    string /X HS_IMAGE8_EFF	    /L "Click to apply a special effect."
+//
+//    string /X IDC_SLIDE_IMAGE1  /L "Go to the Gallery to pick a picture."
+//    string /X IDC_SLIDE_IMAGE2  /L "Go to the Gallery to pick a picture."
+//    string /X IDC_SLIDE_IMAGE3  /L "Go to the Gallery to pick a picture."
+//    string /X IDC_SLIDE_IMAGE4  /L "Go to the Gallery to pick a picture."
+//    string /X IDC_SLIDE_IMAGE5  /L "Go to the Gallery to pick a picture."
+//    string /X IDC_SLIDE_IMAGE6  /L "Go to the Gallery to pick a picture."
+//    string /X IDC_SLIDE_IMAGE7  /L "Go to the Gallery to pick a picture."
+//    string /X IDC_SLIDE_IMAGE8  /L "Go to the Gallery to pick a picture."
+//
+//    string /X HS_SLIDE_NEXTPAGE     /L "Show next page."
+//    string /X HS_SLIDE_PREVPAGE     /L "Show previous page."
+//    string /X HS_SLIDE_PLAYMOVIE    /L "Play the movie."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_SLIDEPLAY) MODELESS SPACEIN(0,0) PWH(640,480)
+//    HOTSPOT(HS_SLIDEPLAY_QUIT)	RECT(571,14,675,100)
+//    OBJLISTRX("", IDC_SLIDEPLAY_IMAGE) PXY(79,7) PWH(480,360)
+//	TOY(IDC_SLIDEPLAY_STOP)		PXY(510,385) 
+//	TOY(IDC_SLIDEPLAY_START)	PXY(510,385) 
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_SLIDEPLAY_QUIT     /L "Quit the movie and go back."
+//    string /X IDC_SLIDEPLAY_STOP    /L "Stop the movie."
+//    string /X IDC_SLIDEPLAY_START   /L "Start the movie."
+//end
+
+//************************************************************************
+// Access: Click on Effects buttons from Slideshow screen
+//************************************************************************
+//DIALOG( "Slide Show Effects", IDD_SLIDE_EFFSETUP) MODALFLOAT SAMEWIDTH TOP2BOTTOM
+//	DLGPANE
+//		frame LEFT2RIGHT
+//			TEXTRX( "&Time to display this image (1 - 60 seconds):", -1) CLOSEX
+//			bevelin
+//    		EDITRX(IDC_EFFSETUP_EDIT) /Pw f: (3 * RXU_XSTANDARD) TIGHT THINFONT
+//			end
+//		end
+//	end
+////these are future.... (SMS)
+////	DLGPANE	LEFT2RIGHT
+////		frame TOP2BOTTOM
+////			TEXTRX( "&Assign Sound", -1 ) CLOSEY
+////			bevelin
+////			LISTRX(IDC_EFFSETUP_SOUNDLIST) CHARS(30) HEIGHT(100) V_SCROLL
+////			end
+////		end
+////		frame TOP2BOTTOM
+////			TEXTRX( "T&ransition", -1 ) CLOSEY
+////			bevelin
+////			LISTRX(IDC_EFFSETUP_TRANLIST) CHARS(30) HEIGHT(100) V_SCROLL
+////			end
+////		end
+////	end
+//	BLACKLINE
+//	DLGPANE
+//		frame LEFT2RIGHT CENTER
+//			OK
+//			CANCEL
+//		end
+//	end
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_VEHICLE) MODELESS SPACEIN(0,0) PWH(640,480)
+//    OBJLISTRX("", IDC_MIXUP_IMAGE) PXY(20,23) PWH(480,360)
+//    HOTSPOT(HS_COVER        )   PXY(504,21 ) PWH(20,42)
+//    HOTSPOT(HS_TAB1         )   PXY(504,69 ) PWH(21,42)
+//    HOTSPOT(HS_TAB2         )   PXY(504,113) PWH(23,42)
+//    HOTSPOT(HS_TAB3         )   PXY(504,153) PWH(24,42)
+//    HOTSPOT(HS_TAB4         )   PXY(504,193) PWH(26,42)
+//    HOTSPOT(HS_TAB5         )   PXY(504,236) PWH(27,42)
+//    HOTSPOT(HS_TAB6         )   PXY(504,276) PWH(29,42)
+//    HOTSPOT(HS_TAB7         )   PXY(504,318) PWH(30,42)
+//    HOTSPOT(HS_TAB8         )   PXY(504,359) PWH(32,42)
+//    HOTSPOT(HS_BACKBOOKS    )   PXY(538,28)  PWH(100,100)
+//    TOY(HS_LOGO_VEHICLE     )   PXY( 16,407) DISABLED
+//    TOY(HS_MIXUP_FRONT      )   PXY( 60,410)
+//    TOY(HS_MIXUP_MIDDLE     )   PXY(220,410)
+//    TOY(HS_MIXUP_REAR       )   PXY(380,410)
+//    TOY(HS_COLORME          )   PXY(555,174)
+//
+//	ANIMATED_TOY(IDC_COVER_ANIMATE1,"1010")     PXY(260, 22)    // helicopter
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X HS_MIXUP_FRONT    /L "Change the front of the vehicle."
+//    string /X HS_MIXUP_MIDDLE   /L "Change the middle of the vehicle."
+//    string /X HS_MIXUP_REAR     /L "Change the rear of the vehicle."
+//end
+
+/****************************************************************************/
+
+//DIALOG("",RM_WORLD) MODELESS SPACEIN(0,0) PWH(640,480)
+//    OBJLISTRX("", IDC_HIDDEN_IMAGE) PXY(20,23) PWH(480,360)
+//    HOTSPOT(HS_COVER        )   PXY(504,21 ) PWH(20,42)
+//    HOTSPOT(HS_TAB1         )   PXY(504,69 ) PWH(21,42)
+//    HOTSPOT(HS_TAB2         )   PXY(504,113) PWH(23,42)
+//    HOTSPOT(HS_TAB3         )   PXY(504,153) PWH(24,42)
+//    HOTSPOT(HS_TAB4         )   PXY(504,193) PWH(26,42)
+//    HOTSPOT(HS_TAB5         )   PXY(504,236) PWH(27,42)
+//    HOTSPOT(HS_TAB6         )   PXY(504,276) PWH(29,42)
+//    HOTSPOT(HS_TAB7         )   PXY(504,318) PWH(30,42)
+//    HOTSPOT(HS_TAB8         )   PXY(504,359) PWH(32,42)
+//    HOTSPOT(HS_BACKBOOKS    )   PXY(538,28)  PWH(100,100)
+//    TOY(HS_LOGO_WORLD       )   PXY( 16,407) DISABLED
+//    TOY(HS_XTRA_WORLD       )   PXY(135,415) DISABLED
+//    TOY(HS_COLORME          )   PXY(555,174)
+//    TOY(HS_SHOWME           )   PXY( 17,415)
+//    IMAGERX("", IDC_WORLD_ANSWER1) RECT(143,436,246,471)
+//    IMAGERX("", IDC_WORLD_ANSWER2) RECT(263,436,366,471)
+//    IMAGERX("", IDC_WORLD_ANSWER3) RECT(384,436,487,471)
+//    IMAGERX("", IDC_WORLD_ANSWER4) RECT(505,436,608,471)
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_WORLD_ANSWER1 /L "Possible answer 1."
+//    string /X IDC_WORLD_ANSWER2 /L "Possible answer 2."
+//    string /X IDC_WORLD_ANSWER3 /L "Possible answer 3."
+//    string /X IDC_WORLD_ANSWER4 /L "Possible answer 4."
+//end
+
+/****************************************************************************/
+
+//************************************************************************
+// Access: Automatically at startup - The Main dialog
+//************************************************************************
+//DIALOG( "", IDD_MAIN ) MODELESS SPACEIN(0,0) PWH(640,480) INVISIBLE
+//	TOY( IDC_GOBACK )		PXY( 569,   0 )
+//
+////	TOY( IDC_SOUND )		PXY( 505,   0 )
+////	TOY( IDM_NEXTPAGE )	 	PXY( 505,  26 )
+////	TOY( IDC_CUSTOMVIEW )	PXY( 540,   0 )
+//
+//	TOY( IDC_GALLERY )	 	PXY( 506,   6 )
+//	TOY( IDC_CRAYON )	 	PXY( 506,  73 )
+//	TOY( IDC_PAINT )	 	PXY( 531,  64 )
+//	TOY( IDC_TEXT )		 	PXY( 579,  81 )
+//	TOY( IDC_MARKER )	 	PXY( 505, 157 )
+//	TOY( IDC_FILL )			PXY( 534, 160 )
+//	TOY( IDC_SHAPES )		PXY( 592, 149 )
+//	TOY( IDC_LINES )	 	PXY( 590, 196 )
+//	TOY( IDM_UNDO )		 	PXY( 507, 256 )
+//	TOY( IDC_STAMP )	 	PXY( 536, 243 )
+//	TOY( IDC_TOY )			PXY( 581, 243 )
+//	TOY( IDC_ERASER )	 	PXY( 500, 304 )
+//	TOY( IDC_TRANSFORMER )	PXY( 548, 308 )
+//	TOY( IDC_EFFECTS )		PXY( 586, 323 )
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_GOBACK        /L "Go back."
+//    string /X IDC_GALLERY       /L "Use the Picture Tool."
+//    string /X IDC_CRAYON        /L "Draw with crayons."
+//    string /X IDC_PAINT         /L "Paint with watercolors."
+//    string /X IDC_TEXT          /L "Type words and numbers."
+//    string /X IDC_MARKER        /L "Draw with markers."
+//    string /X IDC_FILL          /L "Fill with color."
+//    string /X IDC_SHAPES        /L "Draw shapes."
+//    string /X IDC_LINES         /L "Draw Crazy Lines."
+//    string /X IDM_UNDO          /L "Undo a boo-boo."
+//    string /X IDC_STAMP         /L "Add stickers to your picture."
+//    string /X IDC_TOY           /L "Add moving toys to your picture."
+//    string /X IDC_ERASER        /L "Erase or explode a picture."
+//    string /X IDC_TRANSFORMER   /L "Transform a sticker or\ncut and paste."
+//    string /X IDC_EFFECTS       /L "Apply a special effect."
+//    string /X IDC_ACTIVECOLOR   /L "This is the active color."
+//    string /X IDC_COLORS_CRAYON /L "Pick a color."
+//    string /X IDC_COLORS_MARKER /L "Pick a color."
+//    string /X IDC_COLORS_PAINT  /L "Pick a color."
+//    string /X IDC_COLORS_TEXT   /L "Pick a color."
+//    string /X IDC_COLORS_LINES  /L "Pick a color."
+//    string /X IDC_COLORS_FILL   /L "Pick a color."
+//    string /X IDC_COLORS_SHAPES /L "Pick a color."
+//end
+
+//************************************************************************
+// The RIBBON definitions
+//************************************************************************
+
+//************************************************************************
+// Access: Select Toy (animation) tool
+//************************************************************************
+//DIALOG( "", IDD_TOY ) RIBBON
+//	TOY( IDC_TOY ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(10)
+//	frame LEFT2RIGHT TIGHT MID
+//		OPTION( IDC_TOY_CATEGORY ) PWH(90,90) /E+ WS_TEXT
+//		frame TOP2BOTTOM TIGHT
+//			frame LEFT2RIGHT TIGHT
+//				OPTION( IDC_TOY_T1 )
+//				OPTION( IDC_TOY_T2 )
+//				OPTION( IDC_TOY_T3 )
+//				OPTION( IDC_TOY_T4 )
+//				OPTION( IDC_TOY_T5 )
+//			end
+//			frame LEFT2RIGHT TIGHT
+//				OPTION( IDC_TOY_T6 )
+//				OPTION( IDC_TOY_T7 )
+//				OPTION( IDC_TOY_T8 )
+//				OPTION( IDC_TOY_T9 )
+//				OPTION( IDC_TOY_T10 )
+//			end
+//		end
+//	end
+//	PSPACE(10)
+//	SWITCH( IDC_TOY_SW1 ) MID
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_TOY_SW1       /L "Click to START and STOP the moving toys."
+//end
+
+//************************************************************************
+// Access: Select Draw tool, then Pencil tool
+//************************************************************************
+//DIALOG( "", IDD_STAMP ) RIBBON
+//	TOY( IDC_STAMP ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(10)
+//	frame LEFT2RIGHT TIGHT MID
+//		OPTION( IDC_STAMP_CATEGORY ) PWH(90,90) /E+ WS_TEXT
+//		frame TOP2BOTTOM TIGHT
+//			frame LEFT2RIGHT TIGHT
+//				OPTION( IDC_STAMP_T1 )
+//				OPTION( IDC_STAMP_T2 )
+//				OPTION( IDC_STAMP_T3 )
+//				OPTION( IDC_STAMP_T4 )
+//				OPTION( IDC_STAMP_T5 )
+//				OPTION( IDC_STAMP_T6 )
+//				OPTION( IDC_STAMP_T7 )
+//				OPTION( IDC_STAMP_T8 )
+//			end
+//			frame LEFT2RIGHT TIGHT
+//				OPTION( IDC_STAMP_T9 )
+//				OPTION( IDC_STAMP_T10 )
+//				OPTION( IDC_STAMP_T11 )
+//				OPTION( IDC_STAMP_T12 )
+//				OPTION( IDC_STAMP_T13 )
+//				OPTION( IDC_STAMP_T14 )
+//				OPTION( IDC_STAMP_T15 )
+//				OPTION( IDC_STAMP_T16 )
+//			end
+//		end
+//	end
+//	PSPACE(10)
+//	SWITCH( IDC_STAMP_SW1 ) MID
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_STAMP_SW1     /L "Click to choose COLOR or BLACK and WHITE stickers."
+//end
+
+//************************************************************************
+// Access: Select Effects tool
+//************************************************************************
+//DIALOG( "", IDD_EFFECTS ) RIBBON
+//	TOY( IDC_EFFECTS ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(10)
+//	frame LEFT2RIGHT TIGHT MID
+//		OPTION( IDC_EFFECTS_CATEGORY ) PWH(90,90) /E+ WS_TEXT
+//		frame TOP2BOTTOM TIGHT
+//			frame LEFT2RIGHT TIGHT
+//				OPTION( IDC_EFFECTS_T1 )
+//				OPTION( IDC_EFFECTS_T2 )
+//				OPTION( IDC_EFFECTS_T3 )
+//				OPTION( IDC_EFFECTS_T4 )
+//				OPTION( IDC_EFFECTS_T5 )
+//				OPTION( IDC_EFFECTS_T6 )
+//				OPTION( IDC_EFFECTS_T7 )
+//				OPTION( IDC_EFFECTS_T8 )
+//			end
+//			frame LEFT2RIGHT TIGHT
+//				OPTION( IDC_EFFECTS_T9 )
+//				OPTION( IDC_EFFECTS_T10 )
+//				OPTION( IDC_EFFECTS_T11 )
+//				OPTION( IDC_EFFECTS_T12 )
+//				OPTION( IDC_EFFECTS_T13 )
+//				OPTION( IDC_EFFECTS_T14 )
+//				OPTION( IDC_EFFECTS_T15 )
+//				OPTION( IDC_EFFECTS_T16 )
+//			end
+//		end
+//	end
+//	PSPACE(10)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame STACK FLUSH FLUSH
+//			SLIDERBASE( IDC_EFFECTS_SL ) INVISIBLE
+//			frame TOP2BOTTOM CENTER FLUSH
+//				PSPACE(29)
+//				HSLIDE( IDC_EFFECTS_AMOUNT, 1, 10, 1, 1 ) TIGHT PW(88) INVISIBLE
+//			end
+//		end
+//		SWITCH( IDC_EFFECTS_SW1 ) INVISIBLE
+//	end
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_EFFECTS_SW1   /L "Click to add a new twist to the current effect."
+//    string /X IDC_EFFECTS_AMOUNT /L "Pick the amount of the current effect to use."
+//end
+
+//************************************************************************
+// Access: Select Eraser tool
+//************************************************************************
+//DIALOG( "", IDD_ERASER ) RIBBON
+//	TOY( IDC_ERASER ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(10)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_ERASER_T1 )
+//			OPTION( IDC_ERASER_T2 )
+//			OPTION( IDC_ERASER_T3 )
+//			OPTION( IDC_ERASER_T4 )
+//			OPTION( IDC_ERASER_T5 )
+//			OPTION( IDC_ERASER_T6 )
+//			OPTION( IDC_ERASER_T7 )
+//			OPTION( IDC_ERASER_T8 )
+//			OPTION( IDC_ERASER_T9 )
+//			OPTION( IDC_ERASER_T10 )
+//		end
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_ERASER_T11 )
+//			OPTION( IDC_ERASER_T12 )
+//			OPTION( IDC_ERASER_T13 )
+//			OPTION( IDC_ERASER_T14 )
+//			OPTION( IDC_ERASER_T15 )
+//			OPTION( IDC_ERASER_T16 )
+//			OPTION( IDC_ERASER_T17 )
+//			OPTION( IDC_ERASER_T18 )
+//			OPTION( IDC_ERASER_T19 )
+//			OPTION( IDC_ERASER_T20 )
+//		end
+//	end
+//	PSPACE(10)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame STACK FLUSH FLUSH
+//			SLIDERBASE( IDC_ERASER_SL )
+//			frame TOP2BOTTOM CENTER FLUSH
+//				PSPACE(29)
+//				HSLIDE( IDC_BRUSHSIZE, 1, 51, 10, 10 ) TIGHT PW(88)
+//			end
+//		end
+//		SWITCH( IDC_ERASER_SW1 )
+//	end
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_ERASER_T1     /L "Eraser."
+//    string /X IDC_ERASER_T2     /L "Explosion."
+//    string /X IDC_ERASER_T3     /L "Explosion."
+//    string /X IDC_ERASER_T4     /L "Explosion."
+//    string /X IDC_ERASER_T5     /L "Explosion."
+//    string /X IDC_ERASER_T6     /L "Explosion."
+//    string /X IDC_ERASER_T7     /L "Explosion."
+//    string /X IDC_ERASER_T8     /L "Explosion."
+//    string /X IDC_ERASER_T9     /L "Explosion."
+//    string /X IDC_ERASER_T10    /L "Explosion."
+//    string /X IDC_ERASER_T11    /L "Explosion."
+//    string /X IDC_ERASER_T12    /L "Explosion."
+//    string /X IDC_ERASER_T13    /L "Explosion."
+//    string /X IDC_ERASER_T14    /L "Explosion."
+//    string /X IDC_ERASER_T15    /L "Explosion."
+//    string /X IDC_ERASER_T16    /L "Explosion."
+//    string /X IDC_ERASER_T17    /L "Explosion."
+//    string /X IDC_ERASER_T18    /L "Explosion."
+//    string /X IDC_ERASER_T19    /L "Explosion."
+//    string /X IDC_ERASER_T20    /L "Explosion."
+//    string /X IDC_ERASER_SW1    /L "Click to erase or explode SOME or ALL of your picture."
+//    string /X IDC_BRUSHSIZE     /L "Pick the size of tool to use."
+//end
+
+//************************************************************************
+// Access: Select Text tool
+//************************************************************************
+//DIALOG( "", IDD_TEXT ) RIBBON /E+ DS_SETFONT
+//	TOY( IDC_TEXT ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(4)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame LEFT2RIGHT TIGHT
+//			FONT( IDC_TEXT_T1 )
+//			FONT( IDC_TEXT_T2 )
+//			FONT( IDC_TEXT_T3 )
+//			FONT( IDC_TEXT_T4 )
+//			FONT( IDC_TEXT_T5 )
+//		end
+//		frame LEFT2RIGHT TIGHT
+//			FONT( IDC_TEXT_T6 )
+//			FONT( IDC_TEXT_T7 )
+//			FONT( IDC_TEXT_T8 )
+//			FONT( IDC_TEXT_T9 )
+//			FONT( IDC_TEXT_T10 )
+//		end
+//	end
+//	PSPACE(6)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame STACK FLUSH FLUSH
+//			SLIDERBASE( IDC_TEXT_SL1 )
+//			frame TOP2BOTTOM CENTER FLUSH
+//				PSPACE(29)
+//				HSLIDE( IDC_TEXT_SIZE, 24, 200, 25, 25 ) TIGHT PW(88)
+//			end
+//		end
+//		frame STACK FLUSH FLUSH
+//			SLIDERBASE( IDC_TEXT_SL2 )
+//			frame TOP2BOTTOM CENTER FLUSH
+//				PSPACE(29)
+//				HSLIDE( IDC_TEXT_ANGLE, -4, 4, 1, 1 ) TIGHT PW(88)
+//			end
+//		end
+////		ODCOMBORX( IDC_TEXT_FACES ) WIDE ITEMS(10) TIGHTY
+//	end
+//	PSPACE(6)
+//	COLOR2( IDC_ACTIVECOLOR ) TIGHT PWH(20,90) MID
+//	PSPACE(6)
+//	TOY( IDC_COLORS_TEXT ) TIGHT PWH(226,94) MID
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_TEXT_SIZE     /L "Pick the size of the text to use."
+//    string /X IDC_TEXT_ANGLE    /L "Pick the direction of the text."
+//end
+
+//************************************************************************
+// Access: Select Mask tools, then Mask Transform tool
+//************************************************************************
+//DIALOG( "", IDD_TRANSFORMER ) RIBBON
+//	TOY( IDC_TRANSFORMER ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(10)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_TRANSFORMER_T1 )
+//			OPTION( IDC_TRANSFORMER_T2 )
+//			OPTION( IDC_TRANSFORMER_T3 )
+//			OPTION( IDC_TRANSFORMER_T4 )
+//			OPTION( IDC_TRANSFORMER_T5 )
+//		end
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_TRANSFORMER_T6 )
+//			OPTION( IDC_TRANSFORMER_T7 )
+//			OPTION( IDC_TRANSFORMER_T8 )
+//			OPTION( IDC_TRANSFORMER_T9 )
+//			OPTION( IDC_TRANSFORMER_T10 )
+//		end
+//	end
+//    PSPACE(10)
+//	OPTION( IDC_TRANSFORMER_T11 ) PWH(90,90) MID // /E+ WS_TEXT /L "Tack Down"
+//    PSPACE(10)
+//	OPTION( IDC_TRANSFORMER_T12 ) PWH(90,90) MID // /E+ WS_TEXT /L "Copy"
+//    PSPACE(10)
+//	OPTION( IDC_TRANSFORMER_T13 ) PWH(90,90) MID // /E+ WS_TEXT /L "Paste"
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_TRANSFORMER_T11   /L "Click to permanently attach the selected sticker."
+//    string /X IDC_TRANSFORMER_T12   /L "Click to copy (memorize) the selected sticker."
+//    string /X IDC_TRANSFORMER_T13   /L "Click to paste a memorized sticker."
+//end
+
+//************************************************************************
+// Access: Select Retouch tool, then Paint tool
+//************************************************************************
+//DIALOG( "", IDD_PAINT ) RIBBON
+//	TOY( IDC_PAINT ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(2)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_PAINT_T1 )
+//			OPTION( IDC_PAINT_T2 )
+//			OPTION( IDC_PAINT_T3 )
+//			OPTION( IDC_PAINT_T4 )
+//			OPTION( IDC_PAINT_T5 )
+//		end
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_PAINT_T6 )
+//			OPTION( IDC_PAINT_T7 )
+//			OPTION( IDC_PAINT_T8 )
+//			OPTION( IDC_PAINT_T9 )
+//			OPTION( IDC_PAINT_T10 )
+//		end
+//	end
+//	PSPACE(6)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame STACK FLUSH FLUSH
+//			SLIDERBASE( IDC_PAINT_SL1 )
+//			frame TOP2BOTTOM CENTER FLUSH
+//				PSPACE(29)
+//				HSLIDE( IDC_BRUSHSIZE, 1, 51, 10, 10 ) TIGHT PW(88)
+//			end
+//		end
+//		frame STACK FLUSH FLUSH
+//			SLIDERBASE( IDC_PAINT_SL2 )
+//			frame TOP2BOTTOM CENTER FLUSH
+//				PSPACE(29)
+//				HSLIDE( IDC_TRANSPARENT, 25, 75, 10, 10 ) TIGHT PW(88)
+//			end
+//		end
+//	end
+//	PSPACE(6)
+//	COLOR2( IDC_ACTIVECOLOR ) TIGHT PWH(20,90) MID
+//	PSPACE(6)
+//	TOY( IDC_COLORS_PAINT ) TIGHT PWH(226,94) MID
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_TRANSPARENT   /L "Pick the amount of water to add to the paint."
+//end
+
+//************************************************************************
+// Access: Select Retouch tool, then Stamp tool
+//************************************************************************
+//DIALOG( "", IDD_LINES ) RIBBON
+//	TOY( IDC_LINES ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(10)
+//	frame LEFT2RIGHT TIGHT MID
+//		OPTION( IDC_LINES_CATEGORY ) PWH(90,90) /E+ WS_TEXT
+//		frame TOP2BOTTOM TIGHT
+//			frame LEFT2RIGHT TIGHT
+//				OPTION( IDC_LINES_T1 )
+//				OPTION( IDC_LINES_T2 )
+//				OPTION( IDC_LINES_T3 )
+//				OPTION( IDC_LINES_T4 )
+//				OPTION( IDC_LINES_T5 )
+//			end
+//			frame LEFT2RIGHT TIGHT
+//				OPTION( IDC_LINES_T6 )
+//				OPTION( IDC_LINES_T7 )
+//				OPTION( IDC_LINES_T8 )
+//				OPTION( IDC_LINES_T9 )
+//				OPTION( IDC_LINES_T10 )
+//			end
+//		end
+//	end
+//	PSPACE(6)
+//	COLOR2( IDC_ACTIVECOLOR ) TIGHT PWH(20,90) MID
+//	PSPACE(6)
+//	TOY( IDC_COLORS_LINES ) TIGHT PWH(226,98) MID
+//end
+
+//************************************************************************
+// Access: Select Retouch tool, then Crayon tool
+//************************************************************************
+//DIALOG( "", IDD_CRAYON ) RIBBON
+//	TOY( IDC_CRAYON ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+////	PSPACE(2)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_CRAYON_T1 )
+//			OPTION( IDC_CRAYON_T2 )
+//			OPTION( IDC_CRAYON_T3 )
+//			OPTION( IDC_CRAYON_T4 )
+//			OPTION( IDC_CRAYON_T5 )
+//		end
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_CRAYON_T6 )
+//			OPTION( IDC_CRAYON_T7 )
+//			OPTION( IDC_CRAYON_T8 )
+//			OPTION( IDC_CRAYON_T9 )
+//			OPTION( IDC_CRAYON_T10 )
+//		end
+//	end
+//	PSPACE(6)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame STACK FLUSH FLUSH
+//			SLIDERBASE( IDC_CRAYON_SL )
+//			frame TOP2BOTTOM CENTER FLUSH
+//				PSPACE(29)
+//				HSLIDE( IDC_BRUSHSIZE, 1, 51, 10, 10 ) TIGHT PW(88)
+//			end
+//		end
+//		SWITCH( IDC_CRAYON_SW1 )
+//	end
+//	PSPACE(6)
+//	COLOR2( IDC_ACTIVECOLOR ) TIGHT PWH(20,90) MID
+//	PSPACE(6)
+//	TOY( IDC_COLORS_CRAYON ) TIGHT PWH(230,99) BOTTOM
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_CRAYON_SW1    /L "Click to turn mirror effect\nON and OFF."
+//end
+
+//************************************************************************
+// Access: Select Retouch tool, then Marker tool
+//************************************************************************
+//DIALOG( "", IDD_MARKER ) RIBBON
+//	TOY( IDC_MARKER ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+////	PSPACE(2)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_MARKER_T1 )
+//			OPTION( IDC_MARKER_T2 )
+//			OPTION( IDC_MARKER_T3 )
+//			OPTION( IDC_MARKER_T4 )
+//			OPTION( IDC_MARKER_T5 )
+//		end
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_MARKER_T6 )
+//			OPTION( IDC_MARKER_T7 )
+//			OPTION( IDC_MARKER_T8 )
+//			OPTION( IDC_MARKER_T9 )
+//			OPTION( IDC_MARKER_T10 )
+//		end
+//	end
+//	PSPACE(6)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame STACK FLUSH FLUSH
+//			SLIDERBASE( IDC_MARKER_SL )
+//			frame TOP2BOTTOM CENTER FLUSH
+//				PSPACE(29)
+//				HSLIDE( IDC_BRUSHSIZE, 1, 51, 10, 10 ) TIGHT PW(88)
+//			end
+//		end
+//		SWITCH( IDC_MARKER_SW1 )
+//	end
+//	PSPACE(6)
+//	COLOR2( IDC_ACTIVECOLOR ) TIGHT PWH(20,90) MID
+//	PSPACE(6)
+//	TOY( IDC_COLORS_MARKER ) TIGHT PWH(230,99) BOTTOM
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_MARKER_SW1    /L "Click to tell the marker whether to mix colors or not."
+//end
+
+//************************************************************************
+// Access: Select Fill tool, then Smart Mask tool
+//************************************************************************
+//DIALOG( "", IDD_FILL ) RIBBON
+//	TOY( IDC_FILL ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(10)
+//	frame LEFT2RIGHT TIGHT MID
+//		OPTION( IDC_FILL_CATEGORY ) PWH(90,90) /E+ WS_TEXT
+//		frame TOP2BOTTOM TIGHT
+//			frame LEFT2RIGHT TIGHT
+//				OPTION( IDC_FILL_T1 )
+//				OPTION( IDC_FILL_T2 )
+//				OPTION( IDC_FILL_T3 )
+//				OPTION( IDC_FILL_T4 )
+//				OPTION( IDC_FILL_T5 )
+//			end
+//			frame LEFT2RIGHT TIGHT
+//				OPTION( IDC_FILL_T6 )
+//				OPTION( IDC_FILL_T7 )
+//				OPTION( IDC_FILL_T8 )
+//				OPTION( IDC_FILL_T9 )
+//				OPTION( IDC_FILL_T10 )
+//			end
+//		end
+//	end
+//	PSPACE(6)
+//	COLOR2( IDC_ACTIVECOLOR ) TIGHT PWH(20,90) MID /E+ WS_TWOFACED
+//	PSPACE(6)
+//	TOY( IDC_COLORS_FILL ) TIGHT PWH(226,94) MID
+//end
+
+//************************************************************************
+// Access: Select Draw tool, then Rectangular Draw tool
+//************************************************************************
+//DIALOG( "", IDD_SHAPES ) RIBBON
+//	TOY( IDC_SHAPES ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(2)
+//	frame TOP2BOTTOM TIGHT MID
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_SHAPES_T1 )
+//			OPTION( IDC_SHAPES_T2 )
+//			OPTION( IDC_SHAPES_T3 )
+//			OPTION( IDC_SHAPES_T4 )
+//			OPTION( IDC_SHAPES_T5 )
+//		end
+//		frame LEFT2RIGHT TIGHT
+//			OPTION( IDC_SHAPES_T6 )
+//			OPTION( IDC_SHAPES_T7 )
+//			OPTION( IDC_SHAPES_T8 )
+//			OPTION( IDC_SHAPES_T9 )
+//			OPTION( IDC_SHAPES_T10 )
+//		end
+//	end
+//	PSPACE(6)
+//	frame TOP2BOTTOM TIGHT MID
+//		SWITCH( IDC_SHAPES_SW1 )
+//		SWITCH( IDC_SHAPES_SW2 )
+//	end
+//	PSPACE(6)
+//	COLOR2( IDC_ACTIVECOLOR ) TIGHT PWH(20,90) MID
+//	PSPACE(6)
+//	TOY( IDC_COLORS_SHAPES ) TIGHT PWH(226,94) MID
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_SHAPES_SW1    /L "Click to turn shape filler\nON and OFF."
+//    string /X IDC_SHAPES_SW2    /L "Click to choose 2D or 3D shapes."
+//end
+
+//************************************************************************
+// Access: Select Gallery tool
+//************************************************************************
+//DIALOG( "", IDD_GALLERY ) RIBBON
+//	TOY( IDC_GALLERY ) DISABLED PWH(60,100) /E+ SS_CENTER TIGHT
+//	PSPACE(10)
+//	OPTION( IDC_GALLERY_T1 ) PWH(90,90) MID // /E+ WS_TEXT /L "Save"
+//	PSPACE(15)
+//	OPTION( IDC_GALLERY_T2 ) PWH(90,90) MID // /E+ WS_TEXT /L "Print"
+//	PSPACE(15)
+//	OPTION( IDC_GALLERY_T3 ) PWH(90,90) MID // /E+ WS_TEXT /L "To Floppy"
+//	PSPACE(15)
+//	OPTION( IDC_GALLERY_T4 ) PWH(90,90) MID // /E+ WS_TEXT /L "From Floppy"
+//end
+//
+//stringtable LOADONCALL MOVEABLE DISCARDABLE
+//    string /X IDC_GALLERY_T1    /L "Click to save your picture in the gallery."
+//    string /X IDC_GALLERY_T2    /L "Click to print your picture."
+//    string /X IDC_GALLERY_T3    /L "Click to save your picture to a floppy diskette."
+//    string /X IDC_GALLERY_T4    /L "Click to load a picture from a floppy diskette."
+//end
+

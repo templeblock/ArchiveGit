@@ -1,0 +1,681 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "AppStudio.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "GraphicCompResource.h"
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "AppStudio.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""GraphicCompResource.h""\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DIALOG_SELECT_GRAPHIC DIALOG DISCARDABLE  0, 0, 295, 122
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Graphic"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         CONTROL_GRAPHIC_LIST,7,7,91,109,WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,238,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,238,24,50,14
+    PUSHBUTTON      "&Help",ID_HELP,238,42,50,14
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,108,7,120,107
+END
+
+DIALOG_PSD_CLIPBOARD_VIEWER DIALOG DISCARDABLE  0, 0, 252, 201
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PSD Graphic Clipboard Viewer"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,133,180,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,194,180,54,14
+    CONTROL         "PSD3 Graphic",CONTROL_RADIO_PSD3_GRAPHIC,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,4,182,61,10
+    CONTROL         "PSD5 Graphic",CONTROL_RADIO_PSD5_GRAPHIC,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,69,182,61,10
+    GROUPBOX        "",CONTROL_STATIC_GRAPHIC_PREVIEW,4,0,244,176
+END
+
+DIALOG_BACKDROP_BROWSER DIALOG DISCARDABLE  0, 0, 402, 260
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a Backdrop"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Tree1",CONTROL_TREE_BACKDROP_CATEGORIES,"SysTreeView32",
+                    TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | 
+                    TVS_DISABLEDRAGDROP | TVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,7,120,137
+    LISTBOX         CONTROL_LIST_BACKDROP_LIST,141,7,83,206,
+                    LBS_NOINTEGRALHEIGHT | NOT WS_VISIBLE | WS_VSCROLL | 
+                    WS_TABSTOP
+    LISTBOX         CONTROL_LIST_BACKDROP_PREVIEW,225,7,170,206,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Color:",IDC_STATIC,6,154,19,8
+    PUSHBUTTON      "Button2",CONTROL_BUTTON_BACKDROP_COLOR,41,151,54,14,
+                    BS_BITMAP
+    LTEXT           "T&int:",IDC_STATIC,7,172,15,8
+    COMBOBOX        CONTROL_COMBOBOX_BACKDROP_TINT,41,169,54,102,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "T&ype:",IDC_STATIC,7,190,19,8
+    COMBOBOX        CONTROL_COMBOBOX_BACKDROP_TYPE,29,187,66,102,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Preview Type:",IDC_STATIC,141,217,46,8
+    CONTROL         "&Gallery View",CONTROL_RADIO_BACKDROP_GALLERY,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,217,216,55,10
+    CONTROL         "&Large View",CONTROL_RADIO_BACKDROP_VIEW,"Button",
+                    BS_AUTORADIOBUTTON,286,216,51,10
+    CONTROL         "Lis&t View",CONTROL_RADIO_BACKDROP_LIST,"Button",
+                    BS_AUTORADIOBUTTON,351,216,44,10
+    PUSHBUTTON      "&Export...",CONTROL_BUTTON_BACKDROP_EXPORT,8,240,55,14
+    DEFPUSHBUTTON   "OK",IDOK,216,240,55,14
+    PUSHBUTTON      "Cancel",IDCANCEL,278,240,55,14
+    PUSHBUTTON      "&Help",ID_HELP,340,240,55,14
+    LTEXT           "",IDC_STATIC_TOTAL_GRID_ITEMS,5,204,133,8,SS_NOPREFIX
+    LTEXT           "",IDC_STATIC_SELECTED_NAME,5,215,133,8,SS_NOPREFIX
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,232,389,1
+END
+
+DIALOG_FRAMES_BROWSER DIALOG DISCARDABLE  0, 0, 373, 255
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a Frame"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         CONTROL_LIST_FRAMES_LIST,6,7,116,206,
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         CONTROL_LIST_FRAMES_PREVIEW,131,7,235,206,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,6,213,116,38
+    LTEXT           "Fill Inside Area:",IDC_STATIC,38,222,48,8
+    PUSHBUTTON      "Button2",CONTROL_BUTTON_FRAMES_COLOR,35,233,54,14,
+                    BS_BITMAP
+    PUSHBUTTON      "&Export...",CONTROL_BUTTON_FRAMES_EXPORT,127,233,55,14
+    DEFPUSHBUTTON   "OK",IDOK,189,233,55,14
+    PUSHBUTTON      "Cancel",IDCANCEL,251,233,55,14
+    PUSHBUTTON      "&Help",ID_HELP,313,233,55,14
+    LTEXT           "Preview Type:",IDC_STATIC,159,219,46,8
+    CONTROL         "&Gallery View",IDC_BORDERS_GALLERY,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,216,218,55,10
+    CONTROL         "&Large View",IDC_BORDERS_LARGE,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,283,218,51,10
+END
+
+DIALOG_IMPORT_IMAGE DIALOG DISCARDABLE  0, 0, 248, 170
+STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CAPTION
+CAPTION "Import Image"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Edit Image",CONTROL_BUTTON_EDIT_IMAGE,188,147,52,16,
+                    WS_DISABLED
+    LTEXT           "Placeholder for Windows 95 Explorer-style File Open dialog",
+                    1119,4,4,108,156,NOT WS_VISIBLE
+    GROUPBOX        "Image Preview",CONTROL_STATIC_IMPORT_FRAME,116,4,124,
+                    136
+    LTEXT           "",CONTROL_STATIC_IMPORT_PREVIEW,122,13,112,120,
+                    SS_NOTIFY | NOT WS_VISIBLE | NOT WS_GROUP
+    CONTROL         "&Show Preview",CONTROL_BUTTON_SHOW_PREVIEW,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,120,152,68,8
+END
+
+DIALOG_EDIT_IMAGE DIALOG DISCARDABLE  0, 0, 266, 269
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit Image"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,93,248,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,151,248,50,14
+    PUSHBUTTON      "&Help",ID_HELP,209,248,50,14
+    GROUPBOX        "Image &Preview",IDC_STATIC,7,7,252,140
+    LTEXT           "",CONTROL_STATIC_EDIT_PREVIEW,12,18,242,124,SS_NOTIFY | 
+                    WS_TABSTOP
+    LTEXT           "&Darken",CONTROL_STATIC_DARKEN,12,161,44,8
+    RTEXT           "L&ighten",CONTROL_STATIC_LIGHTEN,210,161,44,8
+    CONTROL         "Slider1",CONTROL_SLIDER_BRIGHTNESS,"msctls_trackbar32",
+                    TBS_TOP | WS_TABSTOP,56,153,152,24
+    LTEXT           "&Low Contrast",CONTROL_STATIC_LOW_CONTRAST,12,185,44,8
+    RTEXT           "Hi&gh Contrast",CONTROL_STATIC_HIGH_CONTRAST,210,185,44,
+                    8
+    CONTROL         "Slider2",CONTROL_SLIDER_CONTRAST,"msctls_trackbar32",
+                    TBS_TOP | WS_TABSTOP,56,177,152,24
+    LTEXT           "&Blur",CONTROL_STATIC_BLUR,12,209,44,8
+    RTEXT           "&Sharpen",CONTROL_STATIC_SHARPEN,210,209,44,8
+    CONTROL         "Slider3",CONTROL_SLIDER_SHARPNESS,"msctls_trackbar32",
+                    TBS_TOP | WS_TABSTOP,56,201,152,24
+    GROUPBOX        "",IDC_STATIC,7,148,252,92
+    LTEXT           "Resize and move image selection rectangle to crop image.",
+                    IDC_STATIC,37,225,190,10
+END
+
+IDD_GRC_BROWSER DIALOG DISCARDABLE  0, 0, 401, 261
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a Graphic"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_RESULTS_LB,143,7,253,206,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC_PREVIEW,"Static",SS_BLACKFRAME | 
+                    WS_DISABLED,233,7,163,206
+    PUSHBUTTON      "E&xport...",IDC_EXPORT,5,242,62,14
+    PUSHBUTTON      "OK",IDOK,218,242,55,14
+    PUSHBUTTON      "Cancel",IDCANCEL,280,242,54,14
+    PUSHBUTTON      "&Help",ID_HELP,340,242,55,14
+    CONTROL         "Tab1",IDC_GRC_TAB,"SysTabControl32",WS_TABSTOP,5,7,132,
+                    221
+    LISTBOX         IDC_IMPORT_LB,144,7,253,206,LBS_NOINTEGRALHEIGHT | NOT 
+                    WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Edit Image...",IDC_EDITIMAGE,75,242,62,14
+    LTEXT           "",IDC_STATIC_TOTAL_GRID_ITEMS,139,241,74,8,SS_NOPREFIX
+    LTEXT           "",IDC_STATIC_SELECTED_NAME,140,252,77,8,SS_NOPREFIX
+    LTEXT           "View:",IDC_STATIC,146,217,18,8
+    COMBOBOX        IDC_VIEWMODE_LB,172,215,66,56,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Order:",IDC_STATIC,283,217,20,8
+    COMBOBOX        IDC_SORTORDER_LB,310,215,86,47,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,6,235,389,1
+END
+
+IDD_GRC_CATEGORY_TAB DIALOG DISCARDABLE  0, 0, 128, 199
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Tree2",IDC_CATEGORY_TREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | 
+                    WS_BORDER | WS_TABSTOP,3,6,122,158
+    LTEXT           "Show Graphic Types",IDC_STATIC,3,170,67,8
+    COMBOBOX        IDC_TYPES_CB,3,180,122,103,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_GRC_KEYWORD_TAB DIALOG DISCARDABLE  0, 0, 125, 202
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Show Graphic Types:",IDC_STATIC,8,123,69,8
+    COMBOBOX        IDC_TYPES_CB,8,134,112,120,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "Progress1",IDC_PROGRESS_BAR,"msctls_progress32",
+                    WS_BORDER,8,176,112,10
+    CTEXT           "Graphics found: 0",IDC_NUMFOUND,8,190,112,8
+    DEFPUSHBUTTON   "&Start Search",IDC_START_SEARCH,18,154,90,16
+    CONTROL         "Name",IDC_SEARCH_NAME_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,14,15,39,10
+    CONTROL         "Keyword(s)",IDC_SEARCH_KEYWORD_RADIO,"Button",
+                    BS_AUTORADIOBUTTON,14,52,51,10
+    CONTROL         "Subject",IDC_SEARCH_THEME_RADIO,"Button",
+                    BS_AUTORADIOBUTTON,14,89,40,10
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,14,48,100,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,14,85,100,1
+    EDITTEXT        IDC_SEARCH_NAME_EDIT,14,28,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_KEYWORD_EDIT,14,65,100,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_SEARCH_THEME_COMBO,14,102,100,104,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Search Graphics By",IDC_STATIC,8,3,112,117
+END
+
+IDD_PMGC_BROWSER DIALOG DISCARDABLE  0, 0, 401, 261
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a Graphic"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_PMGC_RESULTS_LB,143,7,253,206,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_PMGC_STATIC_PREVIEW,"Static",SS_BLACKFRAME | 
+                    WS_DISABLED,233,7,163,206
+    PUSHBUTTON      "E&xport...",IDC_PMGC_EXPORT,5,242,62,14
+    PUSHBUTTON      "OK",IDOK,218,242,55,14
+    PUSHBUTTON      "Cancel",IDCANCEL,280,242,54,14
+    PUSHBUTTON      "&Help",ID_HELP,340,242,55,14
+    CONTROL         "Tab1",IDC_PMGC_TAB,"SysTabControl32",WS_TABSTOP,5,7,132,
+                    221
+    LISTBOX         IDC_PMGC_IMPORT_LB,144,7,253,206,LBS_NOINTEGRALHEIGHT | NOT 
+                    WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Edit Image...",IDC_PMGC_EDITIMAGE,75,242,62,14
+    LTEXT           "",IDC_PMGC_STATIC_TOTAL_GRID_ITEMS,139,241,74,8,SS_NOPREFIX
+    LTEXT           "",IDC_PMGC_STATIC_SELECTED_NAME,140,252,77,8,SS_NOPREFIX
+    LTEXT           "View:",IDC_STATIC,146,217,18,8
+    COMBOBOX        IDC_PMGC_VIEWMODE_LB,172,215,66,56,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,6,235,389,1
+END
+
+IDD_PMGC_CATEGORY_TAB DIALOG DISCARDABLE  0, 0, 128, 199
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Tree2",IDC_PMGC_CATEGORY_TREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | 
+                    WS_BORDER | WS_TABSTOP,3,6,122,158
+    LTEXT           "Show Graphic Types",IDC_STATIC,3,170,67,8
+    COMBOBOX        IDC_PMGC_TYPES_CB,3,180,122,103,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_PMGC_KEYWORD_TAB DIALOG DISCARDABLE  0, 0, 125, 202
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Show Graphic Types:",IDC_STATIC,8,123,69,8
+    COMBOBOX        IDC_PMGC_TYPES_CB,8,134,112,120,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "Progress1",IDC_PMGC_PROGRESS_BAR,"msctls_progress32",
+                    WS_BORDER,8,176,112,10
+    CTEXT           "Graphics found: 0",IDC_PMGC_NUMFOUND,8,190,112,8
+    DEFPUSHBUTTON   "&Start Search",IDC_PMGC_START_SEARCH,18,154,90,16
+    CONTROL         "Name",IDC_PMGC_SEARCH_NAME_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,14,15,39,10
+    CONTROL         "Keyword(s)",IDC_PMGC_SEARCH_KEYWORD_RADIO,"Button",
+                    BS_AUTORADIOBUTTON,14,52,51,10
+    CONTROL         "Subject",IDC_PMGC_SEARCH_THEME_RADIO,"Button",
+                    BS_AUTORADIOBUTTON,14,89,40,10
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,14,48,100,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,14,85,100,1
+    EDITTEXT        IDC_PMGC_SEARCH_NAME_EDIT,14,28,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PMGC_KEYWORD_EDIT,14,65,100,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_PMGC_SEARCH_THEME_COMBO,14,102,100,104,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Search Graphics By",IDC_STATIC,8,3,112,117
+END
+
+DIALOG_EXPORT_IMAGE_DATA DIALOG DISCARDABLE  0, 0, 286, 18
+STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Help",ID_HELP,222,0,50,14
+    LTEXT           "&Image Size:",IDC_STATIC,6,2,38,8
+    EDITTEXT        CONTROL_EDIT_EXPORT_WIDTH,54,0,26,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "x",IDC_STATIC,83,2,8,8
+    EDITTEXT        CONTROL_EDIT_EXPORT_HEIGHT,91,0,26,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "&Maintain aspect ratio",CONTROL_CHKBOX_EXPORT_ASPECT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,127,2,77,10
+END
+
+DIALOG_PSD4_LIBRARY_BROWSER DIALOG DISCARDABLE  0, 0, 241, 156
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Browse Library"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,44,135,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,110,135,54,14
+    LISTBOX         CONTROL_LIST_AVAILABLE_GRAPHICS,7,12,92,116,WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "&Help",ID_HELP,180,136,54,14
+    GROUPBOX        "",IDC_STATIC,110,7,124,115
+    LTEXT           "Preview",CONTROL_STATIC_GENERICGO_PREVIEW,116,14,112,
+                    104
+END
+
+IDD_BORDERS DIALOG DISCARDABLE  0, 0, 370, 233
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a Panel Border"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Tree1",IDC_BORDERS_CATEGORY_TREE,"SysTreeView32",
+                    TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | 
+                    TVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,7,137,160
+    LISTBOX         IDC_BORDERS_GRID,151,7,212,178,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_BORDERS_STATIC_PREVIEW,"Static",SS_BLACKFRAME | 
+                    NOT WS_VISIBLE | WS_DISABLED,262,7,101,178
+    CONTROL         "&Normal",IDC_BORDERS_NORMAL,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,32,171,42,10
+    CONTROL         "&Wide",IDC_BORDERS_WIDE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,84,171,37,10
+    LTEXT           "Preview Type:",IDC_STATIC,122,192,46,8
+    CONTROL         "&Gallery View",IDC_BORDERS_GALLERY,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,178,191,55,10
+    CONTROL         "&Large View",IDC_BORDERS_LARGE,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,246,191,51,10
+    CONTROL         "L&ist View",IDC_BORDERS_LIST,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,312,191,44,10
+    LTEXT           "",CONTROL_STATIC_TOTAL_GRID_ITEMS,93,207,94,8,
+                    SS_NOPREFIX
+    LTEXT           "",CONTROL_STATIC_SELECTED_NAME,93,218,94,8,SS_NOPREFIX
+    PUSHBUTTON      "Export...",IDC_BORDERS_EXPORT,7,213,54,14
+    DEFPUSHBUTTON   "OK",IDOK,191,213,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,250,213,54,14
+    PUSHBUTTON      "&Help",ID_HELP,309,213,54,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,6,205,357,1
+END
+
+IDD_LINES DIALOG DISCARDABLE  0, 0, 370, 234
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a Decorative Line"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Tree1",IDC_LINES_CATEGORY_TREE,"SysTreeView32",
+                    TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | 
+                    TVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,7,137,160
+    LISTBOX         IDC_LINES_GRID,151,7,212,178,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_LINES_STATIC_PREVIEW,"Static",SS_BLACKFRAME | NOT 
+                    WS_VISIBLE | WS_DISABLED,233,7,130,178
+    CONTROL         "Hori&zontal",IDC_LINES_HORIZONTAL,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,21,171,51,10
+    CONTROL         "&Vertical",IDC_LINES_VERTICAL,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,87,171,43,10
+    LTEXT           "",CONTROL_STATIC_TOTAL_GRID_ITEMS,94,206,89,8,
+                    SS_NOPREFIX
+    LTEXT           "",CONTROL_STATIC_SELECTED_NAME,95,222,89,8,SS_NOPREFIX
+    LTEXT           "Preview Type:",IDC_STATIC,122,191,46,8
+    CONTROL         "&Gallery View",IDC_LINES_GALLERY,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,182,190,55,10
+    CONTROL         "&Large View",IDC_LINES_LARGE,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,248,190,51,10
+    CONTROL         "L&ist View",IDC_LINES_LIST,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,313,190,44,10
+    PUSHBUTTON      "Export...",IDC_LINES_EXPORT,8,213,54,14
+    DEFPUSHBUTTON   "OK",IDOK,191,213,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,250,213,54,14
+    PUSHBUTTON      "&Help",ID_HELP,309,213,54,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,203,357,1
+END
+
+IDD_GRC_IMPORT_TAB DIALOGEX 0, 0, 128, 202
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Tree1",IDC_FILE_TREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | 
+                    WS_BORDER | WS_TABSTOP,8,8,113,157
+    COMBOBOX        1165,1001,9,182,112,CBS_AUTOHSCROLL,WS_EX_DLGMODALFRAME | 
+                    WS_EX_CONTROLPARENT | 0x200002L
+    LTEXT           "Files of Type",IDC_STATIC,8,172,41,8
+    COMBOBOX        IDC_FILE_TYPES,3,180,122,60,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PMGC_IMPORT_TAB DIALOGEX 0, 0, 128, 202
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Tree1",IDC_FILE_TREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | 
+                    WS_BORDER | WS_TABSTOP,8,8,113,157
+    COMBOBOX        1165,1001,9,182,112,CBS_AUTOHSCROLL,WS_EX_DLGMODALFRAME | 
+                    WS_EX_CONTROLPARENT | 0x200002L
+    LTEXT           "Files of Type",IDC_STATIC,8,172,41,8
+    COMBOBOX        IDC_FILE_TYPES,3,180,122,60,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+DIALOG_BACKDROP_BROWSER DLGINIT
+BEGIN
+    CONTROL_COMBOBOX_BACKDROP_TINT, 0x403, 5, 0
+0x3031, 0x2530, "\000" 
+    CONTROL_COMBOBOX_BACKDROP_TINT, 0x403, 4, 0
+0x3039, 0x0025, 
+    CONTROL_COMBOBOX_BACKDROP_TINT, 0x403, 4, 0
+0x3038, 0x0025, 
+    CONTROL_COMBOBOX_BACKDROP_TINT, 0x403, 4, 0
+0x3037, 0x0025, 
+    CONTROL_COMBOBOX_BACKDROP_TINT, 0x403, 4, 0
+0x3036, 0x0025, 
+    CONTROL_COMBOBOX_BACKDROP_TINT, 0x403, 4, 0
+0x3035, 0x0025, 
+    CONTROL_COMBOBOX_BACKDROP_TINT, 0x403, 4, 0
+0x3034, 0x0025, 
+    CONTROL_COMBOBOX_BACKDROP_TINT, 0x403, 4, 0
+0x3033, 0x0025, 
+    CONTROL_COMBOBOX_BACKDROP_TINT, 0x403, 4, 0
+0x3032, 0x0025, 
+    CONTROL_COMBOBOX_BACKDROP_TINT, 0x403, 4, 0
+0x3031, 0x0025, 
+    0
+END
+
+IDD_GRC_CATEGORY_TAB DLGINIT
+BEGIN
+    IDC_TYPES_CB, 0x403, 10, 0
+0x6c41, 0x206c, 0x7954, 0x6570, 0x0073, 
+    IDC_TYPES_CB, 0x403, 13, 0
+0x7153, 0x6175, 0x6572, 0x2073, 0x6e4f, 0x796c, "\000" 
+    IDC_TYPES_CB, 0x403, 10, 0
+0x6f52, 0x7377, 0x4f20, 0x6c6e, 0x0079, 
+    IDC_TYPES_CB, 0x403, 13, 0
+0x6f43, 0x756c, 0x6e6d, 0x2073, 0x6e4f, 0x796c, "\000" 
+    IDC_TYPES_CB, 0x403, 12, 0
+0x6850, 0x746f, 0x736f, 0x4f20, 0x6c6e, 0x0079, 
+    0
+END
+
+IDD_GRC_KEYWORD_TAB DLGINIT
+BEGIN
+    IDC_TYPES_CB, 0x403, 10, 0
+0x6c41, 0x206c, 0x7954, 0x6570, 0x0073, 
+    IDC_TYPES_CB, 0x403, 13, 0
+0x7153, 0x6175, 0x6572, 0x2073, 0x6e4f, 0x796c, "\000" 
+    IDC_TYPES_CB, 0x403, 10, 0
+0x6f52, 0x7377, 0x4f20, 0x6c6e, 0x0079, 
+    IDC_TYPES_CB, 0x403, 13, 0
+0x6f43, 0x756c, 0x6e6d, 0x2073, 0x6e4f, 0x796c, "\000" 
+    IDC_TYPES_CB, 0x403, 12, 0
+0x6850, 0x746f, 0x736f, 0x4f20, 0x6c6e, 0x0079, 
+    0
+END
+
+IDD_GRC_IMPORT_TAB DLGINIT
+BEGIN
+    IDC_FILE_TYPES, 0x403, 22, 0
+0x6c41, 0x206c, 0x7553, 0x7070, 0x726f, 0x6574, 0x2064, 0x6f46, 0x6d72, 
+0x7461, 0x0073, 
+    IDC_FILE_TYPES, 0x403, 14, 0
+0x6942, 0x6d74, 0x7061, 0x2820, 0x622e, 0x706d, 0x0029, 
+    IDC_FILE_TYPES, 0x403, 28, 0
+0x6f4a, 0x6e69, 0x2074, 0x6850, 0x746f, 0x206f, 0x7845, 0x6570, 0x7472, 
+0x2073, 0x2a28, 0x6a2e, 0x6770, 0x0029, 
+    IDC_FILE_TYPES, 0x403, 23, 0
+0x6f4b, 0x6164, 0x206b, 0x6850, 0x746f, 0x206f, 0x4443, 0x2820, 0x2e2a, 
+0x6370, 0x2964, "\000" 
+    IDC_FILE_TYPES, 0x403, 33, 0
+0x6154, 0x6767, 0x6465, 0x4920, 0x616d, 0x6567, 0x4620, 0x6c69, 0x2065, 
+0x6f46, 0x6d72, 0x7461, 0x2820, 0x2e2a, 0x6974, 0x2966, "\000" 
+    IDC_FILE_TYPES, 0x403, 25, 0
+0x6957, 0x646e, 0x776f, 0x2073, 0x654d, 0x6174, 0x6966, 0x656c, 0x2820, 
+0x2e2a, 0x6d77, 0x2966, "\000" 
+    IDC_FILE_TYPES, 0x403, 17, 0
+0x6c46, 0x7361, 0x7068, 0x7869, 0x2820, 0x2e2a, 0x7066, 0x2978, "\000" 
+    IDC_FILE_TYPES, 0x403, 33, 0
+0x6f50, 0x7472, 0x6261, 0x656c, 0x4e20, 0x7465, 0x6f77, 0x6b72, 0x4720, 
+0x6172, 0x6870, 0x6369, 0x2820, 0x2e2a, 0x6e70, 0x2967, "\000" 
+    0
+END
+
+IDD_GRC_BROWSER DLGINIT
+BEGIN
+    IDC_VIEWMODE_LB, 0x403, 8, 0
+0x6147, 0x6c6c, 0x7265, 0x0079, 
+    IDC_VIEWMODE_LB, 0x403, 6, 0
+0x614c, 0x6772, 0x0065, 
+    IDC_VIEWMODE_LB, 0x403, 5, 0
+0x694c, 0x7473, "\000" 
+    IDC_SORTORDER_LB, 0x403, 20, 0
+0x694c, 0x7473, 0x4120, 0x706c, 0x6168, 0x6562, 0x6974, 0x6163, 0x6c6c, 
+0x0079, 
+    IDC_SORTORDER_LB, 0x403, 12, 0
+0x6853, 0x776f, 0x4e20, 0x7765, 0x7365, 0x0074, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PHDR
+//
+
+PLACEHOLDER_BORDER_GRAPHIC PHDR    DISCARDABLE     "Shared\\Placeholders\\Place_bdr.pbr"
+PLACEHOLDER_COLUMN_GRAPHIC PHDR    DISCARDABLE     "Shared\\Placeholders\\Place_col.PCG"
+PLACEHOLDER_ROW_GRAPHIC PHDR    DISCARDABLE     "Shared\\Placeholders\\Place_row.PRG"
+PLACEHOLDER_RULED_LINE_GRAPHIC PHDR    DISCARDABLE     "Shared\\Placeholders\\Place_line.prl"
+PLACEHOLDER_SQUARE_GRAPHIC PHDR    DISCARDABLE     "Shared\\Placeholders\\Place_sqr.PSG"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+PLACEHOLDER_IMAGE_COMPONENT BITMAP  DISCARDABLE     "Shared\\Placeholders\\ImagePlaceholder.bmp"
+BITMAP_NO_IMAGE_PREVIEW_AVAILABLE BITMAP  DISCARDABLE     "Shared\\Bitmaps\\bitmap_n.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    DIALOG_FRAMES_BROWSER, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 251
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_UNDO_EDIT_GRAPHIC "&Undo Replace Graphic\tCtrl+Z"
+    STRING_REDO_EDIT_GRAPHIC "&Redo Replace Graphic\tCtrl+Y"
+    STRING_UNDO_IMAGE_EFFECTS "&Undo Image Effects\tCtrl+Z"
+    STRING_REDO_IMAGE_EFFECTS "&Redo Image Effects\tCtrl+Y"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_ERROR_IMAGE_INSUFFICIENT_MEMORY 
+                            "There is not enough memory to load the image."
+    STRING_ERROR_IMAGE_UNSUPPORTED_FORMAT 
+                            "The image is not in a supported format."
+    STRING_ERROR_IMAGE_UNSUPPORTED_COMPRESSION 
+                            "The image uses a compression scheme that is not supported."
+    STRING_ERROR_IMAGE_FILE_NOT_ACCESSIBLE 
+                            "The image file cannot be accessed."
+    STRING_ERROR_IMAGE_INVALID_PATH 
+                            "The path you specified was invalid or could not be found."
+    STRING_ERROR_IMAGE_DISK_FULL 
+                            "The operation cannot be completed because the disk is full."
+    STRING_ERROR_IMAGE_GENERIC "The image could not be imported."
+    STRING_ERROR_MIE_INSUFFICIENT_MEMORY 
+                            "There is not enough memory available to make this image editable."
+    STRING_ERROR_MIE_DISK_FULL 
+                            "You do not have enough disk space to make this image editable."
+    STRING_ERROR_MIE_GENERIC "The image cannot be edited."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_BROWSER_CATEGORIES "Categories"
+    STRING_BROWSER_KEYWORDS "Search"
+    STRING_BROWSER_START_SEARCH "&Start Search"
+    STRING_BROWSER_STOP_SEARCH "&Stop Search"
+    STRING_BROWSER_IMPORT   "Import/ClickArt"
+    STRING_FILE_IMPORT_GRAPHIC_FILTER 
+                            "All Supported Formats|*.psg;*.prg;*.pcg|Square Graphics|*.psg|Row Graphics|*.prg|Column Graphics|*.pcg||"
+    STRING_ERROR_BAD_LIBRARY 
+                            "The file you selected is not a valid Print Shop library."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_BACKDROP_ALL_CATEGORIES "All Categories"
+    STRING_IMPORT_IMAGE_FILE_FILTER 
+                            "All Supported Formats|*.bmp;*.fpx;*.jpg;*.pcd;*.tif;*.wmf;*.gif|Bitmap|*.bmp|FlashPix (*.fpx)|*.fpx|Joint Photo Experts Group (JPEG)|*.jpg|Kodak Photo CD|*.pcd|Tagged Image File Format (TIFF)|*.tif|Windows Meta File(WMF)|*.wmf|Graphics Interchange Format(GIF)|*.gif||"
+    STRING_IMPORT_IMAGE_DIALOG_TITLE "Import Image"
+    STRING_EXPORT_IMAGE_FILE_FILTER 
+                            "Bitmap|*.bmp|FlashPix (*.fpx)|*.fpx|Joint Photo Experts Group (JPEG)|*.jpg|Tagged Image File Format (TIFF)|*.tif|Windows Meta File(WMF)|*.wmf|Graphics Interchange Format(GIF)|*.gif||"
+    STRING_EXPORT_IMAGE_DIALOG_TITLE "Export As"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_FILTER_BMP       "Bitmap (.bmp)|*.bmp|"
+    STRING_FILTER_JPG       "Joint Photo Experts Group (.jpg)|*.jpg|"
+    STRING_FILTER_TIF       "Tagged Image File Format (.tif)|*.tif|"
+    STRING_FILTER_FPX       "FlashPix (.fpx)|*.fpx|"
+    STRING_FILTER_GIF       "Graphics Information File (.gif)|*.gif|"
+    STRING_FILTER_WMF       "Windows Meta File (.wmf)|*.wmf|"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_IMPORT_ALL_FILES ".jpg,.bmp,.png,.tif,.tga,.pcd,.pcx,.wmf,.fpx"
+    STRING_IMPORT_BMP       ".bmp"
+    STRING_IMPORT_JPEG      ".jpg"
+    STRING_IMPORT_PCD       ".pcd"
+    STRING_IMPORT_TIF       ".tif"
+    STRING_IMPORT_WMF       ".wmf"
+    STRING_IMPORT_FPX       ".fpx"
+    STIRNG_IMPORT_PNG       ".png"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

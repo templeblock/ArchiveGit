@@ -1,0 +1,43 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JMSrvr", "JMSrvr.vcproj", "{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}"
+	ProjectSection(ProjectDependencies) = postProject
+		{098E1403-07EA-4A74-949A-31EF3186D149} = {098E1403-07EA-4A74-949A-31EF3186D149}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JMHook", "..\JMHook\JMHook.vcproj", "{098E1403-07EA-4A74-949A-31EF3186D149}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccProjectUniqueName0 = JMSrvr.vcproj
+		SccProjectName0 = \u0022$/AgApplications/JMSrvr\u0022,\u0020CVBAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = true
+		SccProjectUniqueName1 = ..\\JMHook\\JMHook.vcproj
+		SccProjectName1 = \u0022$/AgApplications/JMHook\u0022,\u0020JSBAAAAA
+		SccLocalPath1 = ..\\JMHook
+		SccProvider1 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = true
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}.Debug.ActiveCfg = Debug|Win32
+		{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}.Debug.Build.0 = Debug|Win32
+		{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}.Release.ActiveCfg = Release|Win32
+		{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}.Release.Build.0 = Release|Win32
+		{098E1403-07EA-4A74-949A-31EF3186D149}.Debug.ActiveCfg = Debug|Win32
+		{098E1403-07EA-4A74-949A-31EF3186D149}.Debug.Build.0 = Debug|Win32
+		{098E1403-07EA-4A74-949A-31EF3186D149}.Release.ActiveCfg = Release|Win32
+		{098E1403-07EA-4A74-949A-31EF3186D149}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

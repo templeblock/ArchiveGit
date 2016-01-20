@@ -1,0 +1,4 @@
+// Source file: tstamp.c
+BOOL WINPROC EXPORT DlgStampProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+int StampProc( HWND hWindow, LPARAM lParam, UINT msg );
+

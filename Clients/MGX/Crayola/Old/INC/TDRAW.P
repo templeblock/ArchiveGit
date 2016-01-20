@@ -1,0 +1,24 @@
+// Source file: tdraw.c
+BOOL WINPROC EXPORT DlgDrawShapesProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+int FAR DrawShapesProc( HWND hWindow, LPARAM lParam, UINT msg );
+int FAR DrawGeometricProc( HWND hWindow, LPARAM lParam, UINT msg );
+static BOOL SetupDrawShapeColorLut(int depth);
+static void FreeDrawShapeColorLut(void);
+void DrawShapeClosed( LPSHAPE lpShape, int dirty );
+void DrawShapeOpen( LPSHAPE lpShape, int dirty );
+void BrushShapeObj(LPIMAGE lpImage,LPSHAPE lpShape,HMGXBRUSH hBrush, BOOL bCacheInit, BOOL bClosed, int dirty);
+void DrawEllipse(LPRECT lpRect, int dirty );
+static LPFRAME OSBrushShape(LPSHAPE lpShape, HMGXBRUSH hBrush, LPRECT lpOutRect, BOOL fClosed);
+static void OSDrawShapeDataProc(int y, int left, int right, LPTR lpDst, LPTR lpSrc, int depth);
+static void OSDrawShapeMaskProc(int y, int left, int right, LPTR lpMsk );
+int FAR DrawFreehandProc( HWND hWindow, LPARAM lParam, UINT msg );
+static void FreehandDrawProc(HDC hDC, LPRECT lpRect);
+static void FreehandDraw(HDC hDC, LPPOINT lpPoint, LPINT npoints, int nShapes, BOOL fClosed, BOOL fOn);
+void FreehandBackup( void );
+void vector_draw( int x, int y, BOOL bCapture );
+
+int FAR DrawExtrudedGeometricProc( HWND hWindow, LPARAM lParam, UINT msg );
+void DrawExtrudedShapeClosed( LPSHAPE lpShape, int dirty, int style );
+void UpdateRibbon( HWND hDlg );
+
+

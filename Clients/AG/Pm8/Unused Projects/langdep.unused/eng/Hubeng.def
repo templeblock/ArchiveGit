@@ -1,0 +1,7 @@
+; hubeng.def : Declares the module parameters for the DLL.
+
+LIBRARY      HUBENG
+DESCRIPTION  'HUBENG PrintMaster UK ENglish HUB 32-bit Resources'
+
+EXPORTS
+    ; Explicit exports can go here

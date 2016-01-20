@@ -1,0 +1,14 @@
+// Source file: SAVELOAD.C
+LPFRAME AstralFrameLoad( LPSTR szName, int depth, LPINT lpDataType, LPINT lpFileType );
+BOOL AstralFrameSave( LPSTR lpFileName, LPFRAME lpFrame, LPRECT lpRect, int DataType, int FileType, BOOL fCompressed );
+BOOL AstralObjectListSave( LPSTR lpFileName, LPOBJECT lpObject, LPRECT lpRect, int DataType, int FileType, BOOL fCompressed );
+BOOL CALLBACK EXPORT AstralImageLoad (WORD, LPSTR, int, BOOL);
+BOOL OKToOpen( LPSTR lpFile, LPSTR FAR * lppName );
+void AddRecallImageName( LPSTR lpFileName );
+void GetRecallFileName(LPSTR lpRecallName);
+BOOL AstralImageSave( WORD idFileType, WORD idDataType, LPSTR lpFileName );
+BOOL LoadMap( LPMAP lpMap0, LPMAP lpMap1, LPMAP lpMap2, LPMAP lpMap3, LPSTR lpFileName );
+BOOL SaveMap( LPMAP lpMap0, LPMAP lpMap1, LPMAP lpMap2, LPMAP lpMap3, LPSTR lpFileName );
+int GetFileExtentionType(LPSTR lpFileName);
+ITEMID GetFrameFileDataType(LPFRAME lpFrame);
+

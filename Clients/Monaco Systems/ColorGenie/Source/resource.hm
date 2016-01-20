@@ -1,0 +1,44 @@
+// Microsoft Developer Studio generated Help ID include file.
+// Used by ColorGenie.rc
+//
+#define HIDC_BALANCE_SLIDER             0x80cc0408    // IDD_SETTINGS
+#define HIDC_BALANCE_VALUE              0x80cc0409    // IDD_SETTINGS
+#define HIDC_BLACK                      0x80c903fa    // IDD_CALIBRATE
+#define HIDC_CONTRAST_SLIDER            0x80cc040a    // IDD_SETTINGS
+#define HIDC_CONTRAST_VALUE             0x80cc040c    // IDD_SETTINGS
+#define HIDC_CURVE                      0x80c903fe    // IDD_CALIBRATE
+#define HIDC_CYAN                       0x80c903fb    // IDD_CALIBRATE
+#define HIDC_EXPORT                     0x80c903ee    // IDD_CALIBRATE
+#define HIDC_EXPORT_DRY                 0x80cb03ef    // IDD_COLORDATA
+#define HIDC_GRID                       0x80c903f6    // IDD_CALIBRATE
+#define HIDC_GRID_DST                   0x80cb03f7    // IDD_COLORDATA_WITH_GRIDS
+#define HIDC_GRID_SRC                   0x80cb03f6    // IDD_COLORDATA_WITH_GRIDS
+#define HIDC_HOFF                       0x80cc040f    // IDD_SETTINGS
+#define HIDC_HON                        0x80cc040b    // IDD_SETTINGS
+#define HIDC_IMPORT                     0x80c903ec    // IDD_CALIBRATE
+#define HIDC_IMPORT_DRY                 0x80cb03ed    // IDD_COLORDATA
+#define HIDC_LEVELIN                    0x80c903ff    // IDD_CALIBRATE
+#define HIDC_LEVELOUT                   0x80c90400    // IDD_CALIBRATE
+#define HIDC_MAGENTA                    0x80c903fc    // IDD_CALIBRATE
+#define HIDC_MEASURE                    0x80c903f0    // IDD_CALIBRATE
+#define HIDC_MEASURE_DRY                0x80cb03f1    // IDD_COLORDATA
+#define HIDC_OFF                        0x80cc0405    // IDD_SETTINGS
+#define HIDC_ON                         0x80cc0404    // IDD_SETTINGS
+#define HIDC_RESET                      0x80c903f9    // IDD_CALIBRATE
+#define HIDC_SATURATION_VALUE           0x80cc0407    // IDD_SETTINGS
+#define HIDC_SETTINGSCOMBO              0x80cc0403    // IDD_SETTINGS
+#define HIDC_SMOOTHING_SLIDER           0x80cc040d    // IDD_SETTINGS
+#define HIDC_SMOOTHING_VALUE            0x80cc040e    // IDD_SETTINGS
+#define HIDC_TWEAK_ADD                  0x80cd0410    // IDD_TUNING
+#define HIDC_TWEAK_CRSLIDER             0x80cd0425    // IDD_TUNING
+#define HIDC_TWEAK_CRVALUE              0x80cd040d    // IDD_TUNING
+#define HIDC_TWEAK_DELETE               0x80cd0411    // IDD_TUNING
+#define HIDC_TWEAK_LRSLIDER             0x80cd0424    // IDD_TUNING
+#define HIDC_TWEAK_LRVALUE              0x80cd0426    // IDD_TUNING
+#define HIDC_TWEAK_SELECT               0x80cd040f    // IDD_TUNING
+#define HIDC_VIEW_DATA                  0x80cb043c    // IDD_COLORDATA
+#define HIDC_VIEW_DATA_DRY              0x80cb043d    // IDD_COLORDATA
+#define HIDC_VIEW_GAMUT                 0x80cb03f2    // IDD_COLORDATA
+#define HIDC_VIEW_GAMUT_DRY             0x80cb03f3    // IDD_COLORDATA
+#define HIDC_YELLOW                     0x80c903fd    // IDD_CALIBRATE
+#define HIDOK                           0x80640001    // IDD_ABOUTBOX

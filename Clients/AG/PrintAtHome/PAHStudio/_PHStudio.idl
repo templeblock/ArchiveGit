@@ -1,0 +1,63 @@
+import "docobj.idl";
+
+// PAHStudio.idl : type library source for PAHStudio.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (PAHStudio.tlb).
+
+import "ocidl.idl";
+import "oaidl.idl";
+[
+	object,
+	uuid(D869010E-FB38-48F5-BF06-DB757BBE30C2),
+	dual,
+	helpstring("IClientAccess Interface"),
+	pointer_default(unique)
+] 
+#line 20 "c:\\my projects\\agapplications\\printathome\\pahstudio\\clientaccess.h"
+interface IClientAccess : IDispatch {
+#line 22 "c:\\my projects\\agapplications\\printathome\\pahstudio\\clientaccess.h"
+	[id(1),helpstring("method SetClientObject")] HRESULT  SetClientObject([in] IUnknown *punkClient);
+};
+
+
+[ version(1.0), uuid(8B85EE30-7D0F-4337-8C24-71DFC1E9C850) ]
+library PAHStudioLib
+{
+	importlib("stdole2.tlb");
+	importlib("olepro32.dll");
+
+
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CPAHStudioDoc
+	
+	[ uuid(AFBB908F-6EDF-43DF-B640-9C127350088F) ]
+	dispinterface IPAHStudio
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  Class information for CPAHStudioDoc
+	
+	[ uuid(98036F45-00EC-4EC0-A5F2-1FBAC24C15D9) ]
+	coclass PAHStudio
+	{
+		[default] dispinterface IPAHStudio;
+	};
+	[
+		version(1.0),
+		uuid(26B3E5A6-B47E-481A-9A1D-0D98603152E5),
+		helpstring("ClientAccess Class")
+	] 
+#line 39 "c:\\my projects\\agapplications\\printathome\\pahstudio\\clientaccess.h"
+	coclass CClientAccess {
+		[default]	interface IClientAccess;
+	};
+
+}
+
+;

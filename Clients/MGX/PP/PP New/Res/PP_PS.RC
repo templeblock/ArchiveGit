@@ -1,0 +1,128 @@
+// (c) Copyright 1995 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+
+#include "id.h"
+
+///////////////////////////////////////////////////////////////////////////
+// 	THIS FILE CONTAIN POSTSCRIPT ESCAPE SEQUENCES.
+// 	NOTHING IN THIS FILE SHOULD BE MODIFIED FOR LOCALIZATION.
+///////////////////////////////////////////////////////////////////////////
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+
+/*=========================*\
+	PostScript (tm) Strings
+\*=========================*/
+
+IDS_PS_STARTBLOCK     	"{"
+IDS_PS_ENDBLOCK       	"}"
+IDS_PS_POP            	"pop"
+IDS_PS_IFELSE 			"ifelse"
+IDS_PS_DEF            	"bind def"
+IDS_PS_END            	"end"
+IDS_PS_DICTDEF        	"40 dict begin\r\n/mysave save def\r\n/noimage { {pop 1} settransfer image } def\r\n/colorext systemdict /colorimage known def"
+IDS_PS_HEXDATA        	"/readdata { currentfile exch readhexstring pop } bind def"
+IDS_PS_BINDATA        	"/readdata { currentfile exch readstring pop } bind def"
+IDS_PS_ELLDOT1        	"/myspotfunc { abs exch abs 2 copy 3 mul exch 4 mul add 3 sub dup 0 lt\r\n{ pop dup mul exch .75 div dup mul add 4 div 1 exch sub }\r\n{ dup 1 gt {pop 1 exch sub dup mul exch 1 exch sub .75 div dup mul add 4 div 1 sub }"
+IDS_PS_ELLDOT2        	"{ .5 exch sub exch pop exch pop } ifelse } ifelse } bind def"
+IDS_PS_SQUDOT 			"/myspotfunc { abs exch abs 2 copy gt {pop} {exch pop} ifelse 1 exch sub } bind def"
+IDS_PS_CIRDOT 			"/myspotfunc { abs exch abs 2 copy add 1 gt\r\n{ 1 sub dup mul exch 1 sub dup mul add 1 sub }\r\n{ dup mul exch dup mul add 1 exch sub }\r\nifelse } bind def"
+IDS_PS_TRIDOT 			"/myspotfunc {2 exch sub exch abs 2 mul sub 3 div } bind def"
+IDS_PS_PROPDOT        	"/myspotfunc { /y exch def /x exch def\r\n/ang y x .001 add atan cvi def\r\nang 72 mod 72 sub abs 72 div\r\ny y mul x x mul add 1 exch sub\r\nadd 2 div } bind def"
+IDS_PS_SETSCREEN      	"%s %s /myspotfunc load setscreen"
+IDS_PS_COLOREXT       	"colorext"
+IDS_PS_SETSPOT        	"%s %s /myspotfunc load"
+IDS_PS_SETCOLORSCREEN  	"setcolorscreen"
+IDS_PS_BLACKSEPS      	"/doinvert true def"
+IDS_PS_COLORSEPS      	"/doinvert colorext not def"
+IDS_PS_NOINVERT       	"/doinvert false def"
+IDS_PS_CHECKINVERT    	"doinvert { {1 exch sub} settransfer }{ {} settransfer } ifelse"
+IDS_PS_TRANSLATE      	"%s %s translate"
+IDS_PS_SCALE  			"%s %s scale"
+IDS_PS_LINE1  			"/pps1 %d string def"
+IDS_PS_LINE2  			"/pps2 %d string def"
+IDS_PS_LINE3  			"/pps3 %d string def"
+IDS_PS_LINE4  			"/pps4 %d string def"
+IDS_PS_LINE5  			"/pps5 %d string def"
+IDS_PS_DOCOLORSEPDEF  	"/docolorsep colorext def"
+IDS_PS_NOCOLORSEPDEF  	"/docolorsep false def"
+IDS_PS_DOIMAGEDEF     	"/doimage"
+IDS_PS_DOIMAGE        	"doimage"
+IDS_PS_COLORSEPVAL    	"docolorsep"
+IDS_PS_SEPCYAN        	"{pps1 readdata} {pps2} {pps2} {pps2}"
+IDS_PS_SEPMAGENTA     	"{pps2} {pps1 readdata} {pps2} {pps2}"
+IDS_PS_SEPYELLOW      	"{pps2} {pps2} {pps1 readdata} {pps2}"
+IDS_PS_SEPBLACK       	"{pps2} {pps2} {pps2} {pps1 readdata}"
+IDS_PS_COLORIMAGE3    	"true 3 colorimage"
+IDS_PS_COLORIMAGE4    	"true 4 colorimage"
+IDS_PS_GETLINE1       	"{pps1 readdata}"
+IDS_PS_GETLINE2       	"{pps2 readdata}"
+IDS_PS_GETLINE3       	"{pps3 readdata}"
+IDS_PS_GETLINE4       	"{pps4 readdata}"
+IDS_PS_GETLINE5       	"{pps5 readdata}"
+IDS_PS_DUMPLINE1      	"pps1 readdata pop"
+IDS_PS_DUMPLINE2      	"pps2 readdata pop"
+IDS_PS_DUMPLINE3      	"pps3 readdata pop"
+IDS_PS_DUMPLINE4      	"pps4 readdata pop"
+IDS_PS_DUMPLINE5      	"pps5 readdata pop"
+IDS_PS_IMAGE  			"image"
+IDS_PS_NOIMAGE        	"noimage"
+IDS_PS_TRANSFORM      	"%d %d %d [%d 0 0 %d 0 %d]"
+IDS_PS_BEGINBINARY    	"%%%%BeginBinary: %ld"
+IDS_PS_ENDBINARY      	"\r\n%%%%EndBinary"
+IDS_PS_MYSAVERESTORE  	"\r\nmysave restore"
+IDS_PS_CRLF           	"\r\n"
+
+IDS_EPS_PSADOBE       	"%%!PS-Adobe-2.0 EPSF-1.2"
+IDS_EPS_BOUNDINGBOX   	"%%%%BoundingBox: 0.0 0.0 %s %s"
+IDS_EPS_CREATOR       	"%%%%Creator: Micrografx %s"
+IDS_EPS_TITLE 			"%%%%Title:%s"
+IDS_EPS_CREATIONDATE  	"%%%%Creation Date: %s"
+IDS_EPS_SUPPRESSDOT   	"%%%%SuppressDotGainCompensation"
+IDS_EPS_PROCESSCOLORS  	"%%%%DocumentProcessColors: Cyan Magenta Yellow Black"
+IDS_EPS_CYANPLATE     	"%%%%CyanPlate: %s"
+IDS_EPS_MAGENTAPLATE  	"%%%%MagentaPlate: %s"
+IDS_EPS_YELLOWPLATE   	"%%%%YellowPlate: %s"
+IDS_EPS_BLACKPLATE    	"%%%%BlackPlate: %s"
+IDS_EPS_ENDCOMMENTS   	"%%%%EndComments"
+IDS_EPS_DICTDEF       	"40 dict begin gsave"
+IDS_EPS_TRANSFORM     	"%d %d %d [%d 0 0 -%d 0 %d]"
+IDS_EPS_DOIMAGE       	"/pps %d string def /doimage {{pps readdata} image} def"
+IDS_EPS_BIGDEF1       	"/_currentgray systemdict /currentgray get def /_currentgray systemdict /currentgray get def /colorext systemdict /colorimage known def"
+IDS_EPS_BIGDEF2       	"/foureq { 4 index eq 8 1 roll 4 index eq 8 1 roll 4 index eq 8 1 roll 4 index eq 8 1 roll pop pop pop pop and and and} def"
+IDS_EPS_BIGDEF3       	"colorext {/plane 0 def} {/plane 5 def} ifelse /setcmykcolor where {pop 1 0 0 0 setcmykcolor _currentgray 1 exch sub 0 1 0 0 setcmykcolor _currentgray 1 exch sub 0 0 1 0 setcmykcolor _currentgray 1 exch sub"
+IDS_EPS_BIGDEF4       	"0 0 0 1 setcmykcolor _currentgray 1 exch sub 4 {4 copy} repeat 1 0 0 0 foureq {/plane 1 store} if 0 1 0 0 foureq {/plane 2 store} if 0 0 1 0 foureq {/plane 3 store} if 0 0 0 1 foureq {/plane 4 store} if"
+IDS_EPS_BIGDEF5       	"0 0 0 0 foureq {/plane 6 store} if} if /noimage {pop 1} def"
+IDS_EPS_PLANE0        	"plane 0 eq {{{pps1 readdata} {pps2 readdata} {pps3 readdata} {pps4 readdata  pps5 readdata pop} true 4 colorimage}} if"
+IDS_EPS_PLANE1        	"plane 1 eq {{{pps1 readdata pps2 readdata pop pps3 readdata pop pps4 readdata pop pps5 readdata pop} image}} if"
+IDS_EPS_PLANE2        	"plane 2 eq {{{pps1 readdata pop pps2 readdata pps3 readdata pop pps4 readdata pop pps5 readdata pop} image}} if"
+IDS_EPS_PLANE3        	"plane 3 eq {{{pps1 readdata pop pps2 readdata pop pps3 readdata pps4 readdata pop pps5 readdata pop} image}} if"
+IDS_EPS_PLANE4        	"plane 4 eq {{{pps1 readdata pop pps2 readdata pop pps3 readdata pop pps4 readdata pps5 readdata pop} image}} if"
+IDS_EPS_PLANE5        	"plane 5 eq {{{pps1 readdata pop pps2 readdata pop pps3 readdata pop pps4 readdata pop pps5 readdata} image}} if"
+IDS_EPS_PLANE6        	"plane 6 eq {{{pps1 readdata pop pps2 readdata pop pps3 readdata pop pps4 readdata pop pps5 readdata} noimage}} if"
+IDS_EPS_PLANE7        	"plane 0 eq {{{pps1 readdata} {pps2 readdata} {pps3 readdata pps4 readdata pop} true 3 colorimage}} if"
+IDS_EPS_PLANE8        	"plane 4 eq plane 5 eq or {{{pps1 readdata pop pps2 readdata pop pps3 readdata pop pps4 readdata} image}} if"
+IDS_EPS_PLANE9        	"plane 4 eq plane 5 eq plane 0 eq or or not {{{pps1 readdata pop pps2 readdata pop pps3 readdata pop pps4 readdata} noimage}} if"
+IDS_EPS_GRESTORE      	"grestore end"
+IDS_EPS_NEWPATH			"newpath"
+IDS_EPS_MOVETO			"%s %s moveto" 
+IDS_EPS_LINETO			"%s %s lineto"
+IDS_EPS_CLIP			"clip"
+IDS_EPS_SCALE  			"%s %s scale"
+IDS_EPS_CURVETO			"%s %s %s %s %s %s curveto" 
+
+// AI - shape stuff
+IDS_AI_HEADER_BEGIN		"%!PS-Adobe-2.0 EPSF-1.2\n%%Creator:Adobe Illustrator (TM)  Micrografx, Inc.\n"
+IDS_AI_HEADER			"%%%%BoundingBox:%s %s %s %s\n"
+IDS_AI_HEADER_END		"%%EndComments\n%%EndProlog\n"
+IDS_AI_SETUP			"%%BeginSetup\n%%EndSetup\n"
+IDS_AI_GROUP_BEGIN		"u\n1.00 1.00 1.00 0.00 k\n1.00 1.00 1.00 0.00 K\n1 j\n1 J\n0.00 w\n10 M\n"
+IDS_AI_GROUP_END		"U\n"
+IDS_AI_END				"%%Trailer\n"
+
+END
+
+

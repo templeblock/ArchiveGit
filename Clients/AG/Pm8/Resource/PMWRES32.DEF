@@ -1,0 +1,5 @@
+; PMWRES32.def : Declares the module parameters for the DLL.
+
+LIBRARY      PMWRES32
+DESCRIPTION  'PrintMaster 32-bit Resources'
+

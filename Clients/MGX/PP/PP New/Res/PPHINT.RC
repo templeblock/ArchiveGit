@@ -1,0 +1,1885 @@
+// (c) Copyright 1991-1994 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+
+#include "id.h"
+#include "afxres.h"
+
+STRINGTABLE DISCARDABLE // Custom ToolBox strings
+BEGIN
+//
+// Menu Hints
+//
+//************************************************************************
+// HINT LINE string assignments follow:
+// dialog boxes (IDD)
+// menu commands (IDM)
+// controls (IDC)
+//************************************************************************
+IDD_VIEWFULL            ""
+IDD_TOOLS               "Press and drag to move the toolbox."
+IDD_HERALD              "Welcome to Picture Publisher!"
+
+// Tool Ribbon Hints
+IDD_SELECTOR            "Set options for the Selector tool."
+IDD_OBJECTTRANSFORM     "Set options for the Transforming an object."
+IDD_SQUARE              "Set options for the Shape Mask tool."
+IDD_FREE                "Set options for the Freehand Mask tool."
+IDD_PAINTON             "Set options for the Paint On Mask tool."
+IDD_MAGICWAND           "Set options for the Smart Mask tool."
+IDD_TRANSFORMER         "Set options for the Mask Transform tool."
+IDD_POINTER             "Set options for the Mask Point Editing tool."
+IDD_CROP                "Set options for the Crop tool."
+IDD_PAINT               "Set options for the Paint tool."
+IDD_SPRAY               "Set options for the Airbrush tool."
+IDD_CLONE               "Set options for the Clone tool."
+IDD_TEXTURE             "Set options for the Texture tool."
+IDD_SMEAR               "Set options for the Smear tool."
+IDD_ERASER              "Set options for the Eraser tool."
+IDD_SHARP               "Set options for the Sharpen tool."
+IDD_SMOOTH              "Set options for the Smooth tool."
+IDD_LIGHTEN             "Set options for the Lighten tool."
+IDD_DARKEN              "Set options for the Darken tool."
+IDD_VIGNETTE            "Set options for the Gradient Fill tool."
+IDD_TEXTUREFILL         "Set options for the Texture Fill tool."
+IDD_TINTFILL            "Set options for the Color Tint Fill tool."
+IDD_FLOOD               "Set options for the Smart Fill tool."
+IDD_DRAWSQUARE          "Set options for the Shape Draw tool."
+IDD_DRAWFREE            "Set options for the Freehand Draw tool."
+IDD_PENCIL              "Set options for the Pencil tool."
+IDD_CUSTOMVIEW          "Set options for the Custom View tool."
+IDD_ZOOMBOX             "Click to move the view, or press and drag to magnify a new area."
+IDD_TEXT                "Set options for the Text tool."
+IDD_PROBE               "Set options for the Color Probe tool."
+IDD_COLORPICKER         " Dialog box to set options for selecting a color."
+IDD_PALETTEPICKER	" Dialog box to set options for selecting a color."
+IDD_CUSTOMBRUSH         " Dialog box to select a custom brush name."
+
+// File Menu Hints
+IDD_NEW                 " Dialog box to create a new image file."
+IDD_OPEN                " Dialog box to locate and select an image file to open."
+IDD_IMPORT              " Dialog box to locate and select an image file to import."
+IDD_SCANSETUP           " Dialog box to select a scanner driver and its address."
+IDD_SAVEAS              " Dialog box to select a location and name to save the image."
+IDD_THUMBSAVEAS		" Dialog box to select a location and name to save the image."
+IDD_MACROPLAY           " Dialog box to select a macro file to play back."
+IDD_MACRO_EDIT          " Dialog box to edit a macro file."
+IDD_MACRORECORD         " Dialog box to enter a newly recorded macro filename."
+IDD_PRINT               	" Dialog box to print any size and type of output desired."
+IDD_PRINTSETUP          	" Dialog box to select an output device and print style."
+IDD_PRINTSTYLE          	" Dialog box to set and save options for printing."
+IDD_BLACKGENERATE       	" Dialog box to adjust the values that determine the amount of black generated."
+IDD_CALIBRATESCAN       	" Dialog box to create and save a calibration map for scans."
+IDD_CALIBRATESCANVISUAL    	" Dialog box to create and save a calibration map for scans."
+IDD_CALSCANEDIT		    	" Dialog box to edit calibration maps for scans."
+IDD_CALIBRATEPRINT      	" Dialog box to create and save a calibration map for prints."
+IDD_CALIBRATEPRINTVISUAL	" Dialog box to create and save a calibration map for prints." 
+IDD_CALIBRATEPRINTEDIT		" Dialog box to edit calibration maps for prints." 
+IDD_EXPORT              	" Dialog box to export the current image."
+IDD_THUMBOPEN               " Dialog box to locate and select an image file in thumbnail view to open."
+IDD_THUMBIMPORT             " Dialog box to locate and select an image file in thumbnail view to import."
+
+
+// Object Menu Dialog Hints
+IDD_ALIGNOBJECT			" Dialog box to set options for aligning objects."
+IDD_POSOBJECT			" Dialog box to set position of object(s)."
+IDD_FEATHEROBJECT       " Dialog box to feather the edges of an object."
+
+
+// Image Menu Dialog Hints
+IDD_SIZE                " Dialog box to set options for resizing an image."
+IDD_EXPAND              " Dialog box to expand the image area."
+IDD_ROTATE              " Dialog box to rotate the full image by any angle or direction."
+IDD_CONVERTTO           " Dialog box to convert an image to another type."
+IDD_STITCH              " Dialog box to set options for the Stitch tool."
+IDD_SPECIALFXFILT       " Dialog box to select and apply a special effect."
+
+// Browser Dialog Hints
+IDD_JPEGOPTIONS         " Dialog box to set options for saving to the JPEG file format."
+IDD_PCDOPTIONS          " Dialog box to set open options for Photo CD images."
+IDD_PCDFILEINFO         " Dialog box to summarize useful Photo CD image information."
+IDD_EPSOPTIONS          " Dialog box to select options for creating DCS files."
+IDD_FASTBITS            " Dialog box to open and edit a portion of a large file."
+
+// Palette Dialog Hints
+IDD_PALETTE             " Dialog box to select colors and edit colors."
+
+// Misc Dialog Hints
+IDD_ABORT               "Click Cancel to stop printing."
+IDD_GRAB                " Dialog box to grab a new image."
+IDD_CLRMGRSETUP         " Dialog box to select and set up a color manager."
+IDD_PREF                " Dialog box to make preferences the new default."
+IDD_PREFUNITS		" Dialog box to modify units settings."
+IDD_PREFPLUGIN		" Dialog box to modify plug-in settings."
+IDD_PREFSCRATCHPAD	" Dialog box to modify scratchpad settings."
+IDD_PREFOBJECTS		" Dialog box to modify object settings."
+IDD_PREFUNDO		" Dialog box to modify undo settings."
+IDD_PREFMEMORY		" Dialog box to modify memory settings."
+IDD_PREFMISC		" Dialog box to modify miscellaneous settings."
+IDD_LOCATIONS		" Dialog box to modify file locations."
+
+IDD_STATUSBOX           ""
+IDD_WARNING             "Thanks for following your license agreement."
+
+// Mapping Dialog Hints
+IDD_MAP                 " Dialog box to adjust the points or values on the color map."
+IDD_MAPLOAD             " Dialog box to select a map file to be loaded."
+IDD_MAP_OPTIONS		" Dialog box to set options for the mapping dialog."
+IDD_CONTBRIT_STICK      " Dialog box to adjust the contrast and brightness."
+IDD_CONTBRIT_VISUAL     " Dialog box to visually adjust the contrast and brightness."
+IDD_CONTBRIT_VISUAL86   " Dialog box to visually adjust the contrast and brightness."
+IDD_CONTBRIT_VISUAL107  " Dialog box to visually adjust the contrast and brightness."
+IDD_COLORBAL_STICK      " Dialog box to adjust color balance of an image."
+IDD_COLORBAL_VISUAL     " Dialog box to visually adjust color balance of an image."
+IDD_COLORBAL_VISUAL86   " Dialog box to visually adjust color balance of an image."
+IDD_COLORBAL_VISUAL107  " Dialog box to visually adjust color balance of an image."
+IDD_QUARTERTONE         " Dialog box to stretch the tonal range between highlights and shadows."
+IDD_QUARTER_OPTIONS	" Dialog box to set the options for the Tone Balance dialog."
+IDD_POSTERIZE           " Dialog box to reduce the levels of the color map."
+IDD_THRESHOLD           " Dialog box to threshold the color map."
+IDD_HUE_SHIFT		" Dialog box to shift hue, color saturation, and lightness."
+IDD_HUE                 " Dialog box to adjust hue ranges, color saturation, and lightness."
+IDD_HISTOGRAM		" Dialog to view histogram of the image data."
+IDD_PALETTEEDITOR	" Dialog to edit the palette of a palette color image."
+
+// Toolbox stuff ///
+IDD_TOOLBOX_LOAD		" Dialog to load a custom toolbox."
+IDD_RENAMECUSTOOL	" Dialog to enter a name for custom toolbox."
+
+// Help Menu Dialog Hints
+IDD_ABOUT               "Click any icon for sales and support information."
+
+// Edit Menu Dialog Hints
+IDD_APPLYORUNDO         "Dialog box to confirm whether to apply or undo changes."
+IDD_COPYTOFILE          " Dialog box to select the file type and filename to create."
+IDD_PASTEFROMFILE       " Dialog box to select a named clipboard file to paste."
+
+IDD_PASTEFROM_OPTIONS	" Dialog box to set options for the ClipboardBrowser."
+
+// Status Line Dialogs
+IDD_IMAGEINFO           " Dialog box to summarize useful image information."
+IDD_SHIELDFLOAT         " Dialog box to select or protect by color ranges."
+
+// Extended Names Dialogs Hints
+IDD_ADDEXTNAME          "Dialog box to enter a new filename."
+IDD_FILECOPY            "Dialog box to copy a file."
+IDD_FILERENAME          "Dialog box to rename a file."
+IDD_FILEDELETE          "Dialog box to delete a file."
+
+// File Menu Hints
+IDM_FILE                "Click to select a command in the File menu."
+IDM_NEW                 " Click to create a blank new image."
+IDM_OPEN                " Click to open an existing image."
+IDM_IMPORT              " Click to activate ImportBrowser."
+IDM_ACQUIRE             " Click to acquire an image."
+IDM_RECALLIMAGE         " Click to recall recently opened images."
+IDM_RECALLIMAGE0        "Click to open this image."
+IDM_RECALLIMAGE1        "Click to open this image."
+IDM_RECALLIMAGE2        "Click to open this image."
+IDM_RECALLIMAGE3        "Click to open this image."
+IDM_RECALLIMAGE4        "Click to open this image."
+IDM_RECALLIMAGE5        "Click to open this image."
+IDM_RECALLIMAGE6        "Click to open this image."
+IDM_RECALLIMAGE7        "Click to open this image."
+IDM_RECALLIMAGE8        "Click to open this image."
+IDM_RECALLIMAGE9        "Click to open this image." 
+IDM_SAVE                " Click to save the active image."
+IDM_SAVEAS              " Click to save the active image with a new filename or type."
+IDM_REVERT              " Click to revert to the last saved version of the active image."
+IDM_CLOSE               " Click to close the active image window."
+IDM_RUN                 " Click to run another application."
+IDM_RUN0                "Click to open this application."
+IDM_RUN1                "Click to open this application."
+IDM_RUN2                "Click to open this application."
+IDM_RUN3                "Click to open this application."
+IDM_RUN4                "Click to open this application."
+IDM_RUN5                "Click to open this application."
+IDM_RUN6                "Click to open this application."
+IDM_RUN7                "Click to open this application."
+IDM_RUN8                "Click to open this application."
+IDM_RUN9                "Click to open this application."
+IDM_EXPORT              " Click to export the active image."
+IDM_PRINT               " Click to print the active image."
+#ifndef OEM
+IDM_PRINTPREVIEW		" Click to simulate image on printed output."
+#endif
+#ifndef OEM_NOSCAN
+IDM_SETUP               " Click to set printer, scanner, monitor, and calibration options."
+#else
+IDM_SETUP               " Click to set printer, monitor, and calibration options."
+#endif 
+IDM_PRINTSETUP          " Click to set printer options."
+IDM_SCANSETUP           " Click to set scanner options."
+IDM_MONITORMAP          " Click to set monitor options."
+#ifndef OEM_NOSCAN
+IDM_CALIBRATION         " Click to set up calibration for scanning and printing."
+#else
+IDM_CALIBRATION         " Click to set up calibration for printing."
+#endif
+IDM_ACQUIRESETUP        " Click to set the acquire options."
+IDM_CALIBRATESCAN       " Click to calibrate a scanner."
+IDM_CALIBRATEPRINT      " Click to calibrate a printer."
+IDM_MACRO               " Click to play, batch, record, or edit a macro."
+IDM_MACROPLAY           " Click to play a macro."
+IDM_MACROPLAYBATCH      " Click to play a macro on a batch of files."
+IDM_MACRORECORD         " Click to record a macro."
+IDM_MACRO_EDIT			" Click to edit a macro."
+IDM_MACROSTOP           " Click to stop recording a macro."
+IDM_EXPORTFILE          " Click to package all support files for the current Picture Publisher 5.0 file."
+IDM_EXIT                " Click to exit Picture Publisher."
+
+// Edit Menu Hints
+IDM_EDIT                "Click to select a command in the Edit menu."
+IDM_UNDO                " Click to undo or redo the last image edits."
+IDM_APPLY               " Click to apply changes."
+IDM_CMDLIST				"Click to select a Command List command."
+IDM_CMDLIST_UNDO		" Click to undo commands using the Command List."
+IDM_CMDLIST_REDO		" Click to redo commands using the Command List."
+IDM_CMDLIST_EDIT		" Click to edit the commands in the Command List."
+IDM_CUT                 " Click to cut the image to the clipboard."
+IDM_COPY                " Click to copy the image to the clipboard."
+IDM_COPYTOFILE          " Click to copy the image to the ClipboardBrowser."
+IDM_PASTE               " Click to paste the image from the clipboard."
+IDM_PASTEASNEW          " Click to paste the contents of the clipboard as a new image."
+IDM_DELETE              " Click to clear the image."
+IDM_PASTEFROMFILE       " Click to activate the ClipboardBrowser."
+
+// Mask Menu Hints
+IDM_MASK                "Click to select a command in the Mask menu."
+IDM_MASKUNDO            " Click to undo the last mask edits."
+IDM_MASKREMOVE          " Click to remove the mask from the image."
+IDM_MASKLOAD            " Click to load a mask file."
+IDM_MASKSAVE            " Click to save a mask to a file."
+IDM_CHROMA_MASK			" Click to create a mask based on a color range."
+IDM_MASKFROMOBJECT		" Click to create a mask from the selected object."
+IDM_MASKINVERT          " Click to invert the mask."
+IDM_FEATHER             " Click to feather the mask."
+IDM_REMOVE_HOLES		" Click to remove holes from a mask."
+IDM_MASK_SMOOTH			" Click to smooth rough areas of a mask."
+IDM_CROP                " Click to crop the image to the mask."
+IDM_MASKSTROKE          " Click to stroke the mask with a brush."
+IDM_HIDEMARQUEE         " Click to show or hide the mask."
+
+// Map Menu Hints
+IDM_MAPPING             "Click to select a command in the Map menu."
+IDM_MAP                 " Click to modify the color maps."
+IDM_CONTBRIT            " Click to change image contrast and brightness."
+IDM_CONTBRIT_STICK      " Click to change image contrast and brightness precisely."
+IDM_CONTBRIT_VISUAL     " Click to change image contrast and brightness visually."
+IDM_COLORBAL            " Click to change image color balance."
+IDM_COLORBAL_STICK      " Click to change image color balance precisely."
+IDM_COLORBAL_VISUAL     " Click to change image color balance visually."
+IDM_QUARTERTONE         " Click to stretch the tonal range between highlights, midtones, and shadows."
+IDM_POSTERIZE           " Click to change the levels of the image."
+IDM_THRESHOLD           " Click to change the threshold of the image."
+IDM_HUE_SHIFT			" Click to shift the hues or adjust the saturation, and lightness of the image."
+IDM_HUE                 " Click to change the hues, saturation, and lightness of the image."
+IDM_HISTOGRAM			" Click to view a histogram of the image."
+IDM_CALIBRATEAPPLY      " Click to select a calibration map to apply to the image."
+IDM_PALETTEEDIT			" Click to edit the palette of a palette color image."
+
+// Object Menu Hints
+IDM_OBJECT				"Click to select a command in the Object menu."				
+IDM_ARRANGE				"Click to group/ungroup or lock/unlock objects."
+IDM_OBJ_GROUP           " Click to group selected object(s)."
+IDM_OBJ_UNGROUP			" Click to ungroup selected object(s)."
+IDM_OBJ_LOCK			" Click to lock selected object(s) in place."
+IDM_OBJ_UNLOCK			" Click to unlock selected object(s) in place."
+IDM_OBJ_ALIGN			" Click to align selected object(s)."
+IDM_OBJ_POSITION		" Click to position selected object(s) precisely."
+IDM_ORDER               " Click to adjust the layering of selected object(s)."
+IDM_OBJ_DOWNLEVEL       " Click to move selected object(s) down one layer."
+IDM_OBJ_UPLEVEL         " Click to move selected object(s) up one layer."
+IDM_OBJ_MOVETOBOTTOM    " Click to move selected object(s) to the bottom."
+IDM_OBJ_MOVETOTOP       " Click to move selected object(s) to the top."
+IDM_OBJCOMBINE			"Click to combine objects together or to the base image."
+IDM_OBJ_COMBOBJS		" Click to combine selected objects together."
+IDM_COMBINE             " Click to combine all objects with the base image."
+IDM_COMBINE_SEL         " Click to combine selected objects with the base image."
+IDM_OBJ_FEATHER         " Click to feather the edges of selected object(s)."
+IDM_OBJ_APPLYMASK       " Click to apply a mask to selected object's alpha channel."
+IDM_OBJECTFROMMASK		" Click to create an object from the current mask."
+IDM_OBJ_DELETE          " Click to delete selected object(s)."
+IDM_OBJ_SELECTALL		" Click to select all objects. Press Shift+F2 to select all but the currently selected."
+IDM_OBJ_HIDEMARQUEE     " Click to show or hide the object marquee."
+
+// Image Menu Hints
+IDM_EFFECTS             "Click to select a command in the Image menu."
+IDM_SIZE                " Click to change the horizontal or vertical size of the image."
+IDM_EXPAND              " Click to expand the horizontal or vertical size of the image canvas."
+IDM_ROTATE              " Click to rotate the image."
+IDM_ROTATE90            " Click to rotate the image 90° clockwise."
+IDM_ROTATE270           " Click to rotate the image 90° counterclockwise."
+IDM_ROTATE180           " Click to rotate the image 180 degrees."
+IDM_ROTATEANY           " Click to rotate at desired angle and direction."
+IDM_MIRROR              " Click to mirror the image."
+IDM_MIRRORX             " Click to mirror the image left to right."
+IDM_MIRRORY             " Click to mirror the image top to bottom."
+IDM_MIRRORXY            " Click to mirror the image diagonally."
+IDM_CONVERT             " Click to select a conversion command."
+IDM_CONVLA              " Click to convert the image to line art."
+IDM_CONVSP              " Click to convert the image to scattered line art."
+IDM_CONVCT              " Click to convert the image to grayscale."
+IDM_CONVPALETTE         " Click to convert the image to palette colors."
+IDM_CONVRGBCOLOR        " Click to convert the image to RGB."
+IDM_CONVCMYKCOLOR       " Click to convert the image to CMYK."
+IDM_COLORMANAGED		" Click to convert the image to a color managed image."
+IDM_CHANNELS            " Click to select a channels command."
+IDM_SPLITRGB            " Click to split into separate RGB channels."
+IDM_SPLITHSL            " Click to split into separate HSL channels."
+IDM_SPLITCMYK           " Click to split into separate CMYK channels."
+IDM_CHANNELCOMBINE      " Click to recombine the individual channel images."
+IDM_INVERT              " Click to invert the image."
+IDC_STITCH              " Click to activate the Stitch tool."
+IDM_SPECIALFX           " Click to select a special effects filter."
+
+// Options Menu Hints
+IDM_OPTIONS				"Click select a command in the Options menu."
+IDM_SAVEPOSITIONS       " Click to save the window positions for the next startup."
+IDM_SCRATCHPAD          " Click to create a new scratchpad."
+IDM_CUSTOMTOOLBOX		"Click to load or create a custom toolbox."
+IDM_CUSTBOXLOAD			" Click to load a custom toolbox."
+IDM_CUSTBOXCREATE		" Click to create a custom toolbox."
+IDM_BUBBLEHINTS			"Click to show or hide bubble and status hints."
+IDM_BHINTSSHOW			" Click to show or hide bubble hints."
+IDM_SHINTSSHOW			" Click to show or hide hints in the status line."
+IDM_SHOWZOOMBOX         " Click to show or hide the QuickZoom window."
+IDM_SHOWINFO            " Click to show or hide the info box."
+IDM_OBJ_MANAGER         " Click to show or hide the Object List."
+IDM_TOOLSHOW            " Click to show or hide the main toolbox."
+IDM_STATUSSHOW          " Click to show or hide the status line."
+IDM_RULERSHOW           " Click to show or hide image rulers."
+IDM_PREF                " Click to change program defaults."
+
+// Window Menu Hints
+IDM_WINDOW              "Click to select a command in the Window menu."
+IDM_WINDOWCHILD         "Click to activate this image for editing."
+( IDM_WINDOWCHILD + 1 ) "Click to activate this image for editing."
+( IDM_WINDOWCHILD + 2 ) "Click to activate this image for editing."
+( IDM_WINDOWCHILD + 3 ) "Click to activate this image for editing."
+( IDM_WINDOWCHILD + 4 ) "Click to activate this image for editing."
+( IDM_WINDOWCHILD + 5 ) "Click to activate this image for editing."
+ID_WINDOW_NEW           " Click to duplicate the image window."
+ID_WINDOW_ARRANGE       " Click to arrange icon images."
+ID_WINDOW_TILE_HORZ     " Click to tile image windows."
+ID_WINDOW_CASCADE       " Click to cascade image windows."
+IDM_CLOSEALL            " Click to close all image windows."
+
+// Help Menu Hints
+IDM_HELP                "Click to select a command in the Help menu."
+IDM_HELP_CONTEXT        "Click for context-sensitive help on the current tool."
+IDM_HELP_INDEX          " Click for the content of help topics."
+IDM_HELP_USING          " Click for information on using Picture Publisher."
+IDM_HELP_README			" Click for the latest information on Picture Publisher."
+IDM_HELP_HELPONHELP		" Click for information on using the help system."
+IDM_ABOUT				" Click for information about Picture Publisher."
+
+
+IDM_LOADSHAPE		"Click to load a previously saved shape."
+IDM_SAVESHAPE		"Click to save current shapes."
+IDM_LASTTOOL		"Click to select previous tool."
+
+
+// Object Alignment Dialog Hints
+IDC_ALIGN_LEFT			"Click to align object(s) to the left."
+IDC_ALIGN_CENTER   		"Click to align object(s) to the center."
+IDC_ALIGN_RIGHT			"Click to align object(s) to the right."
+IDC_ALIGN_UP			"Click to align object(s) to the top."
+IDC_ALIGN_MID			"Click to align object(s) to the middle."
+IDC_ALIGN_DOWN			"Click to align object(s) to the bottom."
+IDC_ALIGN_HSPACE  		"Click to align object(s) equally spaced horizontally."
+IDC_ALIGN_VSPACE  		"Click to align object(s) equally spaced vertically."
+IDC_ALIGN_COMBO			"Click to select alignment type."
+IDC_ALIGN_IMAGE			"Select to align object(s) relative to the base image."
+IDC_ALIGN_OBJECT		"Select to align object(s) relative to each other."
+IDC_ALIGN_MASK			"Select to align object(s) realtive to a mask."
+
+// Object Position Hints
+IDC_POS_X				"Enter new X Position for object."
+IDC_POS_Y				"Enter new Y Position for object."
+
+//
+// Palette Dialog box Menu Hints
+//
+IDC_PALFILEMENU         "Click to select a command in the File menu."
+IDC_PALNEW              " Click to create a new palette."
+IDC_PALOPEN             " Click to load an existing palette."
+IDC_PALSAVE             " Click to save the palette."
+IDC_PALSAVEAS           " Click to save the palette with a new name."
+IDC_PALMERGE            " Click to combine a new palette with the current one."
+IDC_PALRESET            " Click to reopen the palette."
+
+IDC_PALEDITMENU         "Click to select a command in the Edit menu."
+IDC_PALUNDO             " Click to undo or redo the last edit."
+IDC_PALSETACTIVE        " Click to set the current color as the active color."
+IDC_PALINSERT           " Click to insert a new color."
+IDC_PALDELETEITEM       " Click to delete the current color."
+IDC_PALLABEL            " Click to add or change the color label."
+IDC_PALFIND             " Click to find a color by name."
+IDC_PALFILL             " Click to fill from the current color to the next color."
+IDC_PALOPTIONS          " Click to set the palette options."
+IDD_PALETTEOPTIONS      " Dialog box to configure the color palette."
+IDD_PALETTELOAD         " Dialog box to select a palette to load."
+IDD_PALETTESAVE         " Dialog box to name and save a palette."
+IDD_PALETTENEW          " Dialog box to create a new palette."
+IDD_PALETTEFILL         " Dialog box to create a range of colors."
+IDD_PALETTELABEL        " Dialog box to label a color."
+IDD_PALETTENAME         " Dialog box to enter the name of the new palette."
+IDD_PALETTEMERGE        " Dialog box to select a palette to be merged into the current palette."
+IDD_PALETTEFIND         " Dialog box to find a color by its full or partial name."
+
+//
+// Control Hints
+//
+// Generic controls
+IDC_CANCEL              "Click to cancel."
+IDC_SAVE                "Click to save to a file."
+IDC_LOAD                "Click to open a file."
+IDC_RESET               "Click to reset current changes."
+IDC_RESETALL    		"Click to reset the changes made to all channels."
+IDC_PREVIEW     		"Click to preview changes on the image."
+
+// Tools bar controls
+IDC_SELECTOR    		" Selector Tool~Click to select and modify objects." 
+IDC_MASK                " Mask Tools~Click to display the set of Mask tools."
+IDC_RETOUCH     		" Retouch Tools~Click to display the set of Retouch tools."
+IDC_FILTER              " Filter Tools~Click to display the set of Filter tools."
+IDC_FILL                " Fill Tools~Click to display the set of Fill tools."
+IDC_DRAW                " Draw Tools~Click to display the set of Draw tools."
+IDC_CUSTOMVIEW  		" Custom View Tool~Click to choose viewing tools and options."
+IDC_TEXT                " Text Tool~Click to enter and edit text."
+IDC_PROBE               " Color Probe~Click to probe colors in the image."
+IDC_GRABBER     		"Click to activate or deactivate the Grabber tool."
+
+// The mask toolbox icons
+IDC_SQUARE              " Shape Mask Tool~Click to draw rectangular or elliptical masks."
+IDC_FREE                " Freehand Mask Tool~Click to draw freehand masks."
+IDC_PAINTON     		" Paint On Mask Tool~Click to paint masks on the image or modify objects alpha channel."
+IDC_MAGICWAND   		" Smart Mask Tool~Click to create a mask based on like colors."
+IDC_TRANSFORMER 		" Mask Transform Tool~Click to transform masks or masked areas."
+IDC_POINTER     		" Mask Point Editing Tool~Click to edit the points of a mask."
+IDC_CROP                " Crop Tool~Click to crop the image."
+
+// The retouch toolbox icons
+IDC_PAINT               " Paint Tool~Click to paint on the image or selected object."
+IDC_SPRAY               " Airbrush Tool~Click to apply color as a spray can to the image or selected object."
+IDC_CLONE               " Clone Tool~Click to copy a portion of the image or object to another portion."
+IDC_SMEAR               " Smear Tool~Click to blend or smear colors in the image or selected object."
+IDC_TEXTURE     		" Texture Tool~Click to paint with a texture."
+IDC_ERASER              " Eraser Tool~Click to erase edits or with a color."
+
+// The filter toolbox icons
+IDC_SHARP               " Sharpen Tool~Click to sharpen the image with a brush."
+IDC_SMOOTH              " Smooth Tool~Click to smooth the image with a brush."
+IDC_LIGHTEN     		" Lighten Tool~Click to lighten the image with a brush."
+IDC_DARKEN              " Darken Tool~Click to darken the image with a brush."
+
+// The fill toolbox icons
+IDC_VIGNETTE    		" Gradient Fill Tool~Click to fill the image or selected object with a gradient."
+IDC_TINTFILL    		" Tint Fill Tool~Click to fill the image or selected object with the active color."
+IDC_TEXTUREFILL 		" Texture Fill Tool~Click to fill the image or selected object with a texture."
+IDC_FLOOD               " Smart Fill Tool~Click to fill like areas of color with the active color."
+
+// The draw toolbox icons
+IDC_PENCIL              " Pencil Tool~Click to draw polyline shapes."
+IDC_DRAWSQUARE  		" Shape Draw Tool~Click to draw rectangular or elliptical shapes."
+IDC_DRAWFREE    		" Freehand Draw Tool~Click to draw freehand closed shapes."
+
+// The View controls
+IDC_CUSTOMFUNCTION      " Zoom Functions~Click to select zoom function."
+IDC_ZOOMIN              "Click to Zoom In. (Page Up)"
+IDC_ZOOMOUT             "Click to Zoom Out. (Page Down)"
+IDC_ZOOMWINDOW          "Size Window On Zoom~Click to size the window when using the Custom View tool."
+IDC_VIEW1TO1            "View Actual Size~Click to view at actual size."
+IDC_VIEWLAST            "Previous View~Click to return to the previous view. (End)"
+IDC_VIEWALL             "View Entire Image~Click to view the entire image. (Home)"
+IDC_VIEWFULL            "Full Screen View~Click to see a full-screen view of the image. Press ESC to exit."
+IDC_QUICKZOOM           "QuickZoom~Click to open the QuickZoom window."
+
+//
+// palette dialog controls
+//
+IDC_PALAUTOSET          "Click to set the active color in the toolbox when selecting palette colors."
+IDC_PALETTE             "Click to select a color. (Double click to change color.)"
+//
+// palette size dialog controls
+//
+IDC_PALROWS             "Enter the number of rows for the palette."
+IDC_PALCOLUMNS          "Enter the number of columns for the palette."
+IDC_PALVERT             "Click to place the scroll bar along the right side of the palette."
+IDC_PALHORZ             "Click to place the scroll bar along the bottom of the palette."
+//
+// palette fill dialog controls
+//
+IDC_FILLRGB             "Click to fill using RGB color model."
+IDC_FILLHSL             "Click to fill using HSL color model."
+IDC_FILLMAX             "Click to fill maximum colors without duplicates."
+IDC_PALETTEFILL         "Enter the number of entries to fill."
+//
+// palette find dialog controls
+//
+IDC_PREVIOUS    		"Click to return to the previous color found."
+IDC_NEXT                "Click to advance to the next color found."
+IDC_FINDCOLOR   		"Enter the color to find."
+
+
+//
+// palette label dialog controls
+//
+IDC_LABELNAME   		"Enter the new color label."
+
+// Color picker controls start at 10400
+IDC_PICKER              "Click to select a new color."
+IDC_PICK_LEVEL  		"Adjust slider to set value."
+IDC_PICK_H              "Enter the Hue value. (0-359 degrees)"
+IDC_PICK_S              "Enter the Saturation value. (0-100 %%)"
+IDC_PICK_L              "Enter the Lightness value. (0-100 %%)"
+IDC_PICK_R              "Enter the Red value."
+IDC_PICK_G              "Enter the Green value."
+IDC_PICK_B              "Enter the Blue value."
+IDC_PICK_C              "Enter the Cyan value."
+IDC_PICK_Y              "Enter the Yellow value."
+IDC_PICK_M              "Enter the Magenta value."
+IDC_PICK_K              "Enter the Black value."
+IDC_PICKER_IS           "Click to select the method of slicing the color cube."
+IDC_PICKER_IS_H         "Select to modify Hue with slider, and Saturation and Lightness in the color space."
+IDC_PICKER_IS_S         "Select to modify Saturation with slider, and Hue and Lightness in the color space."
+IDC_PICKER_IS_L         "Select to modify Lightness with slider, and Hue and Saturation in the color space."
+IDC_PICKER_IS_R         "Select to modify Red with slider, and Green and Blue in the color space."
+IDC_PICKER_IS_G         "Select to modify Green with slider, and Red and Blue in the color space."
+IDC_PICKER_IS_B         "Select to modify Blue with slider, and Red and Green in the color space."
+IDC_PICKER_IS_C       	"Select to modify Cyan with slider, and Magenta and Yellow in the color space."
+IDC_PICKER_IS_M         "Select to modify Magenta with slider, and Cyan and Yellow in the color space."
+IDC_PICKER_IS_Y         "Select to modify Yellow with slider, and Cyan and Magenta in the color space."
+IDC_PICKER_IS_K         "Select to modify Black with slider, and Cyan, Magenta, and Yellow in the color space."
+IDC_PICK_PATCH2         "Click to reset new color to original."
+IDC_PICK_2PATCH2        "Click to reset new color to original."
+IDC_ALTERNATE_SELECT    "Click to set alternate color."
+IDC_ACTIVE_SELECT       "Click to set active color."
+
+// FastBits dialog hints //
+IDC_FAST_LOCK           "Click to lock or unlock the grid."
+IDC_FAST_PREVIEW        "Click to draw a new grid (if unlocked) or select a portion to open."
+
+// Preferences Dialog Hints
+IDC_PREF_GROUPMEMORY            "Click to set memory preferences."
+IDC_PREF_RAMDISK                "Enter the full path name of image cache directory."
+IDC_PREF_MEMMIN                 "Enter minimum Kbytes to reserve for other applications."
+IDC_PREF_MEMFACTOR              "Enter percentage of available memory to use for each image."
+IDC_PREF_LINEART                "Click to open line art images as grayscale."
+
+IDC_PREF_GROUPUNDO              "Click to set undo preferences." 
+IDC_PREF_UNDOTYPE               "Click to set the undo mode."
+IDC_PREF_NOUNDO                 "Select to edit without an undo."
+IDC_PREF_AUTOAPPLY              "Select to have your edits applied automatically."
+IDC_PREF_MANUALAPPLY            "Select to apply your edits manually."
+IDC_PREF_UNDOMODE               "Click to set the type of undo."
+IDC_PREF_IMAGEUNDO              "Select to have one undo for the entire image."
+IDC_PREF_OBJECTUNDO             "Select to have one undo for each object and the base image." 
+IDC_PREF_MASKUNDO               "Click to disable the undo for masking operations."
+IDC_PREF_DISABLECMDLIST			"Click to disable the command list."
+
+IDC_PREF_GROUPOBJECT            "Click to set object preferences."
+IDC_PREF_OBJECTS                "Click to allow floating objects."
+IDC_PREF_OBJECTMASKS            "Click to allow masks on floating objects."
+
+IDC_PREF_GROUPSCRATCH           "Click to set scratchpad preferences."
+IDC_PREF_SCRATCHTYPE            "Click to set the scratchpad type."
+IDC_PREF_SCRATCHX               "Enter the scratchpad width. (1-500 pixels)"
+IDC_PREF_SCRATCHY               "Enter the scratchpad height. (1-500 pixels)"
+IDC_PREF_SCRATCHGRAY            "Select to create an 8-bit grayscale scratchpad."
+IDC_PREF_SCRATCHCOLOR           "Select to create an 24-bit color scratchpad."
+
+IDC_PREF_GROUPPLUGIN            "Click to set plug-ins preferences."
+IDC_PREF_PLUGINPATH1            "Enter the path to plug-ins."
+IDC_PREF_PLUGINPATH2            "Enter the path to plug-ins."
+IDC_PREF_USEPLUGINS             "Click to use plug-ins."
+
+IDC_PREF_GROUPUNITS             "Click to set units preferences."
+IDC_PREF_SCREENWIDTH            "Enter the width of your screen for an accurate 1:1 view."
+IDC_PREF_UNITS                  "Units Preference~Click to change the unit of measure."
+IDC_PREF_UNITINCHES          "Click to change the unit of measure to inches."
+IDC_PREF_UNITMM              "Click to change the unit of measure to millimeters."
+IDC_PREF_UNITPICAS           "Click to change the unit of measure to pica and points."
+IDC_PREF_UNITCM              "Click to change the unit of measure to centimeters."
+IDC_PREF_UNITPIXELS          "Click to change the unit of measure to pixels." 
+IDC_PREF_USERULERS              "Click to display rulers with each image."
+IDC_PREF_DISPLAYPIXELS          "Click to use percentage values for color selection."
+
+
+IDC_PREF_GROUPMISC              "Click to set miscellaneous preferences."
+IDC_PREF_POUCH                  "Enter the full path name of NAMES.INI file."
+IDC_PREF_STARTMACRO				"Click to select a startup macro for Picture Publisher."
+IDC_PREF_TABLET                 "Click to select a tablet pressure preference."
+IDC_PREF_TABLETUNUSED			"Select to not use tablet pressure."
+IDC_PREF_TABLETOPACITY			"Select to vary brush transparency with pressure."
+IDC_PREF_TABLETSIZE				"Select to vary brush size with pressure."
+IDC_PREF_TABLETBOTH				"Select to vary both transparency and brush size with pressure."
+IDC_PREF_MASKTINT               "Click to select a color preference for the ruby overlay."
+IDC_PREF_MASKTINT1              "Select to use Red for the ruby overlay color."
+IDC_PREF_MASKTINT2              "Select to use Green for the ruby overlay color."
+IDC_PREF_MASKTINT3              "Select to use Blue for the ruby overlay color."
+IDC_PREF_MASKTINT4              "Select to use Cyan for the ruby overlay color."
+IDC_PREF_MASKTINT5              "Select to use Magenta for the ruby overlay color."
+IDC_PREF_MASKTINT6              "Select to use Yellow for the ruby overlay color."
+IDC_PREF_FILETYPE		        "Click to select file type for new or scanned images."
+IDC_PREF_USEGRAYSCALEICONS		"Click to use grayscale interface icons."
+#ifndef OEM
+IDC_CMS_ENABLED					"Click to enable the color management system."
+IDC_CMS							"Click to select color management profiles."
+#endif
+IDC_PREF_DISABLEAUTOSCROLL		"Click to disable auto scrolling."
+IDC_PREF_PASTEATREALSIZE		"Click to paste images at actual size."
+IDC_PREF_DISABLEDITHER			"Click to disable gradient dithering."
+
+IDC_PREF_TOOLSETTINGS           "Click to use independent tool settings."                               
+
+IDC_PREF_SAVE					"Click to save preferences for future sessions."
+IDC_PREF_LOCATIONS              "Click to set the paths of the support files."
+
+IDC_LOCATE_TEXTURES             "Enter the path to the texture files."
+IDC_LOCATE_BRUSHES              "Enter the path to the brush styles."
+IDC_LOCATE_DEVICES              "Enter the path to the scanner drivers."
+IDC_LOCATE_PALETTES             "Enter the path to the palettes."
+IDC_LOCATE_FILTERS              "Enter the path to the special effects."
+IDC_LOCATE_CLIPBITS             "Enter the path to the named clipboards."
+IDC_LOCATE_PRNSTYLES            "Enter the path to the print styles."
+IDC_LOCATE_MACROS               "Enter the path to the macros."
+IDC_LOCATE_IMPORTFILTERS		"Enter the path to the import filters."
+
+// Command List Undo Dialog box Hints //
+IDD_CMDLIST_UNDO				" Dialog box to select items from the Command List to undo."
+IDC_CMDLIST_UNDO				"Select items in list to undo."
+IDC_SAVEUNDOLIST				"Click to save the Command List as a macro."
+IDC_CMDLIST_FULLNAMES			"Click to show full detail of each command."
+
+
+
+// Command List Redo Dialog box Hints //
+IDD_CMDLIST_REDO				" Dialog box to select items from the Command List to redo."
+IDC_CMDLIST_REDO				"Select items in the list to be redo."
+IDC_SAVEREDOLIST				"Click to save Command List as a macro."
+
+// Command List Editor Dialog box Hints //
+IDD_CMDLIST_EDIT				" Dialog box to edit the Command List."
+IDC_CMDLIST_EDIT				"Select items in the list to be edited."
+IDC_CMDLIST_DISABLE				"Click to disable or enable selected items in the list."
+IDC_CMDLIST_DELETE				"Click to delete selected items in the list."
+IDC_CMDLIST_INSERT				"Click to insert items in the list before the currently selected item."
+IDC_CMDLIST_SAVE				"Click to save the Command List as a macro."
+
+// Macro Paly Dialog Hints //
+IDC_MACRO_COUNT					"Enter number of times for macro to repeat. (0-999)"
+
+
+// Feather Mask Dialog box Hints //
+IDC_FEATHER_AMOUNT              "Enter the amount to feather."
+IDC_FEATHER_EDGE                "Click to select edge type."
+IDC_FEATHER_HARD                "Click to create a hard feathered edge."
+IDC_FEATHER_NORMAL              "Click to create a normal feathered edge."
+IDC_FEATHER_SOFT                "Click to create a soft feathered edge."
+IDC_FEATHER_INOUT               "Click to select direction of feather."
+IDC_FEATHER_IN                  "Click to feather inside the mask."
+IDC_FEATHER_ALL                 "Click to feather both inside and outside the mask."
+IDC_FEATHER_OUT                 "Click to feather outside the mask."
+IDD_FEATHER                     " Dialog box to feather the edges of a mask."
+
+// Mask Load Hints
+IDD_MASKLOAD            " Dialog box to select a mask file to load."
+
+// Mask Save Hints
+IDD_MASKSAVE            " Dialog box to enter a new mask filename for saving."
+
+// Mask Shape Load Hints
+IDD_SHAPELOAD			" Dialog box to select a vector shape to load."
+IDC_SHAPE_SCALE			" Enter shape scaling amount."
+
+// Mask Shape Load Hints
+IDD_SHAPESAVE			" Dialog box to enter a new shape filename for saving."	
+
+// Mask Smoother Dialog box
+IDD_MASK_SMOOTH			" Dialog box to set options for smoothing a mask."
+IDC_RH_AMOUNT			" Enter amount to smooth mask (0-50 pixels)."
+
+// Chroma Mask
+IDD_CHROMA_MASK			" Dialog box to create mask by selecting colors from the image."
+IDC_CHROMASELECT		"Click to select color model on which to base color selection."
+IDC_CHROMA				"Click to preview chroma mask on the current image."
+IDC_CHROMA_NORMAL		"Select to use normal (RGB) color model for color selection." 
+IDC_CHROMA_HSL			"Select to use HSL color model for color selection." 	
+IDC_CHROMA_LUMIN		"Select to use Lightness for selection." 
+IDC_CHROMA_FADE			"Enter fade value for Chroma Mask. (0-100%%)"
+
+// Batch Macro Dialog //
+IDD_MACRO_BATCH			" Dialog to select images and macros to be batched."
+IDC_BATCH_QUEUE			"Click to select image in list."
+IDC_BATCH_ADDFILES		"Click to select files to add to the list."
+IDC_BATCH_MACROLIST		"Click to select macro in list."
+IDC_BATCH_ADDMACROS		"Click to select macros to add to the list."
+IDC_BATCH_DELETE			"Click to delete selected item in the list."
+IDC_BATCH_OPTIONS		"Click to select save options."
+IDC_BATCH_PLAY			"Click to begin batch processing."
+
+// Batch Macro options dialog hints //
+IDD_BATCH_OPTIONS		" Dialog to select options for batch macro."
+IDC_BATCHSAVE			"Click to select save option."
+IDC_SAVETOORIGINAL		"Select to save over original when macro is completed."
+IDC_SAVETOALBUM			"Select to save into an album when macro is completed."
+IDC_SAVETODIR			"Select to save to a specified path when macro is completed."
+IDC_NOSAVE				"Select to not save image when macro is completed."
+IDC_CLOSEWHENDONE		"Click to close image when macro is completed."
+IDC_ALBUMLIST			"Click to select album in which to save image when macro is completed."
+IDC_DIRNAME				"Enter path to save image when macro is completed."
+
+
+// Mask Stroke Hints 
+IDD_MASKSTROKE          " Dialog box to set options for stroke mask."
+IDC_STROKETOOLS         "Select Stroke Tool~Click to select a stroke tool."
+IDC_STROKEAMOUNT        "Enter Stroke Amount(0-100 %%)~Enter amount. (0-100 %%)"
+
+//Package PP5 Dialog Hints //
+IDD_PACKAGEPP5			" Dialog to package support files for current PP5 file."
+IDC_PACKAGEPATH			"Enter path to copy all support files for the current PP5 file." 
+
+// File Open Hints
+IDC_FNAME               "Enter the file name."
+IDC_FPATH               "Click to select adjust path."
+IDC_FLIST               "Click to select a different file."
+IDC_DIRS                "Click to select a different directory."
+IDC_DRIVES              "Click to select a different drive."
+IDC_SAVEPATH            "Click to save the path when restarting."
+IDC_THUMBNAILMANAGE     "Click for thumbnail management."
+IDC_CREATETHUMBNAILS    "Click to create thumbnails for selected images."
+IDC_DELETETHUMBNAILS    "Click to delete thumbnails for selected images."
+IDC_DELETEALLTHUMBNAILS "Click to delete all existing thumbnails."
+IDC_AUTOTHUMBNAILS      "Click to automatically create thumbnails."
+IDC_FILEMANAGE          "Click for file management."
+IDC_FILEINFO            "Click to view image information."
+IDC_FILECOPY            "Click to copy files."
+IDC_FILEDELETE          "Click to delete files."
+IDC_FILERENAME          "Click to rename files."
+IDC_VIEWTHUMBNAILS      "Click to view image thumbnails."
+
+// About box controls start at 10700
+IDC_ABOUTAPP            "Click to get information on your drivers."
+IDC_MGX                 "Click to learn more about Micrografx."
+IDC_DESIGNER            "Click to learn more about Micrografx Designer."
+IDC_CHARISMA            "Click to learn more about Micrografx Charisma."
+IDC_DRAWPLUS            "Click to learn more about Micrografx Windows Draw."
+IDC_CLIPART             "Click to learn more about Micrografx ClipArt."
+IDC_TECHSUPT            "Click to learn more about Micrografx Technical Support."
+
+// Edit Palette Hints
+IDC_PALETTEPICKER		"Double click to change this color."
+IDC_PALETTEREPLACE		"Click to replace image palette with selected palette."
+IDC_PALETTEREMAP		"Click to remap image palette with selected palette."
+IDC_PALETTELOAD			"Click to load a palette."
+IDC_PALETTESAVE			"Click to save palette."
+
+// Hue and saturation controls start at 11100
+IDC_SLIDEHUE1           "Adjust slider to change hue."
+IDC_SLIDEHUE2           "Adjust slider to change hue."
+IDC_SLIDEHUE3           "Adjust slider to change hue."
+IDC_SLIDEHUE4           "Adjust slider to change hue."
+IDC_SLIDEHUE5           "Adjust slider to change hue."
+IDC_SLIDEHUE6           "Adjust slider to change hue."
+IDC_SLIDEHUE7           "Adjust slider to change hue."
+IDC_SLIDEHUE8           "Adjust slider to change hue."
+IDC_SLIDEHUE9           "Adjust slider to change hue."
+IDC_SLIDEHUE10          "Adjust slider to change hue."
+IDC_SLIDEHUE11          "Adjust slider to change hue."
+IDC_SLIDEHUE12          "Adjust slider to change hue."
+IDC_SATURATION          "Enter the saturation value. (-100-100 %%)"
+IDC_SATURATION_SCROLL	"Adjust slider to change saturation value. (-100-100 %%)"
+IDC_LIGHTNESS           "Enter the lightness value. (-100-100 %%)"
+IDC_LIGHTNESS_SCROLL	"Adjust slider to change lightness value. (-100-100 %%)"
+
+// Hue Shift Hints
+IDC_HUE_VALUE			"Enter desired hue value. (0-359 degrees)"
+IDC_HUE_COLORIZE		"Click to change all hues to a single hue."
+
+// Color Map controls start at 11200
+IDC_DO_ALL              "Select to affect all channels."
+IDC_DO_RED              "Select to affect the Red channel."
+IDC_DO_GREEN    		"Select to affect the Green channel."
+IDC_DO_BLUE     		"Select to affect the Blue channel."  
+IDC_DO_CYAN     		"Select to affect the Cyan channel."
+IDC_DO_MAGENTA  		"Select to affect the Magenta channel."
+IDC_DO_YELLOW   		"Select to affect the Yellow channel."
+IDC_DO_BLACK    		"Select to affect the Black channel."
+IDC_MAPTOOL     		"Click to select map editing mode."
+IDC_MAPTOOLV    		"Select to edit map numerically."
+IDC_MAPTOOL3    		"Select to edit map visually."
+IDC_MAP                 "Click to move the points on the map curve."
+IDC_MAP0IN              "Enter desired input value."
+IDC_MAP1IN              "Enter desired input value."
+IDC_MAP2IN              "Enter desired input value."
+IDC_MAP3IN              "Enter desired input value."
+IDC_MAP4IN              "Enter desired input value."
+IDC_MAP5IN              "Enter desired input value."
+IDC_MAP6IN              "Enter desired input value."
+IDC_MAP7IN              "Enter desired input value."
+IDC_MAP8IN              "Enter desired input value."
+IDC_MAP9IN              "Enter desired input value."
+IDC_MAP10IN     		"Enter desired input value."
+IDC_MAP0OUT     		"Enter desired output value."
+IDC_MAP1OUT     		"Enter desired output value."
+IDC_MAP2OUT     		"Enter desired output value."
+IDC_MAP3OUT     		"Enter desired output value."
+IDC_MAP4OUT     		"Enter desired output value."
+IDC_MAP5OUT     		"Enter desired output value."
+IDC_MAP6OUT     		"Enter desired output value."
+IDC_MAP7OUT     		"Enter desired output value."
+IDC_MAP8OUT     		"Enter desired output value."
+IDC_MAP9OUT     		"Enter desired output value."
+IDC_MAP10OUT    		"Enter desired output value."
+IDC_MAP_GAMMA   		"Adjust the slider to change map gamma (0.0-9.0)."
+IDC_MAP_PROBE   		"Click to probe from the image."
+IDC_MAP_SHIFT_UP        "Click to shift the map up."
+IDC_MAP_SHIFT_DOWN      "Click to shift the map down."
+IDC_MAP_SHIFT_LEFT      "Click to shift the map left."
+IDC_MAP_SHIFT_RIGHT     "Click to shift the map right."
+IDC_MAP_CURVES          "Click to toggle between lines and curves."
+IDC_MAP_HBAR            "Click to switch input axis."
+IDC_MAP_VBAR            "Click to switch output axis."
+IDC_MAP_OPTIONS         "Click to set the mapping options."
+IDC_MAP_NUM             "Enter the default number of points."
+IDC_MAP_PERCENT         "Click to toggle between percentages and levels."
+IDC_MAP_GRID            "Click to turn grid on/off."
+IDC_AUTO                "Click to use Auto Preview."
+IDC_CURVE_SMOOTH		"Select desired curve smoothness."
+		  
+// Various mapping controls start at 11300                                
+IDC_MAPLEVELS           "Enter the number of levels to posterize. (0-255)"
+IDC_MAPLEVELS_SCROLL    "Adjust the slider to change the number of levels. (0-255)"
+IDC_MAPTHRESH           "Enter the threshold level. (0-100 %%)"
+IDC_MAPTHRESH_SCROLL    "Adjust the slider to change the threshold level. (0-100 %%)"
+
+IDC_MAPSAVE             "Click to save the current map."
+IDC_MAPLOAD             "Click to load a previously saved map."
+IDC_CONTBRIT            "Press and drag to adjust values."
+IDC_CONTRAST            "Enter any additional contrast. (-100-100 %%)"
+IDC_BRIGHTNESS          "Enter any additional brightness. (-100-100 %%)"
+
+// Channel selection combo start at 11400
+IDC_CHANNELS            "Click to select a channel to adjust."
+
+// Draw controls start at 11800
+IDC_CIREDGE             "Select to draw an elliptical border."
+IDC_CIRFILL             "Select to fill the interior of the ellipse."
+IDC_CIREDGEANDFILL      "Select to draw an elliptical border and fill the interior."
+IDC_SQUSTYLE            "Fill Style~Click to select the fill style of the Shape Draw tool."
+IDC_SQUEDGE             "Select to draw a rectangular border."
+IDC_SQUFILL             "Select to fill the interior of a rectangle."
+IDC_SQUEDGEANDFILL      "Select to draw a rectangular border and fill the interior."
+IDC_FRESTYLE            "Fill Style~Click to select the fill style of the Freehand Draw tool."
+IDC_FREEDGE             "Select to draw a freehand border."
+IDC_FREFILL             "Select to fill the interior of a freehand shape."
+IDC_FREEDGEANDFILL      "Select to draw a freehand border and fill the interior."
+
+// Color Shield Controls start at 12900
+IDC_SHIELD_IFHIDDEN     "Click to keep active when the dialog box is closed."
+IDC_MASKCOLOR1          "Click to probe color 1 from the image."
+IDC_MASKCOLOR2          "Click to probe color 2 from the image."
+IDC_MASKCOLOR3          "Click to probe color 3 from the image."
+IDC_MASKCOLOR4          "Click to probe color 4 from the image."
+IDC_MASKCOLOR5          "Click to probe color 5 from the image."
+IDC_MASKCOLOR6          "Click to probe color 6 from the image."
+IDC_MASKCOLOR7          "Click to probe color 7 from the image."
+IDC_MASKCOLOR8          "Click to probe color 8 from the image."
+
+IDC_MASKRANGE1          "Enter the range percent. (0-100 %%)"
+IDC_MASKRANGE2          "Enter the range percent. (0-100 %%)"
+IDC_MASKRANGE3          "Enter the range percent. (0-100 %%)"
+IDC_MASKRANGE4          "Enter the range percent. (0-100 %%)"
+IDC_MASKRANGE5          "Enter the range percent. (0-100 %%)"
+IDC_MASKRANGE6          "Enter the range percent. (0-100 %%)"
+IDC_MASKRANGE7          "Enter the range percent. (0-100 %%)"
+IDC_MASKRANGE8          "Enter the range percent. (0-100 %%)"
+
+IDC_MASKACTIVE1         "Click to turn range on/off."
+IDC_MASKACTIVE2         "Click to turn range on/off."
+IDC_MASKACTIVE3         "Click to turn range on/off."
+IDC_MASKACTIVE4         "Click to turn range on/off."
+IDC_MASKACTIVE5         "Click to turn range on/off."
+IDC_MASKACTIVE6         "Click to turn range on/off."
+IDC_MASKACTIVE7         "Click to turn range on/off."
+IDC_MASKACTIVE8         "Click to turn range on/off."
+
+IDC_SHIELDSELECT        "Click to select or protect colors in the image."
+IDC_MASKINCLUDE         "Select to modify the activated color ranges in the image."
+IDC_MASKEXCLUDE         "Select to protect the activated color ranges in the image."
+
+// Vignette Controls start at 13000
+IDC_VIGNETTETYPE        "Gradient Type~Click to select a type of gradient."
+IDC_VIGLINEAR           "Select to create linear gradient."
+IDC_VIGRADIAL           "Select to create radial gradient."
+IDC_VIGCIRCLE           "Select to create circular gradient."
+IDC_VIGELLIPSE          "Select to create elliptical gradient."
+IDC_VIGSQUARE           "Select to create square gradient."
+IDC_VIGRECTANGLE        "Select to create rectangular gradient."
+IDC_VIGREPEAT           "Gradient Sweep Repeat~Enter the number of times to repeat color sweep. (1-99)"
+IDC_VIGTRANSITION       "Gradient Transition Type~Click to select the type of gradient color transitions."
+IDC_VIGSOFTTRANSITION   "Select to create a soft transition."
+IDC_VIGHARDTRANSITION   "Select to create a hard transition."
+IDC_MIDPOINT            "Gradient Midpoint Value~Enter the percentage to set the midpoint of the gradient. (0-100 %%)"
+
+// Texture Fill Controls start at 13100
+IDC_TEXTURENAME         "Fill Texture Selection~Select a texture."
+IDC_TEXTUREFLIPX        "Flip Texture Horizontally~Click to flip texture horizontally."
+IDC_TEXTUREFLIPY        "Flip Texture Vertically~Click to flip texture vertically."
+
+// Text Controls start at 13400
+IDC_TEXT_STRING         "Enter the text string."
+IDC_TEXT_FACES          "Font Type Selection~Click to select a typeface."
+IDC_TEXT_SIZE           "Font Point Size~Enter the text point size. (1-500 points)"
+IDC_TEXT_ITALIC         "Italic~Click for italicized text."
+IDC_TEXT_UNDERLINE      "Underline~Click for underlined text."
+IDC_TEXT_BOLD           "Bold~Click for bold text."
+IDC_TEXT_ANTIALIAS      "Anti-Alias~Click for anti-aliased text."
+IDC_TEXT_ANGLE          "Text Angle~Enter the angle for the text. (-359-359)"
+IDC_TEXT_LEFT           "Left Justify~Click to left justify text."
+IDC_TEXT_CENTER         "Center Justify~Click to center justify text."
+IDC_TEXT_RIGHT          "Right Justify~Click to right justify text."
+
+// Generic Ribbon Controls
+IDC_MASKMODE_ADD		"Additive Mode~Click to select the additive mode for masks."
+IDC_MASKMODE_SUBTRACT	"Subtractive Mode~Click to select the subtractive mode for masks."
+IDC_MASKMODE_REVERSE	"Inverse Mode~Click to select the inverse mode for masks."
+IDC_TRANSPARENT         "Transparency~Enter the transparency amount. (0-99 %%)"
+IDC_TRANSPARENT_SCROLL  "Transparency~Adjust slider to change the transparency amount. (0-99 %%)"
+IDC_MERGEMODE           "Merge Mode~Click to select the merge mode."
+
+// Object Tool Ribbon Controls
+IDC_TOTOP               "Move Up One Layer~Click to move the currently selected object(s) up one layer."
+IDC_TOBOTTOM            "Move Down One Layer~Click to move the currently selected object(s) down one layer."
+IDC_OBJECTTRANSFORM 	" Transform Object~Click to transform the object."
+IDC_OBJECTGROUP         "Group/Ungroup Objects~Click to group or ungroup the currently selected objects."
+IDC_OBJECTLOCK			"Lock/Unlock Objects~Click to lock or unlock the currently selected objects with the base image."
+
+// Shape Mask Ribbon Controls
+IDC_MASKSHAPE           "Mask Shape~Click to select a mask shape."
+IDC_SQUAREMASK          "Select to draw a rectangular mask shape."
+IDC_CIRCLEMASK          "Select to draw an elliptical mask shape."
+IDC_ASPECTRATIO         "Constrain Method~Click to select constrain method for drawing."
+IDC_UNCONSTRAIN         "Select to allow free and unconstrained drawing."
+IDC_CONSTRAIN           "Select to constrain drawing to the ratio of width and height."
+IDC_FIXEDSIZE           "Select to constrain drawing to a fixed unit width and height."
+IDC_HCONSTRAIN          "Vertical Units~Enter the number of vertical units."
+IDC_WCONSTRAIN          "Horizontal Units~Enter the number of horizontal units."
+
+// Freehand Mask Ribbon controls start at 11600
+IDC_MASKMETHOD          "Freehand Mask Methods~Click to select a drawing method for masks."
+IDC_FREEHAND            "Select to draw a freehand mask."
+IDC_AUTOMASK            "Select to draw an edge-detected AutoMask."
+IDC_POINTMODE			"Select to edit the points of the mask shape."
+IDC_COLORMODEL          "Color Model~Click to select the color model used for edge detection."
+IDC_MODEL_RGB           "Select to use the Normal (RGB) color model."
+IDC_MODEL_HL            "Select to use the HSL color model."
+IDC_AUTOSEARCHDEPTH		"AutoMask Sensitivity~Enter the AutoMask sensitivity. (1-5)"
+IDC_AUTOMINEDGE         "AutoMask Minimum Line Length~Enter the AutoMask minimum line length. (1-50 pixels)"
+IDC_IS_POINT            "Make Line~Click to make currently selected point(s) a line."
+IDC_IS_BEZIER           "Make Bézier Curve~Click to make currently selected point(s) a Bézier curve."
+IDC_MOVEPOINTS          "Move Points Mode~Click to move the points of the mask."
+IDC_ADDPOINTS           "Add Points Mode~Click to add points to the mask."
+IDC_DELPOINTS           "Delete Points Mode~Click to delete points from the mask." 
+IDC_DRAW_LINE           "Draw Lines Mode~Click to draw lines with the Freehand Mask tool."
+IDC_DRAW_BEZIER         "Draw Curves Mode~Click to draw curves with the Freehand Mask tool."
+IDC_ANTIALIAS			"Anti-alias Mask Edges~Click to anti-alias the edges of the mask."
+
+// Paintable Mask Ribbon controls start at 11600
+IDC_PAINTONDEST         "Paint On Mask Method~Click to select a mask/alpha channel destination to paint on."
+IDC_PAINTONMASK         "Select to paint on the image mask."
+IDC_PAINTONOBJECT       "Select to paint on the currently selected object's alpha channel."
+
+// Paintable Mask Ribbon controls start at 11600
+IDC_WANDRANGE           "Smart Mask Wand Range~Enter the percentage of color variance for the Smart Mask. (0-100 %%)"
+IDC_SIMILAR             "Find Similiar Colors~Click to apply Smart Mask to the entire image."
+IDC_GROW                "Expand Mask~Click to expand the wand range. (0-100 %%)"
+IDC_GROW_SPIN           "Expand Mask Amount~Enter the amount to add to the wand range. (0-100 %%)"
+IDC_WANDFADE			"Smart Mask Wand Fade~Enter the percentage for the Smart Mask to fade. (0-100 %%)"
+
+// Mask Transform Ribbon controls start at
+IDC_TRANSFUNCTION       "Mask Transform Functions~Click to select the Mask Transform tool options."
+IDC_COPYMASK            "Select to transform a copy of the mask."
+IDC_MOVEMASK            "Select to transform the mask."
+IDC_COPYIMAGE           "Select to transform a copy of the masked portion of the image."
+IDC_MOVEIMAGE           "Select to transform a cut-out masked portion of the image."
+IDC_TRANSMODE           " Transformation Method~Click to select a transformation mode."
+IDC_TRANSSCALE          "Select to resize the side of the object proportionally or individually."
+IDC_TRANSSKEW           "Select to skew the object horizontally or vertically."
+IDC_TRANSPERSPECTIVE    "Select to shrink or expand one side of the object simulating perspective."
+IDC_TRANSDISTORT        "Select to move all 4 corners of the object independently."
+IDC_TRANSROTATEXY       " Normal Rotation~Click to rotate the object normally."
+IDC_TRANSROTATEX        " X Axis Rotation~Click to rotate the object around the horizontal axis."
+IDC_TRANSROTATEY        " Y Axis Rotation~Click to rotate the object around the vertical axis."
+IDC_TRANSFLIPX          " Flip Object Horizontally~Click to flip the object horizontally."
+IDC_TRANSFLIPY          " Flip Object Vertically~Click to flip the object vertically."
+IDC_SMARTPASTE          " High Quality Transform~Click to use high quality interpolation for transformation."
+IDC_PASTEINTOMASK       "Paste Into Mask~Click to paste into the mask."
+
+// Mask Point Editor Ribbon controls start at
+IDC_POINTERFUNCTION		"Mask Point Editing Functions~Click to select an option of Mask Point Editing tool."
+IDC_PATHTOLERANCE       "Edge Detection Tolerace~Enter the tolerance. (0-99 pixels)"
+IDC_PATHTYPE			"Mask Point Editor Method~Click to select Mask Point Editor method."
+IDC_PATH_CURVES			"Select to edit points as Bézier curves."
+IDC_PATH_LINES			"Select to edit points as line segments."
+IDC_PATHCONTINUITY		"Edge Detection Continuity~Enter continuity value. (0-20)"
+IDC_PATHCURVE_TOLERANCE "Edge Detection Curve Tolerance~Enter curve tolerance value. (0-99)"
+
+
+// Create Brush style dialog ///
+IDD_CREATEBRUSH		" Dialog to create brush styles."
+IDD_CREATEDRAWBRUSH	" Dialog to create draw styles."
+IDD_CREATETEXTUREBRUSH	" Dialog to create texture brush styles."
+IDD_CREATEBRUSHSCRATCH	" Dialog to create brush styles."
+
+
+// Brush Ribbon controls start at
+IDC_STYLES              "Brush Style~Click to select a style."
+IDC_BRUSHSHAPE          "Brush Shape~Click to select a shape."
+IDC_BRUSHCIRCLE         "Select to use a circular brush."
+IDC_BRUSHSQUARE         "Select to use a square brush."
+IDC_BRUSHHORIZONTAL     "Select to use a horizontal line brush."
+IDC_BRUSHVERTICAL       "Select to use a vertical line brush."
+IDC_BRUSHSLASH          "Select to use a foreward slash line brush."
+IDC_BRUSHBACKSLASH      "Select to use a backslash line brush."
+IDC_BRUSHCUSTOM         "Select to use a custom brush."
+IDC_BRUSHCUSTOMNEW      "Select to choose a new custom brush."
+IDC_BRUSHSIZE           "Brush Size~Enter the brush size. (1-999 pixels)"
+IDC_FEATHER             "Brush Edge Feathering Amount~Enter the amount of brush feathering. (0-100 %%)"
+IDC_SPACING             "Enter the amount of brush spacing. (0-100 %%)"
+IDC_FADESIZE            "Enter the amount of brush fading. (0-100 %%)"
+IDC_BRUSHSOLID          "Click to create a solid brush."
+IDC_BRUSHSCATTER        "Click to create a scattered brush."
+IDC_STYLEPRESSURE       "Enter the amount of scattering for the scattered brush. (0-100 %%)"
+IDC_SMOOTHNESS          "Enter the amount of smoothness. (0-100 %%)"
+IDC_OVERLAP             "Click to allow brush strokes to overlap."
+IDC_BRUSHPREVIEW        "Press and drag to test style."
+IDC_PREVIEWRESET        "Click to clear the brush preview area."
+
+
+// Smart Fill Ribbon Stuff
+IDC_FLOODRANGE          "Smart Fill Range~Enter the range of color values to be included. (0-100 %%)"
+IDC_FLOODFADE			"Smart Fill Fade~Enter the amount to fade the Smart Fill. (0-100 %%)"
+
+// Status Box Controls start at 13600
+IDC_STATUSINFO          " Image Information~Click to view information."
+IDC_MASKEDITALPHA       " Mask Channel~Click to edit the image or its mask channel. (Shift+F12)"
+IDC_VIEWSLIME           " Ruby Overlay~Click to create a normal view or to view with a ruby overlay. (Shift+F11)"
+IDC_STATUSPALETTE       " Color Palette~Click to show or hide the Color Palette."
+IDC_STATUSSHIELD        " Color Shields~Click to show or hide the Color Shields."
+
+// Extended name Management
+IDC_EXTNAMES            "Click to select a name from the list."
+IDC_FILENAME            "This DOS file corresponds to the name in the list."
+IDC_BRUSHEXTMANAGE  	"Options~Click for additional options."
+IDC_EXTMANAGE           "Options~Click to manage files in the list."
+IDC_CLIPEXTMANAGE       "Click to manage files in the list."
+IDC_ADDEXT				"Select to Add an additional file to the list."
+IDC_DELETEEXT           "Select to Delete the list entry and the DOS file."
+IDC_RENAMEEXT           "Select to Rename the list entry."
+IDC_CREATEEXT           "Select to Create a style."
+IDC_EDITEXT             "Select to Edit an existing style."
+
+    
+
+// Copy To... dialog controls start at
+IDC_COPYTOCLIP          "Click to copy to the ClipboardBrowser."
+IDC_COPYTOIMAGE         "Click to copy to a new image."
+IDC_COPYTOTEXTURE       "Click to copy to a texture."
+IDC_COPYTOBRUSH         "Click to copy to a custom brush."
+
+// Scan/Print query controls start at
+
+// Probe Controls start at
+IDC_PROBEMETHOD         "Color Probe Method~Click to select the probing method for the tool."
+IDC_PROBEPOINT          "Select to browse colors in the image."
+IDC_PROBERECT           "Select to sample colors in a rectangular area."
+
+// Monitor Gamma Controls start at
+
+// Split Dialog box Controls start at
+
+// Stitch Ribbon Controls start at
+IDC_STITCHTRANS1		"Click to select the image to transform."
+IDC_STITCHTRANS2                        "Click to select the image to transform."
+IDC_STITCHALIGN                         "Click to automatically align the markers."
+IDC_AUTOBRIGHTNESS                      "Click to adjust the brightness of the transformed image."
+IDC_STITCHBRIGHTNESS_SCROLL				"Adjust slider to set the brightness level of the transformed image."
+IDC_STITCHPRESSURE_SCROLL				"Adjust slider to set the pressure of the blend."
+IDC_DOSTITCH                            "Click to stitch the images together."
+IDC_STITCHBLEND                         "Click to blend the seam of stitched images."
+IDC_PRESSURE                            "Brush Pressure~Enter the amount of pressure. (0-100 %%)"
+IDC_PRESSLIGHT                          "Light blend pressure."
+IDC_PRESSMEDIUM                         "Medium blend pressure."
+IDC_PRESSHEAVY                          "Heavy blend pressure."
+IDC_SMARTSTITCH                         "Click to use a high quality stitching transformation."
+IDC_STITCHPOINT1                        "View Circle Marker~Click to bring the circle marker into view."
+IDC_STITCHPOINT2                        "View Square Marker~Click to bring the square marker into view."
+IDC_STITCHPOINT1C                       "Show/Hide Circle Marker#1~Click to show or hide the #1 circle marker."
+IDC_STITCHPOINT2C                       "Show/Hide Circle Marker#2~Click to show or hide the #2 circle marker."
+IDC_STITCHPOINT1S                       "Show/Hide Square Marker#1~Click to show or hide the #1 square marker."
+IDC_STITCHPOINT2S                       "Show/Hide Square Marker#2~Click to show or hide the #2 square marker."
+
+// Convert To... Options ribbon controls start at 15300
+IDC_MINITYPES           "Click to select the number of palette colors."
+IDC_MINI8               "Select to convert image to 8 colors."
+IDC_MINI16              "Select to convert image to 16 colors."
+IDC_MINI256             "Select to convert image to 256 colors."
+IDC_MINICUSTOM			"Select to convert image to a custom number of colors."
+IDC_PALETTECOLORS		"Enter the number of colors for conversion."
+IDC_DITHERTYPES         "Click to select type of dither."
+IDC_DITHERNONE          "Select for no dither."
+IDC_DITHERPATTERN       "Select for patterned dither."
+IDC_DITHERSCATTERED     "Select for scattered dither."
+IDC_PALETTETYPES        "Click to select the type of palette to use."
+IDC_PALETTESTANDARD     "Select for evenly spaced color palette."
+IDC_PALETTEOPTIMIZED    "Select for optimized color palette based on the image."
+IDC_PALETTECUSTOM		"Select for custom color palette."
+
+// File Manager Copy... and Rename... controls start at 15500
+IDC_FILEFROM            "Enter the source filename."
+IDC_FILETO              "Enter the destination filename."
+
+// Palette Add Controls start at 15700
+IDC_PALENTRIES          "Enter the number of entries in new palette."
+IDC_CPOPALETTE          "Click to create an optimized palette from the active image."
+
+// TIFF Save Option Hints //
+IDC_TIFFCOMPRESS		"Click to save the TIFF using LZW compression."
+IDC_TIFFDIFF			"Click to use LZW differencing when compressing TIFF."
+IDC_PROMPTFOROPTIONS	"Click to always show this dialog box when saving."
+
+// PP5 and PP4 Save Options //
+IDC_PPFFCOMPRESS		"Click to save the file using LZW compression."
+IDC_PPFFSAVEMASK		"Click to save the mask channel with the file."
+#ifndef OEM
+IDC_CMS_SAVE			"Click to save the precision transform with the file."
+#endif
+IDC_PPFFSAVEPROXY		"Click to save work in progress in the file."
+IDC_PPFFSAVECMDLIST		"Click to save the Command List with the file."
+IDC_PPFFSAVELINK		"Click to save link to orginal file."
+
+// EPS and DCS Options //
+IDC_PREVIEWTYPE			"Click to select preview TIFF type."
+IDC_PREVIEWNONE			"Select for no TIFF preview."
+IDC_PREVIEW1			"Select for line art preview."
+IDC_PREVIEW8			"Select for grayscale preview."
+IDC_PREVIEW24			"Select for color preview."
+IDC_EPSCOMPOSITE		"Click to include composite image."
+
+// AVI Options //
+IDC_AVI_ADD_END			"Click to add at the end of the AVI file."
+IDC_AVI_INSERT			"Click to insert image at a specified point in the AVI file."
+IDC_AVI_REPLACE			"Click to replace specified frame in the AVI file." 
+IDC_AVI_POSI			"Enter position to insert frame."
+IDC_AVI_POSR			"Enter position to replace frame."
+IDC_AVI_SIZE			"Click to size image to fit video."
+IDC_AVI_CLIP			"Click to clip image to fit video."
+		
+// JPEG Save Options Controls start at 15800
+IDC_JPEGAMOUNT          "Click to select amount of image compression."
+IDC_JPEGLESS            "Select to compress image less."
+IDC_JPEGNORMAL          "Select to compress image normally."
+IDC_JPEGMORE            "Select to compress image more."
+IDC_JPEGCUSTOM          "Select to enter custom image compression parameters."
+IDC_JPEGSUBSAMPLING     "Click to select chrominance component subsampling."
+IDC_JPEGLR              "Select for Low resolution 4:1:1 subsampling."
+IDC_JPEGMR              "Select for Medium resolution 4:2:2 subsampling."
+IDC_JPEGHR              "Select for High resolution 4:4:4 subsampling."
+IDC_JPEGYQUANT          "Enter the luminance quantization (-8-100 %%)."
+IDC_JPEGCQUANT          "Enter the chrominance quantization (-8-100 %%)."
+
+// Photo CD Open Options Controls start at 15900
+IDC_PCDFORMAT           "Click to select data type of image to open."
+IDC_PCDSINGLE           "Select for 8-Bit Grayscale."
+IDC_PCDRGB              "Select for 24-Bit Full Color."
+IDC_PCDRESOLUTION       "Click to select resolution of image to open."
+IDC_PCD_BASE_OVER_16    "Select for Thumbnail resolution (128 x 192)."
+IDC_PCD_BASE_OVER_4     "Select for Low resolution - Snapshot (256 x 384)."
+IDC_PCD_BASE            "Select for Medium resolution - TV-comparable (512 x 768)."
+IDC_PCD_4BASE           "Select for High resolution - HDTV (1024 x 1536)."
+IDC_PCD_16BASE          "Select for Full detail - Photographic-quality (2048 x 3072)."
+IDC_PCD_64BASE          "Select for Pro detail - Pro-Resolution (4096 x 6144)."
+IDC_PCD_PREVIEW         "Press and drag to select an area to be opened. Double click for entire image."
+IDC_PCD_SUBTRACTSBA		"Click to remove scene balance adjustment."
+IDC_PCD_REDBUTTON		"Enter red balance value."
+IDC_PCD_GREENBUTTON		"Enter green balance value."
+IDC_PCD_BLUEBUTTON		"Enter blue balance value."
+IDC_PCD_BRIGHTBUTTON	"Enter brightnes balance value."
+IDC_PCD_SATBUTTON		"Enter saturation balance value."
+IDC_PCD_OUTOFGAMUT		"Click to show out of gamut color on the preview."
+IDC_PCD_DOPREVIEW		"Click to update preview image."
+
+// Start of special ribbon hint lines
+// Tools bar controls
+( IDC_SELECTOR + IDC_RIBBONSTART )              "Save Ribbon Settings~Click to save settings for the Selector tool."
+( IDC_CUSTOMVIEW + IDC_RIBBONSTART )            "Save Ribbon Settings~Click to save settings for the Custom View tool."
+( IDC_TEXT + IDC_RIBBONSTART )          		"Save Ribbon Settings~Click to save settings for the Text tool."
+( IDC_PROBE + IDC_RIBBONSTART )                 "Save Ribbon Settings~Click to save settings for the Color Probe tool."
+
+// The mask toolbox icons
+( IDC_PAINTON + IDC_RIBBONSTART )               "Save Ribbon Settings~Click to save settings for the Paint On Mask tool."
+( IDC_FREE + IDC_RIBBONSTART )          		"Save Ribbon Settings~Click to save settings for the Freehand Mask tool."
+( IDC_SQUARE + IDC_RIBBONSTART )                "Save Ribbon Settings~Click to save settings for the Shape Mask tool."
+( IDC_MAGICWAND + IDC_RIBBONSTART )             "Save Ribbon Settings~Click to save settings for the Smart Mask tool."
+( IDC_TRANSFORMER + IDC_RIBBONSTART )           "Save Ribbon Settings~Click to save settings for the Mask Transform tool."
+( IDC_POINTER + IDC_RIBBONSTART )               "Save Ribbon Settings~Click to save settings for the Mask Point Editing tool."
+( IDC_CROP + IDC_RIBBONSTART )          		"Save Ribbon Settings~Click to save settings for the Crop tool."
+
+// The retouch toolbox icons
+( IDC_PAINT + IDC_RIBBONSTART )                 "Save Ribbon Settings~Click to save settings for the Paint tool."
+( IDC_SPRAY + IDC_RIBBONSTART )                 "Save Ribbon Settings~Click to save settings for the Airbrush tool."
+( IDC_CLONE + IDC_RIBBONSTART )                 "Save Ribbon Settings~Click to save settings for the Clone tool."
+( IDC_TEXTURE + IDC_RIBBONSTART )               "Save Ribbon Settings~Click to save settings for the Texture tool."
+( IDC_SMEAR + IDC_RIBBONSTART )                 "Save Ribbon Settings~Click to save settings for the Smear tool."
+( IDC_ERASER + IDC_RIBBONSTART )                "Save Ribbon Settings~Click to save settings for the Eraser tool."
+
+// The filter toolbox icons
+( IDC_SHARP + IDC_RIBBONSTART )                 "Save Ribbon Settings~Click to save settings for the Sharpen tool."
+( IDC_SMOOTH + IDC_RIBBONSTART )                "Save Ribbon Settings~Click to save settings for the Smooth tool."
+( IDC_LIGHTEN + IDC_RIBBONSTART )               "Save Ribbon Settings~Click to save settings for the Lighten tool."
+( IDC_DARKEN + IDC_RIBBONSTART )                "Save Ribbon Settings~Click to save settings for the Darken tool."
+( IDC_STITCH + IDC_RIBBONSTART )                "Save Ribbon Settings~Click to save settings for the Stitch tool."
+
+// The fill toolbox icons
+( IDC_VIGNETTE + IDC_RIBBONSTART )              "Save Ribbon Settings~Click to save settings for the Gradient Fill tool."
+( IDC_FLOOD + IDC_RIBBONSTART )                 "Save Ribbon Settings~Click to save settings for the Smart Fill tool."
+( IDC_TEXTUREFILL + IDC_RIBBONSTART )   		"Save Ribbon Settings~Click to save settings for the Texture Fill tool."
+( IDC_TINTFILL + IDC_RIBBONSTART )              "Save Ribbon Settings~Click to save settings for the Color Tint Fill tool."
+
+// The draw toolbox icons
+( IDC_PENCIL + IDC_RIBBONSTART )                "Save Ribbon Settings~Click to save settings for the Pencil tool."
+( IDC_DRAWSQUARE + IDC_RIBBONSTART )    		"Save Ribbon Settings~Click to save settings for the Shape Draw tool."
+( IDC_DRAWFREE + IDC_RIBBONSTART )              "Save Ribbon Settings~Click to save settings for the Freehand Draw tool."
+
+// Start of special image hint lines
+// Tools bar controls
+( IDC_SELECTOR + IDC_IMAGESTART )               "Click or drag to select an object or group of objects."
+( IDC_CUSTOMVIEW + IDC_IMAGESTART )     		"Press and drag to magnify a rectangular area."
+( IDC_TEXT + IDC_IMAGESTART )                   "Click to type text directly on screen."
+( IDC_PROBE + IDC_IMAGESTART )                  "Press and drag to select new active color."
+
+// The mask toolbox icons
+( IDC_PAINTON + IDC_IMAGESTART )                "Press and drag to paint on the mask channel."
+( IDC_FREE + IDC_IMAGESTART )           		"Click or press and drag to draw a freehand mask. (Bksp to delete last point.)"
+( IDC_SQUARE + IDC_IMAGESTART )                 "Press and drag to create a Shape mask."
+( IDC_MAGICWAND + IDC_IMAGESTART )              "Click to mask an area automatically."
+( IDC_TRANSFORMER + IDC_IMAGESTART )            "Click or press and drag to select masks for transforming."
+( IDC_POINTER + IDC_IMAGESTART )                "Click or press and drag to select a mask for point editing."
+( IDC_CROP + IDC_IMAGESTART )           		"Press and drag to crop the image."
+
+// The retouch toolbox icons
+( IDC_PAINT + IDC_IMAGESTART )          		"Press and drag to paint with the active color."
+( IDC_SPRAY + IDC_IMAGESTART )          		"Press and drag to spray the active color like an airbrush."
+( IDC_CLONE + IDC_IMAGESTART )          		"Press and drag to copy pixels. (Press Shift to reposition.)"
+( IDC_TEXTURE + IDC_IMAGESTART )                "Press and drag to paint with a texture."
+( IDC_SMEAR + IDC_IMAGESTART )          		"Press and drag to smear pixels."
+( IDC_ERASER + IDC_IMAGESTART )                 "Press and drag to erase edits."
+
+// The filter toolbox icons
+( IDC_SHARP + IDC_IMAGESTART )          		"Press and drag to sharpen pixels."
+( IDC_SMOOTH + IDC_IMAGESTART )                 "Press and drag to smooth pixels."
+( IDC_LIGHTEN + IDC_IMAGESTART )                "Press and drag to lighten pixels."
+( IDC_DARKEN + IDC_IMAGESTART )                 "Press and drag to darken pixels."
+( IDC_STITCH + IDC_IMAGESTART )                 "Press and drag to place the stitch markers."
+
+// The fill toolbox icons
+( IDC_VIGNETTE + IDC_IMAGESTART )               "Press and drag to select gradient area."
+( IDC_FLOOD + IDC_IMAGESTART )          		"Click to automatically fill an area of like colors with the active color."
+( IDC_TEXTUREFILL + IDC_IMAGESTART )            "Click to fill with a texture."
+( IDC_TINTFILL + IDC_IMAGESTART )               "Click to fill with the active color."
+
+// The draw toolbox icons
+( IDC_PENCIL + IDC_IMAGESTART )                 "Click to draw new lines. (Press Bksp to delete last.)"
+( IDC_DRAWSQUARE + IDC_IMAGESTART )             "Press and drag to draw a rectangle/ellipse."
+( IDC_DRAWFREE + IDC_IMAGESTART )               "Click to draw new lines. (Press Bksp to delete last)"
+
+// The New Dialog box//
+IDC_NEWTYPE             "Click to select the type of new image to create."
+IDC_NEWLINEART          "Select to create a new line art image."
+IDC_NEWGRAY             "Select to create a new grayscale image."
+IDC_NEWCOLOR            "Select to create a new RGB image."
+IDC_NEWCMYKCOLOR        "Select to create a new CMYK image."
+IDC_WIDTH               "Enter the width of the image."
+IDC_HEIGHT              "Enter the height of the image."
+IDC_RES                 "Enter the resolution of the image."
+
+#ifndef OEM_NOSCAN
+// The Scan Dialog box //
+IDC_SCANFRAME           "Select area to scan."
+IDC_SCANTYPE            "Click to select the type of image to scan."
+IDC_SCAN1BIT            "Click to scan image as line art."
+IDC_SCAN8BIT            "Click to scan image as grayscale."
+IDC_SCANCOLOR           "Click to scan image as color."
+IDC_SCALEX              "Enter the scaling percentage for the image."
+IDC_SCALEY              "Enter the scaling percentage for the image."       
+IDC_LOCKASPECT          "Click to lock the scan size."
+IDC_COLORPREVIEW        "Click to use color prescan."
+IDC_SCANINVERT          "Click to invert image while scanning."
+IDC_SCANMIRROR          "Click to mirror image while scanning."
+IDC_DMA                 "Click to use DMA."
+IDC_VELOCITY5           "Click to scan at speed 5."
+IDC_VELOCITY4           "Click to scan at speed 4."
+IDC_VELOCITY3           "Click to scan at speed 3."
+IDC_VELOCITY2           "Click to scan at speed 2."
+IDC_VELOCITY1           "Click to scan at speed 1."
+IDC_PRESCAN             "Click to prescan the image."
+IDC_SCANCHECK           "Click to check the levels of gray in the image."
+IDC_OPTIONS             "Click for additional options."
+#endif
+
+// Hints for Print Dialog box. //
+
+IDC_PRINTVIEW           "Click to change the page setup view."
+IDC_PRINTVIEWVISUAL     "Select to visually set up page."
+IDC_PRINTVIEWNUMERIC    "Select to precisely set up page."
+IDC_DISTORT             "Click to allow size distortions."
+IDC_PRINTVIEWIMAGE      "Position the image on the page. Drag edges to resize."
+IDC_OFFSETY             "Enter position of image from the top of the page."
+IDC_OFFSETX             "Enter position of image from the left of the page."
+IDC_CENTERED            "Click to center image on page."
+IDC_PRINT_TYPE          "Click to select type of output."
+IDC_PRINT_GRAY			"Select to print grayscale."
+IDC_PRINT_COLOR			"Select to print full color."
+IDC_PRINT_COLORGRAY		"Select to print full color and grayscale."
+IDC_PRINT_BLACKSEPS		"Select to print black ink separations."
+IDC_PRINT_COLORSEPS		"Select to print color ink separations."
+//IDC_DO_CYAN           "Click to print Cyan separation."
+//IDC_DO_MAGENTA        "Click to print Magenta separation."
+//IDC_DO_YELLOW         "Click to print Yellow separation."
+//IDC_DO_BLACK          "Click to print Black separation."
+IDC_SCATTER             "Click to print using ScatterPrint."
+IDC_PRINTRESET          "Click to reset print settings."
+IDC_PRINTSETUP          "Click to set up printer and print style options."
+IDC_BINARY_PS           "Click to print using binary PostScript."
+IDC_PRINTER_SCREENING	"Click to use the defaults of the printer."
+IDC_USEPRINTSCALING		"Click to send only the necessary information to the printer."
+
+// Hints for Print Setup Dialog box //
+IDC_SETUPSTYLE          "Click to set up print style."
+IDC_PRINTSELECT         "Click to select print device."
+IDC_PRINTERTYPES        "Click to select printer type."
+IDC_PRINTER_IS_MONO		"Select for monochrome output devices."
+IDC_PRINTER_IS_CMYK		"Select for CMYK output devices."
+IDC_PRINTER_IS_RGB		"Select for RGB output devices."
+
+// Extras Tab
+IDD_EXTRAS   	        " Dialog box to set up extra printer settings."
+IDC_TRIMMARKS           "Click to print with trim marks."
+IDC_REGMARKS            "Click to print with registration marks."
+IDC_LABELS              "Click to print with separation labels."
+IDC_STEPSCALE           "Click to print with steps scale."
+IDC_NEGATIVE            "Click to print negative."
+IDC_EMULSIONDOWN        "Click to print mirror for emulsion down. (PostScript devices only.)"
+
+// Hints for Setup Up Print style //
+//IDC_HALFTONENAMES       "Click to select halftone style."
+//IDC_SEPARATENAMES       "Click to select color separation style."
+
+// Hints for halftone tab //
+IDD_HALFTONE            " Dialog box to set up halftone style."
+IDC_USEPRINTERHALFTONE	"Click to use printers default halftone values."
+IDC_DOTSHAPES           "Click to select a halftone dot style."
+IDC_CIRCLEDOT			"Select for circular halftone dot."
+IDC_SQUAREDOT			"Select for square halftone dot."
+IDC_ELLIPSEDOT			"Select for elliptical halftone dot."
+IDC_SCRULING0           "Enter screen frequency for Cyan separation."
+IDC_ANGLE0              "Enter screen angle for Cyan separation."
+IDC_SCRULING1           "Enter screen frequency for Magenta separation."
+IDC_ANGLE1              "Enter screen angle for Magenta separation."
+IDC_SCRULING2           "Enter screen frequency for Yellow separation."
+IDC_ANGLE2              "Enter screen angle for Yellow separation."
+IDC_SCRULING3           "Enter screen frequency for Black separation."
+IDC_ANGLE3              "Enter screen angle for Black separation."
+IDC_HILIGHT             "Enter minimum highlight dot percentage. (0-100 %%)"
+IDC_SHADOW              "Enter maximum highlight dot percentage. (0-100 %%)"
+
+// Hints for Color Separation Style dialog //
+IDD_PPSEP        	" Dialog box to edit color separation style."
+IDD_CMSSEP        	" Dialog box to select CMS printer profile."
+IDC_CORRECT_RED         "Drag color sliders to set recipe for Red."
+IDC_M_IN_R              "Enter Magenta percentage in Red. (0-100 %%)"
+IDC_Y_IN_R              "Enter Yellow percentage in Red. (0-100 %%)"
+IDC_CORRECT_GREEN       "Drag color sliders to set recipe for Green."
+IDC_Y_IN_G              "Enter Yellow percentage in Green. (0-100 %%)"
+IDC_C_IN_G              "Enter Cyan percentage in Green. (0-100 %%)"
+IDC_CORRECT_BLUE        "Drag color sliders to set recipe for Blue."
+IDC_C_IN_B              "Enter Cyan percentage in Blue. (0-100 %%)"
+IDC_M_IN_B              "Enter Magenta percentage in Blue. (0-100 %%)"
+IDC_BLACKNAMES			"Click to select black generation map."
+IDC_BLACKMGR			"Click to manage the black generation maps."
+IDC_UCR                 "Enter black removal percentage. (0-100 %%)"
+IDC_BLACKLIMIT			"Enter black limit percentage. (0-100 %%)"
+IDC_TOTALINK			"Enter total ink limit percentage. (0-400 %%)"
+IDC_SATBOOST			"Enter saturation boost percentage. (0-100 %%)"
+
+// Calibration Tab //
+IDD_CALIBRATE           " Dialog box to edit printer calibration settings."
+IDC_CALVIEW_CHANNELS	"Click to select color plate to view."
+IDC_CALVIEW_CYAN		"Select to view cyan color plate."
+IDC_CALVIEW_MAGENTA		"Select to view magenta color plate."
+IDC_CALVIEW_YELLOW		"Select to view yellow color plate."
+IDC_CALVIEW_BLACK		"Select to view black color plate."
+IDC_CALIBRATENAMES      "Click to select a printer calibration map."
+IDC_CALIBRATEMGR      	"Click to manage the printer calibration maps."
+IDC_DOTGAIN				"Enter the dot gain value. (0-100 %%)"
+IDC_CALONCONVERT		"Click to apply calibration during conversion to CMYK."
+IDC_NOCALONCONVERT		"Click to apply calibration during print."
+
+
+// Hints for Edit Calibrate Printer //
+IDC_CAL_BLACK           "Click to edit the Black separation calibration map."
+IDC_CAL_CYAN            "Click to edit the Yellow separation calibration map."
+IDC_CAL_MAGENTA         "Click to edit the Magenta separation calibration map."
+IDC_CAL_YELLOW          "Click to edit the Cyan separation calibration map."
+
+// Apply Calibration Maps Hints //
+IDD_CALIBRATEAPPLY      " Dialog box to apply calibration maps to the image."
+IDC_CALSCANNAMES        "Click to select a scanner calibration map."
+IDC_CALSCANMGR			"Click to manage scanner calibration maps."
+IDC_CALPRINTNAMES       "Click to select a printer calibration map."
+
+// Scanner calibration Dialog Hints //
+IDC_CALMETHOD			"Click to select calibration method."
+IDC_CALMEASURE			"Select to calibrate by measurement."
+IDC_CALVISUAL			"Select to calibrate visually."
+IDC_SCANMAPTYPE			"Click to select scan map type."
+IDC_SCANMAPGRAY			"Select to edit gray calibration map."
+IDC_SCANMAPCOLOR		"Select to edit color calibration map."
+IDC_SCAN_CHANNELS		"Click to select channel to edit."
+IDC_SCAN_RED			"Select to edit red color channel."
+IDC_SCAN_BLUE			"Select to edit blue color channel."
+IDC_SCAN_GREEN			"Select to edit green color channel."
+IDC_SCAN_GRAY			"Select to edit gray channel."
+IDC_CALRGB				"Click to use map for color scans."
+IDC_CALALLSAME			"Click to use map for all channels."
+IDC_CALGRAY				"Click to use map for grayscale scans."
+ 
+// Hints for Monitor Gamma //
+IDD_MONITORSETUP	" Dialog to set up monitor gamma and monitor profile."
+IDD_GAMMA              	" Dialog box to set monitor gamma correction."
+IDD_MONITORCMS        	" Dialog box to select CMS monitor profile."
+IDC_RGAMMA_SCROLL       "Adjust slider to change Red gamma component."
+IDC_RGAMMA_EDIT         "Enter the Red gamma value."
+IDC_GGAMMA_SCROLL       "Adjust slider to change Green gamma component."
+IDC_GGAMMA_EDIT         "Enter the Green gamma value."
+IDC_BGAMMA_SCROLL       "Adjust slider to change Blue gamma component."
+IDC_BGAMMA_EDIT         "Enter the Blue gamma value."
+IDC_LOCK                "Click to lock sliders together."
+IDC_UNLOCK              "Click to unlock sliders."
+IDC_GAMMA_DISABLE		"Click to disable monitor gamma."
+
+// CMS Setup hints //
+#ifndef OEM
+IDC_CMS_SRC				"Click to select a device profile."
+IDC_CMS_DST				"Click to select a device profile."
+IDC_CMS_SRCLIST			"Click to select a precision transform."
+IDC_CMS_DSTLIST			"Click to select a precision transform."
+IDC_PREVIEW_DST			"Click to preview precision transform curves."
+IDC_PRINTUSECMS			"Click to use color management for print separation."
+#endif
+
+// Hints for calibrate scanner //
+IDC_RMEASURE1           "Enter the value. "
+IDC_RMEASURE2           "Enter the value. "
+IDC_RMEASURE3           "Enter the value. "
+IDC_RMEASURE4           "Enter the value. "
+IDC_RMEASURE5           "Enter the value. "
+IDC_RMEASURE6           "Enter the value. "
+IDC_RMEASURE7           "Enter the value. "
+IDC_RMEASURE8           "Enter the value. "
+IDC_RMEASURE9           "Enter the value. "
+IDC_RMEASURE10          "Enter the value. "
+IDC_RMEASURE11          "Enter the value. "
+IDC_GMEASURE1           "Enter the value. "
+IDC_GMEASURE2           "Enter the value. "
+IDC_GMEASURE3           "Enter the value. "
+IDC_GMEASURE4           "Enter the value. "
+IDC_GMEASURE5           "Enter the value. "
+IDC_GMEASURE6           "Enter the value. "
+IDC_GMEASURE7           "Enter the value. "
+IDC_GMEASURE8           "Enter the value. "
+IDC_GMEASURE9           "Enter the value. "
+IDC_GMEASURE10          "Enter the value. "
+IDC_GMEASURE11          "Enter the value. "
+IDC_BMEASURE1           "Enter the value. "
+IDC_BMEASURE2           "Enter the value. "
+IDC_BMEASURE3           "Enter the value. "
+IDC_BMEASURE4           "Enter the value. "
+IDC_BMEASURE5           "Enter the value. "
+IDC_BMEASURE6           "Enter the value. "
+IDC_BMEASURE7           "Enter the value. "
+IDC_BMEASURE8           "Enter the value. "
+IDC_BMEASURE9           "Enter the value. "
+IDC_BMEASURE10          "Enter the value. "
+IDC_BMEASURE11          "Enter the value. "
+IDC_XMEASURE1           "Enter the value. "
+IDC_XMEASURE2           "Enter the value. "
+IDC_XMEASURE3           "Enter the value. "
+IDC_XMEASURE4           "Enter the value. "
+IDC_XMEASURE5           "Enter the value. "
+IDC_XMEASURE6           "Enter the value. "
+IDC_XMEASURE7           "Enter the value. "
+IDC_XMEASURE8           "Enter the value. "
+IDC_XMEASURE9           "Enter the value. "
+IDC_XMEASURE10          "Enter the value. "
+IDC_XMEASURE11          "Enter the value. "
+IDC_MEASURE             "Click to measure values from image."
+
+// Visual Color Balance //
+IDC_VISUAL_BEFORE       "Click to reset all changes made to image."
+IDC_BAND                "Click to select tonal range to adjust."
+IDC_BAND_ALL            "Select to adjust full tonal range."
+IDC_BAND_HI             "Select to adjust highlights."
+IDC_BAND_MID            "Select to adjust midtones."
+IDC_BAND_LO             "Select to adjust shadows."
+IDC_VSTEP               "Adjust slider to set the amount of change per adjustment."
+IDC_MAINTAIN            "Click to maintain density of the image."
+IDC_VISUAL_00           "Click to adjust the image."
+IDC_VISUAL_01           "Click to adjust the image."
+IDC_VISUAL_02           "Click to adjust the image."
+IDC_VISUAL_10           "Click to adjust the image."
+//IDC_VISUAL_11           "Modified Preview."
+IDC_VISUAL_12           "Click to adjust the image."
+IDC_VISUAL_20           "Click to adjust the image."
+IDC_VISUAL_21           "Click to adjust the image."
+IDC_VISUAL_22           "Click to adjust the image."
+
+// Image Size Dialog box //
+IDC_SMARTSIZE           "Click to use a high quality transformation."
+IDC_MAINTAINSIZE        "Click to maintain file size."
+
+// Expand Dialog box //
+IDC_EXPANDLEFT          "Enter the amount to expand left."
+IDC_EXPANDRIGHT         "Enter the amount to expand right."
+IDC_EXPANDTOP           "Enter the amount to expand top."
+IDC_EXPANDBOTTOM        "Enter the amount to expand bottom."
+IDC_FILLINCOLOR			"Click to select a new color."
+
+// Rotate arbitrary //
+IDC_ANGLE               "Enter the angle to rotate the image (0.0-359.9 degrees)."
+IDC_CWISE               "Click to rotate image clockwise."
+IDC_CCWISE              "Click to rotate image counterclockwise."
+
+// Task Manager
+IDC_TASKLIST            "Click to select task."
+IDC_TASKSTOP            "Click to cancel task."
+IDC_TASKSUSPEND         "Click to suspend task."
+IDC_TASKRESUME          "Click to resume task."
+
+// Effects Browser //
+IDC_FXBOX               "Options for the special effect."
+IDC_FXPREVIEW           "Click to preview effect."
+IDC_FXRESET             "Click to reset preview."
+IDC_FXAPPLY             "Click to apply effect to image."
+IDC_FXIMAGE_FULLVIEW    "Select an area to preview effect."
+IDC_FXINOUT             "Click to apply the effect inside or outside the masked area."
+
+// Setup Color Manager //
+IDC_CLRMGRDISPENABLER   "Click to enable color managed display."
+IDC_CLRMGRDISPSETUP     "Click to set up color manager options."
+
+// Load Mask //
+IDC_DELETEMASK          "Click to delete the current mask before loading a mask."
+
+// Tone Balance //
+IDC_HISTOGRAM           "Press and drag markers to change values."
+IDC_QUART1_PROBE        "Click to probe the maximum shadow value from the image."
+IDC_QUART1_VALUE        "Enter shadow value."
+IDC_QUART2_PROBE        "Click to probe the midtone value from the image."
+IDC_QUART2_VALUE        "Enter midtone value."
+IDC_QUART3_PROBE        "Click to probe the minimum highlight value from the image."
+IDC_QUART3_VALUE        "Enter highlight value."
+IDC_MINHIGHLIGHT        "Enter minimum highlight output value."
+IDC_MAXSHADOW           "Enter maximum shadow output value."
+IDC_QUART_DEFAULTS      "Click to automatically set tonal range."
+IDC_HILIGHTS_SACRIFICED "Enter amount of highlights sacrificed."
+IDC_SHADOWS_SACRIFICED  "Enter amount of shadows sacrificed."
+IDC_USE_MID_PER         "Click to use midtone as a percentage."
+IDC_TAGS                "Press and drag tag to set value."
+
+
+// Clone Tool //
+IDC_CLONESOURCE         "Clone Source~Click to set clone source."
+
+// Pressure for aitbrush and smear //
+IDC_OPACITYPRESSURE 	"Brush Pressure Amount~Enter the amount of pressure. (0-100 %%)"
+
+
+// Color Patch Hints
+IDS_ACTIVECOLOR         " Active Color~Double click to change this active color %s."
+IDS_ALTERNATECOLOR      " Alternate Color~Click to activate this alternate color %s."
+IDS_COLORSWATCH         " Color Swatch~Click to change or activate color."
+
+//Browser HINT LINES
+IDM_BSR_THMMENU			" Click to select a command from the Thumbnails menu."
+IDM_BSR_THMUPDATE		" Click to create thumbnails for the selected files."
+IDM_BSR_CLEANUP			" Click to cleanup thumbnails."
+IDM_BSR_THMMOVE			" Click to move thumbnails for selected files."
+IDM_BSR_THMDEL			" Click to delete thumbnails for selected files."
+IDM_BSR_PRINTTHUMBS		" Click to print thumbnails."
+IDM_BSR_VIEWTHUMBS		" Click to activate files or thumbnails mode."
+      
+IDM_BSR_DIRMENU			"Click to select directory commands."                                   
+IDM_BSR_ALBNEW			" Click to create a new album."
+IDM_BSR_ALBRENAME		" Click to rename currently selected album."    
+IDM_BSR_ALBDELETE		" Click to delete currently selected album."
+IDM_BSR_ALBIMPORT		" Click to import album."
+IDM_BSR_ALBEXPORT		" Click to export selected album."
+
+IDM_BSR_ALBMENU			" Click to select a command for the Album menu."
+//IDC_BSR_PATH_TEXT 		" Click to change path"
+IDM_BSR_EDITMENU		" Click to select a command from the Edit menu."
+IDM_BSR_FILEMENU		" Click to select a command from the File menu."
+IDM_BSR_ALBVIEW 		" Click to enter directory or album mode."
+IDM_BSR_COPY			" Click to copy file(s)."
+IDM_BSR_MOVE			" Click to move file(s)."
+IDM_BSR_RENAME			" Click to rename selected file."
+IDM_BSR_DELETE			" Click to delete file(s)."
+IDM_BSR_SEARCH			" Click to search for files."
+IDM_BSR_ADDTOALB		" Click to add selected files to an album."
+IDM_BSR_REMOVEFROMALB	" Click to remove selected files from an album."
+IDM_BSR_FIND			" Click to find original location of selected file."
+IDM_BSR_CREATEDIR		" Click to create directory."
+IDM_BSR_RENAMEDIR		" Click to rename selected directory."
+IDM_BSR_DELETEDIR		" Click to delete selected directory."
+IDM_BSR_DIRIMPORT		" Click to import directory database file."
+IDM_BSR_DIREXPORT		" Click to export directory database file."
+IDM_BSR_SELECTALL		" Click to select all files."
+IDM_BSR_SELECTNONE		" Click to deselect all selected files."
+IDM_BSR_INVERTSELECT	" Click to select all files but the ones currently selected."
+IDM_BSR_PREFERENCES		" Click to modify ImageBrowser preferences."
+	
+	// Main Dialog box Hints//
+	
+IDD_MINI_OPEN				" Dialog box to add files."
+IDC_BSR_FILELIST			"Click to select files. Press Shift and click for a group. Press Ctrl and click for individual files."
+IDC_BSR_THUMBS				"Click to select files. Press Shift and click for a group. Press Ctrl and click for individual files."	
+IDC_BSR_FILENAME			"Enter file name."
+IDC_BSR_FILETYPE			"Click to select file type."
+IDC_BSR_DATATYPE			"Click to select image type."
+IDC_BSR_DRIVE				"Click to select a drive."
+IDC_BSR_DIRECTORIES			"Click to select a directory."
+IDC_BSR_ALBUMS				"Click to select an album."
+IDC_BSR_OPENMODE			"Click to select the open mode."
+IDC_BSR_OPENNORMAL			"Select to use normal open mode."
+IDC_BSR_OPENFASTBITS		"Select to use FastBits mode."
+IDC_BSR_OPENLOWRES			"Select to use Low Resolution mode."
+IDC_BSR_COMPRESS			"Click to select the save options."
+	
+	// Preference Hints //
+	
+IDD_BSR_PREFS				" Dialog box to select preferences."
+IDC_BSR_THMDIR			 	"Enter the path for thumbnail files."
+IDC_BSR_DBFINFODIR		 	"Enter the path for database and album files."
+IDC_BSR_ALBFILEDIR		 	"Enter the path for files saved into albums."
+IDC_BSR_SAVEPATH			"Click to save the current path."
+IDC_BSR_CREATE_ON_SAVE 	 	"Click to create thumbnails on save."
+IDC_BSR_AUTOTHM			 	"Click to autocreate thumbnails."
+IDC_BSR_CONF_COPY			"Click to confirm on copy."
+IDC_BSR_CONF_MOVE			"Click to confirm on move."
+IDC_BSR_CONF_RENAME		 	"Click to confirm on rename."
+IDC_BSR_CONF_DELETE		 	"Click to confirm on delete."
+IDC_BSR_SAVEPREF			"Click to save prefereces."
+
+IDT_ALLIMPORTFILES			"Select to view all files."
+IDT_ALLIMPORTIMAGES			"Select to view all import image files."
+IDT_AI					"Select to view all Adobe Illustrator (AI) files."
+IDT_CDR					"Select to view all Corel Draw (CDR) files."
+IDT_CGM					"Select to view all Computer Graphics Metafile (CGM) files."
+IDT_DRW					"Select to view all Micrografx Draw (DRW) files."
+IDT_WMF					"Select to view all Windows Metafile (WMF) files."
+
+IDC_SAVECT				"Select to save as grayscale."
+IDC_SAVELA				"Select to save as line art."
+IDC_SAVESP				"Select to save as scattered line art."
+IDC_SAVE24BITCOLOR			"Select to save as 24-Bit color."
+IDC_SAVE8BITCOLOR			"Select to save as 8-Bit or 256 color."
+IDC_SAVE4BITCOLOR			"Select to save as 4-Bit or 16 color."
+IDC_SAVE32BITCOLOR			"Select to save as 32-Bit color."
+
+IDT_ALLFILES				"Select for all files."
+IDT_ALLIMAGES				"Select for all image files."
+IDT_PPCOMPOUND	        "Select for Picture Publisher 6.0 (PPF) files."
+IDT_PP					"Select for Picture Publisher 5.0 (PP5) files."
+IDT_PP4					"Select for Picture Publisher 4.0 (PP4) files."
+IDT_TIFF				"Select for Tag Image File Format (TIFF) files." 
+IDT_TARGA				"Select for Targa (TGA) files."
+IDT_GIF					"Select for Compuserve GIF files."
+IDT_BMP					"Select for Windows Bitmap (BMP) files."
+IDT_DIB					"Select for Device Independent Bitmap (DIB) files."
+IDT_PCX					"Select for PCX files."
+IDT_SCITEX				"Select for Scitex CT (SCT) files."
+IDT_DCS					"Select for Desktop Color Separation (DCS) files."
+IDT_EPS					"Select for Encapsualted PostScript (EPS) files."
+IDT_JPEG				"Select for JPEG files."
+IDT_PHOTOCD				"Select for Photo CD (PCD) files."
+IDT_AVI					"Select for Audio/Video Interleaf (AVI) files."
+	
+	// File Info Hints //
+	
+IDD_BSR_FILEINFO			"Dialog box to view information on selected files."	
+IDC_INFO_FILEDESCR		 	"Enter a description for image file."
+IDC_INFO_PREVIOUS			"Click to view previous file's information."
+IDC_INFO_NEXT				"Click to view next file's informaiton."
+IDC_INFO_UPDATE			 	"Click to update thumnail information."
+	
+	// Album Info Hints //
+
+IDD_BSR_ALBINFO			 	"Dialog box to view information on selected album."	
+IDC_ALBINFO_DESCR			"Enter a  description for album."
+IDC_ALBINFO_PREVIOUS		"Click to view previous album's info."
+IDC_ALBINFO_NEXT			"Click to view next album's info."
+	
+	// Search Hints //
+	
+IDD_BSR_SEARCH			 	" Dialog box to search for files."
+IDC_SEARCH_STRING			"Enter the name of the search file."
+IDC_SEARCH_SELECTEDALB 	 	"Click to search selected album."
+IDC_SEARCH_ALLALB			"Click to search all albums."
+IDC_SEARCH_FROM_DIRECTORY	"Click to search from directory."
+IDC_SEARCH_DIRECTORY 		"Enter the directory name and/or path." 
+IDC_SEARCH_BYKEY			"Click to search by keyword."
+IDC_SEARCH_BYNAME			"Click to search by file name."
+IDC_SEARCH_CASE			 	"Click to perform a case sensitive search."
+IDC_SEARCH_SEARCH			"Click to begin or stop the search."
+	
+	// Add To Album Hints //
+	
+IDD_CHOOSEALBUM			 " Dialog box to add files to albums."
+IDC_BSR_ALBUMCOMBO		 "Click to select album to add files."
+	
+	// Directory Export Hints //
+	
+IDD_DIREXPORT				 " Dialog box to export directory database files."
+IDC_BSR_PORTSUBDIR		 "Click to copy subdirectories."
+IDC_BSR_PORTCOPYTHMS		 "Click to copy thumbnails."
+	
+	
+	// Directory Import Hints //
+
+IDD_DIRIMPORT				 " Dialog box to import directory database files."
+	
+	// Move Thumbs Hints  //
+	
+IDD_THMMOVE				 " Dialog box to move thumbnails."
+IDC_BSR_THMLOCAL			 "Click to copy thumbnails to local drive."
+IDC_BSR_THMREMOTE			 "Click to copy thumbnails to remote drive."
+IDC_BSR_THMOTHER			 "Click to copy thumbnails to specified drive and directory."
+IDC_BSR_PORTDIR			 "Enter drive and directory path."
+IDC_BSR_DELORIGINAL		 " Click to delete original thumbnails."
+	
+	// Hints for Confirm Delete Directory //
+	
+IDD_CONF_DIRDEL			 "Dialog box to confirm directory delete."
+	
+	// Hints from import album //
+	
+IDD_CONFIRM_IMPORTALB		 "Dialog box to confirm album import."
+	
+	// Hints for Confirm delete file //
+	
+IDD_CONF_FILEDEL			 "Dialog box to confirm file delete."
+									
+	// Hints for copy file //
+	
+IDD_COPY_FILE				 " Dialog box to copy files."
+IDD_COPY_FILES			 " Dialog box to copy selected files."
+IDD_MOVE_FILE				 " Dialog box to move files."
+IDD_MOVE_FILES			 " Dialog box to move selected files."
+IDD_DELETE_FILES			 " Dialog box to delete selected files."
+IDD_RENAME_FILE			 " Dialog box to rename selected file."
+IDD_DELETE_VIRTUAL		 " Dialog box to remove files from an album."
+IDC_FILESRC				 "Enter file name and/or path."
+IDC_FILEDST				 "Enter file name and/or path."
+	
+	// Hints for Clean Up Thumbs //
+	
+IDD_CLEANUP_THUMBS		 " Dialog box to cleanup thumnail files."
+IDC_CLEAN_ALL				 "Click to cleanup all thumbnails."
+IDC_CLEAN_DIR				 "Click to cleanup directory."	
+IDC_CLEAN_DIR_TEXT		 "Enter directory path to cleanup."
+IDC_CLEAN_SUBDIR			 "Click to cleanup subdirectories."
+IDC_CLEAN_ALB				 "Click to cleanup album."
+IDC_CLEAN_ALB_TEXT		 "Enter name of album to be cleaned."
+	
+	// Hints for album export //
+	
+IDD_ALBEXPORT				 " Dialog box to export albums."
+IDC_BSR_PORTALBDIR		 "Enter directory name for album export."
+IDC_BSR_PORTCOPYFILES		 "Click to copy files on export."
+
+    //  Hints for album import //
+    
+IDD_ALBIMPORT				 " Dialog box to import albums."
+IDC_BSR_PORTFILEDIR		 "Enter directory that contains the album to import."
+	
+	// Hints for confirm copy //
+	
+IDD_CONF_COPY				 "Dialog box to confirm file copy."
+IDD_CONF_MOVE				 "DIalog to confirm file move."
+IDD_GETNEWDIR				 " Dialog box to create new directory."
+IDC_DST_TEXT				 "Enter the new name."
+IDD_IMPORT_GETNEWNAME		 "Dialog box to rename album being imported."
+IDD_GETRENAMEDIR			 " Dialog box to rename selected directory."
+IDD_RENAMEALB				 " Dialog box to rename selected album."
+IDD_NEW_ALB				 " Dialog box to create new album."
+	
+    
+    // hints for print thumbs //
+    
+IDD_PRINT_THUMBS			 " Dialog box to print thumbnails."
+IDC_PT_USECOLUMNS			 "Click to print thumbnails in columns."
+IDC_PT_COLUMNS			 "Enter the number of columns."
+IDC_PT_USEROWS			 "Click to print thumbnails in rows."
+IDC_PT_ROWS				 "Enter the number of rows."
+IDC_PT_SELECTED			 "Click to print only selected thumbnail files."	
+	
+	//Hints for overwrite //
+	
+IDD_CONF_REPLACE			 "Dialog box to confirm file overwrite."
+IDD_INTO_THIS_ALB			 "Dialog box to confirm overwrite in album."
+IDD_INTO_ALB				 "Dialog box to confirm overwrite in album."
+IDD_SAVENEWDIR			 "Dialog box to select different to save album file."		
+
+// Process controls start at 11900
+
+// Rotate any controls start at
+
+// Unit Labels start at 12100
+
+// Print controls start at 12200
+
+// Print Setup Controls start at 12300
+
+// Print Style Editor controls start at
+
+// Print Halftoning controls start at
+
+// Print Ink correction controls start at
+
+// Print Calibration controls start
+
+// Channel selection combo
+
+// Print Black generation and UCR controls start at
+
+// Scan and Grab Setup Controls start at 13200
+
+// Scan Controls start at 13300
+
+// Apply or undo message controls start at
+
+// Custom brush prompt controls start at
+
+// Ecrm dialog box defines start at 14100
+
+// Image Information controls start at
+
+END
+
+
+

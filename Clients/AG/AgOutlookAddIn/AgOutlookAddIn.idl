@@ -1,0 +1,197 @@
+// AgOutlookAddIn.idl : IDL source for AgOutlookAddIn.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AgOutlookAddIn.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+#include "olectl.h"
+
+[
+	object,
+	uuid(F8608145-BB5A-4A5A-AE7E-244C6E028093),
+	dual,
+	nonextensible,
+	helpstring("IMsAddIn Interface"),
+	pointer_default(unique)
+]
+interface IMsAddIn : IDispatch
+{
+	[id(1), helpstring("method Download")] HRESULT Download([in] VARIANT varProductId, [in]VARIANT varName, [in]VARIANT varDownload, [in]VARIANT varFlags, [in]VARIANT varWidth, [in]VARIANT varHeight, [in]VARIANT varFlashPath, [in] VARIANT varPathPrice, [in]VARIANT varExternalLink);
+	[id(2), helpstring("method Download2")] HRESULT Download2([in] VARIANT varProductId, [in]VARIANT varName, [in]VARIANT varDownload, [in]VARIANT varFlags, [in]VARIANT varWidth, [in]VARIANT varHeight, [in]VARIANT varFlashPath, [in] VARIANT varPathPrice);
+	[id(3), helpstring("method ExecuteCommand")] HRESULT ExecuteCommand([in] VARIANT varCmdId);
+
+
+};
+
+[
+	object,
+	uuid(58B5DFF8-24FF-42B7-A3A9-7C378D591147),
+	dual,
+	nonextensible,
+	helpstring("IOEAddin Interface"),
+	pointer_default(unique)
+]
+interface IOEAddin : IDispatch
+{
+	[id(1), helpstring("method Download")] HRESULT Download([in] VARIANT varProductId, [in]VARIANT varName, [in] VARIANT varDownload, [in] VARIANT varFlags, [in] VARIANT varWidth, [in] VARIANT varHeight, [in]VARIANT varFlashPath, [in] VARIANT varPathPrice, [in] VARIANT varExternalLink);
+	[id(2), helpstring("method RemoveToolbar")] HRESULT RemoveToolbar([in] OLE_HANDLE hwndOwner, [out] VARIANT_BOOL* bSuccess);
+	[id(3), helpstring("method GetToolbar")] HRESULT GetToolbar([in] OLE_HANDLE hwndRebar, [in,out] LONG* ToolbarInfo, [out] VARIANT_BOOL* bSuccess);
+	[id(4), helpstring("method GetWindowHandle")] HRESULT GetWindowHandle([out] OLE_HANDLE* hWnd);
+	[id(5), helpstring("method SetActiveCompose")] HRESULT SetActiveCompose([in] OLE_HANDLE hwndCompose, [in] UINT State);
+	[id(6), helpstring("method OnItemSend")] HRESULT OnItemSend();
+	[id(7), helpstring("method OnOEButtonClick")] HRESULT OnOEButtonClick([in] ULONG ulButton_ID, [in] OLE_HANDLE hwndRebar, [out] VARIANT_BOOL* bSuccess);
+	[id(8), helpstring("method OnShutDown")] HRESULT OnShutDown();
+	[id(9), helpstring("method Download2")] HRESULT Download2([in] VARIANT varProductId, [in]VARIANT varName, [in] VARIANT varDownload, [in] VARIANT varFlags, [in] VARIANT varWidth, [in] VARIANT varHeight, [in]VARIANT varFlashPath, [in] VARIANT varPathPrice);
+	[id(10), helpstring("method ExecuteCommand")] HRESULT ExecuteCommand([in] VARIANT varCmdId);
+
+
+};
+[
+	object,
+	uuid(EBD90E8B-8029-47D5-BAB0-2AD6E72B664C),
+	dual,
+	nonextensible,
+	helpstring("IJMExplorerBand Interface"),
+	pointer_default(unique)
+]
+interface IJMExplorerBand : IDispatch
+{
+	[id(1), helpstring("method Download")] HRESULT Download([in] VARIANT varProductId, [in]VARIANT varName, [in]VARIANT varDownload, [in]VARIANT varFlags, [in]VARIANT varWidth, [in]VARIANT varHeight, [in]VARIANT varFlashPath, [in] VARIANT varPathPrice, [in]VARIANT varExternalLink);
+	[id(2), helpstring("method Download2")] HRESULT Download2([in] VARIANT varProductId, [in]VARIANT varName, [in]VARIANT varDownload, [in]VARIANT varFlags, [in]VARIANT varWidth, [in]VARIANT varHeight, [in]VARIANT varFlashPath, [in] VARIANT varPathPrice);
+	[id(3), helpstring("method ExecuteCommand")] HRESULT ExecuteCommand([in] VARIANT varCmdId);
+
+
+};
+[
+	object,
+	uuid(4563A1BA-8C8C-4671-9894-218CACA019F4),
+	dual,
+	nonextensible,
+	helpstring("IJMToolband Interface"),
+	pointer_default(unique)
+]
+interface IJMToolband : IDispatch{
+};
+[
+	object,
+	uuid(428F9E42-BD93-4925-A580-1DC01F839CCC),
+	dual,
+	nonextensible,
+	helpstring("IBrowserHelperObj Interface"),
+	pointer_default(unique)
+]
+interface IBrowserHelperObj : IDispatch{
+};
+[
+	object,
+	uuid(1813BEB1-A76F-418A-A23B-817AFC822908),
+	dual,
+	nonextensible,
+	helpstring("IUpdateObj Interface"),
+	pointer_default(unique)
+]
+interface IUpdateObj : IDispatch
+{
+	[id(1), helpstring("method DoAutoUpdate")] HRESULT DoAutoUpdate([in] OLE_HANDLE hwndOwner, [in] VARIANT_BOOL Silent);
+};
+	
+[
+	object,
+	uuid(4BBFDA1F-C606-4E0B-B4D5-CF6C76F5C86B),
+	dual,
+	nonextensible,
+	helpstring("IAOLAddin Interface"),
+	pointer_default(unique)
+]
+interface IAOLAddin : IDispatch
+{ 
+	[id(1), helpstring("method GetWindowHandle")] HRESULT GetWindowHandle([out] OLE_HANDLE* hWnd);
+	[id(2), helpstring("method SetActiveCompose")] HRESULT SetActiveCompose([in] OLE_HANDLE hwndCompose, [in] UINT State);
+	[id(3), helpstring("method OnItemSend")] HRESULT OnItemSend();
+	[id(4), helpstring("method OnShutDown")] HRESULT OnShutDown();
+	[id(5), helpstring("method Download2")] HRESULT Download2([in] VARIANT varProductId, [in]VARIANT varName, [in] VARIANT varDownload, [in] VARIANT varFlags, [in] VARIANT varWidth, [in] VARIANT varHeight, [in]VARIANT varFlashPath, [in] VARIANT varPathPrice);
+	[id(6), helpstring("method ExecuteCommand")] HRESULT ExecuteCommand([in] VARIANT varCmdId);
+	[id(7), helpstring("method SetTopParent")] HRESULT SetTopParent([in] OLE_HANDLE hwnd);
+};
+
+[
+	uuid(EDDBDEA4-5C07-453F-BE8C-81D738984381),
+	version(1.0),
+	helpstring("AgOutlookAddIn 1.0 Type Library")
+]
+library AgOutlookAddInLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(C704648D-6030-47E9-ADBA-1E13B6A784AE),
+		helpstring("MsAddIn Class")
+	]
+	coclass MsAddIn
+	{
+		[default] interface IMsAddIn;
+	};
+
+	[
+		uuid(DA514619-4DF0-4F28-A591-0639E104A397),
+		helpstring("OEAddin Class")
+	]
+	coclass OEAddin
+	{
+		[default] interface IOEAddin;
+	};
+	[
+		uuid(F8B5C2ED-0329-413A-AEE6-4134E93C3E38),
+		helpstring("JMExplorerBand Class")
+	]
+	coclass JMExplorerBand
+	{
+		[default] interface IJMExplorerBand;
+	};
+	[
+		uuid(08868B78-71CE-43AB-BB03-3851D57C9E93),
+		helpstring("JMToolband Class")
+	]
+	coclass JMToolband
+	{
+		[default] interface IJMToolband;
+	};
+	[
+		uuid(9FEA5BDA-695A-417B-AA31-B54A06570053),
+		helpstring("Creata Mail Helper")
+	]
+	coclass BrowserHelperObj
+	{
+		[default] interface IBrowserHelperObj;
+	};
+	[		
+		uuid(523BC819-99D2-4BD2-937E-02DC6CC5A85E),
+		helpstring("_IUpdateObjEvents Interface")
+	]
+	dispinterface _IUpdateObjEvents
+	{
+		properties:
+		methods:
+		[id(1), helpstring("method AutoUpdateComplete")] HRESULT AutoUpdateComplete([in] ULONG Result);
+	};
+	[
+		uuid(A0EEDAA4-A62B-4264-A16C-FF14782708C5),
+		helpstring("UpdateObj Class")
+	]
+	coclass UpdateObj
+	{
+		[default] interface IUpdateObj;
+		[default, source] dispinterface _IUpdateObjEvents;
+	};
+	[
+		uuid(B90DFDAB-F41C-492B-9EDB-59B9277C863C),
+		helpstring("AOLAddin Class")
+	]
+	coclass AOLAddin
+	{
+		[default] interface IAOLAddin;
+	};
+};

@@ -1,0 +1,93 @@
+# Dependency declarations by file types:
+
+.SUFFIXES: .DLL .DEF .LIB
+
+NMAKE=nmake /$(MAKEFLAGS)
+
+# Define Build environment if it hasn't already been defined...
+
+!if "$(CFLAGS)"==""
+
+# Memory model...
+!if "$(MODEL)"==""
+MODEL		= L
+!endif
+
+# Compiler flags...
+CFLAGS	= /nologo /c /G2 /W3 /Zp /A$(MODEL) /Od /DWIN /GA
+
+# Debugging options
+!if "$(DEBUG)"!=""
+CFLAGS	= $(CFLAGS) /DDEBUG /Zid /Yd
+!endif
+
+!endif
+
+!if "$(LFLAGS)"==""
+LFLAGS	= /NOI
+!endif
+
+
+DLL		= tpsdebug
+OBJDIR	= ..\obj
+SRCDIR	= ..\tpsdebug
+LIBDIR	= ..\lib
+INCLUDE	= $(INCLUDE);..\include
+
+
+{$(SRCDIR)}.c{$(OBJDIR)}.obj:
+	@cl -Fo$(OBJDIR)\ $(CFLAGS) -NT_$(@B) $(SRCDIR)\$(@B).c
+
+
+# source files in dll - dll specific information
+PFILES  =	dbgglbl.c	\
+		tpsdebug.c	\
+		macstack.c	\
+		winstack.c	\
+		dosstack.c	\
+		macdev.c	\
+		windev.c	\
+		dosdev.c	\
+		macdlg.c	\
+		windlg.c	\
+		dosdlg.c	\
+		cvsearch.c	\
+		#
+
+# convert source files into object file list...
+#		RELIES ON HARD CODED OBJECT DIRECTORY PATH....
+OFILES   = $(PFILES:.c=.obj)
+OFILES   = ..\OBJ\$(OFILES: = ..\OBJ\)
+
+			
+# Dependency execution:
+
+ALL:	$(DLL).LIB
+
+
+TPSTYPES:	..\include\tdefs.h \
+		..\include\tpsdebug.h \
+		..\include\terrdefs.h
+
+TPSDEBUG:	TPSTYPES \
+		stackcra.h \
+		dbgdlg.h \
+		dbdevice.h
+
+$(OFILES):	TPSDEBUG
+
+$(DLL).LIB:		$(OFILES)
+	@echo Creating $(DLL) Library
+	@lib @<<
+	$(LIBDIR)\$(DLL).lib $(LFLAGS) -+$(?: = -+),
+	$(LIBDIR)\$(DLL).lib
+<<
+
+DEBUG:
+	@$(NMAKE) DEBUG=1 all
+	
+CLEAN:
+	@erase $(LIBDIR)\$(DLL).LIB
+	@erase $(LIBDIR)\$(DLL).BAK
+	@erase msvc.pdb
+

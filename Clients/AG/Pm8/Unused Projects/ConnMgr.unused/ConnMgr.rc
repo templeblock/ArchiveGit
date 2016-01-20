@@ -1,0 +1,291 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.rc""\r\n"
+    "#include ""ConnMgr.rc2""  // non-App Studio edited resources\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_CONNMGR             BITMAP  DISCARDABLE     "ConnMgrCtl.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROPPAGE_CONNMGR DIALOG DISCARDABLE  0, 0, 250, 62
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "TODO: Place controls to manipulate properties of ConnMgr Control on this dialog.",
+                    IDC_STATIC,7,25,229,16
+END
+
+IDD_PROGRESS_BAR DIALOG DISCARDABLE  0, 0, 180, 63
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Progress Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS_CONTROL,"msctls_progress32",
+                    WS_BORDER,13,14,153,14
+    PUSHBUTTON      "Cancel",ID_CANCEL,55,34,62,15
+END
+
+IDD_CONNECTION_ADVANCED_SETTINGS DIALOG DISCARDABLE  0, 0, 335, 138
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Advanced Connection Settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Communications Program Properties",IDC_STATIC,7,4,321,
+                    111
+    LTEXT           "Description:",IDC_STATIC,17,20,41,11
+    EDITTEXT        IDC_CONNECTION_APPTITLE,67,17,119,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Select Communications Program",IDC_CONNECTION_PROGRAM,
+                    17,38,119,16
+    LTEXT           "Timeout:",IDC_STATIC,17,64,79,11
+    EDITTEXT        IDC_CONNECTION_TIMEOUT,101,61,35,15,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "Time before First Check:",IDC_STATIC,17,84,80,11
+    EDITTEXT        IDC_CONNECTION_FIRSTCHECK,101,82,35,14,ES_AUTOHSCROLL
+    CONTROL         "&Uses Dial-Up Networking",IDC_CONNECTION_USES_DIALUP,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,101,95,10
+    CONTROL         "&Restore Autodial Setting",
+                    IDC_CONNECTION_RESTORE_AUTODIAL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,125,100,92,10
+    DEFPUSHBUTTON   "OK",IDOK,222,120,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,278,120,50,14
+    CONTROL         "none",IDC_CONNECTION_APPPATH_LABEL,"Static",
+                    SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_GROUP,141,42,183,10
+    LTEXT           "Seconds",IDC_STATIC,139,64,70,11
+    LTEXT           "Seconds",IDC_STATIC,139,85,70,11
+END
+
+IDD_PREFS_CONNECT DIALOG DISCARDABLE  0, 0, 257, 156
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Online"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "&Modem",IDC_CONNECTION_MODEM,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,57,30,86,13
+    CONTROL         "&Direct Connection",IDC_CONNECTION_DIRECT,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,56,94,110,18
+    COMBOBOX        IDC_DIALUP_CONNECTIONS,57,57,152,60,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Properties",IDC_CONNECTION_MODEM_PROPERTIES,141,73,68,
+                    15
+    GROUPBOX        "Connection Preferences",IDC_STATIC,22,9,215,112
+    ICON            IDI_DIALUP,IDC_STATIC,31,25,21,20
+    LTEXT           "Use the following Dial-Up &Connection:",IDC_STATIC,57,
+                    44,151,11
+    ICON            IDI_DIRECT_CONNECT,IDC_STATIC,30,91,21,20
+    DEFPUSHBUTTON   "OK",IDOK,131,131,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,187,131,50,14
+END
+
+IDD_ONLINE_CONFIRM_START DIALOG DISCARDABLE  0, 0, 229, 93
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Online Program Launch Confirmation"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Yes",IDOK,115,72,50,14,WS_GROUP
+    PUSHBUTTON      "&No",IDCANCEL,172,72,50,14
+    CONTROL         "&Don't show this again",IDC_ONLINE_CONFIRM_START_SHOW,
+                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,7,74,98,
+                    10
+    LTEXT           "Online Connection Manager is about to launch your online software to connect you to the Internet.\n\nDo you want to continue?",
+                    IDC_STATIC,7,14,215,51
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_PROPPAGE_CONNMGR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_PROGRESS_BAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 56
+    END
+
+    IDD_CONNECTION_ADVANCED_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 256
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 110
+    END
+
+    IDD_PREFS_CONNECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 22
+    END
+
+    IDD_ONLINE_CONFIRM_START, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_DIALUP              ICON    DISCARDABLE     "RES\\dialup.ico"
+IDI_DIRECT_CONNECT      ICON    DISCARDABLE     "RES\\direct_c.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CONNMGR             "ConnMgr Control"
+    IDS_CONNMGR_PPG         "ConnMgr Property Page"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CONNMGR_PPG_CAPTION "General"
+    IDS_AOL                 "America Online for Windows 95"
+    IDS_AOL16WARNING        "An old version of America Online has been detected\n@@N only works with the latest 32-bit version.\nContact America Online for upgrade information."
+    IDS_COMPUSERVE          "CompuServe"
+    IDS_CONNECTION_CHANGED  "A connection has been added or removed from your system.\nPlease review your Online Settings."
+    IDS_FIRST_INTERNET      "Before you can work online, you need to choose how to connect to the Internet.\n\nClick OK, then choose your Online Preferences in the next dialog."
+    IDS_ONLINE_MISSING_APPPATH 
+                            "Invalid Communications Program specified in Modem Properties."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DDV_MINCHARS        "You must enter at least %i character(s)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DIALUP              "Dial-Up Networking"
+    IDS_CUSTOM_CONNECTION   "Custom"
+    IDS_DIRECT_CONNECTION   "Direct"
+    IDS_CONNECT_WAITING     "Attempting to connect to the Internet..."
+    IDS_CONNECT_FAILED      "Failed to establish Internet connection:  "
+    IDS_CONNECTION_ADV_SELECTAPP "Select Communications Program"
+    IDS_CONNECTION_ADV_NOTAPP "You must select a Program File."
+    IDS_CONNMGR_APPEXE_ERROR 
+                            "Unable to start Communications Program (%s)\nReview Online Settings."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CONNMGR_HANGUP      "Connection Manager has detected that you are online.\nDo you want to terminate the online connection?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CONNMGR_USER_ABORT  "User Abort"
+    IDS_CONNMGR_CONNECT_FAILED "Connect Failed"
+    IDS_CONNMGR_TIMEOUT     "Timed Out"
+    IDS_CONNMGR_INVALID_URL "Invalid URL"
+    IDS_CONNMGR_OTHER_ERROR "Other Error"
+    IDS_CONNMGR_TIMER_FAILED "Timer Creation Failed"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CONNMGR_INVALID_CONFIG "Invalid Online Configuration Settings"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROGRESS_CREATE_ERROR "Failed to create progress bar."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Mindscape Connection Manager"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "afxres.rc"
+#include "ConnMgr.rc2"  // non-App Studio edited resources
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

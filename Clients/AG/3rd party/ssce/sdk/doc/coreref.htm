@@ -1,0 +1,1996 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("MicroVision WebExpress","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c0ffc0","Wintertree","0") -->
+  <!-- $MVD$:color("19","c0ff","Or1","0") -->
+  <TITLE>Sentry Spelling Checker Engine - Core API Reference Guide</TITLE>
+ </HEAD>
+ <BODY BGCOLOR="WHITE">
+  <H1>
+   Sentry Spelling Checker Engine<BR>
+   Core API Reference Guide</H1>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE">Table of Contents</FONT></TD>
+    </TR>
+   </TABLE></H2>
+  <UL>
+   <LI>
+   <P>
+    <A HREF="#SpellingCheckResult">Spelling check results</A><BR>
+    <LI><A HREF="#Functions">Function reference</A>
+    <UL>
+     <LI><A HREF="#SSCE_AddToLex">SSCE_AddToLex</A><BR>
+     <LI><A HREF="#SSCE_CheckBlock">SSCE_CheckBlock</A><BR>
+     <LI><A HREF="#SSCE_CheckString">SSCE_CheckString</A><BR>
+     <LI><A HREF="#SSCE_CheckWord">SSCE_CheckWord</A><BR>
+     <LI><A HREF="#SSCE_ClearLex">SSCE_ClearLex</A><BR>
+     <LI><A HREF="#SSCE_ClearLex">SSCE_CreateLex</A><BR>
+     <LI><A HREF="#SSCE_CloseBlock">SSCE_CloseBlock</A><BR>
+     <LI><A HREF="#SSCE_CloseLex">SSCE_CloseLex</A><BR>
+     <LI><A HREF="#SSCE_CloseSession">SSCE_CloseSession</A><BR>
+     <LI><A HREF="#SSCE_CompressLexAbo">SSCE_CompressLexAbort</A><BR>
+     <LI><A HREF="#SSCE_CompressLexEnd">SSCE_CompressLexEnd</A><BR>
+     <LI><A HREF="#SSCE_CompressLexFil">SSCE_CompressLexFile</A><BR>
+     <LI><A HREF="#SSCE_CompressLexIni">SSCE_CompressLexInit</A><BR>
+     <LI><A HREF="#SSCE_CountStringWor">SSCE_CountStringWords</A><BR>
+     <LI><A HREF="#SSCE_CreateLex">SSCE_CreateLex</A><BR>
+     <LI><A HREF="#SSCE_DelBlockText">SSCE_DelBlockText</A><BR>
+     <LI><A HREF="#SSCE_DelBlockWord">SSCE_DelBlockWord</A><BR>
+     <LI><A HREF="#SSCE_DelFromLex">SSCE_DelFromLex</A><BR>
+     <LI><A HREF="#SSCE_DelStringText">SSCE_DelStringText</A><BR>
+     <LI><A HREF="#SSCE_DelStringWord">SSCE_DelStringWord</A><BR>
+     <LI><A HREF="#SSCE_FindLexWord">SSCE_FindLexWord</A><BR>
+     <LI><A HREF="#SSCE_GetBlock">SSCE_GetBlock</A><BR>
+     <LI><A HREF="#SSCE_GetBlockInfo">SSCE_GetBlockInfo</A><BR>
+     <LI><A HREF="#SSCE_GetBlockWord">SSCE_GetBlockWord</A><BR>
+     <LI><A HREF="#SSCE_GetLex">SSCE_GetLex</A><BR>
+     <LI><A HREF="#SSCE_GetLexInfo">SSCE_GetLexInfo</A><BR>
+     <LI><A HREF="#SSCE_GetOption">SSCE_GetOption</A><BR>
+     <LI><A HREF="#SSCE_GetStringWord">SSCE_GetStringWord</A><BR>
+     <LI><A HREF="#SSCE_InsertBlockTex">SSCE_InsertBlockText</A><BR>
+     <LI><A HREF="#SSCE_InsertStringTe">SSCE_InsertStringText</A><BR>
+     <LI><A HREF="#SSCE_NextBlockWord">SSCE_NextBlockWord</A><BR>
+     <LI><A HREF="#SSCE_OpenBlock">SSCE_OpenBlock</A><BR>
+     <LI><A HREF="#SSCE_OpenLex">SSCE_OpenLex</A><BR>
+     <LI><A HREF="#SSCE_OpenSession">SSCE_OpenSession</A><BR>
+     <LI><A HREF="#SSCE_ReplaceBlockWo">SSCE_ReplaceBlockWord</A><BR>
+     <LI><A HREF="#SSCE_ReplaceStringW">SSCE_ReplaceStringWord</A><BR>
+     <LI><A HREF="#SSCE_SetBlockCursor">SSCE_SetBlockCursor</A><BR>
+     <LI><A HREF="#SSCE_SetDebugFile">SSCE_SetDebugFile</A><BR>
+     <LI><A HREF="#SSCE_SetOption">SSCE_SetOption</A><BR>
+     <LI><A HREF="#SSCE_Suggest">SSCE_Suggest</A><BR>
+     <LI><A HREF="#SSCE_Version">SSCE_Version</A></UL>
+    <LI><A HREF="#ErrorCodes">Error codes</A><BR>
+    <LI><A HREF="#LanguageCodes">Language codes</A><BR>
+    <LI><A HREF="#ActionCodes">Action codes</A></P>
+   </UL>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="SpellingCheckResult"></A>Spelling check results</FONT></TD>
+    </TR>
+   </TABLE></H2>
+  <P>
+   The following results may be returned by the SSCE_CheckBlock, 
+   SSCE_CheckString, or SSCE_CheckWord functions. The return value from 
+   these functions is a bit mask, and each of the following results is a 
+   bit in the mask.</P>
+  <UL>
+   <LI>
+   <P>
+    <B>SSCE_MISSPELLED_WORD_RSLT</B>: A word in the text was not found in 
+    any open lexicons, or was marked with an exclude action in a lexicon, 
+    indicating the word is probably misspelled.</P>
+   <LI>
+   <P>
+    <B>SSCE_AUTO_CHANGE_WORD_RSLT</B>: A word in the text was marked with 
+    an auto-change action in a lexicon, indicating your application 
+    should automatically replace the word with another.</P>
+   <LI>
+   <P>
+    <B>SSCE_CONDITIONALLY_CHANGE_ WORD_RSLT</B>: A word in the text was 
+    marked with a conditional-change action in a lexicon, indicating your 
+    application should ask the user if the word should be replaced and, 
+    if so, replace the word.</P>
+   <LI>
+   <P>
+    <B>SSCE_DOUBLED_WORD_RSLT</B>: A word in the text was repeated (doubled).</P>
+   <LI>
+   <P>
+    <B>SSCE_UNCAPPED_WORD_RSLT</B>: A word in the text was uncapitalized, 
+    but existed in the lexicons in capitalized form only.</P>
+   <LI>
+   <P>
+    <B>SSCE_MIXED_CASE_WORD_RSLT</B>: A word in the text contained an 
+    unusual combination of upper- and lower-case letters.</P>
+   <LI>
+   <P>
+    <B>SSCE_MIXED_DIGITS_WORD_RSLT</B>: A word in the text contained a 
+    mixture of alphabetic characters and digits.</P>
+   <LI>
+   <P>
+    <B>SSCE_END_OF_BLOCK_RSLT, SSCE_END_OF_TEXT_RSLT</B>: All words in 
+    the text have been checked.</P>
+   </UL>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Functions"></A>Function Reference</FONT></TD>
+    </TR>
+   </TABLE></H2>
+  <P>
+   Functions in the core Sentry API use the following conventions:</P>
+  <UL>
+   <LI>
+   <P>
+    The following parameter and return value types are used:</P>
+   <UL>
+    <LI>
+    <P>
+     char *: Pointer to the first character of a null-terminated string of 
+     ASCII characters.<BR>
+     <LI>SSCE_CHAR *: Pointer to the first character of a string (array) 
+     of 8-bit or Unicode characters.<BR>
+     <LI>SSCE_S16: Signed, 16-bit value<BR>
+     <LI>SSCE_U16: Unsigned, 16-bit value<BR>
+     <LI>SSCE_S32: Signed, 32-bit value<BR>
+     <LI>SSCE_U32: Unsigned, 32-bit value</P>
+    </UL>
+   <LI>
+   <P>
+    For pointer-type parameters, the keyword &quot;const&quot; indicates 
+    that the parameter is passed by reference but will not be modified. 
+    If &quot;const&quot; is missing, the parameter is either an output 
+    parameter or an input/output parameter and may be modified.</P>
+   <LI>
+   <P>
+    For string-type output parameters, an additional parameter indicating 
+    the size of the string buffer is always present. This size includes 
+    space for the terminating null character.</P>
+   <LI>
+   <P>
+    The return value &quot;void&quot; indicates no return value. This is 
+    equivalent to a subroutine or a procedure.</P>
+   <LI>
+   <P>
+    Functions which return a value return a negative value on error or a 
+    zero or positive value on success.</P>
+   <LI>
+   <P>
+    When declaring string buffers to hold words, use SSCE_MAX_WORD_SZ to 
+    declare a sufficient amount of space. This constant allocates enough 
+    space to hold a word and the terminating null character.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_AddToLex"></A>SSCE_AddToLex</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Add a word to a lexicon and associate an action and an optional other 
+    word with it.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2AddWordsTextLex">How to add words to 
+    text lexicons</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_AddToLex(SSCE_S16 sid, SSCE_S16 lexId,<BR>const SSCE_CHAR *word, SSCE_S16 action, const SSCE_CHAR *otherWord);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession</P>
+   <LI>
+   <P>
+    lexId: Identifier of the lexicon (returned by SSCE_OpenLex or 
+    SSCE_CreateLex) to which the word is to be added</P>
+   <LI>
+   <P>
+    word: The word to add to the lexicon.</P>
+   <LI>
+   <P>
+    action: The action to associate with the word (see <A HREF="#ActionCodes">Action
+     codes</A> for more information).</P>
+   <LI>
+   <P>
+    otherWord: An alternate word associated with the word (e.g., a 
+    replacement word). This word may contain spaces, but should not 
+    contain more than SSCE_MAX_WORD_LEN characters. May be empty or null</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success, or a negative <A HREF="#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CheckBlock"></A>SSCE_CheckBlock</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Check the spelling of words in a text block by searching for each 
+    word in all open lexicons.</P>
+   <P>
+    Each word in the block is checked in turn. SSCE_CheckBlock skips over 
+    correctly spelled or ignored words and returns when a word is 
+    encountered which requires attention by the application, or when the 
+    end of the block is reached. Normally, SSCE_CheckBlock is called in a 
+    loop that terminates when the block end is encountered.</P>
+   <P>
+    If SSCE_CheckBlock detects a problem with a word, the word is 
+    returned via the errWord parameter. In addition, the block's position 
+    is left at the start of the offending word, so the word can also be 
+    obtained via the SSCE_GetBlockWord function. The word's position, 
+    relative to the start of the block, can be obtained via the 
+    SSCE_GetBlockInfo function.</P>
+   <P>
+    When SSCE_CheckBlock returns, the otherWord parameter may contain a 
+    replacement for the problem word. If no replacement is available, 
+    otherWord will contain the problem word.</P>
+   <P>
+    The problem word in the block can be replaced using the 
+    SSCE_ReplaceBlockWord function, or deleted with the SSCE_DelBlockWord function.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CheckBlock(SSCE_S16 sid, SSCE_S16 blkId, SSCE_CHAR *errWord,<BR>SSCE_S16 errWordSz, SSCE_CHAR *otherWord, SSCE_S16 otherWordSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    blkId: Block identifier of the block to be checked, returned by SSCE_OpenBlock.</P>
+   <LI>
+   <P>
+    errWord: Place where the problem word from the block will be copied 
+    if SSCE_CheckBlock encounters a problem with a word. Should be at 
+    least SSCE_MAX_WORD_SZ characters wide</P>
+   <LI>
+   <P>
+    errWordSz: Size of the errWord array in characters, including space 
+    for the terminating null character.</P>
+   <LI>
+   <P>
+    otherWord: Place where the replacement word will be copied, if one is 
+    available. Should be at least SSCE_MAX_WORD_SZ characters wide.</P>
+   <LI>
+   <P>
+    otherWordSz: Size of the otherWord array in characters, including 
+    space for the terminating null character.</P>
+   <LI>
+   <P>
+    Return value &gt; 0: A <A HREF="#SpellingCheckResult">spelling-check 
+    result mask</A> containing bits identifying the reason 
+    SSCE_CheckBlock returned;.&nbsp;&lt; 0: An <A HREF="#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CheckString"></A>SSCE_CheckString</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Check the spelling of one or more words contained in a text string. 
+    This function returns if a misspelled word is encountered or if the 
+    end of the string has been reached; the return value indicates the 
+    reason for returning.</P>
+   <P>
+    Each word in the string is checked in turn. SSCE_CheckString skips 
+    over correctly spelled or ignored words and returns when a word is 
+    encountered which requires attention by the application, or when the 
+    end of the string is reached. Normally, SSCE_CheckString is called in 
+    a loop that terminates when the end of the string is encountered.</P>
+   <P>
+    To begin checking a string, set the cursor parameter to 0. When a 
+    misspelled word is detected, the cursor parameter will contain the 
+    index of the word's first character.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2CheckString">How to check spelling of a 
+    string of words</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CheckString(SSCE_S16 sid, const SSCE_CHAR FAR *str,<BR>  SSCE_S32 FAR *cursor, SSCE_CHAR FAR *errWord, SSCE_S16 errWordSz,<BR>  SSCE_CHAR FAR *otherWord, SSCE_S16 otherWordSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session id returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    str: The null-terminated string to check.</P>
+   <LI>
+   <P>
+    cursor: (in/out) In: Zero-based offset of place to begin checking in 
+    string; Out: Zero-based offset of first character of misspelled word.</P>
+   <LI>
+   <P>
+    errWord: (out) Place where misspelled word will be stored on output. 
+    Should be SSCE_MAX_WORD_SZ characters wide.</P>
+   <LI>
+   <P>
+    errWordSz: Size of errWord array in characters, including space for 
+    the terminating null character.</P>
+   <LI>
+   <P>
+    otherWord: (out) Place where alternate word will be stored on output.</P>
+   <LI>
+   <P>
+    otherWordSz: Size of the otherWord array in characters, including 
+    space for the terminating null character.</P>
+   <LI>
+   <P>
+    Return value: &gt; 0: A check-result mask containing bits identifying 
+    the reason for returning; &lt; 0: An error code.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CheckWord"></A>SSCE_CheckWord</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Check the spelling of a single word.</P>
+   <P>
+    SSCE_CheckWord checks the spelling of a single word by searching for 
+    the word in all open lexicons.</P>
+   <P>
+    When SSCE_CheckWord returns, the otherWord parameter may contain a 
+    replacement for the problem word. If no replacement is available, 
+    otherWord will contain the problem word.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2CheckWord">How to check the spelling of 
+    a single word</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CheckWord(SSCE_S16 sid, const SSCE_CHAR *word,<BR>SSCE_CHAR *otherWord, SSCE_S16 otherWordSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    word: The word whose spelling is to be checked.</P>
+   <LI>
+   <P>
+    otherWord: A place where a replacement word will be copied, if one is 
+    available. Should be at least SSCE_MAX_WORD_SZ characters wide.</P>
+   <LI>
+   <P>
+    otherWordSz: Size of the otherWord array in characters, including 
+    space for the terminating null character.</P>
+   <LI>
+   <P>
+    Return value:
+    <UL>
+     <LI>0: The word is spelled correctly.<BR>
+     <LI>&gt; 0: A <A HREF="#SpellingCheckResult">spelling-check result mask</A> 
+     containing bits identifying the result of the spelling 
+     check;&nbsp;&lt; 0: An <A HREF="#ErrorCodes">error code</A>.</P>
+    </UL>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_ClearLex"></A>SSCE_ClearLex</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Remove all the words from a text lexicon. After SSCE_ClearLex 
+    executes successfully, the lexicon will contain 0 words. Note that 
+    SSCE_ClearLex may be used only with text lexicons.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2AddWordsTextLex">How to add words to 
+    text lexicons</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_ClearLex(SSCE_S16 sid, SSCE_S16 lexId);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession</P>
+   <LI>
+   <P>
+    lexId: Identifier (returned by SSCE_OpenLex or SSCE_CreateLex) of the 
+    lexicon whose words are to be removed.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 if the lexicon was cleared successfully; &lt; 
+    0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CloseBlock"></A>SSCE_CloseBlock</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Close an open text block. Any resources (e.g., memory) allocated 
+    while the block was open are released. Open blocks are closed 
+    automatically when the session is closed via SSCE_CloseSession. The 
+    block id passed as a parameter will not be valid after 
+    SSCE_CloseBlock returns.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CloseBlock(SSCE_S16 sid, SSCE_S16 blkId);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    blkId: Block identifier (returned by SSCE_OpenBlock) of the block 
+    being closed.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CloseLex"></A>SSCE_CloseLex</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Close an open lexicon. Any resources (memory and file handles) 
+    acquired while the lexicon was open are released. Open lexicons are 
+    closed automatically when the session is closed via by 
+    SSCE_CloseSession. The lexicon id passed as an argument will not be 
+    valid after SSCE_CloseLex is called.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2OpenCloseLex">How to open and close lexicons</A> 
+    for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CloseLex(SSCE_S16 sid, SSCE_S16 lexId);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession</P>
+   <LI>
+   <P>
+    lexId: Lexicon identifier (returned by SSCE_OpenLex or 
+    SSCE_CreateLex) of the lexicon to be closed.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CloseSession"></A>SSCE_CloseSession</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Terminate a spelling-check session. SSCE_CloseSession closes a 
+    spelling-check session previously opened by SSCE_OpenSession. 
+    SSCE_CloseSession must be called before the application that opened 
+    the session terminates. Any unclosed resources opened while the 
+    session was open (e.g., blocks and lexicons) are automatically 
+    closed. The session id passed as an argument will not be valid after 
+    SSCE_CloseSession has been called.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2Initialize">How to initialize and 
+    terminate Sentry</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CloseSession(SSCE_S16 sid);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CompressLexAbo"></A>SSCE_CompressLexAbort</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Abort a lexicon-compression operation in progress. 
+    SSCE_CompressLexAbort should be called if SSCE_CompressLexInit or 
+    SSCE_CompressLexFile return an error code. SSCE_CompressLexAbort 
+    releases any resources (such as memory or temporary files) acquired 
+    during the compression operation.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2CompressLex">How to compress lexicons</A> 
+    for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_CompressLexAbort(SSCE_S16 sid);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier (returned by SSCE_OpenSession).</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CompressLexEnd"></A>SSCE_CompressLexEnd</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Complete a lexicon-compression operation. Call SSCE_CompressLexEnd to 
+    finish creating a compressed lexicon. SSCE_CompressLexInit must be 
+    called before SSCE_CompressLexEnd is called. Call 
+    SSCE_CompressLexAbort if SSCE_CompressLexEnd returns an error code.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2CompressLex">How to compress lexicons</A> 
+    for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CompressLexEnd(SSCE_S16 sid);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier (returned by SSCE_OpenSession).</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CompressLexFil"></A>SSCE_CompressLexFile</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Compress a single word file. Call SSCE_CompressLexFile to add a set 
+    of words to a compressed lexicon. SSCE_CompressLexInit must be called 
+    before SSCE_CompressLexFile. SSCE_CompressLexFile can be called a 
+    number of times to compress a number of word files.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2CompressLex">How to compress lexicons</A> 
+    for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CompressLexFile(SSCE_S16 sid, const char *fileName,<BR>SSCE_U32 *errLine);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier (returned by SSCE_OpenSession).</P>
+   <LI>
+   <P>
+    fileName: Name of the disk file containing the words to compress.</P>
+   <LI>
+   <P>
+    errLine: Number of the line containing the word which caused an error 
+    to occur (if any). The value is undefined if a success code is returned.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CompressLexIni"></A>SSCE_CompressLexInit</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Begin a lexicon-compression operation. SSCE_CompressLexInit must be 
+    called before SSCE_CompressLexFile or SSCE_CompressLexEnd.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2CompressLex">How to compress lexicons</A> 
+    for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 API SSCE_CompressLexInit(SSCE_S16 sid, const char *lexFileName,<BR>const char *suffixFileName, SSCE_S16 langId, SSCE_U32 *errLine);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier (returned by SSCE_OpenSession)</P>
+   <LI>
+   <P>
+    lexFileName: Name of the compressed lexicon file to be created.</P>
+   <LI>
+   <P>
+    suffixFileName: Name of a file containing suffixes used to compress 
+    the lexicon</P>
+   <LI>
+   <P>
+    langId: <A HREF="#LanguageCodes">Code identifying the language</A> of 
+    the words the lexicon will contain.</P>
+   <LI>
+   <P>
+    errLine: Number of the text line in the suffix file which caused an 
+    error (if any). The value is undefined if a success code is returned.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CountStringWor"></A>SSCE_CountStringWords</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Count the number of words in a string.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S32 SSCE_CountStringWords(SSCE_S16 sid, const SSCE_CHAR FAR *str);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session id returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    str: Null-terminated string containing the words to count.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0: Number of words in the string; &lt; 0: Error code.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CreateLex"></A>SSCE_CreateLex</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Create, initialize, and open a new text lexicon. SSCE_CreateLex 
+    ensures the lexicon is prepared in the correct format.</P>
+   <P>
+    Once SSCE_CreateLex is called, the new lexicon is open. Words may be 
+    added to it using the SSCE_AddToLex function. The lexicon will be 
+    included in searches made by other functions in the Sentry API.</P>
+   <P>
+    The application should call SSCE_CloseLex or SSCE_CloseSession before terminating.</P>
+   <P>
+    A temporary lexicon may be created by passing a null or empty 
+    fileName parameter. Words added to a temporary lexicon will be lost 
+    once the lexicon is closed.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2AddWordsTextLex">How to add words to 
+    text lexicons</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CreateLex(SSCE_S16 sid, const char *fileName, SSCE_S16 lang);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    fileName: Null-terminated character string containing the path and 
+    file name the new lexicon is to have. May be null or empty (i.e., 0 
+    length), in which case a temporary lexicon is created. Note that the 
+    file name should contain an absolute path - i.e., should not be 
+    relative to the current directory.</P>
+   <LI>
+   <P>
+    lang: <A HREF="#LanguageCodes">Code identifying the language</A> of 
+    the words the new lexicon will contain:</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0: The lexicon id; &lt; 0: <A HREF="#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_DelBlockText"></A>SSCE_DelBlockText</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Delete a specified number of characters from the current cursor 
+    position of a block. This function is intended to support undoing 
+    changes made to blocks. Use SSCE_DelBlockWord to delete the current 
+    word in a block.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_DelBlockText(SSCE_S16 sid, SSCE_S16 blkId, SSCE_S32 numChars);</PRE><UL>
+    <LI>
+    <P>
+     sid: Session identifier returned by SSCE_OpenSession.</P>
+    <LI>
+    <P>
+     blkId: Block identifier (returned by SSCE_OpenBlock) of the block 
+     from which the text is being deleted.</P>
+    <LI>
+    <P>
+     numChars: Number of characters to delete.</P>
+    <LI>
+    <P>
+     Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+    </BLOCKQUOTE>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_DelBlockWord"></A>SSCE_DelBlockWord</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Delete the word at a text block's cursor position. In addition, 
+    leading white space is deleted. For example, if the block contains 
+    the text Paris in the the spring and the block's cursor is positioned 
+    at the second the, the block will contain the following text after 
+    SSCE_DelBlockWord is called: Paris in the spring. The block's cursor 
+    is left at the start of the first word following the deleted word 
+    (spring in the example).</P>
+   <P>
+    SSCE_DelBlockWord is useful for deleting a doubled word detected by 
+    SSCE_CheckBlock. The deleted text is optionally returned to the 
+    caller so the deletion can later be undone.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S32 SSCE_DelBlockWord(SSCE_S16 sid, SSCE_S16 blkId,<BR>SSCE_CHAR *delText, SSCE_S16 delTextSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    blkId: Block identifier (returned by SSCE_OpenBlock) of the block 
+    from which the word is being deleted.</P>
+   <LI>
+   <P>
+    delText: Place where the deleted word and leading white space will be 
+    copied. May be null if delTextSz = 0.</P>
+   <LI>
+   <P>
+    delTextSz: Size of the delText array in characters, including space 
+    for a terminating null character.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0: Offset of the first deleted character from 
+    start of block on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_DelFromLex"></A>SSCE_DelFromLex</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Remove a word from a lexicon. The action and other word associated 
+    with the word are also removed from the lexicon. This function can be 
+    used only with text lexicons. The lexicon is searched for the word in 
+    a case-sensitive manner, regardless of the SSCE_CASE_SENSITIVE_OPT 
+    option setting.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2AddWordsTextLex">How to add words to 
+    text lexicons</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_DelFromLex(SSCE_S16 sid, SSCE_S16 lexId, const SSCE_CHAR *word);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    lexId: Lexicon identifier (returned by SSCE_OpenLex or 
+    SSCE_CreateLex) of the lexicon from which the word is to be deleted.</P>
+   <LI>
+   <P>
+    word: The word to be deleted.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_DelStringText"></A>SSCE_DelStringText</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Delete a specified number of characters from a string at a specified 
+    cursor position. This function is intended to support undoing changes 
+    made to strings. Use SSCE_DelStringWord to delete a word in a string.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S32 API SSCE_DelStringText(SSCE_S16 sid, SSCE_CHAR FAR *str,<BR>  SSCE_S32 cursor, SSCE_S32 numChars)</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session id returned by SSCE_OpenSession</P>
+   <LI>
+   <P>
+    str: (in/out) Null-terminated string to delete text from. The string 
+    is updated in place.</P>
+   <LI>
+   <P>
+    cursor: Zero-based offset of first character in string to delete.</P>
+   <LI>
+   <P>
+    numChars: Number of characters to delete.</P>
+   <LI>
+   <P>
+    Return Value: &gt;= 0: Number of characters actually deleted; &lt; 0: 
+    Error code.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_DelStringWord"></A>SSCE_DelStringWord</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Delete the word at a specified cursor position in a string. In 
+    addition, all leading white space is deleted. For example, if the 
+    string contains the text <I>Paris in the the spring</I> and the 
+    cursor is positioned at the second <I>the</I>, the string will 
+    contain the following text after SSCE_DelStringWord is called: <I>Paris
+     in the spring</I>.</P>
+   <P>
+    SSCE_DelStringWord is useful for deleting a doubled word detected by 
+    SSCE_CheckString. The deleted text is optionally returned to the 
+    called so the deletion can later be undone.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S32 SSCE_DelStringWord(SSCE_S16 sid, SSCE_CHAR *str,<BR>  SSCE_S32 cursor, SSCE_CHAR FAR *delText, SSCE_S32 delTextSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    str: (in/out) Null-terminated string from which the word is to be 
+    deleted. The string is updated in place.</P>
+   <LI>
+   <P>
+    cursor: Zero-based offset of first character of the word to delete.</P>
+   <LI>
+   <P>
+    delText: Place where the deleted word and leading white space will be 
+    copied. May be null if delTextSz = 0.</P>
+   <LI>
+   <P>
+    delTextSz: Size of the delText array in characters, including space 
+    for a terminating null character.</P>
+   <LI>
+   <P>
+    Return Value: &gt;= 0: Zero-based offset of the first deleted 
+    character from start of the string; &lt; 0: Error code.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_FindLexWord"></A>SSCE_FindLexWord</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Obtain information about a word in a lexicon, including the action 
+    and other word associated with it.</P>
+   <P>
+    The lexicon is searched for the word in a case-sensitive manner, 
+    regardless of the SSCE_CASE_SENSITIVE_OPT option setting.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2AddWordsTextLex">How to add words to 
+    text lexicons</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_FindLexWord(SSCE_S16 sid, SSCE_S16 lexId,<BR>const SSCE_CHAR *word, SSCE_CHAR *otherWord, SSCE_S16 otherWordSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession</P>
+   <LI>
+   <P>
+    lexId: Lexicon identifier (returned by SSCE_OpenLex or 
+    SSCE_CreateLex) of the lexicon to be searched.</P>
+   <LI>
+   <P>
+    word: The word to find.</P>
+   <LI>
+   <P>
+    otherWord: Place to store the other word associated with the word, if any.</P>
+   <LI>
+   <P>
+    otherWordSz: The size of the otherWord array in characters including 
+    space for the terminating null character.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0: The <A HREF="#ActionCodes">action code</A> 
+    associated with the word;&nbsp;&lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetBlock"></A>SSCE_GetBlock</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the contents of a text block.</P>
+   <P>
+    This function is useful if SSCE_OpenBlock made a copy of the block's 
+    contents. If the block was modified (e.g., by SSCE_ReplaceBlockWord), 
+    then SSCE_GetBlock can be used to obtain the updated contents. (If 
+    SSCE_OpenBlock is instructed to not make a copy, the block is updated 
+    in place, so calling SSCE_GetBlock is unnecessary.)</P>
+   <P>
+    The text parameter must point to a character array (string) large 
+    enough to hold the block's contents. The SSCE_GetBlockInfo function 
+    can be used to obtain the number of characters needed; note, however, 
+    that the text length obtained from SSCE_GetBlockInfo does not include 
+    room for a terminating null character, so an array of size one larger 
+    than the text length should be allocated.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S32 SSCE_GetBlock(SSCE_S16 sid, SSCE_S16 blkId, SSCE_CHAR *text,<BR>SSCE_S32 textSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    blkId: Identifier of the block (returned by SSCE_OpenBlock) whose 
+    contents are being obtained.</P>
+   <LI>
+   <P>
+    text: Pointer to the place where the block's contents will be stored.</P>
+   <LI>
+   <P>
+    textSz: Size of the text array in characters, including space for the 
+    terminating null character.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetBlockInfo"></A>SSCE_GetBlockInfo</TD>
+    </TR>
+   </TABLE></H3>
+  <BLOCKQUOTE>
+   <P>
+    Obtain information about an open text block.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_GetBlockInfo(SSCE_S16 sid, SSCE_S16 blkId, SSCE_S32 *textLen,<BR>SSCE_S32 *blkSz, SSCE_S32 *curPos, SSCE_S32 *wordCount);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    blkId: Identifier of the block from which information is being 
+    obtained; returned by SSCE_OpenBlock.</P>
+   <LI>
+   <P>
+    textLen: Pointer to the place where the block's current length (not 
+    including space for a terminating null character) will be stored. The 
+    length is the number of text characters used in the block. May be null.</P>
+   <LI>
+   <P>
+    blkSz: Pointer to the place where the block's current size in 
+    characters will be stored. The size is the total capacity the block, 
+    as specified when the block was opened. May be null.</P>
+   <LI>
+   <P>
+    curPos: Pointer to the place where the block's current cursor 
+    position will be stored. The cursor position is expressed as a 
+    zero-based offset in characters from the start of the block. May be null.</P>
+   <LI>
+   <P>
+    wordCount: Pointer to the place where the number of words in the 
+    block will be stored. May be null.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetBlockWord"></A>SSCE_GetBlockWord</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the word at a text block's cursor position.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_GetBlockWord(SSCE_S16 sid, SSCE_S16 blkId, SSCE_CHAR *word,<BR>SSCE_S16 wordSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    blkId: Block identifier (returned by SSCE_OpenBlock) of the block 
+    from which the word is to be obtained.</P>
+   <LI>
+   <P>
+    word: Character array (string) where the word will be copied. Should 
+    be at least SSCE_MAX_WORD_SZ characters wide. If the word buffer is 
+    not large enough to contain the word (as indicated by the wordSz 
+    parameter), the word will be truncated.</P>
+   <LI>
+   <P>
+    wordSz: Size of the word array in characters, including space for the 
+    terminating null character.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetLex"></A>SSCE_GetLex</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain a copy of the contents of a text lexicon.</P>
+   <P>
+    Words are copied into the buffer passed to SSCE_GetLex in the 
+    following format (spaces have been inserted here for clarity):</P>
+   <BLOCKQUOTE>
+    <P>
+     <I>word \t action otherWord \0 word \t action otherWord \0 ... word 
+     \t action otherWord \0\0</I></P>
+    </BLOCKQUOTE>
+   <P>
+    <I>\t</I> represents a tab character. <I>\0</I> represents a null 
+    character. <I>action</I> represents one of the following characters 
+    (see <A HREF="#ActionCodes">Action Codes</A> for information on the 
+    meaning of each code):</P>
+   <UL>
+    <LI>
+    <P>
+     a: SSCE_AUTO_CHANGE_ACTION<BR>
+     <LI>A: SSCE_AUTO_CHANGE_PRESERVE_CASE_ACTION<BR>
+     <LI>c: SSCE_CONDITIONAL_CHANGE_ACTION<BR>
+     <LI>C: SSCE_CONDITIONAL_CHANGE_PRESERVE_CASE_ACTION<BR>
+     <LI>e: SSCE_EXCLUDE_ACTION<BR>
+     <LI>i: SSCE_IGNORE_ACTION</P>
+    </UL>
+   <P>
+    SSCE_GetLex may be used only with text lexicons.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2AddWordsTextLex">How to add words to 
+    text lexicons</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S32 SSCE_GetLex(SSCE_S16 sid, SSCE_S16 lexId, SSCE_CHAR *lexBfr,<BR>SSCE_S32 lexBfrSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    lexId: Lexicon identifier (returned by SSCE_OpenLex or 
+    SSCE_CreateLex) of the lexicon whose contents are being read.</P>
+   <LI>
+   <P>
+    lexBfr: Buffer into which the lexicon contents will be copied. If the 
+    array is not large enough to hold the lexicon, an error code is 
+    returned. The function SSCE_GetLexInfo can be used to determine the 
+    size of array needed for a given lexicon.</P>
+   <LI>
+   <P>
+    lexBfrSz: Size of the array pointed to by lexBfr.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetLexInfo"></A>SSCE_GetLexInfo</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain information about a lexicon.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2AddWordsTextLex">How to add words to 
+    text lexicons</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_GetLexInfo(SSCE_S16 sid, SSCE_S16 lexId, SSCE_S32 *size,<BR>  SSCE_S16 *format, SSCE_S16 *lang);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    lexId: Lexicon identifier (returned by SSCE_OpenLex or 
+    SSCE_CreateLex) of the lexicon whose information is being obtained.</P>
+   <LI>
+   <P>
+    size: Place where the size of the buffer needed to contain the entire 
+    lexicon will be stored. May be null. If the lexicon is compressed, 
+    the returned size value will be 0.</P>
+   <LI>
+   <P>
+    format: Place where one of the following lexicon format values will 
+    be stored (unless null):</P>
+   <UL>
+    <LI>
+    <P>
+     &nbsp;SSCE_COMPRESSED_LEX_FMT<BR>
+     <LI>SSCE_TEXT_LEX_FMT</P>
+    </UL>
+   <LI>
+   <P>
+    lang: Place where the language value will be stored (unless null). 
+    The language value may be one of the SSCE_xxx_LANG codes or another 
+    value, depending on how the lexicon was created.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetOption"></A>SSCE_GetOption</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the current value of an option setting.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2SetOptions">How to set Sentry options</A> 
+    for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_U32 SSCE_GetOption(SSCE_S16 sid, SSCE_U32 option);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier (returned by SSCE_OpenSession)</P>
+   <LI>
+   <P>
+    option: Identifies which option value to obtain (see <A HREF="coreapi.htm#How2SetOptions">How
+     to set Sentry options</A> for a list).</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0: The current value of the indicated option on 
+    success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetStringWord"></A>SSCE_GetStringWord</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the word at a specified cursor position in a string.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S32 SSCE_GetStringWord(SSCE_S16 sid, const SSCE_CHAR FAR *str,<BR>  SSCE_S32 cursor, SSCE_CHAR FAR *word, SSCE_S16 wordSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    str: String to get the word from.</P>
+   <LI>
+   <P>
+    cursor: Zero-based offset of the first character of the word to get.</P>
+   <LI>
+   <P>
+    word: (out) Place where the word will be copied. Should be at least 
+    SSCE_MAX_WORD_SZ characters wide. If the word buffer is not large 
+    enough to contain the word (as indicated by the wordSz parameter), 
+    the word will be truncated.</P>
+   <LI>
+   <P>
+    wordSz: Size of the word array in characters, including space for the 
+    terminating null character.</P>
+   <LI>
+   <P>
+    Return Value: &gt;= 0: Zero-based offset of first character of word 
+    in string; &lt; 0: Error code</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_InsertBlockTex"></A>SSCE_InsertBlockText</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Insert a string of characters into a block at the current cursor 
+    position. The text must fit within the block or an error will occur. 
+    This function is intended to support undoing changes made to blocks.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 API SSCE_InsertBlockText(SSCE_S16 sid, SSCE_S16 blkId,<BR>const SSCE_CHAR *text)</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    blkId: Block identifier (returned by SSCE_OpenBlock) of the block 
+    where text is being inserted.</P>
+   <LI>
+   <P>
+    text: Null-terminated string containing the characters to insert.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_InsertStringTe"></A>SSCE_InsertStringText</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Insert a string of characters into a string at a specified cursor 
+    position. The text must fit within the string or an error will be 
+    returned. This function is intended to support undoing changes to strings.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S32 SSCE_InsertStringText(SSCE_S16 sid, SSCE_CHAR FAR *str,<BR>  SSCE_S32 strSz, SSCE_S32 cursor, const SSCE_CHAR FAR *text);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    str: String to insert the text into</P>
+   <LI>
+   <P>
+    strSz: Size (capacity) of the string array in characters.</P>
+   <LI>
+   <P>
+    cursor: Zero-based offset of the place in the string where the text 
+    is to be inserted</P>
+   <LI>
+   <P>
+    text: Null-terminated string containing the characters to insert.</P>
+   <LI>
+   <P>
+    Return Value: &gt;= 0: New length of the string (after insertion); 
+    &lt; 0: Error code.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_NextBlockWord"></A>SSCE_NextBlockWord</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Advance a text block's cursor to the word following the current word. 
+    This function is useful for skipping words in a SSCE_CheckBlock loop.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_NextBlockWord(SSCE_S16 sid, SSCE_S16 blkId);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    blkId: Block identifier (returned by SSCE_OpenBlock) of the block 
+    whose cursor is being advanced.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_OpenBlock"></A>SSCE_OpenBlock</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Open a text block within the context of a session for further access 
+    via other functions in the core Sentry API. In particular, the words 
+    in an open block can be checked for spelling errors.</P>
+   <P>
+    If the copyBlock parameter is False (0), the block is updated in 
+    place by modifying the memory pointed at by the text parameter. If 
+    copyBlock is True (non-0), a copy of the block is made internally and 
+    the copy is updated. The block's contents may be obtained at any time 
+    while the block is open via the SSCE_GetBlock function. Because state 
+    information about the block is maintained by the Sentry engine, the 
+    contents of an open text block should be manipulated only by the 
+    block-related functions in the core Sentry API.</P>
+   <P>
+    The block's size (capacity) must be at least one character larger 
+    than the number of text characters the block contains. Normally, the 
+    size is larger to allow room for growth as can occur when a short 
+    word is replaced with a longer one.</P>
+   <P>
+    The SSCE_CloseBlock function closes an open block. Blocks are also 
+    closed automatically when the session is closed via SSCE_CloseSession.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_OpenBlock(SSCE_S16 sid, SSCE_CHAR *text, SSCE_S32 textLen,<BR>SSCE_S32 blkSz, SSCE_S16 copyBlock);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    text: Pointer to the memory space containing the words in the text 
+    block. If the copyBlock parameter is False (0), the memory pointed at 
+    by the text parameter must be preserved until the block is closed.</P>
+   <LI>
+   <P>
+    textLen: The number of valid characters initially in the block. The 
+    block length may be changed by block-related functions in the core 
+    Sentry API; the text length will never increase beyond the block size.</P>
+   <LI>
+   <P>
+    blkSz: The total number of characters in the space pointed to by the 
+    block parameter. The blkSz parameter defines the total space 
+    allocated for (i.e., the capacity of) the block in characters. Must 
+    be at least textLen + 1.</P>
+   <LI>
+   <P>
+    copyBlock: If True (non-0), SSCE_OpenBlock makes a private copy of 
+    the block's contents. If False (0), the application must preserve the 
+    memory containing the block's contents while the block is open. The 
+    copyBlock parameter determines whether the memory for the block's 
+    contents is maintained by the application or by SSCE. The copyBlock 
+    parameter should be set to True if the block's memory may be moved 
+    while the block is open (as could happen during memory compaction in 
+    some systems). If the copyBlock parameter is False (zero), the memory 
+    space containing the words in the block (the text parameter) is 
+    maintained by the application, and must be preserved until the block 
+    is closed via SSCE_CloseBlock (i.e., memory for the block's contents 
+    should not be released or modified). If the copyBlock parameter is 
+    True, the memory space pointed at by the text parameter may safely be 
+    discarded by the calling application after SSCE_OpenBlock returns.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0: Block id on success; &lt; 0: <A HREF="#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_OpenLex"></A>SSCE_OpenLex</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Open a lexicon. Once SSCE_OpenLex has been called, the lexicon will 
+    be included in searches made by SSCE_CheckWord, SSCE_CheckBlock, and SSCE_Suggest.</P>
+   <P>
+    SSCE_OpenLex returns a lexicon identifier. This identifier is used to 
+    refer to the lexicon in subsequent operations.</P>
+   <P>
+    Before the application terminates, it should call SSCE_CloseLex for 
+    each open lexicon. All open lexicons are closed automatically by SSCE_CloseSession.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2OpenCloseLex">How to open and close lexicons</A> 
+    for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_OpenLex(SSCE_S16 sid, const char *fileName, SSCE_S32 memBudget);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    fileName: String containing the full path to the lexicon file. The 
+    file name is saved internally by SSCE, and is used to re-open the 
+    file later (e.g., to save its contents after updating). For this 
+    reason, the file name should contain an absolute path in case the 
+    application changes the current directory.</P>
+   <LI>
+   <P>
+    memBudget: Memory budget in bytes for this lexicon (compressed 
+    lexicons only), or 0 for unlimited budget. If the lexicon is 
+    compressed, the memBudget parameter determines the amount of memory 
+    the lexicon may use, in bytes. If the lexicon is too large for the 
+    budget, then the Sentry engine will load segments of it from disk as 
+    needed. This will tend to impede performance, however. For optimal 
+    performance, assign as much memory as possible. A memory budget of 0 
+    is effectively an unlimited budget. On systems that support virtual 
+    memory, use the 0 value for an unlimited budget. If memory must be 
+    conserved, as a rule of thumb the minimum budget should be 20% of the 
+    size in bytes of the compressed lexicon file. If the memory budget is 
+    too low for the lexicon being opened, an <A HREF="#ErrorCodes">error code</A> 
+    will be returned. If the lexicon is in text format, this parameter is ignored.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0: Lexicon id on success; &lt; 0: <A HREF="#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_OpenSession"></A>SSCE_OpenSession</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Open a spell-checking session. SSCE_OpenSession creates a context for 
+    using SSCE. SSCE_OpenSession returns a session identifier, which is 
+    passed to other core Sentry API functions.</P>
+   <P>
+    SSCE_OpenSession must be called before any other function in Sentry's 
+    Core API, except SSCE_Version and SSCE_SetDebugFile.</P>
+   <P>
+    Typically, an application will call SSCE_OpenSession when it starts 
+    and SSCE_CloseSession when it ends. A single application may have 
+    several sessions opened simultaneously, or may open and close several 
+    sessions during the course of its execution. Under environments that 
+    support shared libraries, different applications can have different 
+    sessions open simultaneously.</P>
+   <P>
+    Note that applications which use the Sentry DLL under Microsoft 
+    Windows may not need to call SSCE_OpenSession; see <A HREF="winapi.htm#How2CallCoreAPI">How
+     to call Sentry's Core API</A> for more information.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2Initialize">How to initialize and 
+    terminate Sentry</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_OpenSession(void);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    Return value: &gt;= 0: session id on success; &lt; 0: <A HREF="#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_ReplaceBlockWo"></A>SSCE_ReplaceBlockWord</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Replace the word at a text block's cursor with another word. The 
+    replacement word need not be the same size as the original word. 
+    However, if the block's text length must be increased to accommodate 
+    the new word, it must not exceed the block size specified when the 
+    block was opened via SSCE_OpenBlock. Use SSCE_DelBlockWord to delete 
+    the word. The replacement word may actually contain several words, 
+    separated by white space. However, its length must not exceed 
+    SSCE_MAX_WORD_LEN characters. Only the characters forming the word 
+    itself are replaced - surrounding punctuation and white space remain intact.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_ReplaceBlockWord(SSCE_S16 sid, SSCE_S16 blkId,<BR>const SSCE_CHAR *word);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    blkId: Block identifier (returned by SSCE_OpenBlock) of the block in 
+    which the word will be replaced.</P>
+   <LI>
+   <P>
+    word: Null-terminated string containing the replacement word.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_ReplaceStringW"></A>SSCE_ReplaceStringWord</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Replace the word at a specified cursor position in a string with 
+    another word. The replacement word need not be the same size as the 
+    original word. However, if new word is longer than the original, the 
+    string must not grow beyond its capacity or an error will be 
+    returned. The replacement word may actually contain several words, 
+    separated by white space. Only the characters forming the original 
+    word itself are replaced -- surrounding punctuation and white space 
+    remain intact.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S32 SSCE_ReplaceStringWord(SSCE_S16 sid, SSCE_CHAR FAR *str,<BR>  SSCE_S32 strSz, SSCE_S32 cursor, const SSCE_CHAR FAR *word);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    str: (in/out) Null-terminated string containing word to be replaced. 
+    The string will be updated in-place.</P>
+   <LI>
+   <P>
+    strSz: Total capacity of the string array in characters. The string 
+    will not be allowed to grow beyond this size.</P>
+   <LI>
+   <P>
+    word: Null-terminated string containing the replacement word.</P>
+   <LI>
+   <P>
+    Return Value: &gt;= 0: New length of the string (after replacement); 
+    &lt; 0: Error code.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetBlockCursor"></A>SSCE_SetBlockCursor</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Set the cursor position of a block. This function is intended to 
+    support undoing changes made to blocks.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetBlockCursor(SSCE_S16 sid, SSCE_S16 blkId, SSCE_S32 cursor);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    blkId: Block identifier (returned by SSCE_OpenBlock) of the block in 
+    which the cursor will be set.</P>
+   <LI>
+   <P>
+    cursor: New cursor position. Must be within the block's current text length.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetDebugFile"></A>SSCE_SetDebugFile</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Specify the name of a disk file used to record diagnostic information.</P>
+   <P>
+    Normally, the Sentry engine does not log diagnostic information. 
+    However, if a log file has been specified via SSCE_SetDebugFile, then 
+    the Sentry engine will log certain events to this file. No 
+    information is logged during performance-critical operations.</P>
+   <P>
+    Information about significant events, such as opening and closing 
+    lexicons, errors, etc. is logged by the Sentry engine to the debug 
+    file. Enabling debug logging may help diagnose problem in integrating 
+    the Sentry engine with an application.</P>
+   <P>
+    SSCE_SetDebugFile can be called before any sessions are open.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_SetDebugFile(const char *fileName);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    fileName: Name of the disk file used to log debugging information. If 
+    this parameter is null, debug logging is disabled. The file name is 
+    saved internally by SSCE, so it should contain a full path in case 
+    the current directory is changed by the application.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetOption"></A>SSCE_SetOption</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Change an option setting.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2SetOptions">How to set Sentry options</A> 
+    for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_U32 SSCE_SetOption(SSCE_S16 sid, SSCE_U32 option, SSCE_U32 value);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    option: Identifies which option value is being set (see <A HREF="coreapi.htm#How2SetOptions">How
+     to set Sentry options</A> for a list).</P>
+   <LI>
+   <P>
+    value: The new value of the option.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0: The previous value of the option on success; 
+    &gt;= 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_Suggest"></A>SSCE_Suggest</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Locate suggested replacements for a misspelled word. SSCE_Suggest 
+    locates suggestions by examining the words (or a subset of the words) 
+    in each open lexicon. The suggested words are copied into a character 
+    array (string) provided by the application. The array is formatted as follows:</P>
+   <BLOCKQUOTE>
+    <P>
+     <I>word\0word\0...word\0\0</I></P>
+    </BLOCKQUOTE>
+   <P>
+    &quot;<I>\0</I>&quot; indicates a character with binary 0 value (null).</P>
+   <P>
+    SSCE_Suggest provides a score for each replacement word it finds. The 
+    scores are copied to an integer array provided by the application. 
+    Each element of the score array contains the score for the 
+    corresponding word in the character array: score[0] contains the 
+    score for the first word, score[1] contains the score for the second 
+    word, and so on. The size of the score array (the scoreSz parameter) 
+    determines the maximum number of suggestions SSCE_Suggest will 
+    locate. The words located by SSCE_Suggest are the n-best words, where 
+    n is the size of the score array. The suggested words are placed in 
+    the character array in order of decreasing score; the first word in 
+    the array is the best suggestion (or tied for first place). Note that 
+    the character array must be large enough to hold n suggestions. Also, 
+    note that SSCE_Suggest may not be able to locate n suggestions.</P>
+   <P>
+    The scores returned by SSCE_Suggest are expressed as percentages, 
+    where 0 indicates no correlation at all with the misspelled word and 
+    100 indicates an exact match. The absolute score values have little 
+    meaning, but the relative values in any given set of scores may be 
+    useful to the application (e.g., to present only the best subset of 
+    suggestions to the user).</P>
+   <P>
+    SSCE_Suggest may require several seconds to search a large lexicon. 
+    The depth parameter determines what portion of a compressed lexicon 
+    is searched to locate replacement words. The depth values range from 
+    0, which is the most shallow but fastest search, to 100, which is the 
+    deepest but slowest search. Depending on the nature of the 
+    misspelling, the correct replacement word may be found in a depth-0 
+    search or it may require a depth-100 search.</P>
+   <P>
+    Because of the execution time required, SSCE_Suggest should be called 
+    only after <A HREF="#SSCE_CheckWord">SSCE_CheckWord</A>, <A HREF="#SSCE_CheckString">SSCE_CheckString</A>,
+     or <A HREF="#SSCE_CheckBlock">SSCE_CheckBlock</A> has indicated the 
+    word is misspelled.</P>
+   <P>
+    See <A HREF="coreapi.htm#How2Suggest">How to look up suggestions for 
+    misspelled words</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_Suggest(SSCE_S16 sid, const SSCE_CHAR *word, SSCE_S16 depth,<BR>SSCE_CHAR *suggBfr, SSCE_S32 suggBfrSz, SSCE_S16 *scores, SSCE_S16 scoreSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    sid: Session identifier returned by SSCE_OpenSession.</P>
+   <LI>
+   <P>
+    word: Word for which suggested alternatives are to be located.</P>
+   <LI>
+   <P>
+    depth: Search depth; see description for details.</P>
+   <LI>
+   <P>
+    suggBfr: Place where suggested alternative words will be copied.</P>
+   <LI>
+   <P>
+    suggBfrSz: Size in characters of suggBfr.</P>
+   <LI>
+   <P>
+    scores: Place where word correlation scores will be copied.</P>
+   <LI>
+   <P>
+    scoreSz: Number of elements in scores array.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_Version"></A>SSCE_Version</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the version identifier of SSCE. The version identifier is a 
+    string in the form x.y.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_Version(char *verStr, SSCE_S16 verStrSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    version: Place where a string containing the version id will be 
+    copied. An array size of at least 20 characters is recommended.</P>
+   <LI>
+   <P>
+    versionSz: Size of the version array in characters, including space 
+    for the terminating null character.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="ErrorCodes"></A>Error Codes</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The following error codes can be returned by functions in Sentry's 
+   API. Note that all error codes are negative.</P>
+  <UL>
+   <LI>
+   <P>
+    <B>SSCE_BAD_SESSION_ID_ERR</B> (-2): The session id does not 
+    correspond to an open session.</P>
+   <LI>
+   <P>
+    <B>SSCE_WORD_NOT_FOUND_ERR</B> (-3): The word specified in a 
+    parameter does not exist, or a block or string cursor has reached the 
+    end of the text.</P>
+   <LI>
+   <P>
+    <B>SSCE_FILE_NOT_FOUND_ERR</B> (-4): The file specified in a 
+    parameter does not exist.</P>
+   <LI>
+   <P>
+    <B>SSCE_TOO_MANY_LEXICONS_ERR</B> (-5): The limit on the number of 
+    open lexicons in a session has been reached.</P>
+   <LI>
+   <P>
+    <B>SSCE_UNKNOWN_ACTION_ERR</B> (-6): The action code is unrecognizable.</P>
+   <LI>
+   <P>
+    <B>SSCE_BAD_LEXICON_ID_ERR</B> (-7): The lexicon id does not 
+    correspond to an open lexicon.</P>
+   <LI>
+   <P>
+    <B>SSCE_BUFFER_TOO_SMALL_ERR</B> (-8): The specified buffer is not 
+    large enough to hold the requested information.</P>
+   <LI>
+   <P>
+    <B>SSCE_READ_ONLY_LEXICON_ERR</B> (-9): The lexicon cannot be 
+    modified (probably a compressed lexicon).</P>
+   <LI>
+   <P>
+    <B>SSCE_OUT_OF_MEMORY_ERR</B> (-12): An attempt to allocate memory failed.</P>
+   <LI>
+   <P>
+    <B>SSCE_UNSUPPORTED_ACTION_ERR</B> (-13): The requested action is not 
+    currently supported.</P>
+   <LI>
+   <P>
+    <B>SSCE_LEXICON_EXISTS_ERR</B> (-14): The lexicon file name specified 
+    in a create operation already exists.</P>
+   <LI>
+   <P>
+    <B>SSCE_BAD_BLOCK_ID_ERR</B> (-16): The block id does not correspond 
+    to an open block.</P>
+   <LI>
+   <P>
+    <B>SSCE_CANCEL_ERR</B> (-17): The user canceled (returned by 
+    functions in the Sentry Windows API only).</P>
+   <LI>
+   <P>
+    <B>SSCE_INVALID_WORD_ERR</B> (-19): A word was encountered which is 
+    more than SSCE_MAX_WORD_LEN characters long or contains unprintable characters.</P>
+   <LI>
+   <P>
+    <B>SSCE_WORD_OUT_OF_SEQUENCE_ERR</B> (-20): During compression, a 
+    word was encountered which is either identical to the preceding word 
+    or lower in the collating sequence.</P>
+   <LI>
+   <P>
+    <B>SSCE_FILE_READ_ERR</B> (-22): An I/O error occurred while reading 
+    from a file.</P>
+   <LI>
+   <P>
+    <B>SSCE_FILE_WRITE_ERR</B> (-23): An I/O error occurred while writing 
+    to a file.</P>
+   <LI>
+   <P>
+    <B>SSCE_FILE_OPEN_ERR</B> (-24): A file could not be opened. Possibly 
+    the file doesn't exist, or is protected.</P>
+   <LI>
+   <P>
+    <B>SSCE_BUSY_ERR</B> (-25): (Sentry Windows API only) One of the 
+    dialogs is already being displayed.</P>
+   <LI>
+   <P>
+    <B>SSCE_UNKNOWN_LEX_FORMAT_ERR</B> (-26): The format of the lexicon 
+    file could not be determined.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="LanguageCodes"></A>Language Codes</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The following list defines codes that identify the language of words 
+   and lexicons.</P>
+  <UL>
+   <LI>
+   <P>
+    <B>SSCE_ANY_LANG</B>: 30840</P>
+   <LI>
+   <P>
+    <B>SSCE_AMER_ENGLISH_LANG</B>: 24941</P>
+   <LI>
+   <P>
+    <B>SSCE_BRIT_ENGLISH_LANG</B>: 25202</P>
+   <LI>
+   <P>
+    <B>SSCE_CANADIAN_ENGLISH_LANG</B>: 25441</P>
+   <LI>
+   <P>
+    <B>SSCE_CATALAN_LANG</B>: 29539</P>
+   <LI>
+   <P>
+    <B>SSCE_CZECH_LANG</B>: 25466</P>
+   <LI>
+   <P>
+    <B>SSCE_DANISH_LANG</B>: 25697</P>
+   <LI>
+   <P>
+    <B>SSCE_DUTCH_LANG</B>: 25717</P>
+   <LI>
+   <P>
+    <B>SSCE_FINNISH_LANG</B>: 26217</P>
+   <LI>
+   <P>
+    <B>SSCE_FRENCH_LANG</B>: 26226</P>
+   <LI>
+   <P>
+    <B>SSCE_GERMAN_LANG</B>: 26469</P>
+   <LI>
+   <P>
+    <B>SSCE_HUNGARIAN_LANG</B>: 26741</P>
+   <LI>
+   <P>
+    <B>SSCE_ITALIAN_LANG</B>: 26996</P>
+   <LI>
+   <P>
+    <B>SSCE_NORWEGIAN_BOKMAL_LANG</B>: 25442</P>
+   <LI>
+   <P>
+    <B>SSCE_NORWEGIAN_NYNORSK_LANG</B>: 25444</P>
+   <LI>
+   <P>
+    <B>SSCE_POLISH_LANG</B>: 28780</P>
+   <LI>
+   <P>
+    <B>SSCE_PORTUGUESE_BRAZIL_LANG</B>: 28770</P>
+   <LI>
+   <P>
+    <B>SSCE_PORTUGUESE_IBERIAN_LANG</B>: 28783</P>
+   <LI>
+   <P>
+    <B>SSCE_RUSSIAN_LANG</B>: 29301</P>
+   <LI>
+   <P>
+    <B>SSCE_SPANISH_LANG</B>: 29552</P>
+   <LI>
+   <P>
+    <B>SSCE_SWEDISH_LANG</B>: 29559</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="ActionCodes"></A>Action Codes</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The following action codes may be associated with words in a text lexicon.</P>
+  <UL>
+   <LI>
+   <P>
+    <B>SSCE_AUTO_CHANGE_ACTION</B> (97): The word should be 
+    unconditionally substituted for another word; the substitution should 
+    use the case pattern as listed in the lexicon.</P>
+   <LI>
+   <P>
+    <B>SSCE_AUTO_CHANGE_ PRESERVE_CASE_ACTION</B> (65): The word should 
+    be unconditionally substituted for another word; the substitution 
+    should use the case pattern of the original (checked) word.</P>
+   <LI>
+   <P>
+    <B>SSCE_CONDITIONAL_CHANGE_ ACTION</B> (99): The word should be 
+    conditionally substituted for another word; the substitution should 
+    use the case pattern as listed in the lexicon.</P>
+   <LI>
+   <P>
+    <B>SSCE_CONDITIONAL_CHANGE_ PRESERVE_CASE_ACTION</B> (67): The word 
+    should be conditionally substituted for another word; the 
+    substitution should use the case pattern of the original (checked) word.</P>
+   <LI>
+   <P>
+    <B>SSCE_EXCLUDE_ACTION</B> (101): The word should be treated as 
+    misspelled by SSCE, even if it is defined in other lexicons.</P>
+   <LI>
+   <P>
+    <B>SSCE_IGNORE_ACTION</B> (105): The word should be ignored (skipped) 
+    because it is considered correctly spelled.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <P>
+   Copyright &copy; 2000 <A HREF="http://www.wintertree-software.com">Wintertree
+    Software Inc</A>.<BR>
+   $Revision: 5.14.10 $
+ </BODY>
+</HTML>

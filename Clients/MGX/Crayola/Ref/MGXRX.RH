@@ -1,0 +1,842 @@
+/****************************************************************************
+  
+         (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+            from Micrografx, 1303 Arapaho, Richardson, TX. 75081.
+
+ ****************************************************************************
+
+                                   MGXRX.RH
+
+ ****************************************************************************/
+
+#ifndef __MGXRX_RH_
+#define __MGXRX_RH_
+
+/******************************** Constants *********************************/
+
+#define RES_USER            512         // base user-defined resource ID
+
+/* Standard Control Ids */
+
+#define IDOK                1           
+#define IDCANCEL            2
+#define IDABORT             3
+#define IDRETRY             4
+#define IDIGNORE            5
+#define IDYES               6
+#define IDNO                7
+#define IDHELP              8
+#define IDTOOL              9
+
+/* Class Indices */
+
+#define RXCN_NULL           0      
+#define RXCN_DIALOG         (-1)
+#define RXCN_FRAME          (-2)
+#define RXCN_PUSH           (-3)
+#define RXCN_PICTUREBTN     (-4)
+#define RXCN_EDIT           (-5)
+#define RXCN_STATIC         (-6)
+#define RXCN_RADIO          (-7)
+#define RXCN_CHECK          (-8)
+#define RXCN_HSCROLL        (-9)
+#define RXCN_VSCROLL        (-10)
+#define RXCN_LISTBOX        (-11)
+#define RXCN_COMBOEDIT      (-12)
+#define RXCN_COMBOLIST      (-13)
+#define RXCN_SPIN           (-14)
+#define RXCN_ICON           (-15)
+#define RXCN_LINE           (-16)
+#define RXCN_RECT           (-17)
+#define RXCN_PATH           (-18)
+#define RXCN_TEXT           (-19)
+#define RXCN_RULER          (-20)
+#define RXCN_PICTURE        (-21)
+#define RXCN_BKGRND         (-22)
+#define RXCN_STATUS         (-23)
+#define RXCN_SPINNER        (-24)
+#define RXCN_SLIDER         (-25)
+#define RXCN_POPBTN         (-26)
+#define RXCN_PANELDLG       (-27)
+#define RXCN_DIAL           (-28)
+#define RXCN_SLIDER2D       (-29)
+#define RXCN_COLSWATCH      (-30)
+#define RXCN_SUPERPUSHBTN   (-31)
+#define RXCN_TABLIST        (-32)
+#define RXCN_COLORPICKER    (-33)
+#define RXCN_PICTLIST       (-34)
+#define RXCN_BIGRULERH      (-35)
+#define RXCN_BIGRULERV      (-36)
+
+#define RXCN_MAXCLASSIDX    37
+
+/* Size Indices */
+
+#define RXI_CXSCREEN        0           // size indices match SM_
+#define RXI_CYSCREEN        (-1)
+#define RXI_CXVSCROLL       (-2)
+#define RXI_CYHSCROLL       (-3)
+#define RXI_CYCAPTION       (-4)
+#define RXI_CXBORDER        (-5)
+#define RXI_CYBORDER        (-6)
+#define RXI_CXDLGFRAME      (-7)
+#define RXI_CYDLGFRAME      (-8)
+#define RXI_CYVTHUMB        (-9)
+#define RXI_CXHTHUMB        (-10)
+#define RXI_CXICON          (-11)
+#define RXI_CYICON          (-12)
+#define RXI_CXCURSOR        (-13)
+#define RXI_CYCURSOR        (-14)
+#define RXI_CYMENU          (-15)
+#define RXI_CXFULLSCREEN    (-16)
+#define RXI_CYFULLSCREEN    (-17)
+#define RXI_CYKANJIWINDOW   (-18)
+#define RXI_MOUSEPRESENT    (-19)
+#define RXI_CYVSCROLL       (-20)
+#define RXI_CXHSCROLL       (-21)
+#define RXI_DEBUG           (-22)
+#define RXI_SWAPBUTTON      (-23)
+#define RXI_RESERVED1       (-24)
+#define RXI_RESERVED2       (-25)
+#define RXI_RESERVED3       (-26)
+#define RXI_RESERVED4       (-27)
+#define RXI_CXMIN           (-28)
+#define RXI_CYMIN           (-29)
+#define RXI_CXSIZE          (-30)
+#define RXI_CYSIZE          (-31)
+#define RXI_CXFRAME         (-32)
+#define RXI_CYFRAME         (-33)
+#define RXI_CXMINTRACK      (-34)
+#define RXI_CYMINTRACK      (-35)
+
+/* Font Indices */
+
+#define RXF_DEFAULT         0
+#define RXF_SYSTEM          (-1)
+#define RXF_SYSTEMFIXED     (-2)
+#define RXF_OEMFIXED        (-3)
+#define RXF_ANSIFIXED       (-4)
+#define RXF_ANSIVAR         (-5)
+#define RXF_SMALLSYSTEM     (-6)
+
+/* Standard font cell */
+
+#define RXU_XSTANDARD       4     
+#define RXU_YSTANDARD       8
+
+/* Dialog Styles */
+
+#define DS_PASSTHROUGH      0x0001L     // Pass WM_COMMAND/PARENTNOTIFY to parent
+
+/* Check Button Styles */
+
+#define CBS_SQUAREBTN1      0x0000L     // Standard square 3D box
+#define CBS_SQUAREBTN2      0x0001L     // Alternate square 3D box   
+#define CBS_CHECKBTN        0x0002L     // Checkmark 3D box 
+#define CBS_PUSHBTNCHECK    0x0003L     // Push button style w/checkmark cookie
+#define CBS_PUSHBTNSQUARE   0x0004L     // Push button style w/square cookie
+#define CBS_OWNERDRAW       0x0005L     // Owner draw (not implimented)
+#define CBS_3STATE          0x0008L     // 3 state style
+#define CBS_AUTO            0x0010L     // Automatic style
+#define CBS_LEFTTEXT        0x0020L     // Text on left of check style
+#define CBS_MULTILINE       0x0040L     // Multiline text in control
+#define CBS_STDFOCUS        0x0080L     // Standard dotted focas rect style
+
+/* Radio Button Styles */
+
+#define RBS_AUTO            0x0009L     // Automatic style
+#define RBS_LEFTTEXT        0x0020L     // Text on left of check style
+#define RBS_LED             0x0000L     // Standard 3D LED light
+#define RBS_DIAMOND         0x0100L     // Alternate 3D diamond    
+#define RBS_PUSHBTNLED      0x0200L     // Push button style w/led cookie
+#define RBS_PUSHBTNDMD      0x0300L     // Push button style w/diamond cookie
+#define RBS_OWNERDRAW       0x0400L     // Owner draw (not implimented)
+#define RBS_STDFOCUS        0x0800L     // Standard dotted focas rect style
+
+/* Frame Class Styles */
+
+#define FCS_NONE            0x0000L     // no frame - text label only
+#define FCS_SHADOW          0x0001L     // Shadow effect  
+#define FCS_BEVELIN         0x0002L     // 3D bevel frame, recessed
+#define FCS_BEVELOUT        0x0003L     // 3D bevel frame, raised
+#define FCS_GROOVE          0x0004L     // 3D groove frame
+#define FCS_RIDGE           0x0005L     // 3D ridge frame
+#define FCS_BORDER          0x0006L     // Border frame
+#define FCS_GROUPBOX        0x0007L     // Group frame with title
+#define FCS_THIN            0x0010L     // Thin frame thickness 
+#define FCS_MEDIUM          0x0020L     // Medium frame thickness 
+#define FCS_THICK           0x0030L     // Thick frame thickness 
+#define FCS_FRAMEPREVWND    0x0040L     // Size frame to outside of prev wnd
+#define FCS_LEFTTEXT        0x0080L     // Left justified text
+#define FCS_CENTERTEXT      0x0100L     // Center justified text
+#define FCS_RIGHTTEXT       0x0200L     // Right justified text
+#define FCS_FULLTEXTLINE    0x0400L     // Seperator line all across frame
+#define FCS_OPAQUE          0x0800L     // solid background, else transparent 
+
+/* Path Class Styles */
+
+#define PS_LEFT             0x00L       // left-aligned path text
+#define PS_CENTER           0x01L       // center-aligned path text
+#define PS_RIGHT            0x02L       // right-aligned path text
+
+/* Picture Class Styles */
+
+#define PCS_BITMAP          0x0001L     // bitmap resource
+#define PCS_ICON            0x0002L     // icon resource
+#define PCS_METAFILE        0x0004L     // metafile resource
+#define PCS_TILED           0x0008L     // tile the picture
+#define PCS_ACTUAL          0x0010L     // fit actual size
+#define PCS_SCALE           0x0020L     // fit picture to scale (passed in)
+#define PCS_FIT             0x0040L     // fit picture to window
+#define PCS_LEFT            0x0000L     // Left justified
+#define PCS_CENTER          0x0100L     // Center justified
+#define PCS_RIGHT           0x0200L     // Right justified
+#define PCS_TOP             0x0000L     // Top justified
+#define PCS_MIDDLE          0x0400L     // Middle justified
+#define PCS_BOTTOM          0x0800L     // Bottom justified
+#define PCS_NOTIFY          0x1000L     // Notify of clicks
+
+/* Picture Button Styles */
+
+#define PBS_PICTURECHECKBOX 0x0001L     // Auto non-mutually exclusive checking style
+#define PBS_PICTURERADIOBTN 0x0002L     // Auto mutually exclusive checking style
+#define PBS_PICTUREPUSHBTN  0x0004L     // Auto state push button style
+
+/* Picture Button States */
+
+#define PBS_UP              0x0000      // Up state                 
+#define PBS_DOWN            0x0001      // Down (selected) state
+#define PBS_PRESSED         0x0002      // Pressed state
+#define PBS_DISABLED        0x0003      // Disabled state
+#define PBS_GRAYED          0x0004      // Grayed state
+#define PBS_BROWSE          0x0005      // Browsed state
+
+/* Ruler Class Styles */
+
+#define RCS_HORZ            0x0000L     // Horizontal 
+#define RCS_VERT            0x0001L     // Vertical
+#define RCS_SHOWPOS         0x0002L     // Show position
+
+/* Push Button Styles */
+
+#define PBS_PUSHBTN         0x0000L     // Standard push button    
+#define PBS_DEFPUSHBTN      0x0001L     // Default push button
+#define PBS_STATEBTN        0x0002L     // State push button
+#define PBS_THINBEVEL       0x0008L     // Thin bevel on 3D button
+#define PBS_SHARPCORNERS    0x0010L     // Squared corners on button
+#define PBS_STDFOCUS        0x0020L     // Standard dotted focas rect style
+#define PBS_OWNERDRAW       0x0080L     // Owner draw 
+
+/* Text Class Styles */
+
+#define TCS_LEFT            0x0000L     // Left justified
+#define TCS_CENTER          0x0001L     // Center justified
+#define TCS_RIGHT           0x0002L     // Right justified
+#define TCS_TOP             0x0004L     // Top justified
+#define TCS_MIDDLE          0x0000L     // Middle justified
+#define TCS_BOTTOM          0x0008L     // Bottom justified
+#define TCS_SINGLELINE      0x0000L     // Single line, ingnores CR & LF, no wrap
+#define TCS_MULTILINE       0x0010L     // Multi line, does CR & LF and word wrap 
+#define TCS_BEVELIN         0x0020L     // Rececessed 3D text
+#define TCS_BEVELOUT        0x0040L     // Embossed 3D text
+#define TCS_SHADOW          0x0080L     // Shadowed text
+#define TCS_BKOPAQUE        0x0000L     // Opaque background, use bk color
+#define TCS_BKTRANSPARENT   0x0100L     // Transparent background
+#define TCS_NOPREFIX        0x0200L     // Don't do "&" character translation
+
+/* Background Class Styles */
+
+#define BCS_SOLID           0x0000L     // Solid color panel
+#define BCS_HGRADIENT       0x0001L     // Horizontal Gradient panel
+#define BCS_VGRADIENT       0x0002L     // Vertical Gradient panel
+#define BCS_HATCH           0x0003L     // Hatch panel
+#define BCS_PATTERN         0x0004L     // Bitmap pattern panel
+#define BCS_OWNERDRAW       0x0005L     // Owner draw
+
+/* Background Class Stock hatch and patterns */
+
+#define BKP_DITHER1         0           // Tight dither pattern
+#define BKP_DITHER2         1           // Semi-tight dither pattern
+#define BKP_DITHER3         2           // Medium dither pattern
+#define BKP_DITHER4         3           // Semi-loose dither pattern
+#define BKP_DITHER5         4           // Loose dither pattern
+#define BKP_THATCH          5           // Thatch (weave) pattern
+#define BKP_BRICK           6           // Brick pattern
+#define BKP_CHECKER         7           // Checker board pattern
+#define BKH_HORIZONTAL      0           // Horizontal hatch         
+#define BKH_VERTICAL        1           // Vertical hatch           
+#define BKH_FDIAGONAL       2           // 45 deg upward hatch      
+#define BKH_BDIAGONAL       3           // 45 deg downward hatch    
+#define BKH_CROSS           4           // Horz & Vert crosshatch   
+#define BKH_DIAGCROSS       5           // 45 deg crosshatch        
+
+/* Status Class Styles */
+
+#define SCS_LEFT2RIGHT      0x0000L     // Staus bar moves left to right
+#define SCS_RIGHT2LEFT      0x0001L     // Staus bar moves right to left
+#define SCS_TOP2BOTTOM      0x0002L     // Staus bar moves top to bottom
+#define SCS_BOTTOM2TOP      0x0004L     // Staus bar moves bottom to top
+#define SCS_SHOWPERCENT     0x0008L     // draws text showing % complete
+#define SCS_BORDER          0x0010L     // line border
+#define SCS_BEVELOUT        0x0020L     // bevelout border
+#define SCS_BEVELIN         0x0040L     // bevelin border
+#define SCS_INVERTEDTEXT    0x0080L     // text color inverted with bar
+
+/* Slider Class Styles */
+
+#define  SS_VERTSLIDER      0L          // simple slider styles
+#define  SS_HORZSLIDER      0x0001L
+#define  SS_TICKSLEFT       0L
+#define  SS_TICKSRIGHT      0x0020L
+#define  SS_TICKSTOP        0L
+#define  SS_TICKSBOTTOM     0x0020L
+
+#define  SS_NOSNAP          0L          // commen slider styles
+#define  SS_SNAP            0x0002L
+#define  SS_SNAPDRAG        0x0004L
+#define  SS_CLICKSTEP       0x0008L
+#define  SS_LEFTTORIGHT     0L
+#define  SS_RIGHTTOLEFT     0x0010L
+#define  SS_TOPTOBOTTOM     0L
+#define  SS_BOTTOMTOTOP     0x0010L
+#define  SS_OWNERDRAW       0x4000L
+#define  SS_NOMOUSEFOCUS    0x8000L
+
+#define  SS_CROSSHAIRS      0x0040L     //  two dimensional slider styles
+
+/* Dial Class Styles */
+
+#define DLS_NORADAR         0x0000L     // No radar
+#define DLS_RADAR           0x0001L     // Radar-style Pie
+#define DLS_THINBORDER      0x0000L     // Thin border
+#define DLS_THICKBORDER     0x0002L     // Double border
+#define DLS_BEVEL           0x0000L     // Bevel border
+#define DLS_GROOVE          0x0004L     // Grooved border
+#define DLS_IN              0x0000L     // Bevel or Groove IN
+#define DLS_OUT             0x0008L     // Bevel or Groove OUT
+#define DLS_NOSTATIC        0x0000L     // Has mouse interaction
+#define DLS_STATIC          0x0010L     // No mouse interaction
+#define DLS_FULL            0x0000L     // Complete Dial
+#define DLS_HEMISPHERE      0x0020L     // Hemisphere
+#define DLS_NOTICKS         0x0000L     // No tickmarks
+#define DLS_TICKMARKS       0x0040L     // Tickmarks drawn
+#define DLS_OWNERDRAW       0x0080L     // ownerdraw
+
+/* Spinner Class Styles */
+
+#define SPS_VARROWS         0x0000L     // Mark spinner w/vertical arrows
+#define SPS_VTRIANGLES      0x0001L     // Mark spinner w/vertical triangles
+#define SPS_HARROWS         0x0002L     // Mark spinner w/horizontal arrows
+#define SPS_HTRIANGLES      0x0003L     // Mark spinner w/horizontal triangles
+#define SPS_PLUSMINUS       0x0004L     // Mark spinner with plus/minus
+#define SPS_SPINVERT        0x0000L     // Vertical spinner
+#define SPS_SPINHORZ        0x0008L     // Horizontal spinner
+#define SPS_SHOWTEXT        0x0010L     // Spinner has a text field
+#define SPS_EDITTEXT        0x0020L     // Spinner text field is edit ctl
+#define SPS_LEFTTEXT        0x0000L     // Left justify static Spinner text
+#define SPS_CENTERTEXT      0x0040L     // Center static Spinner text
+#define SPS_NOMOUSEFOCUS    0x0080L     // Do not set focus on mouse click
+#define SPS_SPINTOP         0x0100L     // Show Spinner TOP button only
+#define SPS_SPINBOTTOM      0x0108L     // Show Spinner BOTTOM button only
+
+/* Super Button Styles */
+
+#define PBS_PUSHBTN         0x0000L     // Standard push button    
+#define PBS_DEFPUSHBTN      0x0001L     // Default push button
+#define PBS_STATEBTN        0x0002L     // State push button
+#define PBS_SELECTUP        0x0004L     // Selected btn has Up border
+#define PBS_THINBEVEL       0x0008L     // Thin bevel on 3D button
+#define PBS_SHARPCORNERS    0x0010L     // Squared corners on button
+#define PBS_STDFOCUS        0x0020L     // Standard dotted focus rect style
+#define PBS_QUICKCLICK      0x0040L     // Click notifications on mouse/key down
+#define PBS_OWNERDRAW       0x0080L     // OwnerDraw SuperButton
+
+#define PBS_IMAGECC         0x0000L     // Text & Bitmap placed in center
+#define PBS_IMAGETL         0x0100L     // Text & Bitmap placed top left 
+#define PBS_IMAGETC         0x0200L     // Text & Bitmap placed top center
+#define PBS_IMAGETR         0x0300L     // Text & Bitmap placed top right
+#define PBS_IMAGECL         0x0400L     // Text & Bitmap placed center left
+#define PBS_IMAGECR         0x0500L     // Text & Bitmap placed center right
+#define PBS_IMAGEBL         0x0600L     // Text & Bitmap placed bottom left
+#define PBS_IMAGEBC         0x0700L     // Text & Bitmap placed bottom center
+#define PBS_IMAGEBR         0x0800L     // Text & Bitmap placed bottom right
+
+#define PBS_TXTUNDERBMP     0x0000L     // Text occurs bottom of bitmap
+#define PBS_TXTOVERBMP      0x1000L     // Text occurs top of bitmap
+#define PBS_TXTLEFTBMP      0x2000L     // Text occurs left of bitmap
+#define PBS_TXTRIGHTBMP     0x3000L     // Text occurs right of bitmap
+
+#define PBS_MUTEX           0x4000L     // Mutually-exclusive group of buttons
+
+#define PBS_NOMOUSEFOCUS    0x8000L     // Focus not set on click
+
+/* SPict structure types for Super Button images */
+
+#define SP_NONE     0           // No image is described by this structure.
+#define SP_ICO      1           // Icon.
+#define SP_WMF      2           // Windows Metafile.
+#define SP_BMP      3           // Bitmap.
+#define SP_BMPA     4           // Bitmap Array.
+#define SP_TBMP     5           // Transparent Bitmap.
+#define SP_TBMPA    6           // Transparent Bitmap Array.
+
+/* ColSwatch Class Styles */
+
+#define CSS_TOP             0x0000L          
+#define CSS_BOTTOM          0x0001L                         
+#define CSS_VCENTER         0x0003L                         
+#define CSS_LEFT            0x0000L                                
+#define CSS_RIGHT           0x0010L                         
+#define CSS_HCENTER         0x0030L
+
+#define CSS_STATIC          0x0000L
+#define CSS_EDIT            0x0100L
+#define CSS_CHECK           0x0200L
+#define CSS_RADIO           0x0300L                         
+          
+/* Tablist Class Styles */
+
+#define TLS_HORIZONTAL      0x0000L
+#define TLS_VERTICAL        0x0001L
+#define TLS_UPLEFT          0x0000L
+#define TLS_DOWNRIGHT       0x0002L
+#define TLS_LEFTTORIGHT     0x0000L
+#define TLS_RIGHTTOLEFT     0x0004L
+#define TLS_NOSNAP          0x0000L
+#define TLS_SNAPAFTER       0x0010L
+#define TLS_SNAPDRAG        0x0020L
+#define TLS_NOTICKS         0x0000L
+#define TLS_TICKMARKS       0x0008L
+#define TLS_NOTEXT          0x0000L
+#define TLS_TEXT            0x0040L
+#define TLS_MOUSEFOCUS      0x0000L
+#define TLS_NOMOUSEFOCUS    0x0080L
+
+// Color Selector Styles
+
+#define CPS_SLICE           0x0001L
+#define CPS_SPIKE           0x0002L
+#define CPS_BLACK           0x0004L
+
+#define CPS_SHOWLABLES      0x0008L
+
+#define CPS_SPIKEBOTTOM     0x0000L
+#define CPS_SPIKELEFT       0x0010L
+#define CPS_SPIKETOP        0x0020L
+#define CPS_SPIKERIGHT      0x0040L
+
+#define CPS_BLACKBOTTOM     0x0000L
+#define CPS_BLACKLEFT       0x0100L
+#define CPS_BLACKTOP        0x0200L
+#define CPS_BLACKRIGHT      0x0400L
+
+#define CPS_NOSNAP          0x0000L
+#define CPS_SNAP            0x1000L
+#define CPS_SNAPDRAG        0x2000L
+#define CPS_CLICKSTEP       0x4800L
+#define CPS_NOMOUSEFOCUS    0x8000L
+
+/* Picture List class styles */
+
+#define PLS_COLMAJOR       0x0000L
+#define PLS_ROWMAJOR       0x0001L
+#define PLS_NOLISTWRAP     0x0000L
+#define PLS_LISTWRAP       0x0002L
+#define PLS_INTEGRALHEIGHT 0x0004L
+#define PLS_INTEGRALWIDTH  0x0008L
+#define PLS_SINGLESEL      0x0000L
+#define PLS_MULTIPLESEL    0x0010L                            
+#define PLS_HASSCROLLBARS  0x0000L
+#define PLS_NOSCROLLBARS   0x0020L
+#define PLS_NOEXPANDEDCELL 0x0040L
+#define PLS_OWNERDRAW      0x0080L
+#define PLS_NOBUTTONLIKE   0x0100L
+#define PLS_NOFOCUSCARET   0x0200L
+
+/* Big Ruler class styles */
+
+#define BRS_SHOWPOS         0x0001L
+#define BRS_SHOWBOUNDS      0x0002L     
+#define BRS_NOTEXT          0x0004L
+#define BRS_NOMINUS         0x0008L
+#define BRS_NOBEVELTICKS    0x0010L
+
+/* RX Styles used with CTLM_SETRXSTYLE */
+
+#define RXS_BEVELIN         0x1000L     // Border types
+#define RXS_BEVELOUT        0x2000L
+#define RXS_GROOVE          0x3000L
+#define RXS_RIDGE           0x4000L
+#define RXS_SHADOW          0x5000L
+#define RXS_BORDER          0x6000L
+#define RXS_THINBORDER      0x0000L     // Border Thickness
+#define RXS_THICKBORDER     0x8000L     
+#define RXS_BORDERMASK      0x7000L     // Masks
+#define RXS_THICKNESSMASK   0x8000L         
+
+/* Windows Control definitions */
+
+#ifndef CBS_SIMPLE  // STANDARD WINDOW STYLES DEFINED
+
+#define CBS_SIMPLE                  0x0001L
+#define CBS_DROPDOWN                0x0002L
+#define CBS_DROPDOWNLIST            0x0003L
+#define CBS_OWNERDRAWFIXED          0x0010L
+#define CBS_OWNERDRAWVARIABLE       0x0020L
+#define CBS_AUTOHSCROLL             0x0040L
+#define CBS_OEMCONVERT              0x0080L
+#define CBS_SORT                    0x0100L
+#define CBS_HASSTRINGS              0x0200L
+#define CBS_NOINTEGRALHEIGHT        0x0400L
+
+#define LBS_NOTIFY                  0x0001L
+#define LBS_SORT                    0x0002L
+#define LBS_NOREDRAW                0x0004L
+#define LBS_MULTIPLESEL             0x0008L
+#define LBS_OWNERDRAWFIXED          0x0010L
+#define LBS_OWNERDRAWVARIABLE       0x0020L
+#define LBS_HASSTRINGS              0x0040L
+#define LBS_USETABSTOPS             0x0080L
+#define LBS_NOINTEGRALHEIGHT        0x0100L
+#define LBS_MULTICOLUMN             0x0200L
+#define LBS_WANTKEYBOARDINPUT       0x0400L
+#define LBS_EXTENDEDSEL             0x0800L
+#define LBS_STANDARD                LBS_NOTIFY + LBS_SORT + WS_VSCROLL + WS_BORDER
+
+#define ES_LEFT                     0x0000L
+#define ES_CENTER                   0x0001L
+#define ES_RIGHT                    0x0002L
+#define ES_MULTILINE                0x0004L
+#define ES_UPPERCASE                0x0008L
+#define ES_LOWERCASE                0x0010L
+#define ES_PASSWORD                 0x0020L
+#define ES_AUTOVSCROLL              0x0040L
+#define ES_AUTOHSCROLL              0x0080L
+#define ES_NOHIDESEL                0x0100L
+#define ES_OEMCONVERT               0x0400L
+
+#define SBS_HORZ                    0x0000L
+#define SBS_VERT                    0x0001L
+#define SBS_TOPALIGN                0x0002L
+#define SBS_LEFTALIGN               0x0002L
+#define SBS_BOTTOMALIGN             0x0004L
+#define SBS_RIGHTALIGN              0x0004L
+#define SBS_SIZEBOXTOPLEFTALIGN     0x0002L
+#define SBS_SIZEBOXBOTTOMRIGHTALIGN 0x0004L
+#define SBS_SIZEBOX                 0x0008L
+
+#endif  // STANDARD WINDOW STYLES
+
+/* RX resource types */
+
+#define RT_METAFILE 100
+#define RN_METAFILE "metafile"
+
+#define RT_RXTEXT   200
+
+/* Virtual key codes */
+#define VK_LBUTTON	    0x01    // As defined in windows.h
+#define VK_RBUTTON	    0x02
+#define VK_CANCEL	    0x03
+#define VK_MBUTTON      0x04
+#define VK_BACK 	    0x08
+#define VK_TAB		    0x09
+#define VK_CLEAR	    0x0C
+#define VK_RETURN	    0x0D
+#define VK_SHIFT	    0x10
+#define VK_CONTROL	    0x11
+#define VK_MENU 	    0x12
+#define VK_PAUSE	    0x13
+#define VK_CAPITAL	    0x14
+#define VK_ESCAPE	    0x1B
+#define VK_SPACE	    0x20
+#define VK_PRIOR	    0x21
+#define VK_NEXT 	    0x22
+#define VK_END		    0x23
+#define VK_HOME 	    0x24
+#define VK_LEFT 	    0x25
+#define VK_UP		    0x26
+#define VK_RIGHT	    0x27
+#define VK_DOWN 	    0x28
+#define VK_SELECT	    0x29
+#define VK_PRINT	    0x2A
+#define VK_EXECUTE	    0x2B
+#define VK_SNAPSHOT	    0x2C
+#define VK_INSERT	    0x2D
+#define VK_DELETE	    0x2E
+#define VK_HELP 	    0x2F
+#define VK_NUMPAD0	    0x60
+#define VK_NUMPAD1	    0x61
+#define VK_NUMPAD2	    0x62
+#define VK_NUMPAD3	    0x63
+#define VK_NUMPAD4	    0x64
+#define VK_NUMPAD5	    0x65
+#define VK_NUMPAD6	    0x66
+#define VK_NUMPAD7	    0x67
+#define VK_NUMPAD8	    0x68
+#define VK_NUMPAD9	    0x69
+#define VK_MULTIPLY	    0x6A
+#define VK_ADD		    0x6B
+#define VK_SEPARATOR	0x6C
+#define VK_SUBTRACT	    0x6D
+#define VK_DECIMAL	    0x6E
+#define VK_DIVIDE	    0x6F
+#define VK_F1		    0x70
+#define VK_F2		    0x71
+#define VK_F3		    0x72
+#define VK_F4		    0x73
+#define VK_F5		    0x74
+#define VK_F6		    0x75
+#define VK_F7		    0x76
+#define VK_F8		    0x77
+#define VK_F9		    0x78
+#define VK_F10		    0x79
+#define VK_F11		    0x7A
+#define VK_F12		    0x7B
+#define VK_F13		    0x7C
+#define VK_F14		    0x7D
+#define VK_F15		    0x7E
+#define VK_F16		    0x7F
+#define VK_F17		    0x80
+#define VK_F18		    0x81
+#define VK_F19		    0x82
+#define VK_F20		    0x83
+#define VK_F21		    0x84
+#define VK_F22		    0x85
+#define VK_F23		    0x86
+#define VK_F24		    0x87
+#define VK_NUMLOCK	    0x90
+#define VK_SCROLL       0x91
+
+#define VK_A            0x41    // ASCII equivalents, not defined in windows.h
+#define VK_B            0x42
+#define VK_C            0x43
+#define VK_D            0x44
+#define VK_E            0x45
+#define VK_F            0x46
+#define VK_G            0x47
+#define VK_H            0x48
+#define VK_I            0x49
+#define VK_J            0x4A
+#define VK_K            0x4B
+#define VK_L            0x4C
+#define VK_M            0x4D
+#define VK_N            0x4E
+#define VK_O            0x4F
+#define VK_P            0x50
+#define VK_Q            0x51
+#define VK_R            0x52
+#define VK_S            0x53
+#define VK_T            0x54
+#define VK_U            0x55
+#define VK_V            0x56
+#define VK_W            0x57
+#define VK_X            0x58
+#define VK_Y            0x59
+#define VK_Z            0x5A
+
+#define VK_0            0x30    // ASCII equivalents, not defined in windows.h
+#define VK_1            0x31
+#define VK_2            0x32
+#define VK_3            0x33
+#define VK_4            0x34
+#define VK_5            0x35
+#define VK_6            0x36
+#define VK_7            0x37
+#define VK_8            0x38
+#define VK_9            0x39
+
+/* Superbutton label macros */
+
+// States with text only
+
+#define SBUP                    "U:"
+#define SBPRE                   ";P:"
+#define SBDIS                   ";D:"
+#define SBIND                   ";I:"
+#define SBSEL(num)              ";S" #num  ":"
+
+// States with pictures and possibly text 
+
+#define SBUPX(offset)            "U"       "#" #offset ":"
+#define SBPREX(offset)           ";P"      "#" #offset ":"
+#define SBDISX(offset)           ";D"      "#" #offset ":"
+#define SBINDX(offset)           ";I"      "#" #offset ":"
+#define SBSELX(num,offset)       ";S" #num "#" #offset ":"
+
+// Std Picture button labels
+
+#define SB_STD_U               "U#0"      
+#define SB_STD_UD              "U#0;D#1"
+#define SB_STD_US              "U#0;S1#1"
+#define SB_STD_USD             "U#0;S1#1;D#2"
+#define SB_STD_UI              "U#0;I#1"
+
+/********************************** RX Commands *****************************/
+
+#ifdef RX_INVOKED
+
+default dialog                  /WP     /U RXCN_DIALOG /Op+ /Ov+
+default frame                   /WC /WV+ /Ov+
+default control                 /WC /WV+ /Ov+
+
+command paneldlg        dialog  /WP     /U RXCN_PANELDLG
+
+command spacer          control
+
+command extra           frame   /Op+    /U RXCN_PANELDLG
+command row             frame   /Cr     /U RXCN_NULL
+command column          frame   /Cc     /U RXCN_NULL
+command stack           frame   /Cs     /U RXCN_NULL
+command shadow          frame           /U RXCN_FRAME /E+ FCS_SHADOW  /E+ FCS_THIN
+command bevelin         frame           /U RXCN_FRAME /E+ FCS_BEVELIN /E+ FCS_THIN
+command bevelout        frame           /U RXCN_FRAME /E+ FCS_BEVELOUT  /E+ FCS_THIN
+command groove          frame           /U RXCN_FRAME /E+ FCS_GROOVE  /E+ FCS_THIN
+command ridge           frame           /U RXCN_FRAME /E+ FCS_RIDGE  /E+ FCS_THIN
+command group           frame           /U RXCN_FRAME /E+ FCS_GROUPBOX  /E+ FCS_THIN 
+command box             frame           /U RXCN_FRAME /E+ FCS_BORDER /E+ FCS_THIN
+command label           frame           /U RXCN_FRAME /E+ FCS_NONE /E+ FCS_THIN
+
+command hridge          control         /U RXCN_FRAME /E+ FCS_BEVELOUT /E+ FCS_THIN /Aw /Ph 2 
+command vridge          control         /U RXCN_FRAME /E+ FCS_BEVELOUT /E+ FCS_THIN /Ah /Pw 2 
+command hgroove         control         /U RXCN_FRAME /E+ FCS_BEVELIN /E+ FCS_THIN /Aw /Ph 2 
+command vgroove         control         /U RXCN_FRAME /E+ FCS_BEVELIN /E+ FCS_THIN /Ah /Pw 2 
+
+command push            control /T+     /U RXCN_PUSH 
+command defpush         control /T+     /U RXCN_PUSH /E+ PBS_DEFPUSHBTN
+command statepush       control /T+     /U RXCN_PUSH /E+ PBS_STATEBTN
+
+command check           control /T+     /U RXCN_CHECK /E+ CBS_CHECKBTN /E+ CBS_AUTO /E+ CBS_STDFOCUS
+command check_led1      control /T+     /U RXCN_CHECK /E+ CBS_SQUAREBTN1 /E+ CBS_AUTO /E+ CBS_STDFOCUS
+command check_led2      control /T+     /U RXCN_CHECK /E+ CBS_SQUAREBTN2 /E+ CBS_AUTO /E+ CBS_STDFOCUS
+command check_push_chk  control /T+     /U RXCN_CHECK /E+ CBS_PUSHBTNCHECK /E+ CBS_AUTO /E+ CBS_STDFOCUS
+command check_push_led  control /T+     /U RXCN_CHECK /E+ CBS_PUSHBTNSQUARE /E+ CBS_AUTO /E+ CBS_STDFOCUS
+
+command radio           control         /U RXCN_RADIO /E+ RBS_LED /E+ RBS_AUTO /E+ RBS_STDFOCUS
+command radio_led       control         /U RXCN_RADIO /E+ RBS_LED /E+ RBS_AUTO /E+ RBS_STDFOCUS
+command radio_dmd       control         /U RXCN_RADIO /E+ RBS_DIAMOND /E+ RBS_AUTO /E+ RBS_STDFOCUS
+command radio_push_led  control         /U RXCN_RADIO /E+ RBS_PUSHBTNLED /E+ RBS_AUTO /E+ RBS_STDFOCUS
+command radio_push_dmd  control         /U RXCN_RADIO /E+ RBS_PUSHBTNDMD /E+ RBS_AUTO /E+ RBS_STDFOCUS
+
+command panel           control /T+     /U RXCN_PICTUREBTN
+command panel_check     control /T+     /U RXCN_PICTUREBTN /E+ PBS_PICTURECHECKBOX
+command panel_radio     control /T+     /U RXCN_PICTUREBTN /E+ PBS_PICTURERADIOBTN
+command panel_push      control /T+     /U RXCN_PICTUREBTN /E+ PBS_PICTUREPUSHBTN
+
+command text            control         /U RXCN_TEXT /E+ TCS_LEFT /E+ TCS_MIDDLE
+command text_right      control         /U RXCN_TEXT /E+ TCS_RIGHT /E+ TCS_MIDDLE
+command text_centered   control         /U RXCN_TEXT /E+ TCS_CENTER /E+ TCS_MIDDLE
+command text_3d_in      control         /U RXCN_TEXT /E+ TCS_BEVELIN /E+ TCS_LEFT /E+ TCS_MIDDLE
+command text_3d_out     control         /U RXCN_TEXT /E+ TCS_BEVELOUT /E+ TCS_LEFT /E+ TCS_MIDDLE
+command text_shadow     control         /U RXCN_TEXT /E+ TCS_SHADOW /E+ TCS_LEFT /E+ TCS_MIDDLE
+command text_multiline  control         /U RXCN_TEXT /E+ TCS_MULTILINE /E+ TCS_LEFT /E+ TCS_TOP
+
+command hruler          control /Bl /AW /U RXCN_RULER /E+ RCS_HORZ
+command vruler          control /Bl /AH /U RXCN_RULER /E+ RCS_VERT
+
+command hbigruler       control /Bl /AW /U RXCN_BIGRULERH
+command vbigruler       control /Bl /AH /U RXCN_BIGRULERV
+
+command path            control /T+     /U RXCN_PATH /E+ PS_LEFT
+
+command picture_wmf     control         /U RXCN_PICTURE /E+ PCS_METAFILE 
+command picture_bmp     control         /U RXCN_PICTURE /E+ PCS_BITMAP
+command picture_ico     control         /U RXCN_PICTURE /E+ PCS_ICON
+
+command bk_solid        control         /U RXCN_BKGRND /E+ BCS_SOLID
+command bk_vgradient    control         /U RXCN_BKGRND /E+ BCS_VGRADIENT
+command bk_hgradient    control         /U RXCN_BKGRND /E+ BCS_HGRADIENT
+command bk_hatch        control         /U RXCN_BKGRND /E+ BCS_HATCH
+command bk_pattern      control         /U RXCN_BKGRND /E+ BCS_PATTERN
+command bk_ownerdraw    control         /U RXCN_BKGRND /E+ BCS_OWNERDRAW
+
+command vstatusbar      control         /U RXCN_STATUS /E+ SCS_BOTTOM2TOP /E+ SCS_SHOWPERCENT 
+command hstatusbar      control         /U RXCN_STATUS /E+ SCS_LEFT2RIGHT /E+ SCS_SHOWPERCENT 
+
+command vspinner        control         /U RXCN_SPINNER /E+ SPS_SPINVERT
+command hspinner        control         /U RXCN_SPINNER /E+ SPS_SPINHORZ
+command vspinedit       control         /U RXCN_SPINNER /E+ SPS_SPINVERT /E+ SPS_SHOWTEXT /E+ SPS_EDITTEXT
+
+command superpushbtn    control         /U RXCN_SUPERPUSHBTN /E+ PBS_PUSHBTN
+command superstatebtn   control         /U RXCN_SUPERPUSHBTN /E+ PBS_STATEBTN
+
+command vslider         control         /U RXCN_SLIDER   /E+ SS_VERTSLIDER
+command hslider         control         /U RXCN_SLIDER   /E+ SS_HORZSLIDER
+command slider2d        control         /U RXCN_SLIDER2D 
+
+command dial            control         /U RXCN_DIAL
+command halfdial        control         /U RXCN_DIAL /E+ DLS_HEMISPHERE
+command radar           control         /U RXCN_DIAL /E+ DLS_RADAR
+command halfradar       control         /U RXCN_DIAL /E+ DLS_RADAR /E+ DLS_HEMISPHERE
+
+command colswatchedit   control         /U RXCN_COLSWATCH /E+ CSS_EDIT
+command colswatchstatic control         /U RXCN_COLSWATCH /E+ CSS_STATIC
+command colswatchcheck  control         /U RXCN_COLSWATCH /E+ CSS_CHECK
+command colswatchradio  control         /U RXCN_COLSWATCH /E+ CSS_RADIO
+
+command vltablisttext   control         /U RXCN_TABLIST /E+ TLS_VERTICAL /E+ TLS_TEXT
+command vrtablisttext   control         /U RXCN_TABLIST /E+ TLS_VERTICAL /E+ TLS_TEXT /E+ TLS_DOWNRIGHT
+command hdtablisttext   control         /U RXCN_TABLIST /E+ TLS_HORIZONTAL /E+ TLS_TEXT  /E+ TLS_DOWNRIGHT
+command httablisttext   control         /U RXCN_TABLIST /E+ TLS_HORIZONTAL /E+ TLS_TEXT 
+command vltablist       control         /U RXCN_TABLIST /E+ TLS_VERTICAL 
+command vrtablist       control         /U RXCN_TABLIST /E+ TLS_VERTICAL /E+ TLS_DOWNRIGHT
+command hdtablist       control         /U RXCN_TABLIST /E+ TLS_HORIZONTAL  /E+ TLS_DOWNRIGHT
+command httablist       control         /U RXCN_TABLIST /E+ TLS_HORIZONTAL
+
+command pictlist        control          /U RXCN_PICTLIST
+command colorpicker     control          /U RXCN_COLORPICKER
+
+command edit            control /T+ /Bl /U RXCN_EDIT
+command hscroll         control         /U RXCN_HSCROLL
+command vscroll         control         /U RXCN_VSCROLL
+command listbox         control         /U RXCN_LISTBOX
+command comboedit       control         /U RXCN_COMBOEDIT
+command comboeditlist   control         /U RXCN_COMBOLIST /E+ CBS_DROPDOWN
+command combolist       control         /U RXCN_COMBOLIST /E+ CBS_DROPDOWNLIST
+command spin            control         /U RXCN_SPIN
+command iconref         control         /U RXCN_ICON
+command rect            control         /U RXCN_RECT
+command hline           control         /U RXCN_LINE /Aw /Ph 0
+command vline           control         /U RXCN_LINE /Ah /Pw 0
+
+command separator   item    /Ms+
+
+pattern paneldef      w: 1 w: 2 b: 2 w: 1
+pattern picturedef    w: 3
+pattern bkdef         w: 1 d: 2
+pattern bksolid       w: 1 c 0 d: 1  d: 1 c 0
+pattern bkgrad        w: 1 c 0 d: 2
+pattern statuspct     w: 1
+pattern dropheight    w: 1
+pattern sliderdata    w: 6
+pattern slider2ddata  w: 10
+pattern spindata      w: 3 d: 2 w: 1 c 1
+pattern spinincrdata  w: 3 d: 2 w: 1
+pattern dialdata      w: 5
+pattern colswatchdata d: 1
+pattern tablistdata   w: 5
+pattern pictlistdata  w: 5
+pattern check1color   d: 1 d: 1 c -1L // -1 matches CTLCOLOR_DEFAULT
+pattern check2color   d: 2
+pattern textdef       w: 2
+
+
+/* Super Button create struct patterns */
+pattern spbtn_no_pict     w: 1 w: 1 c SP_NONE
+pattern spbtn_bmp_pict    w: 1 w: 1 c SP_BMP    w: 1
+pattern spbtn_ico_pict    w: 1 w: 1 c SP_ICO    w: 1
+pattern spbtn_wmf_pict    w: 1 w: 1 c SP_WMF    w: 1
+pattern spbtn_bmpa_pict   w: 1 w: 1 c SP_BMPA   w: 1 w: 2 b: 2 w: 1 c 0
+pattern spbtn_bmpaf_pict  w: 1 w: 1 c SP_BMPA   w: 1 w: 2 b: 2 w: 1 c 1
+pattern spbtn_tbmp_pict   w: 1 w: 1 c SP_TBMP   w: 1 d: 1
+pattern spbtn_tbmpa_pict  w: 1 w: 1 c SP_TBMPA  w: 1 w: 2 b: 2 w: 1 c 0 d: 1
+pattern spbtn_tbmpaf_pict w: 1 w: 1 c SP_TBMPA  w: 1 w: 2 b: 2 w: 1 c 1 d: 1
+
+#endif
+
+
+#endif // __MGXRX_RH_
+
+
+

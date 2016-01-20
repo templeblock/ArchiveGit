@@ -1,0 +1,26 @@
+HKCR
+{
+	AgOutlookAddIn.BrowserHelperObj.1 = s 'Creata Mail Helper'
+	{
+		CLSID = s '{9FEA5BDA-695A-417B-AA31-B54A06570053}'
+	}
+	AgOutlookAddIn.BrowserHelperObj = s 'Creata Mail Helper'
+	{
+		CLSID = s '{9FEA5BDA-695A-417B-AA31-B54A06570053}'
+		CurVer = s 'AgOutlookAddIn.BrowserHelperObj.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9FEA5BDA-695A-417B-AA31-B54A06570053} = s 'Creata Mail Helper'
+		{
+			ProgID = s 'AgOutlookAddIn.BrowserHelperObj.1'
+			VersionIndependentProgID = s 'AgOutlookAddIn.BrowserHelperObj'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EDDBDEA4-5C07-453F-BE8C-81D738984381}'
+		}
+	}
+}

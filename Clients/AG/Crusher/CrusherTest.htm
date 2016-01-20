@@ -1,0 +1,149 @@
+<html>
+	<head>
+		<script language="javascript">
+		var blnAgree = true;
+		var blnRights = true;
+
+		function Upload()
+		{
+			if (blnAgree == true && blnRights == false)
+			{ 
+				alert('You must own the rights to the photo and agree to our terms of service before uploading photos.');
+				return false;
+			}
+
+			var plugin = null;
+			try
+			{
+				plugin = new ActiveXObject('Crusher.Plugin');
+				if (!plugin)
+					throw '';
+			}
+			catch(error)
+			{
+				alert('The Crusher plugin does not exist');
+				return false;
+			}
+
+			var strFileName = '';
+			var strNewFileName = '';
+			var strForm = '';
+
+			for (var i = 0;  i < document.photoForm.elements.length; i++)
+			{
+				var str = '';
+				var e = document.photoForm.elements[i];
+				if (e.type == 'file' && e.value != '')
+					str = e.name + ':~' + e.value;
+				else
+					str = e.name + ':' + e.value;
+
+				strForm += str;
+				strForm += '|\n';
+			}
+
+			try
+			{
+				var strURL = "http://dev.americangreetings.com/cgi-bin/flashalbum/t2.pl";
+				var strReturn = plugin.UploadImages(strURL, strForm, 350/*iMaxWidth*/, 206/*iMaxHeight*/, 70/*nQuality*/, 12/*iFlags*/);
+				alert('UploadImages returns: "' + strReturn + '"');
+			}
+			catch(error)
+			{
+				alert('The Crusher plugin does not have a UploadImages function');
+				return;
+			}
+
+			return true;
+		}
+
+		// AddAPhoto2
+		function openAddaphoto2Pop()
+		{
+			aWindow=window.open('$ahost/popup/addaphoto.pd#terms', 'Addaphoto2', width=400, height=320, resizable=yes, scrollbars=yes, toolbar=no);
+			aWindow.focus();
+		}
+		</script>
+	</head>
+	<body>
+		<table width="100%" cellpadding="2" cellspacing="0" border="0" id="Table1">
+			<tr>
+				<td align="left">
+					<span class="memhead">Choose Photos To Put In Your Photo Album Greetings:</span>
+				</td>
+			</tr>
+		</table>
+		<form enctype="multipart/form-data" action="http://dev.americangreetings.com/cgi-bin/flashalbum/t2.pl" method="POST" name="photoForm" id="Form1">
+			<table border="0" cellspacing="0" cellpadding="2" id="Table2">
+				<tr>
+					<td align="left" valign="top" class="text">Photo Album Title:<br>
+						<input type="text" name="pn1605" size="25" maxlength="40" value="" id="Text1">
+					</td>
+				</tr>
+				<tr>
+					<table border="0" cellspacing="0" cellpadding="5" id="Table3">
+						<tr>
+							<td class="text">Photo Caption:</td>
+							<td class="text">Location:</td>
+						</tr>
+						<tr>
+							<td><input type="text" name="pn1629" size="25" maxlength="40" value="" id="Text2"></td>
+							<td></td>
+							<td><input type="file" name="pn1628" size="25" accept="image/jpeg" id="File2"></td>
+						</tr>
+						<tr>
+							<td><input type="text" name="pn1631" size="25" maxlength="40" value="" id="Text3"></td>
+							<td></td>
+							<td><input type="file" name="pn1630" size="25" accept="image/jpeg" id="File3"></td>
+						</tr>
+						<tr>
+							<td><input type="text" name="pn1633" size="25" maxlength="40" value="" id="Text4"></td>
+							<td></td>
+							<td><input type="file" name="pn1632" size="25" accept="image/jpeg" id="File4"></td>
+						</tr>
+						<tr>
+							<td><input type="text" name="pn1635" size="25" maxlength="40" value="" id="Text5"></td>
+							<td></td>
+							<td><input type="file" name="pn1634" size="25" accept="image/jpeg" id="File5"></td>
+						</tr>
+						<tr>
+							<td><input type="text" name="pn1637" size="25" maxlength="40" value="" id="Text6"></td>
+							<td></td>
+							<td><input type="file" name="pn1636" size="25" accept="image/jpeg" id="File6"></td>
+						</tr>
+						<tr>
+							<td><input type="text" name="pn1639" size="25" maxlength="40" value="" id="Text7"></td>
+							<td></td>
+							<td><input type="file" name="pn1638" size="25" accept="image/jpeg" id="File7"></td>
+						</tr>
+					</table>
+				</tr>
+				<tr>
+					<td valign="bottom" class="text">
+						<b>Note: Photos will be shown in the same order as you listed above.</b><br>
+					</td>
+				</tr>
+				<tr>
+					<td valign="bottom" class="textsmall">
+						<br>
+						Do you own the rights to this photo and<br>
+						agree to our <a href="Javascript:openAddaphoto2Pop()">terms of service?</a><br>
+						<input type="radio" name="rights" value="Y" onclick="blnRights=true" checked id="radio1">Yes
+						<input type="radio" name="rights" value="N" onclick="blnRights=false" id="Radio2">No
+						<input type="hidden" name="agree" value="Y" id="Hidden1">
+						<input type="hidden" name="mode" value="submit" id="Hidden2">
+						<input type="hidden" name="FilePers" value="1628" id="Hidden3">
+						<input type="hidden" name="CapPers" value="1629" id="Hidden4">
+						<input type="hidden" name="TitlePers" value="1605" id="Hidden5">
+					</td>
+				</tr>
+			</table>
+			<br>
+			<a href="Javascript://" onclick="Upload()"><img src="http://dev.imgag.com/ag/button/send.gif" border="0"></a>
+		</form>
+		<object id="crusher" style="visibility: hidden;" hspace="0" vspace="0" border="0" width="100" height="100" classid="clsid:BD8667B7-38D8-4C77-B580-18C3E146372C" codebase="http://10.10.240.145/cnp/ol/Crusher.cab#version=1,0,0,5" viewastext>
+			<!--iframe width="100%" height="100%" frameborder=0 src="http://www.americangreetings.com/cnp/noactivex.htm">
+		</iframe-->
+		</object>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\prsht.idl";
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\mshtml.idl";
+import "d:\program files\microsoft visual studio 8\vc\platformsdk\include\dimm.idl";
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\mshtmhst.idl";
+import "d:\program files\microsoft visual studio 8\vc\platformsdk\include\docobj.idl";
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\exdisp.idl";
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\objsafe.idl";
+
+[
+	object,
+	uuid(750976F5-86CA-4D8F-9103-EA07FC9DB611),
+	dual,
+	helpstring("IImageControl Interface"),
+	pointer_default(unique)
+] 
+#line 15 "c:\\my projects\\agapplications\\printathome\\imagecontrol\\imagecontrol.h"
+interface IImageControl : IDispatch {
+#line 18 "c:\\my projects\\agapplications\\printathome\\imagecontrol\\imagecontrol.h"
+	[id(1)] HRESULT  DoCommand([in] BSTR strCommand, [in] BSTR strValue, [out,retval] long *plResult);
+	[id(2)] HRESULT  GetCommand([in] BSTR strCommand, [out,retval] long *plResult);
+#line 22 "c:\\my projects\\agapplications\\printathome\\imagecontrol\\imagecontrol.h"
+	[propget,bindable,requestedit,id(-515)] HRESULT  HWND([out,retval] long *pHWND);
+	[propput,bindable,requestedit,id(-501)] HRESULT  BackColor([in] OLE_COLOR clr);
+	[propget,bindable,requestedit,id(-501)] HRESULT  BackColor([out,retval] OLE_COLOR *pclr);
+	[propput,bindable,requestedit,id(-502)] HRESULT  BackStyle([in] long style);
+	[propget,bindable,requestedit,id(-502)] HRESULT  BackStyle([out,retval] long *pstyle);
+	[propput,bindable,requestedit,id(-503)] HRESULT  BorderColor([in] OLE_COLOR clr);
+	[propget,bindable,requestedit,id(-503)] HRESULT  BorderColor([out,retval] OLE_COLOR *pclr);
+	[propput,bindable,requestedit,id(-504)] HRESULT  BorderStyle([in] long style);
+	[propget,bindable,requestedit,id(-504)] HRESULT  BorderStyle([out,retval] long *pstyle);
+	[propput,bindable,requestedit,id(-505)] HRESULT  BorderWidth([in] long width);
+	[propget,bindable,requestedit,id(-505)] HRESULT  BorderWidth([out,retval] long *width);
+	[propput,bindable,requestedit,id(-519)] HRESULT  BorderVisible([in] VARIANT_BOOL vbool);
+	[propget,bindable,requestedit,id(-519)] HRESULT  BorderVisible([out,retval] VARIANT_BOOL *pbool);
+	[propput,bindable,requestedit,id(-524)] HRESULT  Valid([in] VARIANT_BOOL vbool);
+	[propget,bindable,requestedit,id(-524)] HRESULT  Valid([out,retval] VARIANT_BOOL *pbool);
+};
+
+
+[ version(1.0), uuid(093C0E16-C4B2-40CF-B29D-6B4A66557604), helpstring("ImageControl 1.0 Type Library") ]
+library ImageControlModule
+{
+	importlib("stdole2.tlb");
+	importlib("olepro32.dll");
+
+	[
+		uuid(FE2FC027-8743-4F05-90F3-BBE79D22F4CE),
+		helpstring("_IImageControlEvents Interface")
+	] 
+#line 46 "c:\\my projects\\agapplications\\printathome\\imagecontrol\\imagecontrol.h"
+	dispinterface _IImageControlEvents {
+	properties:
+
+	methods:
+	};
+
+	[
+		control,
+		version(1.0),
+		uuid(266D1DBF-1107-4529-A48F-0FFBAE7351D1),
+		helpstring("ImageControl Class")
+	] 
+#line 68 "c:\\my projects\\agapplications\\printathome\\imagecontrol\\imagecontrol.h"
+	coclass CImageControl {
+		[default]	interface IImageControl;
+		[default, source]	interface _IImageControlEvents;
+	};
+
+}
+

@@ -1,0 +1,99 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "CIndex"=.\CINDEX\Cindexnt.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/PMW", UYAAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PNG Library"=.\PNG\Png32.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/PMW", UYAAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ZLIB Library"=.\ZLIB\Zlib32.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/PMW", UYAAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "artmhub"=.\artmhub\artmhub.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "artmore"=.\artmore.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name CIndex
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PNG Library
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ZLIB Library
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+    {94FB2C46-512E-11D2-8BEF-00A0C9B12C3D}
+}}}
+
+###############################################################################
+

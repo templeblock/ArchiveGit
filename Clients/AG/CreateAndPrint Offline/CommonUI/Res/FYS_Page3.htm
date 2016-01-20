@@ -1,0 +1,1099 @@
+<HTML>
+	<HEAD>
+		<TITLE>AmericanGreetings.com - Introducing Paper Cards</TITLE>
+		<script language="javascript">
+<!--
+//Generic Open Window
+function OpenNewWindow(url,winwidth,winheight,bar)
+{
+  NewWindow = window.open(url,'descr','toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,copyhistory=no,width='+winwidth+',height='+winheight+',scrollbars='+bar)
+}
+//-->
+		</script>
+		<link href="http://localhost/dataupload/8_StyleSheet_win_ie.css" type="text/css" rel="stylesheet">
+			<!--
+'-----------------------------------------------------'
+'Version 			: 3.1.2.100
+'Product Version	: 3.1
+'Author				: Rajesh
+'Comment			: Base file
+'-----------------------------------------------------'
+-->
+			<script language="javascript">
+<!--
+/////////////////////////EMAIL CHECK STARTS HERE////////////////////////////////////////
+
+function isEmail(who)  //Entry Point Without RegExps
+{
+	function isEmpty(who) 
+	{
+		var testArr=who.split("");
+		if(testArr.length==0)
+			return true;
+		var toggle=0;
+		for(var i=0; i<testArr.length; i++) {
+			if(testArr[i]==" ") {
+				toggle=1;
+				break;
+			}
+		}
+		if(toggle)
+			return true;
+		return false;
+	}
+
+	function isValid(who) 
+	{
+		var invalidChars=new Array("~","!","@","#","$","%","^","&","*","(",")","+","=","[","]",":",";",",","\"","'","|","{","}","\\","/","<",">","?");
+		var testArr=who.split("");
+		for(var i=0; i<testArr.length; i++) {
+			for(var j=0; j<invalidChars.length; j++) {
+				if(testArr[i]==invalidChars[j]) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	function isfl(who) 
+	{
+		var invalidChars=new Array("-","_",".");
+		var testArr=who.split("");
+		which=0;
+		for(var i=0; i<2; i++) {
+			for(var j=0; j<invalidChars.length; j++) {
+				if(testArr[which]==invalidChars[j]) {
+					return false;
+				}
+			}
+			which=testArr.length-1;
+		}
+		return true;
+	}
+
+	function isDomain(who) 
+	{
+		var invalidChars=new Array("-","_",".");
+		var testArr=who.split("");
+		if(testArr.length<2||testArr.length>4) {
+			return false;
+		}
+		for(var i=0; i<testArr.length; i++) {
+			for(var j=0; j<invalidChars.length; j++) {
+				if(testArr[i]==invalidChars[j]) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+
+	var testArr=who.split("@");
+	if(testArr.length<=1||testArr.length>2) {
+		return false;
+	}
+	else {
+		if(isValid(testArr[0])&&isfl(testArr[0])&&isValid(testArr[1])) {
+			if(!isEmpty(testArr[testArr.length-1])&&!isEmpty(testArr[0])) {
+				var testArr2=testArr[testArr.length-1].split(".");
+				if(testArr2.length>=2) {
+					var toggle=1;
+					for(var i=0; i<testArr2.length; i++) {
+						if(isEmpty(testArr2[i])||!isfl(testArr2[i])) {
+							toggle=0;
+							break;
+						}
+					}
+					if(toggle&&isDomain(testArr2[testArr2.length-1]))
+						return true;
+					return false;
+				}
+				return false;
+			}
+		}
+	}
+}
+
+function isEmail2(who) //Entry Point With RegExps
+{
+	var email=/^[A-Za-z0-9]+([_\.-][A-Za-z0-9]+)*@[A-Za-z0-9]+([_\.-][A-Za-z0-9]+)*\.([A-Za-z]){2,4}$/i;
+	return(email.test(who));
+}
+/////////////////////////EMAIL CHECK ENDS HERE////////////////////////////////////////
+function ShowBalance(amt)
+{
+var amtCorp;
+amtCorp = document.form1.purchasedamt.value;
+
+	if (isNaN(amtCorp))
+	{
+		alert ("Amount should be numeric.")
+		document.form1.purchasedamt.focus();
+		return false;
+	}
+	else if (amtCorp>amt)
+	{
+		alert ("Amount should be <= to amount available.")
+		document.form1.purchasedamt.focus();
+		return false;
+	}
+	else
+	{
+		document.form1.ccamt.value=(amt-amtCorp)
+		return true;
+	}
+	
+	
+}                                                                                                                                                                                                                                                   
+
+function Continueonclick()
+{
+	document.form1.CardNumber.value="";
+	document.form1.fname.value="";
+	document.form1.lname.value="";
+	document.form1.Street1.value="";
+	document.form1.Street2.value="";
+	document.form1.City.value="";
+	document.form1.Zip.value="";
+
+	document.form1.UserEMail.value="";
+		
+	document.form1.method="post";
+	//document.form1.action="/Billing/8/Exit.asp?nextmodule=carddisplay";
+	document.form1.action="http://americangreetings.4yoursoul.com/Billing/8/Exit.asp?nextmodule=carddisplay"
+	document.form1.submit();
+	
+}  
+
+function ProcessOnClick()
+{	
+	var retval;
+	var retvalforcc;
+	retval=false;
+	retvalforcc=false;
+	
+	{
+		window.returnValue = "REMOTE";
+		window.close();
+		return;
+		
+	}
+//		retval=check();
+//		if (retval != false) { retvalforcc=CheckCardNumber(); }
+//		if (retval != false && retvalforcc != false )
+//			{document.form1.submit();} 		
+//		else	
+//			{return;}			
+}
+
+function checkEmail()
+{
+    if(!isEmail(document.form1.UserEMail.value))
+    {
+		alert("Please enter a valid Email");
+		document.form1.UserEMail.focus();
+		return false;
+    }
+  	return true;  	
+}
+
+function check() 
+{
+  // validations of the page
+	var anywarning;
+	anywarning = "no";
+	if (document.form1.fname.value=="")
+    {
+      alert("Please enter your First Name");
+      document.form1.fname.focus();
+      anywarning = "yes";
+    }
+	else if (document.form1.lname.value=="")
+    {
+      alert("Please enter your Last Name");
+      document.form1.lname.focus();
+      anywarning = "yes";
+    }
+     
+	else if (document.form1.Street1.value=="")
+    {
+      alert("Please enter Street1");
+      document.form1.Street1.focus();
+      anywarning = "yes";
+      //return false;
+    } 
+	else if (document.form1.Street1.value.length > 30)
+    {
+      alert(" Street1 shouldnot be greatar than Thirty characters");
+      document.form1.Street1.focus();
+      anywarning = "yes";
+      //return false;
+    } 
+     
+	else if (document.form1.Street2.value.length > 30)
+    {
+      alert(" Street2 shouldnot be greatar than Thirty characters");
+      document.form1.Street2.focus();
+      anywarning = "yes";
+      //return false;
+    } 
+     
+    else if(document.form1.City.value=="")
+    {
+     alert("Please enter City");
+     document.form1.City.focus();
+      anywarning = "yes";
+      //return false;
+    } 
+	else if (document.form1.City.value.length > 20)
+    {
+      alert(" City shouldnot be greatar than Twenty characters");
+      document.form1.City.focus();
+      anywarning = "yes";
+      //return false;
+    } 
+    
+	else if (document.form1["State"][document.form1.elements["State"].selectedIndex].value=="")
+	{
+		alert("Please select the State");
+		document.form1.State.focus();
+		return false;
+	}
+	else if(document.form1.Zip.value=="")
+    {
+		alert("Please enter Zip");
+		document.form1.Zip.focus();
+		anywarning = "yes";
+		//return false;
+    } 
+    else if (document.form1.Zip.value.length > 10)
+    {
+      alert(" Zip should not be greatar than Ten characters");
+      document.form1.Zip.focus();
+      anywarning = "yes"; 
+      //return false;
+   } 
+	else if(document.form1.Telephone.value=="")
+    {
+		alert("Please enter Telephone no");
+		document.form1.Telephone.focus();
+		anywarning = "yes";
+		//return false;
+    } 
+    else if(!isEmail(document.form1.UserEMail.value))
+    {
+		alert("Please enter a valid Email");
+		document.form1.UserEMail.focus();
+		anywarning = "yes";
+    }
+
+///////////// BEGIN EMAIL JAVASCRIPT CHECK CODE ///////// 
+
+  if (anywarning == "no")	
+	return true;	
+  else	
+  	return false;  	
+  	
+ }  
+//--> 
+			</script>
+			<script language="javascript">
+<!-- Original:  Simon Tneoh (tneohcb@pc.jaring.my) -->
+
+<!-- Begin
+var Cards = new makeArray(5);
+
+Cards[0] = new CardType("MasterCard", "51,52,53,54,55", "16");
+var MasterCard = Cards[0];
+Cards[1] = new CardType("VisaCard", "4", "13,16");
+var VisaCard = Cards[1];
+Cards[2] = new CardType("AmExCard", "34,37", "15");
+var AmExCard = Cards[2];
+Cards[3] = new CardType("DinersClubCard", "30,36,38", "14");
+var DinersClubCard = Cards[3];
+var LuhnCheckSum = Cards[4] = new CardType();
+
+
+/*************************************************************************\
+CheckCardNumber(form)
+function called when users click the "check" button.
+\*************************************************************************/
+function xCheckCardNumber() {
+	var check;
+	check=CheckCardNumber();
+	alert(check);
+}
+function CheckCardNumber() {
+	var tmpyear;
+	
+		if (document.form1.CardNumber.value.length == 0) {
+			alert("Please enter a Card Number.");
+			document.form1.CardNumber.focus();
+			return false;
+		}
+		if (document.form1.ExpYear.options[document.form1.ExpYear.selectedIndex].value.length == 0) {
+			alert("Please enter the Expiration Year.");
+			document.form1.ExpYear.focus();
+			return false;
+		}
+		else if (document.form1.ExpYear.options[document.form1.ExpYear.selectedIndex].value >= 2000)
+			//tmpyear = document.form1.ExpYear.value;
+			tmpyear = document.form1.ExpYear.options[document.form1.ExpYear.selectedIndex].value;
+		else if (document.form1.ExpYear.options[document.form1.ExpYear.selectedIndex].value < 2000) {
+			alert("The Expiration Year is not valid.");
+			return false;
+		}
+		
+		
+			tmpmonth = document.form1.ExpMon.options[document.form1.ExpMon.selectedIndex].value;
+			// The following line doesn't work in IE3, you need to change it
+			// to something like "(new CardType())...".
+			// if (!CardType().isExpiryDate(tmpyear, tmpmonth)) {
+			if (!(new CardType()).isExpiryDate(tmpyear, tmpmonth)) {
+				alert("This card has already expired.");
+				return false;
+			}
+			card = document.form1.CardType.options[document.form1.CardType.selectedIndex].value;
+			var retval = eval(card + ".checkCardNumber(\"" + document.form1.CardNumber.value + "\", " + tmpyear + ", " + tmpmonth + ");");
+			cardname = "";
+			if (retval){
+				// comment this out if used on an order form
+				//alert("This card number appears to be valid.");
+				return true;
+				}
+			else {
+				// The cardnumber has the valid luhn checksum, but we want to know which
+				// cardtype it belongs to.
+				for (var n = 0; n < Cards.size; n++) {
+					alert(document.form1.CardNumber.value);
+					if (Cards[n].checkCardNumber(document.form1.CardNumber.value, tmpyear, tmpmonth)) {
+						cardname = Cards[n].getCardType();
+						break;
+					}
+				}
+				if (cardname.length > 0) {
+					alert("This looks like a " + cardname + " number, not a " + card + " number.");
+					return false;
+				}
+				else {
+					alert("This card number is not valid.");
+					return false;
+				}
+			}
+		
+		return true;
+	
+}
+/*************************************************************************\
+Object CardType([String cardtype, String rules, String len, int year, 
+                                        int month])
+cardtype    : type of card, eg: MasterCard, Visa, etc.
+rules       : rules of the cardnumber, eg: "4", "6011", "34,37".
+len         : valid length of cardnumber, eg: "16,19", "13,16".
+year        : year of expiry date.
+month       : month of expiry date.
+eg:
+var VisaCard = new CardType("Visa", "4", "16");
+var AmExCard = new CardType("AmEx", "34,37", "15");
+\*************************************************************************/
+function CardType() {
+var n;
+var argv = CardType.arguments;
+var argc = CardType.arguments.length;
+this.objname = "object CardType";
+
+var tmpcardtype = (argc > 0) ? argv[0] : "CardObject";
+var tmprules = (argc > 1) ? argv[1] : "0,1,2,3,4,5,6,7,8,9";
+var tmplen = (argc > 2) ? argv[2] : "13,14,15,16,19";
+
+this.setCardNumber = setCardNumber;  // set CardNumber method.
+this.setCardType = setCardType;  // setCardType method.
+this.setLen = setLen;  // setLen method.
+this.setRules = setRules;  // setRules method.
+this.setExpiryDate = setExpiryDate;  // setExpiryDate method.
+
+this.setCardType(tmpcardtype);
+this.setLen(tmplen);
+this.setRules(tmprules);
+if (argc > 4)
+this.setExpiryDate(argv[3], argv[4]);
+
+this.checkCardNumber = checkCardNumber;  // checkCardNumber method.
+this.getExpiryDate = getExpiryDate;  // getExpiryDate method.
+this.getCardType = getCardType;  // getCardType method.
+this.isCardNumber = isCardNumber;  // isCardNumber method.
+this.isExpiryDate = isExpiryDate;  // isExpiryDate method.
+this.luhnCheck = luhnCheck;// luhnCheck method.
+return this;
+}
+
+/*************************************************************************\
+boolean checkCardNumber([String cardnumber, int year, int month])
+return true if cardnumber pass the luhncheck and the expiry date is
+valid, else return false.
+\*************************************************************************/
+function checkCardNumber() {
+var argv = checkCardNumber.arguments;
+var argc = checkCardNumber.arguments.length;
+var cardnumber = (argc > 0) ? argv[0] : this.cardnumber;
+var year = (argc > 1) ? argv[1] : this.year;
+var month = (argc > 2) ? argv[2] : this.month;
+
+this.setCardNumber(cardnumber);
+this.setExpiryDate(year, month);
+
+if (!this.isCardNumber())
+	return false;
+if (!this.isExpiryDate())
+	return false;
+
+return true;
+}
+/*************************************************************************\
+String getCardType()
+return the cardtype.
+\*************************************************************************/
+function getCardType() {
+return this.cardtype;
+}
+/*************************************************************************\
+String getExpiryDate()
+return the expiry date.
+\*************************************************************************/
+function getExpiryDate() {
+return this.month + "/" + this.year;
+}
+/*************************************************************************\
+boolean isCardNumber([String cardnumber])
+return true if cardnumber pass the luhncheck and the rules, else return
+false.
+\*************************************************************************/
+function isCardNumber() {
+var argv = isCardNumber.arguments;
+var argc = isCardNumber.arguments.length;
+var cardnumber = (argc > 0) ? argv[0] : this.cardnumber;
+if (!this.luhnCheck())
+	return false;
+
+for (var n = 0; n < this.len.size; n++)
+if (cardnumber.toString().length == this.len[n]) {
+for (var m = 0; m < this.rules.size; m++) {
+var headdigit = cardnumber.substring(0, this.rules[m].toString().length);
+if (headdigit == this.rules[m])
+	return true;
+}
+return false;
+}
+return false;
+}
+
+/*************************************************************************\
+boolean isExpiryDate([int year, int month])
+return true if the date is a valid expiry date,
+else return false.
+\*************************************************************************/
+function isExpiryDate() {
+var argv = isExpiryDate.arguments;
+var argc = isExpiryDate.arguments.length;
+
+year = argc > 0 ? argv[0] : this.year;
+month = argc > 1 ? argv[1] : this.month;
+
+if (!isNum(year+""))
+	return false;
+if (!isNum(month+""))
+	return false;
+today = new Date();
+expiry = new Date(year, month);
+if (today.getTime() > expiry.getTime())
+	return false;
+else
+	return true;
+}
+
+/*************************************************************************\
+boolean isNum(String argvalue)
+return true if argvalue contains only numeric characters,
+else return false.
+\*************************************************************************/
+function isNum(argvalue) {
+argvalue = argvalue.toString();
+
+if (argvalue.length == 0)
+	return false;
+
+for (var n = 0; n < argvalue.length; n++)
+if (argvalue.substring(n, n+1) < "0" || argvalue.substring(n, n+1) > "9")
+	return false;
+
+return true;
+}
+
+/*************************************************************************\
+boolean luhnCheck([String CardNumber])
+return true if CardNumber pass the luhn check else return false.
+Reference: http://www.ling.nwu.edu/~sburke/pub/luhn_lib.pl
+\*************************************************************************/
+function luhnCheck() {
+var argv = luhnCheck.arguments;
+var argc = luhnCheck.arguments.length;
+
+var CardNumber = argc > 0 ? argv[0] : this.cardnumber;
+
+if (! isNum(CardNumber)) {
+return false;
+  }
+
+var no_digit = CardNumber.length;
+var oddoeven = no_digit & 1;
+var sum = 0;
+
+for (var count = 0; count < no_digit; count++) {
+var digit = parseInt(CardNumber.charAt(count));
+if (!((count & 1) ^ oddoeven)) {
+digit *= 2;
+if (digit > 9)
+digit -= 9;
+}
+sum += digit;
+}
+if (sum % 10 == 0)
+return true;
+else
+return false;
+}
+
+/*************************************************************************\
+ArrayObject makeArray(int size)
+return the array object in the size specified.
+\*************************************************************************/
+function makeArray(size) {
+this.size = size;
+return this;
+}
+
+/*************************************************************************\
+CardType setCardNumber(cardnumber)
+return the CardType object.
+\*************************************************************************/
+function setCardNumber(cardnumber) {
+this.cardnumber = cardnumber;
+return this;
+}
+
+/*************************************************************************\
+CardType setCardType(cardtype)
+return the CardType object.
+\*************************************************************************/
+function setCardType(cardtype) {
+this.cardtype = cardtype;
+return this;
+}
+
+/*************************************************************************\
+CardType setExpiryDate(year, month)
+return the CardType object.
+\*************************************************************************/
+function setExpiryDate(year, month) {
+this.year = year;
+this.month = month;
+return this;
+}
+
+/*************************************************************************\
+CardType setLen(len)
+return the CardType object.
+\*************************************************************************/
+function setLen(len) {
+// Create the len array.
+if (len.length == 0 || len == null)
+len = "13,14,15,16,19";
+
+var tmplen = len;
+n = 1;
+while (tmplen.indexOf(",") != -1) {
+tmplen = tmplen.substring(tmplen.indexOf(",") + 1, tmplen.length);
+n++;
+}
+this.len = new makeArray(n);
+n = 0;
+while (len.indexOf(",") != -1) {
+var tmpstr = len.substring(0, len.indexOf(","));
+this.len[n] = tmpstr;
+len = len.substring(len.indexOf(",") + 1, len.length);
+n++;
+}
+this.len[n] = len;
+return this;
+}
+
+/*************************************************************************\
+CardType setRules()
+return the CardType object.
+\*************************************************************************/
+function setRules(rules) {
+// Create the rules array.
+if (rules.length == 0 || rules == null)
+rules = "0,1,2,3,4,5,6,7,8,9";
+  
+var tmprules = rules;
+n = 1;
+while (tmprules.indexOf(",") != -1) {
+tmprules = tmprules.substring(tmprules.indexOf(",") + 1, tmprules.length);
+n++;
+}
+this.rules = new makeArray(n);
+n = 0;
+while (rules.indexOf(",") != -1) {
+var tmpstr = rules.substring(0, rules.indexOf(","));
+this.rules[n] = tmpstr;
+rules = rules.substring(rules.indexOf(",") + 1, rules.length);
+n++;
+}
+this.rules[n] = rules;
+return this;
+}
+
+
+//  End -->
+			</script>
+			<script language="javascript">
+	function Link_onClickAfterCheck(str,TargetLocation,sErrMsg,NextMod,ModAction)
+	{
+		var retOpt;	
+		retOpt = window.confirm (sErrMsg);  		
+		if (str == 0)
+		{		
+			if (retOpt)
+			{
+				window.location = TargetLocation;
+				return true;
+			}
+		}
+
+		if (str == 1) 
+		{		
+			if (retOpt)
+			{
+				document.Form.hdNextModule.value = NextMod;
+				document.Form.hdNextModAction.value = ModAction;
+				document.Form.submit();
+				return true;	
+			}
+		}
+	}
+
+			</script>
+	</HEAD>
+	<BODY text="#000000" vLink="#efb642" aLink="#efb642" link="#efb642" bgColor="#ffffff"
+		leftMargin="0" topMargin="0" marginheight="0" marginwidth="0">
+		<form language="javascript" id="form1" name="form1" action="/Billing/8/SaveBilling.asp"
+			method="post">
+			<CENTER>
+				<SCRIPT language="javascript">
+<!--
+	function fnAlertMsg(nShowMsg, sURL, sMessage ) //if nShowMsg > 0 then show alert msg
+	{
+		var retOpt;
+		if (nShowMsg > 0)
+		{
+			retOpt = window.confirm(sMessage);
+			if (retOpt)
+			{
+				document.location = sURL;
+			}
+		}
+		else
+		{
+			document.location = sURL;
+		}
+	}
+//-->
+				</SCRIPT>
+				<!--master table-->
+				<TABLE id="Table3" cellSpacing="0" cellPadding="0" width="770" bgColor="#ffffff" border="0">
+					<TR> <!--Top space-->
+						<TD vAlign="top" width="769" colSpan="3"><IMG height="5" src="https://secure.4yoursoul.com/sitegraphics/C8\8_space.gif" width="770"
+								border="0"></TD>
+					</TR>
+					<TR>
+						<TD vAlign="top" align="center" width="769" bgColor="#dbe7f4" height="736">
+							<TABLE id="Table4" height="692" cellSpacing="0" cellPadding="0" width="777" border="0">
+								<TR>
+									<!--left nav-->
+									<TD class="textb" vAlign="top" align="left" width="163" bgColor="#e7e3e7" height="712">
+										<TABLE id="Table5" cellSpacing="0" cellPadding="0" width="100%" border="0">
+											<TR>
+												<TD vAlign="middle" align="center" height="50"><IMG height="53" src="https://secure.4yoursoul.com/sitegraphics/C8\8_yellow_billing.gif"
+														width="166" border="0"></TD>
+											</TR>
+											<TR>
+												<TD vAlign="top"><IMG height="5" src="https://secure.4yoursoul.com/sitegraphics/C8\8_space.gif" width="170"
+														border="0"><br>
+													<table id="Table6" cellSpacing="0" cellPadding="0" width="100%" align="left" border="0"
+														valign="top">
+														<TBODY>
+															<tr>
+																<td colSpan="3">
+																	<table id="Table7" cellSpacing="0" cellPadding="0" width="100%">
+																		<tr>
+																			<td width="100%" height="24"><font class="thumbsbold">&nbsp;&nbsp;Instructions:</font>
+																			</td>
+																		</tr>
+																	</table>
+																</td>
+															</tr>
+															<tr height="5">
+																<td colSpan="3"></td>
+															</tr>
+															<tr>
+																<td vAlign="top"><font class="thumbs">&nbsp;1.&nbsp;</font></td>
+																<td vAlign="top"><font class="thumbs">Enter your credit card information.</font></td>
+													</FONT></TD>
+												<td>&nbsp;</td>
+											</TR>
+											<tr height="5">
+												<td colSpan="3"></td>
+											</tr>
+											<tr>
+												<td vAlign="top"><font class="thumbs">&nbsp;2.&nbsp;</font></td>
+												<td vAlign="top">&nbsp;<font class="thumbs">Choose to either:</font></td>
+												<td>&nbsp;</td>
+											</tr>
+											<tr>
+												<td colSpan="3">
+													<ul type="square">
+														<li>
+															<font class="thumbs">Process Order:</font><br>
+															<font class="thumbs">If you are finished shopping, click </font><font class="thumbs">
+																<strong>Process Order.</strong></font></FONT><br>
+															<br>
+														<li>
+															<font class="thumbs">Continue Card Shopping:</font><br>
+															<font class="thumbs">If you have additional cards to purchase, click </font><font class="thumbs">
+																<strong>Continue Card Shopping.</strong></font></FONT></li></ul>
+												</td>
+											</tr>
+											<tr>
+												<td align="center" colSpan="3"><IMG height="90" src="https://secure.4yoursoul.com/sitegraphics/C8\8_eidsecure.gif" width="100"
+														border="0"></td>
+											</tr>
+										</TABLE>
+									</TD>
+								</TR>
+							</TABLE>
+							<BR>
+						</TD>
+						<!--end left nav-->
+						<!--space between left & right-->
+						<TD vAlign="top" align="center" width="5" bgColor="#ffffff" height="712"><IMG height="5" src="https://secure.4yoursoul.com/sitegraphics/C8\8_space.gif" width="5"
+								border="0"></TD>
+						<!--end of space between left & right-->
+						<!--right nav-->
+						<TD vAlign="top" align="center" width="595" bgColor="#ffffff" height="712">
+							<table id="Table8" height="100%" cellSpacing="0" cellPadding="3" width="100%" bgColor="#f2b63a"
+								border="0" valign="top">
+								<tr>
+									<td>
+										<TABLE id="Table9" cellSpacing="0" cellPadding="0" width="100%" bgColor="#ffffff" border="0"
+											valign="top">
+											<tr>
+												<td width="559" height="71">
+													<TABLE id="Table10" height="56" cellSpacing="0" cellPadding="0" width="587" border="0"
+														valign="top">
+														<TBODY>
+															<TR bgColor="#f2b63a">
+																<TD vAlign="middle" align="center" height="34"><IMG height="39" src="https://secure.4yoursoul.com/sitegraphics/C8\8_steps_1_1.gif" width="126"
+																		border="0"></TD>
+																<TD vAlign="top" align="center" height="34">
+																	<TABLE id="Table11" cellSpacing="0" cellPadding="0" border="0">
+																		<tr>
+																			<td align="left"><IMG height="40" src="https://secure.4yoursoul.com/sitegraphics/C8\8_steps_4_2.gif" width="324">
+																			</td>
+																		</tr>
+																	</TABLE>
+																</TD>
+															</TR>
+														</TBODY></TABLE>
+												</td>
+											</tr>
+											<tr>
+												<td width="559" height="573">
+													<table id="Table12" height="546" cellSpacing="0" cellPadding="0" width="590" align="center"
+														border="0">
+														<tr>
+															<td colSpan="4" height="25">&nbsp;&nbsp;&nbsp;&nbsp;<font class="mediumb">Credit Card 
+																	Information:</font></td>
+														</tr>
+														<tr>
+															<td colSpan="4">&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">Card #:</font></td>
+															<td>&nbsp;</td>
+															<td><input id="Text1" maxLength="16" align="left" size="30" name="CardNumber">
+																<br>
+															</td>
+															<td></td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">Card Type:</font></td>
+															<td></td>
+															<td><select id="Select1" style="WIDTH: 203px; HEIGHT: 22px" name="CardType">
+																	<option value="MasterCard">Master Card</option>
+																	<option value="VisaCard" selected>Visa Card</option>
+																	<option value="AmExCard">American Express</option>
+																</select>
+																<br>
+															</td>
+															<td></td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">Month:</font>
+															</td>
+															<td></td>
+															<td><select id="Select2" style="WIDTH: 60px; HEIGHT: 22px" align="left" name="ExpMon">
+																	<option value="1">
+																	1<option value="2">
+																	2<option value="3">
+																	3<option value="4">
+																	4<option value="5">
+																	5<option value="6">
+																	6<option value="7">
+																	7<option value="8" selected>
+																	8<option value="9">
+																	9<option value="10">
+																	10<option value="11">
+																	11<option value="12">12</option>
+																</select>
+																<font class="Text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Year </font>
+																<select id="Select3" style="WIDTH: 94px; HEIGHT: 22px" name="ExpYear">
+																	<option value="2004" selected>
+																	2004<option value="2005">
+																	2005<option value="2006">
+																	2006<option value="2007">
+																	2007<option value="2008">
+																	2008<option value="2009">
+																	2009<option value="2010">
+																	2010<option value="2011">
+																	2011<option value="2012">
+																	2012<option value="2013">
+																	2013<option value="2014">2014</option>
+																</select>
+																<font class="Text">&nbsp;&nbsp;Total Price To Pay = &nbsp;</font> <font class="Step">
+																	$2.95</font>
+															</td>
+														</tr>
+														<tr>
+															<td colSpan="10">&nbsp;
+															</td>
+														</tr>
+														<tr>
+															<td class="CellwithTopBottom" align="left" colSpan="4" height="25"><font class="mediumb">&nbsp;&nbsp;&nbsp;&nbsp;Bill 
+																	To: &nbsp;(Please type your name as it appears on your credit card)</font></td>
+														</tr>
+														<tr>
+															<td colSpan="4">&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">*First Name: </font>
+															</td>
+															<td>&nbsp;</td>
+															<td><input id="fname" maxLength="30" align="left" size="30" name="fname">
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">*Last Name: </font>
+															</td>
+															<td>&nbsp;</td>
+															<td><input id="lname" maxLength="30" align="left" size="30" name="lname">
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">*Street1: </font>
+															</td>
+															<td>&nbsp;</td>
+															<td><input id="Street1" maxLength="30" align="left" size="30" name="Street1">
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">Street2: </font>
+															</td>
+															<td>&nbsp;</td>
+															<td><input id="Street2" maxLength="30" align="left" size="30" name="Street2">
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">*City: </font>
+															</td>
+															<td>&nbsp;</td>
+															<td>
+																<table id="Table13" cellSpacing="0" cellPadding="0" valign="center">
+																	<tr>
+																		<td><input id="City" maxLength="20" align="left" size="20" name="City">
+																		</td>
+																		<td vAlign="middle">
+																			<!--(<font color="red">											Enter 'APO' or 'FPO' in the city.											</font>)--></td>
+																	</tr>
+																</table>
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">*State:</font>
+															</td>
+															<td>&nbsp;</td>
+															<td>
+																<table id="Table14" cellSpacing="0" cellPadding="0" border="0" valign="center">
+																	<tr>
+																		<td><select id="State" style="WIDTH: 203px; HEIGHT: 22px" align="left" name="State">
+																				<option value="" selected>
+																				&nbsp;-&nbsp;Click to Select<option value="AA">
+																				AA&nbsp;-&nbsp;Air Atlantic<option value="AE">
+																				AE&nbsp;-&nbsp;Air Europe<option value="AP">
+																				AP&nbsp;-&nbsp;Air Pacific<option value="AK">
+																				AK&nbsp;-&nbsp;Alaska<option value="AL">
+																				AL&nbsp;-&nbsp;Alabama<option value="AR">
+																				AR&nbsp;-&nbsp;Arkansas<option value="AS">
+																				AS&nbsp;-&nbsp;American Samoa<option value="AZ">
+																				AZ&nbsp;-&nbsp;Arizona<option value="CA">
+																				CA&nbsp;-&nbsp;California<option value="CO">
+																				CO&nbsp;-&nbsp;Colorado<option value="CT">
+																				CT&nbsp;-&nbsp;Connecticut<option value="DC">
+																				DC&nbsp;-&nbsp;District of Columbia<option value="DE">
+																				DE&nbsp;-&nbsp;Delaware<option value="FL">
+																				FL&nbsp;-&nbsp;Florida<option value="GA">
+																				GA&nbsp;-&nbsp;Georgia<option value="GU">
+																				GU&nbsp;-&nbsp;Guam<option value="HI">
+																				HI&nbsp;-&nbsp;Hawaii<option value="IA">
+																				IA&nbsp;-&nbsp;Iowa<option value="ID">
+																				ID&nbsp;-&nbsp;Idaho<option value="IL">
+																				IL&nbsp;-&nbsp;Illinois<option value="IN">
+																				IN&nbsp;-&nbsp;Indiana<option value="KS">
+																				KS&nbsp;-&nbsp;Kansas<option value="KY">
+																				KY&nbsp;-&nbsp;Kentucky<option value="LA">
+																				LA&nbsp;-&nbsp;Louisiana<option value="MA">
+																				MA&nbsp;-&nbsp;Massachusetts<option value="MD">
+																				MD&nbsp;-&nbsp;Maryland<option value="ME">
+																				ME&nbsp;-&nbsp;Maine<option value="MH">
+																				MH&nbsp;-&nbsp;Marshall Islands<option value="MI">
+																				MI&nbsp;-&nbsp;Michigan<option value="MN">
+																				MN&nbsp;-&nbsp;Minnesota<option value="MO">
+																				MO&nbsp;-&nbsp;Missouri<option value="MP">
+																				MP&nbsp;-&nbsp;Marianas Islands<option value="MS">
+																				MS&nbsp;-&nbsp;Mississippi<option value="MT">
+																				MT&nbsp;-&nbsp;Montana<option value="NC">
+																				NC&nbsp;-&nbsp;North Carolina<option value="ND">
+																				ND&nbsp;-&nbsp;North Dakota<option value="NE">
+																				NE&nbsp;-&nbsp;Nebraska<option value="NH">
+																				NH&nbsp;-&nbsp;New Hampshire<option value="NJ">
+																				NJ&nbsp;-&nbsp;New Jersey<option value="NM">
+																				NM&nbsp;-&nbsp;New Mexico<option value="NV">
+																				NV&nbsp;-&nbsp;Nevada<option value="NY">
+																				NY&nbsp;-&nbsp;New York<option value="OH">
+																				OH&nbsp;-&nbsp;Ohio<option value="OK">
+																				OK&nbsp;-&nbsp;Oklahoma<option value="OR">
+																				OR&nbsp;-&nbsp;Oregon<option value="PA">
+																				PA&nbsp;-&nbsp;Pennsylvania<option value="PR">
+																				PR&nbsp;-&nbsp;Puerto Rico<option value="PW">
+																				PW&nbsp;-&nbsp;Palau<option value="RI">
+																				RI&nbsp;-&nbsp;Rhode Island<option value="SC">
+																				SC&nbsp;-&nbsp;South Carolina<option value="SD">
+																				SD&nbsp;-&nbsp;South Dakota<option value="TN">
+																				TN&nbsp;-&nbsp;Tennessee<option value="TX">
+																				TX&nbsp;-&nbsp;Texas<option value="UT">
+																				UT&nbsp;-&nbsp;Utah<option value="VA">
+																				VA&nbsp;-&nbsp;Virginia<option value="VI">
+																				VI&nbsp;-&nbsp;U.S. Virgin Islands<option value="VT">
+																				VT&nbsp;-&nbsp;Vermont<option value="WA">
+																				WA&nbsp;-&nbsp;Washington<option value="WI">
+																				WI&nbsp;-&nbsp;Wisconsin<option value="WV">
+																				WV&nbsp;-&nbsp;West Virginia<option value="WY">
+																				WY&nbsp;-&nbsp;Wyoming<option value="NA">NA&nbsp;-&nbsp;Not Applicable</option>
+																			</select>
+																		</td>
+																		<td vAlign="middle">
+																			<!--(<font color="red">Choose 'AE', etc in the state.</font>)--></td>
+																	</tr>
+																</table>
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">*Zip: </font>
+															</td>
+															<td>&nbsp;</td>
+															<td><input id="Zip" maxLength="10" align="left" size="10" name="Zip">
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">*Country: </font>
+															</td>
+															<td>&nbsp;</td>
+															<td>
+																<table id="Table15" cellSpacing="0" cellPadding="0" valign="center">
+																	<tr>
+																		<td><SELECT id="Select4" style="WIDTH: 201px; HEIGHT: 22px" name="racountry">
+																				<OPTION value="1" selected>USA</OPTION>
+																			</SELECT>
+																			<!--(<fo				        nt color="red">Choose USA for APO or FPO delivery.</font>)--></td>
+																	</tr>
+																</table>
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">*Telephone:</font>
+															</td>
+															<td>&nbsp;</td>
+															<td><input id="Telephone" maxLength="15" align="left" size="15" name="Telephone">
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr>
+															<td align="right"><font class="Text">*Email Address:</font>
+															</td>
+															<td>&nbsp;</td>
+															<td align="left"><input id="UserEMail" type="text" maxLength="50" align="left" size="30" name="UserEMail">
+																<font class="Text">&nbsp;&nbsp;(for confirmation email.)</font></td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr>
+															<td>&nbsp;</td>
+															<td align="left" colSpan="2"><span class="Textsmall">* denotes required 
+                              field</span>
+															</td>
+														</tr>
+														<tr>
+															<td colSpan="5">&nbsp;</td>
+														</tr>
+														<tr>
+															<td>&nbsp;</td>
+															<td align="left" colSpan="2">&nbsp; <A href="Javascript: Continueonclick()"><IMG src="https://secure.4yoursoul.com/sitegraphics/C8\8_continueshopping.gif" border="0"></A>
+																<A href="Javascript: ProcessOnClick()"><IMG src="https://secure.4yoursoul.com/sitegraphics/C8\8_Processorder.gif" border="0"
+																		id="IMG1"></A>
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</TABLE>
+									</td>
+								</tr>
+							</table>
+						</TD>
+						<!--end of right nav--></TR>
+				</TABLE>
+				</TD></TR> 
+				<!--Footer--> </TBODY></TABLE></CENTER>
+		</form>
+	</BODY>
+</HTML>

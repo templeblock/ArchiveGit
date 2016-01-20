@@ -1,0 +1,29 @@
+!define BLANK ""
+d:\pdk\samples\ror\rortest.obj : d:\pdk\samples\ror\rortest.c .AUTODEPEND
+ @d:
+ cd d:\pdk\samples\ror
+ *wcc386 rortest.c -i=e:\WATCOM\h;e:\WATCOM\h\nt;..\..\include; -w4 -e25 -dW&
+INDOWS -d_CONSOLE -zp1 -zq -otexan -d2 -3r -bt=nt -mf
+
+d:\pdk\samples\ror\rornnw.res : d:\pdk\samples\ror\rornnw.rc .AUTODEPEND
+ @d:
+ cd d:\pdk\samples\ror
+ *wrc rornnw.rc -bt=nt -i=$[:;e:\WATCOM\h;e:\WATCOM\h\nt;e:\WATCOM\h\win -q &
+-ad -r -fo=rornnw.res
+
+d:\pdk\samples\ror\rornnw.exe : d:\pdk\samples\ror\rortest.obj d:\pdk\lib\pi&
+cn.lib d:\pdk\samples\ror\rornnw.res .AUTODEPEND
+ @d:
+ cd d:\pdk\samples\ror
+ @%write rornnw.lk1 NAME rornnw
+ @%append rornnw.lk1 FIL rortest.obj
+ @%append rornnw.lk1 LIBR ..\..\lib\picn.lib
+!ifneq BLANK ""
+ *wlib -q -n -b rornnw.imp 
+ @%append rornnw.lk1 LIBR rornnw.imp
+!endif
+ *wlink d all SYS nt op m op maxe=25 op q op symf @rornnw.lk1
+!ifneq BLANK "rornnw.res"
+ wrc -q -ad rornnw.res rornnw.exe
+!endif
+

@@ -1,0 +1,126 @@
+<html>
+	<head>
+		<title></title>
+		<script language="JavaScript" type="text/javascript">
+			var g_myParent = null;
+			var strSelectedShape = '';
+			function OnClick(IMGNAME, CMD)
+			{
+				var strOldSelectedShape = strSelectedShape;
+				strSelectedShape = IMGNAME;
+				if (strOldSelectedShape != '')
+					icnOff(strOldSelectedShape);
+				icnOn(strSelectedShape);
+				window.returnValue = CMD;
+			}
+
+			function OnDblClick()
+			{
+				var myParent = (g_myParent ? g_myParent : parent);
+				myParent.AddShape();
+			}
+
+			function SetParent(myParent)
+			{
+				g_myParent = myParent;
+			}
+
+			function icn(IMGNAME, WIDTH, HEIGHT, CMD)
+			{
+				var ALT = CMD;
+				var str = '<a onclick="OnClick(' + "'" + IMGNAME + "'," + "'" + CMD + "'" + ')" ondblclick="OnDblClick()" ';
+				str += 'href="Javascript: // ' + ALT + '" onMouseOver="icnOn(' + "'" + IMGNAME + "'" + ');"  onMouseOut="icnOff(' + "'" + IMGNAME + "'" + ');">';
+				str += '<img name="' + IMGNAME + '" src="' + IMGNAME + 'Off.gif" width="' + WIDTH + '" height="' + HEIGHT + '" border="0" alt="' + ALT + '"></a>';
+				document.write(str);
+			}
+			function icnOn(IMGNAME)
+			{
+				if (strSelectedShape == IMGNAME)
+					eval('document.' + IMGNAME + '.style.filter = "progid:DXImageTransform.Microsoft.BasicImage(invert=1)"');
+				else
+					eval('document.' + IMGNAME + '.style.filter = "progid:DXImageTransform.Microsoft.BasicImage(opacity=0.5)"');
+
+				//SetImage(IMGNAME, IMGNAME + 'Off.gif');
+			}
+			function icnOff(IMGNAME)
+			{
+				if (strSelectedShape == IMGNAME)
+					eval('document.' + IMGNAME + '.style.filter = "progid:DXImageTransform.Microsoft.BasicImage(invert=1)"');
+				else
+					eval('document.' + IMGNAME + '.style.filter = "progid:DXImageTransform.Microsoft.BasicImage(invert=0)"');
+
+				//SetImage(IMGNAME, IMGNAME + 'Off.gif');
+			}
+			function SetImage(IMGNAME, FILENAME)
+			{
+				if (document.images == null)
+					return;
+
+				strCommand = 'document.' + IMGNAME + '.src = "' + FILENAME + '"';
+				eval(strCommand);
+			}
+		</script>
+	</head>
+	<body bgcolor="#ffffff">
+		<script language="JavaScript" type="text/javascript">
+			icn('ShapeCircle',		41, 41, 'Circle');
+			icn('ShapeSquare',		41, 41, 'Square');
+			icn('ShapeLine',		41, 41, 'Line');
+			icn('ShapeTriangle',	41, 41, 'Triangle');
+			icn('ShapeRndTriangle',	41, 41, 'Rounded Triangle');
+			icn('ShapeRndRect',		41, 41, 'Rounded Rectangle');
+			icn('ShapeShape8',		41, 41, 'Rounded Corner');
+			icn('ShapeShape9',		41, 41, 'Circle Mask');
+			icn('ShapeShape3',		41, 41, 'Circle Frame');
+			icn('ShapeShape4',		41, 41, 'Square Frame');
+			icn('ShapeArrow1',		41, 41, 'Arrow1');
+			icn('ShapeArrow2',		41, 41, 'Arrow2');
+			icn('ShapeArrow3',		41, 41, 'Arrow3');
+			icn('ShapeArrow4',		41, 41, 'Arrow4');
+			icn('ShapeArrow5',		41, 41, 'Arrow5');
+			icn('ShapeArrow6',		41, 41, 'Arrow6');
+			icn('ShapeArrow7',		41, 41, 'Arrow7');
+			icn('ShapeArrow8',		41, 41, 'Arrow8');
+			icn('ShapeBadge1',		41, 41, 'Badge1');
+			icn('ShapeBadge2',		41, 41, 'Badge2');
+			icn('ShapeBadge3',		41, 41, 'Badge3');
+			icn('ShapeStarburst1',	41, 41, 'Starburst1');
+			icn('ShapeStarburst2',	41, 41, 'Starburst2');
+			icn('ShapeStarburst3',	41, 41, 'Starburst3');
+			icn('ShapeStar1',		41, 41, 'Star1');
+			icn('ShapeStar2',		41, 41, 'Star2');
+			icn('ShapeStar3',		41, 41, 'Star3');
+			icn('ShapeStar4',		41, 41, 'Star4');
+			icn('ShapeBanner1',		41, 41, 'Banner1');
+			icn('ShapeBanner2',		41, 41, 'Banner2');
+			icn('ShapeCross1',		41, 41, 'Cross1');
+			icn('ShapeCross2',		41, 41, 'Cross2');
+			icn('ShapeCross3',		41, 41, 'Cross3');
+			icn('ShapeCross4',		41, 41, 'Cross4');
+			icn('ShapeCross5',		41, 41, 'Cross5');
+			icn('ShapeBolt',		41, 41, 'Lightning Bolt');
+			icn('ShapeBowlingPin',	41, 41, 'Bowling Pin');
+			icn('ShapeCog',			41, 41, 'Cog');
+			icn('ShapeCrown',		41, 41, 'Crown');
+			icn('ShapeCup',			41, 41, 'Cup');
+			icn('ShapeEgg',			41, 41, 'Egg');
+			icn('ShapeFlower',		41, 41, 'Flower');
+			icn('ShapeGear',		41, 41, 'Gear');
+			icn('ShapeHand',		41, 41, 'Hand');
+			icn('ShapeHorseShoe',	41, 41, 'Horseshoe');
+			icn('ShapeLeaf',		41, 41, 'Leaf');
+			icn('ShapePhone',		41, 41, 'Phone');
+			icn('ShapePlane',		41, 41, 'Plane');
+			icn('ShapeSign',		41, 41, 'Stop Sign');
+			icn('ShapeHeart',		41, 41, 'Heart');
+			icn('ShapeHouse',		41, 41, 'House');
+			icn('ShapeShape5',		41, 41, 'House2');
+			icn('ShapeShape1',		41, 41, 'Shape1');
+			icn('ShapeShape2',		41, 41, 'Shape2');
+			icn('ShapeShape6',		41, 41, 'Jewel');
+			icn('ShapeShape7',		41, 41, 'Headstone');
+			icn('ShapeClef',		41, 41, 'G Clef');
+			icn('ShapeNote',		41, 41, 'Quarter Note');
+		</script>
+	</body>
+</html>

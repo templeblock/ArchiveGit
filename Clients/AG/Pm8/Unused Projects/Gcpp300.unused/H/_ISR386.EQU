@@ -1,0 +1,47 @@
+;
+; _ISR386.EQU
+;
+; The Greenleaf Comm++ Library
+;
+; Copyright (C) 1991-95 Greenleaf Software Inc.  All Rights Reserved.
+;
+; NOTES
+;
+; This file contains the ISR data structure for the protected mode
+; interrupt service routine.
+;
+; MODIFICATIONS
+;
+
+APORT STRUC
+				UBASE 			DD			? 			; UART base addresses
+				TXBLOCK 		DB			? 			; handshake recieved from remote
+				RXBLOCK 		DB			? 			; handshake sent to remote
+				PARITY			DB			? 			; 0x7f if parity is on otherwise 0xff
+				TXFLOW			DB			? 			; current input handshake
+				RXFLOW			DB			? 			; current output handshake
+				MODEMSTAT 	DB			? 			; change of RS232 state
+				RXPBUFFER 	DF			? 			; protected address of buffer
+				RXRBUFFER 	DD			? 			; convential address of buffer
+				RXHEAD			DD			? 			; head of buffer
+				RXTAIL			DD			? 			; tail of buffer
+				RXCOUNT 		DD			? 			; no of bytes in buffer
+				RXLENGTH		DD			? 			; size of the input buffer
+				RXHIGHMARK	DD			? 			; ibsize - headroom
+				RXBLOCKING	DD			? 			; blocking flag
+				TXPBUFFER 	DF			? 			; protected address of buffer
+				TXRBUFFER 	DD			? 			; convential address of buffer
+				TXHEAD			DD			? 			; head of buffer
+				TXTAIL			DD			? 			; tail of buffer
+				TXCOUNT 		DD			? 			; no of bytes left in buffer
+				TXLENGTH		DD			? 			; size of the output buffer
+				TXFLAG			DW			? 			; tx interrupt active?
+				LSERROR 		DW			? 			; line register/overflow error
+				TXCT				DD			? 			; transmit counter
+				RXCT				DD			? 			; rx counter
+				MDCT				DD			? 			; modem status counter
+				LSCT				DD			? 			; linestatus counter
+				IS16550 		DB			? 			; is UART a 16550
+        RMICT       DD      ?       ; real mode interrupt counter
+        PMICT       DD      ?       ; protected mode interrupt counter
+APORT ENDS

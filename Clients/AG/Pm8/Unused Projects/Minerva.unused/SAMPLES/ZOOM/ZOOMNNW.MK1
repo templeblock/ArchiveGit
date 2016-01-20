@@ -1,0 +1,30 @@
+!define BLANK ""
+d:\pegasus\zoom\zoomnnw\piczoom.obj : d:\pegasus\zoom\zoomnnw\piczoom.c .AUT&
+ODEPEND
+ @d:
+ cd d:\pegasus\zoom\zoomnnw
+ *wcc386 piczoom.c -i=F:\WATCOM\h;F:\WATCOM\h\nt;..\..\include;..\zoomddw -w&
+4 -e25 -dWIN32_LEAN_AND_MEAN -dWINDOWS -zp1 -zq -od -3r -bt=nt -mf
+
+d:\pegasus\zoom\zoomnnw\zoomnnw.res : d:\pegasus\zoom\zoomnnw\zoomnnw.rc .AU&
+TODEPEND
+ @d:
+ cd d:\pegasus\zoom\zoomnnw
+ *wrc zoomnnw.rc -bt=nt -dWIN32 -d_WIN32 -d__NT__ -i=$[:;F:\WATCOM\h;F:\WATC&
+OM\h\nt;F:\WATCOM\h\win -q -ad -r -fo=zoomnnw.res
+
+d:\pegasus\zoom\zoomnnw\zoomnnw.exe : d:\pegasus\zoom\zoomnnw\piczoom.obj d:&
+\pegasus\lib\picn.lib d:\pegasus\zoom\zoomnnw\zoomnnw.res .AUTODEPEND
+ @d:
+ cd d:\pegasus\zoom\zoomnnw
+ @%write zoomnnw.lk1 FIL piczoom.obj
+ @%append zoomnnw.lk1 LIBR ..\..\lib\picn.lib
+!ifneq BLANK ""
+ *wlib -q -n -b zoomnnw.imp 
+ @%append zoomnnw.lk1 LIBR zoomnnw.imp
+!endif
+!ifneq BLANK "zoomnnw.res"
+ @%append zoomnnw.lk1 op resource=zoomnnw.res
+!endif
+ *wlink name zoomnnw op inc SYS nt op m op maxe=25 op q op symf @zoomnnw.lk1
+

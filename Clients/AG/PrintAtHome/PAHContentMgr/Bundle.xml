@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--Copyright © 2004 AmericanGreetings.com-->
+<pack host="http://www.imgag.com/">
+  <collection name="Spring Wedding" id="105689" occasion="wedding" keywords="flowers,flower,spring,wedding"
+   thumb="product/PAH/Collections/105689/thumb.gif" lifestyle="product/PAH/Collections/105689/lifestyle.jpg">
+    <projectref id="301234" seq="10"></projectref>
+    <projectref id="301235" seq="20"></projectref>
+    <artref id="201236" seq="30"> </artref> <!-- also referenced in Project 301234-->
+    <artref id="203336" seq="40"> </artref> <!-- also referenced in Project 301234-->
+    <artref id="201836" seq="50"> </artref> <!-- also referenced in Project 301235-->
+    <artref id="201936" seq="60"> </artref> <!-- also referenced in Project 301235-->
+    <artref id="201636" seq="70"> </artref>
+    <artref id="201736" seq="80"> </artref>
+  </collection>
+  <collection name="Fall Wedding" product="109089" keywords="leaves,leaf,fall,autumn,wedding"
+    thumb="product/PAH/Collections/109089/thumb.gif" lifestyle="product/PAH/Collections/109089/lifestyle.jpg">
+    <projectref id="301234" seq="10"></projectref>
+    <projectref id="301235" seq="20"></projectref>
+    <artref id="201236" seq="30"> </artref> <!-- also referenced in Project 301234-->
+    <artref id="203336" seq="40"> </artref> <!-- also referenced in Project 301234-->
+    <artref id="201836" seq="50"> </artref> <!-- also referenced in Project 301235-->
+    <artref id="201936" seq="60"> </artref> <!-- also referenced in Project 301235-->
+  </collection>
+  <collection name="Wedding Images" product="109090" keywords="rose,flower,leaves,leaf,fall,autumn,wedding"
+    thumb="product/PAH/Collections/109090/thumb.gif" lifestyle="product/PAH/Collections/109090/lifestyle.jpg">
+    <artref id="201236" seq="10"> </artref>  <!-- also referenced in Project 301234-->
+    <artref id="203336" seq="20"> </artref>  <!-- also referenced in Project 301234-->
+    <artref id="201636" seq="30"> </artref>
+    <artref id="201736" seq="40"> </artref>
+    <artref id="201836" seq="50"> </artref>  <!-- also referenced in Project 301235-->
+    <artref id="201936" seq="60"> </artref>  <!-- also referenced in Project 301235-->
+  </collection>
+  <project name="RSVP Card" id="301234" type="card" occasion="wedding" keywords="rsvp,response,flowers,flower,rose" 
+     projectpath="product/PAH/Projects/301234/project.pah" thumb="product/PAH/Projects/301234/thumb.gif" 
+     preview="product/PAH/Projects/301234/preview.swf">
+    <artref id="201236" seq="10"> </artref>
+    <artref id="203336" seq="20"> </artref>
+    <verseref id="401237" seq="30"></verseref>
+  </project>
+  <project name="Thank You" id="301235" seq="20" type="card" occasion="wedding" keywords="thank you,response,flowers,flower,rose" 
+     projectpath="product/PAH/Projects/301235/project.pah" thumb="product/PAH/Projects/301235/thumb.gif" 
+     preview="product/PAH/Projects/301235/preview.swf">
+    <artref id="201836" seq="10"> </artref>
+    <artref id="201936" seq="20"> </artref>
+  </project>
+  <art name="Rose" id="201236" occasion="wedding" keywords="flowers,flower,rose" recolorable="true"  
+     type="clip" artpath="product/PAH/Art/201236/art.wmf" thumb="product/PAH/Art/201236/thumb.gif" />
+  <art name="Tree" id="203336" occasion="wedding" keywords="tree,maple,branch" recolorable="true"  
+     type="image" artpath="product/PAH/Art/203336/art.wmf" thumb="product/PAH/Art/203336/thumb.gif" />
+  <art name="Rose" id="201636" occasion="wedding" keywords="flowers,flower,rose" recolorable="true"  
+     type="image" artpath="product/PAH/Art/301236/art.wmf" thumb="product/PAH/Art/201636/thumb.gif" />
+  <art name="Rose" id="201736" occasion="wedding" keywords="flowers,flower,rose" recolorable="false"  
+     type="background" artpath="product/PAH/Art/301236/art.jpg" thumb="product/PAH/Art/201736/thumb.gif" />
+  <art name="Rose" id="201836" occasion="wedding" keywords="flowers,flower,rose" recolorable="true"  
+     type="border" artpath="product/PAH/Art/301236/art.wmf" thumb="product/PAH/Art/201836/thumb.gif" />
+  <art name="Rose" id="201936" occasion="wedding" keywords="flowers,flower,rose" recolorable="false"  
+     type="clip" artpath="product/PAH/Art/301236/art.jpg" thumb="product/PAH/Art/201936/thumb.gif" />
+  <verse name="Wedding Poetry" id="401237" keywords="flowers,flower,rose,poetry" 
+     text="Roses are red violetes are blue"/>
+</pack>

@@ -1,0 +1,130 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "wdebug.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "wdebugdibh\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_WDEBUG DIALOG DISCARDABLE  0, 0, 337, 122
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Weapons Debug"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Set Enemy",IDOK,15,80,50,14
+    GROUPBOX        "Enemy",IDC_STATIC,10,10,150,90
+    LTEXT           "Start Position:",IDC_STATIC,20,20,45,8
+    LTEXT           "End Position:",IDC_STATIC,70,20,45,8
+    EDITTEXT        IDC_STARTPOSX,20,30,20,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_STARTPOSZ,40,30,20,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ENDPOSX,70,30,20,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ENDPOSZ,90,30,20,15,ES_AUTOHSCROLL
+    LTEXT           "nFrameDist",IDC_STATIC,120,20,36,8
+    EDITTEXT        IDC_FRAMEDIST,120,30,20,15,ES_AUTOHSCROLL
+    LTEXT           "Y:",IDC_STATIC,20,50,10,8
+    EDITTEXT        IDC_STARTPOSY,20,60,20,15,ES_AUTOHSCROLL
+    LTEXT           "Width:",IDC_STATIC,50,50,25,10
+    LTEXT           "Height",IDC_STATIC,80,50,25,10
+    EDITTEXT        IDC_WIDTH,50,60,20,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HEIGHT,80,60,20,15,ES_AUTOHSCROLL
+    LTEXT           "Depth:",IDC_STATIC,110,50,25,10
+    EDITTEXT        IDC_DEPTH,110,60,20,15,ES_AUTOHSCROLL
+    CONTROL         "Show Grid",IDC_SHOWGRID,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,70,80,50,10
+    GROUPBOX        "3D World",IDC_STATIC,170,10,160,60
+    EDITTEXT        IDC_YGROUND,175,30,20,15,ES_AUTOHSCROLL
+    LTEXT           "yGround:",IDC_STATIC,175,20,30,8
+    LTEXT           "WLength:",IDC_STATIC,210,20,30,8
+    LTEXT           "WWidth",IDC_STATIC,245,20,30,8
+    EDITTEXT        IDC_WLENGTH,210,30,20,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WWIDTH,245,30,20,15,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Set World",IDC_SETWORLD,275,30,50,14
+    GROUPBOX        "Shot",IDC_STATIC,170,70,160,45
+    LTEXT           "Shot Name:",IDC_STATIC,175,81,45,10
+    EDITTEXT        IDC_SHOTNAME,175,90,90,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Goto Shot",IDC_JUMPSHOT,275,90,50,15
+    EDITTEXT        IDC_TESTWORLD,240,50,20,15,ES_AUTOHSCROLL
+    LTEXT           "Test World:",IDC_STATIC,200,50,40,10
+    DEFPUSHBUTTON   "Set Test World",IDC_SETTESTWORLD,265,50,60,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_WDEBUG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 330
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

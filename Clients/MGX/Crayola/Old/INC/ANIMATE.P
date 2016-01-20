@@ -1,0 +1,17 @@
+// Source file: animate.c
+BOOL AnimateIsOn( void );
+int LoadToy(void _far * Asession, int Parent, int nToy, int x, int y, HINSTANCE hToy);
+void AnimateToy( HWND hWnd, int x, int y, LPSTR lpToyFileName, BOOL bPressed, HINSTANCE hToy, int hAObject, void far * Asession );
+void CALLBACK EXPORT AnimateDibID (HWND hWnd, LPRECT lpClipRect, HINSTANCE hInstance, ITEMID idDib, LPTR lpSession, LPSTR lpScript);
+void AnimateBatchStart( HWND hWnd );
+void AnimateBatchEnd(HWND hWnd);
+BOOL AnimateBatchAdd( int x, int y, LPSTR lpToyFileName );
+void AnimateBatchPlay( void );
+LPFRAME CALLBACK EXPORT TiffResource2Frame( HINSTANCE hInst, LPSTR lpRes );
+static HBITMAP TiffResource2Bitmap( HINSTANCE hInst, LPSTR lpRes );
+static LPFRAME DibResource2Frame( HINSTANCE hInst, ITEMID idResource );
+HBITMAP DibResource2Bitmap( HINSTANCE hInst, ITEMID idResource );
+static HBITMAP TiffResource2DIB( HINSTANCE hInst, LPSTR lpRes );
+void ShowCoverAnimatedButtons(HWND hWnd, BOOL bShow);
+
+

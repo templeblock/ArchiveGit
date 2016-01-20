@@ -1,0 +1,159 @@
+wt - a portable 3D game engine, version 0.04
+
+Copyright (C) 1994 by Chris Laurel
+
+Please see the LICENSE file for further details.  You may not distribute
+this project without this file (README) and the LICENSE file included.
+
+The file gifload.c is covered by a separate license and warranty than the
+rest of this project.  Details can be found at the beginning of the file.
+
+---------------------------------------------------------------------------
+
+
+This is still a preliminary version of my 3D game engine, wt.  Release 0.04
+has primarily portability changes.  I've added in patches contributed by
+many different people.  A lot of duplicate patches were submitted--sometimes
+I chose the first patch that I got, other times I picked the cleanest one,
+and a couple times I apllied the best features of both patches.  I have not
+gotten all the patching done yet.  The portability changes that I did make
+will mostly affect X11-based platforms.  I have yet to incorporate the changes
+for the Macintosh or OS/2 ports.
+
+As of this release, wt has been ported to the following platforms:
+
+   - Linux
+   - OS/2
+   - MSDOS
+   - Alpha/OSF/1
+   - Decstation 3000/Ultrix
+   - SGI/Irix
+   - HP 7xx/HPUX
+   - RS6000/AIX
+   - Mac 68xxx
+   - Powermac
+   - Amiga
+
+Notably missing are Windows 3.1 and Windows NT.  If anyone has ported to
+one of these platforms, I'd really like to hear about it.
+
+
+The following instructions are for getting the wt demo up and running on
+a UNIX workstation from the source.  If you have don't have UNIX, or just
+don't want to bother with source, you should ftp to magoo.uwsuper.edu and
+look in the directory pub/wt/bins.  There are a number of precompiled
+versions of the wt demo.  Hopefully, there will be an up to date version
+for you computer.
+
+
+* Running the wt and xwt demos:
+
+	* Edit the makefile (or Imakefile if you'd prefer) and select
+	    the right definitions for your system.
+
+	* If you're using the Imakefile, type 'xmkmf' and then 'make'
+	    Otherwise you can just type 'make'
+
+	* If your compiling for X windows, you will compile 'xwt'  Otherwise
+            the name of the executable is just 'wt'
+
+	* For xwt, just type 'xwt castle.world'  The keys are:
+	    forward - up arrow
+	    backward - down arrow
+	    turn left - left arrow
+	    turn right - right arrow
+	    strafe - slash
+	    run - shift
+	    jump - space
+	    quit - q
+
+            Alt or Meta should also be useable as strafe keys, but my
+            version of X distributions as the Alt key mapped to something
+	    else.  
+	 
+	* To run wt in full-screen mode for Linux (using svgalib), you need
+	    to be root (or make it setuid root first.)
+	    As root, type 'wt castle.world'  The keys are the same as for the
+	    X version, except that the slash does not work for strafing.
+
+
+* Resources
+
+	* A wt mailing list has been started recently.  Topics will include
+	    improving the engine design and adding features, porting the
+	    engine to different architectures, and game design using the wt
+	    graphics engine.  The addresses are:
+
+		to subscribe:  wtm-request@magoo.uwsuper.edu
+	        to post a message: wtm@magoo.uwsuper.edu
+
+	* The wt ftp site is magoo.uwsuper.edu.  wt related files will be
+	    located in the /pub/wt directory.
+	
+
+* New features in 0.04
+
+	* Sky backgrounds
+	* Ability to read in GIFs as textures (no support for using GIF
+	    color maps though.)
+	* Preliminary mouse support for Linux full-screen mode.
+
+
+* Room for improvement
+
+	* Optimizations.  There are some obvious ones that I have not gotten
+	  around to implementing yet.  I think that the floors code
+	  can be sped up significantly.  If you know of any improvements to the
+	  assembly loops in slice.c, *tell me*.  I'm not an Intel assembly
+	  language guru or anything.
+
+	* Code cleanup.  The core of wt is still in development, so some of
+	  the code surrounding the renderer is hacky test-the-engine stuff.
+	  Once wt starts developing into a real game, much of the code
+	  will be reorganized.  wt.c will change completely.
+
+	* Better textures.  The wt demo has dull textures.  If you've got
+	  some freely distributable tileable textures, send me mail.  Even
+	  though wt is far from becoming a real game, neat textures would
+          spice up the demo quite a bit.
+
+
+* Future directions:
+
+	* I'd like to see wt become a multi-platform client for an
+	  Internet wide MUD type game.  Or a perhaps a net-wide arcade
+	  game like Xpilot.  I've got a lot of other more innovative ideas
+	  but I'd better get the engine done before I start spouting about
+	  them.
+
+
+* Credits
+
+	Dan Egnor (egnor@ugcs.caltech.edu) - submitted the first set of
+	     endian fixes.
+	Dave Thomas (dave@thomases.demon.co.uk) - wrote up an Imakefile
+	Pietik{inen (pp@lyseo.otol.fi) - RAW mode keyboard and mouse patches
+	     for the Linux svgalib version.
+        Harm Hanemaayer (hhanemaa@cs.ruu.nl) - Patches to linuxvga.c to
+	     make better use of svgalib.
+	Russ Nelson (nelson@crynwr.com) - Created the as yet unincorporated
+	     Tcl worldfile changes and provided lots of good advice.
+	Patrick L. McGillan (pmcgilla@magoo.uwsuper.edu) - Set up the wt
+	     mailing list and ftp site.
+        Thomas Hamren (d0hampe@dtek.chalmers.se) - Provided the GIF code
+        Marinos Yannikos (nino@vmars.tuwien.ac.at) - X11 fixes and Sun Sparc
+	     compatibility fixes
+	Joseph Provine (provine@enel.ucalgary.ca) - X11 enhancements
+	Ling Thio (H.L.Thio@et.tudelft.nl) - world files and Sun fixes
+        Castor Fu (castor@drizzle.stanford.edu) - Alpha portability
+
+* Me:
+
+	send any comments, ideas, bug reports, etc. to:
+
+	Chris Laurel
+	home: claurel@mr.net
+	work: chrisl@county.lmt.mn.org
+	snailmail: 5700 W Lake St, #208
+                   St. Louis Park, MN  55416
+	phone: (612) 929-9183

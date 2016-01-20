@@ -1,0 +1,28 @@
+// Microsoft Developer Studio generated Help ID include file.
+// Used by Tek.rc
+//
+#define HIDC_BLACK                      0x80c903f9    // IDD_CALIBRATE
+#define HIDC_CURVE                      0x80c903fe    // IDD_CALIBRATE
+#define HIDC_CYAN                       0x80c903fa    // IDD_CALIBRATE
+#define HIDC_EDIT_IMAGE_CURVE1          0x80810003    // IDD_EDIT_IMAGE
+#define HIDC_EDIT_IMAGE_CURVE2          0x80810004    // IDD_EDIT_IMAGE
+#define HIDC_EDIT_IMAGE_TUNING          0x80810005    // IDD_EDIT_IMAGE
+#define HIDC_HELPME                     0x808103f5    // IDD_EDIT_IMAGE
+#define HIDC_IMAGE                      0x808103f0    // IDD_EDIT_IMAGE
+#define HIDC_INFO                       0x80810006    // IDD_EDIT_IMAGE
+#define HIDC_LEVELIN                    0x80c903ff    // IDD_CALIBRATE
+#define HIDC_LEVELOUT                   0x80c90400    // IDD_CALIBRATE
+#define HIDC_MAGENTA                    0x80c903fb    // IDD_CALIBRATE
+#define HIDC_OPENIMAGE                  0x808103f2    // IDD_EDIT_IMAGE
+#define HIDC_PRINTIMAGE                 0x808103f4    // IDD_EDIT_IMAGE
+#define HIDC_RESET                      0x80c903f8    // IDD_CALIBRATE
+#define HIDC_TWEAK_ADD                  0x80cd0410    // IDD_TUNING
+#define HIDC_TWEAK_CRSLIDER             0x80cd0425    // IDD_TUNING
+#define HIDC_TWEAK_CRVALUE              0x80cd040d    // IDD_TUNING
+#define HIDC_TWEAK_DELETE               0x80cd0411    // IDD_TUNING
+#define HIDC_TWEAK_LRSLIDER             0x80cd0424    // IDD_TUNING
+#define HIDC_TWEAK_LRVALUE              0x80cd0426    // IDD_TUNING
+#define HIDC_TWEAK_SELECT               0x80cd040f    // IDD_TUNING
+#define HIDC_UNZOOM                     0x808103e9    // IDD_EDIT_IMAGE
+#define HIDC_YELLOW                     0x80c903fd    // IDD_CALIBRATE
+#define HIDC_ZOOM                       0x808103e8    // IDD_EDIT_IMAGE

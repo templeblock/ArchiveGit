@@ -1,0 +1,42 @@
+// pmwdisp.odl : type library source for server.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (pmwdisp.tlb).
+
+[ uuid(83DC6B36-719A-11D1-9828-00A0246D4780), version(1.0) ]
+library PrintMasterDispatch
+{
+	importlib("stdole32.tlb");
+	
+
+	//  Primary dispatch interface for CPrintMasterDispatch
+	
+	[ uuid(83DC6B37-719A-11D1-9828-00A0246D4780) ]
+	dispinterface IPrintMasterDispatch
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CPrintMasterDispatch)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CPrintMasterDispatch)
+			[id(1)] BSTR RunArtGallery(long hWnd);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CPrintMasterDispatch
+	
+	[ uuid(83DC6B35-719A-11D1-9828-00A0246D4780) ]
+	coclass PrintMasterDispatch
+	{
+		[default] dispinterface IPrintMasterDispatch;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

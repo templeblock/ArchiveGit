@@ -1,0 +1,428 @@
+//***********************************************************************
+IDD_PUTAWAYI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_PUTAWAYI GAMETABLE
+//***********************************************************************
+{
+"
+//	soundtrack=traffic.wav;","
+	introwav=intro1.wav;","
+	successplay=successi.wav;","
+	goodpick=success.wav,badpick=bump.wav;","
+	allowmoveagain=1;","
+	
+	itembed=BED1.BMP,itembpic=BPIC1.BMP,itembroom=BROOM1.BMP,itemchair=CHAIR1.BMP,itemchest=CHEST1.BMP;","
+	itemdresser=DRESSER1.BMP,itemfridge=FRIDGE1.BMP,itemhammer=HAMMER1.BMP,itemhamper=HAMPER1.BMP;","
+	itemhpic=HPIC1.BMP,itemlamp=LAMP1.BMP,itempants=PANTS1.BMP,itemsofa=SOFA1.BMP,itemstove=STOVE1.BMP;","
+	itemtv=TV1.BMP;","
+	
+	itemrbed=BED2.BMP,itemrbpic=BPIC2.BMP,itemrbroom=BROOM2.BMP,itemrchair=CHAIR2.BMP;","
+	itemrchest=CHEST2.BMP,itemrdresser=DRESSER2.BMP,itemrfridge=FRIDGE2.BMP,itemrhammer=HAMMER2.BMP;","
+	itemrhamper=HAMPER2.BMP,itemrhpic=HPIC2.BMP,itemrlamp=LAMP2.BMP,itemrpants=PANTS2.BMP,itemrsofa=SOFA2.BMP;","
+	itemrstove=STOVE2.BMP,itemrtv=TV2.BMP;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANPUTAWAYI GAMETABLE
+//***********************************************************************
+{
+"
+//	soundtrack=traffic.wav;","
+	introwav=spintro1.wav;","
+	successplay=spsucci.wav;","
+	goodpick=success.wav,badpick=bump.wav;","
+	allowmoveagain=1;","
+	
+	itembed=BED1.BMP,itembpic=BPIC1.BMP,itembroom=BROOM1.BMP,itemchair=CHAIR1.BMP,itemchest=CHEST1.BMP;","
+	itemdresser=DRESSER1.BMP,itemfridge=FRIDGE1.BMP,itemhammer=HAMMER1.BMP,itemhamper=HAMPER1.BMP;","
+	itemhpic=HPIC1.BMP,itemlamp=LAMP1.BMP,itempants=PANTS1.BMP,itemsofa=SOFA1.BMP,itemstove=STOVE1.BMP;","
+	itemtv=TV1.BMP;","
+	
+	itemrbed=BED2.BMP,itemrbpic=BPIC2.BMP,itemrbroom=BROOM2.BMP,itemrchair=CHAIR2.BMP;","
+	itemrchest=CHEST2.BMP,itemrdresser=DRESSER2.BMP,itemrfridge=FRIDGE2.BMP,itemrhammer=HAMMER2.BMP;","
+	itemrhamper=HAMPER2.BMP,itemrhpic=HPIC2.BMP,itemrlamp=LAMP2.BMP,itemrpants=PANTS2.BMP,itemrsofa=SOFA2.BMP;","
+	itemrstove=STOVE2.BMP,itemrtv=TV2.BMP;","
+",0
+}
+
+//***********************************************************************
+IDD_PUTAWAYI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene25\\back1i.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 445,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 443,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=options.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, fg=help.bmp, CMD=IDC_HELP, hint=helphint.wav;","
+",0
+} 
+
+//***********************************************************************
+IDD_SPANPUTAWAYI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene25\\back1i.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=spprev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=spmain.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 445,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=spsounds.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 443,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=spoption.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=spactivy.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=spnext.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, fg=help.bmp, CMD=IDC_HELP, hint=sphelp1.wav;","
+",0
+} 
+
+//***********************************************************************
+IDD_PUTAWAY1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_PUTAWAY1 GAMETABLE
+//***********************************************************************
+{
+"
+//	soundtrack=traffic.wav;","
+	introwav=intro1.wav;","
+	successlevel=success1.wav success1.wav success1.wav success1.wav;","
+	goodpick=success.wav,badpick=bump.wav;","
+	allowmoveagain=1;","
+	
+	itembed=BED1.BMP,itembpic=BPIC1.BMP,itembroom=BROOM1.BMP,itemchair=CHAIR1.BMP,itemchest=CHEST1.BMP;","
+	itemdresser=DRESSER1.BMP,itemfridge=FRIDGE1.BMP,itemhammer=HAMMER1.BMP,itemhamper=HAMPER1.BMP;","
+	itemhpic=HPIC1.BMP,itemlamp=LAMP1.BMP,itempants=PANTS1.BMP,itemsofa=SOFA1.BMP,itemstove=STOVE1.BMP;","
+	itemtv=TV1.BMP;","
+	
+	itemrbed=BED2.BMP,itemrbpic=BPIC2.BMP,itemrbroom=BROOM2.BMP,itemrchair=CHAIR2.BMP;","
+	itemrchest=CHEST2.BMP,itemrdresser=DRESSER2.BMP,itemrfridge=FRIDGE2.BMP,itemrhammer=HAMMER2.BMP;","
+	itemrhamper=HAMPER2.BMP,itemrhpic=HPIC2.BMP,itemrlamp=LAMP2.BMP,itemrpants=PANTS2.BMP,itemrsofa=SOFA2.BMP;","
+	itemrstove=STOVE2.BMP,itemrtv=TV2.BMP;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANPUTAWAY1 GAMETABLE
+//***********************************************************************
+{
+"
+//	soundtrack=traffic.wav;","
+	introwav=spintro1.wav;","
+	successlevel=spsucc1.wav spsucc1.wav spsucc1.wav spsucc1.wav;","
+	goodpick=success.wav,badpick=bump.wav;","
+	allowmoveagain=1;","
+	
+	itembed=BED1.BMP,itembpic=BPIC1.BMP,itembroom=BROOM1.BMP,itemchair=CHAIR1.BMP,itemchest=CHEST1.BMP;","
+	itemdresser=DRESSER1.BMP,itemfridge=FRIDGE1.BMP,itemhammer=HAMMER1.BMP,itemhamper=HAMPER1.BMP;","
+	itemhpic=HPIC1.BMP,itemlamp=LAMP1.BMP,itempants=PANTS1.BMP,itemsofa=SOFA1.BMP,itemstove=STOVE1.BMP;","
+	itemtv=TV1.BMP;","
+	
+	itemrbed=BED2.BMP,itemrbpic=BPIC2.BMP,itemrbroom=BROOM2.BMP,itemrchair=CHAIR2.BMP;","
+	itemrchest=CHEST2.BMP,itemrdresser=DRESSER2.BMP,itemrfridge=FRIDGE2.BMP,itemrhammer=HAMMER2.BMP;","
+	itemrhamper=HAMPER2.BMP,itemrhpic=HPIC2.BMP,itemrlamp=LAMP2.BMP,itemrpants=PANTS2.BMP,itemrsofa=SOFA2.BMP;","
+	itemrstove=STOVE2.BMP,itemrtv=TV2.BMP;","
+",0
+}
+
+//***********************************************************************
+IDD_PUTAWAY1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene25\\back1.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANPUTAWAY1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene25\\back1.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_PUTAWAY2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_PUTAWAY2 GAMETABLE
+//***********************************************************************
+{
+"
+//	soundtrack=traffic.wav;","
+	introwav=intro1.wav;","
+	successlevel=success2.wav success2.wav success2.wav success2.wav;","
+	goodpick=success.wav,badpick=bump.wav;","
+	allowmoveagain=1;","
+	
+	itembed=BED1.BMP,itembpic=BPIC1.BMP,itembroom=BROOM1.BMP,itemchair=CHAIR1.BMP,itemchest=CHEST1.BMP;","
+	itemdresser=DRESSER1.BMP,itemfridge=FRIDGE1.BMP,itemhammer=HAMMER1.BMP,itemhamper=HAMPER1.BMP;","
+	itemhpic=HPIC1.BMP,itemlamp=LAMP1.BMP,itempants=PANTS1.BMP,itemsofa=SOFA1.BMP,itemstove=STOVE1.BMP;","
+	itemtv=TV1.BMP;","
+	
+	itemrbed=BED2.BMP,itemrbpic=BPIC2.BMP,itemrbroom=BROOM2.BMP,itemrchair=CHAIR2.BMP;","
+	itemrchest=CHEST2.BMP,itemrdresser=DRESSER2.BMP,itemrfridge=FRIDGE2.BMP,itemrhammer=HAMMER2.BMP;","
+	itemrhamper=HAMPER2.BMP,itemrhpic=HPIC2.BMP,itemrlamp=LAMP2.BMP,itemrpants=PANTS2.BMP,itemrsofa=SOFA2.BMP;","
+	itemrstove=STOVE2.BMP,itemrtv=TV2.BMP;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANPUTAWAY2 GAMETABLE
+//***********************************************************************
+{
+"
+//	soundtrack=traffic.wav;","
+	introwav=spintro1.wav;","
+	successlevel=spsucc2.wav spsucc2.wav spsucc2.wav spsucc2.wav;","
+	goodpick=success.wav,badpick=bump.wav;","
+	allowmoveagain=1;","
+	
+	itembed=BED1.BMP,itembpic=BPIC1.BMP,itembroom=BROOM1.BMP,itemchair=CHAIR1.BMP,itemchest=CHEST1.BMP;","
+	itemdresser=DRESSER1.BMP,itemfridge=FRIDGE1.BMP,itemhammer=HAMMER1.BMP,itemhamper=HAMPER1.BMP;","
+	itemhpic=HPIC1.BMP,itemlamp=LAMP1.BMP,itempants=PANTS1.BMP,itemsofa=SOFA1.BMP,itemstove=STOVE1.BMP;","
+	itemtv=TV1.BMP;","
+	
+	itemrbed=BED2.BMP,itemrbpic=BPIC2.BMP,itemrbroom=BROOM2.BMP,itemrchair=CHAIR2.BMP;","
+	itemrchest=CHEST2.BMP,itemrdresser=DRESSER2.BMP,itemrfridge=FRIDGE2.BMP,itemrhammer=HAMMER2.BMP;","
+	itemrhamper=HAMPER2.BMP,itemrhpic=HPIC2.BMP,itemrlamp=LAMP2.BMP,itemrpants=PANTS2.BMP,itemrsofa=SOFA2.BMP;","
+	itemrstove=STOVE2.BMP,itemrtv=TV2.BMP;","
+",0
+}
+
+//***********************************************************************
+IDD_PUTAWAY2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene25\\back2.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANPUTAWAY2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene25\\back2.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_PUTAWAY3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_PUTAWAY3 GAMETABLE
+//***********************************************************************
+{
+"
+//	soundtrack=traffic.wav;","
+	introwav=intro1.wav;","
+	successlevel=success3.wav success3.wav success3.wav success3.wav;","
+	goodpick=success.wav,badpick=bump.wav;","
+	allowmoveagain=1;","
+	
+	itembed=BED1.BMP,itembpic=BPIC1.BMP,itembroom=BROOM1.BMP,itemchair=CHAIR1.BMP,itemchest=CHEST1.BMP;","
+	itemdresser=DRESSER1.BMP,itemfridge=FRIDGE1.BMP,itemhammer=HAMMER1.BMP,itemhamper=HAMPER1.BMP;","
+	itemhpic=HPIC1.BMP,itemlamp=LAMP1.BMP,itempants=PANTS1.BMP,itemsofa=SOFA1.BMP,itemstove=STOVE1.BMP;","
+	itemtv=TV1.BMP;","
+	
+	itemrbed=BED2.BMP,itemrbpic=BPIC2.BMP,itemrbroom=BROOM2.BMP,itemrchair=CHAIR2.BMP;","
+	itemrchest=CHEST2.BMP,itemrdresser=DRESSER2.BMP,itemrfridge=FRIDGE2.BMP,itemrhammer=HAMMER2.BMP;","
+	itemrhamper=HAMPER2.BMP,itemrhpic=HPIC2.BMP,itemrlamp=LAMP2.BMP,itemrpants=PANTS2.BMP,itemrsofa=SOFA2.BMP;","
+	itemrstove=STOVE2.BMP,itemrtv=TV2.BMP;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANPUTAWAY3 GAMETABLE
+//***********************************************************************
+{
+"
+//	soundtrack=traffic.wav;","
+	introwav=spintro1.wav;","
+	successlevel=spsucc3.wav spsucc3.wav spsucc3.wav spsucc3.wav;","
+	goodpick=success.wav,badpick=bump.wav;","
+	allowmoveagain=1;","
+	
+	itembed=BED1.BMP,itembpic=BPIC1.BMP,itembroom=BROOM1.BMP,itemchair=CHAIR1.BMP,itemchest=CHEST1.BMP;","
+	itemdresser=DRESSER1.BMP,itemfridge=FRIDGE1.BMP,itemhammer=HAMMER1.BMP,itemhamper=HAMPER1.BMP;","
+	itemhpic=HPIC1.BMP,itemlamp=LAMP1.BMP,itempants=PANTS1.BMP,itemsofa=SOFA1.BMP,itemstove=STOVE1.BMP;","
+	itemtv=TV1.BMP;","
+	
+	itemrbed=BED2.BMP,itemrbpic=BPIC2.BMP,itemrbroom=BROOM2.BMP,itemrchair=CHAIR2.BMP;","
+	itemrchest=CHEST2.BMP,itemrdresser=DRESSER2.BMP,itemrfridge=FRIDGE2.BMP,itemrhammer=HAMMER2.BMP;","
+	itemrhamper=HAMPER2.BMP,itemrhpic=HPIC2.BMP,itemrlamp=LAMP2.BMP,itemrpants=PANTS2.BMP,itemrsofa=SOFA2.BMP;","
+	itemrstove=STOVE2.BMP,itemrtv=TV2.BMP;","
+",0
+}
+
+//***********************************************************************
+IDD_PUTAWAY3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene25\\back2.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+	
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANPUTAWAY3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene25\\back2.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+	
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+

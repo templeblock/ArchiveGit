@@ -1,0 +1,6 @@
+// Source file: RETOUCH.C
+void SetupBrushMask(LPMGXBRUSH lpBrush);
+BOOL SetupCustomBrushMask( LPMGXBRUSH lpBrush, LPSTR lpExtName );
+BOOL SetupBrushMaskBuffers(BOOL fInit);
+void SetupFuzzyBrush(LPMGXBRUSH lpBrush);
+

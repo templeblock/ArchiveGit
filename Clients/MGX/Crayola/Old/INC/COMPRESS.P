@@ -1,0 +1,6 @@
+// Source file: COMPRESS.C
+int DecompressLZW( int ifh, LPTR lpOut, int OutCount );
+int DecompressLZW_GIF( int ifh, LPTR lpOut, int OutCount, int codeSize );
+int CompressLZW( int ofp, LPTR lpIn, int InCount );
+int CompressLZW_GIF ( int ofp, LPTR lpIn, int InCount, int codeSize );
+

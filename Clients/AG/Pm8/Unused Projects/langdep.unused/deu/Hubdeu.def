@@ -1,0 +1,7 @@
+; hubdeu.def : Declares the module parameters for the DLL.
+
+LIBRARY      HUBDEU
+DESCRIPTION  'HUBDEU PrintMaster German HUB 32-bit Resources'
+
+EXPORTS
+    ; Explicit exports can go here

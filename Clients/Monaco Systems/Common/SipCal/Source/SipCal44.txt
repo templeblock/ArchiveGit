@@ -1,0 +1,377 @@
+Sequel Imaging Chroma Toolkit Version 4.4
+
+This document describes the toolkit routines available to a developer to 
+interface to a Sequel Imaging Chroma Calibrator.  These routines are the same 
+for the following toolkits:
+   DOS
+   16-bit Windows (3.x) Static Library
+   16-bit Windows (3.x) DLL
+   32-bit Windows (Win95) Static Library
+   32-bit Windows (Win95) DLL
+
+Sequel Imaging calibrator models Chroma2, Chroma3 and Chroma4 are supported.
+These toolkits allow a developer to add a colorimeter instrument into his 
+application.
+
+The toolkit routine names are all prefaced with "sip" which stands for "Sequel 
+Imaging Process".  They are listed below in groups:
+
+A. Communication setup
+   1.  sipOpenCalibrator
+   2.  sipCloseCalibrator
+
+B. Taking measurements
+   3.  sipAutoMeasureYxy
+   4.  sipMeasureYxy
+   5.  sipMeasureMonitorFrequency
+   6.  sipGetRGBvaluesFromYxy  
+
+C. Measurement setup
+   7.  sipMeasMonFreqAndSetIntTime
+   8.  sipSetIntegrationTime
+   9.  sipGetIntegrationTime
+   10. sipSetNumPeriodsToMeasure
+   11. sipGetNumPeriodsToMeasure  
+
+C. Informational
+   12. sipGetToolkitRev
+   13. sipGetCalibratorSerialNumber
+   14. sipGetCalibrationDate
+   15. sipGetCalibratorType
+
+
+
+1. long sipOpenCalibrator ( unsigned short usPort, char *szVersion, void *Option )
+
+ -Description:
+        Opens communication port and reads calibration data from
+        the calibrator.
+
+ -Arguments:
+        short sPort     which serial port calibrator is attached to
+        char *szVersion calibrator version string returned
+        void *ucOption  NULL (reserved option)
+
+ -Notes:
+   For usPort variable, use defines:
+         #define  PORT_COM1   1  ; for Com1
+         #define  PORT_COM2   2  ; for Com2
+
+ -Returns:
+        0 if SUCCESS
+        else, error code returned
+
+
+
+2. long sipCloseCalibrator ( void )
+
+ -Description:
+        Closes communication port.
+
+ -Arguments:
+        none
+
+ -Returns:
+        0 if SUCCESS
+        else, error code returned
+
+
+
+3.  sipAutoMeasureYxy ( unsigned short Units, dYxy *YxyData )
+
+ -Description:
+   Stand-alone call to take a measurement and return Yxy data.
+
+ -Arguments:
+        short Units       units in which Luminance value (Y) is returned
+        YxyData *dYxy     data returned
+
+ -Notes:
+        This routine checks if the frequency has been previously measured
+        and the integration time set. If not, it goes ahead and does it.
+        If the frequency can not be measured, an integration time of 1 second
+        is set.  A measurement is then taken.  This data is checked to see
+        if a low-light measurement is necessary (Chroma4 only).  Data returned
+        is in Yxy space.
+
+        Y returned is in units passed in:
+        #define  FOOT_LAMBERTS  0
+        #define  CANDELAS       1
+
+        IMPORTANT FOR CHROMA4 ONLY: In order for the low-light measurement
+        to take place, either of the following must occur first:
+            1. The integration time must have been set using the routine
+               sipMeasMonFreqAndSetIntTime.
+               
+            -OR-
+            
+            2. The integration time has been set using the routine
+               sipSetIntegrationTime AND the routine sipSetNumPeriodsToMeasure
+               has been called with the corresponding number of periods for
+               the integration time set.
+
+ -Returns:
+       SUCCESS
+       else, error code returned
+
+
+
+4. long sipMeasureYxy ( unsigned short Units, dYxy *YxyData )
+
+ -Description:
+        Takes a measurement and returns data in Yxy units.
+
+ -Arguments:
+        unsigned short  Units units of Y luminance returned
+        dYxy *YxyData   Yxy data returned
+
+ -Notes:
+        The measurement is taken using the current integration time
+        set.
+
+        Y returned is in units passed in:
+        #define  FOOT_LAMBERTS  0
+        #define  CANDELAS       1
+
+ -Returns:
+        0 if SUCCESS
+        else, error code returned
+
+
+
+5. long sipMeasMonFreqAndSetIntTime ( unsigned short usNumFields, double *dMonFreq )
+
+ -Description:
+   Instructs the calibrator to measure the vertical refresh
+   rate of the monitor and set the integration time.
+
+ -Arguments:
+     short sNumFields  number of vertical fields to measure for 
+                       subsequent measurements
+
+     double *dMonFreq  vertical frequency of monitor returned
+
+ -Notes:
+     Integration time is for each channel: red, green and blue.
+     The total measurement time is at least three times the 
+     integration time set.  Once set, the integration time is 
+     valid for each subsequent measurement, until a new value
+     is set, or the calibrator is turned off (sipCloseCalibrator
+     called).
+
+ -Returns:
+     ERR_FUNCTION_NOT_AVAILABLE if Chroma2
+     ERR_FF_COULD_NOT_SYNC if unable to sync to monitor
+     SUCCESS
+     else, error code returned
+
+
+
+6. long sipMeasureMonitorFrequency ( double *dMonFreq )
+
+ -Description:
+     Measures the vertical refresh rate of the monitor.
+
+ -Arguments:
+     double *dMonFreq  frequency of monitor returned
+
+ -Notes:
+     Monitor frequency returned in cycles per second (Hertz).
+
+ -Returns:
+     ERR_FUNCTION_NOT_AVAILABLE if Chroma2
+     ERR_FF_COULD_NOT_SYNC if unable to sync to monitor
+     SUCCESS
+     else, error code returned
+
+
+
+7. long sipSetIntegrationTime ( double dSeconds )
+
+ -Description:
+     Sets the amount of time which the calibrator integrates
+     a measurement for each channel.
+
+ -Arguments:
+     double dSeconds   time in seconds
+
+ -Notes:
+     Integration time is for each channel: red, green and blue.
+
+     Chroma2 and Chroma3 measure the RGB channels sequentially.
+     Therefore, the total measurement time is at least three times
+     the integration time set.
+
+     Chroma4 measures the RGB channels simultaneously.
+ 
+     Once set, the integration time is valid for each subsequent
+     measurement, until a new value is set, or the calibrator is
+     turned off (sipCloseCalibrator called).
+
+ -Returns:
+     0 if SUCCESS
+     else, error code returned
+
+
+
+8. long sipGetIntegrationTime ( double *dSeconds )
+
+ -Description:
+     Returns the current integration time set in the calibrator.
+
+ -Arguments:
+     double *dSeconds  time in seconds returned
+
+ -Notes:
+     Integration time is for each channel: red, green and blue.
+
+     Chroma2 and Chroma3 measure the RGB channels sequentially.
+     Therefore, the total measurement time is at least three times
+     the integration time set.
+ 
+     Chroma4 measures the RGB channels simultaneously.
+ 
+     Once set, the integration time is valid for each subsequent
+     measurement, until a new value is set, or the calibrator is
+     turned off (sipCloseCalibrator called).
+
+ -Returns:
+     0 if SUCCESS
+     else, error code returned
+
+
+
+9. long sipGetToolkitRev ( char *szToolkitRev )
+   
+ -Description:
+     Returns the software toolkit revision.
+
+ -Arguments:
+     char *szToolkitRev pointer to null-terminated ASCII string
+ 
+ -Returns:
+     SUCCESS
+
+ -Notes:
+     None
+
+
+
+10. unsigned long sipGetCalibratorSerialNumber ( void )
+   
+ -Description:
+     Returns the calibrator's serial number.
+
+ -Arguments:
+     None
+
+ -Returns:
+     Unsigned long serial number.
+
+ -Notes:
+     None
+
+
+
+11. long sipGetCalibrationDate ( char *szCalDate )
+   
+ -Description:
+     Returns the software toolkit revision.
+
+ -Arguments:
+     char *szCalDate pointer to null-terminated ASCII string
+
+ -Returns:
+     SUCCESS
+
+ -Notes:
+     None
+
+
+
+12.long sipGetCalibratorType ( void )
+   
+ -Description:
+     Returns the calibrator type.
+
+ -Arguments:
+     None
+
+ -Returns:
+     Defined calibrator type.
+
+ -Notes:
+     Returns one of the following:
+       #define CHROMA_LOCKED   -1 ; needs password
+       #define CHROMA_UNKNOWN  0
+       #define CHROMA_2        2
+       #define CHROMA_3        3
+       #define CHROMA_4        4
+
+
+
+13. long sipGetRGBvaluesFromYxy ( unsigned short usUnits, dYxy dYxySource, dRGB *dRGBResult )
+   
+ -Description:
+     Given the colorimetric data in dYxySource, the calibrator's
+     equivalent scaled RGB data is calculated.
+
+ -Arguments:
+     unsigned short usUnits  units of given Yxy data
+     dYxy dYxySource         given Yxy data
+     dRGB *dRGBResult        pointer to RGB data for result
+
+ -Returns:
+     SUCCESS,
+     else, error returned
+
+ -Notes:        
+     None
+
+
+
+14. long sipSetNumPeriodsToMeasure ( unsigned short usNumPeriods )
+   
+ -Description:
+     Sets the number of monitor refresh periods of which the
+     integration time is set in the toolkit header.
+
+ -Arguments:
+     unsigned short usNumPeriods   number of periods which
+                                   the integration time includes
+
+ -Returns:
+     SUCCESS,
+     ERR_FUNCTION_NOT_AVAILABLE if not Chroma4
+
+ -Notes:
+     The toolkit header maintains a variable which keeps track 
+     of the number of fields the integration time includes. This
+     variable is used only for the low-light measurement ability
+     of the Chroma4. It is not used on Chroma2 or Chroma3. Setting
+     this variable to zero turns off the low-light measurement
+     function of the Chroma4. Normally, the number of periods is
+     set by passing it into the routine sipMeasMonFreqAndSetIntTime.
+     However, it is possible set the integration time directly in
+     seconds using the routine sipSetIntegrationTime. 
+     sipSetNumPeriodsToMeasure should only be called after calling 
+     sipSetIntegrationTime.
+
+
+
+15. long sipGetNumPeriodsToMeasure ( unsigned short *usNumPeriods )
+   
+ -Description:
+     Returns the number of monitor refresh periods of which the
+     integration time is set currently set in the toolkit header.
+
+ -Arguments:
+     unsigned short *usNumPeriods   pointer to number of periods which
+                                    the integration time includes returned
+
+ -Returns:
+     SUCCESS,
+     ERR_FUNCTION_NOT_AVAILABLE if not Chroma4
+
+ -Notes:
+     None

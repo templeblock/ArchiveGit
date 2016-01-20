@@ -1,0 +1,55 @@
+#include "resource.h"
+//////////////////////////////////////////////////////////////////////////
+//
+// HUBTABLE
+//
+
+#define  NUM_SCREEN_AG1    1
+#define  NUM_BUTTON_AG1    8
+
+IDR_HUBTABLE            HUBTABLE DISCARDABLE
+BEGIN
+   NUM_SCREEN_AG1,
+   NUM_BUTTON_AG1,
+   0L,
+// Screens
+   IDB_AGHUB_BACKGROUND	// Bitmap ID
+   540,						// Width
+   360,						// Height
+   0,							// No clipping or matting
+   0L,
+
+// Buttons
+  IDC_READY_MADE,											// Button ID
+	IDB_AGHUB_READYMADE_UP, IDB_AGHUB_READYMADE_DOWN,	// Bitmap ID (up, down)
+	198, 150,														// Button Origin
+
+   ID_FILE_NEW,
+   IDB_AGHUB_BRANDNEW_UP, IDB_AGHUB_BRANDNEW_DOWN,
+   342, 150,
+
+   IDC_HUB_ART_GALLERY,
+   IDB_AGHUB_ARTGALLERY_UP, IDB_AGHUB_ARTGALLERY_DOWN,
+   269, 226,
+
+   IDC_ADDRESS,
+   IDB_AGHUB_ADDRESSBOOK_UP, IDB_AGHUB_ADDRESSBOOK_DOWN,
+   344, 226,
+
+   IDC_INTERNET,
+   IDB_AGHUB_INTERNET_UP, IDB_AGHUB_INTERNET_DOWN,
+   111, 222,
+
+   IDC_ART_AND_MORE_STORE,
+   IDB_AGHUB_ARTANDMORE_UP, IDB_AGHUB_ARTANDMORE_DOWN,
+   191, 223,
+
+   IDC_HUB_EXIT,
+   IDB_AGHUB_CANCEL_UP, IDB_AGHUB_CANCEL_DOWN,
+   467, 296,
+
+   IDC_PARTY_SETS,
+   IDB_AGHUB_PARTYSETS_UP, IDB_AGHUB_PARTYSETS_DOWN,
+   76, 150,
+END
+

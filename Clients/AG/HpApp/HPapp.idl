@@ -1,0 +1,18 @@
+// HPapp.idl : IDL source for HPapp
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (HPapp.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(A61B6682-6057-45AE-B864-33F1880EC3E3),
+	version(1.0),
+	helpstring("HPapp 1.0 Type Library")
+]
+library HPappLib
+{
+	importlib("stdole2.tlb");
+};

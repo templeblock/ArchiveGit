@@ -1,0 +1,1641 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("MicroVision WebExpress","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c0ffc0","Wintertree","1") -->
+  <!-- $MVD$:color("19","c0ff","Or1","1") -->
+  <TITLE>Sentry Spelling Checker Engine - Sentry Windows API Reference</TITLE>
+ </HEAD>
+ <BODY BGCOLOR="WHITE">
+  <H1>
+   Sentry Spelling Checker Engine<BR>
+   Windows API Reference Guide</H1>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE">Table of Contents</FONT></TD>
+    </TR>
+   </TABLE></H2>
+  <UL>
+   <LI>
+   <P>
+    <A HREF="#Properties">Sentry properties</A><BR>
+    <LI><A HREF="#Functions">Function reference</A>
+    <UL>
+     <LI><A HREF="#SSCE_CheckBlockDlg">SSCE_CheckBlockDlg</A><BR>
+     <LI><A HREF="#SSCE_CheckCtrlBackg">SSCE_CheckCtrlBackground</A><BR>
+     <LI><A HREF="#SSCE_CheckCtrlDlg">SSCE_CheckCtrlDlg</A><BR>
+     <LI><A HREF="#SSCE_EditLexDlg">SSCE_EditLexDlg</A><BR>
+     <LI><A HREF="#SSCE_GetAutoCorrect">SSCE_GetAutoCorrect</A><BR>
+     <LI><A HREF="#SSCE_GetHelpFile">SSCE_GetHelpFile</A><BR>
+     <LI><A HREF="#SSCE_GetLexId">SSCE_GetLexId</A><BR>
+     <LI><A HREF="#SSCE_GetMainLexFile">SSCE_GetMainLexFiles</A><BR>
+     <LI><A HREF="#SSCE_GetMainLexPath">SSCE_GetMainLexPath</A><BR>
+     <LI><A HREF="#SSCE_GetMinSuggestD">SSCE_GetMinSuggestDepth</A><BR>
+     <LI><A HREF="#SSCE_GetRegTreeName">SSCE_GetRegTreeName</A><BR>
+     <LI><A HREF="#SSCE_GetSelUserLexF">SSCE_GetSelUserLexFile</A><BR>
+     <LI><A HREF="#SSCE_GetSid">SSCE_GetSid</A><BR>
+     <LI><A HREF="#SSCE_GetStatistics">SSCE_GetStatistics</A><BR>
+     <LI><A HREF="#SSCE_GetStringTable">SSCE_GetStringTableName</A><BR>
+     <LI><A HREF="#SSCE_GetUserLexFile">SSCE_GetUserLexFiles</A><BR>
+     <LI><A HREF="#SSCE_GetUserLexPath">SSCE_GetUserLexPath</A><BR>
+     <LI><A HREF="#SSCE_OptionsDlg">SSCE_OptionsDlg</A><BR>
+     <LI><A HREF="#SSCE_ResetLex">SSCE_ResetLex</A><BR>
+     <LI><A HREF="#SSCE_SetAutoCorrect">SSCE_SetAutoCorrect</A><BR>
+     <LI><A HREF="#SSCE_SetDialogOrigi">SSCE_SetDialogOrigin</A><BR>
+     <LI><A HREF="#SSCE_SetHelpFile">SSCE_SetHelpFile</A><BR>
+     <LI><A HREF="#SSCE_SetIniFile">SSCE_SetIniFile</A><BR>
+     <LI><A HREF="#SSCE_SetKey">SSCE_SetKey</A><BR>
+     <LI><A HREF="#SSCE_SetMainLexFile">SSCE_SetMainLexFiles</A><BR>
+     <LI><A HREF="#SSCE_SetMainLexPath">SSCE_SetMainLexPath</A><BR>
+     <LI><A HREF="#SSCE_SetMinSuggestD">SSCE_SetMinSuggestDepth</A><BR>
+     <LI><A HREF="#SSCE_SetRegTreeName">SSCE_SetRegTreeName</A><BR>
+     <LI><A HREF="#SSCE_SetSelUserLexF">SSCE_SetSelUserLexFile</A><BR>
+     <LI><A HREF="#SSCE_SetStringTable">SSCE_SetStringTableName</A><BR>
+     <LI><A HREF="#SSCE_SetUserLexFile">SSCE_SetUserLexFiles</A><BR>
+     <LI><A HREF="#SSCE_SetUserLexPath">SSCE_SetUserLexPath</A></P>
+    </UL>
+   </UL>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Properties"></A>Sentry Properties</FONT></TD>
+    </TR>
+   </TABLE></H2>
+  <P>
+   The following table lists the property names obtained from the 
+   SSCE.INI file or system registry. See <A HREF="winapi.htm#How2GetSetProps">How
+    to get and set property values</A> for more information.</P>
+  <P>
+   When properties are read from the SSCE.INI file, the [SSCE User] 
+   section is checked first. If the properties are not found there, the 
+   [SSCE] section is checked. If the properties are not found there, the 
+   default is used. Properties are always written to the [SSCE User] 
+   section. Your application can instruct the Sentry DLL to use a 
+   different INI file; see <A HREF="#SSCE_SetIniFile">SSCE_SetIniFile</A> 
+   for more information.</P>
+  <P>
+   When properties are read from the system registry, the 
+   HKEY_CURRENT_USER\Software\Wintertree\SSCE registry tree is checked 
+   first. If the properties are not found there, the 
+   HKEY_LOCAL_MACHINE\Software\Wintertree\SSCE registry tree is checked. 
+   If the properties are not found there, the default is used. 
+   Properties are always written to 
+   HKEY_CURRENT_USER\Software\Wintertree\SSCE. Your application can 
+   change the tree name; see <A HREF="#SSCE_SetRegTreeName">SSCE_SetRegTreeName</A> 
+   for more information. If the tree name specified by your application 
+   begins with HKEY_LOCAL_MACHINE, then properties will always be read 
+   from and written to that tree.</P>
+  <UL>
+   <LI>
+   <P>
+    <B>AllowAccentedCaps</B>: Set to 1 if capital letters containing 
+    accents (e.g., &Ecirc;tre) are considered acceptable. Set to 0 if 
+    words containing accented capitals are to be considered misspelled. 
+    Should be set to 0 when checking French Canadian text using 
+    Wintertree Software's French dictionary. Setting this option to 0 
+    will degrade performance. Default: 1. See <A HREF="coreapi.htm#ALLOWACCENTEDCAPSOP">SSCE_ALLOW_ACCENTED_CAPS_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>AutoCorrect</B>: Set to 1 if automatic replacements defined in a 
+    lexicon (e.g., CORRECT.TLX) should be made without user intervention; 
+    set to 0 if the changes should be treated as suggested replacements. 
+    Default: 1. Use <A HREF="#SSCE_GetAutoCorrect">SSCE_GetAutoCorrect</A> 
+    and <A HREF="#SSCE_SetAutoCorrect">SSCE_SetAutoCorrect</A> to read 
+    and write this property.</P>
+   <LI>
+   <P>
+    <B>CaseSensitive</B>: Set to 1 if the Sentry DLL should treat words 
+    identified with different letter-case patterns as different words; 
+    set to 0 if words differing only in their case patterns should be 
+    considered identical. Setting this option to 0 will significantly 
+    degrade performance. Default: 1. See <A HREF="coreapi.htm#CASESENSITIVEOPT">SSCE_CASE_SENSITIVE_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>DebugFile</B>: Set to the name of a file used to record diagnostic 
+    events; delete or set to an empty value to disable diagnostic 
+    logging. Default: None. See <A HREF="coreref.htm#SSCE_SetDebugFile">SSCE_SetDebugFile</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>DialogOriginX</B>: The origin of the left edge of the spelling 
+    dialog in screen coordinates. If the SetDialogOrigin property is set 
+    to 1, the spelling dialog is initially displayed at the position 
+    specified by DialogOriginX and DialogOriginY. The Sentry DLL sets the 
+    DialogOriginX property to the last position each time the dialog is 
+    displayed. Default: None. Use <A HREF="#SSCE_SetDialogOrigi">SSCE_SetDialogOrigin</A> 
+    to set this property.</P>
+   <LI>
+   <P>
+    <B>DialogOriginY</B>: The origin of the top edge of the spelling 
+    dialog in screen coordinates. If the SetDialogOrigin property is set 
+    to 1, the spelling dialog is initially displayed at the position 
+    specified by DialogOriginX and DialogOriginY. The Sentry DLL sets the 
+    DialogOriginY property to the last position each time the dialog is 
+    displayed. Default: None. Use <A HREF="#SSCE_SetDialogOrigi">SSCE_SetDialogOrigin</A> 
+    to set this property.</P>
+   <LI>
+   <P>
+    <B>FontBold</B>: Set to 1 to display a bold font in the dialogs; set 
+    to 0 if the font should be normal weight. Default: 0.</P>
+   <LI>
+   <P>
+    <B>HelpFile</B>: Name of the help file invoked when the user presses 
+    the Help button on a dialog. Default: ssce.hlp. Use <A HREF="#SSCE_GetHelpFile">SSCE_GetHelpFile</A> 
+    and <A HREF="#SSCE_SetHelpFile">SSCE_SetHelpFile</A> to read and 
+    write this property.</P>
+   <LI>
+   <P>
+    <B>IgnoreAllCapsWords</B>: Set to 1 if words consisting entirely of 
+    capital letters should be ignored (skipped); set to 0 if they should 
+    be checked. Default: 0. See <A HREF="coreapi.htm#IGNOREALLCAPSWORDOP">SSCE_IGNORE_ALL_CAPS_WORD_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>IgnoreCappedWords</B>: Set to 1 if words beginning with a capital 
+    letter should be ignored (skipped); set to 0 if they should be 
+    checked. Default: 0. See <A HREF="coreapi.htm#IGNORECAPPEDWORDOPT">SSCE_IGNORE_CAPPED_WORD_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>IgnoreDomainNames</B>: Set to 1 if words that appear to be domain 
+    names (e.g., wintertree-software.com) should be ignored (skipped); 
+    set to 0 if they should be checked. Default: 0. See <A HREF="coreapi.htm#IGNOREDOMAINNAMESOP">SSCE_IGNORE_DOMAIN_NAMES_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>IgnoreHTMLMarkups</B>: Set to 1 if text that appears to be part of 
+    an HTML markup should be ignored (skipped). Set to 0 if text in HTML 
+    markups should be checked for spelling errors. Default: 0. See <A HREF="coreapi.htm#IGNOREHTMLMARKUPSOP">SSCE_IGNORE_HTML_MARKUPS_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>IgnoreMixedCase</B>: Set to 1 if words containing an unusual 
+    mixture of upper- and lower-case letters should be ignored; set to 0 
+    if they should be checked. Default: 0. See <A HREF="coreapi.htm#IGNOREMIXEDCASEOPT">SSCE_IGNORE_MIXED_CASE_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>IgnoreMixedDigits</B>: Set to 1 if words containing a mixture of 
+    letters and digits should be ignored; set to 0 if they should be 
+    checked. Default: 0. See <A HREF="coreapi.htm#IGNOREMIXEDDIGITSOP">SSCE_IGNORE_MIXED_DIGITS_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>IgnoreNonAlphaWords</B>: Set to 1 if words containing no 
+    alphabetic characters (e.g., telephone numbers) should be ignored; 
+    set to 0 if they should be checked. Default: 1. See <A HREF="coreapi.htm#IGNORENONALPHAWORDO">SSCE_IGNORE_NON_ALPHA_WORD_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>LastSelectedLex</B>: Name of the last user lexicon file selected 
+    in the &quot;Add Words To&quot; dropdown list on the Spelling-Checker 
+    dialog. Default: None. Use <A HREF="#SSCE_GetSelUserLexF">SSCE_GetSelUserLexFile</A> 
+    and <A HREF="#SSCE_SetSelUserLexF">SSCE_SetSelUserLexFile</A> to read 
+    and write this property.</P>
+   <LI>
+   <P>
+    <B>MainLexFiles</B>: Comma-separated list of lexicon files forming 
+    the main lexicon. Each file name can contain a path relative to the 
+    MainLexPath directory or an absolute path name. Default: None. Use <A HREF="#SSCE_GetMainLexFile">SSCE_GetMainLexFiles</A> 
+    and <A HREF="#SSCE_SetMainLexFile">SSCE_SetMainLexFiles</A> to read 
+    and write this property.</P>
+   <LI>
+   <P>
+    <B>MainLexPath</B>: Path to the directory containing the main lexicon 
+    files. Note that the path must not contain a comma and should not end 
+    in a backslash. Default: &quot;.&quot; (current directory). Use <A HREF="#SSCE_GetMainLexPath">SSCE_GetMainLexPath</A> 
+    and <A HREF="#SSCE_SetMainLexPath">SSCE_SetMainLexPath</A> to read 
+    and write this property.</P>
+   <LI>
+   <P>
+    <B>MinSuggestDepth</B>: Set to the depth that should be used 
+    initially to locate suggestions for misspelled words. Range: 0-100. 
+    Default: 50. Use <A HREF="#SSCE_GetMinSuggestD">SSCE_GetMinSuggestDepth</A> 
+    and <A HREF="#SSCE_SetMinSuggestD">SSCE_SetMinSuggestDepth</A> to 
+    read and write this property. See <A HREF="coreapi.htm#How2Suggest">How
+     to look up suggestions for misspelled words</A> for more information 
+    on the suggestion depth value.</P>
+   <LI>
+   <P>
+    <B>PhoneticSuggestions</B>: Set to 1 if suggestions should include 
+    words that sound like the misspelled word using English 
+    pronunciation; set to 0 if phonetic suggestions should not be given. 
+    Default: 0. See <A HREF="coreapi.htm#SUGGESTPHONETICOPT">SSCE_SUGGEST_PHONETIC_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>ReportDoubledWords</B>: Set to 1 if the same word appearing twice 
+    in a row should be reported to the user; set to 0 if the word should 
+    be ignored. Default: 1. See <A HREF="coreapi.htm#REPORTDOUBLEDWORDOP">SSCE_REPORT_DOUBLED_WORD_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>SetDialogOrigin</B>: Set to 1 if the spelling dialog should be 
+    positioned at the screen coordinates indicated by the DialogOriginX 
+    and DialogOriginY properties. Set to 0 if the position of the 
+    spelling dialog should be determined at run time. Default: 0. This 
+    property is set to 1 when <A HREF="#SSCE_SetDialogOrigi">SSCE_SetDialogOrigin</A> 
+    is called.</P>
+   <LI>
+   <P>
+    <B>SplitContractedWords</B>: Set to 1 if the Sentry DLL should treat 
+    apostrophes as word separators and check each individual word 
+    separately (only if the original contracted word was not found); set 
+    to 0 if contracted words should be checked in their entirety only. 
+    Should be set to 1 when using Wintertree Software's French and 
+    Italian dictionaries. Default: 0. See <A HREF="coreapi.htm#SPLITCONTRACTEDWORD">SSCE_SPLIT_CONTRACTED_WORDS_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>SplitHyphenatedWords</B>: Set to 1 if the Sentry DLL should treat 
+    hyphens as word separators, and check each individual word (only if 
+    the original hyphenated word was not found); set to 0 if hyphenated 
+    words should be checked in the entirely only. Should be set to 1 when 
+    using Wintertree Software's dictionaries. Default: 1. See <A HREF="coreapi.htm#SPLITHYPHENATEDWORD">SSCE_SPLIT_HYPHENATED_WORDS_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>SplitWords</B>: Set to 1 if the Sentry DLL should attempt to break 
+    misspelled words into a series of shorter, correctly spelled words 
+    (only if the original word was not found); set to 0 if words should 
+    be checked in their entirely only. Should be set to 1 when using 
+    Wintertree Software's German and Finnish dictionaries. Default: 0. 
+    See <A HREF="coreapi.htm#SPLITWORDSOPT">SSCE_SPLIT_WORDS_OPT</A> for 
+    more information.</P>
+   <LI>
+   <P>
+    <B>StringTableName</B>: Name of the table used to obtain variable 
+    text strings displayed in the built-in dialogs. Default: English. See <A HREF="winapi.htm#How2Localize">How
+     to localize Sentry's built-in dialog boxes</A> for a discussion of 
+    the string table.</P>
+   <LI>
+   <P>
+    <B>StripPossessives</B>: Set to 1 if possessives of the form 's and 
+    s' should be removed from words before checking their spelling. 
+    Wintertree Software's lexicons contain no possessive word forms, so 
+    this option should be enabled when using these lexicons. Set to 0 if 
+    words should be checked with their possessives intact. Default: 1. 
+    See <A HREF="coreapi.htm#STRIPPOSSESSIVESOPT">SSCE_STRIP_POSSESSIVES_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>SuggestSplitWords</B>: Set to 1 if suggestions can include two 
+    shorter words formed by splitting the misspelled word (e.g., suggest 
+    &quot;the dog&quot; for &quot;thedog&quot;); set to 0 if suggestions 
+    of this form should not be offered. Default: 1. See <A HREF="coreapi.htm#SUGGESTSPLITWORDSOP">SSCE_SUGGEST_SPLIT_WORDS_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>TypographicalSuggestions</B>: Set to 1 if suggestions for 
+    misspelled words should include words which are typographically 
+    similar to the misspelled word; set to 0 if typographical suggestions 
+    should not be given. Default: 1. See <A HREF="coreapi.htm#SUGGESTTYPOGRAPHICA">SSCE_SUGGEST_TYPOGRAPHICAL_OPT</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    <B>UserLexFiles</B>: Comma-separated list of user lexicon files. Each 
+    file can contain a path relative to the UserLexPath directory or an 
+    absolute path. Default: None. Use <A HREF="winref.htm#SSCE_GetUserLexFile">SSCE_GetUserLexFiles</A> 
+    to read this property and <A HREF="#SSCE_SetUserLexFile">SSCE_SetUserLexFiles</A> 
+    to write it.</P>
+   <LI>
+   <P>
+    <B>UserLexPath</B>: Path to the directory containing user lexicon 
+    files. Note that the path must not contain a comma and should not end 
+    in a backslash. Default: MainLexPath setting. Use <A HREF="#SSCE_GetUserLexPath">SSCE_GetUserLexPath</A> 
+    to read this property and <A HREF="#SSCE_SetUserLexPath">SSCE_SetUserLexPath</A> 
+    to write it.</P>
+   </UL>
+  <H3>
+   Main Dictionary Language properties</H3>
+  <P>
+   In addition to the properties listed above, the following properties 
+   can be defined to override defaults used in the selection of the main 
+   dictionary language in the Options dialog. The property names are 
+   preceded by a two-character language code from the following list:</P>
+  <UL>
+   <LI>
+   <P>
+    American English: am<BR>
+    <LI>American English Legal: la<BR>
+    <LI>American English Medical: ma<BR>
+    <LI>British English: br<BR>
+    <LI>British English Legal: lb<BR>
+    <LI>British English Medical: mb<BR>
+    <LI>Canadian English: ca<BR>
+    <LI>Catalan: sc<BR>
+    <LI>Danish: da<BR>
+    <LI>Dutch: du<BR>
+    <LI>Finnish: fi<BR>
+    <LI>French (European): fr<BR>
+    <LI>French (Canadian): fc<BR>
+    <LI>German: ge<BR>
+    <LI>Italian: it<BR>
+    <LI>Norwegian (Bokmaal): nb<BR>
+    <LI>Norwegian Nynorsk: no<BR>
+    <LI>Portuguese (Brazilian): pb<BR>
+    <LI>Portuguese (Iberian): po<BR>
+    <LI>Spanish: sp<BR>
+    <LI>Swedish: sw</P>
+   </UL>
+  <P>
+   &nbsp;Substitute the language code for <I>xx</I> in the property name 
+   to define a property that overrides the default:</P>
+  <UL>
+   <LI>
+   <P>
+    <I><B>xx</B></I><B>.AllowAccentedCaps</B>: Value of the 
+    AllowAccentedCaps property when this language is selected. Default: 
+    fc: 1; all others: 0</P>
+   <LI>
+   <P>
+    <I><B>xx</B></I><B>.InstallationTestFile</B>: Name of the file used 
+    to determine if lexicons for the language are installed on the target 
+    system. The file must be located in the directory indicated by 
+    MainLexPath. Default: sscexx2.clx.</P>
+   <LI>
+   <P>
+    <I><B>xx</B></I><B>.MainLexFiles</B>: Comma-separated list of lexicon 
+    files opened when the user selects this language. Default:</P>
+   <UL>
+    <LI>
+    <P>
+     la: &quot;ssceam.tlx,ssceam2.clx,sscela.tlx,sscela2.clx&quot;<BR>
+     <LI>lb: &quot;sscebr.tlx,sscebr2.clx,sscelb.tlx,sscelb2.clx&quot;<BR>
+     <LI>ma: &quot;ssceam.tlx,ssceam2.clx,sscema.tlx,sscema2.clx&quot;<BR>
+     <LI>mb: &quot;sscebr.tlx,sscebr2.clx,sscemb.tlx,sscemb2.clx&quot;<BR>
+     <LI>All others: &quot;sscexx.tlx,sscexx2.clx&quot;</P>
+    </UL>
+   <LI>
+   <P>
+    <I><B>xx</B></I><B>.SplitContractedWords</B>: Value of the 
+    SplitContractedWords property when this language is selected. 
+    Default: fc, fr, and it: 1; all others: 0.</P>
+   <LI>
+   <P>
+    <I><B>xx</B></I><B>.SplitWords</B>: Value of the SplitWords property 
+    when this language is selected. Default: fi, ge: 1; all others: 0.</P>
+   </UL>
+  <P>
+   Example: Assume you have created your own Danish lexicon file named 
+   &quot;danish.clx&quot;. To use this lexicon file, you need to change 
+   two properties:</P><BLOCKQUOTE><PRE>da.InstallationTestFile=&quot;danish.clx&quot;<BR>da.MainLexFiles=&quot;danish.clx&quot;</PRE></BLOCKQUOTE><P>
+   The first property specifies that the presence of file 
+   &quot;danish.clx&quot; indicates that a dictionary for the Danish 
+   language is installed on the system. The second property indicates 
+   what the MainLexFiles property should be set to if &quot;Danish&quot; 
+   is selected in the Main Dictionary Language list.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Functions"></A>Function Reference</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Functions in the Sentry Windows API use the following conventions:</P>
+  <P>
+   The following parameter and return value types are used:</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD WIDTH="33%" BGCOLOR="#007F00" VALIGN=TOP>
+      <P>
+       <B><FONT COLOR="WHITE">Type</FONT></B></TD>
+     <TD WIDTH="33%" BGCOLOR="#007F00" VALIGN=TOP>
+      <P>
+       <B><FONT COLOR="WHITE">Description</FONT></B></TD>
+     <TD WIDTH="33%" BGCOLOR="#007F00" VALIGN=TOP>
+      <P>
+       <B><FONT COLOR="WHITE">Visual Basic Equivalent</FONT></B></TD>
+     <TD WIDTH="33%" BGCOLOR="#007F00" VALIGN=TOP>
+      <P>
+       <B><FONT COLOR="WHITE">Pascal Equivalent</FONT></B></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       SSCE_CHAR *</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Pointer to the first character of an array of 8-bit characters.</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       ByVal String</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       SSCE_PCHAR</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       TCHAR *</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Pointer to the first character of a null-terminated string.</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       ByVal String</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       PChar</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       HWND</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Window handle</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Integer (16 bit apps)<BR>
+       Long (32 bit apps)</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       HWND</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       HINSTANCE</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Instance handle</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Integer (16 bit apps)<BR>
+       Long (32 bit apps)</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       THandle</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       SSCE_S16</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Signed, 16-bit value</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Integer</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       SSCE_S16</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       SSCE_U16</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Unsigned, 16-bit value</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Integer</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       SSCE_U16</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       SSCE_S32</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Signed, 32-bit value</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Long</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       SSCE_S32</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       SSCE_U32</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Unsigned, 32-bit value</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       Long</TD>
+     <TD WIDTH="33%" VALIGN=TOP>
+      <P>
+       SSCE_U32</TD>
+    </TR>
+   </TABLE></P>
+  <UL>
+   <LI>
+   <P>
+    For pointer-type parameters, the keyword &quot;const&quot; indicates 
+    that the parameter is passed by reference but will not be modified. 
+    If &quot;const&quot; is missing, the parameter is either an output 
+    parameter or an input/output parameter and will be modified.<BR>
+    <LI>For string-type output parameters, an additional parameter 
+    indicating the size of the string buffer is always present. This size 
+    includes space for the terminating null character.<BR>
+    <LI>The return value &quot;void&quot; indicates no return value. This 
+    is equivalent to a subroutine (in BASIC) or a procedure (in Pascal).<BR>
+    <LI>Functions which return a value return a negative value on error 
+    or a zero or positive value on success.</P>
+   </UL>
+  <P>
+   Note: The file SSCE\SDK\VB\SSCEVB.BAS contains an alternate API for 
+   Sentry which Visual Basic programmers may find easier to use. The 
+   alternate API contains the same functions as SSCE, but each function 
+   is named SSCEVB_xxx rather than SSCE_xxx. The alternate API is nearly 
+   identical to the regular API, but most string-length parameters have 
+   been removed. See the example project in SSCE\SDK\EXAMPLES\VB\ to see 
+   how the alternate API is used. To use the alternate API, add both 
+   SSCE.BAS and SSCEVB.BAS to your Visual Basic project.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CheckBlockDlg"></A>SSCE_CheckBlockDlg</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Interact with the user to check the spelling of a string of words or 
+    block of text. Words in the string are checked according to the 
+    current spelling-checker options. If SSCE_CheckBlockDlg finds a 
+    problem (e.g., a misspelled word), it displays a dialog box which the 
+    user interacts with to correct or dispose of the problem. If no 
+    problems are detected, the dialog box closes immediately.</P>
+   <P>
+    SSCE_CheckBlockDlg returns when the entire string has been checked or 
+    the user canceled. The string will contain any changes (replacements 
+    or deletions) made by the user.</P>
+   <P>
+    The string's size (capacity) must be at least one character larger 
+    than the number of text characters the string contains. Normally, an 
+    application would allocate additional space to allow room for growth. 
+    The strSz parameter indicates the total amount of space, and the 
+    strLen parameter indicates the number of characters in the string initially.</P>
+   <P>
+    The SSCE_CheckBlockDlgTmplt function works like SSCE_CheckBlockDlg, 
+    but allows the calling application to specify an alternate set of 
+    dialog templates.</P>
+   <P>
+    See <A HREF="winapi.htm#How2CheckString">How to check a string</A> 
+    and <A HREF="winapi.htm#How2ChangeDialogApp">How to change the 
+    appearance of Sentry's dialog boxes</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S32 SSCE_CheckBlockDlg(HWND parentWin, SSCE_CHAR *string, SSCE_S32 strLen,<BR>  SSCE_S32 strSz, SSCE_S16 showContext);</PRE><PRE>SSCE_S32 SSCE_CheckBlockDlgTmplt(HWND parentWin, SSCE_CHAR *string,<BR>  SSCE_S32 strLen, SSCE_S32 strSz, SSCE_S16 showContext, HINSTANCE clientInst,<BR>  const TCHAR *spellDlgTmplt, const TCHAR *dictDlgTmplt, const TCHAR *optDlgTmplt,<BR>  const TCHAR *newLexDlgTmplt);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    parentWin: Handle of the window in the application from which the 
+    Spelling-Checker dialog will be invoked. The parentWin parameter may 
+    be null or 0, in which case the Spelling-Checker dialog acts like a 
+    separate Windows application. This means that the user can return to 
+    the calling application while the Spelling-Checker dialog is active, 
+    and invoke menu items, operate controls, etc. Depending on the design 
+    of the application, this may produce unexpected results. To prevent 
+    this from happening, pass a valid window handle.</P>
+   <LI>
+   <P>
+    string: Character array containing the text to be checked.</P>
+   <LI>
+   <P>
+    strLen: Number of text characters in the string array initially.</P>
+   <LI>
+   <P>
+    strSz: Total size (capacity) of the string in characters (should be 
+    larger than strLen to allow room for growth, and must be at least 1 
+    character larger than strLen). The string size is limited to 64K in 
+    the 16-bit DLL. If the showContext parameter is set to 1, the string 
+    size should be limited to the amount of text which can be displayed 
+    in a standard edit control (about 30K).</P>
+   <LI>
+   <P>
+    showContext: Set to 1 if an extended Spelling-Checker dialog which 
+    contains a context area showing the text being checked should be 
+    used. Set to 0 if the standard Spelling-Checker dialog should be used.</P>
+   <LI>
+   <P>
+    clientInst: Instance handle of the module which contains alternative 
+    dialog template resources (e.g., the calling application).</P>
+   <LI>
+   <P>
+    spellDlgTmplt: Character array (string) containing the name of the 
+    alternative template resource for the Check Spelling dialog. Set to 
+    NULL if the built-in dialog template should be used.</P>
+   <LI>
+   <P>
+    dictDlgTmplt: Character array (string) containing the name of the 
+    alternative template resource for the Dictionaries dialog. Set to 
+    NULL if the built-in dialog template should be used.</P>
+   <LI>
+   <P>
+    optDlgTmplt: Character array (string) containing the name of the 
+    alternative template resource for the Options dialog. Set to NULL if 
+    the built-in dialog template should be used.</P>
+   <LI>
+   <P>
+    newLexDlgTmpt: Character array (string) containing the name of the 
+    alternative template resource for the New Dictionary dialog 
+    (displayed by the Dictionaries dialog). Set to NULL if the built-in 
+    dialog template should be used.</P>
+   <LI>
+   <P>
+    Return value: The new string length (&gt;= 0) on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CheckCtrlBackg"></A>SSCE_CheckCtrlBackground</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Monitor a text control to detect spelling errors in the background as 
+    the user types. Currently this function works only with rich-edit 
+    controls version 1.0 and later) which are part of the Windows Common Controls.</P>
+   <P>
+    Any misspelled words are marked by changing their color to red. If 
+    the user subsequently edits a marked word to correct the spelling 
+    error, the word is unmarked by changing its color to black. Corrected 
+    words are changed to black even if the text was in some other color 
+    prior to being changed to red.</P>
+   <P>
+    If the user right-clicks the mouse over a marked word, a context menu 
+    is displayed which contains suggested replacements for the misspelled 
+    word plus items to ignore the word, ignore all instances of the word, 
+    or to add the word to the currently-selected user dictionary. Note 
+    that if the rich-edit control has a context menu enabled, that 
+    context menu will appear after the spelling context menu appears. For 
+    this reason, enabling the context menu in rich-edit controls 
+    monitored using SSCE_CheckCtrlBackground is not recommended.</P>
+   <P>
+    Only one control can be monitored at a time. When this function is 
+    called, any previously monitored control is no longer monitored. 
+    Typically, the control with focus is the one being monitored.</P>
+   <P>
+    This function works only in the 32-bit Sentry DLL.</P>
+   <P>
+    See <A HREF="winapi.htm#How2CheckBackground">Checking rich-text 
+    controls in the background</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CheckCtrlBackground(HWND ctrlWin);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    ctrlWin: Window handle of the control to monitor, or null (0) to turn 
+    off monitoring.</P>
+   <LI>
+   <P>
+    Return Value: &gt;= 0: success; &lt; 0: Error code.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_CheckCtrlDlg"></A>SSCE_CheckCtrlDlg</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Interact with the user to check the text in a Windows control. Three 
+    types of controls may be checked: rich-edit controls, edit controls 
+    (including multi-line), and other controls which contain text.</P>
+   <P>
+    The SSCE_CheckCtrlDlg function checks each word contained in the 
+    control. Optionally, the function can check only the highlighted 
+    (selected) text in the control. Words in the control are checked 
+    according to the current spelling-checker options.</P>
+   <P>
+    If SSCE_CheckCtrlDlg finds a problem (e.g., a misspelled word) it 
+    displays a dialog box which the user interacts with to correct or 
+    dispose of the problem. If no problem is detected, the dialog is not displayed.</P>
+   <P>
+    In the case of standard edit and rich-edit controls, the problem word 
+    will be highlighted in the control to show the problem context. For 
+    this feature to work, the control's ES_NOHIDESEL style must be 
+    enabled, or its Hide Selection property must be set to False. If the 
+    control can be vertically scrolled, the ES_AUTOVSCROLL style should 
+    be enabled to allow the SSCE_CheckCtrlDlg function to scroll the 
+    problem word into view.</P>
+   <P>
+    SSCE_CheckCtrlDlg returns when the entire control (or just the 
+    selected portion) has been checked or the user canceled. The 
+    control's contents will be updated with any changes (e.g., 
+    replacements or deletions) made by the user.</P>
+   <P>
+    The SSCE_CheckCtrlDlgTmplt function works like SSCE_CheckCtrlDlg, but 
+    allows the application to specify an alternate set of dialog templates.</P>
+   <P>
+    See <A HREF="winapi.htm#How2CheckControl">How to check an edit 
+    control or rich-edit control</A> and <A HREF="winapi.htm#How2ChangeDialogApp">How
+     to change the appearance of Sentry's dialog boxes</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_CheckCtrlDlg(HWND parentWin, HWND ctrlWin, SSCE_S16 selectedOnly);</PRE><PRE>SSCE_S16 SSCE_CheckCtrlDlgTmplt(HWND parentWin, HWND ctrlWin, SSCE_S16 selectedOnly,<BR>  HINSTANCE clientInst, const TCHAR *spellDlgTmplt, const TCHAR *dictDlgTmplt,<BR>  const TCHAR *optDlgTmplt, const TCHAR *newLexDlgTmplt);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    parentWin: Handle of the window in your application from which the 
+    Spelling-Checker dialog will be invoked. The parentWin parameter may 
+    be null or 0, in which case the Spelling-Checker dialog acts 
+    non-modally. This means that the user can return to your application 
+    while the Spelling-Checker dialog is active, and invoke menu items, 
+    operate controls, etc. Depending on the design of your application, 
+    this may produce unexpected results. In particular, problems may 
+    occur if the user edits the text in the control being checked. To 
+    prevent this from happening, pass a valid window handle to the 
+    SSCE_CheckCtrlDlg function.</P>
+   <LI>
+   <P>
+    ctrlWin: Handle of the control containing text to be checked.</P>
+   <LI>
+   <P>
+    selectedOnly: TRUE if only the text selected in the control should be 
+    checked; FALSE if the entire control should be checked.</P>
+   <LI>
+   <P>
+    clientInst: Instance handle of the module which contains alternative 
+    dialog template resources (e.g., the calling application).</P>
+   <LI>
+   <P>
+    spellDlgTmplt: Character array (string) containing the name of the 
+    alternative template resource for the Check Spelling dialog. Set to 
+    NULL if the built-in dialog template should be used.</P>
+   <LI>
+   <P>
+    dictDlgTmplt: Character array (string) containing the name of the 
+    alternative template resource for the Dictionaries dialog. Set to 
+    NULL if the built-in dialog template should be used.</P>
+   <LI>
+   <P>
+    optDlgTmplt: Character array (string) containing the name of the 
+    alternative template resource for the Options dialog. Set to NULL if 
+    the built-in dialog template should be used.</P>
+   <LI>
+   <P>
+    newLexDlgTmpt: Character array (string) containing the name of the 
+    alternative template resource for the New Dictionary dialog 
+    (displayed by the Dictionaries dialog). Set to NULL if the built-in 
+    dialog template should be used.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_EditLexDlg"></A>SSCE_EditLexDlg</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Interact with the user via the Dictionaries dialog box with which the 
+    user views and modifies the set of user lexicons. Any changes made to 
+    the set of lexicons or their contents are automatically saved when 
+    the dialog box is closed.</P>
+   <P>
+    The SSCE_EditLexDlgTmplt function works like SSCE_EditLexDlg, but 
+    allows the calling application to specify an alternate set of dialog templates.</P>
+   <P>
+    See <A HREF="winapi.htm#How2DisplayDictDlg">How to display the 
+    Dictionaries dialog box</A> and <A HREF="winapi.htm#How2ChangeDialogApp">How
+     to change the appearance of Sentry's dialog boxes</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_EditLexDlg(HWND parentWin);</PRE><PRE>SSCE_S16 SSCE_EditLexDlgTmplt(HWND parentWin, HINSTANCE clientInst,<BR>const TCHAR *dictDlgTmplt, const TCHAR *newLexDlgTmplt);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    parentWin: Handle of the window in your application from which the 
+    Dictionaries dialog is being invoked. The parentWin parameter may be 
+    null or 0, in which case the Dictionaries dialog acts non-modally. 
+    This means that the user can return to your application while the 
+    Dictionaries dialog is active, and invoke menu items, operate 
+    controls, etc.</P>
+   <LI>
+   <P>
+    clientInst: Instance handle of the module which contains alternative 
+    dialog template resources (e.g., the calling application).</P>
+   <LI>
+   <P>
+    dictDlgTmplt: Character array (string) containing the name of the 
+    alternative template resource for the Dictionaries dialog. Set to 
+    NULL if the built-in dialog template should be used.</P>
+   <LI>
+   <P>
+    newLexDlgTmpt: Character array (string) containing the name of the 
+    alternative template resource for the New Dictionary dialog 
+    (displayed by the Dictionaries dialog). Set to NULL if the built-in 
+    dialog template should be used.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetAutoCorrect"></A>SSCE_GetAutoCorrect</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Get the AutoCorrect property value.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_GetAutoCorrect(void);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    Return value: 0: Auto correct is disabled; non-0: Auto correct is enabled.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetHelpFile"></A>SSCE_GetHelpFile</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Get the HelpFile property value.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_GetHelpFile(TCHAR *fileName, SSCE_U16 fileNameSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    fileName: Character array (string) where the help file path and name 
+    will be copied. If the fileName array is not large enough to hold the 
+    complete file name, the returned file name will be truncated.</P>
+   <LI>
+   <P>
+    fileNameSz: Size of the file name array in characters including space 
+    for the terminating null character.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetLexId"></A>SSCE_GetLexId</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the Sentry lexicon id of a user lexicon or the temporary 
+    lexicon. The application can pass the lexicon id to functions in the 
+    core Sentry API to add words to the lexicon, obtain its contents, 
+    etc. The temporary lexicon is used to hold words marked 
+    &quot;ignore-all&quot; and &quot;change-all&quot; by the user.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><PRE>SSCE_S16 SSCE_GetLexId(const TCHAR *lexFileName);</PRE><UL>
+   <LI>
+   <P>
+    lexFileName: Name of the lexicon file containing the user lexicon. 
+    The name should be relative to the path specified by the UserLexPath 
+    profile setting or contain a full path. If the file name is empty or 
+    null, the id of the temporary lexicon will be returned.</P>
+   <LI>
+   <P>
+    Return value: The id of the requested lexicon (&gt;= 0) on success; 
+    &lt; 0: <A HREF="coreref.htm#ErrorCodes">error code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetMainLexFile"></A>SSCE_GetMainLexFiles</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Get the MainLexFiles property value.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_GetMainLexFiles(TCHAR *fileList, SSCE_U16 fileListSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    fileList: Character array (string) where the list of file names will 
+    be copied. If the fileList array is not large enough to hold the 
+    list, the returned list will be truncated.</P>
+   <LI>
+   <P>
+    fileListSz: Size of the fileList array in characters including space 
+    for the terminating null character.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetMainLexPath"></A>SSCE_GetMainLexPath</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the MainLexPath property value.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_GetMainLexPath(TCHAR *path, SSCE_U16 pathSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    path: Character array (string) where the main lexicon path will be 
+    copied. If the path array is not large enough to hold the path, the 
+    returned path will be truncated.</P>
+   <LI>
+   <P>
+    pathSz: Size of the path array in characters including space for the 
+    terminating null character.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetMinSuggestD"></A>SSCE_GetMinSuggestDepth</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the MinSuggestDepth property value.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_GetMinSuggestDepth();</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    Return value: Initial suggestion depth.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetRegTreeName"></A>SSCE_GetRegTreeName</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the name of the registry tree where Sentry DLL property values 
+    are read and stored. By default, properties are stored in the 
+    registry tree under HKEY_CURRENT_USER. However, if the returned tree 
+    name begins with HKEY_LOCAL_MACHINE, then properties are accessed 
+    under that tree.</P>
+   <P>
+    To change the registry tree path, call SSCE_SetRegTreeName.</P>
+   <P>
+    This function has no effect in the 16-bit DLL.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_GetRegTreeName(TCHAR *regTreeName, SSCE_U16 regTreeNameSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    regTreeName: Character array (string) where the tree name will be 
+    copied. If the array is not large enough to hold the tree name, the 
+    returned tree name will be truncated.</P>
+   <LI>
+   <P>
+    pathSz: Size of the registry tree name array in characters including 
+    space for the terminating null character.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetSelUserLexF"></A>SSCE_GetSelUserLexFile</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the name of the currently selected user lexicon file - i.e., 
+    the user lexicon words will be added to when the Add button is 
+    pressed in the Spelling-Checker dialog.</P>
+   <P>
+    To set the selected user lexicon file, use SSCE_SetSelUserLexFile.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_GetSelUserLexFile(TCHAR *fileName, SSCE_U16 fileNameSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    fileName: Character array (string) where the user lexicon file name 
+    will be copied. If the array is not large enough to hold the entire 
+    file name, the returned file name will be truncated.</P>
+   <LI>
+   <P>
+    fileNameSz: Size of the fileName array in characters including space 
+    for the terminating null character.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetSid"></A>SSCE_GetSid</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the identifier of the Sentry session opened automatically by 
+    the Sentry DLL. The session identifier is useful if the application 
+    needs to invoke functions in the core Sentry API directly. The 
+    session id is obtained by calling SSCE_OpenSession.</P>
+   <P>
+    See <A HREF="winapi.htm#How2CallCoreAPI">How to call Sentry's Core API</A> 
+    for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_GetSid(void);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    Return value: Sentry session id (&gt;= 0) on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetStatistics"></A>SSCE_GetStatistics</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain information about the last text block or control checked.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_GetStatistics(SSCE_U32 *wordsChecked, SSCE_U32 *wordsChanged,<BR>  SSCE_U32 *errorsDetected);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    wordsChecked: The number of words in the text block or control. If 
+    the user canceled the last spell-check operation, the wordsChecked 
+    parameter will contain the total number of words in the block, not 
+    the actual number of words checked.</P>
+   <LI>
+   <P>
+    wordsChanged: The number of words changed in the block or control. 
+    The count includes changes made as a result of auto corrections.</P>
+   <LI>
+   <P>
+    errorsDetected: The number of spelling errors and other problems 
+    detected in the block or control.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetStringTable"></A>SSCE_GetStringTableName</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the StringTableName property value.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> and <A HREF="winapi.htm#How2Localize">How
+     to localize Sentry</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void API SSCE_GetStringTableName(TCHAR *tableName, SSCE_U16 tableNameSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    tableName: Character array where the StringTable name will be stored. 
+    If the array is not large enough, the returned string table name will 
+    be truncated.</P>
+   <LI>
+   <P>
+    tableNameSz: Size of the tableName array in characters, including 
+    space for a terminating null character.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetUserLexFile"></A>SSCE_GetUserLexFiles</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the UserLexFiles property value.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_GetUserLexFiles(TCHAR *fileList, SSCE_U16 fileListSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    fileList: Character array (string) where the list of file names will 
+    be copied. If the fileList array is not large enough to hold the 
+    list, the returned list will be truncated.</P>
+   <LI>
+   <P>
+    fileListSz: Size of the fileList array in characters including space 
+    for the terminating null character.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_GetUserLexPath"></A>SSCE_GetUserLexPath</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Obtain the UserLexPath property value.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_GetUserLexPath(TCHAR *path, SSCE_U16 pathSz);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    path: Character array (string) where the lexicon path will be copied. 
+    If the path array is not large enough to hold the path, the returned 
+    path will be truncated.</P>
+   <LI>
+   <P>
+    pathSz: Size of the path array in characters including space for the 
+    terminating null character.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_OptionsDlg"></A>SSCE_OptionsDlg</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Interact with the user to select spell-checking options via the 
+    Options dialog box. The modified option settings are automatically 
+    saved (in property values) when the user closes the dialog.</P>
+   <P>
+    The SSCE_OptionsDlgTmplt function works like SSCE_OptionsDlg, but 
+    allows the calling application to specify the name of an alternate 
+    dialog template.</P>
+   <P>
+    See <A HREF="winapi.htm#How2DisplayOptions">How to display the 
+    Options dialog box</A> and <A HREF="winapi.htm#How2ChangeDialogApp">How
+     to change the appearance of Sentry's dialog boxes</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_OptionsDlg(HWND parentWin);</PRE><PRE>SSCE_S16 SSCE_OptionsDlgTmplt(HWND parentWin, HINSTANCE clientInst,<BR>  const TCHAR *optDlgTmplt);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    parentWin: Handle of the window in your application from which the 
+    Options dialog box is being invoked. The parentWin parameter may be 
+    null or 0, in which case the Options dialog box acts non-modally. 
+    This means that the user can return to your application while the 
+    Options dialog is active, and invoke menu items, operate controls, etc.</P>
+   <LI>
+   <P>
+    clientInst: Instance handle of the module which contains alternative 
+    dialog template resources (e.g., the calling application).</P>
+   <LI>
+   <P>
+    optDlgTmplt: Character array (string) containing the name of the 
+    alternative template resource for the Options dialog. Set to NULL if 
+    the built-in dialog template should be used.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_ResetLex"></A>SSCE_ResetLex</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Clear the contents of the temporary lexicon used by the Sentry DLL. 
+    The Sentry DLL stores &quot;ignore all&quot; and &quot;change 
+    all&quot; words in its temporary lexicon. The application program 
+    might call SSCE_ResetLex before beginning a spell-check operation on 
+    a new document, so words ignored and replaced from the previous 
+    document will not be applied to the new one. Calling SSCE_ResetLex 
+    has no effect on the permanent user lexicons.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_ResetLex(void);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetAutoCorrect"></A>SSCE_SetAutoCorrect</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Modify the AutoCorrect property.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetAutoCorrect(BOOL autoCorrect);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    autoCorrect: If true (non-zero), auto-correct is enabled. If false 
+    (zero), auto-correct is disabled.</P>
+   <LI>
+   <P>
+    Return value: 0</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetDialogOrigi"></A>SSCE_SetDialogOrigin</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Specify an origin for the Spelling-Checker dialog. The application 
+    calls SSCE_SetDialogOrigin to display the Spelling-Checker dialog at 
+    a specific location on the screen. Normally, the Spelling-Checker 
+    dialog positions itself to avoid the control being checked or the 
+    parent window. The dialog origin won't take effect until the next 
+    time the Spelling-Checker dialog is displayed. The dialog will be 
+    displayed at this origin until it is changed by calling 
+    SSCE_SetDialogOrigin again. The dialog origin is honored only if it 
+    would allow the entire Spelling-Checker dialog to be displayed on the 
+    screen. If the origin is not valid, the dialog will be positioned 
+    automatically as described above.</P>
+   <P>
+    The dialog origin specified through this function is not saved 
+    persistently. However, the last position of the dialog is saved in 
+    the DialogOriginX and DialogOriginY properties when the Spelling-Checker
+     dialog closes. If the SetDialogOrigin property is set to 1, the 
+    Spelling-Checker dialog will be displayed at the position indicated 
+    by the DialogOriginX and DialogOriginY properties. Thus, an 
+    application can define a permanent fixed position for the 
+    Spelling-Checker Dialog by setting DialogOriginX and DialogOriginY to 
+    the position and setting the SetDialogOrigin property to 1.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>void SSCE_SetDialogOrigin(SSCE_S16 x, SSCE_S16 y);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    x: x position of the dialog's upper-left corner in screen coordinates.</P>
+   <LI>
+   <P>
+    y: y position of the dialog's upper-left corner in screen coordinates.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetHelpFile"></A>SSCE_SetHelpFile</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Modify the HelpFile property.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetHelpFile(const TCHAR *fileName);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    fileName: Character array (string) containing the path and file name 
+    of the new help file.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetIniFile"></A>SSCE_SetIniFile</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Directs the Sentry DLL to use a specified INI file in place of 
+    SSCE.INI, and, in the case of the 32-bit Sentry DLL, to use the 
+    specified INI file in place of the system registry. Once this 
+    function is called, the Sentry DLL will use the settings defined in 
+    the specified INI file, including the main and user lexicon files. By 
+    default, the 32-bit Sentry DLL accesses properties in the system 
+    registry. Calling this function causes the 32-bit Sentry DLL to 
+    access properties in the specified INI file. The DLL will continue to 
+    access properties in the specified INI file until SSCE_SetRegTreeName 
+    is called.</P>
+   <P>
+    See <A HREF="winsdk.htm#HowSSCEIniIsLocated">How the Sentry DLL 
+    locates the SSCE.INI file</A> for information on how the INI file is located.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for information on 
+    how properties are accessed.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetIniFile(const TCHAR *fileName);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    fileName: Character array (string) containing the file name of the 
+    new &quot;.INI&quot; file.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code.</A></P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetKey"></A>SSCE_SetKey</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Set a key used to unlock licensed access to the Sentry DLL. This 
+    function must be called at least once or the Sentry DLL will not 
+    operate correctly.</P>
+   <P>
+    See <A HREF="winapi.htm#AboutLicenseKey">About the Sentry License Key</A> 
+    for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetKey(SSCE_U32 key);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    key: The key</P>
+   <LI>
+   <P>
+    Return Value: Always 0.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetMainLexFile"></A>SSCE_SetMainLexFiles</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Modify the MainLexFiles property.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetMainLexFiles(const TCHAR *fileList);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    fileList: Character array (string) containing the comma-separated 
+    list of files which form the main lexicon.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetMainLexPath"></A>SSCE_SetMainLexPath</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Modify the MainLexPath property.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetMainLexPath(const TCHAR *path);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    path: Character array (string) containing the new lexicon path.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetMinSuggestD"></A>SSCE_SetMinSuggestDepth</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Modify the MinSuggestDepth property.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetMinSuggestDepth(SSCE_S16 depth);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    depth: New minimum suggestion depth (0 - 100)</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetRegTreeName"></A>SSCE_SetRegTreeName</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Set the name of the registry tree used by the 32-bit Sentry DLL to 
+    read and save property values. By default, properties are read and 
+    written in the registry tree under HKEY_CURRENT_USER. However, if the 
+    registry tree name passed to SSCE_SetRegTreeName begins with 
+    &quot;HKEY_LOCAL_MACHINE,&quot; then that tree is used to read and 
+    write properties. For example, to store Sentry properties under an 
+    application's registry key, set the registry tree name to something 
+    similar to the following: &quot;Software\MyApp\SSCE&quot;. This 
+    function has no effect in the 16-bit Sentry DLL. The registry tree 
+    setting remains in effect until SSCE_SetRegTreeName is called again, 
+    the SSCE_SetIniFile function is called, or the Sentry DLL is 
+    unloaded. The default setting is &quot;Software\Wintertree\SSCE&quot;.</P>
+   <P>
+    To obtain the current registry tree name, call SSCE_GetRegTreeName.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for information on 
+    how properties are accessed.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetRegTreeName(const TCHAR *regTreeName);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    regTreeName: Character array (string) containing the new registry 
+    tree name.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetSelUserLexF"></A>SSCE_SetSelUserLexFile</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Set the name of the selected user lexicon (i.e., the lexicon words 
+    will be added to when the Add button is pressed in the 
+    Spelling-Checker dialog). If the specified file name is not in the 
+    UserLexFiles list, no lexicon will be selected and the Add button 
+    will be disabled until a lexicon is selected.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetSelUserLexFile(const TCHAR *fileName);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    fileName: Character array (string) containing the name of the default 
+    user lexicon file.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetStringTable"></A>SSCE_SetStringTableName</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Modify the StringTableName property.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> and <A HREF="winapi.htm#How2Localize">How
+     to localize Sentry</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 API SSCE_SetStringTableName(const TCHAR *tableName);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    tableName: New name of the string table.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A>.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetUserLexFile"></A>SSCE_SetUserLexFiles</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Modify the UserLexFiles property.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetUserLexFiles(const TCHAR *fileList);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    fileList: Character array (string) containing the comma-separated 
+    list of user lexicon files.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code.</A></P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="SSCE_SetUserLexPath"></A>SSCE_SetUserLexPath</TD>
+    </TR>
+   </TABLE></P>
+  <BLOCKQUOTE>
+   <P>
+    Modify the UserLexPath property.</P>
+   <P>
+    See <A HREF="#Properties">Sentry Properties</A> for more information.</P>
+   </BLOCKQUOTE>
+  <H4>
+   Syntax</H4><BLOCKQUOTE><PRE>SSCE_S16 SSCE_SetUserLexPath(const TCHAR *path);</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    path: Character array (string) containing the new lexicon path.</P>
+   <LI>
+   <P>
+    Return value: &gt;= 0 on success; &lt; 0: <A HREF="coreref.htm#ErrorCodes">error
+     code</A></P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <P>
+   Copyright &copy; 2000 <A HREF="http://www.wintertree-software.com">Wintertree
+    Software Inc</A>.<BR>
+   $Revision: 5.14.10 $
+ </BODY>
+</HTML>

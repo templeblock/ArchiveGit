@@ -1,0 +1,19 @@
+// Source file: maskio.c
+void InvertMask( LPIMAGE lpImage );
+BOOL ConfirmMaskRemove(LPIMAGE lpImage);
+LPFRAME ClearMaskRect(LPRECT lpRect, BYTE value, BOOL bGetBackup);
+void RestoreMaskRect(LPRECT lpRect, LPFRAME lpRestoreFrame);
+void SetNewMaskShapes(LPSHAPE lpShapes, int dirty);
+void SetNewMaskEllipse(LPRECT lpRect, int dirty, int iModes);
+void SetNewMask( LPPOINT lpPoint, LPINT count, int nShapes, int dirty, int iModes );
+void MaskSqueeze( LPPOINT lpInPoint, LPINT nPoints, int nShapes, BOOL fDisplayConvert );
+void CompressShapes(LPSHAPE lpHeadShape, int MinEdge, int Tolerance);
+void CompressMask(int MinEdge, int Tolerance, LPPOINT lpPoints,LPINT nPoints, int nShapes);
+void RemoveMask( void );
+void RemoveMaskEx(LPIMAGE lpImage, int dirty);
+BOOL WriteMask(LPSTR lpClipName, LPMASK lpMask, BOOL fMaskedArea);
+LPMASK ReadMask(LPSTR lpClipName, int iMaxWidth, int iMaxHeight);
+void OffsetShapes(LPSHAPE lpShape, int dx, int dy);
+BOOL ApplyMaskSelObj(LPIMAGE lpImage);
+static BOOL GetNewMaskState(LPSHAPE lpShape);
+

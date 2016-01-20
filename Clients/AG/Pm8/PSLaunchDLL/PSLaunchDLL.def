@@ -1,0 +1,8 @@
+; PSLaunchDLL.def : Declares the module parameters.
+
+LIBRARY      "PSLaunchDLL.DLL"
+
+EXPORTS
+	DllCanUnloadNow     @1 PRIVATE
+	DllGetClassObject   @2 PRIVATE
+	DllCreateInstance   @3 PRIVATE

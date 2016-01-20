@@ -1,0 +1,8 @@
+// Source file: process.c
+BOOL DoMirror(LPIMAGE lpImage, BOOL xmirror, BOOL ymirror, int dirty);
+static BOOL MirrorObj(LPOBJECT lpObject, LPMASK lpMask, BOOL xmirror, BOOL ymirror, LPRECT lpRect);
+static BOOL MirrorPixmap(LPPIXMAP lpPixmap, LPRECT lpRect, LPMASK lpMask, int xMaskOffset, int yMaskOffset, BOOL xmirror, BOOL ymirror);
+BOOL New( int pix, int lin, int iResolution, int iDepth );
+LPFRAME CALLBACK EXPORT SizeFrame(LPFRAME lpSrcFrame, int iWidth, int iHeight, int iRes, BOOL bSmartSize);
+LPFRAME CALLBACK EXPORT ExpandFrame(LPFRAME lpSrcFrame, int pix, int lin, int left, int top, BYTE Background);
+

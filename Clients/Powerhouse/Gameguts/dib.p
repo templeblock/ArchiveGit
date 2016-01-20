@@ -1,0 +1,35 @@
+// Source file: dib.cpp
+PDIB DibOpenFile(LPSTR szFile);
+BOOL DibWriteFile( PDIB pdib, LPSTR szFile );
+HPALETTE DibCreatePalette( PDIB pdib );
+HPALETTE DibCreatePalette( PDIB pdib );
+PDIB DibReadBitmapInfo( HFILE fh );
+PDIB DibFromBitmap( HBITMAP hbm, DWORD biStyle, UINT biBits, HPALETTE hpal, UINT wUsage );
+HBITMAP BitmapFromDib( PDIB pdib, HPALETTE hpal, UINT wUsage );
+BOOL DibSetColorTable( PDIB pdib, HPALETTE hpal, UINT wUsage );
+UINT DibColorTableType( PDIB pdib );
+PDIB DibCopy(PDIB pdib);
+PDIB DibCreate(int bits, int dx, int dy);
+PDIB DibConvert(PDIB pdib, int BitCount, DWORD biCompression);
+void DibMapToPalette(PDIB pdib, HPALETTE hpal);
+static void xlatClut8( LPBYTE pb, DWORD dwSize, LPBYTE xlat );
+static void xlatRle8( LPBYTE pb, DWORD dwSize, LPBYTE xlat );
+void DibFree( PDIB pdib );
+int DibWidth( PDIB pdib );
+int DibHeight( PDIB pdib );
+UINT DibBitCount( PDIB pdib );
+DWORD DibCompression( PDIB pdib );
+UINT DibWidthBytesN( PDIB pdib, UINT nBits );
+UINT DibWidthBytes( PDIB pdib );
+DWORD DibSizeImage( PDIB pdib );
+UINT DibNumColors( PDIB pdib );
+LPRGBQUAD DibColors( PDIB pdib );
+int DibFlipY( PDIB pdib, int y );
+LPTR DibPtr( PDIB pdib );
+HPTR DibXY( PDIB pdib, int x, int y );
+void DibFixHeader( PDIB pdib );
+LPBITMAPINFO DibInfo( PDIB pdib );
+void DibToDibBlt( PDIB pdibDst, int dstLeft, int dstTop, int dstWidth, int dstHeight, PDIB pdibSrc, int srcLeft, int srcTop, int srcWidth, int srcHeight, BOOL bTransparent );
+void DibToDCBlt( HDC hDC, int dstLeft, int dstTop, int dstWidth, int dstHeight, PDIB pdib, int srcLeft, int srcTop, int srcWidth, int srcHeight );
+BOOL DibDwindle( PDIB pdib );
+

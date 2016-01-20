@@ -1,0 +1,7 @@
+; PrintRes.def : Declares the module parameters for the DLL.
+
+LIBRARY      PrintRes
+DESCRIPTION  'American Greetings Print Product Resources'
+
+EXPORTS
+    ; Explicit exports can go here

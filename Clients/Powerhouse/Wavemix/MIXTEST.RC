@@ -1,0 +1,57 @@
+/**************************************************************************
+ *
+ *  THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+ *  KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ *  IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
+ *  PURPOSE.
+ *
+ *  Copyright (c) 1993, 1994  Microsoft Corporation.  All Rights Reserved.
+ *
+ ***************************************************************************/
+ 
+#include <windows.h>
+#include "resource.h"
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// ICON
+//
+MixTest ICON mixtest.ico
+
+OneWave WAVE 1.wav
+TwoWave WAVE 2.wav
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+AboutBox DIALOG DISCARDABLE  22, 17, 144, 75
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About MixTest"
+BEGIN
+    CTEXT           "Microsoft MixWave testing application",-1,0,5,144,8
+    CTEXT           "Version 1.1",-1,0,34,144,8
+    CTEXT           "press: 1,2,3 or 4 keys",-1,0,44,144,8
+    DEFPUSHBUTTON   "OK",IDOK,53,59,32,14,WS_GROUP
+END
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+MixTestMenu1 MENU DISCARDABLE 
+BEGIN
+	MENUITEM	"auto!", IDM_AUTO
+	MENUITEM	"\a&About",	IDM_ABOUT
+END
+
+MixTestMenu2 MENU DISCARDABLE 
+BEGIN
+	MENUITEM	"manual!", IDM_AUTO
+	MENUITEM	"\a&About",	IDM_ABOUT
+END
+
+
+
+

@@ -1,0 +1,20 @@
+// Source file: MESSAGE.C
+void FrameError(int idMsg);
+BOOL MessageEnable(BOOL bEnable);
+void dbg( LPSTR lpFormat, ... );
+void dbgv( LPSTR lpFormat, LPTR lpArguments );
+int Print( LPSTR lpFormat, ... );
+int Message( int idStr, ... );
+int MessageEx( WORD wStyle, int idStr, ... );
+void PrintStatus( LPSTR lpFormat, ... );
+WORD MessageStatus( int idStr, ... );
+WORD MessageStatusEx( int idStr, ... );
+void StatusOfRectangle( LPRECT lpRect, LFIXED fScale );
+BOOL Status( HWND hWnd, LPSTR lpString );
+int AstralConfirm( int idStr, ... );
+int AstralOKCancel( int idStr, ... );
+BOOL AstralAffirm( int idStr, ... );
+void ReadOutF( int idStr, int iNum, ... );
+HWND MessageParent( void );
+int GetDlgString(LPSTR lpInitText, LPSTR lpResult, int idStr, ...);
+BOOL WINPROC GetDlgStringProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam );

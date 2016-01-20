@@ -1,0 +1,34 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                  rgallery.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Room dialog functions.
+ Date Created:  01/11/94
+       Author:  Michael P. Dagate
+
+*****************************************************************************/
+
+#ifndef RGALLERY_P
+#define RGALLERY_P
+
+/****************************** Public Functions ****************************/
+
+extern BOOL WINPROC EXPORT DlgRoomGallery (HWND hWnd,UINT wMsg,WPARAM wParam,LPARAM lParam);
+
+/****************************** Local Functions *****************************/
+
+static BOOL UpdateGalleryImage (HWND hWnd);
+static BOOL UpdateTextControls (HWND hWnd);
+static void CheckForAnimations (HWND hWnd);
+
+#endif

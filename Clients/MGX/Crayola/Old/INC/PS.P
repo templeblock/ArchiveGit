@@ -1,0 +1,9 @@
+// Source file: ps.c
+BOOL PSPrint( LPIMAGE lpImage, LPFRAME lpFrame, BYTE cSep, int xSrc, int ySrc, int dxSrc, int dySrc, int xDest, int yDest, int dxDest, int dyDest, int iPrResX, int iPrResY );
+void copyPS( LPTR lptr1, LPTR lptr2, int count );
+static BOOL SendPSIDString(int id, ...);
+static BOOL SendCRLF( void );
+static BOOL SendPSData( BOOL Asciize, LPTR lpBuffer, int dxDest );
+static void UnshuffleRGB( LPRGB lpRGB, LPTR lpRed, LPTR lpGreen, LPTR lpBlue, int iCount );
+int asciize(LPTR in,int count,LPTR out);
+

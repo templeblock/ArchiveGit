@@ -1,0 +1,32 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                   rmixup.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Room dialog functions.
+ Date Created:  01/11/94
+       Author:  Ray
+
+*****************************************************************************/
+
+#ifndef RPUZZLE_P
+#define RPUZZLE_P
+
+/****************************** Public Functions ****************************/
+
+BOOL WINPROC EXPORT DlgRoomPuzzle (HWND hWnd,UINT wMsg,WPARAM wParam,LPARAM lParam);
+BOOL WINPROC EXPORT DlgRoomPuzzleStart (HWND hWnd,UINT wMsg,WPARAM wParam,LPARAM lParam);
+
+BOOL PuzzleRoomMsg(LPMSG lpMsg);
+/****************************************************************************/
+
+#endif

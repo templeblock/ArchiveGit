@@ -1,0 +1,197 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#                                                                            #
+#                     MGX standard makefile insert               	          #
+#                                                                            #
+##############################################################################
+#
+#            Instructions:
+# You should do the following before making:
+#
+#   1) Set the PROJ variable to what you are calling your project.
+#   2) Set up any Non-Project Information
+#   3) set up the 'interesting' file and targets
+#
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+NOINSTALL=1
+NOPCH=1
+BUILDDLL=1
+OBJDIR=.
+REFDIR=..\..\ref
+DSTDIR=..\..\dst
+MAKDIR=$(REFDIR)
+PROJ=pp
+TBARICONS = $(DSTDIR)\tbar16c.dll $(DSTDIR)\tbar24c.dll $(DSTDIR)\tbar16b.dll $(DSTDIR)\tbar24b.dll
+DEFAULTBUILD = $(TBARICONS) $(PROJ)EXE.res $(DSTDIR)\ppres.dll $(DSTDIR)\string.dll $(DSTDIR)\hint.dll $(DSTDIR)\gico.dll $(DSTDIR)\cico.dll
+RESINC=-I$(REFDIR) -I..\inc
+LIBS = ldllcew+libw
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+!include "$(MAKDIR)\win.mak"
+
+##############################################################################
+#
+#--- Everything is known, so make a default build target
+#
+##############################################################################
+#
+#--- Interesting files
+#
+
+##############################################################################
+#
+#--- Implicit Rules
+#    make any you think you will need.  They can be identical in nature,
+#    but NMAKE wants have at least one for each possible virtual combination
+#
+.SUFFIXES:
+.SUFFIXES: .rc .res .dll .obj .c
+
+# Update the resources if necessary
+
+.c.obj:
+	$(CC) $(cvarsdll) /c $*.c
+
+.rc.res:
+	rc -r $(rcvars) $(RESINC) $<
+	
+RCEXEFILES	=\
+        $(PROJ)EXE.rc
+
+RCFILES	=\
+	$(PROJ).rc\
+	PPBITMAP.RC\
+	PPMENU.RC\
+	MAIN.RC\
+	FILE.RC\
+	EDIT.RC\
+	MAP.RC\
+	MASK.RC\
+	OBJECT.RC\
+	IMAGE.RC\
+	PPALETTE.rc\
+	PPRIBBON.rc\
+	BROWSER.RC\
+	BAND.RC\
+	PPOLE.RC\
+	BSRDLGS.RC\
+	VERSION.RC
+
+STRFILES	=\
+	PPSTRING.RC\
+	PPMACRO.RC\
+	BSRSTR.RC\
+	PP_PS.RC\
+	FONTINFO.RC
+
+HINTFILES	=\
+	PPHINT.RC
+
+$(PROJ)EXE.res: $(RCEXEFILES)
+
+$(PROJ).res: $(RCFILES)
+
+$(DSTDIR)\ppres.dll: pp.res
+	$(link) $(linkdebug) /NOENTRY @<< pp.res
+-machine:$(CPU)
+-out:$(DSTDIR)\ppres.dll 
+-dll
+<<	
+
+string.res: $(STRFILES)
+
+$(DSTDIR)\string.dll: string.res
+	$(link) $(linkdebug) /NOENTRY @<< string.res
+-machine:$(CPU)
+-out:$(DSTDIR)\string.dll 
+-dll
+<<	
+
+pphint.res: $(HINTFILES)
+
+$(DSTDIR)\hint.dll: pphint.res
+	$(link) $(linkdebug) /NOENTRY @<< pphint.res
+-machine:$(CPU)
+-out:$(DSTDIR)\hint.dll 
+-dll
+<<	
+
+ppgico.res: $(@B).rc 
+
+$(DSTDIR)\gico.dll: ppgico.res
+	$(link) $(linkdebug) /NOENTRY @<< ppgico.res
+-machine:$(CPU)
+-out:$(DSTDIR)\gico.dll 
+-dll
+<<	
+
+ppcico.res: $(@B).rc 
+
+$(DSTDIR)\cico.dll: ppcico.res
+	$(link) $(linkdebug) /NOENTRY @<< ppcico.res
+-machine:$(CPU)
+-out:$(DSTDIR)\cico.dll 
+-dll
+<<	
+
+tbar16c.res: $(@B).rc 
+
+$(DSTDIR)\tbar16c.dll: tbar16c.res
+	$(link) $(linkdebug) /NOENTRY @<< tbar16c.res
+-machine:$(CPU)
+-out:$(DSTDIR)\tbar16c.dll 
+-dll
+<<	
+
+tbar24c.res: $(@B).rc 
+
+$(DSTDIR)\tbar24c.dll: tbar24c.res
+	$(link) $(linkdebug) /NOENTRY @<< tbar24c.res
+-machine:$(CPU)
+-out:$(DSTDIR)\tbar24c.dll 
+-dll
+<<	
+
+tbar16b.res: $(@B).rc 
+
+$(DSTDIR)\tbar16b.dll: tbar16b.res
+	$(link) $(linkdebug) /NOENTRY @<< tbar16b.res
+-machine:$(CPU)
+-out:$(DSTDIR)\tbar16b.dll 
+-dll
+<<	
+
+tbar24b.res: $(@B).rc 
+
+$(DSTDIR)\tbar24b.dll: tbar24b.res
+	$(link) $(linkdebug) /NOENTRY @<< tbar24b.res
+-machine:$(CPU)
+-out:$(DSTDIR)\tbar24b.dll 
+-dll
+<<	
+
+##############################################################################
+#
+#--- Dependencies
+#
+##############################################################################
+version.rc: resource.h
+
+
+
+
+
+

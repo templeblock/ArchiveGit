@@ -1,0 +1,45 @@
+WaveMix Source Code License
+July 1994
+
+If you have questions about the information below, please contact 
+me on the Internet at "steveban@microsoft.com". I am NOT technical
+support for WavMix and will not answer any tech questions on this
+code. Sincerely, Steve Banfield - Microsoft.
+
+
+
+THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
+PURPOSE.
+
+Copyright (c) 1993, 1994  Microsoft Corporation.  All Rights Reserved.
+
+The following are the restrictions on the Microsoft source code 
+contained in MIXSRC.ZIP file:
+
+1. The source code cannot be redistributed in source code form, 
+nor are you allowed to redistribute this ZIP file outside your company 
+without express permission from Microsoft.
+
+2. You may not use this source code to build a module called WAVEMIX.DLL, 
+WAVMIX.DLL, WAVMIX16.DLL or WAVMIX32.DLL nor redistribute this DLL separate 
+from an application. Distributing a modified DLL with the same name 
+would definitely break several shipping applications. 
+
+3. This is source code is UNSUPPORTED. You've got the code -- you 
+are on your own. (If you find a bug, please feel free to let us know 
+via Compuserve).
+
+The following are the licensed uses of this source code:
+
+1. This source code may be used for educational purposes, i.e. 
+learn how the code works and how to build your own similar DLL. (If you 
+see areas for improvement, please let us know.)
+
+2. You may change the name of the DLL, the entry points, etc., and then
+recompile the whole thing and redistribute the DLL freely. There are no 
+restrictions on using the techniques, ideas, or even whole source modules 
+line for line in an application or library that ships as part of an 
+application.
+

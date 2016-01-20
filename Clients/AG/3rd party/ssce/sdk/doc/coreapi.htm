@@ -1,0 +1,1344 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("MicroVision WebExpress","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c0ffc0","Wintertree","1") -->
+  <!-- $MVD$:color("19","c0ff","Or1","1") -->
+  <TITLE>Sentry Spelling Checker Engine - Using Sentry's Core API</TITLE>
+ </HEAD>
+ <BODY BGCOLOR="WHITE">
+  <H1>
+   Sentry Spelling Checker Engine<BR>
+   Using Sentry's Core API</H1>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE">Table of Contents</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <UL>
+   <LI>
+   <P>
+    <A HREF="#Overview">Overview</A>
+    <UL>
+     <LI><A HREF="#AboutThreadSafety">About thread safety</A></UL>
+    <LI><A HREF="#AboutLexicons">About Sentry's Lexicons</A><BR>
+    <LI><A HREF="#How2Initialize">How to Initialize and Terminate Sentry</A><BR>
+    <LI><A HREF="#How2OpenCloseLex">How to Open and Close Lexicons</A><BR>
+    <LI><A HREF="#How2CheckSpelling">How to Check Spelling</A>
+    <UL>
+     <LI><A HREF="#How2CheckWord">How to Check Spelling of a Single Word</A><BR>
+     <LI><A HREF="#How2CheckString">How to Check Spelling of a String of Words</A><BR>
+     <LI><A HREF="#How2UndoChanges">How to Undo Changes made to Strings</A></UL>
+    <LI><A HREF="#How2Suggest">How to Look Up Suggestions for Misspelled Words</A><BR>
+    <LI><A HREF="#How2SetOptions">How to set Sentry Options</A><BR>
+    <LI><A HREF="#How2AddWordsTextLex">How to Add Words to Text Lexicons</A>
+    <UL>
+     <LI><A HREF="#AboutTextLexFileFmt">About the Text Lexicon File Format</A></UL>
+    <LI><A HREF="#How2CompressLex">How to create Compressed Lexicons</A><BR>
+    <LI><A HREF="#UserInterfaceSugg">User Interface Suggestions</A></P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Overview"></A>Overview</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   This chapter describes how you can invoke the Core Sentry API from 
+   your application. Information in this chapter applies to the Sentry 
+   Source and Windows SDK.</P>
+  <P>
+   The Core API is a platform-independent interface application programs 
+   can call to check spelling, look up suggestions for misspelled words, 
+   add words to dictionaries (lexicons), etc. The Core API contains no 
+   user interface, and works the same way on all platforms (Windows, 
+   UNIX, Macintosh, etc).</P>
+  <P>
+   The following interactions occur between an application and the 
+   Sentry engine during a typical spell-checking session.</P>
+  <UL>
+   <LI>
+   <P>
+    Your application begins and ends the spell-checking session: See <A HREF="#How2Initialize">How
+     to initialize and terminate Sentry</A></P>
+   <LI>
+   <P>
+    Your application opens the lexicons that will be used during the 
+    session: See <A HREF="#How2OpenCloseLex">How to open and close lexicons</A></P>
+   <LI>
+   <P>
+    Your application sets spelling-checker options: See <A HREF="#How2SetOptions">How
+     to set Sentry options</A></P>
+   <LI>
+   <P>
+    Your application checks the spelling of some text: See <A HREF="#How2CheckSpelling">How
+     to check spelling</A> and <A HREF="#How2Suggest">How to look up 
+    suggestions for misspelled words</A></P>
+   <LI>
+   <P>
+    Your application adds a word to a user lexicon: See <A HREF="#How2AddWordsTextLex">How
+     to add words to text lexicons</A></P>
+   </UL>
+  <P>
+   Note: If you are using the Sentry DLL from a Microsoft Windows 
+   application, see <A HREF="winapi.htm#How2CallCoreAPI">How to call 
+   Sentry's Core API</A> for important information on using the Core 
+   Sentry API.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="AboutThreadSafety"></A>About thread safety</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Sentry's Core API is thread safe, provided each thread opens its own 
+   session using <A HREF="coreref.htm#SSCE_OpenSession">SSCE_OpenSession</A>,
+    and threads do not share sessions.</P>
+  <P>
+   If you built the Sentry engine from source code, you should note that 
+   Sentry relies on the implementation of WS_Port_CriticalRegionEnter to 
+   achieve thread safety.</P>
+  <P>
+   Because each thread must open its own session, each thread must also 
+   open its own set of lexicons in each session. If many sessions are 
+   opened, a considerable amount of memory will be needed for all open 
+   lexicons. One solution to this situation is to use the Sentry Source 
+   SDK and build the Sentry engine to use shared memory-based lexicons. 
+   This is documented in <A HREF="srcsdk.htm#How2BuildSentry">How to 
+   build Sentry</A> and <A HREF="stateless_api.html">Using Sentry's 
+   &quot;Stateless&quot; API</A>, which are included only with the 
+   Sentry Source SDK.</P>
+  <H1>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="AboutLexicons"></A>About Sentry's lexicons</FONT></TD>
+    </TR>
+   </TABLE></H1>
+  <P>
+   Sentry is a lexicon (dictionary) based spelling checker. This means 
+   that to determine if a word is spelled correctly, Sentry checks 
+   whether the word is included in a large lexicon of words known to be 
+   valid. If the word is found in the lexicon, it is considered 
+   correctly spelled.</P>
+  <P>
+   Sentry extends the lexicon idea by allowing your application to open 
+   several lexicons at once. All open lexicons are included in word 
+   searches, so if the word is found in any of the open lexicons it is 
+   considered correctly spelled.</P>
+  <P>
+   Sentry comes with large, general purpose lexicons in American and 
+   British (international) English. Lexicons in languages other than 
+   English, plus medical and legal supplements for English, are also 
+   available from Wintertree Software. These lexicons, sometimes called 
+   main lexicons, usually contain 100,000 or more of the most frequently 
+   used words. Main lexicons are compressed, meaning they are encoded to 
+   reduce the amount of space they occupy. Compressed lexicons cannot be 
+   modified at run time. You can create your own compressed lexicons 
+   from a list of words you provide using an included 
+   lexicon-compression utility program.</P>
+  <P>
+   Sentry also supports text lexicons, which are modifiable at run time. 
+   Text lexicons are sometimes called user lexicons or user 
+   dictionaries. Typically, text lexicons are used to hold words which 
+   are personal to a user and which aren't likely to be included in the 
+   main lexicon, such as the user's family name or street name.</P>
+  <P>
+   Wintertree Software's main lexicons exist as two separate files: a 
+   compressed lexicon containing a large portion of the words in the 
+   language, and a smaller text lexicon containing a few of the most 
+   commonly used words in the language. The common-words lexicon is 
+   normally opened before the compressed lexicon to improve search performance.</P>
+  <P>
+   The language, purpose, and format of these lexicons are indicated by 
+   their file names. The lexicon file names are encoded like this: SSCE<I>aab.c</I>LX.
+    The meaning of each encoded letter is described in the following list:</P>
+  <UL>
+   <LI>
+   <P>
+    <B>aa</B>: 2-letter language code: AM (American English), BR (British 
+    English), DA (Danish), DU (Dutch), FI (Finnish), FR (French), GE 
+    (German), IT (Italian), NB (Norwegian (Bokm&aring;l)), PB (Brazilian 
+    Portuguese), PO (Iberian Portuguese), SP (Spanish), SW (Swedish)</P>
+   <LI>
+   <P>
+    <B>b</B>: A character used to distinguish between different versions 
+    of the lexicon file format (not used for text lexicons). The current 
+    lexicon format version is 2.</P>
+   <LI>
+   <P>
+    <B>c</B>: Format of the lexicon file: C(Compressed), T (Text)</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2Initialize"></A>How to initialize 
+       and terminate Sentry</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Before your application can use the Sentry engine, it must open a 
+   spell-checking session via the <A HREF="coreref.htm#SSCE_OpenSession">SSCE_OpenSession</A> 
+   function. The spell-checking session is a context under which other 
+   actions take place. A session is also used to hold information about 
+   your application, such as its set of open lexicons and text blocks. 
+   Multiple Sentry sessions can be open at the same time; changes made 
+   to one session don't affect the others. Before terminating, your 
+   application should call <A HREF="coreref.htm#SSCE_CloseSession">SSCE_CloseSession</A>.</P>
+  <P>
+   Note: Microsoft Windows applications which use the Sentry DLL do not 
+   necessarily have to open sessions; see <A HREF="winapi.htm#How2CallCoreAPI">How
+    to call Sentry's Core API</A> for more information.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2OpenCloseLex"></A>How to open and 
+       close lexicons</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Once your application has opened a session, it can open the lexicons 
+   to be used during the session. You can open any number of lexicons 
+   per session. Use the <A HREF="coreref.htm#SSCE_OpenLex">SSCE_OpenLex</A> 
+   function to open lexicons.</P>
+  <P>
+   The Sentry engine supports a variety of lexicons, with different 
+   purposes and formats. Which lexicons you use is entirely up to the 
+   needs of your application and its users.</P>
+  <P>
+   Typically, spelling checkers offer the user the choice of ignoring 
+   all occurrences of a word flagged as misspelled, or replacing all 
+   occurrences with another word. To support these features, your 
+   application can create a temporary lexicon using the <A HREF="coreref.htm#SSCE_CreateLex">SSCE_CreateLex</A> function.</P>
+  <P>
+   The order in which lexicons are opened may affect the performance and 
+   behavior of the Sentry engine. Word are searched in each lexicon in 
+   the order in which they were opened, until the word is found or all 
+   lexicons are searched. This has two important implications. First, if 
+   one lexicon is intended to override words in another lexicon, the 
+   overriding lexicon must be opened before the other. Second, small 
+   lexicons can be searched faster than large lexicons, and text 
+   lexicons can be searched faster than compressed lexicons. A 
+   significant speed improvement may be achieved by opening text 
+   lexicons before compressed lexicons. Since Sentry searches lexicons 
+   in the order in which they are opened, performance may also be 
+   improved by opening lexicons containing more common words first.</P>
+  <P>
+   The Sentry engine can open other application's user dictionaries, 
+   provided the dictionary files are in an acceptable format: text files 
+   containing one word per line. Sentry assigns the ignore action to 
+   each word by default (see <A HREF="#How2AddWordsTextLex">How to add 
+   words to text lexicons</A> for more information on actions). If you 
+   application modifies these lexicons (i.e., adds or removes words), 
+   the Sentry engine may write the words to disk in a different order 
+   from which they were read.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2CheckSpelling"></A>How to check spelling</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The Sentry engine can check the spelling of individual words or 
+   blocks of text. Which method you use depends on the needs of your application.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="How2CheckWord"></A>How to check spelling of a single word</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The <A HREF="coreref.htm#SSCE_CheckWord">SSCE_CheckWord</A> function 
+   checks the spelling of a single word. SSCE_CheckWord accepts a 
+   pointer to a null-terminated character string containing the word to 
+   check. Ideally, the characters in the word should be only upper- and 
+   lower-case alphanumerics, embedded periods, hyphens, and apostrophes. 
+   The word should not contain other punctuation, and it should contain 
+   no more than SSCE_MAX_WORD_LEN characters.</P>
+  <P>
+   The behavior of SSCE_CheckWord is affected by various option 
+   settings; see <A HREF="#How2SetOptions">How to set Sentry options</A> 
+   for more information.</P>
+  <P>
+   SSCE_CheckWord returns a spelling-check result bit mask, which 
+   defines the disposition of the word being checked. Your application 
+   should examine the mask and act accordingly. More than one bit may be 
+   set in the mask. If SSCE_CheckWord returns SSCE_OK_RSLT, then no bits 
+   are set in the mask and no further action is needed. See <A HREF="coreref.htm#SpellingCheckResult">Spelling
+    check results</A> for information on the bits that may appear in the 
+   result mask.</P>
+  <P>
+   The code needed in your application to check the spelling of a word 
+   will look something like the following pseudo-code:</P><BLOCKQUOTE><PRE>sid: SSCE_S16<BR>word: String size SSCE_MAX_WORD_SZ<BR>replacement: String size SSCE_MAX_WORD_SZ<BR>resultMask: SSCE_S16<BR><BR>/* Insert code to call SSCE_OpenSession here */<BR>/* Insert code to call SSCE_OpenLex here */<BR>/* Insert code here to obtain the next word to check<BR> * into the &quot;word&quot; variable<BR> */<BR><BR>resultMask = SSCE_CheckWord(sid, word, replacement, SSCE_MAX_WORD_SZ)<BR>if resultMask &lt; 0 then<BR>   /* An error occurred. Insert code here to display an error message and bail out. */<BR>end if<BR><BR>if resultMask = SSCE_OK_RSLT then<BR>   /* This word is OK. No action required. */<BR>else if (resultMask AND SSCE_MISSPELLED_WORD_RSLT) &lt;&gt; 0 OR<BR>  (resultMask AND SSCE_MIXED_DIGITS_WORD_RSLT) &lt;&gt; 0 then<BR>   /* Insert code here to report the misspelling to the user, and call<BR>    * SSCE_Suggest to obtain suggested replacements.<BR>  &nbsp; */<BR>else if (resultMask AND SSCE_AUTO_CHANGE_WORD_RSLT) &lt;&gt; 0 then<BR>   /* Insert code here to replace the word with the word in &quot;replacement&quot;. */<BR>else if (resultMask AND SSCE_CONDITIONALLY_CHANGE_WORD_RSLT) &lt;&gt; 0 OR<BR>  (resultMask AND SSCE_UNCAPPED_WORD_RSLT) &lt;&gt; 0 OR<BR>  (resultMask AND SSCE_MIXED_CASE_WORD_RSLT) &lt;&gt; 0 then<BR>   /* Insert code here to display the word in &quot;replacement&quot; as a suggested replacement.<BR>  &nbsp; * If the user confirms, replace the word.<BR>  &nbsp; */<BR>end if</PRE></BLOCKQUOTE><P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="How2CheckString"></A>How to check spelling of a string of words</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Sentry's Core API contains a set of functions that support the 
+   checking of and correction of errors in a string of words. A string 
+   can be as small as a single word or as large as an entire document.</P>
+  <P>
+   The string-related functions in Sentry's Core API identify words 
+   contained within a string. A word is an alphanumeric character 
+   followed by any sequence of alphanumerics or apostrophes. Periods 
+   surrounded by alphanumerics are considered part of the word, and 
+   trailing periods are considered part of the word if the word contains 
+   embedded periods interspersed among no more than two consecutive 
+   alphanumerics (e.g., the period at the end of U.S.A. is considered 
+   part of the word, but the periods at the end of USA. and 
+   wintertreesoftware.com. are not). Hyphens surrounded by alphanumerics 
+   are considered part of the word. Apostrophes at the end of a word are 
+   considered part of the word if they are preceded by the letter 
+   &quot;s&quot;. Any character not meeting these conditions marks the 
+   end of a word. If the <A HREF="#IGNOREHTMLMARKUPSOP">SSCE_IGNORE_HTML_MARKUPS_OPT</A> 
+   option is set, then any text surrounded by angle brackets 
+   (&lt;...&gt;) is ignored, and any text preceded by an ampersand and 
+   terminated by a semicolon (&amp;<I>xxx</I>;) is either ignored or 
+   converted to an alphabetic character. Ideally, strings should contain 
+   words as described above, separated by punctuation or white space. 
+   However, strings may contain other information, such as binary 
+   formatting. Note that if formatting information contains valid word 
+   characters (as described above), the characters may be interpreted as 
+   words, with unexpected results. In this case, your application may 
+   need to extract words from the document and call <A HREF="coreref.htm#SSCE_CheckWord">SSCE_CheckWord</A>.</P>
+  <P>
+   Most string-related functions in Sentry's Core API accept a cursor 
+   parameter which identifies the position of interest within the 
+   string. The cursor value is zero-based, so 0 indicates the first 
+   character of the string. The <A HREF="coreref.htm#SSCE_CheckString">SSCE_CheckString</A> 
+   function uses the cursor value as both an input and output parameter. 
+   On input, the cursor value tells SSCE_CheckString where in the string 
+   to begin checking. When SSCE_CheckString returns to report a 
+   misspelled word, the cursor parameter will be updated to indicate the 
+   first character of the misspelled word in the string.</P>
+  <P>
+   SSCE_CheckString is normally called in a loop. The loop terminates 
+   when SSCE_CheckString returns <A HREF="coreref.htm#SpellingCheckResult">SSCE_END_OF_TEXT_RSLT</A>,
+    indicating that all words in the string have been checked. 
+   SSCE_CheckString skips over words that are correctly spelled or 
+   ignored because of an option setting, and returns to your application 
+   when it needs to report a word or it reaches the end of the string. 
+   The cursor value is advanced by SSCE_CheckString as it checks words 
+   in the string, and may also be advanced by your application as 
+   described below.</P>
+  <P>
+   SSCE_CheckString begins or resumes checking at the indicated cursor 
+   position. If SSCE_CheckString reports a misspelled word, and nothing 
+   is changed (e.g., the string is not modified and the cursor is not 
+   advanced), SSCE_CheckString will report the same word at the same 
+   position as misspelled when it is called again. To skip over a word 
+   reported as misspelled, increase the cursor by the length of the 
+   reported word before calling SSCE_CheckString again. For example, in 
+   an interactive spelling checker, the user may decide to ignore a 
+   reported misspelling. In response, the application would increase the 
+   cursor by the length of the misspelled word, which will point the 
+   cursor at the character immediately following the word.</P>
+  <P>
+   Sentry's Core API includes functions that can modify the checked 
+   string, as might happen when a misspelled word is corrected. The <A HREF="coreref.htm#SSCE_ReplaceStringW">SSCE_ReplaceStringWord</A> 
+   function is used to replace one word with another, and the <A HREF="coreref.htm#SSCE_DelStringWord">SSCE_DelStringWord</A> 
+   function removes a word from the string. If the string may be 
+   modified, then extra space should be allocated to allow room for 
+   growth. A string is really an array of characters. The array has a 
+   fixed size (its capacity) and contains some varying number of 
+   characters (its length). Your application is responsible for 
+   allocating space for the string. Strings used by Sentry are 
+   null-terminated, meaning a character with a binary value of 0 marks 
+   the end of the string (i.e., appears in the position after the last 
+   valid character in the string). The capacity or size of a string's 
+   array must therefore be one character larger than the number of text 
+   characters the string can hold. An array of six characters is needed 
+   to hold the string &quot;hello&quot;: five characters for the 
+   letters, and one character for the terminating null character. Here's 
+   another example:</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">0</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">1</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">2</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">3</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">4</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">5</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">6</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">7</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">8</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">9</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">10</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">11</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">12</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">13</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">14</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">15</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">16</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">17</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">18</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">19</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">20</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">21</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">22</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">23</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">24</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">25</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">26</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">27</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">28</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">29</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">30</FONT></TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <FONT SIZE="1">31</FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       T</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       h</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       e</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       &nbsp;</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       q</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       u</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       i</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       c</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       k</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       &nbsp;</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       b</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       r</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       o</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       w</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       n</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       &nbsp;</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       f</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       o</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       x</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       &Oslash;</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+     <TD WIDTH="3%" VALIGN=TOP>
+      <P>
+       ?</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   This string has a capacity for 32 characters. It can hold a string 
+   containing as many as 31 characters, plus the terminating null 
+   character. The null character <I>must</I> be present: If the array is 
+   full, the first 31 positions will be filled with text characters, and 
+   the 32nd position will contain the null. The example string currently 
+   has a length of 19 characters, the number of characters in &quot;The 
+   quick brown fox.&quot; The null character (&Oslash;) is in the 19th 
+   position, because the array indices start at zero. Characters in the 
+   array following the null are garbage (indicated by &quot;?&quot;). 
+   This string can grow by as many as 12 additional characters (31 minus 19).</P>
+  <P>
+   String-related functions in Sentry's Core API use the terminating 
+   null character to determine the number of characters in (i.e., the 
+   length of) the string. Functions that may increase the length of a 
+   string accept a parameter specifying the sting's array size (its 
+   capacity). The string size includes space for the terminating null 
+   character, so the size of the example string above is 32. The size 
+   parameter passed by your application must accurately reflect the 
+   number of characters allocated for the array. If not, the Sentry 
+   function may overwrite the end of the array, potentially causing a 
+   crash. If the string size is accurate, the Sentry string-related 
+   functions will never overwrite the end of a string and will return an <A HREF="coreref.htm#ErrorCodes">error
+    code</A> if any modification to a string would cause its length to 
+   grow beyond the string's capacity.</P>
+  <P>
+   SSCE_CheckString returns a check-result bit mask which indicates the 
+   action required of your application. Your application should examine 
+   the mask and act accordingly. More than one bit may be set in the 
+   mask. See <A HREF="coreref.htm#SpellingCheckResult">Spelling check results</A> 
+   for information on each result bit in the mask.</P>
+  <P>
+   The SSCE_AUTO_CHANGE_WORD_RSLT bit in the result mask indicates to 
+   your application that a word in the string should be automatically 
+   (i.e., without user intervention) replaced with another word. This 
+   result is returned when in word in the string matches a word in a 
+   text lexicon marked with <A HREF="coreref.htm#ActionCodes">SSCE_AUTO_CHANGE_ACTION</A> 
+   or <A HREF="coreref.htm#ActionCodes">SSCE_AUTO_CHANGE_PRESERVE_CASE_ACTION</A>.
+    In response, your application calls SSCE_ReplaceStringWord to 
+   replace the current word with the other word. The question of what to 
+   do with the cursor then arises. The simplest approach is to advance 
+   the cursor past the replacement word (by increasing the cursor's 
+   value by the length of the other word). The problem with this 
+   approach is that the replacement word may be misspelled. If the 
+   cursor is advanced past it, the string will contain misspellings that 
+   are never reported. The obvious solution is to leave the cursor where 
+   it is, so the replacement word will be checked the next time 
+   SSCE_CheckString is called. But this introduces even more serious 
+   problems. What if the original word and replacement word are the 
+   same? Suppose the word <I>xyz</I> was added to a text lexicon with 
+   SSCE_AUTO_CHANGE_ACTION and the other word was also <I>xyz</I>. If 
+   the cursor was not advanced, SSCE_CheckString would tell your 
+   application to replace <I>xyz</I> with <I>xyz</I> indefinitely. The 
+   endless loop could be broken by advancing the cursor if the original 
+   and replacement words happened to be the same. But what if the 
+   recursive replacements were indirect? Suppose <I>xyz</I> was 
+   auto-replaced with <I>abc</I>, and <I>abc</I> was auto-replaced with <I>xyz</I>.
+    SSCE_CheckString would tell your application to replace <I>xyz</I> 
+   with <I>abc</I>, then <I>abc</I> with <I>xyz</I>, then <I>xyz</I> 
+   with <I>abc</I>, and so on. Two potential solutions to these problems 
+   are listed below. You can use the approach that makes the most sense 
+   for your application:</P>
+  <OL>
+   <LI>
+   <P>
+    Limit the number of automatic replacements made at the same cursor 
+    position to some small number such as five, as shown in the following pseudo-code:</P><PRE>lastChangePosition: SSCE_S32<BR>result: SSCE_S16<BR>cursor: SSCE_S32<BR>numAutoChanges: Integer<BR>word: String[SSCE_MAX_WORD_SZ]<BR>otherWord: String[SSCE_MAX_WORD_SZ]<BR><!-- $MVD$:spaceretainer() --> <BR>result = 0<BR>cursor = 0<BR>lastChangePosition = 0<BR>numAutoChanges = 0<BR>repeat<BR>   repeat<BR>      result = SSCE_CheckString(sid, string, cursor, word,<BR>       SSCE_MAX_WORD_SZ, otherWord, SSCE_MAX_WORD_SZ)<BR>      if (result AND SSCE_AUTO_CHANGE_WORD_RSLT) then<BR>         if (numAutoChanges &lt; 5) then<BR>            /* Auto-change the word. */<BR>            SSCE_ReplaceStringWord(sid, string, Size(string),<BR>             cursor, otherWord)<BR><!-- $MVD$:spaceretainer() --> <BR>            if (lastChangePosition = cursor) then<BR>               /* One more replacement at the same spot */<BR>               numAutoChanges = numAutoChanges + 1<BR>            else<BR>               /* A replacement hasn't been made here before. */<BR>               lastChangePosition = cursor<BR>               numAutoChanges = 0<BR>            end<BR>      else<BR>         /* Too many auto-replacements at the same spot --<BR>          * Skip over this word.<BR>          */<BR>         cursor = cursor + Length(otherWord)<BR>      end<BR>   until ((result AND SSCE_AUTO_CHANGE_WORD_RSLT) = 0)<BR><!-- $MVD$:spaceretainer() --> <BR>   /* Process other results... */<BR>until (result = SSCE_END_OF_TEXT_RSLT)</PRE><LI>
+   <P>
+    Check the spelling of the replacement word separately using 
+    SSCE_CheckWord, and treat the replacement as conditional if it is 
+    misspelled (conditional replacements require the user's 
+    confirmation). If the replacement word is correctly spelled, apply 
+    the replacement automatically.</P>
+   </OL>
+  <P>
+   The Sentry engine can detect doubled word: the same word appearing 
+   twice in a row. In some cases a repeated word is an error. The error 
+   can be corrected by deleting the second occurrence of the word using <A HREF="coreref.htm#SSCE_DelStringWord">SSCE_DelStringWord</A>.
+    To keep the formatting correct, SSCE_DelStringWord deletes the word 
+   and any white space characters before the word. SSCE_DelStringWord 
+   returns the cursor position (offset) of the first deleted character, 
+   which is handy when <A HREF="#How2UndoChanges">undoing changes made 
+   to strings</A>.</P>
+  <P>
+   When the <A HREF="#SPLITHYPHENATEDWORD">SSCE_SPLIT_HYPHENATED_WORDS_OPT</A> 
+   option is set, SSCE_CheckString checks the spelling of words 
+   containing hyphens as follows. First, the word is checked in its 
+   entirety, hyphens included. If the word is found in an open lexicon, 
+   it is processed normally, so no special action takes place. If the 
+   word is not found, SSCE_CheckString breaks the word into sub-words at 
+   the hyphens and checks the spelling of each sub-word individually. If 
+   all sub-words are correctly spelled, the entire word is skipped over 
+   and no further special action takes place. If any of the sub-words is 
+   misspelled, SSCE_CheckString returns. The cursor parameter is set to 
+   the offset of the first character of the misspelled sub-word, and the 
+   misspelled sub-word is returned through a parameter. A similar 
+   process happens when the <A HREF="#SPLITCONTRACTEDWORD">SSCE_SPLIT_CONTRACTED_WORDS_OPT</A> 
+   option is set and the word contains apostrophes. If your application 
+   calls SSCE_ReplaceStringWord or SSCE_DelStringWord when 
+   SSCE_CheckString reports the misspelling of a sub-word, the entire 
+   compound word, starting with the misspelled sub-word will be replaced 
+   or deleted. For example, suppose SSCE_CheckString checked a string 
+   containing &quot;a fly-byy-night operation.&quot; It would report <I>byy</I> 
+   as a misspelled word, and return a cursor value of 6. If you called 
+   SSCE_ReplaceStringWord to replace <I>byy</I> with <I>by</I>, the 
+   remainder of the compound word starting at position 6 would be 
+   replaced, resulting in &quot;a fly-by operation.&quot; The solution 
+   is to use <A HREF="coreref.htm#SSCE_DelStringText">SSCE_DelStringText</A> 
+   and <A HREF="coreref.htm#SSCE_InsertStringTe">SSCE_InsertStringText</A> 
+   to delete the just the misspelled sub-word and insert the replacement 
+   word in its place.</P>
+  <P>
+   The behavior of SSCE_CheckString is affected by various option 
+   settings; for more information, see <A HREF="#How2SetOptions">How to 
+   set Sentry options</A>.</P>
+  <P>
+   See the example programs in ssce/sdk/examples for more information on 
+   checking strings.</P>
+  <P>
+   Sentry's Core API includes a group of functions that check the 
+   spelling of text in text blocks (<A HREF="coreref.htm#SSCE_OpenBlock">SSCE_OpenBlock</A>,
+    <A HREF="coreref.htm#SSCE_CheckBlock">SSCE_CheckBlock</A>, <A HREF="coreref.htm#SSCE_ReplaceBlockWo">SSCE_ReplaceBlockWord</A>,
+    etc). A text block is similar to a string, except that the cursor 
+   position within the text and optionally the memory used to hold the 
+   text can be managed by the Sentry engine. The block-related functions 
+   exist for backwards-compatibility with previous versions of the 
+   Sentry engine. New applications should use the string-related functions.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="How2UndoChanges"></A>How to undo changes made to strings</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Many applications support undo features, which allow their users to 
+   reverse the effect of a previous action. You may want to extend the 
+   undo capability to the spelling checker in your application. This 
+   section describes how to undo changes made to a string during a 
+   spelling check.</P>
+  <P>
+   During a spelling check, two types of changes can be made to strings:</P>
+  <UL>
+   <LI>
+   <P>
+    Word replacements, such as replacing a misspelled word with a correction</P>
+   <LI>
+   <P>
+    Word deletions, such as deleting one occurrence of a doubled word.</P>
+   </UL>
+  <P>
+   Both types of change can be undone.</P>
+  <P>
+   Undoing a replacement is complicated by the fact that replacement 
+   text may actually contain more than one word. For example, the 
+   incorrectly joined words <I>theboy</I> might be replaced with <I>the boy</I>.
+    <A HREF="coreref.htm#SSCE_ReplaceStringW">SSCE_ReplaceStringWord</A> 
+   can't be used to undo such a replacement because it would change only 
+   the first word (<I>the</I> in the example).</P>
+  <P>
+   Undoing a deletion is complicated by the fact that <A HREF="coreref.htm#SSCE_DelStringWord">SSCE_DelStringWord</A> 
+   deletes not only the current word in the string but all white space 
+   preceding it as well. If the deleted word is restored, the preceding 
+   white space must be restored also.</P>
+  <P>
+   To undo a change to a string, your application must record the 
+   following information:</P>
+  <UL>
+   <LI>
+   <P>
+    The original text in the string (i.e., the characters in the string 
+    which were affected by the change)</P>
+   <LI>
+   <P>
+    The offset (cursor position) of the first changed character in the string</P>
+   <LI>
+   <P>
+    The length in characters of the new text (0 for deletions).</P>
+   </UL>
+  <P>
+   To make an undo-able replacement, your application performs the 
+   following steps:</P>
+  <OL>
+   <LI>
+   <P>
+    Call <A HREF="coreref.htm#SSCE_GetStringWord">SSCE_GetStringWord</A> 
+    to obtain the word about to be replaced. Save this word as the 
+    original text.</P>
+   <LI>
+   <P>
+    Save the current cursor position within the string as the change offset.</P>
+   <LI>
+   <P>
+    Call SSCE_ReplaceStringWord to make the change. Save the length of 
+    the replacement word as the new text length.</P>
+   </OL>
+  <P>
+   To make an undo-able deletion, your application performs the 
+   following steps:</P>
+  <OL>
+   <LI>
+   <P>
+    Call SSCE_DelStringWord to delete the current word in the string. 
+    SSCE_DelStringWord copies the text it has deleted into a buffer 
+    provided by your application. Save this text as the original text. 
+    SSCE_DelStringWord returns the offset of the first deleted character; 
+    save this offset as the change offset.</P>
+   <LI>
+   <P>
+    Save the new text length as 0.</P>
+   </OL>
+  <P>
+   To undo a change your application performs the following steps:</P>
+  <UL>
+   <LI>
+   <P>
+    Set the cursor to to the change offset associated with the change 
+    being undone.</P>
+   <LI>
+   <P>
+    If the new text length is greater than 0, call <A HREF="coreref.htm#SSCE_DelStringText">SSCE_DelStringText</A> 
+    to delete the new text.</P>
+   <LI>
+   <P>
+    Call <A HREF="coreref.htm#SSCE_InsertStringTe">SSCE_InsertStringText</A> 
+    to restore the original text.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2Suggest"></A>How to look up 
+       suggestions for misspelled words</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The <A HREF="coreref.htm#SSCE_Suggest">SSCE_Suggest</A> function 
+   locates a set of alternative words which are likely replacements for 
+   a misspelled word. Because looking up suggestions takes more time 
+   checking for spelling errors, your application should call 
+   SSCE_Suggest only after other functions report the detection of a 
+   misspelled word.</P>
+  <P>
+   SSCE_Suggest fills a character array with the best alternative words 
+   found, given the search depth (described below) and the nature of the 
+   misspelling. Your application provides the memory for the array.</P>
+  <P>
+   The words in the character array are ordered by decreasing word score 
+   - i.e., the first word is the most likely replacement, and the last 
+   word is the least-likely replacement.</P>
+  <P>
+   Note that the SSCE_Suggest function cannot determine the one correct 
+   replacement for a misspelled word, nor can it guarantee it will find 
+   the correct replacement. People misspell words for a variety of 
+   reasons, including dropped letters, extra letters, transposed 
+   letters, replaced letters, or simply a mistaken understanding of the 
+   correct spelling. Some of these errors may result in &quot;words&quot;
+    that have several perfectly reasonable replacements. For example, 
+   the misspelling <I>flas</I> could be <I>flag</I>, <I>flask</I>, <I>flash</I>,
+    etc. Because of the ambiguity, SSCE_Suggest locates several 
+   alternative words, and ranks them based on their similarity to the 
+   misspelled word. SSCE_Suggest produces the best results with longer 
+   words containing a single error.</P>
+  <P>
+   In addition to the character array, your application also passes an 
+   array of integers to SSCE_Suggest. SSCE_Suggest fills this array with 
+   the score for each alternative word found. The score describes the 
+   degree of correlation to the misspelled word, with 0 representing no 
+   correlation and 100 representing perfect correlation.</P>
+  <P>
+   Your application can examine the scores to eliminate words which are 
+   unlikely to be satisfactory replacements, using one or more of the 
+   following suggested approaches:</P>
+  <UL>
+   <LI>
+   <P>
+    Eliminate any word whose score falls below some threshold - e.g., 60%.</P>
+   <LI>
+   <P>
+    Accept only words in the top percentage range - e.g., the top word 
+    and any other word whose score falls within 20% of the top word.</P>
+   <LI>
+   <P>
+    If the difference between a word's score and the score of the word 
+    preceding it exceeds some threshold (e.g., 20%), eliminate that word 
+    and all following words.</P>
+   </UL>
+  <P>
+   SSCE_Suggest can search for suggested replacements using two 
+   approaches: phonetic and typographical. Phonetic suggestions are 
+   based on words which sound like the misspelled word (using English 
+   pronunciation rules). Typographical suggestions are based on how 
+   closely the letters in the suggested word match the letters in the 
+   misspelled word. SSCE_Suggest uses either or both approaches based on 
+   option settings. For more information, see <A HREF="#How2SetOptions">How
+    to set Sentry options</A>.</P>
+  <P>
+   A parameter to SSCE_Suggest controls the depth (and therefore the 
+   execution time) of the search for alternative words. The depth ranges 
+   from 0, which is the fastest (but least likely to yield success) to 
+   100, which is the slowest (but most likely to yield success). If you 
+   want to ensure that the best set of suggestions is obtained and don't 
+   mind the potential delay, pass depth 100 to SSCE_Suggest. The 
+   &quot;User Interface Suggestions&quot; section contains some advice 
+   on using the search-depth feature effectively.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2SetOptions"></A>How to set Sentry options</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   To set an option, call <A HREF="coreref.htm#SSCE_SetOption">SSCE_SetOption</A>.
+    To obtain a current option setting, call <A HREF="coreref.htm#SSCE_GetOption">SSCE_GetOption</A>.</P>
+  <P>
+   Your application can set a number of options that affect the way the 
+   Sentry engine operates. In most cases, options are enabled by setting 
+   their values to 1, and disabled by setting their values to 0.</P>
+  <UL>
+   <LI>
+   <P>
+    <B><A NAME="ALLOWACCENTEDCAPSOP"></A>SSCE_ALLOW_ACCENTED_CAPS_ OPT</B>:
+     If set to 1, capital letters containing accents (e.g., <I>&Ecirc;tre</I>)
+     are considered acceptable. If set to 0, words containing accented 
+    capitals are considered misspelled. Should be set to 0 when checking 
+    French Canadian text using Wintertree Software's French dictionary, 
+    and set to 1 in all other cases. Setting this option to 0 will 
+    degrade performance slightly. Default: 1</P>
+   <LI>
+   <P>
+    <B><A NAME="IGNORECAPPEDWORDOPT"></A>SSCE_IGNORE_CAPPED_WORD_ OPT</B>:
+     Set to 1 if words should be ignored (skipped) if they begin with an 
+    upper-case letter. Set to 0 if the words should be checked for 
+    spelling errors. Example: If set to 1, ignore <I>Clarkson</I>; if set 
+    to 0, check <I>Clarkson</I>. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="IGNOREALLCAPSWORDOP"></A>SSCE_IGNORE_ALL_CAPS_ WORD_OPT</B>:
+     Set to 1 if words consisting entirely of upper-case letters should 
+    be ignored (skipped). Set to 0 if the words should be checked for 
+    spelling errors. Example: If set to 1, ignore <I>ASAP</I>; if set to 
+    0, check <I>ASAP</I>. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="IGNOREDOMAINNAMESOP"></A>SSCE_IGNORE_DOMAIN_NAMES_ OPT</B>:
+     Set to 1 if words that appear to be Internet domain names should be 
+    ignored (skipped). Set to 0 if the words should be checked for 
+    spelling errors. This option will also ignore e-mail addresses and 
+    URLs. Example: If set to 1, ignore <I>wintertree-software.com</I>; if 
+    set to 0, check <I>wintertree-software.com</I>. Default: 0.</P>
+   <LI>
+   <P>
+    <B><A NAME="IGNOREHTMLMARKUPSOP"></A>SSCE_IGNORE_HTML_MARKUPS_OPT</B>:
+     Set to 1 if text that appears to be part of an HTML markup should be 
+    ignored (skipped). Set to 0 if text in HTML markups should be checked 
+    for spelling errors. When this option is set to 1, any text 
+    surrounded by angle brackets (&lt;...&gt;) is skipped over, as are 
+    character entity references which correspond to non-alphabetic 
+    characters. In addition, character entity references for alphabetic 
+    characters are converted to the corresponding character. For example, <I>d&amp;oslash;g</I> 
+    is converted to <I>d&oslash;g</I>. Similarly, any non-ASCII 
+    characters in words offerred as suggestions or returned as other 
+    words are converted to HTML character entity references. For example, <I>d&oslash;g</I> 
+    is converted to <I>d&amp;oslash;g.</I> The numeric character entity 
+    reference <I>&amp;#146;</I> is treated as an apostrophe. HTML markups 
+    surrounded in angle brackets and character entity references which 
+    correspond to non-alphabetic characters are treated as word 
+    separators. Character entity references which correspond to 
+    alphabetic characters are not treated as word separators, but are 
+    instead included as part of the word. For example, in <I>d&amp;copy;g</I> 
+    the non-alphabetic character entity reference <I>&amp;copy;</I> is 
+    treated as a word separator, causing the spelling engine to check <I>d</I> 
+    and <I>g</I> as separate words. In <I>d&amp;oslash;g</I> the<I> &amp;oslash;</I> 
+    is included as part of the word, so the spelling engine checks <I>d&oslash;g</I>.
+     The initial character of each markup type (the <I>&lt;</I> and <I>&amp;</I>)
+     must be present in the text stream scanned by the Sentry engine or 
+    the text may be interpreted as normal words and possibly reported as 
+    misspelled. Example: If set to 1, check the spelling only of <I>hello</I> 
+    in the following text: <I>&lt;li&gt;hello&amp;copy;&lt;/li&gt;</I>; 
+    if set to 0, check the spelling of <I>li</I>, <I>hello</I>, and <I>copy</I> 
+    in the text. Default: 0.</P>
+   <LI>
+   <P>
+    <B><A NAME="IGNOREMIXEDCASEOPT"></A>SSCE_IGNORE_MIXED_CASE_OPT</B>: 
+    Set to 1 if words containing an unusual mixture of upper- and lower-case
+     letters should be ignored (skipped). Set to 0 if such words should 
+    be checked for spelling errors. Example: If Set to 1, ignore <I>PrintScreen</I>;
+     if set to 0, check <I>PrintScreen</I>. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="IGNOREMIXEDDIGITSOP"></A>SSCE_IGNORE_MIXED_DIGITS_OPT</B>:
+     Set to 1 if words containing a mixture of letters and digits should 
+    be ignored (skipped). Set to 0 if such words should be checked for 
+    spelling errors. Example: If set to 1, ignore <I>Win95</I>; if set to 
+    0, check <I>Win95</I>. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="IGNORENONALPHAWORDO"></A>SSCE_IGNORE_NON_ALPHA_ WORD_OPT</B>:
+     Set to 1 if words that contain no alphabetic characters should be 
+    ignored (skipped). Set to 0 if the words should be checked for 
+    spelling errors. Example: If set to 1, ignore <I>12345</I>; if set to 
+    0, check <I>12345</I>. Default: 1</P>
+   <LI>
+   <P>
+    <B><A NAME="REPORTUNCAPPEDOPT"></A>SSCE_REPORT_UNCAPPED_OPT</B>: Set 
+    to 1 if uncapitalized words which exist in the lexicons in 
+    capitalized form only should be reported (via 
+    SSCE_UNCAPPED_WORD_RSLT). Set to 0 if uncapitalized words should not 
+    be reported. Example: If set to 1, report <I>canada</I>; if set to 0, 
+    do not report <I>canada</I>. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="REPORTMIXEDCASEOPT"></A>SSCE_REPORT_MIXED_CASE_OPT</B>: 
+    Set to 1 if words containing an unusual combination of upper- and 
+    lower-case letters should be reported (via 
+    SSCE_MIXED_CASE_WORD_RSLT). Set to 0 if such words should not be 
+    reported. Example: If set to 1, report <I>TUesday</I>; if set to 0, 
+    do not report <I>TUesday</I>. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="REPORTMIXEDDIGITSOP"></A>SSCE_REPORT_MIXED_ DIGITS_OPT</B>:
+     Set to 1 if words containing a combination of letters and digits 
+    should be reported (via SSCE_MIXED_DIGITS_WORD_RSLT). Set to 0 if 
+    such words should not be reported. Example: If set to 1, report <I>June5</I>;
+     if set to 0, do not report <I>June5</I>. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="REPORTDOUBLEDWORDOP"></A>SSCE_REPORT_DOUBLED_ WORD_OPT</B>:
+     Set to 1 if two occurrences of the same word in a row should be 
+    reported (via SSCE_DOUBLED_WORD_RSLT). Set to 0 if doubled words 
+    should not be reported. Example: If set to 1, report <I>the the</I>; 
+    if set to 0, do not report <I>the the</I>. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="CASESENSITIVEOPT"></A>SSCE_CASE_SENSITIVE_OPT</B>: Set to 
+    1 if words with different letter-case patterns should be treated as 
+    different words. Set to 0 if words containing different case patterns 
+    should be treated as identical. Setting this option to 0 will degrade 
+    performance. Example: If set to 1, treat <I>Canada</I> and <I>canada</I> 
+    as two different words; if set to 0, treat <I>Canada</I> and <I>canada</I> 
+    as the same word. Default: 1</P>
+   <LI>
+   <P>
+    <B><A NAME="SPLITHYPHENATEDWORD"></A>SSCE_SPLIT_HYPHENATED_ WORDS_OPT</B>:
+     Set to 1 if hyphens (&quot;-&quot;) should if necessary be treated 
+    as word separators, and each sub-word checked individually. This word 
+    splitting is done only if the hyphenated form of the word does not 
+    exist in any open lexicon. The word is considered correctly spelled 
+    if all sub-words are correctly spelled. Set to 0 if hyphenated words 
+    should be checked in their entirety. Example: If set to 1, and <I>bright-blue</I> 
+    was not found in the open lexicons, check both <I>bright</I> and <I>blue</I> 
+    and treat <I>bright-blue</I> as correctly spelled if both words are 
+    found; if set to 0, report <I>bright-blue</I> as misspelled if not 
+    found in the open lexicons. Default: 1</P>
+   <LI>
+   <P>
+    <B><A NAME="SPLITCONTRACTEDWORD"></A>SSCE_SPLIT_CONTRACTED_ WORDS_OPT</B>:
+     Set to 1 if apostrophes should if necessary be as word separators, 
+    and each sub-word checked individually. This word splitting is done 
+    only if the contracted form of the word does not exist in any open 
+    lexicon. The word is correctly spelled if all sub-words are correctly 
+    spelled. This option is intended for use with languages which allow 
+    ad hoc contractions (e.g., French and Italian). Set to 0 if 
+    contracted words should be checked in their entirety. Example: If set 
+    to 1, and <I>quell'anno</I> was not found in the open lexicons, check 
+    both <I>quell</I> and <I>anno</I>, and treat <I>quell'anno</I> as 
+    correctly spelled if both words are found; if set to 0, report <I>quell'anno</I> 
+    if not found in the open lexicons. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="SPLITWORDSOPT"></A>SSCE_SPLIT_WORDS_OPT</B>: Set to 1 if 
+    words should if necessary be treated as a series of concatenated 
+    sub-words, and each sub-word checked individually. This word 
+    splitting is done only if the original word is not found in any open 
+    lexicon. The word is correctly spelled if all sub-words containing 
+    two or more characters are correctly spelled. This option is intended 
+    for use with languages which allow ad hoc concatenation of words 
+    (e.g., German and Finnish). Set to 0 if words should be checked in 
+    their entirety. Example: If set to 1, and <I>dumptruckdriver</I> was 
+    not found in the open lexicons, attempt to locate valid sub-words (in 
+    this case <I>dump</I>, <I>truck</I>, and <I>driver</I>), and treat <I>dumptruckdriver</I> 
+    as correctly spelled if all sub-words are found; if set to 0, report <I>dumptruckdriver</I> 
+    if it is not found in the open lexicons. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="STRIPPOSSESSIVESOPT"></A>SSCE_STRIP_POSSESSIVES_OPT</B>: 
+    Set to 1 if possessives of the form <I>'s</I> and <I>s'</I> should be 
+    removed from words before checking their spelling. The main lexicons 
+    included with the Sentry SDKs contain no possessive word forms, so 
+    this option should be enabled when using these lexicons. Set to 0 if 
+    words should be checked with their possessives intact. Default: 1</P>
+   <LI>
+   <P>
+    <B><A NAME="SUGGESTSPLITWORDSOP"></A>SSCE_SUGGEST_SPLIT_WORDS_ OPT</B>:
+     Set to 1 if SSCE_Suggest should attempt to split words into two 
+    valid sub-words. Set to 0 if split words should not be suggested. 
+    Example: If set to 1, suggest <I>the boy</I> as a replacement for <I>theboy</I>;
+     if set to 0, do not suggest <I>the boy</I>. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="SUGGESTPHONETICOPT"></A>SSCE_SUGGEST_PHONETIC_OPT</B>: 
+    Set to 1 if SSCE_Suggest should search for suggested replacements for 
+    misspelled words based on phonetic (sounds-like) similarity. Set to 0 
+    if SSCE_Suggest should not search based on phonetic similarity. Note 
+    that if both this option and SSCE_SUGGEST_TYPOGRAPHICAL_OPT are set 
+    to 0, no suggestions will be produced. Default: 0</P>
+   <LI>
+   <P>
+    <B><A NAME="SUGGESTTYPOGRAPHICA"></A>SSCE_SUGGEST_TYPOGRAPHICAL _OPT:</B> 
+    Set to 1 if SSCE_Suggest should search for suggested replacements for 
+    misspelled words based on typographical similarity. Set to 0 if 
+    SSCE_Suggest should not search based on typographical similarity. 
+    Note that if both this option and SSCE_SUGGEST_PHONETIC_OPT are set 
+    to 0, no suggestions will be produced. Default: 1</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2AddWordsTextLex"></A>How to add 
+       words to text lexicons</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Unlike compressed lexicons, text lexicons can be modified by your 
+   application at run time. Your application can add and remove words in 
+   text lexicons.</P>
+  <P>
+   Only open lexicons can be modified. If a permanent lexicon is 
+   modified, the updated lexicon contents will be copied to disk when 
+   the lexicon is closed. Changes to temporary lexicons are lost once 
+   the lexicon is closed. See the description of SSCE_CreateLex below 
+   for more information on temporary and permanent lexicons.</P>
+  <P>
+   The <A HREF="coreref.htm#SSCE_AddToLex">SSCE_AddToLex</A> function 
+   adds a word, an action, and optionally an alternate word to a 
+   lexicon. The action tells the Sentry engine what to do when the word 
+   is found in the lexicon; see <A HREF="coreref.htm#ActionCodes">Action Codes</A> 
+   for a description of each action. Note that the alternate word may be 
+   several words separated by spaces, provided the total length does not 
+   exceed SSCE_MAX_WORD_LEN characters. When combined with <A HREF="coreref.htm#ActionCodes">SSCE_AUTO_CHANGE_ACTION</A> 
+   or <A HREF="coreref.htm#ActionCodes">SSCE_CONDITIONAL_CHANGE_ACTION</A>,
+    this feature can be used to expand simple abbreviations.</P>
+  <P>
+   The <A HREF="coreref.htm#SSCE_DelFromLex">SSCE_DelFromLex</A> 
+   function removes a word from a lexicon. The action and alternate word 
+   are also removed.</P>
+  <P>
+   The <A HREF="coreref.htm#SSCE_ClearLex">SSCE_ClearLex</A> function 
+   deletes all words from a lexicon. After calling SSCE_ClearLex, the 
+   lexicon will contain zero words.</P>
+  <P>
+   The <A HREF="coreref.htm#SSCE_FindLexWord">SSCE_FindLexWord</A> 
+   function determines if a word exists in a specific lexicon. If so, it 
+   returns the action and alternate word associated with the word.</P>
+  <P>
+   The words contained within a text lexicon can be read using <A HREF="coreref.htm#SSCE_GetLex">SSCE_GetLex</A>.
+    SSCE_GetLex copies the words in the lexicon to a character array 
+   (string) provided by your application. The function <A HREF="coreref.htm#SSCE_GetLexInfo">SSCE_GetLexInfo</A> 
+   obtains information about a lexicon, including its format (text or 
+   compressed), its size in characters, and its language. The size in 
+   characters is useful for allocating or declaring a character array 
+   large enough to hold the lexicon when calling SSCE_GetLex.</P>
+  <P>
+   SSCE_GetLex returns the lexicon image in the following format (spaces 
+   have been inserted here for clarity):</P><BLOCKQUOTE><PRE>word \t action otherWord\0 ... word \t action otherWord\0\0</PRE></BLOCKQUOTE><UL>
+   <LI>
+   <P>
+    word: The word in the lexicon.</P>
+   <LI>
+   <P>
+    \t: A tab character.</P>
+   <LI>
+   <P>
+    action: Character representing the action associated with the word 
+    (see <A HREF="coreref.htm#ActionCodes">Action Codes</A> for 
+    information on the meaning of each action):
+    <UL>
+     <LI><B>a</B>: SSCE_AUTO_CHANGE_ACTION<BR>
+     <LI><B>A</B>: SSCE_AUTO_CHANGE_PRESERVE_CASE_ACTION<BR>
+     <LI><B>c</B>: SSCE_CONDITIONAL_CHANGE_ACTION<BR>
+     <LI><B>C</B>: SSCE_CONDITIONAL_CHANGE_PRESERVE_CASE_ACTION<BR>
+     <LI><B>e</B>: SSCE_EXCLUDE_ACTION<BR>
+     <LI><B>i</B>: SSCE_IGNORE_ACTION</P>
+    </UL>
+   <LI>
+   <P>
+    otherWord: The alternate word associated with the word.</P>
+   <LI>
+   <P>
+    \0: A null character.</P>
+   </UL>
+  <P>
+   The <A HREF="coreref.htm#SSCE_CreateLex">SSCE_CreateLex</A> function 
+   creates new permanent or temporary text lexicons. One parameter to 
+   SSCE_CreateLex is the name of a disk file. If the file name is null 
+   or empty, SSCE_CreateLex creates a temporary lexicon. If the file 
+   name is present, SSCE_CreateLex creates a disk file (using the file 
+   name) to save the lexicon permanently.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="AboutTextLexFileFmt"></A>About the text lexicon file format</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Your application may find it useful to read or modify the text 
+   lexicon files used by the Sentry engine. Although we recommend you 
+   use the functions in Sentry's Core API to read or modify lexicons, 
+   the lexicon file format is presented here for situations where the 
+   Sentry API cannot be used.</P>
+  <P>
+   The first line of a text lexicon file is a header. The header line is 
+   in the following format:</P><BLOCKQUOTE><PRE>#LID lang</PRE></BLOCKQUOTE><P>
+   lang is a <A HREF="coreref.htm#LanguageCodes">language identifier</A> 
+   (decimal), using the same values as SSCE_AMER_ENGLISH_LANG, 
+   SSCE_BRIT_ENGLISH_LANG, etc.</P>
+  <P>
+   Here is an example header from an American English lexicon:</P><BLOCKQUOTE><PRE>#LID 24941</PRE></BLOCKQUOTE><P>
+   The lines following the header contain the words in the lexicon, one 
+   word per line, in the order defined by the Latin 1 (ISO-8859-1) 
+   character set in the following format (spaces have been inserted here 
+   for clarity):</P><BLOCKQUOTE><PRE>word \t action altWord</PRE></BLOCKQUOTE><P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2CompressLex"></A>How to create 
+       compressed lexicons</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   You can create compressed lexicons at run time from your application 
+   using functions in Sentry's Core API. Before you can create a 
+   compressed lexicon, you must ensure your set of words is in an 
+   acceptable form. The words can be stored in one or more disk files. 
+   All words with the same first three letters must be stored together 
+   in the same file, in the collation sequence specified by the Latin 1 
+   (ISO-8859-1) character set (or Unicode when compressing lexicons 
+   using the Unicode engine). The files must be formatted with one word 
+   per line. Lines beginning with &quot;#&quot; are treated as comments 
+   and are ignored.</P>
+  <P>
+   One of the ways in which lexicons are compressed is to replace common 
+   suffixes with a shorter token. The tokens occupy the same space as 
+   two characters, so this technique saves space provided the common 
+   suffixes are three characters or longer. The set of common suffixes 
+   is provided in a text file. The text file can contain up to 283 
+   suffixes, one suffix per line. You can determine the set of suffixes 
+   based on the characteristics of the words in your lexicon.</P>
+  <P>
+   To create a compressed lexicon, call <A HREF="coreref.htm#SSCE_CompressLexIni">SSCE_CompressLexInit</A>,
+    then call <A HREF="coreref.htm#SSCE_CompressLexFil">SSCE_CompressLexFile</A> 
+   once for each word file. After all the word files have been 
+   compressed, call <A HREF="coreref.htm#SSCE_CompressLexEnd">SSCE_CompressLexEnd</A>.</P>
+  <P>
+   Resources such as memory and disk files are allocated during the 
+   compression operation. These resources are released when 
+   SSCE_CompressLexEnd is called. If you wish to terminate the lexicon 
+   compression operation without creating a compressed lexicon file 
+   (e.g., in response to an error return from SSCE_CompressLexFile), 
+   call <A HREF="coreref.htm#SSCE_CompressLexAbo">SSCE_CompressLexAbort</A> 
+   to release any allocated resources.</P>
+  <P>
+   The code needed in your application to compress a lexicon will look 
+   something like the following pseudo-code:</P><BLOCKQUOTE><PRE>rv = SSCE_CompressLexInit(sid, &quot;french.clx&quot;, &quot;suffix.txt&quot;, SSCE_FRENCH_LANG, errLine)<BR>if rv &lt; 0 then<BR>   /* An error occurred. Insert code here to display an error message and bail out. */<BR>end if<BR><BR>rv = SSCE_CompressLexFile(sid, &quot;awords.txt&quot;, errLine)<BR>if rv &lt; 0 then<BR>   /* An error occurred. Insert code here to display an error message. errLine contains the<BR>  &nbsp; * line number of the offending word.<BR> &nbsp; */<BR>   SSCE_CompressLexAbort(sid)<BR>end<BR><BR>rv = SSCE_CompressLexFile(sid, &quot;bwords.txt&quot;, errLine)<BR>if rv &lt; 0 then<BR>   SSCE_CompressLexAbort(sid)<BR>end<BR>SSCE_CompressLexEnd(sid)</PRE></BLOCKQUOTE><H1>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="UserInterfaceSugg"></A>User Interface Suggestions</FONT></TD>
+    </TR>
+   </TABLE></H1>
+  <P>
+   In this section some suggestions are offered for user-interface 
+   components, their behavior, and how to effect that behavior with the 
+   Sentry engine.</P>
+  <UL>
+   <LI>
+   <P>
+    <B>Text selection</B>: Your application provides some means of 
+    selecting the text to be checked. Possibilities include a menu item 
+    or command to open a file, selecting a block of text in a document 
+    using a cursor, selecting the word, sentence, or paragraph under the 
+    cursor, or a command to check the entire document. In response, your 
+    application calls <A HREF="coreref.htm#SSCE_OpenSession">SSCE_OpenSession</A> 
+    and <A HREF="coreref.htm#SSCE_OpenLex">SSCE_OpenLex</A> (unless the 
+    session and its lexicons are open already). If the user selected a 
+    single word, call <A HREF="coreref.htm#SSCE_CheckWord">SSCE_CheckWord</A>.
+     Otherwise, call <A HREF="coreref.htm#SSCE_CheckString">SSCE_CheckString</A> 
+    to check the spelling of all words. Alternatively, your application 
+    can extract words from the text itself and call SSCE_CheckWord to 
+    check them.</P>
+   <LI>
+   <P>
+    <B>Ignore Command</B>: Some of the words flagged as misspellings will 
+    be correctly spelled - e.g., proper names, acronyms, and 
+    abbreviations. The user selects the Ignore command to indicate that 
+    no further action is required on the word. If your application is 
+    checking words individually using SSCE_CheckWord, it advances to the 
+    next word in response to the Ignore command. If your application is 
+    using SSCE_CheckString, it increases the cursor value by the length 
+    of the misspelled word to advance to the following word.</P>
+   <LI>
+   <P>
+    <B>Ignore All Command</B>: If the word flagged as misspelled is 
+    actually correctly spelled, and is used frequently, the Ignore All 
+    command gives the user a means of specifying that this occurrence and 
+    all further occurrences of the word should be skipped. In response, 
+    your application adds the word to a temporary lexicon using the <A HREF="coreref.htm#SSCE_AddToLex">SSCE_AddToLex</A> function.</P>
+   <P>
+    <I>Variation</I>: Your application provides Ignore All (Temporary) 
+    and Ignore All (Permanent) commands, and adds the word to a temporary 
+    or permanent lexicon as indicated.</P>
+   <LI>
+   <P>
+    <B>Suggestion List</B>: When SSCE_CheckWord or SSCE_CheckString 
+    indicates that a word is misspelled, your application calls <A HREF="coreref.htm#SSCE_Suggest">SSCE_Suggest</A> 
+    to obtain a set of suggested replacements. This set of replacements 
+    is displayed to the user in the Suggestion List. Using the Suggestion 
+    List, the user selects the correct spelling, then selects the Replace 
+    or Replace All commands.</P>
+   <P>
+    The SSCE_Suggest function accepts a parameter which controls the 
+    depth - and therefore the search time - of the search for suggested 
+    replacements. On slow computers, the search time may increase your 
+    user's frustration level; giving the user some control over the 
+    search may alleviate this. One possibility is to add a 
+    &quot;Suggest&quot; command to your application. Your application 
+    does not call SSCE_Suggest until the user invokes the 
+    &quot;Suggest&quot; command. Your application can always use the 
+    maximum search depth, or it can allow the user to specify the search 
+    depth. Possibly, your application could start at a low depth value, 
+    and increase the depth each time the user requests suggestions for 
+    the same misspelled word.</P>
+   <LI>
+   <P>
+    <B>Replace Command</B>: The Replace command specifies that the 
+    misspelled word should be replaced with another word (probably 
+    obtained from the Suggestion List). Your application replaces the 
+    word in the document. If a string of words is being checked, use <A HREF="coreref.htm#SSCE_ReplaceStringW">SSCE_ReplaceStringWord</A> 
+    to correct the misspelling in the string. Your application could also 
+    add the word and its replacement to a temporary lexicon with the <A HREF="coreref.htm#ActionCodes">SSCE_CONDITIONAL_CHANGE_PRESERVE_CASE_ACTION</A>.</P>
+   <LI>
+   <P>
+    <B>Replace All Command</B>: If the misspelled word is used 
+    frequently, the Replace All command gives the user a means of 
+    specifying that the current occurrence and all further occurrences of 
+    the misspelled word should be replaced with another spelling. In 
+    response, your application adds the word and its replacement to a 
+    temporary lexicon with the SSCE_AUTO_CHANGE_PRESERVE_CASE_ACTION.</P>
+   <P>
+    <I>Variation</I>: Your application provides Replace All (Temporary) 
+    and Replace All (Permanent) commands, and adds the word to a 
+    temporary or permanent lexicon as indicated.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <P>
+   Copyright &copy; 2000 <A HREF="http://www.wintertree-software.com">Wintertree
+    Software Inc</A>.<BR>
+   $Revision: 5.14.2 $
+ </BODY>
+</HTML>

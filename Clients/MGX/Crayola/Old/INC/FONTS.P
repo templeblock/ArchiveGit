@@ -1,0 +1,6 @@
+// Source file: FONTS.C
+HFONT CreateLightFont( HFONT hFont );
+int WINPROC EXPORT EnumFunc(LPLOGFONT lpLogFont, LPTEXTMETRIC lpTextMetric, short FontType, LPTR lpData);
+void GetFonts(HWND hWnd);
+void SortFonts( void );
+

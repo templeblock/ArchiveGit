@@ -1,0 +1,230 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "CIndex"=".\CINDEX\cindexnt.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Framework"=".\Framework\Framework.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name PNG Library
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ZLIB Library
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name TpsLibs
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Ftbld32"=".\App\ftbld\Ftbld32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GraphicComp"=".\GraphicComp\GraphicComp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "GroupComp"=".\GroupComp\GroupComp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "HeadlineComp"=".\HeadlineComp\HeadlineComp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ImageComp"=".\ImageComp\ImageComp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "PMW"=".\Pmw.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name CIndex
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GraphicComp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GroupComp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name HeadlineComp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ImageComp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name TrueType DLL
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PathComp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PNG Library
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ZLIB Library
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Ftbld32
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "PNG Library"=".\PNG\Png32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PathComp"=".\PathComp\PathComp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "TpsLibs"=".\TPSLibs\TpsLibs.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "TrueType DLL"=".\TT\Pmwtt32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ZLIB Library"=".\ZLIB\Zlib32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

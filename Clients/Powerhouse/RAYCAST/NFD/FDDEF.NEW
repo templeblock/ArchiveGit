@@ -1,0 +1,13 @@
+; fd.def : Declares the module parameters for the application.
+
+NAME         FD
+DESCRIPTION  'FD Windows Application'
+EXETYPE      WINDOWS
+
+CODE         PRELOAD FIXED DISCARDABLE
+DATA         PRELOAD FIXED MULTIPLE
+
+HEAPSIZE     1024   ; initial heap size
+; Stack size is passed as argument to linker's /STACK option
+
+

@@ -1,0 +1,8 @@
+; MSREGDLL.def : Declares the module parameters for the DLL.
+
+LIBRARY      MSREGX32
+DESCRIPTION  'MSREGDLL Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+	Register @1

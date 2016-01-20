@@ -1,0 +1,30 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                   rworld.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Room dialog functions.
+ Date Created:  03/08/94
+       Author:  Michael P. Dagate
+
+*****************************************************************************/
+
+#ifndef RWORLD_P
+#define RWORLD_P
+
+/****************************** Public Functions ****************************/
+
+extern BOOL WINPROC EXPORT DlgRoomWorld (HWND hWnd,UINT wMsg,WPARAM wParam,LPARAM lParam);
+
+/****************************************************************************/
+
+#endif

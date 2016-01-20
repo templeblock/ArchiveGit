@@ -1,0 +1,317 @@
+
+
+Here are the Hits for Unrecognized Segments
+
+ 2.4%     1145  Hits on Segment F000
+ 0.2%      102  Hits on Segment 0758
+ 0.0%        5  Hits on Segment E989
+ 0.1%       64  Hits on Segment FDC7
+ 0.1%       28  Hits on Segment DEA8
+ 0.0%        6  Hits on Segment FDBC
+ 0.4%      182  Hits on Segment D95F
+ 0.0%        5  Hits on Segment FFFF
+ 0.0%        2  Hits on Segment D021
+ 0.1%       49  Hits on Segment 06BF
+ 0.0%        1  Hits on Segment 1FF7
+ 0.0%        1  Hits on Segment 0B96
+ 0.0%        5  Hits on Segment 003B
+ 0.0%        4  Hits on Segment 0BD4
+ 0.0%        1  Hits on Segment 0B29
+
+Here are the Hits for Known Segments
+
+ 2.9%     1363  Hits on KRNL386!IGROUP
+ 0.0%        5  Hits on KRNL386!_MISCTEXT
+ 1.9%      876  Hits on SYSTEM!
+20.2%     9573  Hits on DISPLAY!
+ 0.3%      150  Hits on GDI!IGROUP
+ 0.0%        1  Hits on GDI!_DCSTUFF
+ 0.0%        2  Hits on GDI!_DIBITMAP
+ 0.0%       20  Hits on GDI!_PALETTE
+ 0.0%       13  Hits on GDI!_TEXT_T2
+ 0.0%        4  Hits on GDI!_SCAN_T2
+ 0.0%        3  Hits on GDI!_SCAN_386
+ 0.9%      439  Hits on USER!IGROUP
+ 0.5%      257  Hits on USER!_TEXTMOVE
+ 0.0%        8  Hits on USER!_WMGR
+ 0.0%        1  Hits on USER!_WINSWP
+ 0.0%        1  Hits on USER!_MENUCORE
+ 0.0%        1  Hits on USER!_RESOURCE
+ 0.0%        2  Hits on USER!_MDIWIN
+ 0.0%       23  Hits on USER!_MDKEY
+ 0.0%        1  Hits on MMSYSTEM!FIX
+ 0.0%        1  Hits on MMSYSTEM!WAVE
+ 0.0%        3  Hits on MMSYSTEM!_TEXT
+ 0.4%      180  Hits on MSSNDDRV!
+ 0.0%        1  Hits on POINTER!
+ 1.2%      547  Hits on GROWSTUB!
+ 0.0%        1  Hits on SCI!
+ 0.0%        2  Hits on MAXTIME!
+ 0.0%        6  Hits on CLOCK!
+ 0.1%       40  Hits on TOOLHELP!
+ 0.0%        3  Hits on WINFILE!
+ 0.0%        2  Hits on WINOLDAP!
+ 0.1%       45  Hits on WING!
+48.4%    22906  Hits on FD!_TEXT
+ 0.2%       75  Hits on FD!AFX_CORE2_TEXT
+15.4%     7299  Hits on FD!COMDAT_SEG1
+ 3.9%     1859  Hits on FDDLL!
+
+  47313  TOTAL HITS
+
+
+KRNL386!IGROUP
+
+ 0.0%        2  Hits between labels LOCKRESOURCE and SIZEOFRESOURCE
+ 0.0%        2  Hits between labels GLOBALLOCK and GLOBALREALLOC
+ 0.0%        2  Hits between labels GLOBALUNLOCK and GLOBALFLAGS
+ 0.0%        2  Hits between labels GLOBALFIX and GLOBALUNFIX
+ 0.0%        3  Hits between labels GLOBALUNFIX and LOCKSEGMENT
+ 0.4%      189  Hits between labels LOCALLOCK and LOCALREALLOC
+ 0.3%      157  Hits between labels LOCALUNLOCK and LOCALFLAGS
+ 0.9%      430  Hits between labels WRITEPRIVATEPROFILESTRING and I_LOPEN
+ 0.0%        1  Hits between labels IGLOBALREALLOC and IGLOBALFREE
+ 0.0%        8  Hits between labels IGLOBALFREE and IGLOBALHANDLE
+ 0.0%        2  Hits between labels IGLOBALHANDLE and ILOCKSEGMENT
+ 0.0%        1  Hits between labels IGLOBALUNFIX and IGLOBALSIZE
+ 0.0%        6  Hits between labels IGLOBALSIZE and IGLOBALLOCK
+ 0.0%        2  Hits between labels IGLOBALLOCK and IGLOBALUNLOCK
+ 0.0%        9  Hits between labels IGLOBALUNLOCK and IGLOBALWIRE
+ 0.1%       37  Hits between labels IGLOBALPAGEUNLOCK and DOS3CALL
+ 0.0%        1  Hits between labels IFREESELECTOR and IALLOCDSTOCSALIAS
+ 0.0%        1  Hits between labels ALLOCALIAS and GETSELECTORBASE
+ 0.0%       10  Hits between labels GETSELECTORBASE and LONGPTRADD
+ 0.0%       14  Hits between labels SELECTORACCESSRIGHTS and SETSWAPAREASIZE
+ 0.1%       31  Hits between labels SETSWAPAREASIZE and VALIDATEFREESPACES
+ 0.0%       12  Hits between labels VALIDATEFREESPACES and LIMITEMSPAGES
+ 0.0%        1  Hits between labels IGETCODEINFO and GETCODEHANDLE
+ 0.1%       33  Hits between labels _HWRITE and IOPENFILE
+ 0.0%        2  Hits between labels IWRITEPRIVATEPROFILESTRING and UNDEFDYNLINK
+ 0.0%        1  Hits between labels PATCHCODEHANDLE and WAITEVENT
+ 0.0%       15  Hits between labels WAITEVENT and DIRECTEDYIELD
+ 0.0%        1  Hits between labels DIRECTEDYIELD and YIELD
+ 0.1%       36  Hits between labels YIELD and ISTASK
+ 0.1%       59  Hits between labels ISTASK and LSTRLEN
+ 0.0%        1  Hits between labels ILSTRLEN and ILSTRCPY
+ 0.0%        1  Hits between labels LSTRORIGINAL and ISDBCSLEADBYTE
+ 0.1%       27  Hits between labels GETCURRENTTASK and IALLOCRESOURCE
+ 0.0%        1  Hits between labels ILOCKRESOURCE and IFREERESOURCE
+ 0.0%        1  Hits between labels ILOADRESOURCE and ILOCALALLOC
+ 0.0%        1  Hits between labels ILOCALREALLOC and ILOCALFREE
+ 0.2%       99  Hits between labels ILOCALLOCK and ILOCALUNLOCK
+ 0.2%      117  Hits between labels ILOCALUNLOCK and LOCALHANDLE
+ 0.0%        4  Hits between labels LOCALSHRINK and FATALEXIT
+ 0.1%       37  Hits between labels OUTPUTDEBUGSTRING and NETBIOSCALL
+ 0.0%        4  Hits between labels ISETHANDLECOUNT and DIAGQUERY
+
+KRNL386!_MISCTEXT
+
+ 0.0%        5  Hits between labels ICATCH and THROW
+
+GDI!IGROUP
+
+ 0.0%        9  Hits between labels ISGDIOBJECT and RECTVISIBLE_EHH
+ 0.1%       31  Hits between labels RECTINREGION_EHH and MULDIV
+ 0.0%        6  Hits between labels MULDIV and CREATECOMPATIBLEDC
+ 0.0%        1  Hits between labels CREATECOMPATIBLEDC and CREATEIC
+ 0.0%        1  Hits between labels GETSTOCKOBJECT and GETBITMAPBITS
+ 0.0%        1  Hits between labels GETTEXTEXTENT and GETTEXTEXTENTPOINT
+ 0.0%        1  Hits between labels BITBLT and PATBLT
+ 0.0%        1  Hits between labels INTERSECTCLIPRECT and SELECTCLIPRGN
+ 0.0%        1  Hits between labels SETBKCOLOR and SETBKMODE
+ 0.0%        7  Hits between labels TEXTOUT and GETROP2
+ 0.1%       26  Hits between labels GETTEXTCOLOR and CREATERECTRGN
+ 0.0%        2  Hits between labels CREATERECTRGN and GETBRUSHORGEX
+ 0.0%        7  Hits between labels GETWINDOWORGEX and GETBOUNDSRECT
+
+GDI!_DCSTUFF
+
+ 0.0%        1  Hits between labels CREATESOLIDBRUSH and CREATEHATCHBRUSH
+
+GDI!_DIBITMAP
+
+ 0.0%        2  Hits between labels STRETCHDIBITS and end of segment
+
+GDI!_PALETTE
+
+ 0.0%       20  Hits between labels UPDATECOLORS and end of segment
+
+GDI!_TEXT_T2
+
+ 0.0%       13  Hits between labels __$dummy$ and end of segment
+
+GDI!_SCAN_T2
+
+ 0.0%        4  Hits between labels __$dummy$ and end of segment
+
+GDI!_SCAN_386
+
+ 0.0%        3  Hits between labels __$dummy$ and end of segment
+
+USER!IGROUP
+
+ 0.0%        2  Hits between labels SHOWCURSOR and ISWINDOW
+ 0.0%        1  Hits between labels GETSYSMODALWINDOW and MESSAGEBEEP
+ 0.0%        5  Hits between labels ISCHILD and ISWINDOWVISIBLE
+ 0.0%        1  Hits between labels ISWINDOWVISIBLE and GETPROP
+ 0.3%      121  Hits between labels GLOBALGETATOMNAME and RELEASECAPTURE
+ 0.0%        2  Hits between labels RELEASECAPTURE and REPLYMESSAGE
+ 0.0%        1  Hits between labels REPLYMESSAGE and INSENDMESSAGE
+ 0.0%        9  Hits between labels WAITMESSAGE and QUERYSENDMESSAGE
+ 0.3%      146  Hits between labels MOUSE_EVENT and SETMESSAGEQUEUE
+ 0.0%        4  Hits between labels SETMESSAGEQUEUE and WINDOWFROMPOINT
+ 0.0%       16  Hits between labels GETTICKCOUNT and REPAINTSCREEN
+ 0.0%        1  Hits between labels REPAINTSCREEN and GETSYSCOLOR
+ 0.0%        3  Hits between labels GETDOUBLECLICKTIME and GETFOCUS
+ 0.0%        1  Hits between labels GETFOCUS and GETACTIVEWINDOW
+ 0.1%       33  Hits between labels SETCURSORPOS and GETWINDOWDC
+ 0.0%        1  Hits between labels GETDC and RELEASEDC
+ 0.0%        2  Hits between labels RELEASEDC and GETDCEX
+ 0.0%        3  Hits between labels GETMESSAGE and TRANSLATEMESSAGE
+ 0.0%        4  Hits between labels TRANSLATEMESSAGE and DISPATCHMESSAGE
+ 0.0%        3  Hits between labels DISPATCHMESSAGE and PEEKMESSAGE
+ 0.0%        6  Hits between labels PEEKMESSAGE and SETSYSMODALWINDOW
+ 0.0%        1  Hits between labels DEFWINDOWPROC and CALLWINDOWPROC
+ 0.1%       38  Hits between labels CALLNEXTHOOKEX and PV_WM_SETFOCUS
+ 0.0%        2  Hits between labels PV_WM_KILLFOCUS and PV_WM_SETTEXT
+ 0.0%        2  Hits between labels PV_WM_ERASEBKGND and PV_WM_CTLCOLOR
+ 0.0%        2  Hits between labels PV_WM_CTLCOLOR and PV_WM_WININICHANGE
+ 0.0%        1  Hits between labels PV_WM_WININICHANGE and PV_WM_DEVMODECHANGE
+ 0.0%        4  Hits between labels PV_WM_DEVMODECHANGE and PV_WM_ACTIVATEAPP
+ 0.0%        2  Hits between labels PV_WM_SETCURSOR and PV_WM_MOUSEACTIVATE
+ 0.0%        1  Hits between labels PV_WM_MOUSEACTIVATE and PV_WM_GETMINMAXINFO
+ 0.0%        1  Hits between labels PV_WM_DRAWITEM and PV_WM_MEASUREITEM
+ 0.0%        1  Hits between labels PV_WM_DELETEITEM and PV_WM_VKEYTOITEM
+ 0.0%        4  Hits between labels PV_WM_CHARTOITEM and PV_WM_SETFONT
+ 0.0%        4  Hits between labels PV_WM_COMPAREITEM and PV_WM_NCCREATE
+ 0.0%        4  Hits between labels PV_WM_NCCALCSIZE and PV_WM_NCACTIVATE
+ 0.0%        1  Hits between labels PV_WM_NCACTIVATE and PV_WM_GETDLGCODE
+ 0.0%        1  Hits between labels PV_WM_INITDIALOG and PV_WM_TIMER
+ 0.0%        4  Hits between labels PV_WM_TIMER and PV_WM_HSCROLL
+ 0.0%        1  Hits between labels PV_WM_INITMENU and PV_WM_INITMENUPOPUP
+
+USER!_TEXTMOVE
+
+ 0.1%       68  Hits between labels GETNEXTWINDOW and ADJUSTWINDOWRECT
+ 0.0%       17  Hits between labels GETCLASSWORD and SETCLASSWORD
+ 0.0%        5  Hits between labels GETPARENT and GETTOPWINDOW
+ 0.1%       37  Hits between labels GETWINDOW and WINHELP
+ 0.1%       67  Hits between labels GETDRIVERINFO and end of segment
+
+USER!_WMGR
+
+ 0.0%        2  Hits between labels SELECTPALETTE and REALIZEPALETTE
+ 0.0%        1  Hits between labels REALIZEPALETTE and end of segment
+
+USER!_WINSWP
+
+ 0.0%        1  Hits between labels BEGINDEFERWINDOWPOS and MOVEWINDOW
+
+USER!_MENUCORE
+
+
+USER!_RESOURCE
+
+
+USER!_MDIWIN
+
+
+USER!_MDKEY
+
+ 0.0%        8  Hits between labels TRANSLATEACCELERATOR and HILITEMENUITEM
+ 0.0%        6  Hits between labels HILITEMENUITEM and end of segment
+
+MMSYSTEM!FIX
+
+ 0.0%        1  Hits between labels VALIDATEHANDLE and VALIDATETIMERCALLBACK
+
+MMSYSTEM!WAVE
+
+ 0.0%        1  Hits between labels SOUNDINITWAVHDR and WAVEOUTGETNUMDEVS
+
+MMSYSTEM!_TEXT
+
+ 0.0%        2  Hits between labels VALIDATEHEADER and VALIDATEREADPOINTER
+ 0.0%        1  Hits between labels BWINEXEC and HUGEPAGELOCK
+
+FD!_TEXT
+
+ 2.1%      986  Hits between labels ?AckSetBackground@@ZAXPEEEHHH@Z and ?TBitBlts@@ZAXPIE0IHHHHH@Z
+ 2.4%     1126  Hits between labels ?TBitBlts@@ZAXPIE0IHHHHH@Z and ?draw_walls@@ZAXQEPEXQEPEE0PEE2HHHH@Z
+19.2%     9087  Hits between labels ?draw_walls@@ZAXQEPEXQEPEE0PEE2HHHH@Z and ?draw_object@@ZAHQEPEXPEEPEDIH11HHHHHHHHJJ@Z
+12.1%     5733  Hits between labels ?draw_object@@ZAHQEPEXPEEPEDIH11HHHHHHHHJJ@Z and ?TintScreen@@ZAXPEEIHH@Z
+ 8.4%     3983  Hits between labels ?FloorSlice@@ZAXHHHPEUFLOORARRAY@@0JJJPEEHHHHHPEH@Z and ?long_divide@@ZAJJJ@Z
+ 0.0%       15  Hits between labels ?long_divide@@ZAJJJ@Z and PROFINSCHK
+ 0.0%        1  Hits between labels __aFldiv and __aFlmul
+ 3.9%     1868  Hits between labels __aFulmul and __aFlrem
+ 0.0%       14  Hits between labels ?_AfxCallWndProc@@ZCJPEVCWnd@@PBUHWND__@@IIJ@Z and ?GetCurrentMessage@CWnd@@LCPFUtagMSG@@XZ
+ 0.0%        3  Hits between labels ?Default@CWnd@@JECJXZ and ?DeleteTempMap@CWnd@@TCXXZ
+ 0.0%        1  Hits between labels ?FromHandle@CWnd@@TCPEV1@PBUHWND__@@@Z and ?FromHandlePermanent@CWnd@@TCPEV1@PBUHWND__@@@Z
+ 0.0%        7  Hits between labels ?FromHandlePermanent@CWnd@@TCPEV1@PBUHWND__@@@Z and ?Attach@CWnd@@RECHPBUHWND__@@@Z
+ 0.0%        8  Hits between labels ?AfxWndProc@@ZCJPBUHWND__@@IIJ@Z and ?_AfxSendMsgHook@@ZCJHIJ@Z
+ 0.0%        3  Hits between labels ?DefWindowProc@CWnd@@NECJIIJ@Z and ?GetSuperWndProcAddr@CWnd@@NECPEP7CJPBUHWND__@@IIJ@ZXZ
+ 0.0%        1  Hits between labels ?GetSuperWndProcAddr@CWnd@@NECPEP7CJPBUHWND__@@IIJ@ZXZ and ?PreTranslateMessage@CWnd@@VECHPEUtagMSG@@@Z
+ 0.0%        2  Hits between labels ?_AfxFindMessageEntry@@ZCPEUAFX_MSGMAP_ENTRY@@PEU1@II@Z and ?WindowProc@CWnd@@NECJIIJ@Z
+ 0.0%       16  Hits between labels ?WindowProc@CWnd@@NECJIIJ@Z and ?OnCommand@CWnd@@NECHIJ@Z
+ 0.0%       10  Hits between labels ?FromHandle@CHandleMap@@RACPEVCObject@@PBX@Z and ?RemoveHandle@CHandleMap@@RACXPBX@Z
+ 0.0%        5  Hits between labels ?FromHandle@CDC@@TCPEV1@PBUHDC__@@@Z and ?Attach@CDC@@RECHPBUHDC__@@@Z
+ 0.0%        8  Hits between labels ?SelectPalette@CDC@@RECPEVCPalette@@PEV2@H@Z and ?SetBkColor@CDC@@VECKK@Z
+ 0.0%       11  Hits between labels ?PumpMessage@CWinApp@@RECHXZ and ?Run@CWinApp@@VECHXZ
+ 0.0%       15  Hits between labels ?PreTranslateMessage@CWinApp@@VECHPEUtagMSG@@@Z and ?_AfxMsgFilterHook@@ZCJHIJ@Z
+ 0.0%        1  Hits between labels ??0AFX_EXCEPTION_LINK@@RAC@XZ and ?AfxCatchProc@@ZCHPEUCRuntimeClass@@@Z
+ 0.0%        2  Hits between labels ??1AFX_EXCEPTION_LINK@@RAC@XZ and ?AfxTerminate@@ZCXXZ
+
+FD!AFX_CORE2_TEXT
+
+ 0.0%        8  Hits between labels ?PreTranslateMessage@CFrameWnd@@NECHPEUtagMSG@@@Z and ?PostNcDestroy@CFrameWnd@@NECXXZ
+ 0.1%       44  Hits between labels ?GetAssocAt@CMapWordToPtr@@JFCPEUCAssoc@1@GAEI@Z and ?Lookup@CMapWordToPtr@@RFCHGAEPEX@Z
+ 0.0%       23  Hits between labels ?Lookup@CMapWordToPtr@@RFCHGAEPEX@Z and ??ACMapWordToPtr@@RECAEPEXG@Z
+
+FD!COMDAT_SEG1
+
+ 0.0%        1  Hits between labels ?wavePlay@@ZAXHH@Z and ?MidiEnable@@ZAXH@Z
+ 0.0%        1  Hits between labels ?TextHealth@CFdStatus@@VECXXZ and ?TextAmmo@CFdStatus@@VECXXZ
+ 0.0%       20  Hits between labels ?OnTimer@CFdView@@JECXI@Z and ?OnKeyDown@CFdView@@JECXIII@Z
+ 0.2%      109  Hits between labels ?OnUserAction@CFdView@@JECJIJ@Z and ?OnUserSound@CFdView@@JECJIJ@Z
+ 0.0%        2  Hits between labels ?GetMessageMap@CFdView@@NFCPAUAFX_MSGMAP@@XZ and ?ResizeWindow@CFdView@@RECHH@Z
+ 0.0%       13  Hits between labels ?PaintScreen@CFdView@@RECXHHHHHHHH@Z and ?DibBufferInfoCreate@CFdView@@RECXPEUDibHeader@@HH@Z
+ 0.0%       11  Hits between labels ?Run@CFdApp@@VECHXZ and ?OpenDocumentFile@CFdApp@@VECPEVCDocument@@PFD@Z
+ 0.0%        3  Hits between labels ?CheckDoors@@ZAXPEUACKENG@@@Z and ?FindDoor@@ZAHPEUACKENG@@H@Z
+ 0.0%        5  Hits between labels ?FindDoor@@ZAHPEUACKENG@@H@Z and ?AckCheckDoorOpen@@ZAHPEUACKENG@@HHH@Z
+ 0.4%      191  Hits between labels ?AckCheckObjView@@ZAHPEUACKENG@@HHHHHH@Z and ?AckMoveObjectPOV@@ZAHPEUACKENG@@HHH@Z
+ 0.1%       68  Hits between labels ?AckCheckObjectMovement@@ZAXPEUACKENG@@@Z and ?AckGetObjectHit@@ZAHXZ
+ 3.5%     1678  Hits between labels ?xVRay@@ZAIPEIHHH@Z and ?yVRay@@ZAIPEIHHH@Z
+ 3.9%     1865  Hits between labels ?yVRay@@ZAIPEIHHH@Z and ?AckBuildView@@ZAHPEUACKENG@@@Z
+ 5.9%     2786  Hits between labels ?AckBuildView@@ZAHPEUACKENG@@@Z and ?OrderObjects@@ZAXPEUACKENG@@HHH@Z
+ 1.0%      475  Hits between labels ?OrderObjects@@ZAXPEUACKENG@@HHH@Z and ?FindObject@@ZAXPEUACKENG@@HHH@Z
+ 0.1%       45  Hits between labels ?FindObject@@ZAXPEUACKENG@@HHH@Z and ?draw_all_objects@@ZAXPEUACKENG@@@Z
+ 0.1%       25  Hits between labels ?draw_all_objects@@ZAXPEUACKENG@@@Z and ?AckWrapUp@@ZAHPEUACKENG@@@Z
+ 0.0%        1  Hits between labels ?DrawMap@CFdMap@@VECXXZ and ??0CFdMap@@REC@PBUHWND__@@UtagRECT@@@Z
+
+Profiler Summary (Top 25 Hits):
+
+19.2%     9087  FD! _TEXT! ?draw_walls@@ZAXQEPEXQEPEE0PEE2HHHH@Z - ?draw_object@@ZAHQEPEXPEEPEDIH11HHHHHHHHJJ@Z
+12.1%     5733  FD! _TEXT! ?draw_object@@ZAHQEPEXPEEPEDIH11HHHHHHHHJJ@Z - ?TintScreen@@ZAXPEEIHH@Z
+ 8.4%     3983  FD! _TEXT! ?FloorSlice@@ZAXHHHPEUFLOORARRAY@@0JJJPEEHHHHHPEH@Z - ?long_divide@@ZAJJJ@Z
+ 5.9%     2786  FD! COMDAT_SEG1! ?AckBuildView@@ZAHPEUACKENG@@@Z - ?OrderObjects@@ZAXPEUACKENG@@HHH@Z
+ 3.9%     1868  FD! _TEXT! __aFulmul - __aFlrem
+ 3.9%     1865  FD! COMDAT_SEG1! ?yVRay@@ZAIPEIHHH@Z - ?AckBuildView@@ZAHPEUACKENG@@@Z
+ 3.5%     1678  FD! COMDAT_SEG1! ?xVRay@@ZAIPEIHHH@Z - ?yVRay@@ZAIPEIHHH@Z
+ 2.4%     1126  FD! _TEXT! ?TBitBlts@@ZAXPIE0IHHHHH@Z - ?draw_walls@@ZAXQEPEXQEPEE0PEE2HHHH@Z
+ 2.1%      986  FD! _TEXT! ?AckSetBackground@@ZAXPEEEHHH@Z - ?TBitBlts@@ZAXPIE0IHHHHH@Z
+ 1.0%      475  FD! COMDAT_SEG1! ?OrderObjects@@ZAXPEUACKENG@@HHH@Z - ?FindObject@@ZAXPEUACKENG@@HHH@Z
+ 0.9%      430  KRNL386! IGROUP! WRITEPRIVATEPROFILESTRING - I_LOPEN
+ 0.4%      191  FD! COMDAT_SEG1! ?AckCheckObjView@@ZAHPEUACKENG@@HHHHHH@Z - ?AckMoveObjectPOV@@ZAHPEUACKENG@@HHH@Z
+ 0.4%      189  KRNL386! IGROUP! LOCALLOCK - LOCALREALLOC
+ 0.3%      157  KRNL386! IGROUP! LOCALUNLOCK - LOCALFLAGS
+ 0.3%      146  USER! IGROUP! MOUSE_EVENT - SETMESSAGEQUEUE
+ 0.3%      121  USER! IGROUP! GLOBALGETATOMNAME - RELEASECAPTURE
+ 0.2%      117  KRNL386! IGROUP! ILOCALUNLOCK - LOCALHANDLE
+ 0.2%      109  FD! COMDAT_SEG1! ?OnUserAction@CFdView@@JECJIJ@Z - ?OnUserSound@CFdView@@JECJIJ@Z
+ 0.2%       99  KRNL386! IGROUP! ILOCALLOCK - ILOCALUNLOCK
+ 0.1%       68  USER! _TEXTMOVE! GETNEXTWINDOW - ADJUSTWINDOWRECT
+ 0.1%       68  FD! COMDAT_SEG1! ?AckCheckObjectMovement@@ZAXPEUACKENG@@@Z - ?AckGetObjectHit@@ZAHXZ
+ 0.1%       67  USER! _TEXTMOVE! GETDRIVERINFO - end of segment
+ 0.1%       59  KRNL386! IGROUP! ISTASK - LSTRLEN
+ 0.1%       45  FD! COMDAT_SEG1! ?FindObject@@ZAXPEUACKENG@@HHH@Z - ?draw_all_objects@@ZAXPEUACKENG@@@Z
+ 0.1%       44  FD! AFX_CORE2_TEXT! ?GetAssocAt@CMapWordToPtr@@JFCPEUCAssoc@1@GAEI@Z - ?Lookup@CMapWordToPtr@@RFCHGAEPEX@Z

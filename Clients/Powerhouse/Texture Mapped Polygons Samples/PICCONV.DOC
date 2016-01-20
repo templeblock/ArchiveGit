@@ -1,0 +1,27 @@
+This small utility was written in Watcom C with WGT 5.0, and PMODE/W.
+It converts from one image format to another, and supports
+GIF, PCX, LBM, PAK, and RAW formats.
+
+What makes this utility different is it allows you to create your
+own raw format.  The raw format can be made up of 4 elements:
+
+Width: 2 bytes
+Height: 2 bytes
+Palette: 768 bytes
+Image data: width*height bytes
+
+You can decide which ones to include and what order they appear in 
+the file.  You can also read RAW files and change them into other 
+formats.  If the width and height aren't stored in the raw format,
+the program prompts you for them.
+
+It is also useful for grabbing a palette out of an image.
+
+The screen has each option numbered.  To cycle through the image formats
+and elements, type the number repeatedly.
+
+
+Chris Egerter
+Egerter Software
+
+

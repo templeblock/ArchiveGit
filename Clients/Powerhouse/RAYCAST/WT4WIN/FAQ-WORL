@@ -1,0 +1,187 @@
+
+The following is a document I wrote up on how the wt world is set up.  It
+took me a bit longer than expected to complete, so it doesn't look like I'm
+going to get wt 0.04 up tonight.  Sorry--I'll shoot for tomorrow night
+for 0.04.
+
+--Chris Laurel
+claurel@mr.net
+
+--------------------------------------------------------------------------
+
+This is a quick description of the wt world file.  There's no guarantee that
+it will not be changing in the future, of course.
+
+
+
+The world file itself may not make much sense without a discussion of the
+internal world structures.
+
+The first thing to understand is that the world in wt is not truly three
+dimensional.  It is cannot render general polygons.  It can handle only
+horizontal floors or vertical walls.  This limitation is key to wt's speed.
+
+The world structure in world.h looks like this:
+
+typedef struct {
+     Table *vertices;
+     Table *walls;
+     Table *regions;
+     Table *textures;
+} World;
+
+
+Definitions:
+	Vertices are points on a plane.
+	Walls connect two vertices and separate two regions.
+	Regions are not necessarily connected areas that
+	    are surrounded by walls.
+
+Here is the vertex structure from world.h:
+
+typedef struct {
+     fixed x, y;
+     fixed tx, ty, proj;      /* transformed coordinates */
+} Vertex;
+
+The important fields for this discussion are the x and y coordinates.  The
+other fields are not stored in the world field, but are generated each time
+a frame is rendered.  I'll cover that sometime when I describe how the
+renderer works.
+
+Ok . . . the vertex structure is pretty basic.  Like the definition says, it's
+just a point in two-space.  The wall structure is more interesting:
+
+typedef struct {
+     Vertex *vertex1, *vertex2;
+     Texture *surface_texture;
+     Region *front, *back;
+     fixed xphase, yphase;
+     fixed xscale, yscale;
+     Boolean opaque;
+} Wall;
+
+vertex1 and vertex2 are the two wall endpoints.  surface_texture is the
+texture which is mapped on the wall.  xphase, yphase, xscale, and yscale
+control how the texture is drawn on the wall.  xphase and yphase are numbers
+between 0 and 1.  The determine where the origin of the texture is with
+respect to the origin of the wall.  The wall origin lies in the plane of the
+wall at vertex1 and height zero.  If the x and y phase are zero, then the
+texture origin coincides with the wall origin.  If the x and y phase are
+both 0.5, then the wall origin coincides with the center of the texture.
+The xphase and yphase fields are critical for getting wall sections to
+join seamlessly (you'll notice that this is not done in my current sample
+world files.  Adjusting the texture phases will be a function of a
+world editor program.)
+
+While the scale fields of the wall structure do indeed control how the
+texture map is sized, the would be more appropriately called 'frequencies'
+(The incorrect name persists because I've been too lazy to change it.)
+X and y scale factors of 0.1 would make a single tile of texture cover
+one hundred times as much wall area (not one-hundreth as much.)
+
+The opaque field is something that will be used in future versions of wt.
+
+One thing that may puzzle you is the fact that there are no heights listed
+in the wall structure.  That's because the height of the wall is determined
+by the regions in front and in back of it.
+
+
+Here's the region structure:
+
+typedef struct {
+     fixed floor, ceiling;
+     Texture *floor_tex, *ceiling_tex;
+} Region;
+
+floor is the floor height and ceiling is the ceiling height.  I know this
+is obvious but I'll say it anyway:  floor_tex is the texture map which will
+appear on the floor of the region and ceiling_tex is the one which will appear
+on the ceiling.
+
+Here's a simple diagram which should help you understand how region heights
+interact with walls.  The diagram depicts a edge-on view of a couple walls.
+This exact arrangement of walls occurs with the windows of the castle.
+
+
+                     wall 1         wall 2
+                       |              |
+          ==ceiling====|              |==ceiling===
+                       |===ceiling====|
+          wall 1         wall 1 back      wall 2
+          front             and           front
+                         wall 2 back
+                       |====floor=====|
+                       |              |
+          ====floor====|              |====floor====
+
+(Sorry--no spiffy PostScript figures . . .)
+
+I hope that it's clear from this diagram how everything works, because I
+can't think of an explanation to accompany it.
+
+Here's an important rule to keep in mind when thinking about walls.  If
+you are standing within a closed loop of walls, then:
+
+   - You are in front of the the walls if they are oriented clockwise
+   - You are in back of the walls if the are oriented counterclockwise
+
+I mentioned before that regions need not be connected.  This may seem strange
+at first, but it's a very useful property for regions to have.  I'll again
+bring up the case of the castle windows:  all four of them are the same
+region.  The neat thing about this is that I can modify the height of the
+bottom of all windows by changing just one number:  the floor height of
+the windows' region.
+
+
+Now that you've been briefed on the internal world structure, the world
+file should be pretty easy to figure out.  It maps almost directly to
+the internal structure.
+
+The world file consists of four parts: a texture block, a vertex block,
+a region block, and a walls block.  The four blocks must appear in this
+order.  Each block consists of an arbitrary number of entries.  The
+entries in all blocks each consist of the block name followed by a list
+of parameters.
+
+Here are the formats for each type of world file entry:
+
+texture <texture name> <texture file>
+vertex <x> <y>
+region <floor height> <ceiling height> <floor texture name> <ceiling texture>
+wall <start vertex #> <end vertex #> <texture name>
+     <front region #> <back region #>
+     <xscale> <yscale> <xphase> <yphase>
+
+
+There are a number of restrictions which must be observed in world files.
+
+- Textures which are to be used as floors must be either 64x64 or 128x128.
+  (I'll eventually add support for 256x256 textures--it's trivial to do.)
+- Textures which are to be used as walls must have be 64 or 128 pixels
+  vertically and a power of two pixels horizontally.
+- Walls may not intersect.
+- Walls should not be more than 255 units long.  This is necessary in order
+  to avoid fixed point overflows.
+- Walls should not be shorter than 1/256 units.  This limitation is due
+  to fixed point roundoff errors.
+- Regions should not have heights less than -128 or greater than 127
+
+
+This description should make it clear that we'll need a more sophisticated
+world designer than a text editor.
+
+The format of wt's worldfile is independent of the rendering engine.  Once
+the world data has be slurped into a world structure, it doesn't matter to
+the renderer how it got there.  This leaves open the possibility for
+alternate world file formats, like Russ Nelson's (nelson@crynwr.com) 
+orld in Tcl changes.  This patch lets wt use a Tcl program as a world
+file (and more . . .) and will eventually be integrated into the wt
+distribution.  There will be a lot more news on Tcl and wt in the near
+future.  (People who don't have Tcl:  don't worry--I'll continue to support
+the graphics engine with the old world file format as well.  It will be
+a compile time option.)
+
+
+
+

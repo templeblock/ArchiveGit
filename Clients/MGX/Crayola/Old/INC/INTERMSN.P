@@ -1,0 +1,39 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                   intermsn.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Intermission animations.
+ Date Created:  2/21/94
+       Author:  Ray
+
+*****************************************************************************/
+
+#ifndef INTERMSN_P
+#define INTERMSN_P
+
+/****************************** Public Functions ****************************/
+
+void IntermissionStart(BOOL bSmallToys);        // Start playing the intermission characters
+void IntermissionPlay();                        // Keep the motion going
+void IntermissionEnd();                         // Stop and delete the animations
+void IntermissionMsg(LPMSG lpMsg, BOOL bMsg);   // Kill if messages come in.
+void IntermissionSetKillOnMessages(BOOL bKill); // Should it kill animation when a message arrives
+void IntermissionSetTimeout(DWORD msTimeout);   // Time before it starts
+DWORD IntermissionGetTimeout();
+void IntermissionSetIsOn(BOOL bOn);             // Is is checking for non-activity
+BOOL IntermissionGetIsOn();
+BOOL IntermissionGetIsRunning();
+
+/****************************************************************************/
+
+#endif

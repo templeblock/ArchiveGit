@@ -1,0 +1,129 @@
+error.OBJ: \
+	error.c \
+	wt.h \
+	framebuf.h \
+	graphics.h \
+	error.h
+fixed.OBJ: \
+	fixed.c \
+	error.h \
+	fixed.h \
+	c:\tools\sc\include\limits.h
+framebuf.OBJ: \
+	framebuf.c \
+	wt.h \
+	error.h \
+	wtmem.h \
+	framebuf.h \
+	graphics.h
+gifload.OBJ: \
+	gifload.c \
+	wt.h \
+	error.h \
+	texture.h
+list.OBJ: \
+	list.c \
+	wt.h \
+	wtmem.h \
+	list.h
+render.OBJ: \
+	render.c \
+	wt.h \
+	error.h \
+	fixed.h \
+	c:\tools\sc\include\limits.h \
+	wtmem.h \
+	table.h \
+	table.h \
+	view.h \
+	texture.h \
+	framebuf.h \
+	graphics.h \
+	world.h \
+	render.h \
+	slice.c
+table.OBJ: \
+	table.c \
+	wtmem.h \
+	table.h
+texture.OBJ: \
+	texture.c \
+	wt.h \
+	wtmem.h \
+	error.h \
+	texture.h
+view.OBJ: \
+	view.c \
+	wt.h \
+	error.h \
+	fixed.h \
+	c:\tools\sc\include\limits.h \
+	wtmem.h \
+	view.h
+wingraph.OBJ: \
+	wingraph.c \
+	wt.h \
+	error.h \
+	wtmem.h \
+	framebuf.h \
+	graphics.h
+wininput.OBJ: \
+	wininput.c \
+	wt.h \
+	error.h \
+	input.h \
+	dos-keyb.h
+world.OBJ: \
+	world.c \
+	wt.h \
+	error.h \
+	fixed.h \
+	c:\tools\sc\include\limits.h \
+	wtmem.h \
+	texture.h \
+	table.h \
+	world.h
+worldfil.OBJ: \
+	worldfil.c \
+	wt.h \
+	error.h \
+	fixed.h \
+	c:\tools\sc\include\limits.h \
+	wtmem.h \
+	list.h \
+	table.h \
+	texture.h \
+	world.h \
+	worldfile.h
+wt.OBJ: \
+	wt.c \
+	wt.h \
+	error.h \
+	fixed.h \
+	c:\tools\sc\include\limits.h \
+	view.h \
+	texture.h \
+	table.h \
+	world.h \
+	worldfile.h \
+	framebuf.h \
+	render.h \
+	graphics.h \
+	input.h
+wtmem.OBJ: \
+	wtmem.c \
+	wt.h \
+	error.h \
+	wtmem.h
+wtwin.OBJ: \
+	wtwin.cpp \
+	wingdll.h \
+	wtwin.h \
+	dos-keyb.h \
+	dos-keyb.h
+wingdll.OBJ: \
+	wingdll.cpp \
+	wingdll.h
+winpal.OBJ: \
+	winpal.cpp \
+	wingdll.h

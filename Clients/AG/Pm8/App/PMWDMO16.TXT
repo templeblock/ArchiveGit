@@ -1,0 +1,68 @@
+/* Source base directory */
+
+BaseSourceDir "V:\PMWDEMO"
+
+/* Destination base directory */
+
+//BaseDestinationDir ""
+
+/* Program Group */
+
+groups 1;
+flags 0;
+
+File "PMW\*.*" to directory "";
+Directory "PMW\PICTURES" recurse to directory "PICTURES";
+Directory "PMW\DOCUMENT" recurse to directory "DOCUMENT";
+Directory "PMW\SUPPORT" recurse to directory "SUPPORT";
+File "MSREG\MSREG16.DLL" to "MSREG16.DLL";
+File "MSREG\MSREG.INI" to "MSREG.INI";
+File "MSREG\MSRUN16.EXE" to "MSRUN.EXE";
+File "MSREG\PMWDEMO.INF" to "PMWDEMO.INF";
+
+// Product catalog.
+//File "MSREG\CDLAUNCH.EXE" to "CDLAUNCH.EXE";
+//File "MSREG\CDLAUNCH.INI" to "CDLAUNCH.INI";
+File "MSREG\PRODCAT.ICO" to "PRODCAT.ICO";
+
+// Graphics catalog.
+//File "CATALOG\CATALOG.ICO" to "CATALOG.ICO";
+//File "CATALOG\MSCAT.INI" to "MSCAT.INI";
+
+// Uninstall program.
+File "MSREG\UNINSTAL.ICO" to "UNINSTAL.ICO";
+
+/* Books are copied only if they do not exist. */
+
+//groups 1;
+//flags 8;		// IgnoreIfExists
+
+//Directory "PMW\BOOKS" recurse to directory "BOOKS";
+
+/* Required IDAPI Group */
+
+//groups 2;
+//flags 4;		// IgnoreIfOlder
+
+//Directory "INSTALL\IDAPI" to directory "";
+
+/* Configuration IDAPI Group */
+
+//groups 4;
+//flags 4;		// IgnoreIfOlder
+
+//Directory "INSTALL\IDAPI\CONFIG" to directory "";
+
+/* Optional IDAPI Group */
+
+//groups 8;
+//flags 4;		// IgnoreIfOlder
+
+//Directory "INSTALL\IDAPI\OPTIONAL" to directory "";
+
+/*	OLE Group */
+
+groups 16;
+flags 7; 	// Shared+IgnoreIfInUse+IgnoreIfOlder
+
+Directory "INSTALL\OLE" to directory "";

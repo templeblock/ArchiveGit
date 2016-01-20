@@ -1,0 +1,247 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "winver.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APP                 ICON    DISCARDABLE     "RES/QD3DSample.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_GENERIC MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        POPUP "&Open using"
+        BEGIN
+            MENUITEM "Win32 File Handle...",        ID_FILE_OPEN_WIN32
+            MENUITEM "Win32 Memory Mapped File...", ID_FILE_OPEN_MMF
+            MENUITEM """Unix"" Path...",            ID_FILE_OPEN_PATH
+            MENUITEM """Unix"" FILE...",            ID_FILE_OPEN_UNIX
+        END
+        POPUP "&Save using"
+        BEGIN
+            MENUITEM "Win32 File Handle...",        ID_FILE_SAVE_WIN32
+            MENUITEM "Win32 File Handle (text)...", ID_FILE_SAVE_WIN32_TEXT
+            MENUITEM """Unix"" Path...",            ID_FILE_SAVE_PATH
+            MENUITEM """Unix"" Path (text)...",     ID_FILE_SAVE_PATH_TEXT
+            MENUITEM """Unix"" FILE...",            ID_FILE_SAVE_UNIX
+            MENUITEM """Unix"" FILE (text)...",     ID_FILE_SAVE_UNIX_TEXT
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&QD3D"
+    BEGIN
+        POPUP "&Renderer"
+        BEGIN
+            MENUITEM "&Interactive\tCtrl+I",        ID_QD3D_RENDERER_INTERACTIVE
+
+            MENUITEM "&Wireframe\tCtrl+W",          ID_QD3D_RENDERER_WIREFRAME
+
+        END
+        POPUP "&Draw Context"
+        BEGIN
+            MENUITEM "&Pixmap 16-bit (5-5-5)",      ID_QD3D_DRAWCONTEXT_PIXMAP16BIT555
+
+            MENUITEM "Pixmap &16-bit (5-6-5)",      ID_QD3D_DRAWCONTEXT_PIXMAP16BIT565
+
+            MENUITEM "Pixmap &24-bit",              ID_QD3D_DRAWCONTEXT_PIXMAP24BIT
+
+            MENUITEM "Pixmap &32-bit",              ID_QD3D_DRAWCONTEXT_PIXMAP32BIT
+
+            MENUITEM SEPARATOR
+            MENUITEM "&Win32 DC",                   ID_QD3D_DRAWCONTEXT_WIN32DC
+
+            MENUITEM SEPARATOR
+            MENUITEM "&DirectDraw Surface",         ID_QD3D_DRAWCONTEXT_DIRECTDRAW
+            , GRAYED
+        END
+        MENUITEM "&Clear Color...",             ID_QD3D_CLEARCOLOR
+        MENUITEM "&Spin\tCtrl+R",               ID_QD3D_SPIN
+        MENUITEM "Step\tSpace-bar",             ID_QD3D_STEP
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About QuickDraw 3D Demo...", IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_GENERIC ACCELERATORS MOVEABLE PURE 
+BEGIN
+    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "I",            ID_QD3D_RENDERER_INTERACTIVE, VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN_WIN32,     VIRTKEY, CONTROL, NOINVERT
+    "Q",            IDM_EXIT,               VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_QD3D_SPIN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE_WIN32,     VIRTKEY, SHIFT, CONTROL, 
+                                                    NOINVERT
+    VK_F1,          IDM_ABOUT,              VIRTKEY, NOINVERT
+    VK_SPACE,       ID_QD3D_STEP,           VIRTKEY, NOINVERT
+    "W",            ID_QD3D_RENDERER_WIREFRAME, VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 22, 17, 253, 63
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About QuickDraw 3D Demo"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,211,6,32,14,WS_GROUP
+    ICON            IDI_APP,-1,3,2,18,20
+    LTEXT           "CompanyName",IDC_COMPANYNAME,30,2,100,8
+    LTEXT           "FileDescription",IDC_FILEDESCRIPTION,30,10,116,8
+    RTEXT           "ProductVersion",IDC_PRODUCTVERSION,150,11,44,8,0,
+                    WS_EX_RIGHT
+    LTEXT           "LegalCopyright",IDC_LEGALCOPYRIGHT,30,18,137,8
+    LTEXT           "LegalTrademarks",IDC_LEGALTRADEMARKS,30,35,164,23
+    CONTROL         "",501,"Static",SS_BLACKRECT,29,31,165,1
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 1,5,0,23
+ PRODUCTVERSION 1,5,0,23
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x2bL
+#else
+ FILEFLAGS 0x2aL
+#endif
+ FILEOS 0x10004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "Comments", "Apple Confidential\0"
+            VALUE "CompanyName", "Apple Computer, Inc.\0"
+            VALUE "FileDescription", "QuickDraw 3D Demo Application\0"
+            VALUE "FileVersion", "1, 5, 0, 23\0"
+            VALUE "InternalName", "Quickdraw 3D Demo\0"
+            VALUE "LegalCopyright", "Copyright © 1996 Apple Computer, Inc.\0"
+            VALUE "LegalTrademarks", "QuickDraw is a trademark of Apple Computer, Inc.\0"
+            VALUE "OriginalFilename", "\0"
+            VALUE "ProductName", "QuickDraw 3D Demo\0"
+            VALUE "ProductVersion", "1, 5, 0, 23\0"
+            VALUE "SpecialBuild", "Preliminary\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+#endif    // !_MAC
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""winver.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        RIGHTMARGIN, 252
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

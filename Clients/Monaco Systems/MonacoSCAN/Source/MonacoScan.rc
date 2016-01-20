@@ -1,0 +1,339 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\MonacoScan.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\MonacoScan.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 217, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About MonacoSCAN"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "MonacoSCAN Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 1997",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+END
+
+IDD_CROP DIALOGEX 0, 0, 424, 258
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Crop"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,347,30,69,14
+    PUSHBUTTON      "Cancel",IDCANCEL,347,47,69,14
+    CONTROL         "",IDC_CROP_IMAGE,"{5DA9D7E0-5A57-11CF-9E36-00C0930198C0}",
+                    WS_TABSTOP,7,30,332,219
+    PUSHBUTTON      "Unzoom",IDC_UNZOOM,347,78,69,14
+    LTEXT           "Upper left",IDC_STATIC,362,127,54,8
+    LTEXT           "Unknown",IDC_CORNER_UL,362,137,54,8
+    LTEXT           "Upper right",IDC_STATIC,362,161,54,8
+    LTEXT           "Unknown",IDC_CORNER_UR,362,171,54,8
+    LTEXT           "Lower left",IDC_STATIC,362,195,54,8
+    LTEXT           "Unknown",IDC_CORNER_LL,362,205,54,8
+    LTEXT           "Lower right",IDC_STATIC,362,229,54,8
+    LTEXT           "Unknown",IDC_CORNER_LR,362,239,54,8
+    LTEXT           "Mouse Position",IDC_MOUSE_MOVE,362,105,54,8
+    LTEXT           "Drag the Left mouse button to select an area to zoom",
+                    IDC_STATIC,40,5,299,8
+    LTEXT           "Click the Right mouse button to set each of the 4 corner points",
+                    IDC_STATIC,40,15,299,8
+    LTEXT           "Note:",IDC_STATIC,7,5,28,8
+    CONTROL         140,IDB_ICON_LR,"Static",SS_BITMAP | SS_REALSIZEIMAGE,
+                    348,229,10,9,WS_EX_TRANSPARENT
+    CONTROL         141,IDB_ICON_LL,"Static",SS_BITMAP | SS_REALSIZEIMAGE,
+                    348,195,10,9,WS_EX_TRANSPARENT
+    CONTROL         138,IDB_ICON_UR,"Static",SS_BITMAP | SS_REALSIZEIMAGE,
+                    348,161,10,9,WS_EX_TRANSPARENT
+    CONTROL         139,IDB_ICON_UL,"Static",SS_BITMAP | SS_REALSIZEIMAGE,
+                    348,127,10,9,WS_EX_TRANSPARENT
+    CONTROL         146,IDB_ICON_MOU,"Static",SS_BITMAP | SS_REALSIZEIMAGE,
+                    348,105,10,9,WS_EX_TRANSPARENT
+END
+
+IDD_MAIN DIALOGEX 0, 0, 251, 167
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "MonacoSCAN"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Save profile",IDOK,7,146,113,14
+    PUSHBUTTON      "Quit",IDCANCEL,128,146,113,14
+    COMBOBOX        IDC_REFERENCE_FILE,128,84,113,46,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_IMAGE_FILE,128,63,113,44,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Select target image crop marks",IDC_CROP,7,104,113,14
+    PUSHBUTTON      "Create profile",IDC_CALIBRATE,7,125,113,14
+    LTEXT           "Not completed",IDC_CROP_COMPLETE,128,107,113,8
+    LTEXT           "Not completed",IDC_CALIBRATE_COMPLETE,128,128,113,8
+    CONTROL         136,IDB_LOGO,"Static",SS_BITMAP | WS_BORDER,7,7,54,50,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,69,48,172,1
+    PUSHBUTTON      "Select reference target data file",IDC_REFERENCE,7,83,
+                    113,14
+    PUSHBUTTON      "Select scanned target image file",IDC_IMAGE,7,62,113,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,69,11,172,1
+    CONTROL         "",IDC_LABEL1,"{99B42120-6EC7-11CF-A6C7-00AA00A47DD2}",
+                    0x0,69,18,172,24
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "MonacoSCAN MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "MonacoSCAN\0"
+            VALUE "LegalCopyright", "Copyright (C) 1997\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "MonacoSCAN.EXE\0"
+            VALUE "ProductName", "MonacoSCAN Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_CROP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 417
+        VERTGUIDE, 108
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 251
+    END
+
+    IDD_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 160
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_CROP DLGINIT
+BEGIN
+    IDC_CROP_IMAGE, 0x376, 148, 0
+0x0000, 0x0000, 0x000a, 0x0003, 0x3378, 0x0000, 0x24cb, 0x0000, 0x0045, 
+0x0000, 0xffff, 0x00ff, 0x0300, 0xe352, 0x910b, 0xce8f, 0x9d11, 0x00e3, 
+0x00aa, 0xb84b, 0x0151, 0x0000, 0x9000, 0x4401, 0x0142, 0x0d00, 0x534d, 
+0x5320, 0x6e61, 0x2073, 0x6553, 0x6972, 0x0166, 0xea01, 0x0003, 0x0100, 
+0x0101, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0001, 0x0100, 0x0000, 0x0300, 0x0000, 0x0200, 0x0000, 0x0100, 0x0000, 
+0x0000, 0x0000, 0x0100, 0x0000, 0x0000, 0x0000, 0x0000, 0x0100, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0100, 0x0101, 0x0101, 0x0101, 0x0001, 0x0001, 
+0x0001, 0x0000, 
+    0
+END
+
+IDD_MAIN DLGINIT
+BEGIN
+    IDC_REFERENCE_FILE, 0x403, 17, 0
+0x6f4e, 0x6874, 0x6e69, 0x2067, 0x6553, 0x656c, 0x7463, 0x6465, "\000" 
+    IDC_REFERENCE_FILE, 0x403, 53, 0
+0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 
+0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 
+0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, "\000" 
+    IDC_REFERENCE_FILE, 0x403, 8, 0
+0x704f, 0x6e65, 0x2e2e, 0x002e, 
+    IDC_IMAGE_FILE, 0x403, 17, 0
+0x6f4e, 0x6874, 0x6e69, 0x2067, 0x6553, 0x656c, 0x7463, 0x6465, "\000" 
+    IDC_IMAGE_FILE, 0x403, 53, 0
+0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 
+0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 
+0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, 0x2d2d, "\000" 
+    IDC_IMAGE_FILE, 0x403, 8, 0
+0x704f, 0x6e65, 0x2e2e, 0x002e, 
+    IDC_LABEL1, 0x376, 172, 0
+0x0000, 0x0000, 0x4321, 0x1234, 0x0008, 0x0000, 0x1aaa, 0x0000, 0x0408, 
+0x0000, 0x1910, 0x1a63, 0x0003, 0x0001, 0x0001, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x1a28, 0x1a63, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x1a00, 0x1a63, 0x001e, 0x0000, 0x0000, 0x0000, 0x1a28, 0x1a63, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x1a90, 0x1a63, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x1a90, 0x1a63, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0001, 
+0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x000a, 0x0000, 0x6f4d, 0x616e, 
+0x6f63, 0x4353, 0x4e41, 0x0500, 0x0000, 0x4100, 0x6972, 0x6c61, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0xa000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGO                BITMAP  DISCARDABLE     "res\\Logo.bmp"
+IDB_ICON_LL             BITMAP  DISCARDABLE     "res\\icon_ll.bmp"
+IDB_ICON_LR             BITMAP  DISCARDABLE     "res\\icon_lr.bmp"
+IDB_ICON_MOU            BITMAP  DISCARDABLE     "res\\icon_mou.bmp"
+IDB_ICON_UL             BITMAP  DISCARDABLE     "res\\icon_ul.bmp"
+IDB_ICON_UR             BITMAP  DISCARDABLE     "res\\icon_ur.bmp"
+IDB_SPLASH              BITMAP  DISCARDABLE     "res\\Splash24.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About MonacoSCAN..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "MonacoSCAN"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\MonacoScan.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,23 @@
+// Source file: extname.c
+void InitExtName( HWND hWnd, int idControl, int idStatic, LPSTR lpExtName, WORD wType );
+void InitExtNameN( HWND hWnd, int idControl, int idStatic, LPSTR lpExtName, WORD wType, int idEntry1, BOOL fCategorize );
+static int AddToComboBox(LPSTR lpExtName, LPSTR lpFileName, WORD wType, long lData);
+static int AddToListBox(LPSTR lpExtName, LPSTR lpFileName, WORD wType, long lData);
+int GetExtName( HWND hWnd, int idControl, int idStatic, LPSTR lpExtName, WORD wType, WORD wMsg );
+int GetExtNameN( HWND hWnd, int idControl, int idStatic, LPSTR lpExtName, WORD wType, WORD wMsg, int idEntry1, BOOL fCategorize );
+int GetExtNameCount(WORD wType);
+BOOL GetExtNameString(WORD wType, int index, LPSTR lpName);
+BOOL LookupExtFile( LPSTR lpExtName, LPSTR lpFileName, WORD wType );
+BOOL LookupExtFileN( LPSTR lpExtName, LPSTR lpFileName, WORD wType, BOOL bFileCheck );
+static BOOL ListExtFiles(WORD wType, LPROC lpAddFunction, long lData);
+static BOOL GetFileFullPath( LPSTR lpFileName, WORD wType );
+BOOL LoadAllExtNamePaths( BOOL bClose );
+BOOL GetExtNamePath( LPSTR lpPath, WORD wType );
+static LPSTR GetType( WORD wType );
+static WORD GetTypeWord( LPSTR lpType );
+static BOOL IsCombo( HWND hWnd );
+static BOOL LoadTypeStrings( WORD wType );
+static BOOL GetNextTypeString( WORD wType, LPSTR lpNameString, LPSTR lpValueString );
+static BOOL GetTypeString( WORD wType, LPSTR lpNameString, LPSTR lpValueString );
+static BOOL MakeIniFileName( LPSTR lpIniFileName );
+

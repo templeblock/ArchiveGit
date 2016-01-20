@@ -1,0 +1,83 @@
+[Source Media Descriptions]
+	"1", "Setup", "_mssetup.ex_", "."
+
+[Default File Settings]
+"STF_BACKUP"     = ""
+"STF_COPY"       = "YES"
+"STF_DECOMPRESS" = "YES"
+"STF_OVERWRITE"  = "ALWAYS"
+"STF_READONLY"   = "YES"
+"STF_ROOT"       = ""
+"STF_SETTIME"    = "YES"
+"STF_TIME"       = "0"
+"STF_VITAL"      = "YES"
+
+[ACM Drivers]
+	1, imaadpcm.acm,,,, 1994-09-02,,, OLDER, !READONLY,,,,,, 17936, SYSTEM,,, 2.4.0.1,
+	1, map_win.hlp,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 16548,,,,,
+	1, msacm.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 49616, SYSTEM,,, 2.1.0.175,
+	1, msacm.drv,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 22816, SYSTEM,,, 2.1.0.175,
+	1, msadpcm.acm,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 15104, SYSTEM,,, 2.1.0.175,
+
+[AVICodecs]
+	1, ir41.dll,,,, 1995-10-06,,, OLDER, !READONLY,,,,, SHARED, 766912,,,, 4.11.1.60,
+	1, ir32.dll,,,, 1995-10-20,,, OLDER, !READONLY,,,,, SHARED, 151744,,,, 3.24.1.02,
+	1, iyvu9.dll,,,, 1995-03-22,,, OLDER, !READONLY,,,,, SHARED, 50096,,,, 1.10.1.11,
+	1, iccvid.drv,,,, 1994-09-02,,, OLDER, !READONLY,,,,, SHARED, 65408,,,, 1.6.0.73,
+	1, msrle.drv,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 11776,,,, 1.10.0.176,
+	1, msvidc.drv,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 43520,,,, 1.10.0.176,
+
+[MPlayer]
+	1, mciole.dll,,,, 1994-03-03,,, OLDER, !READONLY,,,,, SHARED, 12288,,,, 1.10.0.178,
+	1, mplayer.exe,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 117536,,,, 3.15.0.176,
+	1, mplayer.hlp,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 48097,,,,, !VITAL
+	1, mplayer.reg,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 1116,,,,,
+
+[NT MSVideo]
+	1, msvideo.nt,,,, 1994-09-02,,, OLDER, !READONLY,, MSVIDEO.DLL,,, SHARED, 135120,,,, 1.10.0.191,
+
+[OLE2]
+	1, cleanup.reg,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 87,,,,,
+	1, compobj.dll,,,, 1994-03-03,,, OLDER, !READONLY,,,,, SHARED, 102400,,,, 2.1.100.14,
+	1, ole2.dll,,,, 1994-03-03,,, OLDER, !READONLY,,,,, SHARED, 313344,,,, 2.1.100.14,
+	1, ole2.reg,,,, 1994-03-03,,, OLDER, !READONLY,,,,,, 24606,,,,,
+	1, ole2conv.dll,,,, 1994-03-03,,, OLDER, !READONLY,,,,, SHARED, 57328,,,, 2.1.0.1,
+	1, ole2disp.dll,,,, 1994-09-02,,, OLDER, !READONLY,,,,, SHARED, 98336,,,, 2.1.100.34,
+	1, ole2nls.dll,,,, 1994-09-02,,, OLDER, !READONLY,,,,, SHARED, 147440,,,, 2.1.100.34,
+	1, ole2prox.dll,,,, 1994-03-03,,, OLDER, !READONLY,,,,, SHARED, 55808,,,, 2.1.100.14,
+	1, storage.dll,,,, 1994-03-03,,, OLDER, !READONLY,,,,, SHARED, 157184, SYSTEM,,, 2.1.100.15,
+	1, typelib.dll,,,, 1994-09-02,,, OLDER, !READONLY,,,,, SHARED, 153312,,,, 2.1.100.34,
+	1, stdole.tlb,,,, 1994-09-02,,, OLDER, !READONLY,,,,, SHARED, 4322,,,,,
+
+[Setup Files]
+	1, _mssetup.exe,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 9813,,,,,
+	1, _mstest.exe,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 89504,,,,,
+	1, iniupd.dll,,,, 1993-11-19,,,, !READONLY,,,,,, 58424,,,,,
+	1, mscomstf.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 74528,,,,,
+	1, mscpydis.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 11472,,,,,
+	1, mscpydis.inc,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 7410,,,,,
+	1, mscuistf.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 40832,,,,,
+	1, msdetect.inc,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 22097,,,,,
+	1, msdetstf.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 24544,,,,,
+	1, msinsstf.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 65440,,,,,
+	1, msshlstf.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 14928,,,,,
+	1, msuilstf.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 6144,,,,,
+	1, profdisp.exe,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 4352,,,, 1.10.0.176,
+	1, setup.exe,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 24624,,,,,
+	1, setupapi.inc,,,, 1993-11-19,,, OLDER, !READONLY,,,,,, 55620,,,,,
+	1, setup.ini,,,, 1995-03-17,,, OLDER, !READONLY,,,,,, 149,,,,,
+	1, setup.lst,,,, 1995-03-17,,, OLDER, !READONLY,,,,,, 686,,,,,
+	1, setup.mst,,,, 1995-03-17,,, OLDER, !READONLY,,,,,, 10882,,,,,
+
+[VfW Runtime]
+	1, acmcmprs.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 12800,,,, 1.10.0.176,
+	1, avicap.dll,,,, 1994-09-02,,, OLDER, !READONLY,,,,, SHARED, 72704,,,, 1.10.0.181,
+	1, avifile.dll,,,, 1994-03-03,,, OLDER, !READONLY,,,,, SHARED, 96944,,,, 1.10.0.179,
+	1, ctl3d.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 14208,,,, 1.0.5.0,
+	1, dispdib.dll,,,, 1993-11-19,,, OLDER, !READONLY,,,,, SHARED, 7168,,,, 3.50.0.176,
+	1, dva.386,,,, 1994-09-02,,, OLDER, !READONLY,,,,, SHARED, 5195,,,,,
+	1, mciavi.drv,,,, 1994-03-03,,, OLDER, !READONLY,,,,, SHARED, 72192,,,, 1.10.0.181,
+	1, msvideo.dll,,,, 1995-03-17,,, OLDER, !READONLY,,,,, SHARED, 121936,,,, 1.10.0.200,
+
+[remove]
+	1, dcisvga.drv,,, !COPY,,,,,, REMOVE,,,,, 0,,,,,

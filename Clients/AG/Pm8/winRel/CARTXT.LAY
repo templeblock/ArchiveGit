@@ -1,0 +1,82 @@
+# This is the CARD layout file for PrintMaster Gold
+# A layout begins with a name on a line by itself.
+# On the next line, the first number is a "flags" number composed of the
+# sum of:
+#    1 - X Flipped              : Not implemented yet
+#    2 - Y Flipped              : Not implemented yet
+#    4 - Relative Size          : Use the actual size of the graphic
+#    8 - Repeated X             : Not implemented yet
+#   16 - Repeated Y             : Not implemented yet
+#   32 - Centered X             : Graphic is centered horizontally
+#   64 - Centered Y             : Graphic is centered vertically
+#  128 - Align Left             : Graphic is aligned to the left of the box
+#  256 - Align Right            : Graphic is aligned to the right of the box
+#  512 - Align Top              : Graphic is aligned to the top of the box
+# 1024 - Align Bottom           : Graphic is aligned to the bottom of the box
+#
+# The next four numbers are the element box with 0 being left or top and
+# 1000 being right or bottom. Numbers are left, top, right, bottom.
+# Flags like aligned are with respect to the edges of the element box.
+# Flags like centered are with respect to the page (and override align).
+# If no left or right align flags are given, the element is centered within
+# the box horizontally.
+# If no top or bottom align flags are given, the element is centered within
+# the box vertically.
+#............................GREETING CARD TEXT LAYOUT
+
+Big centered
+96 200 200 800 800.
+
+Bigger centered
+96 125 125 875 875.
+
+Biggest centered
+96 50 50 950 950.
+
+Full page
+0 25 25 975 975.
+
+Top Centered
+32 100 100 900 500.
+
+Middle Centered
+32 100 300 900 700.
+
+Bottom Centered
+32 100 500 900 900.
+
+Upper Left
+640 100 100 500 500.
+
+Upper Right
+768 500 100 900 500.
+
+Lower Left 
+1152 100 500 500 900.
+
+Lower Right
+1280 500 500 900 900.
+
+Wide Header
+32 125 100 875 225.
+
+One Wide Column
+384 125 250 875 875.
+
+Narrow Header
+32 250 100 750 225.
+
+One Narrow Column
+384 250 250 750 875.
+
+Footer
+384 200 900 800 950.
+
+Top
+512 150 150 850 400.
+
+Middle
+512 150 400 850 625.
+
+Bottom 
+1024 150 625 850 850.

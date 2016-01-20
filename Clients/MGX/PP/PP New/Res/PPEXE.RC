@@ -1,0 +1,24 @@
+// (c) Copyright 1991 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+//************************************************************************
+
+#define OEMRESOURCE
+#include <windows.h>
+#include <tchar.h>
+#include "resource.h"
+#include "id.h"
+#include "commctrl.h"
+
+/* The ICON assignments  WARNING!!!! ORDER for ICONS is VERY IMPORTANT!!!! */
+#ifndef OEM
+1						ICON LOADONCALL MOVEABLE DISCARDABLE pictpub.ico
+#else
+1						ICON LOADONCALL MOVEABLE DISCARDABLE pictpubl.ico
+#endif
+IDC_PPFILEDOC			ICON LOADONCALL MOVEABLE DISCARDABLE ppfile.ico		// PP5 and PP4 file icon (ie. Explorer)
+IDC_OTHERFILEDOC		ICON LOADONCALL MOVEABLE DISCARDABLE othrfile.ico	// Other supported files icon (ie. Explorer and TIFF,GIF etc.)
+IDC_PP16X16ICON         ICON LOADONCALL MOVEABLE DISCARDABLE pp16x16.ico	// 16x16 Application Icon
+IDC_DOC16X16ICON        ICON LOADONCALL MOVEABLE DISCARDABLE doc1616.ico	// 16x16 MDIDoc Icon
+

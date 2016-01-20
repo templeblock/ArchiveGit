@@ -1,0 +1,18 @@
+NAME	     PalFX
+
+DESCRIPTION  'Palette Effects Demo Application'
+
+EXETYPE      WINDOWS
+
+STUB	     'WINSTUB.EXE'
+
+CODE	     PRELOAD MOVEABLE
+DATA	     PRELOAD MOVEABLE MULTIPLE
+
+HEAPSIZE     0x1FFF
+STACKSIZE    5120
+
+EXPORTS
+	MainWndProc	@1
+	About		@2
+

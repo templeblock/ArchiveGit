@@ -1,0 +1,19 @@
+// Source file: VIEW.C
+BOOL NewImageWindow( LPIMAGE lpOldImage, LPSTR szName, LPFRAME lpFrame, int FileType, int DataType, BOOL fNewView, int DocumentType, LPSTR ImageName, int iDoZoom );
+void ViewXY(int x, int y);
+void ViewRect(LPRECT lpRect, BOOL fResizeWindow);
+void NewImageSizeWindow( HWND hWindow );
+void FullViewWindow(HWND hWindow, int x, int y, int cx, int cy, BOOL fClipToImage);
+void CalcFullViewWindowSize(LPRECT lpWindowRect, LPRECT lpFileRect, LFIXED FileRate, int npix, int nlin, int x, int y, BOOL fHasRulers, BOOL fClipToImage);
+BOOL CanZoom(LFIXED FileRate, LPRECT lpFileRect, LPRECT lpDispRect);
+void ComputeDispRect( void );
+void GetDispRect( LPRECT lpRect, int iHorzMode, int iVertMode );
+void ComputeFileRect( int x, int y, LFIXED FileRate );
+BOOL ScrollImage( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+void SaveLastView( void );
+void RevertLastView( void );
+void Zoom( int x, int y, int value, BOOL fIncremental, BOOL fAllowSizeChange );
+void ViewAll( void );
+BOOL WINPROC EXPORT DlgFullScreenViewProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+void ActivateGrabber(BOOL fActivate);
+

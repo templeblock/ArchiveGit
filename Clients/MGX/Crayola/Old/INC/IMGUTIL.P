@@ -1,0 +1,8 @@
+// Source file: IMGUTIL.C
+void la2con( LPTR lpIn, int iCount, LPTR lpOut, BOOL bNormal );
+void con2la( LPTR lpIn, int iCount, LPTR lpOut );
+void diffuse( int x, int y, int iColor, LPTR lpLut, LPTR lpIn, int count, LPTR lpOut );
+void dither( int x, int y, LPTR lpIn, int count, LPTR lpOut );
+
+void ConvertData( LPTR lpIn, int iInDepth, int iCount, LPTR lpOut, int iOutDepth );
+

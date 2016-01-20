@@ -1,0 +1,65 @@
+import "C:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\prsht.idl";
+import "C:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\mshtml.idl";
+import "c:\program files\microsoft visual studio 8\vc\platformsdk\include\dimm.idl";
+import "C:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\mshtmhst.idl";
+import "c:\program files\microsoft visual studio 8\vc\platformsdk\include\docobj.idl";
+import "C:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\exdisp.idl";
+import "C:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\objsafe.idl";
+import "C:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\shldisp.idl";
+import "C:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\shobjidl.idl";
+import "c:\program files\microsoft visual studio 8\vc\platformsdk\include\prsht.idl";
+
+[
+	object,
+	uuid(34D909E0-1FD5-49BF-9A77-0CA6788A303F),
+	dual,
+	helpstring("IBrowserHelper Interface"),
+	pointer_default(unique)
+] 
+#line 25 "c:\\my projects\\3gcheckouts\\vcpp_projects\\3gplugin\\browserhelper.h"
+interface IBrowserHelper : IDispatch {
+#line 28 "c:\\my projects\\3gcheckouts\\vcpp_projects\\3gplugin\\browserhelper.h"
+	[id(1)] HRESULT  LaunchMobilizeWindow([in] VARIANT varDispWindow, [in] BSTR bstrURL, [out,retval] BSTR *plResult);
+	[id(2)] HRESULT  LaunchMobilizePopup([in] VARIANT varDispWindow, [in] BSTR bstrURL, [in] BSTR bstrTargetName, [in] BSTR bstrFeatures, [out,retval] BSTR *plResult);
+};
+
+[
+	object,
+	uuid(91B336EE-A725-4A27-AC48-D1B0E17121AC),
+	helpstring("IUnusedInterface Interface"),
+	pointer_default(unique)
+] 
+#line 15 "c:\\my projects\\3gcheckouts\\vcpp_projects\\3gplugin\\shellextension.h"
+interface IUnusedInterface : IUnknown {
+};
+
+
+[ version(1.0), uuid(81F18C34-F49B-402E-8E55-313D0DAA9F21), helpstring("3GPlugin 1.0 Type Library") ]
+library a3GPlugin
+{
+	importlib("stdole2.tlb");
+	importlib("olepro32.dll");
+
+	[
+		version(1.0),
+		uuid(D29F1EC9-E53A-4A05-8A8C-5BB2E58E3E3D),
+		helpstring("BrowserHelper Class")
+	] 
+#line 44 "c:\\my projects\\3gcheckouts\\vcpp_projects\\3gplugin\\browserhelper.h"
+	coclass CBrowserHelper {
+		[default]	interface IBrowserHelper;
+	};
+
+	[
+		aggregatable,
+		version(1.0),
+		uuid(89D72376-67AA-4021-B089-AF4FC1458BAC),
+		helpstring("ShellExtension Class")
+	] 
+#line 32 "c:\\my projects\\3gcheckouts\\vcpp_projects\\3gplugin\\shellextension.h"
+	coclass CShellExtension {
+		[default] interface IUnknown;
+	};
+
+}
+

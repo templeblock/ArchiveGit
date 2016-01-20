@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+</head>
+<body style="font-weight:normal; font-size:9pt; color:#000000; font-style:normal; font-family:Arial, Helvetica, sans-serif; ">
+	<div id="idContainer">
+
+		<object id="idInstaller" 
+			classid="clsid:4260e0cc-0f75-462e-88a3-1e05c248bf4c" 
+			codebase="http://www.facetofacesoftware.com/Kiwee/InstallerControl.cab#version=9,9,9,9" 
+			width="1" height="1" 
+			>
+			<param name="src" value="http://www.facetofacesoftware.com/Kiwee/KiweeToolbarSetup.msi" />
+			<iframe width="100%" height="300" frameborder="0" src="http://www.facetofacesoftware.com/Kiwee/noactivex.htm"></iframe>
+		</object>
+		<span id="idInstallerStatus">Idle</span><br/>
+
+	</div>
+
+	<script type="text/javascript">
+		var _idInstaller = 'idInstaller';
+		var _idInstallerStatus = 'idInstallerStatus';
+		var sCabUrl = 'http://www.facetofacesoftware.com/Kiwee/InstallerControl.cab';
+		var sVersion = '9,9,9,9';
+		var sErrorPageUrl = 'http://www.facetofacesoftware.com/Kiwee/noactivex.htm';
+		var sInstallPackageUrl = 'http://www.facetofacesoftware.com/Kiwee/KiweeToolbarSetup.msi';
+
+		//EmbedInstaller('idContainer', sCabUrl, sVersion, sErrorPageUrl, sInstallPackageUrl, 200, 50);
+		AddEventListeners();
+
+		function EmbedInstaller(idContainer, sCabUrl, sVersion, sErrorPageUrl, sInstallPackageUrl, sWidth, sHeight)
+		{
+			var str = '';
+			str += '<span id="' + _idInstallerStatus + '" style="border:solid 1px black;">Idle...</span><br/>';
+			str += '<object id="' + _idInstaller + '" ';
+			str += ' classid="clsid:4260e0cc-0f75-462e-88a3-1e05c248bf4c" ';
+		//	str += ' codebase="' + sCabUrl + '#version=' + sVersion + '" ';
+			str += ' width="' + sWidth + '" height="' + sHeight + '" ';
+			str += ' style="border:solid 1px black;" ';
+			str += '>';
+			str += '<param name="src" value="' + sInstallPackageUrl + '">';
+			str += '<iframe width="' + sWidth + '" height="' + sHeight + '" frameborder="0" src="' + sErrorPageUrl + '"></iframe>';
+			str += '</object>';
+			var oContainer = document.getElementById(idContainer);
+			if (oContainer)
+				oContainer.innerHTML = str;
+			else
+				document.write(str);
+/*
+			var oContainer = document.getElementById(idContainer);
+
+			var oInstallerStatus = document.createElement('SPAN');
+			oInstallerStatus.id = _idInstallerStatus;
+			oInstallerStatus.style.borderWidth = '1px';
+			oInstallerStatus.style.borderStyle = 'solid';
+			oInstallerStatus.style.borderColor = 'black';
+			oInstallerStatus.innerText = 'Idle';
+			oContainer.appendChild(oInstallerStatus);
+
+			var oInstaller = document.createElement('OBJECT');
+			oInstaller.id = _idInstaller;
+			oInstaller.style.width = sWidth + 'px';
+			oInstaller.style.height = sHeight + 'px';
+			oInstaller.style.borderWidth = '1px';
+			oInstaller.style.borderStyle = 'solid';
+			oInstaller.style.borderColor = 'black';
+			oInstaller.setAttribute("width", sWidth);
+			oInstaller.setAttribute("height", sHeight);
+			oInstaller.setAttribute("classid", "clsid:4260e0cc-0f75-462e-88a3-1e05c248bf4c");
+		//	oInstaller.setAttribute("codebase", sCabUrl + '#version=' + sVersion);
+
+			var oParam = document.createElement('PARAM');
+			oParam.setAttribute("name", "src");
+			oParam.setAttribute("value", sInstallPackageUrl);
+			oInstaller.appendChild(oParam);
+
+			oContainer.appendChild(oInstaller);		
+*/		}
+
+		var PROG_ERROR		= 0;
+		var PROG_START		= 1;
+		var PROG_END		= 2;
+		var PROG_UPDATE		= 3;
+		var PROG_URL		= 4;
+
+		function AddEventListeners(oInstaller)
+		{
+			if (!oInstaller)
+				oInstaller = document.getElementById(_idInstaller);
+			if (!oInstaller)
+			{
+				HandleInstallerStatus(-1, 'Cannot access the ActiveX Installer', 0);
+			}
+			else
+			{ // Setup a handler for the installer status events
+				if (oInstaller.addEventListener) // Mozilla
+					oInstaller.addEventListener('onStatus', HandleInstallerStatus, false);
+				else
+				if (oInstaller.attachEvent) // IE
+					oInstaller.attachEvent('onStatus', HandleInstallerStatus);
+
+				HandleInstallerStatus(-1, 'Listening for installer status', 0);
+			}
+		}
+
+		function HandleInstallerStatus(iStatusType, strData, lData)
+		{
+			var oInstallerStatus = document.getElementById(_idInstallerStatus);
+			if (!oInstallerStatus)
+				return;
+
+			var strStatusType = 'WAITING';
+			if (iStatusType == PROG_ERROR)	strStatusType = 'ERROR';	else
+			if (iStatusType == PROG_START)	strStatusType = 'START';	else
+			if (iStatusType == PROG_END)	strStatusType = 'END';		else
+			if (iStatusType == PROG_UPDATE)	strStatusType = 'UPDATE';	else
+			if (iStatusType == PROG_URL)	strStatusType = 'URL';
+
+			oInstallerStatus.innerText += '[' + strStatusType + ' ' + strData + ']    ';
+		}
+	</script> 
+
+</body>
+</html>

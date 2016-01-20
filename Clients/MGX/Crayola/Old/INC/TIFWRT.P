@@ -1,0 +1,4 @@
+// Source file: TIFWRT.C
+int tifwrt(LPSTR lpFileName, LPOBJECT lpObject, LPFRAME lpFrame, LPRECT lpRect, int flag, BOOL fCompressed);
+int TiffWriteFrame( int oFile, LPSTR lpFileName, LPOBJECT lpObject, LPFRAME lpFrame, LPRECT lpRect, int flag, BOOL fCompressed, BOOL bEscapable);
+

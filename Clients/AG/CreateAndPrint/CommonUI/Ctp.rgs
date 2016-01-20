@@ -1,0 +1,82 @@
+HKCR
+{
+	Ctp.Ctp.1 = s 'Ctp Class'
+	{
+		CLSID = s '{BB383206-6DA1-4e80-B62A-3DF950FCC697}'
+	}
+
+	Ctp.Ctp = s 'Ctp Class'
+	{
+		CLSID = s '{BB383206-6DA1-4e80-B62A-3DF950FCC697}'
+		CurVer = s 'Ctp.Ctp.1'
+	}
+
+	NoRemove CLSID
+	{
+		ForceRemove {BB383206-6DA1-4e80-B62A-3DF950FCC697} = s 'Create & Print ActiveX Plug-in'
+		{
+		
+			ProgID = s 'Ctp.Ctp.1'
+			VersionIndependentProgID = s 'Ctp.Ctp'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			ForceRemove 'Control'
+			ForceRemove 'Insertable'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 1'
+			'MiscStatus' = s '0'
+			{
+				'1' = s '%OLEMISC%'
+			}
+			'TypeLib' = s '{435B34F7-217E-4797-BE46-2AB8B5980651}'
+			'Version' = s '1.0'
+		}
+	}
+
+	Ctp.File = s 'Create & Print File'
+	{
+		DefaultIcon = s '%MODULE%, 0'
+		shell
+		{
+			open = s '&Open with IE'
+			{
+				command = s '"C:\Program Files\Internet Explorer\iexplore.exe" -nohome "http://www.americangreetings.com/cnp/cporder.pd?product=%%1"'
+			}
+			print = s '&Print'
+			{
+				command = s '"C:\Program Files\Internet Explorer\iexplore.exe" -nohome "http://www.americangreetings.com/cnp/cporder.pd?product=%%1/Print"'
+			}
+		}
+		shellex
+		{
+			{BB2E617C-0920-11d1-9A0B-00C04FC2D6C1} = s '{BB383206-6DA1-4e80-B62A-3DF950FCC697}'
+		}
+	}
+
+	.ctp = s 'Ctp.File'
+	.clx = s 'Ctp.File'
+	.tlx = s 'Ctp.File'
+	.ttz = s 'Ctp.File'
+	.banctp = s 'Ctp.File'
+	.bizctp = s 'Ctp.File'
+	.broctp = s 'Ctp.File'
+	.calctp = s 'Ctp.File'
+	.carctp = s 'Ctp.File'
+	.cerctp = s 'Ctp.File'
+	.cftctp = s 'Ctp.File'
+	.envctp = s 'Ctp.File'
+	.faxctp = s 'Ctp.File'
+	.hcrctp = s 'Ctp.File'
+	.lblctp = s 'Ctp.File'
+	.letctp = s 'Ctp.File'
+	.notctp = s 'Ctp.File'
+	.nwsctp = s 'Ctp.File'
+	.pcrctp = s 'Ctp.File'
+	.sigctp = s 'Ctp.File'
+	.stictp = s 'Ctp.File'
+	.tshctp = s 'Ctp.File'
+	.webctp = s 'Ctp.File'
+}

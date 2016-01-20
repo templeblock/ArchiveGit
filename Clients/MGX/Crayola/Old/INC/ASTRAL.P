@@ -1,0 +1,19 @@
+// Source file: ASTRAL.C
+BOOL AstralGetMessage( LPMSG lpMsg );
+void AstralProcessMessage( LPMSG lpMsg );
+long WINPROC EXPORT AstralWndProc( HWND hWindow, UINT message, WPARAM wParam, LPARAM lParam );
+BOOL SetupCursor( WPARAM wParam, LPARAM lParam, WORD idWnd );
+void SetupObjectMenu( void );
+void CloseImage( BOOL fCloseAll, LPIMAGE lpCloseImage );
+BOOL ConfirmClose(BOOL fCloseAll, BOOL fCloseView);
+BOOL AnotherView(LPIMAGE lpTheImage);
+BOOL ConfirmDiscardAll( void );
+LPSTR GetUntitledName( void );
+BOOL HandleQueryNewPalette(HWND hWnd, BOOL fSpecialPal, BOOL fColorPal);
+BOOL IsOurWindow(HWND hWnd);
+BOOL WackWindows( HINSTANCE hInst );
+BOOL CALLBACK CallBkProc( HWND hWnd, LPARAM lParam );
+BOOL CALLBACK CallBkProc1( HWND hWnd, LPARAM lParam );
+HMENU AstralGetSubMenu(HMENU hMenu, int nPos);
+
+

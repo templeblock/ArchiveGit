@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Select a shape</title>
+		<script Language="javascript" type="text/javascript">
+			function GetFillValue()
+			{
+				return (document.Form1.FillValue.checked ? 'true' : 'false');
+			}
+			function ToggleFillValue()
+			{
+				document.Form1.FillValue.checked = !document.Form1.FillValue.checked;
+			}
+
+			function AddShape()
+			{
+				window.returnValue = 'Symbol=' + ShapeList.returnValue + ';' + 'FillValue=' + GetFillValue();
+				window.close();
+			}
+		</script>
+		<style type="text/css">
+			body	{font-family:Arial;font-size:10pt;cursor:default}
+			span	{font-family:Arial;font-size:10pt;cursor:hand}
+			input	{cursor:hand}
+		</style>
+	</head>
+	<body onload="ShapeList.SetParent(this)" onselectstart="return false;" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0">
+		<table width="100%" height="100%" bgcolor="#f0f0ff" cellpadding="10" cellspacing="0" border="0">
+			<tr><td width="100%" height="100%" colspan="2">
+				<iframe name="ShapeList" src="ShapeList.htm" width="100%" height="100%" marginheight="0" marginwidth="0"></iframe>
+			</td></tr>
+			<tr><td width="50%" height="50">
+				<form name="Form1">
+					<input type="checkbox" name="FillValue" value="true" checked></input><span onclick="ToggleFillValue()">Fill Object</span>
+				</form>
+			</td>
+			<td width="50%" height="50" align="right">
+				<form name="Form2">
+					<input type="button" name="Add" value="Add" align="right" onclick="AddShape()"></input>
+					<input type="button" name="Cancel" value="Cancel" align="right" onclick="window.close()"></input>
+				</form>
+			</td></tr>
+		</table>
+	</body>
+</html>

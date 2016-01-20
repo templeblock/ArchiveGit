@@ -1,0 +1,17 @@
+REGEDIT
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+
+HKEY_CLASSES_ROOT\PAHStudio.Application = PAHStudio Application
+
+
+HKEY_CLASSES_ROOT\PAHStudio.Application\CLSID = {98036F45-00EC-4EC0-A5F2-1FBAC24C15D9}
+
+HKEY_CLASSES_ROOT\CLSID\{98036F45-00EC-4EC0-A5F2-1FBAC24C15D9} = PAHStudio Application
+HKEY_CLASSES_ROOT\CLSID\{98036F45-00EC-4EC0-A5F2-1FBAC24C15D9}\ProgId = PAHStudio.Application
+
+
+HKEY_CLASSES_ROOT\CLSID\{98036F45-00EC-4EC0-A5F2-1FBAC24C15D9}\LocalServer32 = PAHStudio.EXE

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd"-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>Create &amp; Print Help</title>
+		<style type="text/css">
+			body	{font-family:Arial; font-size:10pt; cursor:default}
+			span	{font-family:Arial; font-size:10pt; cursor:hand}
+			input	{cursor:hand}
+		</style>
+		<script language="javascript" src="cphelp.js"></script>
+		<script language="javascript">
+			function OnLoad()
+			{
+				RemoveFocus();
+			}
+		</script>
+	</head>
+	<body onload="OnLoad()" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" scroll="no">
+		<table width="100%" height="100%" bgcolor="#f0f0ff" cellpadding="10" cellspacing="0" border="0">
+			<tr>
+				<td width="100%" height="100%" colspan="2">
+					<iframe name="Topics" src="cphelp.xml" width="100%" height="100%" marginheight="10" marginwidth="10" scrolling="auto"></iframe>
+				</td>
+			</tr>
+			<tr>
+				<td height="50" align="left">
+					<form>
+						<input type="button" name="Contents" value="Contents" onclick="Topics.GoToContents()" />
+						<input type="button" id="LastTopic" name="LastTopic" value="LastTopic" onclick="Topics.GoBack()" />
+						<!--input type="button" id="Forward" name="Forward" value="Forward" onclick="Topics.GoForward()" /-->
+						<input type="button" name="Prev" value="<< Topic" onclick="Topics.GoToPrevTopic()" />
+						<input type="button" name="Next" value="Topic >>" onclick="Topics.GoToNextTopic()" />
+						<input type="button" name="Print" value="Print Topic" onclick="Topics.PrintTopic()" />
+					</form>
+				</td>
+				<!--td height="50" align="right">
+					<form>
+						<input type="button" name="Close" value="Close" align="right" onclick="window.close()" />
+					</form>
+				</td-->
+			</tr>
+		</table>
+	</body>
+</html>

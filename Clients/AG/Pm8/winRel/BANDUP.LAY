@@ -1,0 +1,104 @@
+# This is the BANNER layout file for PrintMaster Gold
+# A layout begins with a name on a line by itself.
+# On the next line, the first number is a "flags" number composed of the
+# sum of:
+#    1 - X Flipped              : Not implemented yet
+#    2 - Y Flipped              : Not implemented yet
+#    4 - Relative Size          : Use the actual size of the graphic
+#    8 - Repeated X             : Not implemented yet
+#   16 - Repeated Y             : Not implemented yet
+#   32 - Centered X             : Graphic is centered horizontally
+#   64 - Centered Y             : Graphic is centered vertically
+#  128 - Align Left             : Graphic is aligned to the left of the box
+#  256 - Align Right            : Graphic is aligned to the right of the box
+#  512 - Align Top              : Graphic is aligned to the top of the box
+# 1024 - Align Bottom           : Graphic is aligned to the bottom of the box
+# 2048 - Flow left              : Text flows left around graphic
+# 4096 - Flow right             : Text flows right around graphic
+#
+# The next four numbers are the element box with 0 being left or top and
+# 1000 being right or bottom. Numbers are left, top, right, bottom.
+# Flags like aligned are with respect to the edges of the element box.
+# Flags like centered are with respect to the page (and override align).
+# If no left or right align flags are given, the element is centered within
+# the box horizontally.
+# If no top or bottom align flags are given, the element is centered within
+# the box vertically.
+#............................BANNER DUPLICATION LAYOUT FILE
+
+Both Ends
+4160 0 0 200 1000
+2112 800 0 1000 1000.
+
+Stacked Left 
+128 0 0 200 200 
+128 0 200 200 400
+128 0 400 200 600
+128 0 600 200 800
+128 0 800 200 1000.
+
+Stacked Right 
+256 800 0 1000 200 
+256 800 200 1000 400
+256 800 400 1000 600
+256 800 600 1000 800
+256 800 800 1000 1000.
+
+Tiled Header
+512 0 0 100 200
+512 100 0 200 200
+512 200 0 300 200
+512 300 0 400 200
+512 400 0 500 200
+512 500 0 600 200
+512 600 0 700 200
+512 700 0 800 200
+512 800 0 900 200
+512 900 0 1000 200.
+
+
+Tiled Footer
+1024 0 800 100 1000
+1024 100 800 200 1000
+1024 200 800 300 1000
+1024 300 800 400 1000
+1024 400 800 500 1000
+1024 500 800 600 1000
+1024 600 800 700 1000
+1024 700 800 800 1000
+1024 800 800 900 1000
+1024 900 800 1000 1000.
+
+Center Line
+64 0 0 100 1000
+64 100 0 200 1000
+64 200 0 300 1000
+64 300 0 400 1000
+64 400 0 500 1000
+64 500 0 600 1000
+64 600 0 700 1000
+64 700 0 800 1000
+64 800 0 900 1000
+64 900 0 1000 1000.
+
+Two Copy Stretch
+1920 0 0 500 1000
+1920 500 0 1000 1000.
+
+Three Copy Stretch
+1920 0 0 333 1000
+1920 333 0 666 1000
+1920 666 0 1000 1000.
+
+Four Copy Stretch
+1920 0 0 250 1000
+1920 250 0 500 1000
+1920 500 0 750 1000
+1920 750 0 1000 1000.
+
+Five Copy Stretch
+1920 0 0 200 1000
+1920 200 0 400 1000
+1920 400 0 600 1000
+1920 600 0 800 1000
+1920 800 0 1000 1000.

@@ -1,0 +1,17 @@
+LIBRARY         AVIHAPP
+EXETYPE         WINDOWS
+DESCRIPTION     'AVIHAPP DLL Copyright (c) 1993 Microsoft Corporation.'
+CODE            MOVEABLE
+DATA            MOVEABLE SINGLE
+HEAPSIZE        2048
+
+EXPORTS
+    WEP     @1      RESIDENTNAME
+    SbClsProc     @2
+    hspPlayAVI    @3
+    LDLLHandler   @4
+    
+SEGMENTS
+    WEP_TEXT FIXED
+
+;----------------------------------------------------------------------------

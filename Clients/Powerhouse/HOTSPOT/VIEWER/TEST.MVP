@@ -1,0 +1,44 @@
+[OPTIONS]
+COMPRESS  = NO
+ROOT      = .
+WARNING   = 3
+SYSTEM    = PC
+MAKE      = FULL
+BATCH     = TRUE
+IGNORESECTION =PANEASSOC
+title=Test
+contents=contents
+
+[CONFIG]
+Std20Menus()
+Std20Buttons()
+
+RegisterRoutine("mvbmp2", "CopyBmp", "v=USS")
+RegisterRoutine("mvmci2", "MCICommand", "USSS")
+RegisterRoutine("mvftsui2", "SearchDialog", "USU")
+
+[FILES]
+test.rtf
+[KEYINDEX]
+keyword=0, "Main Keyword Index"
+
+[WINDOWS]
+main="Hello Everybody",(0,0,1023,1023,0),(0),(192,192,192),,,,,(0),(0)
+
+[PANES]
+
+[POPUPS]
+
+[PANEASSOC]
+[FTINDEX]
+dtype0=mvbrkr2.dll!FBreakWords;Change DLL Routine to FBreakAndStemWords to use word stemming
+dtype1=mvbrkr2.dll!FBreakNumber
+dtype2=mvbrkr2.dll!FBreakDate
+dtype3=mvbrkr2.dll!FBreakTime
+dtype4=mvbrkr2.dll!FBreakEpoch
+
+[GROUPS]
+group=main, "Group1"
+
+
+[BUILDTAGS]

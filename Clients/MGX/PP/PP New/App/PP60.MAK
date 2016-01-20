@@ -1,0 +1,18877 @@
+# Microsoft Visual C++ Generated NMAKE File, Format Version 2.00
+# ** DO NOT EDIT **
+
+# TARGTYPE "Win32 (x86) Application" 0x0101
+
+!IF "$(CFG)" == ""
+CFG=Win32 Debug
+!MESSAGE No configuration specified.  Defaulting to Win32 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "Win32 Debug" && "$(CFG)" != "Win32 Release"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE on this makefile
+!MESSAGE by defining the macro CFG on the command line.  For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "PP60.MAK" CFG="Win32 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "Win32 Debug" (based on "Win32 (x86) Application")
+!MESSAGE "Win32 Release" (based on "Win32 (x86) Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+################################################################################
+# Begin Project
+# PROP Target_Last_Scanned "Win32 Debug"
+MTL=MkTypLib.exe
+CPP=cl.exe
+RSC=rc.exe
+
+!IF  "$(CFG)" == "Win32 Debug"
+
+# PROP BASE Use_MFC 5
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir "WinDebug"
+# PROP BASE Intermediate_Dir "WinDebug"
+# PROP Use_MFC 5
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir "WinDebug"
+# PROP Intermediate_Dir "WinDebug"
+OUTDIR=.\WinDebug
+INTDIR=.\WinDebug
+
+ALL : $(OUTDIR)/PP60.exe $(OUTDIR)/PP60.map $(OUTDIR)/PP60.bsc
+
+$(OUTDIR) : 
+    if not exist $(OUTDIR)/nul mkdir $(OUTDIR)
+
+# ADD BASE CPP /nologo /MT /W3 /GX /Zi /Od /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /FR /Yu"stdafx.h" /c
+# ADD CPP /nologo /MT /W3 /GX /Zi /Od /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D "C_CODE" /D "USE_CFILE" /Fp"WinDebug/pp.pch" /Yu"pp.h" /c /Tp
+# SUBTRACT CPP /Fr
+CPP_PROJ=/nologo /MT /W3 /GX /Zi /Od /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D\
+ "_MBCS" /D "C_CODE" /D "USE_CFILE" /Fp"WinDebug/pp.pch" /Yu"pp.h" /Fo$(INTDIR)/\
+ /Fd$(OUTDIR)/"PP60.pdb" /c /Tp 
+CPP_OBJS=.\WinDebug/
+# ADD BASE RSC /l 0x409 /d "_DEBUG"
+# ADD RSC /l 0x409 /d "_DEBUG"
+RSC_PROJ=/l 0x409 /fo$(INTDIR)/"PP.res" /d "_DEBUG" 
+BSC32=bscmake.exe
+BSC32_SBRS= \
+	
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+BSC32_FLAGS=/nologo /o$(OUTDIR)/"PP60.bsc" 
+
+$(OUTDIR)/PP60.bsc : $(OUTDIR)  $(BSC32_SBRS)
+LINK32=link.exe
+# ADD BASE LINK32 /NOLOGO /SUBSYSTEM:windows /DEBUG /MACHINE:I386
+# SUBTRACT BASE LINK32 /PDB:none
+# ADD LINK32  mgxfrm10.lib imgutil.lib superblt.lib browser.lib ctllib.lib nafxcwd.lib shell32.lib mfcans32.lib mfcuia32.lib ole32.lib uuid.lib oleaut32.lib libcmt.lib kernel32.lib advapi32.lib user32.lib gdi32.lib comdlg32.lib winspool.lib wing32.lib wntab32x.lib /NOLOGO /SUBSYSTEM:windows /PDB:none /MAP /DEBUG /MACHINE:I386 /NODEFAULTLIB:"oldnames.lib" /NODEFAULTLIB:"nafxcw.lib" /NODEFAULTLIB
+# SUBTRACT LINK32 /VERBOSE
+LINK32_FLAGS= mgxfrm10.lib imgutil.lib superblt.lib browser.lib ctllib.lib\
+ nafxcwd.lib shell32.lib mfcans32.lib mfcuia32.lib ole32.lib uuid.lib\
+ oleaut32.lib libcmt.lib kernel32.lib advapi32.lib user32.lib gdi32.lib\
+ comdlg32.lib winspool.lib wing32.lib wntab32x.lib /NOLOGO /SUBSYSTEM:windows\
+ /PDB:none /MAP:$(INTDIR)/"PP60.map" /DEBUG /MACHINE:I386\
+ /NODEFAULTLIB:"oldnames.lib" /NODEFAULTLIB:"nafxcw.lib" /NODEFAULTLIB\
+ /OUT:$(OUTDIR)/"PP60.exe" 
+DEF_FILE=
+LINK32_OBJS= \
+	$(INTDIR)/DOCCMDS.OBJ \
+	$(INTDIR)/EDITPOLY.OBJ \
+	$(INTDIR)/TABLET.OBJ \
+	$(INTDIR)/VIEWCMDS.OBJ \
+	$(INTDIR)/SVRDOC.OBJ \
+	$(INTDIR)/IMGIO.OBJ \
+	$(INTDIR)/SVRDROP.OBJ \
+	$(INTDIR)/ROOT.OBJ \
+	$(INTDIR)/PP5IO.OBJ \
+	$(INTDIR)/DATAITEM.OBJ \
+	$(INTDIR)/SVRVIEW.OBJ \
+	$(INTDIR)/POLY.OBJ \
+	$(INTDIR)/IPFRAME.OBJ \
+	$(INTDIR)/CTXHELP.OBJ \
+	$(INTDIR)/SHAPEDIT.OBJ \
+	$(INTDIR)/IMPRTRDR.OBJ \
+	$(INTDIR)/EDITCUST.OBJ \
+	$(INTDIR)/PPLIST.OBJ \
+	$(INTDIR)/CTRDR.OBJ \
+	$(INTDIR)/APPCMDS.OBJ \
+	$(INTDIR)/PPIMPORT.OBJ \
+	$(INTDIR)/SVRITEM.OBJ \
+	$(INTDIR)/PP.OBJ \
+	$(INTDIR)/ASTRAL.OBJ \
+	$(INTDIR)/OBJFLOAT.OBJ \
+	$(INTDIR)/MDIFRAME.OBJ \
+	$(INTDIR)/OLELISTB.OBJ \
+	$(INTDIR)/PP.res \
+	$(INTDIR)/PALETTE.OBJ \
+	$(INTDIR)/TTFORM.OBJ \
+	$(INTDIR)/PALEDIT.OBJ \
+	$(INTDIR)/ENGINE.OBJ \
+	$(INTDIR)/TOOLBAR.OBJ \
+	$(INTDIR)/THREAD.OBJ \
+	$(INTDIR)/IMGOLD.OBJ \
+	$(INTDIR)/AVIUTIL.OBJ \
+	$(INTDIR)/FASTBITS.OBJ \
+	$(INTDIR)/DLGMGR.OBJ \
+	$(INTDIR)/TPROBE.OBJ \
+	$(INTDIR)/COLOR.OBJ \
+	$(INTDIR)/RETOUCH.OBJ \
+	$(INTDIR)/AUTOMASK.OBJ \
+	$(INTDIR)/RUNTASK.OBJ \
+	$(INTDIR)/IMAGE.OBJ \
+	$(INTDIR)/IMGFUNC.OBJ \
+	$(INTDIR)/PICKRGB.OBJ \
+	$(INTDIR)/DEFAULTS.OBJ \
+	$(INTDIR)/DCA_GLUE.OBJ \
+	$(INTDIR)/TPAINT.OBJ \
+	$(INTDIR)/WINPROCS.OBJ \
+	$(INTDIR)/GIFWRT.OBJ \
+	$(INTDIR)/EXTNAME.OBJ \
+	$(INTDIR)/ABOUT.OBJ \
+	$(INTDIR)/POINTUTL.OBJ \
+	$(INTDIR)/CMDLIST.OBJ \
+	$(INTDIR)/FLOOD.OBJ \
+	$(INTDIR)/FILTER.OBJ \
+	$(INTDIR)/VIGNETTE.OBJ \
+	$(INTDIR)/ROTATE.OBJ \
+	$(INTDIR)/MERGE.OBJ \
+	$(INTDIR)/TDRAW.OBJ \
+	$(INTDIR)/PALIO.OBJ \
+	$(INTDIR)/ZOOM.OBJ \
+	$(INTDIR)/PHOTOCD.OBJ \
+	$(INTDIR)/PCXWRT.OBJ \
+	$(INTDIR)/OBJECT.OBJ \
+	$(INTDIR)/TCONTROL.OBJ \
+	$(INTDIR)/TASKMAN.OBJ \
+	$(INTDIR)/CONSTRAI.OBJ \
+	$(INTDIR)/WINPAL.OBJ \
+	$(INTDIR)/SCROLL.OBJ \
+	$(INTDIR)/CALIB.OBJ \
+	$(INTDIR)/RULERS.OBJ \
+	$(INTDIR)/BMPRDR.OBJ \
+	$(INTDIR)/PASTE.OBJ \
+	$(INTDIR)/GAUSS.OBJ \
+	$(INTDIR)/BRUPROCS.OBJ \
+	$(INTDIR)/FONTS.OBJ \
+	$(INTDIR)/TIFRDR.OBJ \
+	$(INTDIR)/PRINT.OBJ \
+	$(INTDIR)/TCHROMA.OBJ \
+	$(INTDIR)/INTELIO.OBJ \
+	$(INTDIR)/MESSAGE.OBJ \
+	$(INTDIR)/PALPROCS.OBJ \
+	$(INTDIR)/DRAG.OBJ \
+	$(INTDIR)/COMBO.OBJ \
+	$(INTDIR)/MASK.OBJ \
+	$(INTDIR)/CMDUNDO.OBJ \
+	$(INTDIR)/OBJALGN.OBJ \
+	$(INTDIR)/TRACK.OBJ \
+	$(INTDIR)/MEASURE.OBJ \
+	$(INTDIR)/MARQUEE.OBJ \
+	$(INTDIR)/FILT.OBJ \
+	$(INTDIR)/IMGEDIT.OBJ \
+	$(INTDIR)/PS.OBJ \
+	$(INTDIR)/CURSORS.OBJ \
+	$(INTDIR)/TGAWRT.OBJ \
+	$(INTDIR)/SCAN.OBJ \
+	$(INTDIR)/DCD_COM.OBJ \
+	$(INTDIR)/GRAB.OBJ \
+	$(INTDIR)/MAPPROCS.OBJ \
+	$(INTDIR)/MAP.OBJ \
+	$(INTDIR)/COMMANDS.OBJ \
+	$(INTDIR)/MASKIO.OBJ \
+	$(INTDIR)/PALLIST.OBJ \
+	$(INTDIR)/PROCESS.OBJ \
+	$(INTDIR)/BLEND.OBJ \
+	$(INTDIR)/TFILL.OBJ \
+	$(INTDIR)/BOMB.OBJ \
+	$(INTDIR)/IMGPAINT.OBJ \
+	$(INTDIR)/DOCLIST.OBJ \
+	$(INTDIR)/POPUPS.OBJ \
+	$(INTDIR)/DIALOG.OBJ \
+	$(INTDIR)/AVI.OBJ \
+	$(INTDIR)/MACRO.OBJ \
+	$(INTDIR)/JPGRDR.OBJ \
+	$(INTDIR)/CMASK.OBJ \
+	$(INTDIR)/FILEOPT.OBJ \
+	$(INTDIR)/CMDMACRO.OBJ \
+	$(INTDIR)/CLASS.OBJ \
+	$(INTDIR)/DCA_ACQ.OBJ \
+	$(INTDIR)/VIEW.OBJ \
+	$(INTDIR)/TCROP.OBJ \
+	$(INTDIR)/COMPRESS.OBJ \
+	$(INTDIR)/BMPWRT.OBJ \
+	$(INTDIR)/SMART.OBJ \
+	$(INTDIR)/DLGTOOLS.OBJ \
+	$(INTDIR)/TSELECT.OBJ \
+	$(INTDIR)/TEXT.OBJ \
+	$(INTDIR)/CONTROLS.OBJ \
+	$(INTDIR)/TIFWRT.OBJ \
+	$(INTDIR)/CACHE.OBJ \
+	$(INTDIR)/TTEXT.OBJ \
+	$(INTDIR)/TGARDR.OBJ \
+	$(INTDIR)/EFFECTS.OBJ \
+	$(INTDIR)/CONVTO.OBJ \
+	$(INTDIR)/TSHIELD.OBJ \
+	$(INTDIR)/DDA.OBJ \
+	$(INTDIR)/CPO.OBJ \
+	$(INTDIR)/WINTOOLS.OBJ \
+	$(INTDIR)/MAIL.OBJ \
+	$(INTDIR)/IMGCLIP.OBJ \
+	$(INTDIR)/GETDEV.OBJ \
+	$(INTDIR)/EXPORT.OBJ \
+	$(INTDIR)/CMDPARMS.OBJ \
+	$(INTDIR)/FINDFILE.OBJ \
+	$(INTDIR)/PATH.OBJ \
+	$(INTDIR)/BRUSH.OBJ \
+	$(INTDIR)/PLUGIN.OBJ \
+	$(INTDIR)/PIXMAP.OBJ \
+	$(INTDIR)/GIFRDR.OBJ \
+	$(INTDIR)/SELECT.OBJ \
+	$(INTDIR)/LIST.OBJ \
+	$(INTDIR)/TOBJSEL.OBJ \
+	$(INTDIR)/SPLIT.OBJ \
+	$(INTDIR)/TONE.OBJ \
+	$(INTDIR)/MAKEPATH.OBJ \
+	$(INTDIR)/EPSWRT.OBJ \
+	$(INTDIR)/PCXRDR.OBJ \
+	$(INTDIR)/IMGLIST.OBJ \
+	$(INTDIR)/AVIINTF.OBJ \
+	$(INTDIR)/HELP.OBJ \
+	$(INTDIR)/CUSTOOLS.OBJ \
+	$(INTDIR)/CLRMNG.OBJ \
+	$(INTDIR)/PICKPAL.OBJ \
+	$(INTDIR)/JPGINSTL.OBJ \
+	$(INTDIR)/IMGCMD.OBJ \
+	$(INTDIR)/SAVELOAD.OBJ \
+	$(INTDIR)/OBJIO.OBJ \
+	$(INTDIR)/IMGHELP.OBJ \
+	$(INTDIR)/JPGWRT.OBJ \
+	$(INTDIR)/IMGUTIL.OBJ \
+	$(INTDIR)/FITPOLY.OBJ \
+	$(INTDIR)/WINIMAGE.OBJ \
+	$(INTDIR)/TSTITCH.OBJ \
+	$(INTDIR)/CUT.OBJ \
+	$(INTDIR)/PRNPROCS.OBJ \
+	$(INTDIR)/TRACER.OBJ \
+	$(INTDIR)/TOOLPROC.OBJ \
+	$(INTDIR)/VISUAL.OBJ
+
+$(OUTDIR)/PP60.exe : $(OUTDIR)  $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "Win32 Release"
+
+# PROP BASE Use_MFC 5
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "WinRel"
+# PROP BASE Intermediate_Dir "WinRel"
+# PROP Use_MFC 5
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir "WinRel"
+# PROP Intermediate_Dir "WinRel"
+OUTDIR=.\WinRel
+INTDIR=.\WinRel
+
+ALL : $(OUTDIR)/PP60.exe $(OUTDIR)/PP60.map $(OUTDIR)/PP60.bsc
+
+$(OUTDIR) : 
+    if not exist $(OUTDIR)/nul mkdir $(OUTDIR)
+
+# ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /FR /Yu"stdafx.h" /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D "C_CODE" /D "USE_CFILE" /Fp"WinRel/pp.pch" /Yu"pp.h" /c /Tp
+# SUBTRACT CPP /Fr
+CPP_PROJ=/nologo /MT /W3 /GX /O2 /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D\
+ "_MBCS" /D "C_CODE" /D "USE_CFILE" /Fp"WinRel/pp.pch" /Yu"pp.h" /Fo$(INTDIR)/\
+ /c /Tp 
+CPP_OBJS=.\WinRel/
+# ADD BASE RSC /l 0x409 /d "NDEBUG"
+# ADD RSC /l 0x409 /d "NDEBUG"
+RSC_PROJ=/l 0x409 /fo$(INTDIR)/"PP.res" /d "NDEBUG" 
+BSC32=bscmake.exe
+BSC32_SBRS= \
+	
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+BSC32_FLAGS=/nologo /o$(OUTDIR)/"PP60.bsc" 
+
+$(OUTDIR)/PP60.bsc : $(OUTDIR)  $(BSC32_SBRS)
+LINK32=link.exe
+# ADD BASE LINK32 /NOLOGO /SUBSYSTEM:windows /MACHINE:I386
+# SUBTRACT BASE LINK32 /PDB:none
+# ADD LINK32 mgxfrm10.lib imgutil.lib superblt.lib browser.lib ctllib.lib wing32.lib wntab32x.lib /NOLOGO /SUBSYSTEM:windows /PDB:none /MAP /MACHINE:I386 /NODEFAULTLIB:"oldnames.lib" /NODEFAULTLIB:"nafxcwd.lib"
+# SUBTRACT LINK32 /NODEFAULTLIB
+LINK32_FLAGS=mgxfrm10.lib imgutil.lib superblt.lib browser.lib ctllib.lib\
+ wing32.lib wntab32x.lib /NOLOGO /SUBSYSTEM:windows /PDB:none\
+ /MAP:$(INTDIR)/"PP60.map" /MACHINE:I386 /NODEFAULTLIB:"oldnames.lib"\
+ /NODEFAULTLIB:"nafxcwd.lib" /OUT:$(OUTDIR)/"PP60.exe" 
+DEF_FILE=
+LINK32_OBJS= \
+	$(INTDIR)/DOCCMDS.OBJ \
+	$(INTDIR)/EDITPOLY.OBJ \
+	$(INTDIR)/TABLET.OBJ \
+	$(INTDIR)/VIEWCMDS.OBJ \
+	$(INTDIR)/SVRDOC.OBJ \
+	$(INTDIR)/IMGIO.OBJ \
+	$(INTDIR)/SVRDROP.OBJ \
+	$(INTDIR)/ROOT.OBJ \
+	$(INTDIR)/PP5IO.OBJ \
+	$(INTDIR)/DATAITEM.OBJ \
+	$(INTDIR)/SVRVIEW.OBJ \
+	$(INTDIR)/POLY.OBJ \
+	$(INTDIR)/IPFRAME.OBJ \
+	$(INTDIR)/CTXHELP.OBJ \
+	$(INTDIR)/SHAPEDIT.OBJ \
+	$(INTDIR)/IMPRTRDR.OBJ \
+	$(INTDIR)/EDITCUST.OBJ \
+	$(INTDIR)/PPLIST.OBJ \
+	$(INTDIR)/CTRDR.OBJ \
+	$(INTDIR)/APPCMDS.OBJ \
+	$(INTDIR)/PPIMPORT.OBJ \
+	$(INTDIR)/SVRITEM.OBJ \
+	$(INTDIR)/PP.OBJ \
+	$(INTDIR)/ASTRAL.OBJ \
+	$(INTDIR)/OBJFLOAT.OBJ \
+	$(INTDIR)/MDIFRAME.OBJ \
+	$(INTDIR)/OLELISTB.OBJ \
+	$(INTDIR)/PP.res \
+	$(INTDIR)/PALETTE.OBJ \
+	$(INTDIR)/TTFORM.OBJ \
+	$(INTDIR)/PALEDIT.OBJ \
+	$(INTDIR)/ENGINE.OBJ \
+	$(INTDIR)/TOOLBAR.OBJ \
+	$(INTDIR)/THREAD.OBJ \
+	$(INTDIR)/IMGOLD.OBJ \
+	$(INTDIR)/AVIUTIL.OBJ \
+	$(INTDIR)/FASTBITS.OBJ \
+	$(INTDIR)/DLGMGR.OBJ \
+	$(INTDIR)/TPROBE.OBJ \
+	$(INTDIR)/COLOR.OBJ \
+	$(INTDIR)/RETOUCH.OBJ \
+	$(INTDIR)/AUTOMASK.OBJ \
+	$(INTDIR)/RUNTASK.OBJ \
+	$(INTDIR)/IMAGE.OBJ \
+	$(INTDIR)/IMGFUNC.OBJ \
+	$(INTDIR)/PICKRGB.OBJ \
+	$(INTDIR)/DEFAULTS.OBJ \
+	$(INTDIR)/DCA_GLUE.OBJ \
+	$(INTDIR)/TPAINT.OBJ \
+	$(INTDIR)/WINPROCS.OBJ \
+	$(INTDIR)/GIFWRT.OBJ \
+	$(INTDIR)/EXTNAME.OBJ \
+	$(INTDIR)/ABOUT.OBJ \
+	$(INTDIR)/POINTUTL.OBJ \
+	$(INTDIR)/CMDLIST.OBJ \
+	$(INTDIR)/FLOOD.OBJ \
+	$(INTDIR)/FILTER.OBJ \
+	$(INTDIR)/VIGNETTE.OBJ \
+	$(INTDIR)/ROTATE.OBJ \
+	$(INTDIR)/MERGE.OBJ \
+	$(INTDIR)/TDRAW.OBJ \
+	$(INTDIR)/PALIO.OBJ \
+	$(INTDIR)/ZOOM.OBJ \
+	$(INTDIR)/PHOTOCD.OBJ \
+	$(INTDIR)/PCXWRT.OBJ \
+	$(INTDIR)/OBJECT.OBJ \
+	$(INTDIR)/TCONTROL.OBJ \
+	$(INTDIR)/TASKMAN.OBJ \
+	$(INTDIR)/CONSTRAI.OBJ \
+	$(INTDIR)/WINPAL.OBJ \
+	$(INTDIR)/SCROLL.OBJ \
+	$(INTDIR)/CALIB.OBJ \
+	$(INTDIR)/RULERS.OBJ \
+	$(INTDIR)/BMPRDR.OBJ \
+	$(INTDIR)/PASTE.OBJ \
+	$(INTDIR)/GAUSS.OBJ \
+	$(INTDIR)/BRUPROCS.OBJ \
+	$(INTDIR)/FONTS.OBJ \
+	$(INTDIR)/TIFRDR.OBJ \
+	$(INTDIR)/PRINT.OBJ \
+	$(INTDIR)/TCHROMA.OBJ \
+	$(INTDIR)/INTELIO.OBJ \
+	$(INTDIR)/MESSAGE.OBJ \
+	$(INTDIR)/PALPROCS.OBJ \
+	$(INTDIR)/DRAG.OBJ \
+	$(INTDIR)/COMBO.OBJ \
+	$(INTDIR)/MASK.OBJ \
+	$(INTDIR)/CMDUNDO.OBJ \
+	$(INTDIR)/OBJALGN.OBJ \
+	$(INTDIR)/TRACK.OBJ \
+	$(INTDIR)/MEASURE.OBJ \
+	$(INTDIR)/MARQUEE.OBJ \
+	$(INTDIR)/FILT.OBJ \
+	$(INTDIR)/IMGEDIT.OBJ \
+	$(INTDIR)/PS.OBJ \
+	$(INTDIR)/CURSORS.OBJ \
+	$(INTDIR)/TGAWRT.OBJ \
+	$(INTDIR)/SCAN.OBJ \
+	$(INTDIR)/DCD_COM.OBJ \
+	$(INTDIR)/GRAB.OBJ \
+	$(INTDIR)/MAPPROCS.OBJ \
+	$(INTDIR)/MAP.OBJ \
+	$(INTDIR)/COMMANDS.OBJ \
+	$(INTDIR)/MASKIO.OBJ \
+	$(INTDIR)/PALLIST.OBJ \
+	$(INTDIR)/PROCESS.OBJ \
+	$(INTDIR)/BLEND.OBJ \
+	$(INTDIR)/TFILL.OBJ \
+	$(INTDIR)/BOMB.OBJ \
+	$(INTDIR)/IMGPAINT.OBJ \
+	$(INTDIR)/DOCLIST.OBJ \
+	$(INTDIR)/POPUPS.OBJ \
+	$(INTDIR)/DIALOG.OBJ \
+	$(INTDIR)/AVI.OBJ \
+	$(INTDIR)/MACRO.OBJ \
+	$(INTDIR)/JPGRDR.OBJ \
+	$(INTDIR)/CMASK.OBJ \
+	$(INTDIR)/FILEOPT.OBJ \
+	$(INTDIR)/CMDMACRO.OBJ \
+	$(INTDIR)/CLASS.OBJ \
+	$(INTDIR)/DCA_ACQ.OBJ \
+	$(INTDIR)/VIEW.OBJ \
+	$(INTDIR)/TCROP.OBJ \
+	$(INTDIR)/COMPRESS.OBJ \
+	$(INTDIR)/BMPWRT.OBJ \
+	$(INTDIR)/SMART.OBJ \
+	$(INTDIR)/DLGTOOLS.OBJ \
+	$(INTDIR)/TSELECT.OBJ \
+	$(INTDIR)/TEXT.OBJ \
+	$(INTDIR)/CONTROLS.OBJ \
+	$(INTDIR)/TIFWRT.OBJ \
+	$(INTDIR)/CACHE.OBJ \
+	$(INTDIR)/TTEXT.OBJ \
+	$(INTDIR)/TGARDR.OBJ \
+	$(INTDIR)/EFFECTS.OBJ \
+	$(INTDIR)/CONVTO.OBJ \
+	$(INTDIR)/TSHIELD.OBJ \
+	$(INTDIR)/DDA.OBJ \
+	$(INTDIR)/CPO.OBJ \
+	$(INTDIR)/WINTOOLS.OBJ \
+	$(INTDIR)/MAIL.OBJ \
+	$(INTDIR)/IMGCLIP.OBJ \
+	$(INTDIR)/GETDEV.OBJ \
+	$(INTDIR)/EXPORT.OBJ \
+	$(INTDIR)/CMDPARMS.OBJ \
+	$(INTDIR)/FINDFILE.OBJ \
+	$(INTDIR)/PATH.OBJ \
+	$(INTDIR)/BRUSH.OBJ \
+	$(INTDIR)/PLUGIN.OBJ \
+	$(INTDIR)/PIXMAP.OBJ \
+	$(INTDIR)/GIFRDR.OBJ \
+	$(INTDIR)/SELECT.OBJ \
+	$(INTDIR)/LIST.OBJ \
+	$(INTDIR)/TOBJSEL.OBJ \
+	$(INTDIR)/SPLIT.OBJ \
+	$(INTDIR)/TONE.OBJ \
+	$(INTDIR)/MAKEPATH.OBJ \
+	$(INTDIR)/EPSWRT.OBJ \
+	$(INTDIR)/PCXRDR.OBJ \
+	$(INTDIR)/IMGLIST.OBJ \
+	$(INTDIR)/AVIINTF.OBJ \
+	$(INTDIR)/HELP.OBJ \
+	$(INTDIR)/CUSTOOLS.OBJ \
+	$(INTDIR)/CLRMNG.OBJ \
+	$(INTDIR)/PICKPAL.OBJ \
+	$(INTDIR)/JPGINSTL.OBJ \
+	$(INTDIR)/IMGCMD.OBJ \
+	$(INTDIR)/SAVELOAD.OBJ \
+	$(INTDIR)/OBJIO.OBJ \
+	$(INTDIR)/IMGHELP.OBJ \
+	$(INTDIR)/JPGWRT.OBJ \
+	$(INTDIR)/IMGUTIL.OBJ \
+	$(INTDIR)/FITPOLY.OBJ \
+	$(INTDIR)/WINIMAGE.OBJ \
+	$(INTDIR)/TSTITCH.OBJ \
+	$(INTDIR)/CUT.OBJ \
+	$(INTDIR)/PRNPROCS.OBJ \
+	$(INTDIR)/TRACER.OBJ \
+	$(INTDIR)/TOOLPROC.OBJ \
+	$(INTDIR)/VISUAL.OBJ
+
+$(OUTDIR)/PP60.exe : $(OUTDIR)  $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+MTL_PROJ=
+
+.c{$(CPP_OBJS)}.obj:
+   $(CPP) $(CPP_PROJ) $<  
+
+.cpp{$(CPP_OBJS)}.obj:
+   $(CPP) $(CPP_PROJ) $<  
+
+.cxx{$(CPP_OBJS)}.obj:
+   $(CPP) $(CPP_PROJ) $<  
+
+################################################################################
+# Begin Group "Source Files"
+
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DOCCMDS.CPP
+DEP_DOCCM=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\DATAITEM.H\
+	.\inc\SVRITEM.H\
+	.\inc\SVRVIEW.H\
+	.\inc\CMDUNDO.H\
+	.\inc\PALEDIT.H\
+	.\inc\ID.H\
+	.\inc\MACRO.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CMDLIST.H\
+	.\inc\OBJECT.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\CURSORS.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DOCCMDS.OBJ :  $(SOURCE)  $(DEP_DOCCM) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\EDITPOLY.CPP
+DEP_EDITP=\
+	.\inc\PP.H\
+	.\inc\EDITPOLY.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/EDITPOLY.OBJ :  $(SOURCE)  $(DEP_EDITP) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TABLET.CPP
+DEP_TABLE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\TABLET.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\lib\WINTAB.H\
+	\pp60\lib\WINTABX.H\
+	\pp60\lib\PKTDEF.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TABLET.OBJ :  $(SOURCE)  $(DEP_TABLE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\VIEWCMDS.CPP
+DEP_VIEWC=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRITEM.H\
+	.\inc\SVRVIEW.H\
+	.\inc\IPFRAME.H\
+	.\inc\CMDUNDO.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\CUSTOOLS.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/VIEWCMDS.OBJ :  $(SOURCE)  $(DEP_VIEWC) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SVRDOC.CPP
+DEP_SVRDO=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRITEM.H\
+	.\inc\SVRVIEW.H\
+	.\inc\DATAITEM.H\
+	.\inc\IPFRAME.H\
+	.\inc\IMGIO.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\CTXHELP.H\
+	.\inc\ID.H\
+	.\inc\PPIMPORT.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CMDLIST.H\
+	.\inc\OBJECT.H\
+	.\inc\PP5IO.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\CURSORS.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\lib\MGXFRAME.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/SVRDOC.OBJ :  $(SOURCE)  $(DEP_SVRDO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMGIO.CPP
+DEP_IMGIO=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\PPAFX.H\
+	.\inc\PPIMPORT.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMGIO.OBJ :  $(SOURCE)  $(DEP_IMGIO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SVRDROP.CPP
+DEP_SVRDR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\MDIFRAME.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MAIL.H\
+	.\inc\ID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/SVRDROP.OBJ :  $(SOURCE)  $(DEP_SVRDR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\ROOT.CPP
+DEP_ROOT_=\
+	.\inc\PP.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/ROOT.OBJ :  $(SOURCE)  $(DEP_ROOT_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PP5IO.CPP
+DEP_PP5IO=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\PP5IO.H\
+	.\inc\TEXT.H\
+	.\inc\CPO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\TIFFIO.H\
+	.\inc\CMDPARMS.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PP5IO.OBJ :  $(SOURCE)  $(DEP_PP5IO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DATAITEM.CPP
+DEP_DATAI=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\SVRITEM.H\
+	.\inc\DATAITEM.H\
+	.\inc\SVRDOC.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\CMDLIST.H\
+	.\inc\OBJECT.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\CURSORS.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DATAITEM.OBJ :  $(SOURCE)  $(DEP_DATAI) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SVRVIEW.CPP
+DEP_SVRVI=\
+	.\inc\PP.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\DATAITEM.H\
+	.\inc\SVRITEM.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CMDLIST.H\
+	.\inc\OBJECT.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\CURSORS.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/SVRVIEW.OBJ :  $(SOURCE)  $(DEP_SVRVI) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\POLY.CPP
+DEP_POLY_=\
+	.\inc\PP.H\
+	.\inc\POLY.H\
+	.\inc\POINTUTL.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/POLY.OBJ :  $(SOURCE)  $(DEP_POLY_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IPFRAME.CPP
+DEP_IPFRA=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\CTXHELP.H\
+	.\inc\IPFRAME.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\SVRVIEW.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IPFRAME.OBJ :  $(SOURCE)  $(DEP_IPFRA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CTXHELP.CPP
+DEP_CTXHE=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\SVRVIEW.H\
+	.\inc\SVRDOC.H\
+	.\inc\CTXHELP.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CTXHELP.OBJ :  $(SOURCE)  $(DEP_CTXHE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SHAPEDIT.CPP
+DEP_SHAPE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\POINTUTL.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/SHAPEDIT.OBJ :  $(SOURCE)  $(DEP_SHAPE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMPRTRDR.CPP
+DEP_IMPRT=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\IMPRTRDR.H\
+	.\inc\PPIMPORT.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMPRTRDR.OBJ :  $(SOURCE)  $(DEP_IMPRT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\EDITCUST.CPP
+DEP_EDITC=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\EDITCUST.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/EDITCUST.OBJ :  $(SOURCE)  $(DEP_EDITC) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PPLIST.CPP
+DEP_PPLIS=\
+	.\inc\PP.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PPLIST.OBJ :  $(SOURCE)  $(DEP_PPLIS) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CTRDR.CPP
+DEP_CTRDR=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CTRDR.OBJ :  $(SOURCE)  $(DEP_CTRDR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\APPCMDS.CPP
+DEP_APPCM=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\CTXHELP.H\
+	.\inc\CMDUNDO.H\
+	.\inc\MACRO.H\
+	.\inc\TWAIN.H\
+	.\inc\DCA_GLUE.H\
+	.\inc\DCA_ACQ.H\
+	.\inc\ID.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\OBJFLOAT.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/APPCMDS.OBJ :  $(SOURCE)  $(DEP_APPCM) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PPIMPORT.CPP
+DEP_PPIMP=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	\pp60\lib\ISGDI9.H\
+	.\inc\PPIMPORT.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PPIMPORT.OBJ :  $(SOURCE)  $(DEP_PPIMP) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SVRITEM.CPP
+DEP_SVRIT=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\SVRITEM.H\
+	.\inc\DATAITEM.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\CMDLIST.H\
+	.\inc\OBJECT.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\CURSORS.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/SVRITEM.OBJ :  $(SOURCE)  $(DEP_SVRIT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PP.CPP
+DEP_PP_CP=\
+	.\inc\PP.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+!IF  "$(CFG)" == "Win32 Debug"
+
+# ADD CPP /Yc
+
+$(INTDIR)/PP.OBJ :  $(SOURCE)  $(DEP_PP_CP) $(INTDIR)
+   $(CPP) /nologo /MT /W3 /GX /Zi /Od /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D\
+ "_MBCS" /D "C_CODE" /D "USE_CFILE" /Fp"WinDebug/pp.pch" /Yc /Fo$(INTDIR)/\
+ /Fd$(OUTDIR)/"PP60.pdb" /c /Tp  $(SOURCE) 
+
+!ELSEIF  "$(CFG)" == "Win32 Release"
+
+# ADD CPP /Yc
+
+$(INTDIR)/PP.OBJ :  $(SOURCE)  $(DEP_PP_CP) $(INTDIR)
+   $(CPP) /nologo /MT /W3 /GX /O2 /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D\
+ "_MBCS" /D "C_CODE" /D "USE_CFILE" /Fp"WinRel/pp.pch" /Yc /Fo$(INTDIR)/ /c /Tp\
+  $(SOURCE) 
+
+!ENDIF 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\ASTRAL.CPP
+DEP_ASTRA=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\TWAIN.H\
+	.\inc\DCA_GLUE.H\
+	.\inc\DCA_ACQ.H\
+	.\inc\PLUGIN.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\IPFRAME.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\CTXHELP.H\
+	.\inc\PPIMPORT.H\
+	.\inc\OBJFLOAT.H\
+	.\inc\BOMB.H\
+	\pp60\ctllib\TABDLG.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/ASTRAL.OBJ :  $(SOURCE)  $(DEP_ASTRA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\OBJFLOAT.CPP
+DEP_OBJFL=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\OBJFLOAT.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/OBJFLOAT.OBJ :  $(SOURCE)  $(DEP_OBJFL) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MDIFRAME.CPP
+DEP_MDIFR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\DATAITEM.H\
+	.\inc\SVRVIEW.H\
+	.\inc\PLUGIN.H\
+	.\inc\CTXHELP.H\
+	.\inc\TWAIN.H\
+	.\inc\DCA_ACQ.H\
+	.\inc\DCA_GLUE.H\
+	.\inc\MACRO.H\
+	.\inc\ID.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\OBJFLOAT.H\
+	.\inc\IPFRAME.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CMDLIST.H\
+	.\inc\OBJECT.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\CURSORS.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MDIFRAME.OBJ :  $(SOURCE)  $(DEP_MDIFR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\OLELISTB.CPP
+DEP_OLELI=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\PPAFX.H\
+	.\inc\DATAITEM.H\
+	.\inc\SVRITEM.H\
+	.\inc\OLELISTB.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CMDLIST.H\
+	.\inc\OBJECT.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\CURSORS.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/OLELISTB.OBJ :  $(SOURCE)  $(DEP_OLELI) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\res\PP.RC
+DEP_PP_RC=\
+	.\inc\ID.H\
+	.\res\PPBITMAP.RC\
+	.\res\PICTPUB.ICO\
+	.\res\PICTPUBL.ICO\
+	.\res\PPFILE.ICO\
+	.\res\OTHRFILE.ICO\
+	.\res\PP16X16.ICO\
+	.\res\DOC1616.ICO\
+	.\res\NULL.CUR\
+	.\res\SELECTOR.CUR\
+	.\res\CLOCK01.CUR\
+	.\res\CLOCK02.CUR\
+	.\res\CLOCK03.CUR\
+	.\res\CLOCK04.CUR\
+	.\res\CLOCK05.CUR\
+	.\res\CLOCK06.CUR\
+	.\res\CLOCK07.CUR\
+	.\res\CLOCK08.CUR\
+	.\res\CLOCK09.CUR\
+	.\res\CLOCK10.CUR\
+	.\res\CLOCK11.CUR\
+	.\res\CLOCK12.CUR\
+	.\res\FREE.CUR\
+	.\res\FREEALT.CUR\
+	.\res\CUSTOM.CUR\
+	.\res\MAGIC.CUR\
+	.\res\GRABBER.CUR\
+	.\res\PROBE.CUR\
+	.\res\VIGNETTE.CUR\
+	.\res\TEXT.CUR\
+	.\res\FLOOD.CUR\
+	.\res\PENCIL.CUR\
+	.\res\SHIELD.CUR\
+	.\res\BBALL1.CUR\
+	.\res\BBALL2.CUR\
+	.\res\BBALL3.CUR\
+	.\res\BBALL4.CUR\
+	.\res\HELP.CUR\
+	.\res\NOHELP.CUR\
+	.\res\ROTATE.CUR\
+	.\res\SKEWHORZ.CUR\
+	.\res\SKEWVERT.CUR\
+	.\res\DRAGMOVE.CUR\
+	.\res\DRAGCOPY.CUR\
+	.\res\DRAGNOT.CUR\
+	.\res\TRANSFRM.CUR\
+	.\res\POINTED.CUR\
+	.\res\CROP.CUR\
+	.\res\ADDPTL.CUR\
+	.\res\ADDPTR.CUR\
+	.\res\MOVEPTL.CUR\
+	.\res\MOVEPTR.CUR\
+	.\res\DELPTL.CUR\
+	.\res\DELPTR.CUR\
+	.\res\SELALT.CUR\
+	.\res\SPA.BMP\
+	.\res\LOGO.BMP\
+	.\res\BRIGHT1.BMP\
+	.\res\BRIGHT2.BMP\
+	.\res\PPMENU.RC\
+	.\res\PPOLE.RC\
+	.\res\MAIN.RC\
+	.\res\FILE.RC\
+	.\res\EDIT.RC\
+	.\res\MAP.RC\
+	.\res\MASK.RC\
+	.\res\OBJECT.RC\
+	.\res\IMAGE.RC\
+	.\res\PPALETTE.RC\
+	.\res\PPRIBBON.RC\
+	.\res\BROWSER.RC\
+	.\res\BSRDLGS.RC\
+	.\res\BAND.RC\
+	.\res\VERSION.RC\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\ctllib\COMMON.RH\
+	.\inc\APPSTYLE.H\
+	\pp60\ctllib\CTLLIB.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\GRADCTL.RH\
+	\pp60\ctllib\PATCH.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\STEXT.RH
+
+!IF  "$(CFG)" == "Win32 Debug"
+
+$(INTDIR)/PP.res :  $(SOURCE)  $(DEP_PP_RC) $(INTDIR)
+   $(RSC) /l 0x409 /fo$(INTDIR)/"PP.res" /i "res" /d "_DEBUG"  $(SOURCE) 
+
+!ELSEIF  "$(CFG)" == "Win32 Release"
+
+$(INTDIR)/PP.res :  $(SOURCE)  $(DEP_PP_RC) $(INTDIR)
+   $(RSC) /l 0x409 /fo$(INTDIR)/"PP.res" /i "res" /d "NDEBUG"  $(SOURCE) 
+
+!ENDIF 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PALETTE.CPP
+DEP_PALET=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PALETTE.OBJ :  $(SOURCE)  $(DEP_PALET) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TTFORM.CPP
+DEP_TTFOR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TTFORM.OBJ :  $(SOURCE)  $(DEP_TTFOR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PALEDIT.CPP
+DEP_PALED=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\PALEDIT.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PALEDIT.OBJ :  $(SOURCE)  $(DEP_PALED) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\ENGINE.CPP
+DEP_ENGIN=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/ENGINE.OBJ :  $(SOURCE)  $(DEP_ENGIN) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TOOLBAR.CPP
+DEP_TOOLB=\
+	.\inc\PP.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TOOLBAR.OBJ :  $(SOURCE)  $(DEP_TOOLB) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\THREAD.CPP
+DEP_THREA=\
+	.\inc\PP.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/THREAD.OBJ :  $(SOURCE)  $(DEP_THREA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMGOLD.CPP
+DEP_IMGOL=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	\pp60\imgutil\MACROS.H\
+	.\inc\ID.H\
+	.\inc\CPO.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMGOLD.OBJ :  $(SOURCE)  $(DEP_IMGOL) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\AVIUTIL.CPP
+DEP_AVIUT=\
+	.\inc\PP.H\
+	.\inc\AVIINTF.H\
+	.\inc\AVIUTIL.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/AVIUTIL.OBJ :  $(SOURCE)  $(DEP_AVIUT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\FASTBITS.CPP
+DEP_FASTB=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\ID.H\
+	.\inc\TIFFIO.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/FASTBITS.OBJ :  $(SOURCE)  $(DEP_FASTB) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DLGMGR.CPP
+DEP_DLGMG=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DLGMGR.OBJ :  $(SOURCE)  $(DEP_DLGMG) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TPROBE.CPP
+DEP_TPROB=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TPROBE.OBJ :  $(SOURCE)  $(DEP_TPROB) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\COLOR.CPP
+DEP_COLOR=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\COLOR.H\
+	\pp60\imgutil\MACROS.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/COLOR.OBJ :  $(SOURCE)  $(DEP_COLOR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\RETOUCH.CPP
+DEP_RETOU=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/RETOUCH.OBJ :  $(SOURCE)  $(DEP_RETOU) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\AUTOMASK.CPP
+DEP_AUTOM=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/AUTOMASK.OBJ :  $(SOURCE)  $(DEP_AUTOM) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\RUNTASK.CPP
+DEP_RUNTA=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/RUNTASK.OBJ :  $(SOURCE)  $(DEP_RUNTA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMAGE.CPP
+DEP_IMAGE=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	\pp60\imgutil\MACROS.H\
+	.\inc\CPO.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMAGE.OBJ :  $(SOURCE)  $(DEP_IMAGE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMGFUNC.CPP
+DEP_IMGFU=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMGFUNC.OBJ :  $(SOURCE)  $(DEP_IMGFU) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PICKRGB.CPP
+DEP_PICKR=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	\pp60\ctllib\GRADCTL.H\
+	.\inc\PPAFX.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PICKRGB.OBJ :  $(SOURCE)  $(DEP_PICKR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DEFAULTS.CPP
+DEP_DEFAU=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\SCAN.H\
+	\pp60\browser\BSRUTIL.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	\pp60\browser\BSRTYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\browser\BROWSER.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DEFAULTS.OBJ :  $(SOURCE)  $(DEP_DEFAU) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DCA_GLUE.CPP
+DEP_DCA_G=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\TWAIN.H\
+	.\inc\DCA_GLUE.H\
+	.\inc\DCD_COM.H\
+	.\inc\ID.H\
+	\pp60\lib\FRAMELIB.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\lib\MGXFRAME.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DCA_GLUE.OBJ :  $(SOURCE)  $(DEP_DCA_G) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TPAINT.CPP
+DEP_TPAIN=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\ID.H\
+	.\inc\CTXHELP.H\
+	.\inc\TABLET.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\lib\WINTAB.H\
+	\pp60\lib\WINTABX.H\
+	\pp60\lib\PKTDEF.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TPAINT.OBJ :  $(SOURCE)  $(DEP_TPAIN) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\WINPROCS.CPP
+DEP_WINPR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	\pp60\browser\BSRUTIL.H\
+	.\inc\ID.H\
+	.\inc\PICKPAL.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\IPFRAME.H\
+	\pp60\browser\BROWSER.H\
+	\pp60\ctllib\CTLUTIL.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\ctllib\TABDLG.H\
+	.\inc\ROUTINES.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	\pp60\browser\BSRTYPES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\CUSTOOLS.H\
+	\pp60\imgutil\TYPES.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\superblt\SUPERBLT.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\lib\MGXFRAME.H\
+	\pp60\ctllib\DLGRES.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH
+
+$(INTDIR)/WINPROCS.OBJ :  $(SOURCE)  $(DEP_WINPR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\GIFWRT.CPP
+DEP_GIFWR=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\GIF.H\
+	.\inc\TIFFIO.H\
+	.\inc\CPO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/GIFWRT.OBJ :  $(SOURCE)  $(DEP_GIFWR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\EXTNAME.CPP
+DEP_EXTNA=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/EXTNAME.OBJ :  $(SOURCE)  $(DEP_EXTNA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\ABOUT.CPP
+DEP_ABOUT=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\CTXHELP.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/ABOUT.OBJ :  $(SOURCE)  $(DEP_ABOUT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\POINTUTL.CPP
+DEP_POINT=\
+	.\inc\PP.H\
+	.\inc\POINTUTL.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/POINTUTL.OBJ :  $(SOURCE)  $(DEP_POINT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CMDLIST.CPP
+DEP_CMDLI=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\CMDPARMS.H\
+	.\inc\ID.H\
+	.\inc\PALEDIT.H\
+	.\inc\CMDTABLE.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MACRO.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\PLUGIN.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CMDLIST.OBJ :  $(SOURCE)  $(DEP_CMDLI) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\FLOOD.CPP
+DEP_FLOOD=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/FLOOD.OBJ :  $(SOURCE)  $(DEP_FLOOD) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\FILTER.CPP
+DEP_FILTE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/FILTER.OBJ :  $(SOURCE)  $(DEP_FILTE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\VIGNETTE.CPP
+DEP_VIGNE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/VIGNETTE.OBJ :  $(SOURCE)  $(DEP_VIGNE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\ROTATE.CPP
+DEP_ROTAT=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/ROTATE.OBJ :  $(SOURCE)  $(DEP_ROTAT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MERGE.CPP
+DEP_MERGE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MERGE.OBJ :  $(SOURCE)  $(DEP_MERGE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TDRAW.CPP
+DEP_TDRAW=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TDRAW.OBJ :  $(SOURCE)  $(DEP_TDRAW) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PALIO.CPP
+DEP_PALIO=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PALIO.OBJ :  $(SOURCE)  $(DEP_PALIO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\ZOOM.CPP
+DEP_ZOOM_=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRVIEW.H\
+	.\inc\IPFRAME.H\
+	.\inc\ID.H\
+	.\inc\CTXHELP.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/ZOOM.OBJ :  $(SOURCE)  $(DEP_ZOOM_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PHOTOCD.CPP
+DEP_PHOTO=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	\pp60\lib\PCDLIB.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PHOTOCD.OBJ :  $(SOURCE)  $(DEP_PHOTO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PCXWRT.CPP
+DEP_PCXWR=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\CPO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PCXWRT.OBJ :  $(SOURCE)  $(DEP_PCXWR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\OBJECT.CPP
+DEP_OBJEC=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\TEXT.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CMDPARMS.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\ID.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/OBJECT.OBJ :  $(SOURCE)  $(DEP_OBJEC) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TCONTROL.CPP
+DEP_TCONT=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TCONTROL.OBJ :  $(SOURCE)  $(DEP_TCONT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TASKMAN.CPP
+DEP_TASKM=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TASKMAN.OBJ :  $(SOURCE)  $(DEP_TASKM) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CONSTRAI.CPP
+DEP_CONST=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CONSTRAI.OBJ :  $(SOURCE)  $(DEP_CONST) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\WINPAL.CPP
+DEP_WINPA=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/WINPAL.OBJ :  $(SOURCE)  $(DEP_WINPA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SCROLL.CPP
+DEP_SCROL=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/SCROLL.OBJ :  $(SOURCE)  $(DEP_SCROL) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CALIB.CPP
+DEP_CALIB=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\CTXHELP.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CALIB.OBJ :  $(SOURCE)  $(DEP_CALIB) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\RULERS.CPP
+DEP_RULER=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/RULERS.OBJ :  $(SOURCE)  $(DEP_RULER) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\BMPRDR.CPP
+DEP_BMPRD=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/BMPRDR.OBJ :  $(SOURCE)  $(DEP_BMPRD) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PASTE.CPP
+DEP_PASTE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRVIEW.H\
+	.\inc\IPFRAME.H\
+	.\inc\OLELISTB.H\
+	\pp60\browser\BSRTYPES.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CUSTOOLS.H\
+	\pp60\imgutil\TYPES.H\
+	\pp60\lib\FRAMELIB.H\
+	.\inc\LIST.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PASTE.OBJ :  $(SOURCE)  $(DEP_PASTE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\GAUSS.CPP
+DEP_GAUSS=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/GAUSS.OBJ :  $(SOURCE)  $(DEP_GAUSS) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\BRUPROCS.CPP
+DEP_BRUPR=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/BRUPROCS.OBJ :  $(SOURCE)  $(DEP_BRUPR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\FONTS.CPP
+DEP_FONTS=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/FONTS.OBJ :  $(SOURCE)  $(DEP_FONTS) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TIFRDR.CPP
+DEP_TIFRD=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\TIFFIO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TIFRDR.OBJ :  $(SOURCE)  $(DEP_TIFRD) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PRINT.CPP
+DEP_PRINT=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	\pp60\lib\BASETYPE.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PRINT.OBJ :  $(SOURCE)  $(DEP_PRINT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TCHROMA.CPP
+DEP_TCHRO=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TCHROMA.OBJ :  $(SOURCE)  $(DEP_TCHRO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\INTELIO.CPP
+DEP_INTEL=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/INTELIO.OBJ :  $(SOURCE)  $(DEP_INTEL) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MESSAGE.CPP
+DEP_MESSA=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\IPFRAME.H\
+	.\inc\ID.H\
+	.\inc\CTXHELP.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MESSAGE.OBJ :  $(SOURCE)  $(DEP_MESSA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PALPROCS.CPP
+DEP_PALPR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\CPO.H\
+	.\inc\CTXHELP.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PALPROCS.OBJ :  $(SOURCE)  $(DEP_PALPR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DRAG.CPP
+DEP_DRAG_=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DRAG.OBJ :  $(SOURCE)  $(DEP_DRAG_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\COMBO.CPP
+DEP_COMBO=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	\pp60\imgutil\MACROS.H\
+	.\inc\CTXHELP.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\ID.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/COMBO.OBJ :  $(SOURCE)  $(DEP_COMBO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MASK.CPP
+DEP_MASK_=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MASK.OBJ :  $(SOURCE)  $(DEP_MASK_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CMDUNDO.CPP
+DEP_CMDUN=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\CMDUNDO.H\
+	.\inc\MACRO.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CMDUNDO.OBJ :  $(SOURCE)  $(DEP_CMDUN) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\OBJALGN.CPP
+DEP_OBJAL=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	\pp60\browser\BSRUTIL.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	\pp60\browser\BSRTYPES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/OBJALGN.OBJ :  $(SOURCE)  $(DEP_OBJAL) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TRACK.CPP
+DEP_TRACK=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TRACK.OBJ :  $(SOURCE)  $(DEP_TRACK) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MEASURE.CPP
+DEP_MEASU=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MEASURE.OBJ :  $(SOURCE)  $(DEP_MEASU) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MARQUEE.CPP
+DEP_MARQU=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MARQUEE.OBJ :  $(SOURCE)  $(DEP_MARQU) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\FILT.CPP
+DEP_FILT_=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/FILT.OBJ :  $(SOURCE)  $(DEP_FILT_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMGEDIT.CPP
+DEP_IMGED=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\TEXT.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\CMDPARMS.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMGEDIT.OBJ :  $(SOURCE)  $(DEP_IMGED) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PS.CPP
+DEP_PS_CP=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PS.OBJ :  $(SOURCE)  $(DEP_PS_CP) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CURSORS.CPP
+DEP_CURSO=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	\pp60\imgutil\MACROS.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CURSORS.OBJ :  $(SOURCE)  $(DEP_CURSO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TGAWRT.CPP
+DEP_TGAWR=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\TARGA.H\
+	.\inc\CPO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TGAWRT.OBJ :  $(SOURCE)  $(DEP_TGAWR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SCAN.CPP
+DEP_SCAN_=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\SCAN.H\
+	.\inc\TWAIN.H\
+	.\inc\DCA_GLUE.H\
+	.\inc\DCA_ACQ.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\ctllib\TABDLG.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\ctllib\DLGRES.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH
+
+$(INTDIR)/SCAN.OBJ :  $(SOURCE)  $(DEP_SCAN_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DCD_COM.CPP
+DEP_DCD_C=\
+	.\inc\PP.H\
+	.\inc\TWAIN.H\
+	.\inc\DCD_COM.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DCD_COM.OBJ :  $(SOURCE)  $(DEP_DCD_C) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\GRAB.CPP
+DEP_GRAB_=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\GDEVICE.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/GRAB.OBJ :  $(SOURCE)  $(DEP_GRAB_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MAPPROCS.CPP
+DEP_MAPPR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\VISUAL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\CTXHELP.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\ctllib\TABDLG.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\ctllib\DLGRES.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH
+
+$(INTDIR)/MAPPROCS.OBJ :  $(SOURCE)  $(DEP_MAPPR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MAP.CPP
+DEP_MAP_C=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MAP.OBJ :  $(SOURCE)  $(DEP_MAP_C) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\COMMANDS.CPP
+DEP_COMMA=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\TWAIN.H\
+	.\inc\DCA_GLUE.H\
+	.\inc\DCA_ACQ.H\
+	.\inc\PLUGIN.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRITEM.H\
+	.\inc\PALEDIT.H\
+	.\inc\CMDUNDO.H\
+	.\inc\CTXHELP.H\
+	.\inc\PPIMPORT.H\
+	.\inc\ROUTINES.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/COMMANDS.OBJ :  $(SOURCE)  $(DEP_COMMA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MASKIO.CPP
+DEP_MASKI=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MASKIO.OBJ :  $(SOURCE)  $(DEP_MASKI) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PALLIST.CPP
+DEP_PALLI=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PALLIST.OBJ :  $(SOURCE)  $(DEP_PALLI) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PROCESS.CPP
+DEP_PROCE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PROCESS.OBJ :  $(SOURCE)  $(DEP_PROCE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\BLEND.CPP
+DEP_BLEND=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/BLEND.OBJ :  $(SOURCE)  $(DEP_BLEND) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TFILL.CPP
+DEP_TFILL=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TFILL.OBJ :  $(SOURCE)  $(DEP_TFILL) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\BOMB.CPP
+DEP_BOMB_=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\BOMB.H\
+	\MSVC20\INCLUDE\SYS\TYPES.H\
+	\MSVC20\INCLUDE\SYS\STAT.H\
+	\MSVC20\INCLUDE\SYS\UTIME.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\ID.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/BOMB.OBJ :  $(SOURCE)  $(DEP_BOMB_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMGPAINT.CPP
+DEP_IMGPA=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	\pp60\imgutil\MACROS.H\
+	.\inc\ID.H\
+	.\inc\CPO.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMGPAINT.OBJ :  $(SOURCE)  $(DEP_IMGPA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DOCLIST.CPP
+DEP_DOCLI=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DOCLIST.OBJ :  $(SOURCE)  $(DEP_DOCLI) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\POPUPS.CPP
+DEP_POPUP=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/POPUPS.OBJ :  $(SOURCE)  $(DEP_POPUP) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DIALOG.CPP
+DEP_DIALO=\
+	.\inc\PP.H\
+	.\inc\CTXHELP.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DIALOG.OBJ :  $(SOURCE)  $(DEP_DIALO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\AVI.CPP
+DEP_AVI_C=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\AVIUTIL.H\
+	.\inc\AVIINTF.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/AVI.OBJ :  $(SOURCE)  $(DEP_AVI_C) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MACRO.CPP
+DEP_MACRO=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\MACRO.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MACRO.OBJ :  $(SOURCE)  $(DEP_MACRO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\JPGRDR.CPP
+DEP_JPGRD=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\JPEG.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/JPGRDR.OBJ :  $(SOURCE)  $(DEP_JPGRD) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CMASK.CPP
+DEP_CMASK=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CMASK.OBJ :  $(SOURCE)  $(DEP_CMASK) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\FILEOPT.CPP
+DEP_FILEO=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\DATA.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/FILEOPT.OBJ :  $(SOURCE)  $(DEP_FILEO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CMDMACRO.CPP
+DEP_CMDMA=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MACRO.H\
+	.\inc\ID.H\
+	.\inc\SVRVIEW.H\
+	\pp60\browser\BSRUTIL.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\browser\BSRTYPES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CMDMACRO.OBJ :  $(SOURCE)  $(DEP_CMDMA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CLASS.CPP
+DEP_CLASS=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	\pp60\ctllib\TABDLG.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CLASS.OBJ :  $(SOURCE)  $(DEP_CLASS) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DCA_ACQ.CPP
+DEP_DCA_A=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	\pp60\browser\BSRUTIL.H\
+	.\inc\TWAIN.H\
+	.\inc\DCA_GLUE.H\
+	.\inc\DCA_ACQ.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\browser\BSRTYPES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DCA_ACQ.OBJ :  $(SOURCE)  $(DEP_DCA_A) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\VIEW.CPP
+DEP_VIEW_=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\IPFRAME.H\
+	.\inc\ID.H\
+	.\inc\CMDLIST.H\
+	.\inc\CPO.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\IMAGE.H\
+	.\inc\CURSORS.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\OBJECT.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/VIEW.OBJ :  $(SOURCE)  $(DEP_VIEW_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TCROP.CPP
+DEP_TCROP=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TCROP.OBJ :  $(SOURCE)  $(DEP_TCROP) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\COMPRESS.CPP
+DEP_COMPR=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\TIFFIO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/COMPRESS.OBJ :  $(SOURCE)  $(DEP_COMPR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\BMPWRT.CPP
+DEP_BMPWR=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\CPO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/BMPWRT.OBJ :  $(SOURCE)  $(DEP_BMPWR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SMART.CPP
+DEP_SMART=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/SMART.OBJ :  $(SOURCE)  $(DEP_SMART) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DLGTOOLS.CPP
+DEP_DLGTO=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DLGTOOLS.OBJ :  $(SOURCE)  $(DEP_DLGTO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TSELECT.CPP
+DEP_TSELE=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\POINTUTL.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TSELECT.OBJ :  $(SOURCE)  $(DEP_TSELE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TEXT.CPP
+DEP_TEXT_=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\TEXT.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\CMDPARMS.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TEXT.OBJ :  $(SOURCE)  $(DEP_TEXT_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CONTROLS.CPP
+DEP_CONTR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	\pp60\imgutil\MACROS.H\
+	.\inc\VISUAL.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CTXHELP.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\lib\MGXFRAME.H\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CONTROLS.OBJ :  $(SOURCE)  $(DEP_CONTR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TIFWRT.CPP
+DEP_TIFWR=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\TIFFIO.H\
+	.\inc\CPO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TIFWRT.OBJ :  $(SOURCE)  $(DEP_TIFWR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CACHE.CPP
+DEP_CACHE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CACHE.OBJ :  $(SOURCE)  $(DEP_CACHE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TTEXT.CPP
+DEP_TTEXT=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\TEXT.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\CMDPARMS.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TTEXT.OBJ :  $(SOURCE)  $(DEP_TTEXT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TGARDR.CPP
+DEP_TGARD=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\TARGA.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TGARDR.OBJ :  $(SOURCE)  $(DEP_TGARD) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\EFFECTS.CPP
+DEP_EFFEC=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	\pp60\lib\FXPARMS.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/EFFECTS.OBJ :  $(SOURCE)  $(DEP_EFFEC) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CONVTO.CPP
+DEP_CONVT=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\CPO.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CONVTO.OBJ :  $(SOURCE)  $(DEP_CONVT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TSHIELD.CPP
+DEP_TSHIE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TSHIELD.OBJ :  $(SOURCE)  $(DEP_TSHIE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\DDA.CPP
+DEP_DDA_C=\
+	.\inc\PP.H\
+	\pp60\imgutil\MACROS.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/DDA.OBJ :  $(SOURCE)  $(DEP_DDA_C) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CPO.CPP
+DEP_CPO_C=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	\pp60\imgutil\MACROS.H\
+	.\inc\CPO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CPO.OBJ :  $(SOURCE)  $(DEP_CPO_C) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\WINTOOLS.CPP
+DEP_WINTO=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/WINTOOLS.OBJ :  $(SOURCE)  $(DEP_WINTO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MAIL.CPP
+DEP_MAIL_=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\MAIL.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\SMAPI.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MAIL.OBJ :  $(SOURCE)  $(DEP_MAIL_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMGCLIP.CPP
+DEP_IMGCL=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMGCLIP.OBJ :  $(SOURCE)  $(DEP_IMGCL) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\GETDEV.CPP
+DEP_GETDE=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/GETDEV.OBJ :  $(SOURCE)  $(DEP_GETDE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\EXPORT.CPP
+DEP_EXPOR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\EXPORT.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/EXPORT.OBJ :  $(SOURCE)  $(DEP_EXPOR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CMDPARMS.CPP
+DEP_CMDPA=\
+	.\inc\PP.H\
+	.\inc\CMDPARMS.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CMDPARMS.OBJ :  $(SOURCE)  $(DEP_CMDPA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\FINDFILE.CPP
+DEP_FINDF=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/FINDFILE.OBJ :  $(SOURCE)  $(DEP_FINDF) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PATH.CPP
+DEP_PATH_=\
+	.\inc\PP.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PATH.OBJ :  $(SOURCE)  $(DEP_PATH_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\BRUSH.CPP
+DEP_BRUSH=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\TABLET.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\lib\WINTAB.H\
+	\pp60\lib\WINTABX.H\
+	\pp60\lib\PKTDEF.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/BRUSH.OBJ :  $(SOURCE)  $(DEP_BRUSH) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PLUGIN.CPP
+DEP_PLUGI=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\PLUGIN.H\
+	\pp60\lib\PITYPES.H\
+	\pp60\lib\PIFILTER.H\
+	\pp60\lib\PIEXPORT.H\
+	\pp60\lib\PIACQUIR.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	\pp60\lib\PIGENERA.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PLUGIN.OBJ :  $(SOURCE)  $(DEP_PLUGI) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PIXMAP.CPP
+DEP_PIXMA=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PIXMAP.OBJ :  $(SOURCE)  $(DEP_PIXMA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\GIFRDR.CPP
+DEP_GIFRD=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\GIF.H\
+	.\inc\TIFFIO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/GIFRDR.OBJ :  $(SOURCE)  $(DEP_GIFRD) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SELECT.CPP
+DEP_SELEC=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/SELECT.OBJ :  $(SOURCE)  $(DEP_SELEC) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\LIST.CPP
+DEP_LIST_=\
+	.\inc\PP.H\
+	.\inc\LIST.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/LIST.OBJ :  $(SOURCE)  $(DEP_LIST_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TOBJSEL.CPP
+DEP_TOBJS=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRVIEW.H\
+	.\inc\DATAITEM.H\
+	.\inc\ID.H\
+	.\inc\OBJFLOAT.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\CMDLIST.H\
+	.\inc\OBJECT.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\CURSORS.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TOBJSEL.OBJ :  $(SOURCE)  $(DEP_TOBJS) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SPLIT.CPP
+DEP_SPLIT=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/SPLIT.OBJ :  $(SOURCE)  $(DEP_SPLIT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TONE.CPP
+DEP_TONE_=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\PPAFX.H\
+	\pp60\ctllib\CTLUTIL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	\pp60\imgutil\TYPES.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\superblt\SUPERBLT.H\
+	\pp60\imgutil\IMGUTIL.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TONE.OBJ :  $(SOURCE)  $(DEP_TONE_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\MAKEPATH.CPP
+DEP_MAKEP=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/MAKEPATH.OBJ :  $(SOURCE)  $(DEP_MAKEP) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\EPSWRT.CPP
+DEP_EPSWR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/EPSWRT.OBJ :  $(SOURCE)  $(DEP_EPSWR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PCXRDR.CPP
+DEP_PCXRD=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PCXRDR.OBJ :  $(SOURCE)  $(DEP_PCXRD) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMGLIST.CPP
+DEP_IMGLI=\
+	.\inc\PP.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMGLIST.OBJ :  $(SOURCE)  $(DEP_IMGLI) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\AVIINTF.CPP
+DEP_AVIIN=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\AVIINTF.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/AVIINTF.OBJ :  $(SOURCE)  $(DEP_AVIIN) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\HELP.CPP
+DEP_HELP_=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/HELP.OBJ :  $(SOURCE)  $(DEP_HELP_) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CUSTOOLS.CPP
+DEP_CUSTO=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\PICKPAL.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\EDITCUST.H\
+	.\inc\SVRVIEW.H\
+	.\inc\MACRO.H\
+	.\inc\CTXHELP.H\
+	.\inc\IPFRAME.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CUSTOOLS.OBJ :  $(SOURCE)  $(DEP_CUSTO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CLRMNG.CPP
+DEP_CLRMN=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\CLRMNG.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CLRMNG.OBJ :  $(SOURCE)  $(DEP_CLRMN) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PICKPAL.CPP
+DEP_PICKP=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\PICKPAL.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/PICKPAL.OBJ :  $(SOURCE)  $(DEP_PICKP) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\JPGINSTL.CPP
+DEP_JPGIN=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/JPGINSTL.OBJ :  $(SOURCE)  $(DEP_JPGIN) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMGCMD.CPP
+DEP_IMGCM=\
+	.\inc\PP.H\
+	.\inc\IMGCMD.H\
+	.\inc\ID.H\
+	.\inc\DATAITEM.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\CMDLIST.H\
+	.\inc\OBJECT.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\CURSORS.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMGCMD.OBJ :  $(SOURCE)  $(DEP_IMGCM) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\SAVELOAD.CPP
+DEP_SAVEL=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\SVRDOC.H\
+	.\inc\ID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\browser\BROWSER.H\
+	\pp60\lib\FRAMELIB.H\
+	.\inc\ROUTINES.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\lib\MGXFRAME.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/SAVELOAD.OBJ :  $(SOURCE)  $(DEP_SAVEL) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\OBJIO.CPP
+DEP_OBJIO=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\OBJIO.H\
+	.\inc\CPO.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/OBJIO.OBJ :  $(SOURCE)  $(DEP_OBJIO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMGHELP.CPP
+DEP_IMGHE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMGHELP.OBJ :  $(SOURCE)  $(DEP_IMGHE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\JPGWRT.CPP
+DEP_JPGWR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\JPEG.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/JPGWRT.OBJ :  $(SOURCE)  $(DEP_JPGWR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\IMGUTIL.CPP
+DEP_IMGUT=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/IMGUTIL.OBJ :  $(SOURCE)  $(DEP_IMGUT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\FITPOLY.CPP
+DEP_FITPO=\
+	.\inc\PP.H\
+	.\inc\POINTUTL.H\
+	.\inc\ROUTINES.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/FITPOLY.OBJ :  $(SOURCE)  $(DEP_FITPO) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\WINIMAGE.CPP
+DEP_WINIM=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\CPO.H\
+	.\inc\CUSTOOLS.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/WINIMAGE.OBJ :  $(SOURCE)  $(DEP_WINIM) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TSTITCH.CPP
+DEP_TSTIT=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TSTITCH.OBJ :  $(SOURCE)  $(DEP_TSTIT) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\CUT.CPP
+DEP_CUT_C=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	.\inc\CLIPBRD.H\
+	.\inc\DATAITEM.H\
+	.\inc\SVRITEM.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	.\inc\CMDLIST.H\
+	.\inc\OBJECT.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	.\inc\CURSORS.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\lib\MAPI.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/CUT.OBJ :  $(SOURCE)  $(DEP_CUT_C) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\PRNPROCS.CPP
+DEP_PRNPR=\
+	.\inc\PP.H\
+	.\inc\PPAFX.H\
+	.\inc\ID.H\
+	\pp60\ctllib\DYNDLG.H\
+	\pp60\ctllib\TABDLG.H\
+	.\inc\ROUTINES.H\
+	\pp60\browser\BROWSER.H\
+	.\inc\SVRDOC.H\
+	.\inc\MDIFRAME.H\
+	.\inc\MAIL.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\SMAPI.H\
+	\pp60\ctllib\DLGRES.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\lib\MAPI.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH
+
+$(INTDIR)/PRNPROCS.OBJ :  $(SOURCE)  $(DEP_PRNPR) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TRACER.CPP
+DEP_TRACE=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TRACER.OBJ :  $(SOURCE)  $(DEP_TRACE) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\TOOLPROC.CPP
+DEP_TOOLP=\
+	.\inc\PP.H\
+	.\inc\SVRDOC.H\
+	.\inc\SVRVIEW.H\
+	.\inc\ID.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\lib\FRAMELIB.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	\pp60\lib\MGXFRAME.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/TOOLPROC.OBJ :  $(SOURCE)  $(DEP_TOOLP) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\src\VISUAL.CPP
+DEP_VISUA=\
+	.\inc\PP.H\
+	.\inc\ID.H\
+	.\inc\VISUAL.H\
+	\pp60\lib\FRAMELIB.H\
+	.\inc\ROUTINES.H\
+	.\inc\COMMONID.H\
+	\pp60\browser\BSRID.H\
+	\pp60\lib\MGXFRAME.H\
+	\pp60\imgutil\TYPES.H\
+	.\inc\LIST.H\
+	\pp60\imgutil\IMGUTIL.H\
+	\pp60\superblt\SUPERBLT.H\
+	.\inc\ROOT.H\
+	.\inc\PPLIST.H\
+	.\inc\POLY.H\
+	.\inc\EDITPOLY.H\
+	.\inc\IMAGE.H\
+	.\inc\APP.H\
+	.\inc\APPSTYLE.H\
+	.\inc\AVI.H\
+	.\inc\SHAPEDIT.H\
+	.\inc\FILEOPT.H\
+	.\inc\ENGINE.H\
+	.\inc\CLRMNG.H\
+	.\inc\CMDPARMS.H\
+	.\inc\OBJEDIT.H\
+	.\inc\GAUSS.H\
+	.\inc\TSELECT.H\
+	.\inc\TCONTROL.H\
+	.\inc\BRUSH.H\
+	.\inc\TDRAW.H\
+	.\inc\IMGIO.H\
+	.\inc\TIFFIO.H\
+	.\inc\OBJIO.H\
+	.\inc\DIALOG.H\
+	.\inc\CONTROLS.H\
+	.\inc\TASKMAN.H\
+	.\inc\MAP.H\
+	.\inc\DATA.H\
+	.\inc\IMGCMD.H\
+	.\inc\THREAD.H\
+	\pp60\ctllib\CTLLIB.H\
+	.\inc\CMDMACRO.H\
+	.\inc\MAPPROCS.H\
+	.\inc\FITPOLY.H\
+	.\inc\DLGMGR.H\
+	.\inc\WINIMAGE.H\
+	.\inc\OBJECT.H\
+	.\inc\CMDLIST.H\
+	.\inc\PP5IO.H\
+	\pp60\ctllib\COMMON.H\
+	\pp60\ctllib\RADIO.H\
+	\pp60\ctllib\CHECK.H\
+	\pp60\ctllib\SLIDER.H\
+	\pp60\ctllib\SPIN.H\
+	\pp60\ctllib\ICON.H\
+	\pp60\ctllib\PICKER.H\
+	\pp60\ctllib\GRID.H\
+	\pp60\ctllib\LISTBOX.H\
+	\pp60\ctllib\DLGITEM.H\
+	\pp60\ctllib\CTLTOOLS.H\
+	\pp60\ctllib\STICK.H\
+	\pp60\ctllib\LUTCTL.H\
+	\pp60\ctllib\MAPCTL.H\
+	\pp60\ctllib\HISTOCTL.H\
+	\pp60\ctllib\GRADCTL.H\
+	\pp60\ctllib\PATCH.H\
+	\pp60\ctllib\TAGCTL.H\
+	\pp60\ctllib\STEXT.H\
+	\pp60\ctllib\DYNDLG.H\
+	.\inc\PIXMAP.H\
+	.\inc\MASK.H\
+	.\inc\CURSORS.H\
+	\pp60\ctllib\COMMON.RH\
+	\pp60\ctllib\RADIO.RH\
+	\pp60\ctllib\CHECK.RH\
+	\pp60\ctllib\SLIDER.RH\
+	\pp60\ctllib\SPIN.RH\
+	\pp60\ctllib\ICON.RH\
+	\pp60\ctllib\PICKER.RH\
+	\pp60\ctllib\GRID.RH\
+	\pp60\ctllib\LISTBOX.RH\
+	\pp60\ctllib\STICK.RH\
+	\pp60\ctllib\LUTCTL.RH\
+	\pp60\ctllib\WINXEXT.H\
+	\pp60\ctllib\DLGCAT.H\
+	\pp60\ctllib\DLGSEC.H\
+	\pp60\ctllib\DLGRES.H
+
+$(INTDIR)/VISUAL.OBJ :  $(SOURCE)  $(DEP_VISUA) $(INTDIR) $(INTDIR)/PP.OBJ
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+# End Group
+# End Project
+################################################################################

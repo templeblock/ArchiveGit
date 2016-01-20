@@ -1,0 +1,599 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "AppStudio.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "TextCompResource.h"
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "AppStudio.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""TextCompResource.h""\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DIALOG_LINESPACE_CUSTOM DIALOGEX 0, 0, 416, 116
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Line Spacing"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Single",CONTROL_RADIO_1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,15,19,35,10
+    CONTROL         "One and a half",CONTROL_RADIO_15,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,15,34,63,10
+    CONTROL         "Double",CONTROL_RADIO_2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,15,49,39,10
+    CONTROL         "Custom",CONTROL_RADIO_CUSTOM,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,15,64,39,10
+    EDITTEXT        CONTROL_EDIT,59,62,40,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_GROUP
+    CONTROL         "Spin1",CONTROL_SPIN,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,91,58,11,14
+    DEFPUSHBUTTON   "OK",IDOK,359,7,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,359,24,50,14,WS_GROUP
+    PUSHBUTTON      "&Help",ID_HELP,359,42,50,14,WS_GROUP
+    GROUPBOX        "Spacing",IDC_STATIC,7,7,100,74
+    LTEXT           "Preview Placeholder",CONTROL_STATIC_PLACEHOLDER,119,19,
+                    225,83,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    GROUPBOX        "Preview",IDC_STATIC,113,7,237,101
+END
+
+DIALOG_TEXT_SETTINGS DIALOG DISCARDABLE  0, 0, 313, 156
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Font"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        CONTROL_COMBO_TEXT_SETTINGS_FONT,53,7,99,101,
+                    CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+    CONTROL         "&Bold",CONTROL_CHECKBOX_TEXT_SETTINGS_BOLD,"Button",
+                    BS_3STATE | BS_BITMAP | BS_PUSHLIKE | WS_GROUP | 
+                    WS_TABSTOP,53,24,15,15
+    CONTROL         "&Italic",CONTROL_CHECKBOX_TEXT_SETTINGS_ITALIC,"Button",
+                    BS_3STATE | BS_BITMAP | BS_PUSHLIKE | WS_GROUP | 
+                    WS_TABSTOP,69,24,15,15
+    CONTROL         "&Underline",CONTROL_CHECKBOX_TEXT_SETTINGS_UNDERLINE,
+                    "Button",BS_3STATE | BS_BITMAP | BS_PUSHLIKE | WS_GROUP | 
+                    WS_TABSTOP,85,24,15,15
+    LTEXT           "&Size:",CONTROL_STATIC_TEXT_SETTINGS_SIZE,169,9,20,8
+    COMBOBOX        CONTROL_COMBO_TEXT_SETTINGS_SIZE,200,7,45,101,
+                    CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+    LTEXT           "&Color:",CONTROL_STATIC_TEXT_SETTINGS_COLOR,169,27,25,8
+    PUSHBUTTON      "Button2",CONTROL_BUTTON_TEXT_SETTINGS_COLOR,200,24,45,
+                    15,BS_BITMAP | WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,256,7,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,256,24,50,14,WS_GROUP
+    PUSHBUTTON      "&Help",ID_HELP,256,42,50,14,WS_GROUP
+    GROUPBOX        "Preview",IDC_STATIC_GB,7,40,238,109,WS_GROUP
+    EDITTEXT        CONTROL_EDIT_TEXT_SETTINGS_TEXT_SAMPLE,13,50,225,94,
+                    ES_MULTILINE | ES_READONLY | WS_GROUP | NOT WS_TABSTOP
+    LTEXT           "&Font:",CONTROL_STATIC_TEXT_SETTINGS_FONT,7,9,23,8
+    LTEXT           "Font Styles:",CONTROL_STATIC_TEXT_SETTINGS_FONTSTYLE,7,
+                    27,42,8
+END
+
+DIALOG_PPG_TEXTSHAPE DIALOG DISCARDABLE  0, 0, 296, 213
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Shape"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_A1,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,11,11,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_B1,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,49,11,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_C1,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,87,11,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_A2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,11,43,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_B2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,49,43,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_C2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,87,43,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_A3,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,11,76,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_B3,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,49,76,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_C3,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,87,76,35,30
+    CONTROL         "&No Shape",CONTROL_RADIO_TEXT_SHAPE_NOSHAPE,"Button",
+                    BS_AUTORADIOBUTTON,43,110,54,10
+    PUSHBUTTON      "Color&Background",
+                    CONTROL_BUTTON_TEXTSHAPE_COLOR_BACKGROUND,83,135,45,15,
+                    BS_BITMAP | WS_GROUP
+    PUSHBUTTON      "Color&Outline",CONTROL_BUTTON_TEXTSHAPE_COLOR_OUTLINE,
+                    83,153,45,15,BS_BITMAP | WS_GROUP
+    CONTROL         "&Horizontally",CONTROL_CHKBOX_TEXTSHAPE_FLIPHORIZ,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,183,65,10
+    CONTROL         "&Vertically",CONTROL_CHKBOX_TEXTSHAPE_FLIPVERT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,24,195,57,10
+    GROUPBOX        "",IDC_STATIC,7,3,131,120
+    GROUPBOX        "Preview",IDC_STATIC,144,7,145,149
+    LTEXT           "Static",CONTROL_STATIC_TEXTSHAPE_SHAPEPREVIEW,150,16,
+                    134,134,SS_SUNKEN | WS_BORDER
+    GROUPBOX        "Shape Color",IDC_STATIC,7,126,131,47
+    GROUPBOX        "Flip",IDC_STATIC,7,174,131,35
+    SCROLLBAR       CONTROL_SCROLLBAR_TEXTSHAPE_SHAPES,124,11,10,95,SBS_VERT | 
+                    WS_GROUP
+    LTEXT           "&Background",CONTROL_STATIC_TEXTSHAPE_COLOR_BACKGROUND,
+                    17,139,63,8
+    LTEXT           "&Outline",CONTROL_STATIC_TEXTSHAPE_COLOR_OUTLINE,17,156,
+                    63,8
+END
+
+DIALOG_TEXTATTRIB_WRAPAROUND DIALOG DISCARDABLE  0, 0, 368, 143
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text Around Graphic"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Wrap text around the &border of the graphic",
+                    CONTROL_RADIO_TEXTATTRIB_WRAP_BORDER,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,11,16,150,10
+    CONTROL         "Wrap text around the &contours of the graphic",
+                    CONTROL_RADIO_TEXTATTRIB_WRAP_GRAPHIC,"Button",
+                    BS_AUTORADIOBUTTON | BS_MULTILINE | WS_TABSTOP,11,30,157,
+                    10
+    CONTROL         "Text &ignores the graphic",
+                    CONTROL_RADIO_TEXTATTRIB_IGNORE_GRAPHIC,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,11,43,92,10
+    CONTROL         "",CONTROL_STATIC_TEXTATTRIB_WRAPPREVIEW,"Static",
+                    SS_BITMAP | SS_CENTERIMAGE | SS_SUNKEN | WS_BORDER,179,8,
+                    180,105
+    GROUPBOX        "Options",CONTROL_STATIC_TEXTATTRIB_OPTION,5,62,168,51
+    GROUPBOX        "Text Wrap",CONTROL_STATIC_TEXTATTRIB_WRAP,5,5,168,52
+    CONTROL         "&Tight",CONTROL_RADIO_TEXTATTRIB_TIGHT_TOLERANCE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,11,73,32,10
+    CONTROL         "&Medium",CONTROL_RADIO_TEXTATTRIB_MEDIUM_TOLERANCE,
+                    "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,11,86,41,10
+    CONTROL         "&Loose",CONTROL_RADIO_TEXTATTRIB_LOOSE_TOLERANCE,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,11,99,35,10
+    DEFPUSHBUTTON   "&OK",IDOK,199,124,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,254,124,50,14
+    PUSHBUTTON      "&Help",ID_HELP,309,124,50,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,6,118,354,1
+END
+
+DIALOG_INSERT_SYMBOL DIALOGEX 0, 0, 315, 246
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Insert Symbol"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "",CONTROL_STATIC_SYMBOL_SYMBOLGRID,12,11,234,223,NOT 
+                    WS_GROUP | WS_TABSTOP
+    DEFPUSHBUTTON   "&Insert",CONTROL_BUTTON_SYMBOL_INSERT,258,56,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,258,73,50,14
+    PUSHBUTTON      "&Help",ID_HELP,258,91,50,14
+    CONTROL         "",CONTROL_STATIC_SYMBOL_OUTLINE,"Static",SS_BLACKFRAME,
+                    7,7,244,232,WS_EX_STATICEDGE
+    CONTROL         "",CONTROL_STATIC_SYMBOL_SIDEBAR,"Static",SS_BITMAP | 
+                    SS_CENTERIMAGE | NOT WS_VISIBLE | WS_DISABLED,269,119,27,
+                    43
+    CONTROL         "Preview",CONTROL_BUTTON_SYMBOL_PREVIEW,"Button",
+                    BS_OWNERDRAW,258,7,50,41
+END
+
+DIALOG_PPG_TEXTBALLOON DIALOG DISCARDABLE  0, 0, 296, 213
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Word Balloons"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_A1,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,11,11,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_B1,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,49,11,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_C1,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,87,11,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_A2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,11,43,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_B2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,49,43,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_C2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,87,43,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_A3,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,11,76,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_B3,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,49,76,35,30
+    CONTROL         "Radio1",CONTROL_RADIO_TEXTSHAPE_C3,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,87,76,35,30
+    CONTROL         "&No Word Balloon",CONTROL_RADIO_TEXT_SHAPE_NOSHAPE,
+                    "Button",BS_AUTORADIOBUTTON,32,110,77,10
+    PUSHBUTTON      "Color&Background",
+                    CONTROL_BUTTON_TEXTSHAPE_COLOR_BACKGROUND,83,135,45,15,
+                    BS_BITMAP | WS_GROUP
+    PUSHBUTTON      "Color&Outline",CONTROL_BUTTON_TEXTSHAPE_COLOR_OUTLINE,
+                    83,153,45,15,BS_BITMAP | WS_GROUP
+    CONTROL         "&Horizontally",CONTROL_CHKBOX_TEXTSHAPE_FLIPHORIZ,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,183,65,10
+    CONTROL         "&Vertically",CONTROL_CHKBOX_TEXTSHAPE_FLIPVERT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,24,195,57,10
+    GROUPBOX        "",IDC_STATIC,7,3,131,120
+    GROUPBOX        "Preview",IDC_STATIC,144,7,145,149
+    LTEXT           "Static",CONTROL_STATIC_TEXTSHAPE_SHAPEPREVIEW,150,16,
+                    134,134,SS_SUNKEN | WS_BORDER
+    GROUPBOX        "Shape Color",IDC_STATIC,7,126,131,47
+    GROUPBOX        "Flip",IDC_STATIC,7,174,131,35
+    SCROLLBAR       CONTROL_SCROLLBAR_TEXTSHAPE_SHAPES,124,11,10,95,SBS_VERT | 
+                    WS_GROUP
+    LTEXT           "&Background",CONTROL_STATIC_TEXTSHAPE_COLOR_BACKGROUND,
+                    17,139,63,8
+    LTEXT           "&Outline",CONTROL_STATIC_TEXTSHAPE_COLOR_OUTLINE,17,156,
+                    63,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    DIALOG_LINESPACE_CUSTOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 409
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 109
+    END
+
+    DIALOG_INSERT_SYMBOL, DIALOG
+    BEGIN
+        RIGHTMARGIN, 314
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+CURSOR_TEXT_DRAG_DROP   CURSOR  DISCARDABLE     "..\\SharedRes\\Cursors\\IBeamHandCursor.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// TSEC
+//
+
+TEXT_SENTENCE_END_CHARACTER_LIST TSEC    DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\tsec1.bin"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+BMP_TEXTAVOIDANCE_IGNORE BITMAP  DISCARDABLE     "..\\SharedRes\\Bitmaps\\bitmap_t.bmp"
+BMP_TEXTSHAPE_OUTLINE   BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_OUTLINE.bmp"
+BMP_TEXTSHAPE_BACKGND   BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_BACKGND.bmp"
+BMP_TEXTSHAPE_00        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_0.bmp"
+BMP_TEXTSHAPE_01        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_1.bmp"
+BMP_TEXTSHAPE_02        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_2.bmp"
+BMP_TEXTSHAPE_03        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_3.bmp"
+BMP_TEXTSHAPE_04        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_4.bmp"
+BMP_TEXTSHAPE_05        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_5.bmp"
+BMP_TEXTSHAPE_06        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_6.bmp"
+BMP_TEXTSHAPE_07        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_7.bmp"
+BMP_TEXTSHAPE_08        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_8.bmp"
+BMP_TEXTSHAPE_09        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_9.bmp"
+BMP_TEXTSHAPE_10        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_10.bmp"
+BMP_TEXTSHAPE_11        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_11.bmp"
+BMP_TEXTSHAPE_12        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_12.bmp"
+BMP_TEXTSHAPE_13        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_13.bmp"
+BMP_TEXTSHAPE_14        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_14.bmp"
+BMP_TEXTSHAPE_15        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_15.bmp"
+BMP_TEXTSHAPE_16        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_16.bmp"
+BMP_TEXTSHAPE_17        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_17.bmp"
+BMP_TEXTSHAPE_18        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_18.bmp"
+BMP_TEXTSHAPE_19        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_19.bmp"
+BMP_TEXTSHAPE_20        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_20.bmp"
+BMP_TEXTSHAPE_21        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_21.bmp"
+BMP_TEXTSHAPE_22        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_22.bmp"
+BMP_TEXTSHAPE_23        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_23.bmp"
+BMP_TEXTSHAPE_24        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_24.bmp"
+BMP_TEXTSHAPE_25        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_25.bmp"
+BMP_TEXTSHAPE_26        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_26.bmp"
+BMP_TEXTSHAPE_27        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_27.bmp"
+BMP_TEXTSHAPE_28        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_28.bmp"
+BMP_TEXTSHAPE_29        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_29.bmp"
+BMP_TEXTSHAPE_30        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_30.bmp"
+BMP_TEXTSHAPE_31        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_31.bmp"
+BMP_TEXTSHAPE_32        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_32.bmp"
+BMP_TEXTSHAPE_33        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_33.bmp"
+BMP_TEXTSHAPE_34        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_34.bmp"
+BMP_TEXTSHAPE_35        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_35.bmp"
+BMP_TEXTSHAPE_36        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_36.bmp"
+BMP_TEXTSHAPE_37        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_37.bmp"
+BMP_TEXTSHAPE_38        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_38.bmp"
+BMP_TEXTSHAPE_39        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_39.bmp"
+BMP_TEXTSHAPE_40        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_40.bmp"
+BMP_TEXTSHAPE_41        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_41.bmp"
+BMP_TEXTSHAPE_42        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_42.bmp"
+BMP_TEXTSHAPE_43        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_43.bmp"
+BMP_TEXTSHAPE_44        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_44.bmp"
+BMP_TEXTSHAPE_45        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_45.bmp"
+BMP_TEXTSHAPE_46        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_46.bmp"
+BMP_TEXTSHAPE_47        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_47.bmp"
+BMP_TEXTSHAPE_48        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_48.bmp"
+BMP_TEXTSHAPE_49        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_49.bmp"
+BMP_TEXTSHAPE_50        BITMAP  DISCARDABLE     "..\\SharedRes\\button bmps\\shape\\BMP_TEXTSHAPE_50.bmp"
+BMP_TEXTAVOIDANCE_WRAPBORDER BITMAP  DISCARDABLE     "..\\SharedRes\\Bitmaps\\TextAvoidBorder.bmp"
+BMP_TEXTAVOIDANCE_WRAPBORDER_LOOSE BITMAP  DISCARDABLE     "..\\SharedRes\\Bitmaps\\TextAvoidBorderLoose.bmp"
+BMP_TEXTAVOIDANCE_WRAPBORDER_NORMAL BITMAP  DISCARDABLE     "..\\SharedRes\\Bitmaps\\TextAvoidBorderNormal.bmp"
+BMP_TEXTAVOIDANCE_WRAPCONTOUR BITMAP  DISCARDABLE     "..\\SharedRes\\Bitmaps\\TextAvoidContour.bmp"
+BMP_TEXTAVOIDANCE_WRAPCONTOUR_LOOSE BITMAP  DISCARDABLE     "..\\SharedRes\\Bitmaps\\TextAvoidContourLoose.bmp"
+BMP_TEXTAVOIDANCE_WRAPCONTOUR_NORMAL BITMAP  DISCARDABLE     "..\\SharedRes\\Bitmaps\\TextAvoidContourNormal.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+MENU_CONTEXT_TEXT_NOT_ACTIVE MENU DISCARDABLE 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "Cu&t\tCtrl+X",                COMMAND_MENU_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               COMMAND_MENU_EDIT_COPY
+        MENUITEM "D&elete\tDel",                COMMAND_MENU_EDIT_CLEAR
+        MENUITEM "&Duplicate\tCtrl+D",          COMMAND_MENU_EDIT_DUPLICATE
+        MENUITEM SEPARATOR
+        POPUP "La&yer"
+        BEGIN
+            MENUITEM "Bring &Forward",              COMMAND_MENU_EFFECTS_ORDER_BRINGFORWARD
+
+            MENUITEM "Bring To F&ront",             COMMAND_MENU_EFFECTS_ORDER_BRINGTOFRONT
+
+            MENUITEM "Send Back&ward",              COMMAND_MENU_EFFECTS_ORDER_SENDBACKWARD
+
+            MENUITEM "Send To &Back",               COMMAND_MENU_EFFECTS_ORDER_SENDTOBACK
+
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Apply &Box...",               COMMAND_MENU_EFFECTS_FRAME_DIALOG
+
+        MENUITEM "Apply Drop &Shadow..",        COMMAND_MENU_EFFECTS_DROPSHADOW
+
+        MENUITEM "Apply Radiant &Glow...",      COMMAND_MENU_EFFECTS_GLOW
+        MENUITEM SEPARATOR
+        POPUP "Colo&r"
+        BEGIN
+            MENUITEM "&Text...",                    COMMAND_MENU_EFFECTS_COLOR_OBJECT
+
+            MENUITEM "&Behind Text...",             COMMAND_MENU_EFFECTS_COLOR_BEHIND_OBJECT
+
+        END
+        POPUP "Ti&nt"
+        BEGIN
+            MENUITEM "10&0%",                       COMMAND_MENU_EFFECTS_TINT_100
+
+            MENUITEM "&90%",                        COMMAND_MENU_EFFECTS_TINT_90
+
+            MENUITEM "&80%",                        COMMAND_MENU_EFFECTS_TINT_80
+
+            MENUITEM "&70%",                        COMMAND_MENU_EFFECTS_TINT_70
+
+            MENUITEM "&60%",                        COMMAND_MENU_EFFECTS_TINT_60
+
+            MENUITEM "&50%",                        COMMAND_MENU_EFFECTS_TINT_50
+
+            MENUITEM "&40%",                        COMMAND_MENU_EFFECTS_TINT_40
+
+            MENUITEM "&30%",                        COMMAND_MENU_EFFECTS_TINT_30
+
+            MENUITEM "&20%",                        COMMAND_MENU_EFFECTS_TINT_20
+
+            MENUITEM "&10%",                        COMMAND_MENU_EFFECTS_TINT_10
+
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Text Bloc&k Shape...",        COMMAND_MENU_TEXT_ATTRIBUTES
+        MENUITEM "&Word Balloons...",           COMMAND_MENU_TEXT_WORD_BALLOONS
+
+        MENUITEM "Text Aro&und Graphics...",    COMMAND_MENU_TEXT_AROUND_GRAPHICS
+
+    END
+END
+
+MENU_CONTEXT_TEXT_ACTIVE_NO_SELECTION MENU DISCARDABLE 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "&Paste",                      COMMAND_MENU_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "&Font...",                    COMMAND_MENU_TEXT_SETTINGS
+        POPUP "Ali&gnment"
+        BEGIN
+            MENUITEM "&Left",                       COMMAND_MENU_TEXT_JUSTIFICATION_LEFT
+
+            MENUITEM "&Center",                     COMMAND_MENU_TEXT_JUSTIFICATION_CENTER
+
+            MENUITEM "&Right",                      COMMAND_MENU_TEXT_JUSTIFICATION_RIGHT
+
+            MENUITEM "&Full",                       COMMAND_MENU_TEXT_JUSTIFICATION_FULL
+
+        END
+        POPUP "&Line Spacing"
+        BEGIN
+            MENUITEM "&Single Space",               COMMAND_MENU_TEXT_SINGLE_SPACE
+            , GRAYED
+            MENUITEM "1.5 &Line Spacing",           COMMAND_MENU_TEXT_ONE_ONE_HALF_SPACE
+            , GRAYED
+            MENUITEM "&Double Space",               COMMAND_MENU_TEXT_DOUBLE_SPACE
+            , GRAYED
+            MENUITEM "&Custom Line Space...",       COMMAND_MENU_TEXT_CUSTOM_SPACE
+            , GRAYED
+        END
+        MENUITEM "Add &Bullets",                COMMAND_MENU_TEXT_BULLET
+        MENUITEM "&Hyphenation On",             COMMAND_MENU_TEXT_HYPHENATION
+
+        MENUITEM SEPARATOR
+        MENUITEM "&Insert Symbol...",           COMMAND_MENU_TEXT_INSERT_SYMBOL
+
+        MENUITEM "I&nsert Address / List Field...", 
+                                                COMMAND_MENU_TEXT_INSERT_FIELD
+
+        MENUITEM "&Quotes and Verses...",       COMMAND_MENU_TEXT_QUOTESANDVERSES
+
+    END
+END
+
+MENU_CONTEXT_TEXT_ACTIVE_SELECTION MENU DISCARDABLE 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "Cu&t\tCtrl+X",                COMMAND_MENU_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               COMMAND_MENU_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              COMMAND_MENU_EDIT_PASTE
+        MENUITEM "D&elete\tDel",                COMMAND_MENU_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "&Font...",                    COMMAND_MENU_TEXT_SETTINGS
+        POPUP "Ali&gnment"
+        BEGIN
+            MENUITEM "&Left",                       COMMAND_MENU_TEXT_JUSTIFICATION_LEFT
+
+            MENUITEM "&Center",                     COMMAND_MENU_TEXT_JUSTIFICATION_CENTER
+
+            MENUITEM "&Right",                      COMMAND_MENU_TEXT_JUSTIFICATION_RIGHT
+
+            MENUITEM "&Full",                       COMMAND_MENU_TEXT_JUSTIFICATION_FULL
+
+        END
+        POPUP "&Line Spacing"
+        BEGIN
+            MENUITEM "&Single Space",               COMMAND_MENU_TEXT_SINGLE_SPACE
+            , GRAYED
+            MENUITEM "1.5 &Line Spacing",           COMMAND_MENU_TEXT_ONE_ONE_HALF_SPACE
+            , GRAYED
+            MENUITEM "&Double Space",               COMMAND_MENU_TEXT_DOUBLE_SPACE
+            , GRAYED
+            MENUITEM "&Custom Line Space...",       COMMAND_MENU_TEXT_CUSTOM_SPACE
+            , GRAYED
+        END
+        MENUITEM "Add &Bullets",                COMMAND_MENU_TEXT_BULLET
+        MENUITEM "&Hyphenation On",             COMMAND_MENU_TEXT_HYPHENATION
+
+        MENUITEM SEPARATOR
+        MENUITEM "&Insert Symbol...",           COMMAND_MENU_TEXT_INSERT_SYMBOL
+
+        MENUITEM "I&nsert Address / List Field...", 
+                                                COMMAND_MENU_TEXT_INSERT_FIELD
+
+        MENUITEM "&Quotes and Verses...",       COMMAND_MENU_TEXT_QUOTESANDVERSES
+
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_UNDO_TYPING      "&Undo Typing\tCtrl+Z"
+    STRING_REDO_TYPING      "&Redo Typing\tCtrl+Y"
+    STRING_UNDO_INSERT_MERGE_FIELD "&Undo Insert Merge Field\tCtrl+Z"
+    STRING_REDO_INSERT_MERGE_FIELD "&Redo Insert Merge Field\tCtrl+Y"
+    STRING_UNDO_ALTER_FONT  "&Undo Font Change\tCtrl+Z"
+    STRING_REDO_ALTER_FONT  "&Redo Font Change\tCtrl+Y"
+    STRING_UNDO_ALTER_PARAGRAPH "&Undo Paragraph Change\tCtrl+Z"
+    STRING_REDO_ALTER_PARAGRAPH "&Redo Paragraph Change\tCtrl+Y"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_DEFAULT_CHARACTER_SETTINGS_TEXT 
+                            "The quick brown fox jumps over the lazy dog."
+    STRING_UNDO_CUTTEXT     "&Undo Cut\tCtrl+Z"
+    STRING_REDO_CUTTEXT     "&Redo Cut\tCtrl+Y"
+    STRING_UNDO_DELETE_TYPING "&Undo Character Deletion\tCtrl+Z"
+    STRING_REDO_DELETE_TYPING "&Redo Character Deletion\tCtrl+Y"
+    STRING_UNDO_DELETE_TEXT_SELECTION "&Undo Delete Text Selection\tCtrl+Z"
+    STRING_REDO_DELETE_TEXT_SELECTION "&Redo Delete Text Selection\tCtrl+Y"
+    STRING_UNDO_TEXT_MOVE   "&Undo Text Move\tCtrl+Z"
+    STRING_REDO_TEXT_MOVE   "&Redo Text Move\tCtrl+Y"
+    STRING_UNDO_CHANGE_RETURN_ADDRESS "&Undo Change Return Address\tCtrl+Z"
+    STRING_REDO_CHANGE_RETURN_ADDRESS "&Redo Change Return Address\tCtrl+Y"
+    STRING_UNDO_INSERT_QUOTE "&Undo Insert Quote\tCtrl+Z"
+    STRING_REDO_INSERT_QUOTE "&Redo Insert Quote\tCtrl+Y"
+    STRING_UNDO_INSERT_SYMBOL "&Undo Insert Symbol\tCtrl+Z"
+    STRING_REDO_INSERT_SYMBOL "&Redo Insert Symbol\tCtrl+Y"
+    STRING_UNDO_LINE_SPACEING "&Undo Line Space Change\tCtrl+Z"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_REDO_LINE_SPACEING "&Redo Line Space Change\tCtrl+Y"
+    STRING_UNDO_PASTETEXT   "&Undo Paste\tCtrl+Z"
+    STRING_REDO_PASTETEXT   "&Redo Paste\tCtrl+Y"
+    STRING_RETURN_ADDRESS_FORMAT "%f %l\n%a\n%c, %s %z"
+    STRING_UNDO_SETTEXTBLOCK "&Undo Text Block Attributes\tCtrl+Z"
+    STRING_REDO_SETTEXTBLOCK "&Redo Text Block Attributes\tCtrl+Y"
+    STRING_TEXT_COMPONENT_CREATION 
+                            "New text block.  Double-click to activate and start editing."
+    STRING_TEXT_COMPONENT_BULLET_FONT "Symbol"
+    STRING_AVOIDANCE_DIALOG_DEFAULT_TEXT 
+                            "This text is to help you see the effect of the selected shape or word balloon. This text is to help you see the effect of the selected shape or word balloon. This text is to help you see the effect of the selected shape or word balloon."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

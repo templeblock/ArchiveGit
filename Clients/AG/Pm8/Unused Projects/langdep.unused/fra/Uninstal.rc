@@ -1,0 +1,258 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\Uninstal.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "\r\n"
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "#include ""afxres.rc""  // Standard components\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_UNINSTALL_DIALOG DIALOG DISCARDABLE  0, 0, 224, 104
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Supprimer PrintMaster "
+FONT 10, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Continuer",IDC_CONTINUE,45,75,50,14,WS_GROUP
+    PUSHBUTTON      "Annuler",IDCANCEL,126,76,50,14
+    LTEXT           "Ce programme désinstalle PrintMaster de votre ordinateur.",
+                    IDC_STATIC,8,9,194,8
+    CTEXT           "Cliquez sur Continuer pour supprimer PrintMaster.",IDC_STATIC,24,56,
+                    176,8
+    LTEXT           "L'ensemble du programme PrintMaster, y compris vos projets enregistrés, sera supprimé de votre disque dur.",
+                    IDC_STATIC,9,25,208,16
+END
+
+IDD_DELETE_SHARED_DLL DIALOG DISCARDABLE  0, 0, 187, 117
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Supprimer Fichier ?"
+FONT 10, "MS Sans Serif"
+BEGIN
+    LTEXT           "Fichier :",IDC_STATIC,11,7,19,8
+    LTEXT           "",IDC_FILE_TO_DELETE,36,7,140,8
+    LTEXT           "Ce fichier peut être utilisé par d'autres applications. Si vous le supprimez, ces applications risquent de ne plus fonctionner. Il est recommandé de laisser ce fichier sur votre système.",
+                    IDC_STATIC,11,23,165,33
+    LTEXT           "Cliquez sur Ne pas supprimer pour laisser ce fichier sur votre système.\nCliquez sur Supprimer pour supprimer ce fichier.",
+                    IDC_STATIC,11,62,173,22
+    DEFPUSHBUTTON   "Ne &pas supprimer",IDCANCEL,24,93,69,14
+    PUSHBUTTON      "Supprimer",IDOK,113,93,50,14,WS_GROUP
+END
+
+IDD_DELETE_IDAPI DIALOG DISCARDABLE  0, 0, 187, 153
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Supprimer IDAPI ?"
+FONT 10, "MS Sans Serif"
+BEGIN
+    LTEXT           "Répertoire IDAPI :",IDC_STATIC,11,7,58,8
+    LTEXT           "",IDC_IDAPI_DIRECTORY,74,7,105,8
+    LTEXT           "PrintMaster utilise IDAPI pour ses carnets d'adresses. D'autres applications peuvent aussi utiliser IDAPI. Si vous supprimez IDAPI, ces autres applications risquent de ne pas fonctionner. ",
+                    IDC_STATIC,11,21,163,35
+    LTEXT           "IL EST FORTEMENT RECOMMANDE de ne PAS supprimer IDAPI. Mieux vaut le laisser sur votre système.",
+                    IDC_STATIC,11,61,163,26
+    LTEXT           "Cliquez sur Ne pas supprimer pour laisser IDAPI sur votre système.\nCliquez sur Supprimer pour supprimer IDAPI.",
+                    IDC_STATIC,11,98,172,19
+    DEFPUSHBUTTON   "Ne &pas supprimer",IDCANCEL,24,129,69,14
+    PUSHBUTTON      "Supprimer",IDOK,113,129,50,14,WS_GROUP
+END
+
+IDD_PROGRESS DIALOG DISCARDABLE  0, 0, 216, 60
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Suppression de PrintMaster "
+FONT 10, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_ACTION,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,7,10,
+                    202,27
+    LTEXT           "",IDC_ITEM,12,27,164,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,0,24
+ PRODUCTVERSION 2,0,0,24
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "MicroLogic Software, Inc.\0"
+            VALUE "FileDescription", "PrintMaster Gold Uninstall\0"
+            VALUE "FileVersion", "2.00.24\0"
+            VALUE "InternalName", "UNINSTAL\0"
+            VALUE "LegalCopyright", "Copyright (c) 1995\0"
+            VALUE "OriginalFilename", "UNINSTAL.EXE\0"
+            VALUE "ProductName", "PrintMaster Gold Uninstall\0"
+            VALUE "ProductVersion", "2.00.24\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "RES\\UNINSTAL.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_UNINSTALL_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 217
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 50
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Supprimer PrintMaster "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ErrBadRegistryInfo  "MSREG.INI ne contient pas les informations d'enregistrement correctes."
+    IDS_CONFIRM_UNINSTALL   "Etes-vous certain de vouloir supprimer PrintMaster ?"
+    IDS_UNINSTALL_SUCCESS   "PrintMaster a été correctement supprimé."
+    IDS_UNINSTALL_FAILURE   "PrintMaster n'a pas pu être complètement supprimé."
+    IDS_PMG_GROUP_TRIAL_VERSION "PrintMaster  - Version d'essai"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PMG_GROUP           "PrintMaster "
+    IDS_UNINSTALLING        "Suppression du groupe PrintMaster"
+    IDS_CANT_INITIALIZE_DDE "Impossible d'initialiser les communications DDE."
+    IDS_PRINTMASTER         "PrintMaster"
+    IDS_STARTUP             "Démarrage"
+    IDS_UPDATING_REGISTRY   "Mise à jour du registre"
+    IDS_UPDATING_SHARED_FILES "Mise à jour des fichiers partagés"
+    IDS_REMOVING_PRINTMASTER_DIRECTORIES "Suppression des répertoires PrintMaster"
+    IDS_REMOVING_UNINSTALL_FROM_REGISTRY "Suppression du programme de désinstallation du registre"
+    IDS_BAD_DIRECTORY       "ERREUR : mauvais répertoire indiqué pour la suppression du répertoire :\n%s"
+    IDS_CANT_REMOVE_FILE    "Impossible de supprimer le fichier \n%s.\n\nCertains fichiers PrintMaster sont peut-être encore utilisés. Essayez de redémarrer Windows et d'exécuter à nouveau le programme de désinstallation de PrintMaster."
+    IDS_CANT_REMOVE_DIRECTORY "Impossible de supprimer le répertoire \n%s\n(Error %d)"
+    IDS_NO_DIRECTORY_SPECIFIED "Aucun répertoire spécifié."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\Uninstal.rc2"  // non-Microsoft Visual C++ edited resources
+
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+#include "afxres.rc"  // Standard components
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

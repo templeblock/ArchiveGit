@@ -1,0 +1,34 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                    rsubsets.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Set and Subsets dialog functions.
+ Date Created:  03/07/94
+       Author:  Stephen M. Suggs
+
+*****************************************************************************/
+
+//#ifndef RWSUBSETS_P
+//#define RWSUBSETS_P
+
+/****************************** Public Functions ****************************/
+
+extern BOOL WINPROC EXPORT DlgRoomSubsets (HWND hWnd,UINT wMsg,WPARAM wParam,LPARAM lParam);
+
+/****************************** Local Functions *****************************/
+
+static void ShowCoverBitmaps (HWND hWnd);
+static void HideCoverBitmaps (HWND hWnd);
+static void PlayCoverAnimation (HWND hWnd, int x, int y, int iID1, int iID2,
+  int x2, int y2);
+

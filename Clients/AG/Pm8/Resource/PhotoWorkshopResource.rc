@@ -1,0 +1,476 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "AppStudio.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "PhotoWorkshopResource.h"
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "AppStudio.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""PhotoWorkshopResource.h""\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EDITIMAGE_TABBED DIALOG DISCARDABLE  0, 0, 408, 266
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Photo Workshop"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Revert",IDC_EDIT_RESET,5,249,55,14
+    PUSHBUTTON      "&Save As...",IDC_EDIT_SAVEAS,74,249,55,14
+    PUSHBUTTON      "&OK",IDOK,223,249,55,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,285,249,55,14
+    PUSHBUTTON      "&Help",ID_HELP,345,249,55,14
+    CONTROL         "Tab1",IDC_EDIT_TAB,"SysTabControl32",TCS_FIXEDWIDTH | 
+                    WS_TABSTOP,3,0,397,242
+END
+
+IDD_EDIT_CROP_TAB DIALOG DISCARDABLE  0, 0, 392, 227
+STYLE DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "PWShapesBtn",IDC_SHAPES_BTN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,8,17,25,24
+    CONTROL         "PWFreehandBtn",IDC_FREEHAND_BTN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,8,50,25,24
+    CONTROL         "PWCropItBtn",IDC_CUTIT_BTN,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,8,82,25,12
+    CONTROL         "PWRemoveCropBtn",IDC_REMOVE_CROP_BTN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,8,102,25,12
+    CONTROL         "PWRotateBtn",IDC_ROTATE_BTN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,8,135,25,24
+    CONTROL         "PWZoomInBtn",IDC_ZOOMIN_BTN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,18,177,18,18
+    CONTROL         "PWZoomOutBtn",IDC_ZOOMOUT_BTN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,41,177,18,18
+    CONTROL         "PWUndoBtn",IDC_UNDO_BTN,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,18,207,40,15
+    GROUPBOX        "Crop/Cut-Out",IDC_STATIC,3,4,74,118
+    LTEXT           "Shapes",IDC_STATIC,41,25,26,9
+    LTEXT           "Freehand",IDC_STATIC,41,60,30,8
+    GROUPBOX        "Orientation",IDC_STATIC,3,124,74,44
+    LTEXT           "Rotate 90 Degrees",IDC_STATIC,41,139,31,16
+    GROUPBOX        "",IDC_STATIC,81,184,300,38
+    LTEXT           "Select the crop tool that will work best for your image content.  Outline the area to keep and select ""Crop It"" to eliminate the rest.",
+                    IDC_STATIC,115,196,255,19
+    LISTBOX         IDC_PREVIEW_AREA,81,5,300,181,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_HSCROLL
+    LTEXT           "Remove\nCrop",IDC_STATIC,41,101,33,16
+    LTEXT           "Crop It",IDC_STATIC,41,85,34,8
+    ICON            IDI_INFOSYMBOL_GRAPHICCOMP,IDC_STATIC,89,195,20,20
+END
+
+IDD_EDIT_ADJUSTCOLOR_TAB DIALOG DISCARDABLE  0, 0, 392, 227
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Fine Adjustment",IDC_FINE_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,137,81,12
+    CONTROL         "Coarse Adjustment",IDC_COARSE_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,17,151,77,13
+    PUSHBUTTON      "PWConvertBWBtn",IDC_CONVERTBW_BTN,14,173,29,26,BS_BITMAP | 
+                    WS_GROUP
+    CONTROL         "PWUndoBtn",IDC_UNDO_BTN,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_GROUP | WS_TABSTOP,35,207,40,15
+    LTEXT           "",IDC_MORE_GRN,26,15,29,26,SS_SUNKEN
+    LTEXT           "",IDC_CUR_PREVIEW,253,15,131,172,SS_SUNKEN | NOT 
+                    WS_GROUP
+    LTEXT           "",IDC_MORE_YEL,60,15,29,26,SS_SUNKEN
+    LTEXT           "",IDC_MORE_RED,75,54,29,26,SS_SUNKEN
+    LTEXT           "",IDC_MORE_MAG,60,94,29,26,SS_SUNKEN
+    LTEXT           "",IDC_MORE_BLUE,26,94,29,26,SS_SUNKEN
+    LTEXT           "",IDC_MORE_CYAN,9,54,29,26,SS_SUNKEN
+    LTEXT           "Green",IDC_STATIC,30,43,21,8
+    LTEXT           "Yellow",IDC_STATIC,63,43,23,8
+    LTEXT           "Red",IDC_STATIC,83,82,14,8
+    LTEXT           "Magenta",IDC_STATIC,60,122,29,8
+    LTEXT           "Blue",IDC_STATIC,33,122,15,8
+    LTEXT           "Cyan",IDC_STATIC,14,82,20,8
+    CTEXT           "Convert to\nBlack and White",IDC_STATIC,47,178,54,17
+    LTEXT           "",IDC_BEFORE_PREVIEW,115,15,131,172,SS_SUNKEN | NOT 
+                    WS_GROUP
+    LTEXT           "Before",IDC_STATIC,166,5,22,8
+    GROUPBOX        "",IDC_STATIC,115,187,269,36
+    ICON            IDI_INFOSYMBOL_GRAPHICCOMP,IDC_STATIC,122,197,20,20
+    LTEXT           "Select fine or coarse adjustment for subtle or strong action.  Adjust your image toward a desired color by clicking on the appropriate color button.  Repeat as needed.",
+                    IDC_STATIC,150,195,228,25,NOT WS_GROUP
+    LTEXT           "After",IDC_STATIC,309,5,16,9
+    GROUPBOX        "Adjust",IDC_STATIC,4,5,105,163
+    CONTROL         IDB_PHOTOWORKSHOP_ADJUST_COLOR,IDC_STATIC,"Static",SS_BITMAP,39,52,36,37
+END
+
+IDD_EDIT_BRIGHTNESS_TAB DIALOG DISCARDABLE  0, 0, 392, 227
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Slider1",IDC_BRIGHTNESS_SLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_GROUP | WS_TABSTOP,8,15,98,16
+    CONTROL         "Slider1",IDC_CONTRAST_SLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_GROUP | WS_TABSTOP,8,67,98,16
+    CONTROL         "Slider1",IDC_BLURSHARP_SLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_GROUP | WS_TABSTOP,8,123,98,16
+    CONTROL         "Fine Adjustment",IDC_FINE_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,20,171,81,12
+    CONTROL         "Coarse Adjustment",IDC_COARSE_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,19,185,81,12
+    CONTROL         "PWUndoBtn",IDC_UNDO_BTN,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_GROUP | WS_TABSTOP,37,207,40,15
+    GROUPBOX        "",IDC_STATIC,3,0,107,53
+    LTEXT           "Contrast",IDC_STATIC,42,92,27,10
+    GROUPBOX        "",IDC_STATIC,3,55,107,53
+    LTEXT           "Brightness",IDC_STATIC,40,37,33,10
+    GROUPBOX        "",IDC_STATIC,115,187,269,36
+    LTEXT           "Select fine or coarse adjustment for subtle or strong action.  Adjust the sliders for desired effects on image.",
+                    IDC_STATIC,146,199,229,17,NOT WS_GROUP
+    GROUPBOX        "",IDC_STATIC,3,110,107,53
+    LTEXT           "Before",IDC_STATIC,166,5,22,9
+    LTEXT           "After",IDC_STATIC,309,5,16,9
+    GROUPBOX        "",IDC_STATIC,3,163,107,38
+    LTEXT           "+",IDC_STATIC,96,8,8,9
+    LTEXT           "+",IDC_STATIC,96,61,8,9
+    LTEXT           "-",IDC_STATIC,15,7,8,9
+    LTEXT           "-",IDC_STATIC,15,60,8,8
+    LTEXT           "",IDC_AFTER_AREA,253,15,131,172,SS_SUNKEN | NOT 
+                    WS_GROUP
+    LTEXT           "",IDC_BEFORE_AREA,115,15,131,172,SS_SUNKEN | NOT 
+                    WS_GROUP
+    ICON            IDI_IE_BRIGHT,IDC_STATIC,86,31,20,20
+    ICON            IDI_EI_DARK,IDC_STATIC,4,32,20,20
+    ICON            IDI_IE_LOWCONTRAST,IDC_STATIC,8,86,20,20
+    ICON            IDI_IE_HIGHCONTRAST,IDC_STATIC,85,86,20,20
+    ICON            IDI_EI_BLUR,IDC_STATIC,6,141,20,20
+    ICON            IDI_EI_SHRP,IDC_STATIC,86,141,20,20
+    LTEXT           "Blur / Sharpen",IDC_STATIC,34,146,49,10
+    ICON            IDI_INFOSYMBOL_GRAPHICCOMP,IDC_STATIC,121,197,20,20
+END
+
+IDD_EDIT_FIXFLAW_TAB DIALOG DISCARDABLE  0, 0, 392, 227
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "PWRedEyeBtn",IDC_REDEYE_BTN,8,18,25,24,BS_BITMAP
+    PUSHBUTTON      "PWPetEyeBtn",IDC_PETEYE_BTN,8,55,25,24,BS_BITMAP
+    PUSHBUTTON      "PWDustBtn",IDC_DUST_BTN,8,92,25,24,BS_BITMAP
+    PUSHBUTTON      "PWShinyBtn",IDC_SHINE_BTN,8,128,25,24,BS_BITMAP
+    CONTROL         "PWZoomInBtn",IDC_ZOOMIN_BTN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,18,177,18,18
+    CONTROL         "PWZoomOutBtn",IDC_ZOOMOUT_BTN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,41,177,18,18
+    CONTROL         "PWUndoBtn",IDC_UNDO_BTN,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,18,207,40,15
+    GROUPBOX        "Fix",IDC_STATIC,3,4,72,159
+    LTEXT           "Red Eye",IDC_STATIC,42,27,28,9
+    LTEXT           "Pet Eye",IDC_STATIC,42,65,27,8
+    LTEXT           "Shiny Face",IDC_STATIC,42,134,29,16
+    GROUPBOX        "",IDC_STATIC,81,184,300,38
+    ICON            IDI_INFOSYMBOL_GRAPHICCOMP,IDC_STATIC,89,195,20,20
+    LTEXT           "Choose the tool and brush size appropriate for the flaw.  Zoom in or out for more precision.  Click on the flaw to improve its appearance.  Repeat as needed.",
+                    IDC_STATIC,114,196,255,17
+    LISTBOX         IDC_PREVIEW_AREA,81,5,300,181,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_HSCROLL
+    LTEXT           "Dust and Scratch",IDC_STATIC,42,98,29,18
+END
+
+IDD_EDIT_ARTEFFECTS_TAB DIALOG DISCARDABLE  0, 0, 392, 227
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_EFFECTS_GRID,10,17,227,172,LBS_NOINTEGRALHEIGHT | 
+                    WS_HSCROLL | WS_TABSTOP
+    CONTROL         "PWUndoBtn",IDC_UNDO_BTN,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,25,207,40,15
+    LTEXT           "Effects:",IDC_STATIC,12,5,35,8
+    LTEXT           "Current",IDC_STATIC,303,4,26,9
+    GROUPBOX        "",IDC_STATIC,249,190,131,32
+    LTEXT           "Try various effects from the gallery on your image.",
+                    IDC_STATIC,283,199,89,17
+    LTEXT           "",IDC_PREVIEW_AREA,249,17,131,172,SS_SUNKEN
+    ICON            IDI_INFOSYMBOL_GRAPHICCOMP,IDC_STATIC,256,198,20,20
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+TOOLBAR_REDEYE TOOLBAR DISCARDABLE  32, 32
+BEGIN
+    BUTTON      ID_REDEYE_LG
+    BUTTON      ID_REDEYE_MED
+    BUTTON      ID_REDEYE_SM
+END
+
+TOOLBAR_PETEYE TOOLBAR DISCARDABLE  32, 32
+BEGIN
+    BUTTON      ID_PETEYE_LG
+    BUTTON      ID_PETEYE_MED
+    BUTTON      ID_PETEYE_SM
+END
+
+TOOLBAR_DUST TOOLBAR DISCARDABLE  32, 32
+BEGIN
+    BUTTON      ID_DUST_CIR_LG
+    BUTTON      ID_DUST_CIR_MED
+    BUTTON      ID_DUST_CIR_SM
+END
+
+TOOLBAR_SHINE TOOLBAR DISCARDABLE  32, 32
+BEGIN
+    BUTTON      ID_SHINE_LG
+    BUTTON      ID_SHINE_MED
+    BUTTON      ID_SHINE_SM
+END
+
+TOOLBAR_CUTOUT TOOLBAR DISCARDABLE  32, 32
+BEGIN
+    BUTTON      ID_CUTOUT_CIRCLE
+    BUTTON      ID_CUTOUT_SQUARE
+    BUTTON      ID_CUTOUT_HEART
+    BUTTON      ID_CUTOUT_ARCH
+    BUTTON      ID_CUTOUT_SQUARE_NOTCHED
+    BUTTON      ID_CUTOUT_SQUARE_RND
+    BUTTON      ID_CUTOUT_SQUARE_SLANT
+    BUTTON      ID_CUTOUT_STAR
+    BUTTON      ID_CUTOUT_TRIANGLE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// CROPPATH
+//
+
+ID_CUTOUT_CIRCLE        CROPPATH DISCARDABLE    "Shared\\CropPaths\\Circle.jpg"
+ID_CUTOUT_SQUARE        CROPPATH DISCARDABLE    "Shared\\CropPaths\\Square.jpg"
+ID_CUTOUT_HEART         CROPPATH DISCARDABLE    "Shared\\CropPaths\\Heart.jpg"
+ID_CUTOUT_ARCH          CROPPATH DISCARDABLE    "Shared\\CropPaths\\Arch.jpg"
+ID_CUTOUT_SQUARE_NOTCHED CROPPATH DISCARDABLE    "Shared\\CropPaths\\Edges.jpg"
+ID_CUTOUT_SQUARE_SLANT  CROPPATH DISCARDABLE    "Shared\\CropPaths\\Rounded.jpg"
+ID_CUTOUT_SQUARE_RND    CROPPATH DISCARDABLE    "Shared\\CropPaths\\RoundEdge.jpg"
+ID_CUTOUT_STAR          CROPPATH DISCARDABLE    "Shared\\CropPaths\\Star.jpg"
+ID_CUTOUT_TRIANGLE      CROPPATH DISCARDABLE    "Shared\\CropPaths\\Triangle.jpg"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ARTEFFECT_01        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX01.BMP"
+IDB_ARTEFFECT_02        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX02.BMP"
+IDB_ARTEFFECT_03        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX03.BMP"
+IDB_ARTEFFECT_04        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX04.BMP"
+IDB_ARTEFFECT_05        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX05.BMP"
+IDB_ARTEFFECT_06        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX06.BMP"
+IDB_ARTEFFECT_07        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX07.BMP"
+IDB_ARTEFFECT_08        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX08.BMP"
+IDB_ARTEFFECT_09        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX09.BMP"
+IDB_ARTEFFECT_10        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX10.BMP"
+IDB_ARTEFFECT_11        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX11.BMP"
+IDB_ARTEFFECT_12        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX12.BMP"
+IDB_ARTEFFECT_13        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX13.BMP"
+IDB_ARTEFFECT_14        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX14.BMP"
+IDB_ARTEFFECT_15        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX15.BMP"
+IDB_ARTEFFECT_16        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX16.BMP"
+IDB_ARTEFFECT_17        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX17.BMP"
+IDB_ARTEFFECT_18        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX18.BMP"
+IDB_ARTEFFECT_19        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX19.BMP"
+IDB_ARTEFFECT_20        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX20.BMP"
+IDB_ARTEFFECT_21        BITMAP  DISCARDABLE     "Shared\\ImageEdit\\EI_AE_FX21.BMP"
+TOOLBAR_REDEYE          BITMAP  DISCARDABLE     "Shared\\Toolbars\\3RoundBrushes.bmp"
+TOOLBAR_PETEYE          BITMAP  DISCARDABLE     "Shared\\Toolbars\\3RoundBrushes.bmp"
+TOOLBAR_DUST            BITMAP  DISCARDABLE     "Shared\\Toolbars\\3RoundBrushes.bmp"
+TOOLBAR_SHINE           BITMAP  DISCARDABLE     "Shared\\Toolbars\\3RoundBrushes.bmp"
+TOOLBAR_CUTOUT          BITMAP  DISCARDABLE     "Shared\\Toolbars\\CutoutFlyOut.bmp"
+IDB_PHOTOWORKSHOP_PETEYE BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_pet_eye.bmp"
+IDB_PHOTOWORKSHOP_REDEYE BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_red_eye.bmp"
+IDB_PHOTOWORKSHOP_DUST_SCRATCH BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_dust_scrtch.bmp"
+IDB_PHOTOWORKSHOP_SHINE BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_shine.bmp"
+BITMAP_FORMAT_NOT_SUPPORTED BITMAP  DISCARDABLE     "Shared\\Placeholders\\Format_not_Supp.BMP"
+IDB_PHOTOWORKSHOP_ADJUST_COLOR BITMAP  DISCARDABLE     "Shared\\ImageEdit\\adjcol.bmp"
+IDB_PHOTOWORKSHOP_SHAPES_U                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_shapeu.bmp"
+IDB_PHOTOWORKSHOP_SHAPES_D                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_shaped.bmp"
+IDB_PHOTOWORKSHOP_SHAPES_F                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_shapef.bmp"
+IDB_PHOTOWORKSHOP_SHAPES_X                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_shapex.bmp"
+IDB_PHOTOWORKSHOP_FREEHAND_U               BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_freehandu.bmp"
+IDB_PHOTOWORKSHOP_FREEHAND_D               BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_freehandd.bmp"
+IDB_PHOTOWORKSHOP_FREEHAND_F               BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_freehandf.bmp"
+IDB_PHOTOWORKSHOP_FREEHAND_X               BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_freehandx.bmp"
+IDB_PHOTOWORKSHOP_CROPIT_U                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_cropu.bmp"
+IDB_PHOTOWORKSHOP_CROPIT_D                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_cropd.bmp"
+IDB_PHOTOWORKSHOP_CROPIT_F                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_cropf.bmp"
+IDB_PHOTOWORKSHOP_CROPIT_X                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_cropx.bmp"
+IDB_PHOTOWORKSHOP_REMOVECROP_U             BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_remvcropu.bmp"
+IDB_PHOTOWORKSHOP_REMOVECROP_D             BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_remvcropd.bmp"
+IDB_PHOTOWORKSHOP_REMOVECROP_F             BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_remvcropf.bmp"
+IDB_PHOTOWORKSHOP_REMOVECROP_X             BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_remvcropx.bmp"
+IDB_PHOTOWORKSHOP_ROTATE_U                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_rotatu.bmp"
+IDB_PHOTOWORKSHOP_ROTATE_D                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_rotatd.bmp"
+IDB_PHOTOWORKSHOP_ROTATE_F                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_rotatf.bmp"
+IDB_PHOTOWORKSHOP_ROTATE_X                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_rotatx.bmp"
+IDB_PHOTOWORKSHOP_ZOOMIN_U                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_zminu.bmp"
+IDB_PHOTOWORKSHOP_ZOOMIN_D                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_zmind.bmp"
+IDB_PHOTOWORKSHOP_ZOOMIN_F                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_zminf.bmp"
+IDB_PHOTOWORKSHOP_ZOOMIN_X                 BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_zminx.bmp"
+IDB_PHOTOWORKSHOP_ZOOMOUT_U                BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_zmoutu.bmp"
+IDB_PHOTOWORKSHOP_ZOOMOUT_D                BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_zmoutd.bmp"
+IDB_PHOTOWORKSHOP_ZOOMOUT_F                BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_zmoutf.bmp"
+IDB_PHOTOWORKSHOP_ZOOMOUT_X                BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_zmoutx.bmp"
+IDB_PHOTOWORKSHOP_UNDO_U                   BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_undou.bmp"
+IDB_PHOTOWORKSHOP_UNDO_D                   BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_undod.bmp"
+IDB_PHOTOWORKSHOP_UNDO_F                   BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_undof.bmp"
+IDB_PHOTOWORKSHOP_UNDO_X                   BITMAP  DISCARDABLE     "Shared\\ImageEdit\\ei_undox.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_EDIT_ADJUSTCOLOR_TAB, DIALOG
+    BEGIN
+        VERTGUIDE, 188
+        VERTGUIDE, 253
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_FIXFLAW_CIRCLE30    CURSOR  DISCARDABLE     "Shared\\Cursors\\EI_FF_REDEYE_LG.cur"
+IDC_FIXFLAW_CIRCLE20    CURSOR  DISCARDABLE     "Shared\\Cursors\\EI_FF_REDEYE_MD.cur"
+IDC_FIXFLAW_CIRCLE10    CURSOR  DISCARDABLE     "Shared\\Cursors\\EI_FF_REDEYE_SM.cur"
+CURSOR_FREEHAND         CURSOR  DISCARDABLE     "Shared\\Cursors\\EI_FREHND.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_INFOSYMBOL_GRAPHICCOMP ICON    DISCARDABLE     "Shared\\EffectsIcons\\info_symbol.ico"
+IDI_EI_SHRP             ICON    DISCARDABLE     "Shared\\EffectsIcons\\EI_SF_SHRP.ico"
+IDI_EI_DARK             ICON    DISCARDABLE     "Shared\\EffectsIcons\\EI_BF_DARK.ico"
+IDI_IE_HIGHCONTRAST     ICON    DISCARDABLE     "Shared\\EffectsIcons\\EI_BF_SHRP.ico"
+IDI_IE_LOWCONTRAST      ICON    DISCARDABLE     "Shared\\EffectsIcons\\EI_BF_SOFT.ico"
+IDI_EI_BLUR             ICON    DISCARDABLE     "Shared\\EffectsIcons\\EI_SF_BLUR.ico"
+IDI_IE_BRIGHT           ICON    DISCARDABLE     "Shared\\EffectsIcons\\EI_BF_BRGHT.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_AE_01               "Strong Diffuse"
+    IDS_AE_02               "Medium Diffuse"
+    IDS_AE_03               "Soft Diffuse"
+    IDS_AE_04               "Strong Emboss"
+    IDS_AE_05               "Medium Emboss"
+    IDS_AE_06               "Soft Emboss"
+    IDS_AE_07               "Strong Noise"
+    IDS_AE_08               "Medium Noise"
+    IDS_AE_09               "Soft Noise"
+    IDS_AE_10               "Strong Pixelate"
+    IDS_AE_11               "Medium Pixelate"
+    IDS_AE_12               "Soft Pixelate"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_AE_13               "Strong Contrast"
+    IDS_AE_14               "Medium Contrast"
+    IDS_AE_15               "Soft Contrast"
+    IDS_AE_16               "Strong Stitch"
+    IDS_AE_17               "Medium Stitch"
+    IDS_AE_18               "Soft Stitch"
+    IDS_AE_19               "Strong Antique"
+    IDS_AE_20               "Medium Antique"
+    IDS_AE_21               "Soft Antique"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_ERROR_CROP_AREA_TOO_SMALL 
+                            "You are attempting to create a crop that is too small.  Try a larger shape."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_IED_CROP         "Crop/Orientation"
+    STRING_IED_ADJUSTCOLOR  "Adjust Color"
+    STRING_IED_BRIGHTFOCUS  "Brightness/Focus"
+    STRING_IED_FIXFLAW      "Fix Flaw"
+	 STRING_IED_ARTEFFECTS   "Artistic Effects"
+	 IDS_PHOTOWORKSHOP_MENU_CROP			"Crop/Orientation..."
+	 IDS_PHOTOWORKSHOP_MENU_ADJUSTCOLOR	"Adjust Color..."
+	 IDS_PHOTOWORKSHOP_MENU_BRIGHTFOCUS	"Brightness/Focus..."
+	 IDS_PHOTOWORKSHOP_MENU_FIXFLAW		"Fix Flaw..."
+	 IDS_PHOTOWORKSHOP_MENU_ARTEFFECTS	"Artistic Effects..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

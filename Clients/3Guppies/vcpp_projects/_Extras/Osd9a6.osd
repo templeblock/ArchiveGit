@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE softpkg system "http://msdn.microsoft.com/standards/osd/osd.dtd">
+
+<?xml::namespace href="http://msdn.microsoft.com/standards/osd/msicd.dtd" as="msicd"?>
+
+<softpkg name="{00000000-3473-4e85-92CF-6B2944607C01}" version="1,0,0,0">
+	<title>
+		Toolbar button download
+	</title>
+	<abstract>
+		The toolbar button navigates to the Mixxer site
+	</abstract>
+	<msicd::nativecode>
+		<code classid="{00000000-3473-4e85-92CF-6B2944607C01}" name="Mobilize.inf" version="1,0,0,0">
+			<implementation>
+				<codebase filename="Mobilize.inf" />
+				<language value="en" />
+				<os value="Win95" />
+				<processor value="x86" />
+			</implementation>
+		</code>
+	</msicd::nativecode>
+</softpkg>

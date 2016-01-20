@@ -1,0 +1,7 @@
+; hubres32.def : Declares the module parameters for the DLL.
+
+LIBRARY      HUBRES32
+DESCRIPTION  'HUBRES32 PrintMaster HUB 32-bit Resources'
+
+EXPORTS
+    ; Explicit exports can go here

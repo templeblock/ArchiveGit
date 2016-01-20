@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml-stylesheet type='text/xsl' href='tree.xsl'?>
+<!--Copyright © 2005 AmericanGreetings.com-->
+<tree title="Content linelist">
+  <variables>
+    <var name="drawicons" value="0"/>
+  </variables>
+  <folder type="folder" name="Holiday Greeting Cards">
+    <folder type="folderx" name="Happy New Year">
+      <file type="file" name="46127"/>
+    </folder>
+    <folder type="folderx" name="Kwanzaa">
+      <file type="file" name="46126"/>
+    </folder>
+    <folder type="folderx" name="Season's Greetings">
+      <file type="file" name="46125"/>
+    </folder>
+    <folder type="folderx" name="Happy Holidays">
+      <file type="file" name="46124"/>
+    </folder>
+    <folder type="folder" name="Christmas">
+      <folder type="folderx" name="Religious">
+        <file type="file" name="46147"/>
+      </folder>
+      <folder type="folderx" name="General">
+        <file type="file" name="46146"/>
+      </folder>
+      <folder type="folderx" name="Family">
+        <file type="file" name="46145"/>
+      </folder>
+    </folder>
+    <folder type="folderx" name="Hanukkah">
+      <file type="file" name="46123"/>
+    </folder>
+  </folder>
+</tree>

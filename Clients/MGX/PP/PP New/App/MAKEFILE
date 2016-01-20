@@ -1,0 +1,283 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#                                                                            #
+#                     MGX standard makefile insert                                #
+#                                                                            #
+##############################################################################
+#
+#            Instructions:
+# You should do the following before making:
+#
+#   1) Set the PROJ variable to what you are calling your project.
+#   2) Set up any Non-Project Information
+#   3) set up the 'interesting' file and targets
+#
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+NOINSTALL=1
+REFDIR=..\ref
+DSTDIR=..\dst
+MAKDIR=$(REFDIR)
+!IFNDEF PROJ
+PROJ=PP51
+!ENDIF
+DEFAULTBUILD = $(DSTDIR) SRC.BLD RES.BLD $(DSTDIR)\$(PROJ).exe $(DSTLIST)
+OBJDIR=src\obj
+
+MGXLIBS=$(REFDIR)\mgxfrm10.lib $(REFDIR)\imgutil.lib $(REFDIR)\superblt.lib $(REFDIR)\browser.lib $(REFDIR)\ctllib.lib $(REFDIR)\apputil.lib $(REFDIR)\mgxbm10.lib $(REFDIR)\wntab32x.lib $(REFDIR)\pcdlib32.lib $(REFDIR)\ruby.lib
+# CALFIX $(REFDIR)\tabdlg.lib
+# NOTE ABOUT WINLIBS!!! mfcans32.lib must link in before the ole libraries
+WINLIBS=nafxcw$(AFXLIB).lib nafxcc$(AFXLIB).lib shell32.lib mfcans32.lib mfcuia32.lib $(ole2libsmt) wing32.lib mpr.lib $(REFDIR)\comctl32.lib
+LIBS= $(MGXLIBS) $(WINLIBS)
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+!include "$(MAKDIR)\win.mak"
+
+##############################################################################
+#
+#--- Everything is known, so make a default build target
+#
+
+##############################################################################
+#
+#--- Interesting files
+#
+
+DSTLIST=\
+	$(DSTDIR)\MGXFRM10.DLL
+
+$(DSTLIST) : $$(@F)
+	@copy $(@F) $@
+
+OBJS    =\
+	$(OBJDIR)\about.obj \
+	$(OBJDIR)\appcmds.obj \
+	$(OBJDIR)\astral.obj \
+	$(OBJDIR)\automask.obj \
+	$(OBJDIR)\avi.obj \
+	$(OBJDIR)\aviutil.obj \
+	$(OBJDIR)\aviintf.obj \
+	$(OBJDIR)\blend.obj \
+	$(OBJDIR)\bomb.obj \
+	$(OBJDIR)\bruprocs.obj \
+	$(OBJDIR)\brush.obj \
+	$(OBJDIR)\calib.obj \
+	$(OBJDIR)\class.obj \
+	$(OBJDIR)\clrmng.obj \
+	$(OBJDIR)\cmask.obj \
+	$(OBJDIR)\cmdlist.obj \
+	$(OBJDIR)\cmdenabl.obj \
+	$(OBJDIR)\cmdmacro.obj \
+	$(OBJDIR)\cmdparms.obj \
+	$(OBJDIR)\cmdundo.obj \
+	$(OBJDIR)\color.obj \
+	$(OBJDIR)\combo.obj \
+	$(OBJDIR)\commands.obj \
+	$(OBJDIR)\constrai.obj \
+	$(OBJDIR)\controls.obj \
+	$(OBJDIR)\convto.obj \
+	$(OBJDIR)\ctxhelp.obj \
+	$(OBJDIR)\cursors.obj \
+	$(OBJDIR)\cut.obj \
+	$(OBJDIR)\dataitem.obj \
+	$(OBJDIR)\dca_acq.obj \
+	$(OBJDIR)\dca_glue.obj \
+	$(OBJDIR)\dcd_com.obj \
+	$(OBJDIR)\dda.obj \
+	$(OBJDIR)\defaults.obj \
+	$(OBJDIR)\dialog.obj \
+	$(OBJDIR)\dlgcms.obj \
+	$(OBJDIR)\dlgexpim.obj \
+	$(OBJDIR)\dlghisto.obj \
+	$(OBJDIR)\dlgjpeg.obj \
+	$(OBJDIR)\dlgrotim.obj \
+	$(OBJDIR)\dlgmgr.obj \
+	$(OBJDIR)\dlgmskld.obj \
+	$(OBJDIR)\dlgobjs.obj \
+	$(OBJDIR)\dlgscan.obj \
+	$(OBJDIR)\dlgsmap.obj \
+	$(OBJDIR)\dlgsumry.obj \
+	$(OBJDIR)\dlgsize.obj \
+	$(OBJDIR)\dlgtone.obj \
+	$(OBJDIR)\dlgtools.obj \
+	$(OBJDIR)\doccmds.obj \
+	$(OBJDIR)\doclist.obj \
+	$(OBJDIR)\drag.obj \
+	$(OBJDIR)\editpoly.obj \
+	$(OBJDIR)\effects.obj \
+	$(OBJDIR)\engine.obj \
+	$(OBJDIR)\epswrt.obj \
+	$(OBJDIR)\export.obj \
+	$(OBJDIR)\extname.obj \
+	$(OBJDIR)\fastbits.obj \
+	$(OBJDIR)\filt.obj \
+	$(OBJDIR)\filter.obj \
+	$(OBJDIR)\fileopt.obj \
+	$(OBJDIR)\findfile.obj \
+	$(OBJDIR)\fitpoly.obj \
+	$(OBJDIR)\flood.obj \
+	$(OBJDIR)\fonts.obj \
+	$(OBJDIR)\forum.obj \
+	$(OBJDIR)\gauss.obj \
+	$(OBJDIR)\getdev.obj \
+	$(OBJDIR)\grab.obj \
+	$(OBJDIR)\help.obj \
+	$(OBJDIR)\image.obj \
+	$(OBJDIR)\imgclip.obj \
+	$(OBJDIR)\imgcmd.obj \
+	$(OBJDIR)\imgedit.obj \
+	$(OBJDIR)\imgfunc.obj \
+	$(OBJDIR)\imghelp.obj \
+	$(OBJDIR)\imgio.obj \
+	$(OBJDIR)\imglist.obj \
+	$(OBJDIR)\imgold.obj \
+	$(OBJDIR)\imgpaint.obj \
+	$(OBJDIR)\imprtrdr.obj \
+	$(OBJDIR)\initthrd.obj \
+	$(OBJDIR)\ipframe.obj \
+	$(OBJDIR)\macro.obj \
+	$(OBJDIR)\makepath.obj \
+	$(OBJDIR)\mail.obj \
+	$(OBJDIR)\map.obj \
+	$(OBJDIR)\marquee.obj \
+	$(OBJDIR)\maskutil.obj \
+	$(OBJDIR)\maskio.obj \
+	$(OBJDIR)\mdiframe.obj \
+	$(OBJDIR)\measure.obj \
+	$(OBJDIR)\message.obj \
+	$(OBJDIR)\monitor.obj \
+	$(OBJDIR)\objutil.obj \
+	$(OBJDIR)\objfloat.obj \
+	$(OBJDIR)\octools.obj \
+	$(OBJDIR)\olelistb.obj \
+	$(OBJDIR)\paledit.obj \
+	$(OBJDIR)\palette.obj \
+	$(OBJDIR)\palio.obj \
+	$(OBJDIR)\pallist.obj \
+	$(OBJDIR)\palprocs.obj \
+	$(OBJDIR)\paste.obj \
+	$(OBJDIR)\path.obj \
+	$(OBJDIR)\pcdui.obj \
+	$(OBJDIR)\pickpal.obj \
+	$(OBJDIR)\pickrgb.obj \
+	$(OBJDIR)\pixutil.obj \
+	$(OBJDIR)\plugin.obj \
+	$(OBJDIR)\pointutl.obj \
+	$(OBJDIR)\popups.obj \
+	$(OBJDIR)\poly.obj \
+	$(OBJDIR)\pplist.obj \
+	$(OBJDIR)\ppmodal.obj \
+	$(OBJDIR)\pptbars.obj \
+	$(OBJDIR)\prefs.obj \
+	$(OBJDIR)\print.obj \
+	$(OBJDIR)\prnprocs.obj \
+	$(OBJDIR)\prnstyle.obj \
+	$(OBJDIR)\process.obj \
+	$(OBJDIR)\propsht.obj \
+	$(OBJDIR)\ps.obj \
+	$(OBJDIR)\retouch.obj \
+	$(OBJDIR)\root.obj \
+	$(OBJDIR)\rotate.obj \
+	$(OBJDIR)\rulers.obj \
+	$(OBJDIR)\runtask.obj \
+	$(OBJDIR)\saveload.obj \
+	$(OBJDIR)\select.obj \
+	$(OBJDIR)\shapedit.obj \
+	$(OBJDIR)\smart.obj \
+	$(OBJDIR)\split.obj \
+	$(OBJDIR)\svrdrop.obj \
+	$(OBJDIR)\suminfo.obj \
+	$(OBJDIR)\suminfo2.obj \
+	$(OBJDIR)\svrdoc.obj \
+	$(OBJDIR)\svritem.obj \
+	$(OBJDIR)\svrview.obj \
+	$(OBJDIR)\tablet.obj \
+	$(OBJDIR)\taskman.obj \
+	$(OBJDIR)\tbardlgs.obj \
+	$(OBJDIR)\tcrop.obj \
+	$(OBJDIR)\text.obj \
+	$(OBJDIR)\textime.obj \
+	$(OBJDIR)\toolproc.obj \
+	$(OBJDIR)\tracer.obj \
+	$(OBJDIR)\track.obj \
+	$(OBJDIR)\tchroma.obj \
+	$(OBJDIR)\tcontrol.obj \
+	$(OBJDIR)\tdraw.obj \
+	$(OBJDIR)\tfill.obj \
+	$(OBJDIR)\thread.obj \
+	$(OBJDIR)\tobjsel.obj \
+	$(OBJDIR)\tpaint.obj \
+	$(OBJDIR)\tprobe.obj \
+	$(OBJDIR)\tselect.obj \
+	$(OBJDIR)\tshield.obj \
+	$(OBJDIR)\tstitch.obj \
+	$(OBJDIR)\ttext.obj \
+	$(OBJDIR)\ttform.obj \
+	$(OBJDIR)\view.obj \
+	$(OBJDIR)\visual.obj \
+	$(OBJDIR)\vignette.obj \
+	$(OBJDIR)\winimage.obj \
+	$(OBJDIR)\winpal.obj \
+	$(OBJDIR)\winprocs.obj \
+	$(OBJDIR)\wintools.obj \
+	$(OBJDIR)\zoom.obj \
+	$(OBJDIR)\viewcmds.obj \
+	$(OBJDIR)\viewcmd2.obj \
+	$(OBJDIR)\imgutil.obj
+
+
+##############################################################################
+#
+#--- Targets
+default: $(DEFAULTBUILD)
+
+##############################################################################
+#
+#--- Implicit Rules
+#    make any you think you will need.  They can be identical in nature,
+#    but NMAKE wants have at least one for each possible virtual combination
+#
+SRC.BLD:
+	@echo ===============================
+	@echo Building sources...
+	@echo ===============================
+	@cd src
+	@$(MAKE) /NOLOGO
+	@cd ..
+
+RES.BLD:
+	@echo ===============================
+	@echo Building resources...
+	@echo ===============================
+	@cd res
+	@$(MAKE) /NOLOGO
+	@cd ..
+
+# Update the executable file if necessary, and if so, add the resource back in.
+$(DSTDIR)\$(PROJ).exe: $(OBJS) $(RESDIR)\PPEXE.res $(MGXLIBS)
+    $(link) @<<
+/INCREMENTAL:YES $(linkdebug) $(guiflags)
+-out:$(DSTDIR)\$(PROJ).exe
+-implib:pp.lib
+$(LIBS)
+$(OBJS)
+$(RESDIR)\PPEXE.res
+<<
+
+##############################################################################
+#
+#--- Dependencies
+#
+##############################################################################

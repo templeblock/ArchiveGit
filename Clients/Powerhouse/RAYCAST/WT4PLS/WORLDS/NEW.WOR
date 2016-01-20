@@ -1,0 +1,232 @@
+
+; texture
+
+texture GreenRock wall54.gif	; t0
+texture Wall98 w98.gif	; t1
+texture Computer comp04_2.gif	; t2
+texture Stone smooth.tx	; t3
+texture Ceil1 ceil1_1.gif	; t4
+texture Floor1 floor0_3.gif	; t5
+texture Floor2 floor0_2.gif	; t6
+texture sky sunset.tx	; t7
+texture Marble marbled.tx	; t8
+
+; vertex
+
+vertex 30 3	; v0
+vertex 30 10	; v1
+vertex 25 10	; v2
+vertex 22 10	; v3
+vertex 13 10	; v4
+vertex 10 10	; v5
+vertex 0 10	; v6
+vertex 0 -10	; v7
+vertex 10 -10	; v8
+vertex 13 -10	; v9
+vertex 22 -10	; v10
+vertex 25 -10	; v11
+vertex 30 -10	; v12
+vertex 30 -3	; v13
+vertex 31 3	; v14
+vertex 31 11	; v15
+vertex 25 11	; v16
+vertex 22 11	; v17
+vertex 13 11	; v18
+vertex 10 11	; v19
+vertex -1 11	; v20
+vertex -1 -11	; v21
+vertex 10 -11	; v22
+vertex 13 -11	; v23
+vertex 22 -11	; v24
+vertex 25 -11	; v25
+vertex 31 -11	; v26
+vertex 31 -3	; v27
+vertex -50 -50	; v28
+vertex -50 50	; v29
+vertex 50 50	; v30
+vertex 50 -50	; v31
+vertex 6 -7	; v32
+vertex 5.707 -7.707	; v33
+vertex 5 -8	; v34
+vertex 4.203 -7.707	; v35
+vertex 4 -7	; v36
+vertex 4.203 -6.203	; v37
+vertex 5 -6	; v38
+vertex 5.707 -6.203	; v39
+vertex 6 7	; v40
+vertex 5.707 6.203	; v41
+vertex 5 6	; v42
+vertex 4.203 6.203	; v43
+vertex 4 7	; v44
+vertex 4.203 7.707	; v45
+vertex 5 8	; v46
+vertex 5.707 7.707	; v47
+vertex -4.6 18.0	; v48
+vertex -4.6 23.4	; v49
+vertex -3.2 23.4	; v50
+vertex -3.2 19.0	; v51
+vertex 14.0 19.0	; v52
+vertex 14.0 28.15	; v53
+vertex -1.15 29.6	; v54
+vertex -3.3 27.65	; v55
+vertex -4.65 27.65	; v56
+vertex -1.15 31.15	; v57
+vertex 15.2 29.6	; v58
+vertex 15.2 18.0	; v59
+vertex 28.8 24.9	; v60
+vertex 28.8 36.6	; v61
+vertex 35.2667 36.6	; v62
+vertex 39.3667 36.6	; v63
+vertex 44.5 36.6	; v64
+vertex 44.5333 31.7	; v65
+vertex 44.5333 27.9333	; v66
+vertex 44.5 24.9	; v67
+vertex 37.0 24.9	; v68
+vertex 29.75 25.9	; v69
+vertex 29.7667 35.3667	; v70
+vertex 35.2667 35.3667	; v71
+vertex 39.3667 35.3667	; v72
+vertex 43.6 35.3667	; v73
+vertex 43.6 31.7333	; v74
+vertex 43.6 27.9333	; v75
+vertex 43.6 25.9	; v76
+vertex 36.9 25.9	; v77
+vertex 32.5 28.3	; v78
+vertex 32.5 31.9	; v79
+vertex 35.4 31.9	; v80
+vertex 35.4 28.3	; v81
+vertex 26.2 9.9	; v82
+vertex 24.1 -1.5	; v83
+vertex 25.3 -1.8	; v84
+vertex 5.6 -40.4	; v85
+vertex 5.4 -36.9	; v86
+vertex 5.1 -33.7	; v87
+vertex 5.0 -30.0	; v88
+vertex 20.6 -29.5	; v89
+vertex 20.3 -32.6	; v90
+vertex 19.9 -35.9	; v91
+vertex 19.6 -39.7	; v92
+
+; region
+
+region 20 20  Ceil1 Ceil1	; r0
+region 0 20  Floor2 Ceil1	; r1
+region 10 10  Floor1 Ceil1	; r2
+region 0 5  Floor1 Ceil1	; r3
+region 0.1 8  Marble Marble	; r4
+region 0 9.5  Floor1 Ceil1	; r5
+region 10 10  Floor1 Ceil1	; r6
+region 3 10  Floor1 Ceil1	; r7
+
+; wall
+
+wall 28 31 sky  1 0  0.05 0.8 0 0	; w0
+wall 31 30 sky  1 0  0.05 0.8 0 0	; w1
+wall 30 29 sky  1 0  0.05 0.8 0 0	; w2
+wall 29 28 sky  1 0  0.05 0.8 0 0	; w3
+wall 0 1 Computer  5 2  0.1 0.1 0 0	; w4
+wall 1 2 GreenRock  5 2  0.1 0.1 0 0	; w5
+wall 2 3 GreenRock  5 4  0.1 0.1 0 0	; w6
+wall 3 4 GreenRock  5 2  0.1 0.1 0 0	; w7
+wall 4 5 GreenRock  5 4  0.1 0.1 0 0	; w8
+wall 5 6 GreenRock  5 2  0.1 0.1 0 0	; w9
+wall 6 7 GreenRock  5 2  0.1 0.1 0 0	; w10
+wall 7 8 GreenRock  5 2  0.1 0.1 0 0	; w11
+wall 8 9 GreenRock  5 4  0.1 0.1 0 0	; w12
+wall 9 10 GreenRock  5 2  0.1 0.1 0 0	; w13
+wall 10 11 GreenRock  5 4  0.1 0.1 0 0	; w14
+wall 11 12 GreenRock  5 2  0.1 0.1 0 0	; w15
+wall 12 13 GreenRock  5 2  0.1 0.1 0 0	; w16
+wall 13 0 GreenRock  5 3  0.1 0.1 0 0	; w17
+wall 27 26 Wall98  1 2  0.1 0.1 0 0	; w18
+wall 26 25 Wall98  1 2  0.1 0.1 0 0	; w19
+wall 25 24 Wall98  1 4  0.1 0.1 0 0	; w20
+wall 24 23 Wall98  1 2  0.1 0.1 0 0	; w21
+wall 23 22 Wall98  1 4  0.1 0.1 0 0	; w22
+wall 22 21 Wall98  1 2  0.1 0.1 0 0	; w23
+wall 21 20 Wall98  1 2  0.1 0.1 0 0	; w24
+wall 20 19 Wall98  1 2  0.2 0.2 0 0	; w25
+wall 19 18 Wall98  1 4  0.2 0.2 0 0	; w26
+wall 18 17 Wall98  1 2  0.2 0.2 0 0	; w27
+wall 17 16 Wall98  1 4  0.2 0.2 0 0	; w28
+wall 16 15 Wall98  1 2  0.2 0.2 0 0	; w29
+wall 15 14 Wall98  1 2  0.2 0.2 0 0	; w30
+wall 14 27 Wall98  1 3  0.2 0.2 0 0	; w31
+wall 14 0 GreenRock  3 2  0.2 0.2 0 0	; w32
+wall 13 27 GreenRock  3 2  0.2 0.2 0 0	; w33
+wall 19 5 GreenRock  4 2  0.2 0.2 0 0	; w34
+wall 4 18 GreenRock  4 2  0.2 0.2 0 0	; w35
+wall 17 3 GreenRock  4 2  0.2 0.2 0 0	; w36
+wall 2 16 GreenRock  4 2  0.2 0.2 0 0	; w37
+wall 8 22 GreenRock  4 2  0.2 0.2 0 0	; w38
+wall 23 9 GreenRock  4 2  0.2 0.2 0 0	; w39
+wall 10 24 GreenRock  4 2  0.2 0.2 0 0	; w40
+wall 25 11 GreenRock  4 2  0.2 0.2 0 0	; w41
+wall 32 33 Stone  5 6  0.2 0.1 0 0	; w42
+wall 33 34 Stone  5 6  0.2 0.1 0 0	; w43
+wall 34 35 Stone  5 6  0.2 0.1 0 0	; w44
+wall 35 36 Stone  5 6  0.2 0.1 0 0	; w45
+wall 36 37 Stone  5 6  0.2 0.1 0 0	; w46
+wall 37 38 Stone  5 6  0.2 0.1 0 0	; w47
+wall 38 39 Stone  5 6  0.2 0.1 0 0	; w48
+wall 39 32 Stone  5 6  0.2 0.1 0 0	; w49
+wall 40 41 Stone  5 6  0.2 0.1 0 0	; w50
+wall 41 42 Stone  5 6  0.2 0.1 0 0	; w51
+wall 42 43 Stone  5 6  0.2 0.1 0 0	; w52
+wall 43 44 Stone  5 6  0.2 0.1 0 0	; w53
+wall 44 45 Stone  5 6  0.2 0.1 0 0	; w54
+wall 45 46 Stone  5 6  0.2 0.1 0 0	; w55
+wall 46 47 Stone  5 6  0.2 0.1 0 0	; w56
+wall 47 40 Stone  5 6  0.2 0.1 0 0	; w57
+wall 49 50 GreenRock  1 0  0.1 0.1 0 0	; w58
+wall 50 51 GreenRock  1 0  0.1 0.1 0 0	; w59
+wall 51 52 GreenRock  1 0  0.1 0.1 0 0	; w60
+wall 52 53 GreenRock  1 0  0.1 0.1 0 0	; w61
+wall 53 54 GreenRock  1 0  0.1 0.1 0 0	; w62
+wall 54 55 GreenRock  1 0  0.1 0.1 0 0	; w63
+wall 55 56 GreenRock  1 0  0.1 0.1 0 0	; w64
+wall 56 57 GreenRock  1 0  0.1 0.1 0 0	; w65
+wall 57 58 GreenRock  1 0  0.1 0.1 0 0	; w66
+wall 58 59 GreenRock  1 0  0.1 0.1 0 0	; w67
+wall 59 48 GreenRock  1 0  0.1 0.1 0 0	; w68
+wall 48 49 GreenRock  1 0  0.1 0.1 0 0	; w69
+wall 60 61 GreenRock  1 2  0.1 0.1 0 0	; w70
+wall 61 62 GreenRock  1 2  0.1 0.1 0 0	; w71
+wall 62 63 GreenRock  1 4  0.1 0.1 0 0	; w72
+wall 63 64 GreenRock  1 2  0.1 0.1 0 0	; w73
+wall 64 65 GreenRock  1 2  0.1 0.1 0 0	; w74
+wall 65 66 GreenRock  1 4  0.1 0.1 0 0	; w75
+wall 66 67 GreenRock  1 2  0.1 0.1 0 0	; w76
+wall 67 68 GreenRock  1 2  0.1 0.1 0 0	; w77
+wall 68 60 GreenRock  1 2  0.1 0.1 0 0	; w78
+wall 70 69 GreenRock  1 2  0.1 0.1 0 0	; w79
+wall 69 77 GreenRock  1 2  0.1 0.1 0 0	; w80
+wall 77 76 GreenRock  1 2  0.1 0.1 0 0	; w81
+wall 76 75 GreenRock  1 2  0.1 0.1 0 0	; w82
+wall 75 74 GreenRock  1 4  0.1 0.1 0 0	; w83
+wall 74 73 GreenRock  1 2  0.1 0.1 0 0	; w84
+wall 73 72 GreenRock  1 2  0.1 0.1 0 0	; w85
+wall 72 71 GreenRock  1 4  0.1 0.1 0 0	; w86
+wall 71 70 GreenRock  1 2  0.1 0.1 0 0	; w87
+wall 62 71 GreenRock  4 2  0.1 0.1 0 0	; w88
+wall 72 63 GreenRock  4 2  0.1 0.1 0 0	; w89
+wall 74 65 GreenRock  4 2  0.1 0.1 0 0	; w90
+wall 75 66 GreenRock  4 2  0.1 0.1 0 0	; w91
+wall 78 79 Computer  1 7  0.3 0.3 0 0	; w92
+wall 79 80 Computer  1 7  0.3 0.3 0 0	; w93
+wall 80 81 Computer  1 7  0.3 0.3 0 0	; w94
+wall 81 78 Computer  1 7  0.3 0.3 0 0	; w95
+wall 83 2 GreenRock  5 6  0.1 0.1 0 0	; w96
+wall 2 82 GreenRock  5 6  0.1 0.1 0 0	; w97
+wall 82 84 GreenRock  5 6  0.1 0.1 0 0	; w98
+wall 84 83 GreenRock  5 6  0.1 0.1 0 0	; w99
+wall 85 86 GreenRock  1 0  0.1 0.1 0 0	; w100
+wall 86 87 GreenRock  1 0  0.1 0.1 0 0	; w101
+wall 87 88 GreenRock  1 0  0.1 0.1 0 0	; w102
+wall 88 89 GreenRock  1 0  0.1 0.1 0 0	; w103
+wall 89 90 GreenRock  1 0  0.1 0.1 0 0	; w104
+wall 90 91 GreenRock  1 0  0.1 0.1 0 0	; w105
+wall 91 92 GreenRock  1 0  0.1 0.1 0 0	; w106
+wall 92 85 GreenRock  1 0  0.1 0.1 0 0	; w107
+wall 86 91 GreenRock  1 0  0.1 0.1 0 0	; w108
+wall 90 87 GreenRock  1 0  0.1 0.1 0 0	; w109

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title id="idmTitle"></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	</head>
+	<script>
+        var strTitle;
+        var strFace;
+        var strDirection = 0;
+        
+		getURLValues();
+		
+		function getURLValues()
+		{
+          var strQueryString = String(window.dialogArguments);
+          aryQueryValues = strQueryString.split(';');
+
+          // Walk the list to set the values for title face and direction
+          for (aryIndex in aryQueryValues)
+          {
+              var strQueryValue = aryQueryValues[aryIndex];
+              aryQueryValue = strQueryValue.split('=');
+              if (aryQueryValue[0] == 'title'){strTitle = aryQueryValue[1];}
+              if (aryQueryValue[0] == 'face'){strFace = aryQueryValue[1];}
+              if (aryQueryValue[0] == 'direction'){strDirection = aryQueryValue[1];}
+          }
+		}
+		
+		function SetTextValues()
+		{
+			var arg = document.getElementById('idmTitle');
+			
+			arg = document.getElementById('idFace');
+			if (arg)
+				arg.innerText = strFace;
+			arg = document.getElementById('idDirection');
+			if (arg)
+				arg.innerText = strDirection;
+		}
+			
+		function ReturnValue(name)
+		{
+			window.returnValue = name;
+			window.close();
+		}
+
+	</script>
+	<body onload="SetTextValues()" onselectstart="return false;" bgcolor="#ffffff">
+		<strong>Step 1:</strong> Wait until the first side of your project has been 
+		printed.<br />
+		<br />
+		<strong>Step 2:</strong> To print the other side of your project reinsert teh 
+		page as follows:<br />
+		<br />
+		<ul>
+			<li>
+				Printed side
+				<span style="FONT-WEIGHT:bold" id="idFace"></span>
+			</li>
+			<li>
+				Front side of the project
+				<span style="FONT-WEIGHT:bold" id="idDirection"></span>&nbsp; the printer
+			</li>
+		</ul>
+		<br />
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0"
+			width="275" height="225">
+			<param name="movie" value="printer_animation.swf">
+			<param name="quality" value="high">
+			<embed src="printer_animation.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"
+				type="application/x-shockwave-flash" width="275" height="225"></embed>
+		</object>
+		<br />
+		Click <strong>OK</strong> when you are ready to print.
+		<br />
+		<div style="float:right; margin-right:8px;" ><input name="OK" value="OK" type="button" title="OK" onclick="ReturnValue('YES')">&nbsp;<input name="Cancel" value="Cancel" type="button" title="Cancel" onclick="ReturnValue('NO')"></div>
+	</body>
+</html>

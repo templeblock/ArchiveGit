@@ -1,0 +1,107 @@
+
+; texture
+
+texture World marbled.tx
+texture Lan smooth.tx
+texture Segment cloudy.tx
+texture Host cloudy.tx
+
+; vertex
+
+vertex 16.0 16.0 ; v0
+vertex -16.0 16.0 ; v1
+vertex -16.0 -16.0 ; v2
+vertex 16.0 -16.0 ; v3
+vertex 12.0 -2.5 ; v4
+vertex -12.0 -2.5 ; v5
+vertex -12.0 -3.5 ; v6
+vertex 12.0 -3.5 ; v7
+vertex -7.0 -7.0 ; v8
+vertex -9.0 -7.0 ; v9
+vertex -9.0 -9.0 ; v10
+vertex -7.0 -9.0 ; v11
+vertex -3.0 -7.0 ; v12
+vertex -5.0 -7.0 ; v13
+vertex -5.0 -9.0 ; v14
+vertex -3.0 -9.0 ; v15
+vertex 1.0 -7.0 ; v16
+vertex -1.0 -7.0 ; v17
+vertex -1.0 -9.0 ; v18
+vertex 1.0 -9.0 ; v19
+vertex 5.0 -7.0 ; v20
+vertex 3.0 -7.0 ; v21
+vertex 3.0 -9.0 ; v22
+vertex 5.0 -9.0 ; v23
+vertex 9.0 -7.0 ; v24
+vertex 7.0 -7.0 ; v25
+vertex 7.0 -9.0 ; v26
+vertex 9.0 -9.0 ; v27
+vertex 12.0 3.5 ; v28
+vertex -12.0 3.5 ; v29
+vertex -12.0 2.5 ; v30
+vertex 12.0 2.5 ; v31
+vertex -7.0 9.0 ; v32
+vertex -9.0 9.0 ; v33
+vertex -9.0 7.0 ; v34
+vertex -7.0 7.0 ; v35
+vertex -3.0 9.0 ; v36
+vertex -5.0 9.0 ; v37
+vertex -5.0 7.0 ; v38
+vertex -3.0 7.0 ; v39
+vertex 1.0 9.0 ; v40
+vertex -1.0 9.0 ; v41
+vertex -1.0 7.0 ; v42
+vertex 1.0 7.0 ; v43
+vertex 5.0 9.0 ; v44
+vertex 3.0 9.0 ; v45
+vertex 3.0 7.0 ; v46
+vertex 5.0 7.0 ; v47
+vertex 9.0 9.0 ; v48
+vertex 7.0 9.0 ; v49
+vertex 7.0 7.0 ; v50
+vertex 9.0 7.0 ; v51
+vertex -50 -50 ; v52
+vertex -50 50 ; v53
+vertex 50 50 ; v54
+vertex 50 -50 ; v55
+
+; region
+
+region 0.0 10.0  World World ; r0
+region 0.5 10.0  Lan World ; r1
+region 1.5 10.0  Segment World ; r2
+region 2.5 10.0  Host World ; r3
+region 2.5 10.0  Host World ; r4
+region 2.5 10.0  Host World ; r5
+region 2.5 10.0  Host World ; r6
+region 2.5 10.0  Host World ; r7
+region 1.5 10.0  Segment World ; r8
+region 2.5 10.0  Host World ; r9
+region 2.5 10.0  Host World ; r10
+region 2.5 10.0  Host World ; r11
+region 2.5 10.0  Host World ; r12
+region 2.5 10.0  Host World ; r13
+region 10.0 10.0  World World ; r14
+
+; wall
+
+wall 1 0 Lan  wall 2  wall 3 2 Lan ; w0
+wall 0 3 Lan  wall 5  wall 6 5 Segment ; w1
+wall 7 6 Segment  wall 4  wall 9 8 Host ; w2
+wall 10 9 Host  wall 11  wall 8 11 Host ; w3
+wall 13 12 Host  wall 14  wall 15 14 Host ; w4
+wall 12 15 Host  wall 17  wall 18 17 Host ; w5
+wall 19 18 Host  wall 16  wall 21 20 Host ; w6
+wall 22 21 Host  wall 23  wall 20 23 Host ; w7
+wall 25 24 Host  wall 26  wall 27 26 Host ; w8
+wall 24 27 Host  wall 29  wall 30 29 Segment ; w9
+wall 31 30 Segment  wall 28  wall 33 32 Host ; w10
+wall 34 33 Host  wall 35  wall 32 35 Host ; w11
+wall 37 36 Host  wall 38  wall 39 38 Host ; w12
+wall 36 39 Host  wall 41  wall 42 41 Host ; w13
+wall 43 42 Host  wall 40  wall 45 44 Host ; w14
+wall 46 45 Host  wall 47  wall 44 47 Host ; w15
+wall 49 48 Host  wall 50  wall 51 50 Host ; w16
+wall 48 51 Host     ; w17
+wall 52 55 World  wall 55  wall 54 53 World ; w18
+wall 53 52 World     ; w19

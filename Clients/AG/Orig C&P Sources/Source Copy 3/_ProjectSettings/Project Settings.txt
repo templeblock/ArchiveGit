@@ -1,0 +1,20 @@
+Code Generation Settings:
+
+	Runtime DLLs:
+
+	I have discoovered problems with Zlib, and possibly Stonehnd
+	when using the non-Debug runtime libraies.  Therefore, I changed
+	all projects to use the "Debug Multithreaded DLL" selection for
+	the Runtime Library (in Settings/C++ tab).
+	A specific file that caused an exception in Zlib was "2014990f.ctp".
+
+Optimizations:
+
+	I think it is worth using the "Maximum speed" setting for 
+	optimizations, even though it will produce a slightly larger
+	executable.
+
+C++ Language Settings:
+
+	Enable Exception handling
+

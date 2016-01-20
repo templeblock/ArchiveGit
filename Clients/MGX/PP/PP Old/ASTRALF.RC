@@ -1,0 +1,856 @@
+;®FD1¯®PL1¯®TP0¯®BT0¯
+; astral.rc	Picture Publisher application Resource file
+;----------------------------------------------------------
+rcinclude astral.h
+rcinclude resource.h
+
+PP MENU
+BEGIN
+    POPUP	"&Fichier"
+    BEGIN
+	MENUITEM	"&Nouveau...\t^N",		IDM_NEW
+	MENUITEM	"&Ouvrir...\t^O",		IDM_OPEN
+	MENUITEM	"&Capturer",			IDM_ACQUIRE
+	MENUITEM	"Numériser...",			IDM_SCAN
+	MENUITEM	"Initialisation Scanner...",	IDM_SCANCONFIG
+	MENUITEM	"&Enregistrer\t^S",		IDM_SAVE
+	MENUITEM	"En&registrer sous...\t^A",	IDM_SAVEAS
+	MENUITEM	"&Imprimer...\t^P",		IDM_PRINT
+	MENUITEM	"Initialisation Imprimante...",	IDM_PRINTSETUP
+	MENUITEM	"&Calibration...\t^C",		IDM_CALIBRATE
+	MENUITEM	SEPARATOR
+	MENUITEM	"Panneau de contrôle...",	IDM_CONTROL
+	MENUITEM	"Commandes DOS...",		IDM_DOS
+	MENUITEM	"Enregistrer Préférences",	IDM_PREF
+	MENUITEM	SEPARATOR
+	MENUITEM	"A propos de...",		IDM_ABOUT
+;	MENUITEM	"&Tutorial...\t^T",		IDM_TUTORIAL
+	MENUITEM	"Installer les drivers...",	IDM_INSTALL
+	MENUITEM	"Re&vert to Saved\t^V",		IDM_REVERT
+	MENUITEM	"Fermer\t^X",			IDM_CLOSE
+    END
+    POPUP	"&Edition"
+    BEGIN
+	MENUITEM	"Edition active\tE",		IDM_EDITACTIVE
+	MENUITEM	SEPARATOR
+	MENUITEM	"C&oller\tF1",			IDM_PASTE
+	MENUITEM	"&Couper\tF2",			IDM_CUT
+	MENUITEM	"Ca&drer\tF3",			IDM_CROP
+	MENUITEM	"Vignette\tF4",			IDM_VIGNETTE
+	MENUITEM	"Teinter\tF5",			IDM_TINT
+	MENUITEM	"Inverser\tF6",			IDM_INVERT
+	MENUITEM	"Miroir\tF7",			IDM_MIRRORX
+	MENUITEM	"Fusionner\tF8",		IDM_BLEND
+    END
+    POPUP	"Courbe de Gris"
+    BEGIN
+	MENUITEM	"Courbe de Gris active\tG",	IDM_GRAYACTIVE
+	MENUITEM	"Infos Courbe de &Gris\t^G",	IDM_GRAYSHOW
+	MENUITEM	SEPARATOR
+	MENUITEM	"Contraste/Luminosité\tF1",	IDM_CONT
+	MENUITEM	"Postériser\tF2",		IDM_POSTER
+	MENUITEM	"Seuil\tF3",			IDM_THRESH
+	MENUITEM	"Courbe de tons\tF4",		IDM_TONEMAP
+	MENUITEM	"Pos/Neg\tF5",			IDM_NEGATE
+	MENUITEM	"Quatre Tons\tF6",		IDM_QUARTER
+	MENUITEM	SEPARATOR
+	MENUITEM	"Mapping Lightness",		IDM_LUMINANCE
+    END
+    POPUP	"&Retouche"
+    BEGIN
+	MENUITEM	"Retouche active\tR",		IDM_RTCHACTIVE
+	MENUITEM	"Infos &Retouche\t^R", 		IDM_RTCHSHOW
+	MENUITEM	SEPARATOR
+	MENUITEM	"Peindre\tF1",			IDM_PAINT
+	MENUITEM	"Accentuer\tF2",		IDM_SHARP
+	MENUITEM	"Lisser\tF3",			IDM_SMOOTH
+	MENUITEM	"Aérosol\tF4",			IDM_SPRAY
+	MENUITEM	"Texture\tF5",			IDM_TEXTURE
+	MENUITEM	"Clone\tF6",			IDM_CLONE
+	MENUITEM	"Flux\tF7",			IDM_FLOOD
+	MENUITEM	"Eclairer\tF8",			IDM_LIGHTEN
+	MENUITEM	"Foncer\tF9",			IDM_DARKEN
+	MENUITEM	"Etaler\tF10",			IDM_SMEAR
+    END
+    POPUP	"&Masque"
+    BEGIN
+	MENUITEM	"Masque actif\tM",		IDM_MASKACTIVE
+	MENUITEM	"Infos Masque\t^M",		IDM_MASKSHOW
+	MENUITEM	SEPARATOR
+	MENUITEM	"Main levée\tF1",		IDM_FREE
+	MENUITEM	"Rectangulaire\tF2",		IDM_RECT
+	MENUITEM	"Carré\tF3",			IDM_SQUARE
+	MENUITEM	"Circulaire\tF4",		IDM_CIRCLE
+	MENUITEM	"Elliptique\tF5",		IDM_OVAL
+	MENUITEM	"Masque Auto\tF6",		IDM_AUTOMASK
+    END
+    POPUP	"&Affichage"
+    BEGIN
+	MENUITEM	"Affichage actif\tA",		IDM_VIEWACTIVE
+	MENUITEM	SEPARATOR
+	MENUITEM	"Vue à 100% (1 pour 1)",	IDM_VIEW100
+	MENUITEM	"Vue à 200% (2 pour 1)",	IDM_VIEW200
+	MENUITEM	"Vue à 300% (3 pour 1)",	IDM_VIEW300
+	MENUITEM	"Vue à 400% (4 pour 1)",	IDM_VIEW400
+	MENUITEM	"Vue à 500% (5 pour 1)",	IDM_VIEW500
+	MENUITEM	"Vue à 600% (6 pour 1)",	IDM_VIEW600
+	MENUITEM	"Vue personnalisée",		IDM_VIEWCUSTOM
+	MENUITEM	"Ajustée à la fenêtre",		IDM_VIEWALL
+	MENUITEM	SEPARATOR
+	MENUITEM	"320 x 200",			IDM_PICWIN1
+	MENUITEM	"640 x 350",			IDM_PICWIN2
+	MENUITEM	"640 x 400",			IDM_PICWIN3
+	MENUITEM	"640 x 480",			IDM_PICWIN4
+	MENUITEM	"720 x 540",			IDM_PICWIN5
+	MENUITEM	"800 x 600",			IDM_PICWIN6
+	MENUITEM	"1024 x 768",			IDM_PICWIN7
+    END
+    POPUP	"&Traitement"
+    BEGIN
+	MENUITEM	"Traitement d'Images...\t^E",	IDM_PROCESS
+	MENUITEM	"Filtres...\t^F",		IDM_FILTER
+	MENUITEM	SEPARATOR
+	MENUITEM	"Presse-Papier #1\t1",		IDM_CLIP1
+	MENUITEM	"Presse-Papier #2\t2",		IDM_CLIP2
+	MENUITEM	"Presse-Papier #3\t3",		IDM_CLIP3
+	MENUITEM	"Presse-Papier #4\t4",		IDM_CLIP4
+	MENUITEM	"Presse-Papier #5\t5",		IDM_CLIP5
+	MENUITEM	"Presse-Papier #6\t6",		IDM_CLIP6
+	MENUITEM	"Presse-Papier #7\t7",		IDM_CLIP7
+	MENUITEM	"Presse-Papier #8\t8",		IDM_CLIP8
+	MENUITEM	"Presse-Papier #9\t9",		IDM_CLIP9
+	MENUITEM	SEPARATOR
+	MENUITEM	"Ouvrir le Presse-Papier Windows", IDM_WBITMAP
+    END
+	MENUITEM	"\aXchg",			IDM_XCHG
+END
+
+ID_ACCEL ACCELERATORS
+BEGIN
+	"E", IDM_EDITACTIVE
+	"e", IDM_EDITACTIVE
+	"G", IDM_GRAYACTIVE
+	"g", IDM_GRAYACTIVE
+	"R", IDM_RTCHACTIVE
+	"r", IDM_RTCHACTIVE
+	"M", IDM_MASKACTIVE
+	"m", IDM_MASKACTIVE
+	"V", IDM_VIEWACTIVE
+	"v", IDM_VIEWACTIVE
+	"X", IDM_XCHG, CONTROL
+	"x", IDM_XCHG, CONTROL
+	"^A", IDM_SAVEAS, CONTROL
+	"^C", IDM_CALIBRATE, CONTROL
+	"^E", IDM_PROCESS, CONTROL
+	"^F", IDM_FILTER, CONTROL
+	"^G", IDM_GRAYSHOW, CONTROL
+;	"^M", IDM_MASKSHOW, CONTROL
+	"^N", IDM_NEW, CONTROL
+	"^O", IDM_OPEN, CONTROL
+	"^P", IDM_PRINT, CONTROL
+	"^R", IDM_RTCHSHOW, CONTROL
+	"^S", IDM_SAVE, CONTROL
+;	"^T", IDM_TUTORIAL, CONTROL
+	"^X", IDM_CLOSE, CONTROL
+	"^V", IDM_REVERT, CONTROL
+	"1", IDM_CLIP1
+	"2", IDM_CLIP2
+	"3", IDM_CLIP3
+	"4", IDM_CLIP4
+	"5", IDM_CLIP5
+	"6", IDM_CLIP6
+	"7", IDM_CLIP7
+	"8", IDM_CLIP8
+	"9", IDM_CLIP9
+	VK_F1, IDM_FUNC1, VIRTKEY
+	VK_F2, IDM_FUNC2, VIRTKEY
+	VK_F3, IDM_FUNC3, VIRTKEY
+	VK_F4, IDM_FUNC4, VIRTKEY
+	VK_F5, IDM_FUNC5, VIRTKEY
+	VK_F6, IDM_FUNC6, VIRTKEY
+	VK_F7, IDM_FUNC7, VIRTKEY
+	VK_F8, IDM_FUNC8, VIRTKEY
+	VK_F9, IDM_FUNC9, VIRTKEY
+	VK_F10, IDM_FUNC10, VIRTKEY
+	VK_F11, IDM_FUNC11, VIRTKEY
+	VK_F12, IDM_FUNC12, VIRTKEY
+END
+
+ID_PWACCEL ACCELERATORS
+BEGIN
+	"E", IDM_EDITACTIVE, NOINVERT
+	"e", IDM_EDITACTIVE, NOINVERT
+	"G", IDM_GRAYACTIVE, NOINVERT
+	"g", IDM_GRAYACTIVE, NOINVERT
+	"R", IDM_RTCHACTIVE, NOINVERT
+	"r", IDM_RTCHACTIVE, NOINVERT
+	"M", IDM_MASKACTIVE, NOINVERT
+	"m", IDM_MASKACTIVE, NOINVERT
+	"V", IDM_VIEWACTIVE, NOINVERT
+	"v", IDM_VIEWACTIVE, NOINVERT
+	"X", IDM_XCHGBACK, NOINVERT
+	"x", IDM_XCHGBACK, NOINVERT
+	"U", IDM_UNDO, NOINVERT
+	"u", IDM_UNDO, NOINVERT
+	"A", IDM_APPLY, NOINVERT
+	"a", IDM_APPLY, NOINVERT
+	"^S", IDM_SAVE, CONTROL, NOINVERT
+	"1", IDM_CLIP1, NOINVERT
+	"2", IDM_CLIP2, NOINVERT
+	"3", IDM_CLIP3, NOINVERT
+	"4", IDM_CLIP4, NOINVERT
+	"5", IDM_CLIP5, NOINVERT
+	"6", IDM_CLIP6, NOINVERT
+	"7", IDM_CLIP7, NOINVERT
+	"8", IDM_CLIP8, NOINVERT
+	"9", IDM_CLIP9, NOINVERT
+	VK_F1, IDM_FUNC1, VIRTKEY, NOINVERT
+	VK_F2, IDM_FUNC2, VIRTKEY, NOINVERT
+	VK_F3, IDM_FUNC3, VIRTKEY, NOINVERT
+	VK_F4, IDM_FUNC4, VIRTKEY, NOINVERT
+	VK_F5, IDM_FUNC5, VIRTKEY, NOINVERT
+	VK_F6, IDM_FUNC6, VIRTKEY, NOINVERT
+	VK_F7, IDM_FUNC7, VIRTKEY, NOINVERT
+	VK_F8, IDM_FUNC8, VIRTKEY, NOINVERT
+	VK_F9, IDM_FUNC9, VIRTKEY, NOINVERT
+	VK_F10, IDM_FUNC10, VIRTKEY, NOINVERT
+	VK_F10, IDM_MEASURE, VIRTKEY, NOINVERT, ALT
+	VK_F11, IDM_MEASURE, VIRTKEY, NOINVERT
+	VK_F12, IDM_GRAB, VIRTKEY, NOINVERT, ALT
+	VK_ADD, IDM_BRUSHPRESSUP, VIRTKEY, NOINVERT
+	VK_SUBTRACT, IDM_BRUSHPRESSDOWN, VIRTKEY, NOINVERT
+	VK_TAB, IDM_BRUSHSHAPE, VIRTKEY, NOINVERT
+	VK_UP, IDM_BRUSHUP, VIRTKEY, NOINVERT
+	VK_DOWN, IDM_BRUSHDOWN, VIRTKEY, NOINVERT
+	VK_RIGHT, IDM_FLOODUP, VIRTKEY, NOINVERT
+	VK_LEFT, IDM_FLOODDOWN, VIRTKEY, NOINVERT
+	VK_UP, IDM_SCROLLUP, VIRTKEY, NOINVERT, ALT
+	VK_DOWN, IDM_SCROLLDOWN, VIRTKEY, NOINVERT, ALT
+	VK_RIGHT, IDM_SCROLLRIGHT, VIRTKEY, NOINVERT, ALT
+	VK_LEFT, IDM_SCROLLLEFT, VIRTKEY, NOINVERT, ALT
+	VK_BACK, IDM_BACKUP, VIRTKEY, NOINVERT
+	VK_ESCAPE, IDM_ESCAPE, VIRTKEY, NOINVERT
+	VK_HOME, IDM_VIEWALL, VIRTKEY, NOINVERT
+	VK_PRIOR, IDM_ZOOMIN, VIRTKEY, NOINVERT
+	VK_NEXT, IDM_ZOOMOUT, VIRTKEY, NOINVERT
+END
+
+STRINGTABLE LOADONCALL
+BEGIN
+IDS_APPNAME,	"Picture Publisher®"
+IDS_PREVIEW,	"%ls %d%% en mémoire"
+IDS_UNTITLED,	"SANSTITR.TIF"
+IDS_PRINTERR,	"Erreur survenue pendant l'impression; vérifiez votre logiciel et les connexions sur votre matériel d'impression"
+IDS_PRINTMEM,	"Mémoire insuffisante pour imprimer"
+IDS_PRINTDISK,	"Espace disque insuffisant pour imprimer"
+IDS_PRINTUSER,	"L'impression à été annulée par l'utilisateur"
+IDS_WELCOME,	"Bienvenue sur Astral "
+IDS_KLEFT,		" libre"
+IDS_USING,		" en utilisation "
+IDS_AREYOUSURE,	"Enregistrer '%ls' avant de fermer?"
+IDS_EWININI,	"Le programme n'a pas été correctement installé; aucun défaut n'a été détecté dans WIN.INI.  Picture Publisher terminera l'installation de WIN.INI en utilisant le répertoire %s pour tous les fichiers. WIN.INI peut être modifié ultérieurement."
+IDS_EPICWIN,	"Erreur %d en se trouvant dans la fenêtre image"
+IDS_EPICWINMEM,	"Mémoire insuffisante pour la fenêtre image!"
+IDS_EIMGMEMORY,	"Impossible d'obtenir %ld octets de mémoire pour afficher l'image!"
+IDS_EIMGBITMAP,	"Erreur pendant la création du bitmap Windows"
+IDS_EIMGPTR,	"Impossible d'obtenir un pointeur vers les données bitmap image!"
+IDS_EIMGWRITE,	"Erreur d'écriture vers le fichier image '%s'"
+IDS_EIMGREAD,	"Erreur de lecture à partir du fichier image '%s'"
+IDS_EIMGOPEN,	"Erreur d'ouverture du fichier image '%s'"
+IDS_EIMGVERSION,	"'%s' n'est pas un fichier TIFF version 4.2; le programme se poursuit"
+IDS_EIMGBAD,	"'%s' n'est pas une image TIFF correcte; ne peut être ouvert"
+IDS_EIMGBITS,	"'%s' est une image TIFF avec %d bits par pixel; ne peut être ouvert"
+IDS_EIMGCOMP,	"'%s' est une image TIFF CCITT ou Packbits; ne peut être ouvert"
+IDS_EIMGPHOTO,	"'%s' est une image TIFF avec une interpretation photo  non-standard(tel la couleur); le programme se poursuit"
+IDS_EIMGFILL,	"'%s' est une image TIFF avec un ordre de remplissage non- standard; le programme se poursuit"
+IDS_EIMGORIENT,	"'%s' est une image TIFF orientée; le programme se poursuit"
+IDS_EIMGSAMPLES,	"'%s' est une image TIFF avec plusieurs échantillons; ne peut être ouvert"
+IDS_EIMGPLANES,	"'%s' est une image TIFF avec plusieurs niveaux; le programme se poursuit"
+IDS_EGRAYASC,	"Les points d'entrée doivent être classés dans un ordre ascendant"
+IDS_EGRAYBAD,	"'%ls' n'est pas un fichier de Courbe de Gris correct"
+IDS_EGRAYOPEN,	"Erreur à l'ouverture du fichier de Courbe de Gris '%ls'"
+IDS_EGRAYWRITE, 	"Erreur d'écriture vers le fichier de Courbe de Gris '%ls'"
+IDS_ESCROPEN,	"Impossible d'ouvrir le fichier image cache dans le répertoire '%ls'"
+IDS_ESCRWRITE,	"Défaillance à l'écriture sur un fichier image cache dans le répertoire '%ls'"
+IDS_EWILLOW,	"Impossible d'obtenir une erreur matériel, de la Vidéo ou de la carte de capture"
+IDS_CRIPPLED,	"Cette version de Picture Publisher ne peut être utilisée qu'à des fins de démonstration ou de formation.  Si vous désirer sauvegarder des fichiers image, vous devez vous procurer Picture Publisher chez votre revendeur le plus proche"
+IDS_BADVGA,	"Picture Publisher a détecté un moniteur non compatible-VGA ou non compatible-MCGA.  Le programme se poursuit dans Windows, mais n'autorisera pas le passage vers la Fenêtre Image."
+IDS_ESCAN,		"Erreur de scanner %d; consultez le manuel d'installation du scanner"
+IDS_ESCANMEM,	"Mémoire insuffisante pour continuer la numérisation!"
+IDS_ESCANCOM,	"Impossible de communiquer avec le scanner; vérifiez s'il est bien sous tension, si le câble est connecté, et que le scanner a bien été initialisé"
+IDS_ESCANGET,	"Erreur %d de recherche de données image à partir du scanner; consultez le manuel d'installation du scanner"
+IDS_ESCANBAND,	"A obtenu %d lignes de données image, mais demandais %d"
+IDS_ESCANWRITE,	"Défaillance d'écriture sur le fichier cache dans le  répertoire '%ls'; Essayez de fermer quelques images avant de continuer"
+IDS_EVIDEOREAD,	"Cette image TIFF n'a pas été créée par Picture Publisher Vidéo.  Si vous désirez lire des images TIFF créées à partir de scanners et d'autres matériels de capture d'images, veuillez contacter Ista Diffusion au (1) 46313131."
+;IDS_EBADWILLOW, 	"Cette version de Picture Publisher est destinée à une utilisation limitée à la carte graphique VGA de Willow Peripherals Publishers' (avec la capture d'image).
+;Nous vous permettons de continuer, mais quoi qu'il en soit, vous ne pourrez pas capturer ou sauvegarder des images.
+;Lisez la boîte de dialogue A propos de...pour les informations commerciales."
+;IDS_COPYPROTECTED,	"Picture Publisher a détecté une modification du système depuis la première installation du programme.
+;Vous devez réinstaller le programme pour fonctionner dans ce nouvel environnement.
+;Ce programme continuera de s'exécuter, quoi qu'il en soit, vous ne pouvez pas sauvegarder les fichiers image."
+
+IDS_COPYDRV, 	"Copie le driver %s vers %s"
+IDS_ETUTORIAL, 	"Impossible d'exécuter le tutorial"
+IDS_WARNDRV, 	"Afin que le driver %ls fonctionne, quittez Picture Publisher et relancez le.  Vous pouvez installer d'autres drivers avant de quitter l'application."
+IDS_CLIPEMPTY, 	"Le Presse-Papier ne contient pas d'image bitmap ou est vide"
+IDS_ECLIPMULTIBIT, 	"Peut seulement gèrer 1 bit par pixel / 1 plan  d'images dans le Presse-Papier"
+IDS_EMEMALLOC, 	"Impossible d'allouer suffisamment de mémoire pour terminer cette opération"
+IDS_ECLIPOPEN, 	"Impossible d'ouvrir le Presse-Papier"
+IDS_ECLIPWRITE, 	"Erreur d'écriture dans le Presse-Papier"
+IDS_EMASKOPEN, 	"Erreur à l'ouverture du fichier Masque '%ls'"
+IDS_EMASKBADFILE, 	"'%ls' n'est pas un fichier Masque correct"
+IDS_EMASKCREATE, 	"Erreur à l'ouverture du nouveau masque"
+IDS_ENOMASK, 	"Il n'y a pas de masque actif à sauvegarder"
+IDS_EMASKWRITE, 	"Erreur d'écriture sur le fichier masque"
+IDS_EFILEWRITE, 	"Erreur d'écriture sur le fichier"
+IDS_EMAXIMAGEHEIGHT, 	"Impossible d'allouer une image de plus de 32K lignes"
+IDS_EIMAGEOVERHEAD, 	"Impossible d'ouvrir une image qui requiert > 64K de dépassement"
+IDS_ELINEPOOLALLOC, 	"Impossible d'allouer %ld octets de %s mémoire"
+IDS_EROTANDSMART, 	"Impossible de faire des rotations et d'utiliser le Collage Rapide en même temps"
+IDS_ECOMPRESSINIT, 	"Impossible d'initialiser l'image compressée"
+IDS_ECOMPRESSCLOSE, 	"Impossible de fermer l'image compressée"
+IDS_STRETCHREADINGS, 	"Vos lectures seront ajustées en étirant vos lectures minimum (%d%%) et maximum (%d%%) entre 0 et 100%%"
+IDS_ECALBADFILE, 	"le fichier de Courbe de Gris %s n'est pas une courbe de 11 points de calibration; Impossible de l'ouvrir"
+IDS_ECALILLEGALFILE, 	"le fichier de Courbe de Gris %s est une Courbe de Gris standard et non une courbe de 11 points de calibration - Impossible de l'ouvrir"
+IDS_DISABLEEMS, "Disabling the use of expanded memory for any newly cached images"
+IDS_ENABLEEMS, "Enabling the use of expanded memory for any newly cached images"
+IDS_ETOOWIDE, "The width of the image you are creating exceeds your system's maximum - Please reduce the size before continuing"
+IDS_NOGRB, "Unable to get Video or Frame Grab hardware error"
+IDS_GRBABORT, "User aborted grab"
+IDS_EBADDEVICE, "No default printer; Use the Control Panel to select one"
+IDS_EBADDRIVER, "Windows printer driver %s won't load"
+IDS_ESCANOPEN,	"Can't open the scanner driver: %s"
+IDS_ESCANINIT, "Can't initialize the scanner: %s"
+IDS_ESCANENV, "Can't get the scanner environment: %s"
+IDS_ESCANGETATT, "Can't get the scanner attributes: %s"
+IDS_ESCANSETATT, "Can't set the scanner attributes: %s"
+IDS_ESCANCLOSE, "Can't close the scanner properly: %s"
+IDS_ESCANSTART, "Can't start a scan: %s"
+IDS_ESCANIMAGE, "Can't get data from the scanner: %s"
+IDS_ESCANCROP, "Crop area is empty; cannot scan"
+IDS_SCANCHECK, "Number of gray levels found is %d; Maximum gray is %d; Minimum gray is %d"
+IDS_EDISKCACHE, "The new image requires %ldK bytes of unused disk space.  Your disk has only %ldK bytes of unused space.  Free up some space on the disk or edit the Control.RamDisk=%s statement in WIN.INI to use a larger disk for your image cache."
+IDS_EDISKSPACE, "Cannot write file '%ls'.  The new file requires %ldK bytes of unused disk space.  Your disk has only %ldK bytes of unused space."
+END
+
+IDD_ABORT DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 45, 125, 70
+CAPTION "Annuler"
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+CTEXT( "Envoyer une image", -1, 0,  5, 125, TDY )
+CTEXT( "", ID_NAME, 0, 15, 125, TDY )
+CTEXT( "", ID_PRINTER, 0, 25, 125, TDY )
+CTEXT( "", ID_PORT, 0, 35, 125, TDY )
+DUTTON( "Annuler", IDCANCEL, 45, 45, 35, BDY )
+END
+
+IDD_GRAYMAP DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 23, 130, 170
+CAPTION "Infos Courbe de Gris"
+STYLE WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_SYSMENU
+BEGIN
+BUTTON( "Ouvrir", IDC_GRAYLOAD, 2,  4, 30, BDY )
+BUTTON( "Enreg.", IDC_GRAYSAVE, 34, 4, 30, BDY )
+BUTTON( "Modifier", IDC_GRAYMOD, 66, 4, 30, BDY )
+BUTTON( "Réinit.", IDC_GRAYRESET, 98, 4, 30, BDY )
+BOX( -1,  35,  25, 10, 100 )
+BOX( -1,  55,  25, 10, 100 )
+BOX( -1,  75,  25, 10, 100 )
+BOX( -1,  95,  25, 10, 100 )
+BOX( -1, 115,  25, 10, 100 )
+BOX( -1,  25,  25, 100, 10 )
+BOX( -1,  25,  45, 100, 10 )
+BOX( -1,  25,  65, 100, 10 )
+BOX( -1,  25,  85, 100, 10 )
+BOX( -1,  25, 105, 100, 10 )
+BOX( IDC_GRAYMAP,  25,  25, 100, 100 )
+TEXT(  "0", -1, 6, 120, 16, TDY )
+TEXT( "10", -1, 6, 110, 16, TDY )
+TEXT( "20", -1, 6, 100, 16, TDY )
+TEXT( "30", -1, 6,  90, 16, TDY )
+TEXT( "40", -1, 6,  80, 16, TDY )
+TEXT( "50", -1, 6,  70, 16, TDY )
+TEXT( "60", -1, 6,  60, 16, TDY )
+TEXT( "70", -1, 6,  50, 16, TDY )
+TEXT( "80", -1, 6,  40, 16, TDY )
+TEXT( "90", -1, 6,  30, 16, TDY )
+TEXT( "100", -1, 6,  20, 16, TDY )
+TEXT( "0",   -1, 25, 128, 100, TDY )
+TEXT( "50",  -1, 70, 128, 100, TDY )
+TEXT( "100", -1, 115, 128, 100, TDY )
+CHECK( "Inverser", IDC_GRAYNEGATE, 90, 155, 37, CDY )
+BUTTON( "Appliquer", IDC_GRAYAPPLY, 90, 140, 35, BDY )
+TEXT( "Nombre de niveaux", -1, 4, 144, 64, TDY )
+EDIT( IDC_GRAYLEVELS, 72, 142, 16, EDY )
+TEXT( "Niveau de Seuil", -1, 4, 154, 60, TDY )
+EDIT( IDC_GRAYTHRESH, 72, 154, 16, EDY )
+END
+
+IDD_GRAYMOD DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+CAPTION "Modifier la Courbe des Tons de Gris"
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+CTEXT( "Modifier la Courbe des Tons de Gris", -1, 0, 4, 124, TDY )
+TEXT( "en Entrée", -1, 60, 20, 25, TDY+TDY )
+TEXT( "en Sortie", -1, 90, 20, 25, TDY+TDY )
+TEXT( "Surbrillance", -1, 10, 50, 45, TDY )
+EDIT( IDC_MAP0IN, 60, 50, 25, EDY )
+EDIT( IDC_MAP0OUT, 90, 50, 25, EDY )
+TEXT( "1/4 de Ton", -1, 10, 65, 45, TDY )
+EDIT( IDC_MAP1IN, 60, 65, 25, EDY )
+EDIT( IDC_MAP1OUT, 90, 65, 25, EDY )
+TEXT( "Ton Moyen", -1, 10, 80, 45, TDY )
+EDIT( IDC_MAP2IN, 60, 80, 25, EDY )
+EDIT( IDC_MAP2OUT, 90, 80, 25, EDY )
+TEXT( "3/4 deTon", -1, 10, 95, 45, TDY )
+EDIT( IDC_MAP3IN, 60, 95, 25, EDY )
+EDIT( IDC_MAP3OUT, 90, 95, 25, EDY )
+TEXT( "Ombrage", -1, 10, 110, 45, TDY )
+EDIT( IDC_MAP4IN, 60, 110, 25, EDY )
+EDIT( IDC_MAP4OUT, 90, 110, 25, EDY )
+DUTTON( "Modifier", IDOK, 15, 170, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 65, 170, 35, BDY )
+END
+
+IDD_GRAYSAVE DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Enregistrer Courbe de Gris", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+DUTTON( "Enreg.", IDOK, 83, 60, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 84, 35, BDY )
+END
+
+IDD_GRAYLOAD DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Ouvrir le Fichier Courbe de Gris:", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+DUTTON( "Ouvrir", IDOK, 83, 60, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 84, 35, BDY )
+END
+
+IDD_CALIBRATE DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 208
+CAPTION "Créer une Courbe de Calibration"
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+CTEXT( "-- Créer une Courbe de Calibration --", -1, 0, 4, 124, TDY )
+TEXT( "Numéro de Phase", -1, 15, 20, 100, TDY )
+TEXT( "1.  0%",  -1, 15, 35, 50, TDY )
+TEXT( "2.  10%", -1, 15, 47, 50, TDY )
+TEXT( "3.  20%", -1, 15, 59, 50, TDY )
+TEXT( "4.  30%", -1, 15, 71, 50, TDY )
+TEXT( "5.  40%", -1, 15, 83, 50, TDY )
+TEXT( "6.  50%", -1, 15, 95, 50, TDY )
+TEXT( "7.  60%", -1, 15, 107, 50, TDY )
+TEXT( "8.  70%", -1, 15, 119, 50, TDY )
+TEXT( "9.  80%", -1, 15, 131, 50, TDY )
+TEXT( "10. 90%", -1, 15, 143, 50, TDY )
+TEXT( "11. 100%",-1, 15, 155, 50, TDY )
+TEXT( "% Mesuré", -1, 85, 20, 45, TDY )
+EDIT( IDC_STEP0, 85, 35, 25, EDY )
+EDIT( IDC_STEP1, 85, 47, 25, EDY )
+EDIT( IDC_STEP2, 85, 59, 25, EDY )
+EDIT( IDC_STEP3, 85, 71, 25, EDY )
+EDIT( IDC_STEP4, 85, 83, 25, EDY )
+EDIT( IDC_STEP5, 85, 95, 25, EDY )
+EDIT( IDC_STEP6, 85, 107, 25, EDY )
+EDIT( IDC_STEP7, 85, 119, 25, EDY )
+EDIT( IDC_STEP8, 85, 131, 25, EDY )
+EDIT( IDC_STEP9, 85, 143, 25, EDY )
+EDIT( IDC_STEP10,85, 155, 25, EDY )
+RADIO( "Pour Numériser", IDC_CALIBSCAN, 15, 169, 45, RDY )
+RADIO( "Pour Imprimer", IDC_CALIBPRINT, 65, 169, 45, RDY )
+;CHECK( "Etiré de 0 et 100%", IDC_CALIBSTRETCH, 15, 169, 100, CDY )
+BUTTON( "Ouvrir", IDC_CALIBLOAD, 2,  185, 29, BDY )
+BUTTON( "Enreg.", IDC_CALIBSAVE, 33, 185, 29, BDY )
+BUTTON( "Afficher", IDC_CALIBSHOW, 64,  185, 29, BDY )
+DUTTON( "Valider", IDCANCEL, 95, 185, 29, BDY )
+END
+
+IDD_CALIBSHOW DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 15, 124, 185
+CAPTION "Afficher la Courbe de Calibration"
+STYLE WS_VISIBLE | WS_POPUP
+BEGIN
+BOX( -1,  30,  25, 10, 100 )
+BOX( -1,  50,  25, 10, 100 )
+BOX( -1,  70,  25, 10, 100 )
+BOX( -1,  90,  25, 10, 100 )
+BOX( -1, 110,  25, 10, 100 )
+BOX( -1,  20,  25, 100, 10 )
+BOX( -1,  20,  45, 100, 10 )
+BOX( -1,  20,  65, 100, 10 )
+BOX( -1,  20,  85, 100, 10 )
+BOX( -1,  20, 105, 100, 10 )
+BOX( IDC_GRAYMAP,  20,  25, 100, 100 )
+TEXT(  "0", -1, 1, 120, 16, TDY )
+TEXT( "10", -1, 1, 110, 16, TDY )
+TEXT( "20", -1, 1, 100, 16, TDY )
+TEXT( "30", -1, 1,  90, 16, TDY )
+TEXT( "40", -1, 1,  80, 16, TDY )
+TEXT( "50", -1, 1,  70, 16, TDY )
+TEXT( "60", -1, 1,  60, 16, TDY )
+TEXT( "70", -1, 1,  50, 16, TDY )
+TEXT( "80", -1, 1,  40, 16, TDY )
+TEXT( "90", -1, 1,  30, 16, TDY )
+TEXT( "100", -1, 1,  20, 16, TDY )
+TEXT( "0",   -1, 20, 128, 100, TDY )
+TEXT( "50",  -1, 65, 128, 100, TDY )
+TEXT( "100", -1, 110, 128, 100, TDY )
+DUTTON( "Retour", IDOK, 45, 155, 30, BDY )
+END
+
+IDD_CALIBSAVE DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Enregistrer Courbe de Calibration", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+DUTTON( "Enreg.", IDOK, 83, 60, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 84, 35, BDY )
+END
+
+IDD_CALIBLOAD DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Ouvrir Courbe de Calibration", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+DUTTON( "Ouvrir", IDOK, 83, 60, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 84, 35, BDY )
+END
+
+IDD_MASKSAVE DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Enregistrer le Fichier Masque", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+DUTTON( "Enreg.", IDOK, 83, 60, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 84, 35, BDY )
+END
+
+IDD_MASKLOAD DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Ouvrir le Fichier Masque:", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+DUTTON( "Ouvrir", IDOK, 83, 60, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 84, 35, BDY )
+END
+
+IDD_BRUSHES DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 24, 130, 170
+CAPTION "Infos Retouches"
+STYLE WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_SYSMENU
+BEGIN
+TEXT( "Pression", -1, 10, 10, 35, TDY )
+RADIO( "Léger", IDC_PRESSLIGHT, 10, 20, 35, RDY )
+RADIO( "Moyen", IDC_PRESSMEDIUM, 10, 30, 35, RDY )
+RADIO( "Epais", IDC_PRESSHEAVY, 10, 40, 35, RDY )
+TEXT( "Style", -1, 60, 10, 35, TDY )
+RADIO( "Solide", IDC_BRUSHSOLID, 60, 20, 35, RDY )
+RADIO( "Diffus", IDC_BRUSHSCATTER, 60, 30, 50, RDY )
+TEXT( "Forme du Pinceau", -1, 10, 60, 75, TDY )
+RADIO( "Circulaire", IDC_BRUSHCIRCLE, 10, 70, 45, RDY )
+RADIO( "Carré", IDC_BRUSHSQUARE, 10, 80, 45, RDY )
+TEXT( "Taille du Pinceau", -1, 8, 108, 65, TDY )
+EDIT( IDC_BRUSHSIZE, 75, 108, 12, EDY )
+TEXT( "pixels", -1, 92, 108, 30, TDY )
+BOX( IDC_BRUSHICON, 60, 52, 52, 52 )
+TEXT( "Gamme de Flux", -1, 8, 128, 65, TDY )
+EDIT( IDC_FLOODRANGE, 75, 128, 12, EDY )
+TEXT( "pourcent", -1, 92, 128, 30, TDY )
+END
+
+IDD_MASKIT DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 23, 130, 170
+CAPTION "Infos Masque"
+STYLE WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_SYSMENU
+BEGIN
+BUTTON( "Ouvrir", IDC_MASKLOAD, 22, 4, 30, BDY )
+BUTTON( "Enreg.", IDC_MASKSAVE, 76, 4, 30, BDY )
+TEXT( "Couper la Séléction", -1, 8, 28, 100, TDY )
+RADIO( "Dedans", IDC_MASKINSIDE, 8, 40, 35, RDY )
+RADIO( "Dehors", IDC_MASKOUTSIDE, 8, 52, 40, RDY )
+TEXT( "Sensibilité MasqueAuto", -1, 8, 72, 100, TDY )
+EDIT( IDC_HGRID, 12, 84, 16, EDY )
+TEXT( "unités", -1, 32, 84, 25, TDY )
+TEXT( "Vecteur minimum MasqueAuto", -1, 8, 104, 100, TDY )
+EDIT( IDC_VGRID, 12, 116, 15, EDY )
+TEXT( "pixels", -1, 32, 116, 25, TDY )
+END
+
+IDD_SIZE DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 208
+CAPTION "Traitement"
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+CTEXT( "-- Traitement d'Image --", -1, 0, 4, 124, TDY )
+CHECK( "Autoriser les Distortions", IDC_DISTORT, 10, 15, 100, CDY )
+TEXT( "hauteur", -1, 10, 30, 30, TDY )
+EDIT( IDC_HEIGHT, 45, 30, 25, EDY )
+TEXT( "pouces", -1, 75, 30, 30, TDY )
+TEXT( "largeur", -1, 10, 45, 30, TDY )
+EDIT( IDC_WIDTH, 45, 45, 25, EDY )
+TEXT( "pouces", -1, 75, 45, 30, TDY )
+TEXT( "hEchelle", -1, 10, 60, 30, TDY )
+EDIT( IDC_SCALEY, 45, 60, 25, EDY )
+TEXT( "pourcent", -1, 75, 60, 35, TDY )
+TEXT( "lEchelle", -1, 10, 75, 30, TDY )
+EDIT( IDC_SCALEX, 45, 75, 25, EDY )
+TEXT( "pourcent", -1, 75, 75, 32, TDY )
+TEXT( "Résolution", -1, 10, 90, 30, TDY )
+EDIT( IDC_RES, 45, 90, 25, EDY )
+TEXT( "/ pouce", -1, 75, 90, 30, TDY )
+TEXT( "Rotation", -1, 10, 105, 30, 9)
+EDIT( IDC_ANGLE, 45, 105, 25, EDY )
+TEXT( "degrés", -1, 75, 105, 35, TDY )
+TEXT( "Miroir", -1, 10, 120, 30, TDY )
+RADIO( "Aucun", IDC_MIRRORNONE, 10, 130, 28, RDY )
+RADIO( "Haut-Bas", IDC_MIRRORY, 55, 130, 55, RDY )
+RADIO( "Gauche-Droite", IDC_MIRRORX, 55, 140, 55, RDY )
+RADIO( "Diagonale", IDC_MIRRORXY, 10, 140, 44, RDY )
+CHECK( "utiliser Smart Sizing", IDC_SMARTSIZE, 10, 160, 100, CDY )
+TEXT( "l'Image exige:", 18, 10, 175, 60, TDY )
+RTEXT( "9999", IDC_MEMORY, 70, 175, 20, TDY )
+RTEXT( "K", -1, 90, 175, 5, TDY )
+DUTTON( "Traiter", IDOK, 20, 190, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 70, 190, 35, BDY )
+END
+
+IDD_PRINT DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 208
+CAPTION "Imprimer"
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+CTEXT( "-- Imprimer l'Image --", -1, 0, 4, 124, TDY )
+CHECK( "Autoriser les Distortions", IDC_DISTORT, 10, 14, 100, CDY )
+TEXT( "hauteur", -1, 10, 28, 30, TDY )
+EDIT( IDC_HEIGHT, 45, 28, 25, EDY )
+TEXT( "pouces", -1, 75, 28, 30, TDY )
+TEXT( "largeur", -1, 10, 42, 30, TDY )
+EDIT( IDC_WIDTH, 45, 42, 25, EDY )
+TEXT( "pouces", -1, 75, 42, 30, TDY )
+TEXT( "hEchelle", -1, 10, 56, 30, TDY )
+EDIT( IDC_SCALEY, 45, 56, 25, EDY )
+TEXT( "pourcent", -1, 75, 56, 35, TDY )
+TEXT( "lEchelle", -1, 10, 70, 30, TDY )
+EDIT( IDC_SCALEX, 45, 70, 25, EDY )
+TEXT( "pourcent", -1, 75, 70, 32, TDY )
+CHECK( "Centre de la page", IDC_CENTERED, 10, 84, 100, CDY )
+TEXT( "Haut", -1, 10, 98, 30, TDY )
+EDIT( IDC_OFFSETY, 45, 98, 25, EDY )
+TEXT( "pouces", -1, 75, 98, 35, TDY )
+TEXT( "Gauche", -1, 10, 112, 30, TDY )
+EDIT( IDC_OFFSETX, 45, 112, 25, EDY )
+TEXT( "pouces", -1, 75, 112, 35, TDY )
+CHECK( "Diffus", IDC_SCATTER, 10, 126, 100, CDY )
+TEXT( "Ecran", -1, 10, 140, 30, TDY )
+EDIT( IDC_SCRULING, 45, 140, 25, EDY )
+TEXT( "/ pouce", -1, 75, 140, 35, TDY )
+CHECK( "utiliser Calibration", IDC_CALIBRATE, 10, 155, 115, CDY )
+BUTTON( "", IDC_CALNAME, 10, 170, 105, BDY )
+DUTTON( "Imprimer", IDOK, 20, 190, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 70, 190, 35, BDY )
+END
+
+IDD_NEW DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 35, 126, 140
+CAPTION "Nouveau"
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+CTEXT( "-- Créer une Nouvelle Image --", -1, 0, 4, 124, TDY )
+TEXT( "hauteur", -1, 10, 30, 30, TDY )
+EDIT( IDC_HEIGHT, 45, 30, 25, EDY )
+TEXT( "pouces", -1, 75, 30, 30, TDY )
+TEXT( "largeur", -1, 10, 45, 30, TDY )
+EDIT( IDC_WIDTH, 45, 45, 25, EDY )
+TEXT( "pouces", -1, 75, 45, 30, TDY )
+TEXT( "Résolution", -1, 10, 60, 30, TDY )
+EDIT( IDC_RES, 45, 60, 25, EDY )
+TEXT( "/ pouce", -1, 75, 60, 30, TDY )
+;CHECK( "Create a color image?", IDC_NEWCOLOR, 10, 75, 100, CDY )
+TEXT( "l'Image exige:", 18, 10, 90, 60, TDY )
+RTEXT( "9999", IDC_MEMORY, 70, 90, 20, TDY )
+RTEXT( "K", -1, 90, 90, 5, TDY )
+DUTTON( "Créer", IDOK, 15, 115, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 65, 115, 35, BDY )
+EDIT( IDC_SCALEY, 999, 999, 25, EDY )
+EDIT( IDC_SCALEX, 999, 999, 25, EDY )
+END
+
+IDD_IMAGE DIALOG LOADONCALL MOVEABLE DISCARDABLE 137, 25, 172, 186
+CAPTION "image.tif"
+STYLE WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_BORDER | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+; | WS_MAXIMIZEBOX
+; | WS_VSCROLL | WS_HSCROLL
+BEGIN
+END
+
+IDD_STATUS DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 360, 20
+CAPTION "Etat"
+STYLE WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_BORDER
+BEGIN
+END
+
+IDD_PICTURE DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 0, 0
+CAPTION "Image"
+STYLE WS_POPUP
+BEGIN
+END
+
+IDD_ACQUIRE DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 0, 0
+CAPTION "Acquire"
+STYLE WS_POPUP
+BEGIN
+END
+
+IDD_OPEN DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Ouvrir le Fichier Image:", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+DUTTON( "Ouvrir", IDOK, 83, 60, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 84, 35, BDY )
+END
+
+IDD_SAVEAS DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Enregistrer le Fichier Image:", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+RADIO( "Gris", IDC_SAVECT, 80, 50, 45, RDY )
+RADIO( "Trait", IDC_SAVELA, 80, 60, 45, RDY )
+RADIO( "Diffus", IDC_SAVESP, 80, 70, 45, RDY )
+;RADIO( "Full Color", IDC_SAVE24BITCOLOR, 80, 80, 45, RDY )
+;RADIO( "Mini Color", IDC_SAVE8BITCOLOR, 80, 90, 45, RDY )
+RADIO( "TIFF", IDC_SAVETIFF, 80, 85, 28, RDY )
+RADIO( "EPSF", IDC_SAVEEPS, 80, 95, 28, RDY )
+DUTTON( "Enreg.", IDOK, 83, 115, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 139, 35, BDY )
+CHECK( "Utiliser la Compression LZW ?", IDC_SAVECOMPRESS, 10, 175, 110, CDY )
+END
+
+IDD_INSTALL DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Installer le Fichier Drivers:", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+RADIO( "Picture", IDC_INSTALLPICWIN, 83, 50, 45, RDY )
+RADIO( "Scanner", IDC_INSTALLSCAN, 83, 60, 45, RDY )
+RADIO( "Vidéo", IDC_INSTALLVIDEO, 83, 70, 45, RDY )
+DUTTON( "Installer", IDOK, 83, 90, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 114, 35, BDY )
+END
+
+IDD_FILTER DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Utiliser le Fichier Filtre:", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+RADIO( "Intérieur", IDC_MASKINSIDE, 83, 50, 45, RDY )
+RADIO( "Extérieur", IDC_MASKOUTSIDE, 83, 60, 45, RDY )
+DUTTON( "Filtre", IDOK, 83, 80, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 104, 35, BDY )
+END
+
+IDD_TUTORIAL DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+TEXT( "Utiliser le Fichier Tutorial:", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+CHECK( "Sound?", IDC_SOUND, 83, 50, 45, CDY )
+DUTTON( "Démarrer", IDOK, 83, 80, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 83, 104, 35, BDY )
+END
+
+IDD_ABOUT DIALOG LOADONCALL MOVEABLE DISCARDABLE 75, 20, 185, 167
+CAPTION "A propos de..."
+STYLE WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+BOX( IDC_LOGO, 6, 6, 96, 103 )
+CTEXT( "Picture", -1, 110, 16, 64, TDY )
+CTEXT( "Publisher®", -1, 110, 26, 64, TDY )
+BOX( -1, 110, 14, 64, 24 )
+BOX( -1, 110, 14, 64, 88 )
+ICON( ID_JIM, ID_JIM, 122, 47, 16, 17 )
+ICON( ID_PETER, ID_PETER, 146, 48, 16, 17 )
+ICON( ID_FRANK, ID_FRANK, 122, 72, 16, 17 )
+ICON( ID_JED, ID_JED, 146, 72, 16, 17 )
+CTEXT( "Version 2.1a", -1, 0, 116, 182, TDY )
+CTEXT( "© 1988-91, Astral Development Corp.", -1, 0, 124, 182, TDY )
+DUTTON( "Shoot!", IDOK, 74, 138, 35, BDY )
+END
+
+IDD_SCANCONFIG DIALOG LOADONCALL MOVEABLE DISCARDABLE 96, 66, 109, 53
+CAPTION "Paramétrage du Scanner"
+STYLE WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_POPUP
+BEGIN
+TEXT( "Adresse d'E/S de base:", -1, 5, 15, 80, TDY )
+EDIT( IDC_SCANPORT, 85, 15, 20, 12 )
+DUTTON( "OK", IDOK, 15, 35, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 60, 35, 35, BDY )
+END
+
+IDD_SCAN DIALOG LOADONCALL MOVEABLE DISCARDABLE 16, 22, 279, 205
+CAPTION "Numérisation"
+STYLE WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_VISIBLE | WS_POPUP
+BEGIN
+BOX( -1, 125, 5, 150, 90 )
+TEXT( "Vitesse:", 133, 135, 10, 25, TDY )
+RADIO( "5", IDC_VELOCITY5, 165, 10, 15, RDY )
+RADIO( "4", IDC_VELOCITY4, 185, 10, 15, RDY )
+RADIO( "3", IDC_VELOCITY3, 205, 10, 15, RDY )
+RADIO( "2", IDC_VELOCITY2, 225, 10, 15, RDY )
+RADIO( "1", IDC_VELOCITY1, 245, 10, 15, RDY )
+CHECK( "Utiliser une carte de Calibration", IDC_SCANMAP, 135, 25, 125, CDY )
+BUTTON( "", IDC_SCANMAPNAME, 135, 40, 130, BDY)
+RADIO( "Trait", IDC_SCAN1BIT, 180, 60, 50, RDY )
+RADIO( "Niveau de gris", IDC_SCAN8BIT, 180, 70, 50, RDY )
+RADIO( "Couleur", IDC_SCANCOLOR, 180, 80, 50, RDY )
+;CHECK( "Invert", IDC_SCANINVERT, 230, 60, 40, CDY )
+;CHECK( "Mirror", IDC_SCANMIRROR, 230, 70, 40, CDY )
+CHECK( "Utiliser DMA", IDC_DMA, 230, 80, 40, CDY )
+DUTTON( "PréNumérisation", IDC_PRESCAN, 135, 60, 35, BDY )
+BUTTON( "PréVérification", IDC_SCANCHECK, 135, 75, 35, BDY )
+BOX( -1, 125, 100, 105, 95 )
+TEXT( "Taille:", -1, 135, 105, 35, TDY )
+TEXT( "Hauteur", -1, 135, 120, 30, TDY )
+EDIT( IDC_HEIGHT, 170, 120, 25, EDY )
+TEXT( "pouces", -1, 200, 120, 30, TDY )
+TEXT( "Largeur", -1, 135, 135, 30, TDY )
+EDIT( IDC_WIDTH, 170, 135, 25, EDY )
+TEXT( "pouces", -1, 200, 135, 30, TDY )
+TEXT( "Echelle", -1, 135, 150, 30, TDY )
+EDIT( IDC_SCALEX, 170, 150, 25, EDY )
+TEXT( "pourcent", -1, 200, 150, 32, TDY )
+EDIT( IDC_SCALEY, 999, 999, 25, EDY )
+TEXT( "Résolution", -1, 135, 165, 30, TDY )
+EDIT( IDC_RES, 170, 165, 25, EDY )
+TEXT( "/ pouce", -1, 200, 165, 30, TDY )
+TEXT( "Exige:", -1, 135, 180, 40, TDY )
+RTEXT( "9999", IDC_MEMORY, 175, 180, 20, TDY )
+RTEXT( "K", -1, 195, 180, 5, TDY )
+CONTROL "", IDC_SCANFRAME, "scanframe", SS_BLACKFRAME, 5, 5, 115, 175
+BUTTON( "Numériser", IDOK, 20, 185, 35, BDY )
+BUTTON( "Annuler", IDCANCEL, 70, 185, 35, BDY )
+END
+
+rcinclude icons.rc
+rcinclude cursors.rc
+rcinclude buttonsf.rc
+

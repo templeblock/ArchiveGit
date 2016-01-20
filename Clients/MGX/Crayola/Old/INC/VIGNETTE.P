@@ -1,0 +1,7 @@
+// Source file: VIGNETTE.C
+LPTR BuildMidPointTable( BOOL bDoHSL, int depth);
+void DoVignette( LPIMAGE lpImage, int sx1, int sy1, int sx2, int sy2 );
+BOOL TintFill( LPIMAGE lpImage, LPCOLORINFO lpColor, int iOpacity, MERGE_MODE MergeMode, int dirty );
+BOOL TextureFill( LPIMAGE lpImage, LPFRAME lpTexture, BOOL fHorzFlip, BOOL fVertFlip );
+BOOL InvertFill(LPIMAGE lpImage);
+

@@ -1,0 +1,29 @@
+    /* You may add -O to the next line if you'd like. */
+
+     CDEBUGFLAGS = -O2 -Wall -Winline
+
+/* Choose the first line if your X server supports the shared memory
+**   extension, and the second line if it does not.  Supported architecutres
+**   are ARCH-i86, ARCH_SUN, and ARCH_OTHER
+*/
+   EXTRA_DEFINES = -DARCH_i86 -DX11GRAPHICS
+/* EXTRA_DEFINES = -DX11GRAPHICS -DNO_XSHM */
+
+EXTRA_LIBRARIES  = -lm
+
+         DEFINES = $(RESOURCE_DEFINES) $(LOCAL_DEFINES)
+ 
+         DEPLIBS = $(DEPXLIB)
+ LOCAL_LIBRARIES = $(XLIB)
+
+SRCS = error.c fixed.c framebuf.c list.c render.c \
+       table.c texture.c view.c world.c worldfile.c wt.c \
+       wtmem.c x11graphics.c x11input.c
+
+OBJS = error.o fixed.o framebuf.o list.o render.o \
+       table.o texture.o view.o world.o worldfile.o wt.o \
+       wtmem.o x11graphics.o x11input.o
+
+
+ComplexProgramTarget(xwt)
+

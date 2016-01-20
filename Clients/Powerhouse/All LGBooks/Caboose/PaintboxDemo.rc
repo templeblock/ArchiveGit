@@ -1,0 +1,171 @@
+//***********************************************************************
+IDD_DEMO5 JUMPTABLE
+//***********************************************************************
+{
+"    
+	bg=paintbox\\bg.bmp,toon=toon.avi, delay=0, clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+    
+//*** Color Clicks ***
+
+    /SKY=0 0,			hot=1 0,	fg=skybw.bmp,		hide=/SKY, wave=color1a.wav;","
+	/WATER=0 0,			hot=48 243,	fg=waterbw.bmp,		hide=/WATER, wave=color2a.wav;","
+	/LEAVES=0 0,		hot=0 24,	fg=leavesbw.bmp,	hide=/LEAVES, wave=color4a.wav;","
+	/GROUND=0 0,		hot=1 188,	fg=groundbw.bmp,	hide=/GROUND, wave=color5a.wav, enable=/CRAB;","
+    
+//*** Opening Animation ***
+
+    /OPENING=392 435,	event=392  /SH1 394 /SH2 399 /SH3 406 /SH4 411 /SH5 414 /SH6 422 /SH7 426 /SH8 430,flags=auto, hide=/TEXT14 /TEXT15 /TEXT16,end=/INTRO;","
+    /INTRO=288 327,		prehide=/MORT /IDLE, show=/MORT /IDLE;"," 
+    
+//*** Clicks ***
+
+    /CRAB=216 283,		hot=48 358 142 428, flags=disabled;","
+    /MORT=24 36,		hot=407 242,	fg=mort.bmp;","
+    /DRAGON=44 64,		hot=72 80,		fg=dragon.bmp;","
+    /DEER=68 88,		hot=209 194,	fg=deer.bmp, prehide=/DRAGON,show=/DRAGON;","
+    /PARROT=116 139,	hot=266 120,	fg=parrot.bmp;","
+    /PAINTB=144 163,	hot=483 242,	fg=paintbr.bmp;","
+    /LUCKY=200 214,		hot=375 313,	fg=lucky.bmp, prehide=/PARROT,show=/PARROT;","
+    /SQUIREL=92 113,	hot=133 268,	fg=squirel.bmp;","
+    /FISH=168 195,		hot=170 387 230 432;","
+
+//*** Text ***
+	
+	/TEXT0=0 0, 		pos=345 36,fg=text00.bmp;","
+    /TEXT01=0 0, 		hot=342 33,fg=text01.bmp,flags=invisible alwayshot notrans,preshow=/TEXT01,hide=/TEXT01,wave=01.wav;","
+    /TEXT02=0 0, 		hot=379 33,fg=text02.bmp,flags=invisible alwayshot notrans,preshow=/TEXT02,hide=/TEXT02,wave=02.wav;","
+    /TEXT03=0 0, 		hot=440 38,fg=text03.bmp,flags=invisible alwayshot notrans,preshow=/TEXT03,hide=/TEXT03,wave=03.wav;","
+    /TEXT04=0 0, 		hot=478 33,fg=text04.bmp,flags=invisible alwayshot notrans,preshow=/TEXT04,hide=/TEXT04,wave=04.wav;","
+    /TEXT05=0 0, 		hot=540 33,fg=text05.bmp,flags=invisible alwayshot notrans,preshow=/TEXT05,hide=/TEXT05,wave=05.wav;","
+    /TEXT06=0 0, 		hot=347 57,fg=text06.bmp,flags=invisible alwayshot notrans,preshow=/TEXT06,hide=/TEXT06,wave=06.wav;","
+    /TEXT07=0 0, 		hot=372 57,fg=text07.bmp,flags=invisible alwayshot notrans,preshow=/TEXT07,hide=/TEXT07,wave=07.wav;","
+    /TEXT08=0 0, 		hot=422 58,fg=text08.bmp,flags=invisible alwayshot notrans,preshow=/TEXT08,hide=/TEXT08,wave=08.wav;","
+    /TEXT09=0 0, 		hot=490 59,fg=text09.bmp,flags=invisible alwayshot notrans,preshow=/TEXT09,hide=/TEXT09,wave=09.wav;","
+  	/TEXT10=0 0, 		hot=513 59,fg=text10.bmp,flags=invisible alwayshot notrans,preshow=/TEXT10,hide=/TEXT10,wave=10.wav;","
+	/TEXT11=0 0, 		hot=550 57,fg=text11.bmp,flags=invisible alwayshot notrans,preshow=/TEXT11,hide=/TEXT11,wave=11.wav;","
+	/TEXT12=0 0, 		hot=347 81,fg=text12.bmp,flags=invisible alwayshot notrans,preshow=/TEXT12,hide=/TEXT12,wave=12.wav;","
+	/TEXT13=0 0, 		hot=371 81,fg=text13.bmp,flags=invisible alwayshot notrans,preshow=/TEXT13,hide=/TEXT13,wave=13.wav;","
+	/TEXT14=0 0, 		hot=413 81,fg=text14.bmp,flags=invisible alwayshot notrans,preshow=/TEXT14,hide=/TEXT14,wave=14.wav;","
+	/TEXT15=0 0, 		hot=435 81,fg=text15.bmp,flags=invisible alwayshot notrans,preshow=/TEXT15,hide=/TEXT15,wave=15.wav;","
+	/TEXT16=0 0, 		hot=480 81,fg=text16.bmp,flags=invisible alwayshot notrans,preshow=/TEXT16,hide=/TEXT16,wave=16.wav;","
+	
+	/SH1=0 0,  			show=/TEXT01;","
+	/SH2=0 0,			hide=/TEXT01, show=/TEXT02 /TEXT03,flags=updatenow;","
+	/SH3=0 0,			hide=/TEXT02 /TEXT03,show=/TEXT04 /TEXT05,flags=updatenow;","	
+	/SH4=0 0,			hide=/TEXT04 /TEXT05,show=/TEXT06 /TEXT07,flags=updatenow;","
+	/SH5=0 0,			hide=/TEXT06 /TEXT07,show=/TEXT08 /TEXT09,flags=updatenow;","
+	/SH6=0 0,			hide=/TEXT08 /TEXT09,show=/TEXT10 /TEXT11,flags=updatenow;","
+	/SH7=0 0,			hide=/TEXT10 /TEXT11,show=/TEXT12 /TEXT13,flags=updatenow;","
+	/SH8=0 0,			hide=/TEXT12 /TEXT13,show=/TEXT14 /TEXT15 /TEXT16,flags=updatenow;","
+    
+//*** Ending Animation ***
+
+    /ENDANIM=332 390,	flags=invisible exit, prehide=/MORT /DRAGON /DEER /SQUIREL, show=/ENDBMP;","    
+	/ENDBMP=0 0,		pos=72 79,		fg=endend.bmp, flags=invisible;"," 
+
+//*** Idles ***
+
+	/IDLE=444 483,		pos=65 279,		fg=ripple.bmp, flags=idle;","
+    
+// Repeat Icon
+
+ 	/REPEAT=0 0, 		hot=515 84, flags=autobutton click nofade nohide notrans,fg=frog.bmp, end=/RINTRO;","
+    /RINTRO=392 435,	event=392  /SH1 394 /SH2 399 /SH3 406 /SH4 411 /SH5 414 /SH6 422 /SH7 426 /SH8 430, hide=/TEXT14 /TEXT15 /TEXT16;","
+    
+//****** These are the lines for the buttons on the action strip ******
+
+	/IDC_NEXT=0 0,		hot=307 444,	flags=noclip autobutton click notrans,cmd=IDC_DEMO7,fg=next.bmp,hint=next.wav;","
+
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANDEMO5 JUMPTABLE
+//***********************************************************************
+{
+"    
+	bg=paintbox\\spbg.bmp,toon=Sptoon.avi, delay=0, clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+    
+//*** Color Clicks ***
+
+    /SKY=0 0,			hot=1 0,	fg=skybw.bmp,		hide=/SKY, wave=color1a.wav;","
+	/WATER=0 0,			hot=48 243,	fg=waterbw.bmp,		hide=/WATER, wave=color2a.wav;","
+	/LEAVES=0 0,		hot=0 24,	fg=leavesbw.bmp,	hide=/LEAVES, wave=color4a.wav;","
+	/GROUND=0 0,		hot=1 188,	fg=groundbw.bmp,	hide=/GROUND, wave=color5a.wav, enable=/CRAB;","
+
+//*** Opening Animation ***
+
+    /OPENING=392 441,	event=393 /SH1 398 /SH2 406 /SH3 411 /SH4 417 /SH5 423 /SH6 429 /SH7, flags=auto, hide=/SPTEXT15 /SPTEXT16 /SPTEXT17 /SPTEXT18, end=/INTRO;","
+    /INTRO=288 327,		prehide=/MORT /IDLE, show=/MORT /IDLE;"," 
+
+//*** Clicks ***
+
+    /CRAB=216 283,		hot=48 358 142 428, flags=disabled;","
+    /MORT=24 36,		hot=407 242,	fg=mort.bmp;","
+    /DRAGON=44 64,		hot=72 80,		fg=dragon.bmp;","
+    /DEER=68 88,		hot=209 194,	fg=deer.bmp, prehide=/DRAGON,show=/DRAGON;","
+    /PARROT=116 139,	hot=266 120,	fg=parrot.bmp;","
+    /PAINTB=144 163,	hot=483 242,	fg=paintbr.bmp;","
+    /LUCKY=200 214,		hot=375 313,	fg=lucky.bmp, prehide=/PARROT,show=/PARROT;","
+    /SQUIREL=92 113,	hot=133 268,	fg=squirel.bmp;","
+    /FISH=168 195,		hot=170 387 230 432;","
+    
+//*** Text ***
+	
+	/SPTEXT=0 0, 		pos=324 36,fg=sptext00.bmp;","
+    /SPTEXT01=0 0, 		hot=321 33,fg=sptext01.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT01,hide=/SPTEXT01,wave=SP01.wav;","
+    /SPTEXT02=0 0, 		hot=346 33,fg=sptext02.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT02,hide=/SPTEXT02,wave=SP02.wav;","
+    /SPTEXT03=0 0, 		hot=407 33,fg=sptext03.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT03,hide=/SPTEXT03,wave=SP03.wav;","
+    /SPTEXT04=0 0, 		hot=440 33,fg=sptext04.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT04,hide=/SPTEXT04,wave=SP04.wav;","
+    /SPTEXT05=0 0, 		hot=505 33,fg=sptext05.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT05,hide=/SPTEXT05,wave=SP05.wav;","
+    /SPTEXT06=0 0, 		hot=571 33,fg=sptext06.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT06,hide=/SPTEXT06,wave=SP06.wav;","
+    /SPTEXT07=0 0, 		hot=321 57,fg=sptext07.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT07,hide=/SPTEXT07,wave=SP07.wav;","
+    /SPTEXT08=0 0, 		hot=370 62,fg=sptext08.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT08,hide=/SPTEXT08,wave=SP08.wav;","
+    /SPTEXT09=0 0, 		hot=383 58,fg=sptext09.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT09,hide=/SPTEXT09,wave=SP09.wav;","
+	/SPTEXT10=0 0, 		hot=452 62,fg=sptext10.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT10,hide=/SPTEXT10,wave=SP10.wav;","
+	/SPTEXT11=0 0, 		hot=487 62,fg=sptext11.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT11,hide=/SPTEXT11,wave=SP11.wav;","
+	/SPTEXT12=0 0, 		hot=509 57,fg=sptext12.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT12,hide=/SPTEXT12,wave=SP12.wav;","
+	/SPTEXT13=0 0, 		hot=322 86,fg=sptext13.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT13,hide=/SPTEXT13,wave=SP13.wav;","
+	/SPTEXT14=0 0, 		hot=373 86,fg=sptext14.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT14,hide=/SPTEXT14,wave=SP14.wav;","
+	/SPTEXT15=0 0, 		hot=404 81,fg=sptext15.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT15,hide=/SPTEXT15,wave=SP15.wav;","
+	/SPTEXT16=0 0, 		hot=428 81,fg=sptext16.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT16,hide=/SPTEXT16,wave=SP16.wav;","
+    /SPTEXT17=0 0, 		hot=448 81,fg=sptext17.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT17,hide=/SPTEXT17,wave=SP17.wav;","
+	/SPTEXT18=0 0, 		hot=482 81,fg=sptext18.bmp,flags=invisible alwayshot notrans,preshow=/SPTEXT18,hide=/SPTEXT18,wave=SP18.wav;","
+		
+	/SH1=0 0,  			show=/SPTEXT01 /SPTEXT02;","
+	/SH2=0 0,			hide=/SPTEXT01 /SPTEXT02,show=/SPTEXT03 /SPTEXT04,flags=updatenow;","
+	/SH3=0 0,			hide=/SPTEXT03 /SPTEXT04,show=/SPTEXT05 /SPTEXT06 /SPTEXT07,flags=updatenow;","
+	/SH4=0 0,			hide=/SPTEXT05 /SPTEXT06 /SPTEXT07,show=/SPTEXT08 /SPTEXT09,flags=updatenow;","
+	/SH5=0 0,			hide=/SPTEXT08 /SPTEXT09,show= /SPTEXT10 /SPTEXT11 /SPTEXT12,flags=updatenow;","
+	/SH6=0 0,			hide= /SPTEXT10 /SPTEXT11 /SPTEXT12,show= /SPTEXT13 /SPTEXT14,flags=updatenow;","
+	/SH7=0 0,			hide=/SPTEXT13 /SPTEXT14,show=/SPTEXT15 /SPTEXT16 /SPTEXT17 /SPTEXT18,flags=updatenow;","
+    
+//*** Ending Animation ***
+    
+  	/ENDANIM=332 389,	flags=invisible exit, prehide=/MORT /DRAGON /DEER /SQUIREL, show=/ENDBMP;","
+    /ENDBMP=0 0,		pos=72 79,		fg=endend.bmp, flags=invisible;"," 
+    
+//*** Idles ***
+
+	/IDLE=448 488,		pos=65 279,		fg=ripple.bmp, flags=idle;","
+    
+// Repeat Icon
+
+ 	/REPEAT=0 0, 		hot=522 84, flags=autobutton click nofade nohide notrans,fg=frog.bmp, end=/RINTRO;","
+    /RINTRO=392 441,	event=393 /SH1 398 /SH2 406 /SH3 411 /SH4 417 /SH5 423 /SH6 429 /SH7, hide=/SPTEXT15 /SPTEXT16 /SPTEXT17 /SPTEXT18;","    
+    
+//****** These are the lines for the buttons on the action strip ******
+
+	/IDC_NEXT=0 0,		hot=307 444,	flags=noclip autobutton click notrans,cmd=IDC_DEMO7,fg=next.bmp,hint=snext.wav;","
+
+",0
+}

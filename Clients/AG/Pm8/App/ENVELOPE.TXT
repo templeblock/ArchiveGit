@@ -1,0 +1,14 @@
+Name	Page Width	Page Height	Columns	Rows	Left Margin	Right Margin	Width	Height	Width plus gap	Height plus gap	Corner type	Radius X	Paper type	Orientation	Half page perf skip	Half page row count	Description	Units
+Card Envelope	4.375	5.75	1	1	0	0	4.375	5.75	4.375	5.75	0	0	0	1	0	0	"5-3/4"" x  4-3/8"""	1
+Half Card Envelope	5.5	8.875	1	1	0	0	5.5	8.875	5.5	8.875	0	0	0	1	0	0	"8-7/8"" x  5-1/2"""	1
+Monarch Envelope	3.875	7.5	1	1	0	0	3.875	7.5	3.875	7.5	0	0	0	1	0	0	"7-1/2"" x  3-7/8"""	1
+Personal Envelope	3.625	6.5	1	1	0	0	3.625	6.5	3.625	6.5	0	0	0	1	0	0	"6-1/2"" x  3-5/8"""	1
+#9 Envelope	3.875	8.875	1	1	0	0	3.875	8.875	3.875	8.875	0	0	0	1	0	0	"8-7/8"" x  3-7/8"""	1
+#10 Envelope	4.125	9.5	1	1	0	0	4.125	9.5	4.125	9.5	0	0	0	1	0	0	"9-1/2"" x  4-1/8"""	1
+#11 Envelope	4.5	10.375	1	1	0	0	4.5	10.375	4.5	10.375	0	0	0	1	0	0	"10-3/8"" x  4-1/2"""	1
+#12 Envelope	4.5	11	1	1	0	0	4.5	11	4.5	11	0	0	0	1	0	0	"11"" x  4"""	1
+#14 Envelope	5	11.5	1	1	0	0	5	11.5	5	11.5	0	0	0	1	0	0	"11-1/2"" x  5"""	1
+DL Envelope	4.330551	8.661102	1	1	0	0	4.330551	8.661102	4.330551	8.661102	0	0	0	1	0	0	220mm x 110mm	1
+C5 Envelope	6.377777	9.015274	1	1	0	0	6.377777	9.015274	6.377777	9.015274	0	0	0	1	0	0	229mm x 162mm	1
+C6 Envelope	4.48819	6.377777	1	1	0	0	4.48819	6.377777	4.48819	6.377777	0	0	0	1	0	0	162mm x 114mm	1
+C65 Envelope	4.48819	9.015274	1	1	0	0	4.48819	9.015274	4.48819	9.015274	0	0	0	1	0	0	229mm x 114mm	1

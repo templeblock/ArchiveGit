@@ -1,0 +1,99 @@
+/** palfx.rc
+ *
+     (C) Copyright Microsoft Corp. 1991, 1992.  All rights reserved.
+
+     You have a royalty-free right to use, modify, reproduce and 
+     distribute the Sample Files (and/or any modified version) in 
+     any way you find useful, provided that you agree that 
+     Microsoft has no warranty obligations or liability for any 
+     Sample Application Files which are modified. 
+	 
+     If you did not get this from Microsoft Sources, then it may not be the
+     most current version.  This sample code in particular will be updated
+     and include more documentation.  
+
+     Sources are:
+     	The MM Sys File Transfer BBS: The phone number is 206 936-4082.
+	CompuServe: WINSDK forum, MDK section.
+	Anonymous FTP from ftp.uu.net vendor\microsoft\multimedia
+ *
+ ** */
+
+
+#include "windows.h"
+#include "palfx.h"
+#include "palfx.rcv"
+
+PalFxIcon ICON palfx.ico
+
+PALFXMENU MENU
+BEGIN
+    POPUP        "&File"
+    BEGIN
+	MENUITEM   "&Open...",		 IDM_OPEN
+	MENUITEM   SEPARATOR
+	MENUITEM   "E&xit",		 IDM_EXIT
+	MENUITEM   SEPARATOR
+	MENUITEM   "&About Palette Effects Demo...", IDM_ABOUT
+    END
+
+    POPUP        "E&ffects"
+    BEGIN
+        MENUITEM    "&Fade to black",     IDM_TOBLACK   ,GRAYED
+        MENUITEM    "Fade to &DIB",     IDM_TODIB   ,GRAYED
+	MENUITEM   SEPARATOR
+        MENUITEM    "Revert",     IDM_REVERT   ,GRAYED
+    END
+
+END
+
+
+Open DIALOG 10, 10, 148, 112
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Open "
+BEGIN
+        LTEXT "Open File &Name:", IDC_FILENAME, 4,  4,  60, 10
+        EDITTEXT                  IDC_EDIT,     4, 16, 100, 12, ES_AUTOHSCROLL
+        LTEXT "&Files in",        IDC_FILES,    4, 40,  32, 10
+        LISTBOX,                  IDC_LISTBOX,  4, 52,  70, 56, WS_TABSTOP|WS_VSCROLL
+        LTEXT "",                 IDC_PATH,     40, 40, 100, 10
+        DEFPUSHBUTTON "&Open" ,   IDOK,        87, 60,  50, 14
+        PUSHBUTTON "Cancel",      IDCANCEL,    87, 80,  50, 14
+END
+
+OpenDIB DIALOG 10, 10, 148, 112
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a DIB file"
+BEGIN
+        LTEXT "DIB File &Name:", IDC_FILENAME, 4,  4,  60, 10
+        EDITTEXT                  IDC_EDIT,     4, 16, 100, 12, ES_AUTOHSCROLL
+        LTEXT "&Files in",        IDC_FILES,    4, 40,  32, 10
+        LISTBOX,                  IDC_LISTBOX,  4, 52,  70, 56, WS_TABSTOP|WS_VSCROLL
+        LTEXT "",                 IDC_PATH,     40, 40, 100, 10
+        DEFPUSHBUTTON "&Open" ,   IDOK,        87, 60,  50, 14
+        PUSHBUTTON "Cancel",      IDCANCEL,    87, 80,  50, 14
+END
+
+Saveas DIALOG 10, 10, 180, 53
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Save As "
+BEGIN
+    LTEXT "Save As File &Name:", IDC_FILENAME,  4, 4, 72, 10
+    LTEXT "",                    IDC_PATH,     84, 4, 92, 10
+    EDITTEXT                     IDC_EDIT,      4, 16, 100, 12
+    DEFPUSHBUTTON  "Save",       IDOK,       120, 16, 50, 14
+    PUSHBUTTON     "Cancel",     IDCANCEL,   120, 36, 50, 14
+END
+
+AboutBox DIALOG LOADONCALL MOVEABLE DISCARDABLE 30, 50, 160, 75
+STYLE DS_MODALFRAME | WS_SYSMENU | WS_VISIBLE | WS_POPUP | DS_LOCALEDIT
+CAPTION "About"
+FONT 8, "Helv"
+BEGIN
+   CONTROL "Microsoft Windows", -1, "static", SS_CENTER | WS_CHILD, 0, 5, 160, 8
+   CONTROL MMVERSIONPRODUCTNAME, -1, "static", SS_CENTER | WS_CHILD, 0, 16, 160, 8
+   CONTROL MMVERSIONDESCRIPTION, -1, "static", SS_CENTER | WS_CHILD, 0, 27, 160, 8
+   CONTROL MMVERSIONCOPYRIGHT, -1, "static", SS_CENTER | WS_CHILD, 25, 38, 114, 19
+   CONTROL "OK", IDOK, "button", BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 58, 59, 47, 14
+   CONTROL "PalFxIcon", -1, "static", SS_ICON | WS_CHILD, 2, 5, 0, 0
+END

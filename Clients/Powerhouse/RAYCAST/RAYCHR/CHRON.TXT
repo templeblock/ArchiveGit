@@ -1,0 +1,25 @@
+RAY-CASTING ENGINE
+By Jaime del Palacio
+Compuserve 73072,3134
+Internet 73072.3134@compuserve.com
+
+
+
+
+This is the fisrt version of a reycaster. For now it is a Wolf 3d raycaster 
+that works with an ASCII 2d map. I'm including the source code.
+Needs a lot of optimisation (fixed-point, some pre-calculations, etc.) 
+and I'm not including the 3d sprites engine.
+
+This raycaster is based on the technique used in the book "Tricks of the game
+programing gurus" 
+
+Also, the keyboard handler used in the demo is the one that Jim Bucher 
+uses on the isometric demo also for the chronicls project.
+
+The demo program does not have colision detection so you can pass thru
+walls, becarful, you can get out of the 2d map and it may work but it may not.
+
+Jaime
+
+

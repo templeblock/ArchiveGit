@@ -1,0 +1,57 @@
+//
+// Version.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+#include "version.h"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION VER_FILE_VERSION
+ PRODUCTVERSION VER_PRODUCT_VERSION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", VER_COMPANY
+            VALUE "FileDescription", "AmericanGreetings.com Popup Plugin\0"
+            VALUE "FileExtents", "none\0"
+            VALUE "FileOpenName", "AmericanGreetings.com Popup Plugin (*.*)\0"
+            VALUE "FileVersion", VER_FILE_VERSION_STR
+            VALUE "LegalCopyright", VER_COPYRIGHT
+            VALUE "OriginalFilename", "NpPopup.dll\0"
+            VALUE "ProductName", "AmericanGreetings.com Popup Plugin " VER_PRODUCT_VERSION_STR "\0"
+            VALUE "ProductVersion", VER_PRODUCT_VERSION_STR
+            VALUE "MIMEType", "application/x-popup-plugin\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+/////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,149 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "AppStudio.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "ImageEditResource.h"
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "AppStudio.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""ImageEditResource.h""\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_OE_EDGE01           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_OE_EDGE01.BMP"
+IDB_OE_EDGE02           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_OE_EDGE02.BMP"
+IDB_OE_EDGE03           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_OE_EDGE03.BMP"
+IDB_OE_EDGE04           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_OE_EDGE04.BMP"
+IDB_OE_EDGE05           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_OE_EDGE05.BMP"
+IDB_OE_EDGE06           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_OE_EDGE06.BMP"
+IDB_OE_EDGE07           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_OE_EDGE07.BMP"
+IDB_OE_EDGE08           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_OE_EDGE08.BMP"
+IDB_SE_EDGE01           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_SE_EDGE01.BMP"
+IDB_SE_EDGE02           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_SE_EDGE02.BMP"
+IDB_SE_EDGE03           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_SE_EDGE03.BMP"
+IDB_SE_EDGE04           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_SE_EDGE04.BMP"
+IDB_SE_EDGE05           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_SE_EDGE05.BMP"
+IDB_SE_EDGE06           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_SE_EDGE06.BMP"
+IDB_SE_EDGE07           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_SE_EDGE07.BMP"
+IDB_SE_EDGE08           BITMAP  DISCARDABLE     "Shared\\PresetBmps\\EE_SE_EDGE08.BMP"
+IDB_SOFTSHAD_UR         BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft_TR.bmp"
+IDB_SOFTSHAD_UL         BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft_TL.bmp"
+IDB_SOFTSHAD_LL         BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft_BL.bmp"
+IDB_SOFTSHAD_LR         BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft_BR.bmp"
+IDB_SOFTSHAD1_UR        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft1_TR.bmp"
+IDB_SOFTSHAD1_UL        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft1_TL.bmp"
+IDB_SOFTSHAD1_LL        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft1_BL.bmp"
+IDB_SOFTSHAD1_LR        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft1_BR.bmp"
+IDB_SOFTSHAD2_UR        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft2_TR.bmp"
+IDB_SOFTSHAD2_UL        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft2_TL.bmp"
+IDB_SOFTSHAD2_LL        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft2_BL.bmp"
+IDB_SOFTSHAD2_LR        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Soft2_BR.bmp"
+IDB_HARDSHAD_UR         BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Hard_TR.bmp"
+IDB_HARDSHAD_UL         BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Hard_TL.bmp"
+IDB_HARDSHAD_LL         BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Hard_BL.bmp"
+IDB_HARDSHAD_LR         BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Hard_BR.bmp"
+IDB_HARDSHAD1_UR        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Hard1_TR.bmp"
+IDB_HARDSHAD1_UL        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Hard1_TL.bmp"
+IDB_HARDSHAD1_LL        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Hard1_BL.bmp"
+IDB_HARDSHAD1_LR        BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Hard1_BR.bmp"
+IDB_GLOW4               BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Glow4.bmp"
+IDB_GLOW3               BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Glow3.bmp"
+IDB_GLOW2               BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Glow2.bmp"
+IDB_GLOW1               BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Small_Glow1.bmp"
+IDB_CUSTOM_SQUARE       BITMAP  DISCARDABLE     "Shared\\PresetBmps\\Custom.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_REMOVE_GLOW      "&Remove Glow"
+    STRING_GLOW_THICKNESS   "Glow Thickness:"
+    STRING_THICKNESS_LBL    "Thickness:"
+    STRING_GLOW_ATTR        "Glow Settings:"
+    STRING_GLOW_CUST_HELP   "Adjust the sliders and color selection to set a custom glow for your image."
+    STRING_CUR_SHADOW       "Current Shadow:"
+    STRING_SHADOW_POS       "Shadow Position:"
+    STRING_GLOW_TITLE       "Apply a Radiant Glow"
+    STRING_SE_HELP          "Select a soft edge thickness from the gallery to apply to the contour of your image."
+    STRING_SPE_HELP         "Select a special edge effect from the gallery to apply to your image."
+    STRING_OE_HELP          "Select color and outline thickness from the gallery to apply to the contour of your image."
+    STRING_TE_HELP          "Select a transparent effect from the gallery to apply to your entire image."
+	STRING_OE_ALERT			"Outline edges can only be applied to photographs or Fine Art images."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_SHADOW_PRESET    "Preset Shadows"
+    STRING_SHADOW_CUSTOM    "Customize Shadow"
+    STRING_GLOW_PRESET      "Preset Glows"
+    STRING_GLOW_CUSTOM      "Customize Glow"
+    STRING_EDGE_SOFT        "Soft Edges"
+    STRING_EDGE_SPECIAL     "Special Edges"
+    STRING_EDGE_OUTLINE     "Outline Edges"
+    STRING_EDGE_TRANSEFFECT "Transparent Effects"
+    STRING_CUR_GLOW         "Current Glow:"
+    STRING_GLOW_PRESET_HELP "Select a preset glow from the gallery above or select the 'Customize' tab to create a custom glow effect."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,9 @@
+; VDCrusher.def : Declares the module parameters.
+
+LIBRARY      "VDCrusher.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

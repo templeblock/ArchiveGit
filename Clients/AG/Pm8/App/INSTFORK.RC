@@ -1,0 +1,8 @@
+#include "installr.h"
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+IDI_INSTALL             ICON    PRELOAD FIXED PURE "RES\\INSTALL.ICO"

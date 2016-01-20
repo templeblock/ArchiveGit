@@ -1,0 +1,11 @@
+// Source file: jungle.cpp
+BOOL OnSceneMessage( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+BOOL OnScene1Message( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+BOOL OnScene2Message( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+BOOL OnScene3Message( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+BOOL OnScene4Message( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+BOOL OnScene5Message( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+BOOL OnScene6Message( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+BOOL OnScene1Init( HWND hWnd, WPARAM wParam, LPARAM lParam );
+BOOL OnScene1Command( HWND hWnd, WPARAM wParam, LPARAM lParam );
+

@@ -1,0 +1,24 @@
+// Source file: smart.c
+LPFRAME DoSmartSize(LPFRAME lpSrcFrame, int pix, int lin, int res);
+BOOL SmartSetup (int xIn, int xOut, int yIn, int yOut, int depth);
+void SmartDone ( void );
+BOOL SmartSize (LPTR lpIn, LPTR lpOut, LPINT lpNeedsNewLine);
+static BOOL SmartSizeUp (LPTR lpIn, LPTR lpOut, LPINT lpNeedsNewLine);
+static void DoSizeUp (LPTR lpIn, LFIXED peak, LPLONG lpLine);
+static BOOL SmartSizeDown (LPTR lpIn, LPTR lpOut, LPINT lpNeedsNewLine);
+static void DoSizeDown (LPTR lpIn, LFIXED peak, LPLONG lpLine, LPLONG lpNumber);
+static void fixed2byte (LPLONG lpSum, LPTR lp, int iCount);
+static void pair2byteRGB (LPLONG lpSum, LPLONG lpNum, LPTR lp, int iCount);
+static void DoSizeDownRGB (LPTR lpIn, LFIXED peak, LPLONG lpLine, LPLONG lpNumber);
+static BOOL SmartSizeDownRGB (LPTR lpIn, LPTR lpOut, LPINT lpNeedsNewLine);
+static void fixed2byteRGB (LPLONG lpSum, LPTR lp, int iCount);
+static void DoSizeUpRGB (LPTR lpIn, LFIXED peak, LPLONG lpLine);
+static BOOL SmartSizeUpRGB (LPTR lpIn, LPTR lpOut, LPINT lpNeedsNewLine);
+static void pair2byteCMYK (LPLONG lpSum, LPLONG lpNum, LPTR lp, int iCount);
+static void fixed2byteCMYK (LPLONG lpSum, LPTR lp, int iCount);
+static void DoSizeDownCMYK (LPTR lpIn, LFIXED peak, LPLONG lpLine, LPLONG lpNumber);
+static BOOL SmartSizeDownCMYK (LPTR lpIn, LPTR lpOut, LPINT lpNeedsNewLine);
+static void DoSizeUpCMYK (LPTR lpIn, LFIXED peak, LPLONG lpLine);
+static BOOL SmartSizeUpCMYK (LPTR lpIn, LPTR lpOut, LPINT lpNeedsNewLine);
+
+

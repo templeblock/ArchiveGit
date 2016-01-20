@@ -1,0 +1,84 @@
+0 0 0 255;01-Black
+255 255 0 0;02-Blue
+255 0 0 0;03-Cyan
+255 0 64 0;04-Teal
+255 0 255 0;05-Green
+128 0 255 0;06-Chartreuse
+0 0 255 0;07-Yellow 
+0 128 255 0;08-Orange
+0 255 255 0;09-Red
+0 255 64 0;10-Rose
+0 255 0 0;11-Magenta
+64 128 0 0;12-Violet
+0 0 0 0;13-White   
+0 0 0 127;14-50%Black
+128 128 0 0;15-50%Blue
+128 0 0 0;16-50%Cyan
+128 0 25 0;17-50%Teal
+128 0 128 0;18-50%Green
+64 0 128 0;19-50%Chartreuse
+0 0 128 0;20-50%Yellow         
+0 64 128 0;21-50%Orange 
+0 128 128 0;22-50%Red
+0 128 32 0;23-50%Rose
+0 128 0 0;24-50%Magenta
+32 64 0 0;25-50%Violet
+15 100 85 0;26-Red Brick
+0 100 55 0;27-Light Red
+0 25 15 0;28-Pink
+0 45 35 0;29-Melon
+0 30 45 0;30-Light Orange
+0 25 80 0;31-Yellow Orange
+15 65 100 0;32-Tan
+0 80 90 0;33-Rusty Red
+15 100 100 0;34-Cadmium Red
+45 98 100 0;35-Copper
+50 90 90 13;36-Burnt Sienna
+45 70 100 0;37-Brown
+35 48 100 0;38-Gold
+4 9 97 0;39-Goldenrod 
+0 0 100 0;40-Soft Yellow
+0 0 60 0;41-Light Yellow
+0 5 35 0;42-Apricot
+33 13 100 0;43-Olive Green
+15 0 55 0;44-Spring Green
+35 0 35 0;45-Sea Green
+100 4 84 0;46-Soft Green
+100 45 90 0;47-Pine Green
+56 50 76 30;48-Raw Umber
+75 50 75 31;49-Gray Green
+93 0 40 0;50-Aquamarine
+80 28 25 0;51-Turquoise Gray
+100 0 10 0;52-Turquoise Blue
+53 0 3 0;53-Sky Blue
+0 0 0 20;54-Silver
+35 10 0 0;55-Periwinkle
+70 20 0 0;56-Cornflower
+100 45 0 0;57-Cerulean Blue
+100 63 3 0;58-Dark Blue
+89 100 14 0;59-Ultramarine
+60 100 20 0;60-Purple
+25 100 50 0;61-Maroon
+0 90 0 0;62-Violet Red
+5 53 15 0;63-Salmon
+0 30 0 0;64-Lavender
+0 0 0 6;65-Gray...03%
+0 0 0 13;66-Gray...05%
+0 0 0 25;67-Gray...10%
+0 0 0 38;68-Gray...15%
+0 0 0 51;69-Gray...20%
+0 0 0 64;70-Gray...25%
+0 0 0 77;71-Gray...30%
+0 0 0 89;72-Gray...35%
+0 0 0 102;73-Gray...40%
+0 0 0 115;74-Gray...45%
+0 0 0 128;75-Gray...50%
+0 0 0 140;76-Gray...55%
+0 0 0 153;77-Gray...60%
+0 0 0 167;78-Gray...65%
+0 0 0 178;79-Gray...70%
+0 0 0 191;80-Gray...75%
+0 0 0 204;81-Gray...80%
+0 0 0 217;82-Gray...85%
+0 0 0 229;83-Gray...90%
+0 0 0 242;84-Gray...95%

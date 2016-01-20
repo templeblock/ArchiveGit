@@ -1,0 +1,3 @@
+// Source file: mcontrol.cpp
+long WINPROC EXPORT MeterControl( HWND hWindow, unsigned message, WPARAM wParam, LPARAM lParam);
+

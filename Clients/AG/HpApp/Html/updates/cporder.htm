@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd"-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<!--base href="imgag/"-->
+		<title>HP Design Studio Workspace by AmericanGreetings.com</title>
+		<meta http-equiv="MSThemeCompatible" content="Yes" />
+		<script language="JavaScript" src="navigation.js"></script>
+		<script language="JavaScript">
+			var strQuery = GetContext();
+			var strImgPath = 'cp/uiw/';
+			var strProduct = GetOption(strQuery, 'product');
+			if (strProduct != '' && strProduct.indexOf('.') < 0 && strProduct.indexOf('/') < 0 && strProduct.indexOf('\\') < 0)
+				strProduct = 'content/' + strProduct + '/' + strProduct + 'f.ctp';
+			var strCpHost = window.location.href;
+			var iIndex = strCpHost.indexOf('?');
+			if (iIndex >= 0)
+				strCpHost = strCpHost.substr(0, iIndex);
+			strCpHost = strCpHost.substr(0, strCpHost.lastIndexOf('/'));
+			var strImgHost = 'http://www.imgag.com';
+			var strContext = 
+				'cphost=' + strCpHost + '&' + 
+				'imghost=' + strImgHost + '&' + 
+				'user=&' + 
+				'app=' + 'app,hpui&';
+			function OnLoad()
+			{
+				RemoveFocus();
+			//j	PreloadWorkspaceImages(strImgPath); // the files are already on disk, so no need to preload
+			}
+			function IconOn(IMGNAME)
+			{
+				IconOnEx(strImgPath, IMGNAME);
+			}
+			function IconOff(IMGNAME)
+			{
+				IconOffEx(strImgPath, IMGNAME);
+			}
+		</script>
+		<script language="JavaScript" src="cporder.js"></script>
+	</head>
+	<body onload="OnLoad()" style="color:black; background-color:white; margin:0px; padding:0px;" scroll="no">
+		<a name="top"></a>
+		<table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td width="140" height="100%" style="background-image:url(cp/uiw/bgleft.gif)" align="left"
+					valign="top" rowspan="2">
+					<img src="cp/space.gif" width="140" height="1" border="0" alt="" /></td>
+				<td width="100%" height="60" style="background-image:url(cp/uiw/bgtop.gif)" align="left"
+					valign="top">
+					<img src="cp/uiw/bgtopleft.gif" width="10" height="60" border="0" alt="" /></td>
+			</tr>
+			<tr>
+				<td width="100%" height="100%" bgcolor="#F0F0FF" align="left" valign="top">
+					<script language="JavaScript"> 
+						EmbedPlugin('0,0,0,0'/*strversion*/, strCpHost, strImgHost, strContext, strProduct); // Any version will do
+					</script>
+				</td>
+			</tr>
+		</table>
+		<div id="d_toolsleft" style="position:absolute; left:6px; top:0px; z-index:1; width:128px; height:538px">
+			<img name="toolsleft" src="cp/uiw/toolsleft.gif" width="128" height="538" border="0"
+				alt="" />
+		</div>
+		<div id="d_help" style="position:absolute; left:18px; top:91px; z-index:1; width:105px; height:21px">
+			<a onclick="OnCommand('Help')" onmouseover="IconOn('help');" onmouseout="IconOff('help');"
+				href="Javascript: // Get help using HP Design Studio by AmericanGreetings.com"><img name="help" src="cp/space.gif" width="105" height="21" border="0" alt="Get help using HP Design Studio by AmericanGreetings.com" /></a>
+		</div>
+		<div id="d_addtextbox" style="position:absolute; left:23px; top:134px; z-index:1; width:95px; height:25px">
+			<a onclick="OnCommand('AddTextbox')" onmouseover="IconOn('addtextbox');" onmouseout="IconOff('addtextbox');"
+				href="Javascript: // Add a text box to your project"><img name="addtextbox" src="cp/space.gif" width="95" height="25" border="0" alt="Add a text box to your project" /></a>
+		</div>
+		<div id="d_addphoto" style="position:absolute; left:23px; top:160px; z-index:1; width:95px; height:25px">
+			<a onclick="OnCommand('AddImage')" onmouseover="IconOn('addphoto');" onmouseout="IconOff('addphoto');"
+				href="Javascript: // Add a photograph or artwork to your project"><img name="addphoto" src="cp/space.gif" width="95" height="25" border="0" alt="Add a photograph or artwork to your project" /></a>
+		</div>
+		<div id="d_addshape" style="position:absolute; left:23px; top:186px; z-index:1; width:95px; height:25px">
+			<a onclick="OnCommand('AddShape')" onmouseover="IconOn('addshape');" onmouseout="IconOff('addshape');"
+				href="Javascript: // Add a shape to your project"><img name="addshape" src="cp/space.gif" width="95" height="25" border="0" alt="Add a shape to your project" /></a>
+		</div>
+		<div id="d_zoomout" style="position:absolute; left:22px; top:238px; z-index:1; width:22px; height:21px">
+			<a onclick="OnCommand('ZoomOut')" onmouseover="IconOn('zoomout');" onmouseout="IconOff('zoomout');"
+				href="Javascript: // Zoom out to view your project at a smaller size"><img name="zoomout" src="cp/space.gif" width="22" height="21" border="0" alt="Zoom out to view your project at a smaller size" /></a>
+		</div>
+		<select name="zoomfull" style="font-family:Arial; font-size:8pt; position:absolute; left:45px; top:238px; z-index:1; width:51px; height:21px"
+			onchange="OnCommand(this.options(this.selectedIndex).value);this.selectedIndex=0">
+			<option value="ZoomFull">To:</option>
+			<option value="ZoomFull">Full</option>
+			<option value="Zoom1">Page</option>
+			<option value="Zoom2">Selection</option>
+			<option value="Zoom5">500%</option>
+			<option value="Zoom4">400%</option>
+			<option value="Zoom3">300%</option>
+		</select>
+		<div id="d_zoomin" style="position:absolute; left:97px; top:238px; z-index:1; width:22px; height:21px">
+			<a onclick="OnCommand('ZoomIn')" onmouseover="IconOn('zoomin');" onmouseout="IconOff('zoomin');"
+				href="Javascript: // Zoom in to view your project at a larger size"><img name="zoomin" src="cp/space.gif" width="22" height="21" border="0" alt="Zoom in to view your project at a larger size" /></a>
+		</div>
+		<div id="d_transform" style="position:absolute; left:23px; top:287px; z-index:1; width:25px; height:25px">
+			<a onclick="OnCommand('Transform')" onmouseover="IconOn('transform');" onmouseout="IconOff('transform');"
+				href="Javascript: // Move, resize, or rotate the selected object"><img name="transform" src="cp/space.gif" width="25" height="25" border="0" alt="Move, resize, or rotate the selected object" /></a>
+		</div>
+		<div id="d_flipv" style="position:absolute; left:23px; top:313px; z-index:1; width:25px; height:25px">
+			<a onclick="OnCommand('Flip')" onmouseover="IconOn('flipv');" onmouseout="IconOff('flipv');"
+				href="Javascript: // Flip the selected image from top to bottom"><img name="flipv" src="cp/space.gif" width="25" height="25" border="0" alt="Flip the selected image from top to bottom" /></a>
+		</div>
+		<div id="d_fliph" style="position:absolute; left:93px; top:313px; z-index:1; width:25px; height:25px">
+			<a onclick="OnCommand('Mirror')" onmouseover="IconOn('fliph');" onmouseout="IconOff('fliph');"
+				href="Javascript: // Mirror the selected image from left to right"><img name="fliph" src="cp/space.gif" width="25" height="25" border="0" alt="Mirror the selected image from left to right" /></a>
+		</div>
+		<div id="d_rotateccw" style="position:absolute; left:23px; top:339px; z-index:1; width:25px; height:25px">
+			<a onclick="OnCommand('RotateCCW')" onmouseover="IconOn('rotateccw');" onmouseout="IconOff('rotateccw');"
+				href="Javascript: // Rotate the selected image counter clockwise"><img name="rotateccw" src="cp/space.gif" width="25" height="25" border="0" alt="Rotate the selected image counter clockwise" /></a>
+		</div>
+		<div id="d_rotatecw" style="position:absolute; left:93px; top:339px; z-index:1; width:25px; height:25px">
+			<a onclick="OnCommand('RotateCW')" onmouseover="IconOn('rotatecw');" onmouseout="IconOff('rotatecw');"
+				href="Javascript: // Rotate the selected image clockwise"><img name="rotatecw" src="cp/space.gif" width="25" height="25" border="0" alt="Rotate the selected image clockwise" /></a>
+		</div>
+		<div id="d_poscenterh" style="position:absolute; left:23px; top:406px; z-index:1; width:21px; height:21px">
+			<a onclick="OnCommand('PosCenterH')" onmouseover="IconOn('poscenterh');" onmouseout="IconOff('poscenterh');"
+				href="Javascript: // Move the selected object to the horizontal center of the page">
+				<img name="poscenterh" src="cp/space.gif" width="21" height="21" border="0" alt="Move the selected object to the horizontal center of the page" /></a>
+		</div>
+		<div id="d_postopleft" style="position:absolute; left:46px; top:394px; z-index:1; width:17px; height:16px">
+			<a onclick="OnCommand('PosTopLeft')" onmouseover="IconOn('postopleft');" onmouseout="IconOff('postopleft');"
+				href="Javascript: // Move the selected object to the left edge of the page"><img name="postopleft" src="cp/space.gif" width="17" height="16" border="0" alt="Move the selected object to the left edge of the page" /></a>
+		</div>
+		<div id="d_postop" style="position:absolute; left:62px; top:394px; z-index:1; width:17px; height:16px">
+			<a onclick="OnCommand('PosTop')" onmouseover="IconOn('postop');" onmouseout="IconOff('postop');"
+				href="Javascript: // Move the selected object to the top edge of the page"><img name="postop" src="cp/space.gif" width="17" height="16" border="0" alt="Move the selected object to the top edge of the page" /></a>
+		</div>
+		<div id="d_postopright" style="position:absolute; left:78px; top:394px; z-index:1; width:17px; height:16px">
+			<a onclick="OnCommand('PosTopRight')" onmouseover="IconOn('postopright');" onmouseout="IconOff('postopright');"
+				href="Javascript: // Move the selected object to the right edge of the page"><img name="postopright" src="cp/space.gif" width="17" height="16" border="0" alt="Move the selected object to the right edge of the page" /></a>
+		</div>
+		<div id="d_posleft" style="position:absolute; left:46px; top:409px; z-index:1; width:17px; height:16px">
+			<a onclick="OnCommand('PosLeft')" onmouseover="IconOn('posleft');" onmouseout="IconOff('posleft');"
+				href="Javascript: // Move the selected object to the left edge of the page"><img name="posleft" src="cp/space.gif" width="17" height="16" border="0" alt="Move the selected object to the left edge of the page" /></a>
+		</div>
+		<div id="d_poscenter" style="position:absolute; left:62px; top:409px; z-index:1; width:17px; height:16px">
+			<a onclick="OnCommand('PosCenter')" onmouseover="IconOn('poscenter');" onmouseout="IconOff('poscenter');"
+				href="Javascript: // Move the selected object to the vertical center of the page">
+				<img name="poscenter" src="cp/space.gif" width="17" height="16" border="0" alt="Move the selected object to the vertical center of the page" /></a>
+		</div>
+		<div id="d_posright" style="position:absolute; left:78px; top:409px; z-index:1; width:17px; height:16px">
+			<a onclick="OnCommand('PosRight')" onmouseover="IconOn('posright');" onmouseout="IconOff('posright');"
+				href="Javascript: // Move the selected object to the right edge of the page"><img name="posright" src="cp/space.gif" width="17" height="16" border="0" alt="Move the selected object to the right edge of the page" /></a>
+		</div>
+		<div id="d_posbottomleft" style="position:absolute; left:46px; top:424px; z-index:1; width:17px; height:16px">
+			<a onclick="OnCommand('PosBottomLeft')" onmouseover="IconOn('posbottomleft');" onmouseout="IconOff('posbottomleft');"
+				href="Javascript: // Move the selected object to the bottom edge of the page"><img name="posbottomleft" src="cp/space.gif" width="17" height="16" border="0" alt="Move the selected object to the bottom edge of the page" /></a>
+		</div>
+		<div id="d_posbottom" style="position:absolute; left:62px; top:424px; z-index:1; width:17px; height:16px">
+			<a onclick="OnCommand('PosBottom')" onmouseover="IconOn('posbottom');" onmouseout="IconOff('posbottom');"
+				href="Javascript: // Move the selected object to the bottom edge of the page"><img name="posbottom" src="cp/space.gif" width="17" height="16" border="0" alt="Move the selected object to the bottom edge of the page" /></a>
+		</div>
+		<div id="d_posbottomright" style="position:absolute; left:78px; top:424px; z-index:1; width:17px; height:16px">
+			<a onclick="OnCommand('PosBottomRight')" onmouseover="IconOn('posbottomright');" onmouseout="IconOff('posbottomright');"
+				href="Javascript: // Move the selected object to the bottom edge of the page"><img name="posbottomright" src="cp/space.gif" width="17" height="16" border="0" alt="Move the selected object to the bottom edge of the page" /></a>
+		</div>
+		<div id="d_poscenterv" style="position:absolute; left:97px; top:406px; z-index:1; width:21px; height:21px">
+			<a onclick="OnCommand('PosCenterV')" onmouseover="IconOn('poscenterv');" onmouseout="IconOff('poscenterv');"
+				href="Javascript: // Move the selected object to the vertical center of the page">
+				<img name="poscenterv" src="cp/space.gif" width="21" height="21" border="0" alt="Move the selected object to the vertical center of the page" /></a>
+		</div>
+		<div id="d_layerdown" style="position:absolute; left:26px; top:476px; z-index:1; width:14px; height:14px">
+			<a onclick="OnCommand('BackOne')" onmouseover="IconOn('layerdown');" onmouseout="IconOff('layerdown');"
+				href="Javascript: // Send the selected object back one layer"><img name="layerdown" src="cp/space.gif" width="14" height="14" border="0" alt="Send the selected object back one layer" /></a>
+		</div>
+		<div id="d_layerback" style="position:absolute; left:45px; top:470px; z-index:1; width:25px; height:25px">
+			<a onclick="OnCommand('PushToBack')" onmouseover="IconOn('layerback');" onmouseout="IconOff('layerback');"
+				href="Javascript: // Send the selected object to the back"><img name="layerback" src="cp/space.gif" width="25" height="25" border="0" alt="Send the selected object to the back" /></a>
+		</div>
+		<div id="d_layerfront" style="position:absolute; left:71px; top:470px; z-index:1; width:25px; height:25px">
+			<a onclick="OnCommand('BringToFront')" onmouseover="IconOn('layerfront');" onmouseout="IconOff('layerfront');"
+				href="Javascript: // Bring the selected object to the front"><img name="layerfront" src="cp/space.gif" width="25" height="25" border="0" alt="Bring the selected object to the front" /></a>
+		</div>
+		<div id="d_layerup" style="position:absolute; left:100px; top:476px; z-index:1; width:14px; height:14px">
+			<a onclick="OnCommand('ForwardOne')" onmouseover="IconOn('layerup');" onmouseout="IconOff('layerup');"
+				href="Javascript: // Bring the selected object forward one layer"><img name="layerup" src="cp/space.gif" width="14" height="14" border="0" alt="Bring the selected object forward one layer" /></a>
+		</div>
+		<div id="d_selectprev" style="position:absolute; left:23px; top:508px; z-index:1; width:14px; height:14px">
+			<a onclick="OnCommand('SelectPrev')" onmouseover="IconOn('selectprev');" onmouseout="IconOff('selectprev');"
+				href="Javascript: // Select the previous object in your project"><img name="selectprev" src="cp/space.gif" width="14" height="14" border="0" alt="Select the previous object in your project" /></a>
+		</div>
+		<div id="d_selectnext" style="position:absolute; left:104px; top:508px; z-index:1; width:14px; height:14px">
+			<a onclick="OnCommand('SelectNext')" onmouseover="IconOn('selectnext');" onmouseout="IconOff('selectnext');"
+				href="Javascript: // Select the next object in your project"><img name="selectnext" src="cp/space.gif" width="14" height="14" border="0" alt="Select the next object in your project" /></a>
+		</div>
+		<div id="d_toolstop" style="position:absolute; left:144px; top:3px; z-index:1; width:610px; height:44px">
+			<img name="toolstop" src="cp/uiw/toolstop.gif" width="610" height="44" border="0" alt="" />
+		</div>
+		<div id="d_print" style="position:absolute; left:144px; top:3px; z-index:1; width:105px; height:41px">
+			<a onclick="OnCommand('Print')" onmouseover="IconOn('print');" onmouseout="IconOff('print');"
+				href="Javascript: // Send your project to the printer"><img name="print" src="cp/space.gif" width="105" height="41" border="0" alt="Send your project to the printer" /></a>
+		</div>
+		<div id="d_open" style="position:absolute; left:248px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('Open')" onmouseover="IconOn('open');" onmouseout="IconOff('open');"
+				href="Javascript: // Open a saved project"><img name="open" src="cp/space.gif" width="42" height="42" border="0" alt="Open a saved project" /></a>
+		</div>
+		<div id="d_close" style="position:absolute; left:290px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('Close')" onmouseover="IconOn('close');" onmouseout="IconOff('close');"
+				href="Javascript: // Close this project"><img name="close" src="cp/space.gif" width="42" height="42" border="0" alt="Close this project" /></a>
+		</div>
+		<div id="d_saveas" style="position:absolute; left:332px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('SaveAs')" onmouseover="IconOn('saveas');" onmouseout="IconOff('saveas');"
+				href="Javascript: // Save this project to your local hard disk"><img name="saveas" src="cp/space.gif" width="42" height="42" border="0" alt="Save this project to your local hard disk" /></a>
+		</div>
+		<div id="d_undo" style="position:absolute; left:374px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('Undo')" onmouseover="IconOn('undo');" onmouseout="IconOff('undo');"
+				href="Javascript: // Undo the last edit"><img name="undo" src="cp/space.gif" width="42" height="42" border="0" alt="Undo the last edit" /></a>
+		</div>
+		<div id="d_redo" style="position:absolute; left:416px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('Redo')" onmouseover="IconOn('redo');" onmouseout="IconOff('redo');"
+				href="Javascript: // Redo the last undo"><img name="redo" src="cp/space.gif" width="42" height="42" border="0" alt="Redo the last undo" /></a>
+		</div>
+		<div id="d_cut" style="position:absolute; left:458px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('Cut')" onmouseover="IconOn('cut');" onmouseout="IconOff('cut');"
+				href="Javascript: // Cut the selected object to the clipboard"><img name="cut" src="cp/space.gif" width="42" height="42" border="0" alt="Cut the selected object to the clipboard" /></a>
+		</div>
+		<div id="d_copy" style="position:absolute; left:500px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('Copy')" onmouseover="IconOn('copy');" onmouseout="IconOff('copy');"
+				href="Javascript: // Copy the selected object to the clipboard"><img name="copy" src="cp/space.gif" width="42" height="42" border="0" alt="Copy the selected object to the clipboard" /></a>
+		</div>
+		<div id="d_paste" style="position:absolute; left:542px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('Paste')" onmouseover="IconOn('paste');" onmouseout="IconOff('paste');"
+				href="Javascript: // Paste from the clipboard"><img name="paste" src="cp/space.gif" width="42" height="42" border="0" alt="Paste from the clipboard" /></a>
+		</div>
+		<div id="d_deletex" style="position:absolute; left:584px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('Delete')" onmouseover="IconOn('deletex');" onmouseout="IconOff('deletex');"
+				href="Javascript: // Delete the selected object"><img name="deletex" src="cp/space.gif" width="42" height="42" border="0" alt="Delete the selected object" /></a>
+		</div>
+		<div id="d_spellcheck" style="position:absolute; left:626px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('SpellCheck')" onmouseover="IconOn('spellcheck');" onmouseout="IconOff('spellcheck');"
+				href="Javascript: // Spell check all of the text boxes in your project"><img name="spellcheck" src="cp/space.gif" width="42" height="42" border="0" alt="Spell check all of the text boxes in your project" /></a>
+		</div>
+		<div id="d_grid" style="position:absolute; left:668px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('Grid')" onmouseover="IconOn('grid');" onmouseout="IconOff('grid');"
+				href="Javascript: // Show or hide the grid used for alignment"><img name="grid" src="cp/space.gif" width="42" height="42" border="0" alt="Show or hide the grid used for alignment" /></a>
+		</div>
+		<div id="d_extras" style="position:absolute; left:710px; top:4px; z-index:1; width:42px; height:42px">
+			<a onclick="OnCommand('Extras')" onmouseover="IconOn('extras');" onmouseout="IconOff('extras');"
+				href="Javascript: // Access extra HP Design Studio features"><img name="extras" src="cp/space.gif" width="42" height="42" border="0" alt="Access extra HP Design Studio features" /></a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+!define BLANK ""
+d:\pegasus\ror\rornnw\rortest.obj : d:\pegasus\ror\rornnw\rortest.c .AUTODEP&
+END
+ @d:
+ cd d:\pegasus\ror\rornnw
+ *wcc386 rortest.c -i=F:\WATCOM\h;F:\WATCOM\h\nt;..\..\include; -w4 -e25 -dE&
+LS_CODER_OUT=0 -dWINDOWS -d_CONSOLE -zp1 -zq -od -5r -bt=nt -mf
+
+d:\pegasus\ror\rornnw\rornnw.res : d:\pegasus\ror\rornnw\rornnw.rc .AUTODEPE&
+ND
+ @d:
+ cd d:\pegasus\ror\rornnw
+ *wrc rornnw.rc -bt=nt -dWIN32 -d_WIN32 -d__NT__ -i=$[:;F:\WATCOM\h;F:\WATCO&
+M\h\nt;F:\WATCOM\h\win -q -ad -r -fo=rornnw.res
+
+d:\pegasus\ror\rornnw\rornnw.exe : d:\pegasus\ror\rornnw\rortest.obj d:\pega&
+sus\lib\picn.lib d:\pegasus\ror\rornnw\rornnw.res .AUTODEPEND
+ @d:
+ cd d:\pegasus\ror\rornnw
+ @%write rornnw.lk1 FIL rortest.obj
+ @%append rornnw.lk1 LIBR ..\..\lib\picn.lib
+!ifneq BLANK ""
+ *wlib -q -n -b rornnw.imp 
+ @%append rornnw.lk1 LIBR rornnw.imp
+!endif
+!ifneq BLANK "rornnw.res"
+ @%append rornnw.lk1 op resource=rornnw.res
+!endif
+ *wlink name rornnw op inc SYS nt op m op maxe=25 op q op symf @rornnw.lk1
+

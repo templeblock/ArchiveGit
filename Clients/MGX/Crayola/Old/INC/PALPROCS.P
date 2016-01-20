@@ -1,0 +1,6 @@
+// Source file: palprocs.c
+void PaletteInit(HWND hDlg);
+BOOL PaletteColor( int iEntry, LPCOLORINFO lpColorInfo );
+void PaletteSelect( int iEntry, WORD wOption );
+void PaletteClose( void );
+

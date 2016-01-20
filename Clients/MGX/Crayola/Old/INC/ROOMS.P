@@ -1,0 +1,39 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                    rooms.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Room dialog functions.
+ Date Created:  01/11/94
+       Author:  Michael P. Dagate
+
+*****************************************************************************/
+
+#ifndef ROOMS_P
+#define ROOMS_P
+
+/****************************** Public Functions ****************************/
+
+extern BOOL FAR PASCAL DefRoomProc (HWND hWnd,UINT wMsg,WPARAM wParam,LPARAM lParam);
+extern void FAR PASCAL EXPORT GoPaintApp (HWND hDlg,LPSTR lpParams);
+extern void FAR PASCAL EXPORT GoRoom (HINSTANCE hInst, ITEMID idNewRoom,
+								BOOL bDLLRoom);
+extern void FAR PASCAL LoadRoomBitmap (UINT idRoom);
+extern BOOL FAR PASCAL PaintRoomBitmap (HWND hWnd);
+extern BOOL FAR PASCAL OwnerDrawBitmap (HWND hWnd,LPDRAWITEMSTRUCT lpItem);
+extern HBITMAP FAR PASCAL GetRoomBitmap();
+void RepositionDialogControls(HWND hWnd);
+void RepositionDialogBox(HWND hChild);
+
+/****************************************************************************/
+
+#endif

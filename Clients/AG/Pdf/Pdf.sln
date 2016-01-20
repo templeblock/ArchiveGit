@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pdf", "pdflib.vcproj", "{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccProjectUniqueName0 = pdflib.vcproj
+		SccProjectName0 = \u0022$/AgApplications/Pdf\u0022,\u0020LCAAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Debug|Win32.Build.0 = Debug|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Release|Win32.ActiveCfg = Release|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

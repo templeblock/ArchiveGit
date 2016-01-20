@@ -1,0 +1,326 @@
+// (c) Copyright 1991 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX  75081
+//®PL1¯®FD1¯®TP0¯®BT0¯
+#include <windows.h>
+#include "astral.h"
+#include "data.h"
+#include "routines.h"
+#include "mclib.h"
+
+extern HWND hWndAstral;
+
+#define KEY_LENGTH	512   /* Allows for at least 20 device keynames */
+#define PRINTERS	"PrinterPorts"
+
+LOCAL STRING NullPort;
+LOCAL STRING Separator;
+
+/***********************************************************************/
+short InitPrinterListBox( hDlg, lpDevice )
+/***********************************************************************/
+  /* This function initializes the list of devices in the GetDevice dialog box.
+     The list box in the dialog box contains a list of all devices installed in
+     the system and a single option specifying no printer.  The user will select
+     from among these various strings to select the current printer.  The number
+     of printers listed in the list box is returned as a result.
+     The currently selected device (lpDevice) should have the form
+     "NAME,DRIVER,PORT", and will be highlighted initially
+     in the list box. */
+HWND hDlg;
+LPTR lpDevice;
+{
+short nDevice;
+BYTE KeyBuffer[KEY_LENGTH];
+STRING szDevice, Buffer, szString;
+LPTR lp, lpName, lpDriver, lpPort, lpNext;
+LPTR lpActiveName, lpActiveDriver, lpActivePort;
+WORD CurrDevice; /* index of currently selected device */
+
+GetProfileString( "windows", "device", "\0", lpDevice, MAX_STR_LEN );
+// Format of the device string is NAME,DRIVER,PORT etc.
+
+lstrcpy( szDevice, lpDevice ); // Copy the device string so we won't destroy it
+lpDevice = szDevice;
+
+if ( AstralStr( IDS_PORT_SEPARATOR, &lp ) )
+	lstrcpy( Separator, lp );
+
+lpActiveName = lpDevice; // get the name
+if ( lpActiveDriver = GetNextParm( lpActiveName ) ) // get the driver
+	{
+	*lpActiveDriver++ = '\0';
+	if ( lpActivePort = GetNextParm( lpActiveDriver ) ) // get the port
+		*lpActivePort++ = '\0';
+	}
+
+nDevice = 0;
+CurrDevice = -1;
+GetProfileString( PRINTERS, NULL, "\0\0", KeyBuffer, KEY_LENGTH );
+lpName = KeyBuffer;
+while ( *lpName )
+	{
+	GetProfileString( PRINTERS, lpName, "\0", Buffer, MAX_STR_LEN );
+	// Format of the buffer is DRIVER,PORT,15,45,PORT,15,45,PORT,15,45 etc.
+	lpDriver = Buffer;
+	lpPort = GetNextParm( lpDriver ); // skip over driver to get the port
+	while ( lpPort )
+		{
+		*lpPort++ = '\0';
+		if ( lpNext = GetNextParm( lpPort ) )
+			*lpNext++ = '\0';
+		lstrcpy( szString, lpName );
+		lstrcat( szString, Separator );
+		lstrcat( szString, lpPort );
+		SendDlgItemMessage( hDlg, IDC_PRINTSELECT,
+			LB_INSERTSTRING, -1, (long)(LPTR)szString );
+		if ( lpActiveName && !lstrcmp(lpActiveName,lpName) &&
+		     lpActivePort && !lstrcmp(lpActivePort,lpPort) )
+			CurrDevice = nDevice;
+		nDevice++;
+		if ( lpNext = GetNextParm( lpNext ) ) // skip the 15
+			lpNext++;
+		lpPort = GetNextParm( lpNext ); // skip the 45
+		}
+	lpName += (lstrlen(lpName) + 1);
+	}
+
+GetProfileString( "windows", "NullPort", "None", NullPort, MAX_STR_LEN );
+SendDlgItemMessage( hDlg, IDC_PRINTSELECT, LB_INSERTSTRING, -1,
+	(long)(LPTR)NullPort );
+nDevice++;
+SendDlgItemMessage( hDlg, IDC_PRINTSELECT, LB_SETCURSEL,
+	CurrDevice >= 0 ? CurrDevice : nDevice-1, 0L );
+
+return( nDevice );
+}
+
+
+/***********************************************************************/
+void GetPrinterListBox( hDlg, lpDevice )
+/***********************************************************************/
+  /* This function retrieves the current selection from the dialog box.  If
+     no string is selected in the list box, an empty string is the result.
+     Otherwise, the device string buffer is returned as a result.  The
+     device string buffer will contain a copy of the selected string. */
+HWND hDlg;
+LPTR lpDevice;
+{
+STRING szEntry, szDriver;
+WORD wItem;
+LPTR lpName, lpDriver, lpPort, lpNext;
+short SepLength;
+char End;
+BOOL bMatch;
+
+wItem = SendDlgItemMessage( hDlg, IDC_PRINTSELECT, LB_GETCURSEL, 0, 0L );
+if ( wItem < 0 )
+	{
+	*lpDevice = '\0';
+	return;
+	}
+
+SendDlgItemMessage( hDlg, IDC_PRINTSELECT, LB_GETTEXT, wItem,
+	(long)(LPTR)szEntry );
+if ( !lstrcmp( szEntry, NullPort ) )
+	{
+	*lpDevice = '\0';
+	return;
+	}
+
+lpName = szEntry;
+lpPort = lpName;
+SepLength = lstrlen( Separator );
+while ( *lpPort )
+	{
+	End = lpPort[SepLength];
+	lpPort[SepLength] = '\0';
+	bMatch = !lstrcmp( lpPort, Separator );
+	lpPort[SepLength] = End;
+	if ( bMatch )
+		break;
+	lpPort++;
+	}
+
+if ( !*lpPort )
+	{
+	*lpDevice = '\0';
+	return;
+	}
+*lpPort = '\0';
+lpPort += SepLength;
+
+GetProfileString( PRINTERS, lpName, "\0", szDriver, MAX_STR_LEN );
+// Format of the device is DRIVER,PORT,15,45,PORT,15,45,PORT,15,45 etc.
+if ( !(lpNext = GetNextParm( szDriver )) )
+	{
+	*lpDevice = '\0';
+	return;
+	}
+*lpNext = '\0';
+
+lstrcpy( lpDevice, lpName );
+lstrcat( lpDevice, "," );
+lstrcat( lpDevice, szDriver );
+lstrcat( lpDevice, "," );
+lstrcat( lpDevice, lpPort );
+}
+
+
+/***********************************************************************/
+void SetDefaultPrinter( lpDevice )
+/***********************************************************************/
+LPTR lpDevice;
+{
+LPTR lpDriver, lpPort, lpName, lpNext;
+LPTR lpActiveDriver, lpActivePort, lpActiveName;
+STRING szDevice, szString, Buffer;
+BYTE KeyBuffer[KEY_LENGTH];
+
+if ( !lpDevice || !*lpDevice )
+	return;
+
+lstrcpy( szDevice, lpDevice ); // Copy the device string so we won't destroy it
+lpDevice = szDevice;
+
+WriteProfileString( "windows", "device", lpDevice );
+SendMessage( 0xFFFF, WM_WININICHANGE, 0, (long)(LPTR)"windows" );
+
+lpActiveName = lpDevice;
+if ( !(lpActiveDriver = GetNextParm( lpActiveName )) )
+	return;
+*lpActiveDriver++ = '\0';
+if ( !(lpActivePort = GetNextParm( lpActiveDriver )) )
+	return;
+*lpActivePort++ = '\0';
+
+GetProfileString( PRINTERS, NULL, "\0\0", KeyBuffer, KEY_LENGTH );
+lpName = KeyBuffer;
+while ( *lpName )
+	{
+	GetProfileString( PRINTERS, lpName, "\0", Buffer, MAX_STR_LEN );
+	// Format of the buffer is DRIVER,PORT,15,45,PORT,15,45,PORT,15,45 etc.
+	lpDriver = Buffer;
+	if ( lpNext = GetNextParm( lpDriver ) )
+		*lpNext++ = '\0';
+	lstrcpy( szString, lpDriver );
+	while ( lpPort = lpNext )
+		{
+		if ( lpNext = GetNextParm( lpPort ) )
+			*lpNext++ = '\0';
+		lstrcat( szString, "," );
+		if ( !lstrcmp( lpPort, lpActivePort ) &&
+		     ( lstrcmp( lpName, lpActiveName ) ||
+		       lstrcmp( lpDriver, lpActiveDriver ) ) )
+			lstrcat( szString, NullPort );
+		else	lstrcat( szString, lpPort );
+		if ( lpNext = GetNextParm( lpNext ) ) // skip the 15
+			lpNext++;
+		if ( lpNext = GetNextParm( lpNext ) ) // skip the 45
+			lpNext++;
+		}
+	WriteProfileString( "devices", lpName, szString );
+	lpName += (lstrlen(lpName) + 1);
+	}
+
+SendMessage( 0xFFFF, WM_WININICHANGE, 0, (long)(LPTR)"devices" );
+}
+
+
+/***********************************************************************/
+short SetupPrinter( hWindow, lpDevice )
+/***********************************************************************/
+  /* This function causes the named device's set-up dialog box to be displayed
+     to the user.  The parameter 'lpDevice' contains a device
+     specification in the form used in the user profile for specifying the
+     current device for windows (NAME,DRIVER,PORT).  This
+     function returns TRUE if the device is set correctly, FALSE if the user
+     cancels selection of device attributes, and -1 if the device dialog box
+     cannot be displayed. */
+HWND hWindow;
+LPTR lpDevice;
+{
+HANDLE hDriver;
+short Result;
+LPTR lpName, lpDriver, lpPort, lpNext;
+STRING szDevice, szDriver;
+FARPROC lpDeviceModes;
+
+if ( !lpDevice || !*lpDevice )
+	return;
+
+lstrcpy( szDevice, lpDevice ); // Copy the device string so we won't destroy it
+lpDevice = szDevice;
+
+// Format of the device string is NAME,DRIVER,PORT
+lpName = lpDevice;
+if ( !(lpDriver = GetNextParm( lpName )) )
+	return( -1 );
+*lpDriver++ = '\0';
+if ( !(lpPort = GetNextParm( lpDriver )) )
+	return( -1 );
+*lpPort++ = '\0';
+if ( lpNext = GetNextParm( lpPort ) )
+	*lpNext = '\0';
+
+lstrcpy( szDriver, lpDriver );
+lstrcat( szDriver, ".DRV" );
+
+if (Result = (hDriver = LoadLibrary( szDriver )) > 32)
+	{ // replace 13L with "DEVICEMODE"
+	if ( lpDeviceModes = GetProcAddress( hDriver, (LPTR)13L ) )
+	    Result = (*lpDeviceModes)( hWndAstral, hDriver,
+		(LPTR)lpName, (LPTR)lpPort );
+	FreeLibrary( hDriver );
+	}
+
+return( Result );
+}
+
+
+/***********************************************************************/
+void DeviceDescription( lpDevice, lpDescription )
+/***********************************************************************/
+//   The passed in device (lpDevice) should have the form "NAME,DRIVER,PORT"
+LPTR lpDevice, lpDescription;
+{
+LPTR lpName, lpDriver, lpPort, lpSeparator;
+STRING szDevice;
+
+*lpDescription = '\0';
+if ( !AstralStr( IDS_PORT_SEPARATOR, &lpSeparator ) )
+	return;
+lstrcpy( szDevice, lpDevice );
+lpName = szDevice;
+if ( !(lpDriver = GetNextParm( lpName )) ) // skip over name to get the driver
+	return;
+*lpDriver++ = '\0';
+if ( !(lpPort = GetNextParm( lpDriver )) ) // skip over driver to get the port
+	return;
+*lpPort++ = '\0';
+lstrcpy( lpDescription, lpName );
+lstrcat( lpDescription, lpSeparator );
+lstrcat( lpDescription, lpPort );
+}
+
+
+/***********************************************************************/
+LOCAL LPTR GetNextParm( lpString )
+/***********************************************************************/
+/*   This function searches the given string for the location of the next
+     printer parameter.  It returns a pointer to the parameter.
+     If there are no more parameters, NULL is returned. */
+LPTR lpString;
+{
+if ( !lpString )
+	return( NULL );
+while ( *lpString )
+	{
+	if ( *lpString == ',' )
+		return( lpString );
+	lpString++;
+	}
+return( NULL );
+}
+

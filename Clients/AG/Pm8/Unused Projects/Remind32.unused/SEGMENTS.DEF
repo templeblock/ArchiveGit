@@ -1,0 +1,386 @@
+; $Header:   L:/PMW4/REMIND/SEGMENTS.DEv   1.0   25 Apr 1997 09:29:16   Fred  $
+; $Log:   L:/PMW4/REMIND/SEGMENTS.DEv  $
+; 
+;    Rev 1.0   25 Apr 1997 09:29:16   Fred
+; Initial revision.
+; 
+;    Rev 1.0   14 Mar 1996 13:28:14   Jay
+; Initial revision.
+; 
+;    Rev 1.0   16 Feb 1996 12:32:08   FRED
+; Initial revision.
+; 
+;    Rev 2.0   07 Feb 1995 16:26:02   JAY
+; Initial revision.
+; 
+;    Rev 1.0   16 Dec 1993 16:29:30   JAY
+;  
+; 
+;    Rev 1.9   28 Dec 1992 12:53:46   ADAM
+; Moved WINMAT stuff here.
+
+IFDEF WINMAT
+
+IFNDEF ScalerSegments
+
+;;
+;; Change these definitions to refine the segment attributes.
+;;
+
+CODE_SEG  	equ	<cseg_root>
+CODE_CLASS	equ	'code'
+
+DATA_SEG  	equ	<_DATA>
+DATA_CLASS	equ	'data'
+
+
+;;
+;; The declare_segments macro defines macros for switching segments
+;; using the above equates.
+;;
+
+declare_segments	macro
+
+	define_segments		macro	code_name,code_class,data_name,data_class
+
+		code_name	segment	public word code_class
+		code_name		ends
+		data_name	segment	public word data_class
+		data_name		ends
+
+		assume cs:&code_name,ds:&data_name
+
+		code_segment		macro
+			code_name	segment
+		endm
+
+		code_end		macro
+			code_name	ends
+		endm
+
+		code_2_segment		macro
+			code_name	segment
+		endm
+
+		code_2_end		macro
+			code_name	ends
+		endm
+
+		data_segment		macro
+			data_name	segment
+		endm
+
+		data_end		macro
+			data_name	ends
+		endm
+	endm
+
+	define_segments	%CODE_SEG,%CODE_CLASS,%DATA_SEG,%DATA_CLASS,%CODE_2_SEG,%CODE_2_CLASS
+
+endm
+
+ELSE
+
+;;
+;; Change these definitions to refine the segment attributes.
+;;
+
+CODE_SEG  	equ	<cseg_scaler>
+CODE_CLASS	equ	'code'
+
+DATA_SEG  	equ	<_DATA>
+DATA_CLASS	equ	'data'
+
+
+;;
+;; The declare_segments macro defines macros for switching segments
+;; using the above equates.
+;;
+
+declare_segments	macro
+
+	define_segments		macro	code_name,code_class,data_name,data_class
+
+		code_name	segment	public word code_class
+		code_name		ends
+		data_name	segment	public word data_class
+		data_name		ends
+
+		assume cs:&code_name,ds:&data_name
+
+		code_segment		macro
+			code_name	segment
+		endm
+
+		code_end		macro
+			code_name	ends
+		endm
+
+		code_2_segment		macro
+			code_name	segment
+		endm
+
+		code_2_end		macro
+			code_name	ends
+		endm
+
+		data_segment		macro
+			data_name	segment
+		endm
+
+		data_end		macro
+			data_name	ends
+		endm
+	endm
+
+	define_segments	%CODE_SEG,%CODE_CLASS,%DATA_SEG,%DATA_CLASS,%CODE_2_SEG,%CODE_2_CLASS
+
+endm
+
+ENDIF
+
+ELSE
+
+IFDEF WPSOVL or WPTOVL
+
+;;
+;; Change these definitions to refine the segment attributes.
+;;
+
+CODE_SEG  	equ	<cseg>
+CODE_CLASS	equ	'code'
+
+DATA_SEG  	equ	<cseg>
+DATA_CLASS	equ	'code'
+
+
+;;
+;; The declare_segments macro defines macros for switching segments
+;; using the above equates.
+;;
+
+declare_segments	macro
+IFNDEF code_name
+	define_segments		macro	code_name,code_class,data_name,data_class
+
+		code_name	segment	public word code_class
+		code_name		ends
+		data_name	segment	public word data_class
+		data_name		ends
+
+		assume cs:&code_name,ds:&data_name
+
+		code_segment		macro
+			code_name	segment
+		endm
+
+		code_end		macro
+			code_name	ends
+		endm
+
+		data_segment		macro
+			data_name	segment
+		endm
+
+		data_end		macro
+			data_name	ends
+		endm
+	endm
+
+	define_segments	%CODE_SEG,%CODE_CLASS,%DATA_SEG,%DATA_CLASS
+
+	pattern_segment	equ     code_segment
+	pattern_end	equ	code_end
+
+ENDIF
+endm
+
+	declare_segments
+
+ELSE
+
+IFDEF ShellStartupSegmentNames
+
+;
+; Change these definitions to refine the segment attributes.
+;
+
+FIRST_SEG	equ	<aaSeg>
+FIRST_CLASS	equ	'aacode'
+
+LAST_SEG	equ	<zzSeg>
+LAST_CLASS	equ	'zzcode'
+
+DATA_SEG  	equ	<cseg>
+DATA_CLASS	equ	'code'
+
+DATA_2_SEG  	equ	<zstartupSeg>
+DATA_2_CLASS	equ	'zcode'
+
+CODE_SEG  	equ	<zstartupSeg>
+CODE_CLASS	equ	'zcode'
+
+CODE_n_SEG  	equ	<nseg>
+CODE_n_CLASS	equ	'code'
+
+CODE_2_SEG  	equ	<n2seg>
+CODE_2_CLASS	equ	'code'
+
+;
+; The declare_segments macro defines macros for switching segments
+; using the above equates.
+;
+
+declare_segments	macro
+
+	define_segments	 macro	code_name,code_class,data_name,data_class,data_2_name,data_2_class,first_name,first_class,last_name,last_class,code_n_name,code_n_class,code_2_name,code_2_class
+
+
+	code_name	segment	public para code_class
+	code_name		ends
+
+	code_2_name	segment	public para code_2_class
+	code_2_name		ends
+
+	code_n_name	segment	public para code_n_class
+	code_n_name		ends
+
+	data_name	segment	public para data_class
+	data_name		ends
+
+	data_2_name	segment	public para data_2_class
+	data_2_name		ends
+
+	first_name	segment	public para first_class
+	first_name		ends
+
+	last_name	segment	public para last_class
+	last_name		ends
+
+	assume cs:&code_name,ds:&data_name
+
+		code_segment		macro
+			code_name	segment
+		endm
+
+		code_end		macro
+			code_name	ends
+		endm
+
+		code_2_segment		macro
+			code_2_name	segment
+		endm
+
+		code_2_end		macro
+			code_2_name	ends
+		endm
+
+		code_n_segment		macro
+			code_n_name	segment
+		endm
+
+		code_n_end		macro
+			code_n_name	ends
+		endm
+
+		data_segment		macro
+			data_name	segment
+		endm
+
+		data_end		macro
+			data_name	ends
+		endm
+
+		data_2_segment		macro
+			data_2_name	segment
+		endm
+
+		data_2_end		macro
+			data_2_name	ends
+		endm
+
+		first_segment		macro
+			first_name	segment
+		endm
+
+		first_end		macro
+			first_name	ends
+		endm
+
+		last_segment		macro
+			last_name	segment
+		endm
+
+		last_end		macro
+			last_name	ends
+		endm
+
+	endm
+
+define_segments	%CODE_SEG,%CODE_CLASS,%DATA_SEG,%DATA_CLASS,%DATA_2_SEG,%DATA_2_CLASS,%FIRST_SEG,%FIRST_CLASS,%LAST_SEG,%LAST_CLASS,%CODE_2_SEG,%CODE_2_CLASS,%CODE_n_SEG,%CODE_n_CLASS
+endm
+
+ELSE
+
+;;
+;; Change these definitions to refine the segment attributes.
+;;
+
+CODE_SEG  	equ	<nseg>
+CODE_CLASS	equ	'code'
+
+CODE_2_SEG  	equ	<n2seg>
+CODE_2_CLASS	equ	'code'
+
+DATA_SEG  	equ	<cseg>
+DATA_CLASS	equ	'code'
+
+
+;;
+;; The declare_segments macro defines macros for switching segments
+;; using the above equates.
+;;
+
+declare_segments	macro
+
+	define_segments		macro	code_name,code_class,data_name,data_class
+
+		code_name	segment	public word code_class
+		code_name		ends
+		data_name	segment	public word data_class
+		data_name		ends
+
+		assume cs:&code_name,ds:&data_name
+
+		code_segment		macro
+			code_name	segment
+		endm
+
+		code_end		macro
+			code_name	ends
+		endm
+
+		code_2_segment		macro
+			code_name	segment
+		endm
+
+		code_2_end		macro
+			code_name	ends
+		endm
+
+		data_segment		macro
+			data_name	segment
+		endm
+
+		data_end		macro
+			data_name	ends
+		endm
+	endm
+
+	define_segments	%CODE_SEG,%CODE_CLASS,%DATA_SEG,%DATA_CLASS,%CODE_2_SEG,%CODE_2_CLASS
+
+endm
+
+ENDIF
+ENDIF
+ENDIF

@@ -1,0 +1,4 @@
+// Source file: MEASURE.C
+long Measure( LPRECT lpRect, LPCOLORINFO lpColorInfo, BOOL fFileCoords );
+long MeasureRGB( LPRECT lpRect, LPRGB lpRGB, BOOL fFileCoords );
+

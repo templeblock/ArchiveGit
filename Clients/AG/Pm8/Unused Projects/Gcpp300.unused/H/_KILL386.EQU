@@ -1,0 +1,33 @@
+;
+; _KILL386.EQU
+;
+; The Greenleaf Comm++ Library
+;
+; Copyright (C) 1991-95 Greenleaf Software Inc.  All Rights Reserved.
+;
+; NOTES
+;
+; This file contains the definitions that 32 bit protected mode assembly
+; language should use to access the _asi_kill_time function.  Mostly,
+; this is done via the KILL_TIME macro.
+;
+; MODIFICATIONS
+;
+
+;
+; You will note that I have an ifdef that prevents this definition from
+; being assembled when I am inside KILL386.ASM.  This prevents a clash
+; between the EXTRN declaraction here and the PUBLIC definition in
+; KILL386.ASM.
+;
+
+IFNDEF _KILL32
+PISRCODE                     SEGMENT BYTE PUBLIC USE32 'CODE'
+                             EXTRN   C _asi_kill_time:NEAR
+PISRCODE                     ENDS
+ENDIF
+
+KILL_TIME                    MACRO
+                             call near ptr _asi_kill_time
+                             ENDM
+

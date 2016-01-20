@@ -1,0 +1,10 @@
+[DEFAULT]
+BASEURL=http://www.3guppies.com/
+[InternetShortcut]
+URL=http://www.3guppies.com/
+IDList=
+IconFile=C:\Program Files\3Guppies\3Guppies.ico
+HotKey=0
+IconIndex=0
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,2

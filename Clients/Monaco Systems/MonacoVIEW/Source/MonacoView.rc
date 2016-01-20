@@ -1,0 +1,644 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\MonacoView.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\MonacoView.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_SPLASH              BITMAP  DISCARDABLE     "res\\Splash.bmp"
+IDB_COLORMAP            BITMAP  DISCARDABLE     "res\\ColorMap.bmp"
+IDB_Sensor              BITMAP  DISCARDABLE     "res\\MonacoSensor.bmp"
+IDB_WARNING             BITMAP  DISCARDABLE     "res\\Warning.bmp"
+IDB_LOGO                BITMAP  DISCARDABLE     "res\\Logo.bmp"
+IDB_LOGO1               BITMAP  DISCARDABLE     "res\\Logo1.bmp"
+IDB_LITE_PATCHES        BITMAP  DISCARDABLE     "res\\LitePatches.bmp"
+IDB_DARK_PATCHES        BITMAP  DISCARDABLE     "res\\DarkPatches.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "Calibrate...\tCtrl+K",        ID_FILE_CALIBRATE
+        MENUITEM "&Measure...\tCtrl+M",         ID_FILE_MEASURE
+        MENUITEM "Va&lidate...\tCtrl+L",        ID_FILE_VALIDATE
+        MENUITEM "&Save Profile...\tCtrl+S",    ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "Preferences...",              ID_FILE_PREF
+        MENUITEM "Use Calibration",             ID_FILE_CAL
+        MENUITEM SEPARATOR
+        MENUITEM "&Quit\tCtrl+Q",               ID_FILE_QUIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&Tools"
+    BEGIN
+        POPUP "White Point"
+        BEGIN
+            MENUITEM "D50 Viewing Booth",           ID_TOOLS_WHITE_5000
+            MENUITEM "5500°K",                      ID_TOOLS_WHITE_5500
+            MENUITEM "D65 Standard Daylight",       ID_TOOLS_WHITE_6500
+            MENUITEM "7500°K",                      ID_TOOLS_WHITE_7500
+            MENUITEM "9300°K",                      ID_TOOLS_WHITE_9300
+            MENUITEM SEPARATOR
+            MENUITEM "Monitor White Point",         ID_TOOLS_WHITE_MON
+        END
+        POPUP "Gamma"
+        BEGIN
+            MENUITEM "0.7",                         ID_TOOLS_GAMMA_07
+            MENUITEM "1.0     Scanner",             ID_TOOLS_GAMMA_10
+            MENUITEM "1.2",                         ID_TOOLS_GAMMA_12
+            MENUITEM "1.4",                         ID_TOOLS_GAMMA_14
+            MENUITEM "1.6",                         ID_TOOLS_GAMMA_16
+            MENUITEM "1.8     Windows Standard",    ID_TOOLS_GAMMA_18
+            MENUITEM "2.0",                         ID_TOOLS_GAMMA_20
+            MENUITEM "2.2     NTSC Standard",       ID_TOOLS_GAMMA_22
+            MENUITEM "2.8",                         ID_TOOLS_GAMMA_28
+        END
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About MonacoVIEW...",        ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "K",            ID_FILE_CALIBRATE,      VIRTKEY, CONTROL, NOINVERT
+    "L",            ID_FILE_VALIDATE,       VIRTKEY, CONTROL, NOINVERT
+    "M",            ID_FILE_MEASURE,        VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "Q",            ID_FILE_QUIT,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 230, 50
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About MonacoVIEW"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "MonacoVIEW Version 1.0",IDC_STATIC,40,10,121,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 1998 Monaco Systems",IDC_STATIC,40,25,119,
+                    8
+    DEFPUSHBUTTON   "OK",IDOK,168,7,49,14,WS_GROUP
+END
+
+IDD_MONACOVIEW DIALOGEX 0, 0, 251, 317
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "MonacoVIEW"
+MENU IDR_MAINFRAME
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_WHITE,126,63,112,91,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_GAMMA,126,84,112,98,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CTEXT           "White point",IDC_STATIC,7,63,112,12,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "Gamma",IDC_STATIC,7,84,112,12,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    PUSHBUTTON      "Measure...",IDC_MEASURE,7,238,112,14
+    CTEXT           "Measured color",IDC_STATIC,7,119,112,12,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "In",IDC_STATIC,49,133,35,12,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "Out",IDC_STATIC,84,133,35,12,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "L*",IDC_STATIC,7,147,42,12,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "a*",IDC_STATIC,7,161,42,12,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "b*",IDC_STATIC,7,175,42,12,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "delta E is",IDC_STATIC,7,189,42,12,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CONTROL         136,IDC_COLOR_VIEW,"Static",SS_BITMAP | SS_NOTIFY,140,
+                    140,67,62
+    SCROLLBAR       IDC_COLOR_SCROLL,210,140,10,63,SBS_TOPALIGN | SBS_VERT
+    CTEXT           "x",IDC_STATIC,161,210,35,14,SS_CENTERIMAGE
+    CTEXT           "y",IDC_STATIC,203,210,35,14,SS_CENTERIMAGE
+    RTEXT           "Red:",IDC_STATIC,119,231,35,14,SS_CENTERIMAGE
+    RTEXT           "Green:",IDC_STATIC,119,245,35,14,SS_CENTERIMAGE
+    RTEXT           "Blue:",IDC_STATIC,119,259,35,14,SS_CENTERIMAGE
+    CTEXT           "0.000",IDC_RED_X,161,231,35,14,SS_CENTERIMAGE
+    CTEXT           "0.000",IDC_RED_Y,204,231,35,14,SS_CENTERIMAGE
+    CTEXT           "0.000",IDC_GREEN_X,161,245,35,14,SS_CENTERIMAGE
+    CTEXT           "0.000",IDC_GREEN_Y,203,245,35,14,SS_CENTERIMAGE
+    CTEXT           "0.000",IDC_BLUE_X,161,259,35,14,SS_CENTERIMAGE
+    CTEXT           "0.000",IDC_BLUE_Y,203,259,35,14,SS_CENTERIMAGE
+    PUSHBUTTON      "Validate...",IDC_VALIDATE,7,259,112,14
+    CTEXT           "0.00",IDC_D_E,49,189,70,12,SS_CENTERIMAGE | SS_SUNKEN
+    CONTROL         145,IDC_PATCH_WARN,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    196,119,11,10
+    CTEXT           "",IDC_OUT_L,84,147,35,12,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "",IDC_OUT_A,84,161,35,12,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "",IDC_OUT_B,84,175,35,12,SS_CENTERIMAGE | SS_SUNKEN
+    EDITTEXT        IDC_IN_L,49,147,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_IN_A,49,161,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_IN_B,49,175,35,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,69,48,172,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,69,11,172,1
+    CONTROL         "",IDC_LABEL1,"{99B42120-6EC7-11CF-A6C7-00AA00A47DD2}",
+                    0x0,69,18,172,24
+    CONTROL         152,IDB_LOGO,"Static",SS_BITMAP | WS_BORDER,7,7,54,50,
+                    WS_EX_CLIENTEDGE
+    DEFPUSHBUTTON   "Save profile...",IDOK,7,294,112,14
+    PUSHBUTTON      "Quit",IDCANCEL,126,294,112,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,105,231,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,280,230,1
+    PUSHBUTTON      "Calibrate...",IDC_CALIBRATE,7,217,112,14
+    CONTROL         "",IDC_PATCH,"Button",BS_OWNERDRAW | WS_TABSTOP,154,119,
+                    35,14,WS_EX_CLIENTEDGE
+END
+
+IDD_CALIBRATE DIALOG DISCARDABLE  0, 0, 188, 218
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Calibrate"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Done",IDC_OK,63,189,63,14
+    CONTROL         "",IDC_TEXTBOX1,"{8BD21D10-EC42-11CE-9E0D-00AA006002F3}",
+                    WS_TABSTOP,50,49,70,56
+    CONTROL         "",IDC_TEXTBOX2,"{8BD21D10-EC42-11CE-9E0D-00AA006002F3}",
+                    WS_TABSTOP,66,116,70,56
+    CONTROL         156,IDC_DARK_PATCHES,"Static",SS_BITMAP,14,49,33,123
+    CONTROL         155,IDC_LITE_PATCHES,"Static",SS_BITMAP,140,49,33,123
+    CTEXT           "Adjust monitor brightness and contrast",IDC_STATIC,49,
+                    14,126,21,SS_CENTERIMAGE | SS_SUNKEN
+    CONTROL         154,IDC_STATIC,"Static",SS_BITMAP,14,14,25,23
+END
+
+IDD_PREFERENCES DIALOG DISCARDABLE  0, 0, 181, 114
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Preferences"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,21,84,63,14
+    PUSHBUTTON      "Cancel",IDCANCEL,105,84,56,14
+    CONTROL         "Always save PhotoShop table",IDC_CHECK_PHOTO,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,7,126,14
+    CONTROL         "Always save ICC table",IDC_CHECK_ICC,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,21,126,14
+    PUSHBUTTON      "Edit Validation Patches...",IDC_VAL_PATCH,14,42,105,12
+END
+
+IDD_VAL_PATCH DIALOGEX 0, 0, 188, 191
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit Validation Patches"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,21,161,63,14
+    PUSHBUTTON      "Cancel",IDCANCEL,105,161,63,14
+    CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,14,49,14,8
+    CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,14,70,14,8
+    CONTROL         "",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,14,92,14,8
+    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,14,113,14,8
+    CONTROL         "",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,14,134,14,8
+    CONTROL         145,IDC_PATCH_WARN1,"Static",SS_BITMAP,70,49,11,10
+    CONTROL         145,IDC_PATCH_WARN2,"Static",SS_BITMAP,70,70,11,10
+    CONTROL         145,IDC_PATCH_WARN3,"Static",SS_BITMAP,70,92,11,10
+    CONTROL         145,IDC_PATCH_WARN4,"Static",SS_BITMAP,70,113,11,10
+    CONTROL         145,IDC_PATCH_WARN5,"Static",SS_BITMAP,70,134,11,10
+    RTEXT           "L* :",IDC_STATIC,105,63,23,12,SS_CENTERIMAGE
+    RTEXT           "a* :",IDC_STATIC,105,84,24,12,SS_CENTERIMAGE
+    RTEXT           "b* :",IDC_STATIC,105,105,24,12,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT1,140,63,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,140,84,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,140,105,35,12,ES_AUTOHSCROLL
+    LTEXT           "Please select the set of color patches for the validation.",
+                    IDC_STATIC,49,14,126,21,SS_SUNKEN
+    RTEXT           "Maximum",IDC_STATIC,91,123,42,8,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT4,140,126,35,12,ES_AUTOHSCROLL
+    RTEXT           "delta E:",IDC_STATIC,84,131,49,8,SS_CENTERIMAGE
+    CONTROL         154,IDC_STATIC,"Static",SS_BITMAP,14,14,25,23
+    CONTROL         "",IDC_PATCH1,"Button",BS_OWNERDRAW | WS_TABSTOP,35,49,
+                    28,14,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_PATCH2,"Button",BS_OWNERDRAW | WS_TABSTOP,35,70,
+                    28,14,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_PATCH3,"Button",BS_OWNERDRAW | WS_TABSTOP,35,91,
+                    28,14,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_PATCH4,"Button",BS_OWNERDRAW | WS_TABSTOP,35,112,
+                    28,14,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_PATCH5,"Button",BS_OWNERDRAW | WS_TABSTOP,35,133,
+                    28,14,WS_EX_CLIENTEDGE
+END
+
+IDD_MEASURE DIALOG DISCARDABLE  0, 0, 405, 247
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Measure"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         154,IDC_STATIC,"Static",SS_BITMAP,14,14,25,23
+    LTEXT           "Place your calibrator over the image below then click Begin.",
+                    IDC_STATIC,49,14,126,21,SS_SUNKEN
+    CONTROL         "Auto Measure",IDC_AUTOMEAS_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,280,63,62,12
+    CONTROL         140,IDC_SENSOR,"Static",SS_BITMAP,14,56,163,156
+    DEFPUSHBUTTON   "Measure",ID_BEGIN,21,224,63,14
+    PUSHBUTTON      "Cancel",IDCANCEL,105,224,63,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,196,14,196,217
+    LTEXT           "Y",IDC_STATIC,224,31,8,8
+    EDITTEXT        IDC_DISPLAY_L,233,28,34,13,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    LTEXT           "x",IDC_STATIC,273,30,8,8
+    EDITTEXT        IDC_DISPLAY_x,282,28,34,13,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    LTEXT           "y",IDC_STATIC,322,30,8,8
+    EDITTEXT        IDC_DISPLAY_y,331,28,34,13,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    LTEXT           "Calibrator Version",IDC_STATIC,203,84,70,8
+    EDITTEXT        IDC_CAL_VERSION,280,84,105,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Monitor Frequency",IDC_STATIC,203,105,70,8
+    EDITTEXT        IDC_MONFREQ,280,105,34,13,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    LTEXT           "Hz",IDC_STATIC,322,105,35,8
+    PUSHBUTTON      "Get",IDC_MEAS_FREQ,364,105,21,14
+    LTEXT           "Integration Time",IDC_STATIC,203,126,70,8
+    EDITTEXT        IDC_INTTIME,280,126,34,13,ES_AUTOHSCROLL
+    LTEXT           "Seconds",IDC_STATIC,322,126,35,8
+    PUSHBUTTON      "Set",IDC_SET_INTTIME,364,126,21,14
+    LTEXT           "Measurement Time",IDC_STATIC,203,147,70,8
+    EDITTEXT        IDC_MEAS_TIME,280,147,35,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    LTEXT           "Seconds",IDC_STATIC,322,147,35,8
+    LTEXT           "Number of Periods",IDC_STATIC,203,168,70,8
+    EDITTEXT        IDC_NUM_PERIODS,280,168,35,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set",IDC_SET_NUM_PERIODS,364,168,21,14
+    LTEXT           "Luminance Units",IDC_STATIC,203,196,70,8
+    GROUPBOX        "",IDC_STATIC,280,189,98,35
+    CONTROL         "Foot Lamberts",IDC_UNITS_FTLTS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,287,196,61,10
+    CONTROL         "Candelas",IDC_UNITS_CANDELAS,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,287,210,45,10
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "MonacoView MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "MonacoView\0"
+            VALUE "LegalCopyright", "Copyright (C) 1997\0"
+            VALUE "OriginalFilename", "MonacoView.EXE\0"
+            VALUE "ProductName", "MonacoView Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        RIGHTMARGIN, 211
+    END
+
+    IDD_MONACOVIEW, DIALOG
+    BEGIN
+        RIGHTMARGIN, 165
+        VERTGUIDE, 152
+        BOTTOMMARGIN, 255
+        HORZGUIDE, 127
+    END
+
+    IDD_PREFERENCES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 174
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 107
+    END
+
+    IDD_VAL_PATCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_MEASURE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 398
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 240
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_MONACOVIEW DLGINIT
+BEGIN
+    IDC_WHITE, 0x403, 18, 0
+0x3544, 0x2030, 0x6956, 0x7765, 0x6e69, 0x2067, 0x6f42, 0x746f, 0x0068, 
+
+    IDC_WHITE, 0x403, 7, 0
+0x3535, 0x3030, 0x4bb0, "\000" 
+    IDC_WHITE, 0x403, 22, 0
+0x3644, 0x2035, 0x7453, 0x6e61, 0x6164, 0x6472, 0x4420, 0x7961, 0x696c, 
+0x6867, 0x0074, 
+    IDC_WHITE, 0x403, 7, 0
+0x3537, 0x3030, 0x4bb0, "\000" 
+    IDC_WHITE, 0x403, 7, 0
+0x3339, 0x3030, 0x4bb0, "\000" 
+    IDC_WHITE, 0x403, 20, 0
+0x6f4d, 0x696e, 0x6f74, 0x2072, 0x6857, 0x7469, 0x2065, 0x6f50, 0x6e69, 
+0x0074, 
+    IDC_WHITE, 0x403, 10, 0
+0x7543, 0x7473, 0x6d6f, 0x2e2e, 0x002e, 
+    IDC_GAMMA, 0x403, 4, 0
+0x2e30, 0x0037, 
+    IDC_GAMMA, 0x403, 16, 0
+0x2e31, 0x2030, 0x2020, 0x2020, 0x6353, 0x6e61, 0x656e, 0x0072, 
+    IDC_GAMMA, 0x403, 4, 0
+0x2e31, 0x0032, 
+    IDC_GAMMA, 0x403, 4, 0
+0x2e31, 0x0034, 
+    IDC_GAMMA, 0x403, 4, 0
+0x2e31, 0x0036, 
+    IDC_GAMMA, 0x403, 25, 0
+0x2e31, 0x2038, 0x2020, 0x2020, 0x6957, 0x646e, 0x776f, 0x2073, 0x7453, 
+0x6e61, 0x6164, 0x6472, "\000" 
+    IDC_GAMMA, 0x403, 4, 0
+0x2e32, 0x0030, 
+    IDC_GAMMA, 0x403, 22, 0
+0x2e32, 0x2032, 0x2020, 0x2020, 0x544e, 0x4353, 0x5320, 0x6174, 0x646e, 
+0x7261, 0x0064, 
+    IDC_GAMMA, 0x403, 4, 0
+0x2e32, 0x0038, 
+    IDC_LABEL1, 0x376, 172, 0
+0x0000, 0x0000, 0x4321, 0x1234, 0x0008, 0x0000, 0x1aaa, 0x0000, 0x0408, 
+0x0000, 0x1910, 0x1a63, 0x0003, 0x0001, 0x0001, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x1a28, 0x1a63, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x1a00, 0x1a63, 0x001e, 0x0000, 0x0000, 0x0000, 0x1a28, 0x1a63, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x1a90, 0x1a63, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x1a90, 0x1a63, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0001, 
+0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x000a, 0x0000, 0x6f4d, 0x616e, 
+0x6f63, 0x4956, 0x5745, 0x0500, 0x0000, 0x4100, 0x6972, 0x6c61, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0xa000, 
+    0
+END
+
+IDD_CALIBRATE DLGINIT
+BEGIN
+    IDC_TEXTBOX1, 0x37a, 195, 0
+0x0000, 0x0000, 0x0023, 0x0000, 0x0001, 0x0000, 0x001b, 0x0000, 0x0001, 
+0x8001, 0x0000, 0x0000, 0x0000, 0x001a, 0x0000, 0x0002, 0x8001, 0x0001, 
+0x0000, 0x0000, 0x8802, 0x0700, 0x4001, 0x0086, 0x0000, 0x1300, 0x8048, 
+0xffac, 0xffff, 0x0000, 0x0000, 0x5d00, 0x0000, 0x0080, 0x0000, 0x0000, 
+0x0000, 0xda00, 0x000a, 0x6800, 0x0009, 0x4100, 0x6a64, 0x7375, 0x2074, 
+0x6874, 0x2065, 0x7262, 0x6769, 0x7468, 0x656e, 0x7373, 0x6320, 0x6e6f, 
+0x7274, 0x6c6f, 0x7520, 0x746e, 0x6c69, 0x206c, 0x6874, 0x2065, 0x6f66, 
+0x7275, 0x7320, 0x7571, 0x7261, 0x7365, 0x7420, 0x206f, 0x6874, 0x2065, 
+0x656c, 0x7466, 0x6120, 0x6572, 0x6220, 0x7261, 0x6c65, 0x2079, 0x6964, 
+0x7473, 0x6e69, 0x7567, 0x7369, 0x6168, 0x6c62, 0x2e65, 0x7420, 0x0068, 
+0x0c02, 0x3400, 0x0000, 0x5400, 0x0000, 0x0000, 0x0002, "\000" 
+    IDC_TEXTBOX2, 0x37a, 191, 0
+0x0000, 0x0000, 0x0023, 0x0000, 0x0001, 0x0000, 0x001b, 0x0000, 0x0001, 
+0x8001, 0x0000, 0x0000, 0x0000, 0x001a, 0x0000, 0x0002, 0x8001, 0x0001, 
+0x0000, 0x0000, 0x8402, 0x0700, 0x4001, 0x0086, 0x0000, 0x1300, 0x8048, 
+0xffac, 0xffff, 0x0000, 0x0000, 0x5c00, 0x0000, 0x0080, 0x0000, 0x0000, 
+0x0000, 0xda00, 0x000a, 0x6800, 0x0009, 0x4100, 0x6a64, 0x7375, 0x2074, 
+0x6874, 0x2065, 0x6f63, 0x746e, 0x6172, 0x7473, 0x6320, 0x6e6f, 0x7274, 
+0x6c6f, 0x7520, 0x746e, 0x6c69, 0x206c, 0x6874, 0x2065, 0x6f66, 0x7275, 
+0x7320, 0x7571, 0x7261, 0x7365, 0x7420, 0x206f, 0x6874, 0x2065, 0x6972, 
+0x6867, 0x2074, 0x7261, 0x2065, 0x6162, 0x6572, 0x796c, 0x6420, 0x7369, 
+0x6974, 0x676e, 0x6975, 0x6873, 0x6261, 0x656c, 0x002e, 0x0c02, 0x3400, 
+0x0000, 0x5400, 0x0000, 0x0000, 0x0002, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About MonacoVIEW..."
+    IDS_ERR_NO_ICM_DIR      "Can't find the system color directory."
+    IDS_PREF_DIRNAME        "Preference"
+    IDS_ERR_OUT_OF_GAMUT    "The specified color is out of monitor gamut."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "MonacoVIEW"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\MonacoView.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

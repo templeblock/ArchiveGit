@@ -1,0 +1,65 @@
+SAMPLES.TXT
+June 26, 1998
+PICTools version 1.03.110
+
+This file contains a list of sample applications included with the
+PICTools Development Kits.  Not all sample applications are included
+with all Development Kits.
+=====================================================================
+
+Sample Executables:
+
+se2dddw  - 32-bit DOS-extended enhanced JPEG to BMP converter (requires DOS4GW)
+d2seddw  - 32-bit DOS-extended BMP to enhanced JPEG converter (requires DOS4GW)
+rornnw   - Windows '95/NT JPEG to JPEG rotate
+zoomnnw  - Windows '95/NT BMP Zoom/gray-scale/half-tone
+vp       - visual palette
+
+    Enhanced JPEG Development Kit only:
+se2dnnw  - Windows '95/NT enhanced JPEG to BMP converter
+se2dwww  - Windows 3.1 enhanced JPEG to BMP converter
+d2sennw  - Windows '95/NT BMP to enhanced JPEG converter
+d2sewww  - Windows 3.1 BMP to enhanced JPEG converter
+
+    JPEG Development Kit only:
+s2dddw   - 32-bit DOS-extended JPEG to BMP converter (requires DOS4GW)
+d2sddw   - 32-bit DOS-extended BMP to JPEG converter (requires DOS4GW)
+s2dnnw   - Windows '95/NT JPEG to BMP converter
+s2dwww   - Windows 3.1 JPEG to BMP converter
+d2snnw   - Windows '95/NT BMP to JPEG converter
+d2swww   - Windows 3.1 BMP to JPEG converter
+
+
+Minerva sample executables:
+
+minerm32 - Win32 compiled with Microsoft 4.2
+minervmm - Win16 medium model compiled with Microsoft 1.52
+
+
+Sample Source Code:
+
+Minerva - A sample application demonstrating all PICTools opcodes
+          (currently sequential JPEG expand, sequential JPEG pack
+          and zoom).  Project files are provided to make the each
+          of the executables above.
+          
+          See DOC\SAMPLES\MINERVA.DOC for information about the
+          user interface and architecture of Minerva.
+
+J2d     - Creating SE2DNNW.EXE (Enhanced JPEG Development Kit) and
+          S2DNNW (JPEG Development Kit) - '95/NT command-line test
+          programs for sequential JPEG expand.
+
+D2j     - Creating D2SENNW.EXE (Enhanced JPEG Development Kit) and
+          D2SNNW.EXE (JPEG Development Kit) -'95/NT command-line test
+          programs for sequential JPEG pack.
+
+Ror     - Creating RORNNW.EXE - a '95/NT command-line test program
+          for JPEG to JPEG rotate.
+
+Zoom    - Creating ZOOMNNW.EXE - a '95/NT command-line test program
+          for changing the dimensions, gray-scaling and/or half-toning
+          Windows .BMP-format files.
+
+=====================================================================
+<end of SAMPLES.TXT>

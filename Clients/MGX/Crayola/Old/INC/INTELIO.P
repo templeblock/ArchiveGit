@@ -1,0 +1,16 @@
+// Source file: INTELIO.C
+void FileFDOpenRdr (LPFILEBUF ofd, int ofh, LPTR buf, int bsiz);
+void FileFDOpenWrt (LPFILEBUF ofd, int ofh, LPTR buf, int bsiz);
+int FileFlush (LPFILEBUF ofd);
+long FileSeek (LPFILEBUF ofd, long offset, int whence);
+int FileWrite (LPFILEBUF ofd, LPTR buf, int len);
+int FileRead (LPFILEBUF ifd, LPTR buf, int len);
+void intelWriteWord (LPFILEBUF ofd, WORD w);
+void intelWriteDWord (LPFILEBUF ofd, DWORD dw);
+void intelReadWord (LPFILEBUF ifd, WORD FAR * w);
+void intelReadDWord (LPFILEBUF ifd, DWORD FAR * dw);
+void motWriteWord (LPFILEBUF ofd, WORD w);
+void motWriteDWord (LPFILEBUF ofd, DWORD dw);
+void motReadWord (LPFILEBUF ifd, WORD FAR * w);
+void motReadDWord (LPFILEBUF ifd, DWORD FAR * dw);
+

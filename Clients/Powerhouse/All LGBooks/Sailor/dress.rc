@@ -1,0 +1,243 @@
+//***********************************************************************
+IDD_DRESSI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_DRESSI GAMETABLE
+//***********************************************************************
+{
+"
+	toprect=295 83 467 211,midrect=295 210 467 309,botrect=295 308 467 407,","
+	intros=intro1.wav intro2.wav intro3.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,loadondemand=1,","
+	interactivity=1;","
+
+	top=top1.dib,mid=mid1.dib,bot=bot1.dib,wave3=football.wav,success=succfb.wav;","
+	top=top2.dib,mid=mid2.dib,bot=bot2.dib,wave3=spaceman.wav,success=succsm.wav;","
+	top=top3.dib,mid=mid3.dib,bot=bot3.dib,wave3=king.wav,success=succking.wav;","
+	top=top4.dib,mid=mid4.dib,bot=bot4.dib,wave3=tux.wav,success=succtux.wav;","
+	top=top5.dib,mid=mid5.dib,bot=bot5.dib,wave3=knight.wav,success=succknig.wav;","
+	top=top6.dib,mid=mid6.dib,bot=bot6.dib,wave3=boone.wav,success=succboon.wav;","
+	top=top7.dib,mid=mid7.dib,bot=bot7.dib,wave3=police.wav;","
+	top=top9.dib,mid=mid9.dib,bot=bot9.dib,wave3=chef.wav,success=succchef.wav;","
+	top=top10.dib,mid=mid10.dib,bot=bot10.dib,wave3=doctor.wav;","
+	top=top11.dib,mid=mid11.dib,bot=bot11.dib,wave3=hero.wav;","
+	top=top12.dib,mid=mid12.dib,bot=bot12.dib,wave3=train.wav,success=succtrai.wav;","
+	top=top13.dib,mid=mid13.dib,bot=bot13.dib,wave3=joker.wav,success=succjoke.wav;","
+	top=top14.dib,mid=mid14.dib,bot=bot14.dib,wave3=fireman.wav,success=succfire.wav;","
+	top=top15.dib,mid=mid15.dib,bot=bot15.dib,wave3=scotland.wav;","
+	top=top16.dib,mid=mid16.dib,bot=bot16.dib,wave3=soldier.wav,success=succarmy.wav;","
+	top=top17.dib,mid=mid17.dib,bot=bot17.dib,wave3=construc.wav,success=succcons.wav;","
+	top=top18.dib,mid=mid18.dib,bot=bot18.dib,wave3=baseball.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANDRESSI GAMETABLE
+//***********************************************************************
+{
+"
+	toprect=295 83 467 211,midrect=295 210 467 309,botrect=295 308 467 407,","
+	intros=spintro1.wav spintro2.wav spintro3.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,loadondemand=1,","
+	interactivity=1;","
+
+	top=top1.dib,mid=mid1.dib,bot=bot1.dib,wave3=spfoot.wav,success=succfb.wav;","
+	top=top2.dib,mid=mid2.dib,bot=bot2.dib,wave3=spastro.wav,success=succsm.wav;","
+	top=top3.dib,mid=mid3.dib,bot=bot3.dib,wave3=spking.wav,success=succking.wav;","
+	top=top4.dib,mid=mid4.dib,bot=bot4.dib,wave3=sptophat.wav,success=succtux.wav;","
+	top=top5.dib,mid=mid5.dib,bot=bot5.dib,wave3=spknight.wav,success=succknig.wav;","
+	top=top6.dib,mid=mid6.dib,bot=bot6.dib,wave3=spboone.wav,success=succboon.wav;","
+	top=top7.dib,mid=mid7.dib,bot=bot7.dib,wave3=sppolice.wav;","
+	top=top9.dib,mid=mid9.dib,bot=bot9.dib,wave3=spchef.wav,success=succchef.wav;","
+	top=top10.dib,mid=mid10.dib,bot=bot10.dib,wave3=spdoctor.wav;","
+	top=top11.dib,mid=mid11.dib,bot=bot11.dib,wave3=spsuper.wav;","
+	top=top12.dib,mid=mid12.dib,bot=bot12.dib,wave3=spenginr.wav,success=succtrai.wav;","
+	top=top13.dib,mid=mid13.dib,bot=bot13.dib,wave3=spjoker.wav,success=succjoke.wav;","
+	top=top14.dib,mid=mid14.dib,bot=bot14.dib,wave3=spfire.wav,success=succfire.wav;","
+	top=top15.dib,mid=mid15.dib,bot=bot15.dib,wave3=spscots.wav;","
+	top=top16.dib,mid=mid16.dib,bot=bot16.dib,wave3=sparmy.wav,success=succarmy.wav;","
+	top=top17.dib,mid=mid17.dib,bot=bot17.dib,wave3=spconst.wav,success=succcons.wav;","
+	top=top18.dib,mid=mid18.dib,bot=bot18.dib,wave3=spbase.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_DRESSI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene22\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=FADE CLIP TRANS_PREV STEP_SIZE TOTAL_TIME,","
+	next=FADE CLIP TRANS_NEXT STEP_SIZE TOTAL_TIME,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+//*** Page Icon ***//
+
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","    
+                    
+//*** Action Strip Icons ***//                    
+                    
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click notrans, cmd=IDC_PREVIOUS,   fg=prev.bmp, hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 446,	flags=noclip autobutton click notrans, cmd=IDC_SOUNDBOX,   fg=sound.bmp, hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 443,	flags=noclip autobutton click notrans, cmd=IDC_OPTIONS,    fg=options.bmp, hint=options.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click notrans, cmd=IDC_NEXT,       fg=next.bmp, hint=next.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+",0
+} 
+
+//***********************************************************************
+IDD_SPANDRESSI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene22\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=FADE CLIP TRANS_PREV STEP_SIZE TOTAL_TIME,","
+	next=FADE CLIP TRANS_NEXT STEP_SIZE TOTAL_TIME,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+//*** Page Icon ***//
+
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","    
+                    
+//*** Action Strip Icons ***//                    
+                    
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click notrans, cmd=IDC_PREVIOUS,   fg=prev.bmp, hint=spprev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=spmain.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 446,	flags=noclip autobutton click notrans, cmd=IDC_SOUNDBOX,   fg=sound.bmp, hint=spsounds.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 443,	flags=noclip autobutton click notrans, cmd=IDC_OPTIONS,    fg=options.bmp, hint=spoption.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click notrans, cmd=IDC_NEXT,       fg=next.bmp, hint=spnext.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp.wav;","
+",0
+} 
+
+//***********************************************************************
+IDD_DRESS SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_DRESS GAMETABLE
+//***********************************************************************
+{
+"
+	toprect=295 83 467 211,midrect=295 210 467 309,botrect=295 308 467 407,","
+	intros=intro1.wav intro2.wav intro3.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,loadondemand=1;","
+
+	top=top1.dib,mid=mid1.dib,bot=bot1.dib,wave3=football.wav,success=succfb.wav;","
+	top=top2.dib,mid=mid2.dib,bot=bot2.dib,wave3=spaceman.wav,success=succsm.wav;","
+	top=top3.dib,mid=mid3.dib,bot=bot3.dib,wave3=king.wav,success=succking.wav;","
+	top=top4.dib,mid=mid4.dib,bot=bot4.dib,wave3=tux.wav,success=succtux.wav;","
+	top=top5.dib,mid=mid5.dib,bot=bot5.dib,wave3=knight.wav,success=succknig.wav;","
+	top=top6.dib,mid=mid6.dib,bot=bot6.dib,wave3=boone.wav,success=succboon.wav;","
+	top=top7.dib,mid=mid7.dib,bot=bot7.dib,wave3=police.wav;","
+	top=top9.dib,mid=mid9.dib,bot=bot9.dib,wave3=chef.wav,success=succchef.wav;","
+	top=top10.dib,mid=mid10.dib,bot=bot10.dib,wave3=doctor.wav;","
+	top=top11.dib,mid=mid11.dib,bot=bot11.dib,wave3=hero.wav;","
+	top=top12.dib,mid=mid12.dib,bot=bot12.dib,wave3=train.wav,success=succtrai.wav;","
+	top=top13.dib,mid=mid13.dib,bot=bot13.dib,wave3=joker.wav,success=succjoke.wav;","
+	top=top14.dib,mid=mid14.dib,bot=bot14.dib,wave3=fireman.wav,success=succfire.wav;","
+	top=top15.dib,mid=mid15.dib,bot=bot15.dib,wave3=scotland.wav;","
+	top=top16.dib,mid=mid16.dib,bot=bot16.dib,wave3=soldier.wav,success=succarmy.wav;","
+	top=top17.dib,mid=mid17.dib,bot=bot17.dib,wave3=construc.wav,success=succcons.wav;","
+    top=top18.dib,mid=mid18.dib,bot=bot18.dib,wave3=baseball.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANDRESS GAMETABLE
+//***********************************************************************
+{
+"
+	toprect=295 83 467 211,midrect=295 210 467 309,botrect=295 308 467 407,","
+	intros=spintro1.wav spintro2.wav spintro3.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,loadondemand=1;","
+
+	top=top1.dib,mid=mid1.dib,bot=bot1.dib,wave3=spfoot.wav,success=succfb.wav;","
+	top=top2.dib,mid=mid2.dib,bot=bot2.dib,wave3=spastro.wav,success=succsm.wav;","
+	top=top3.dib,mid=mid3.dib,bot=bot3.dib,wave3=spking.wav,success=succking.wav;","
+	top=top4.dib,mid=mid4.dib,bot=bot4.dib,wave3=sptophat.wav,success=succtux.wav;","
+	top=top5.dib,mid=mid5.dib,bot=bot5.dib,wave3=spknight.wav,success=succknig.wav;","
+	top=top6.dib,mid=mid6.dib,bot=bot6.dib,wave3=spboone.wav,success=succboon.wav;","
+	top=top7.dib,mid=mid7.dib,bot=bot7.dib,wave3=sppolice.wav;","
+	top=top9.dib,mid=mid9.dib,bot=bot9.dib,wave3=spchef.wav,success=succchef.wav;","
+	top=top10.dib,mid=mid10.dib,bot=bot10.dib,wave3=spdoctor.wav;","
+	top=top11.dib,mid=mid11.dib,bot=bot11.dib,wave3=spsuper.wav;","
+	top=top12.dib,mid=mid12.dib,bot=bot12.dib,wave3=spenginr.wav,success=succtrai.wav;","
+	top=top13.dib,mid=mid13.dib,bot=bot13.dib,wave3=spjoker.wav,success=succjoke.wav;","
+	top=top14.dib,mid=mid14.dib,bot=bot14.dib,wave3=spfire.wav,success=succfire.wav;","
+	top=top15.dib,mid=mid15.dib,bot=bot15.dib,wave3=spscots.wav;","
+	top=top16.dib,mid=mid16.dib,bot=bot16.dib,wave3=sparmy.wav,success=succarmy.wav;","
+	top=top17.dib,mid=mid17.dib,bot=bot17.dib,wave3=spconst.wav,success=succcons.wav;","
+	top=top18.dib,mid=mid18.dib,bot=bot18.dib,wave3=spbase.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_DRESS JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene22\\backgrnd.dib,clip=CL CT CR CB,","
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+	/IDC_BACK=0 0,		hot=46 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=mainmenu.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 403,	flags=noclip, cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 375,	flags=noclip, cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 347,	flags=noclip, cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 403,	flags=noclip, fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 375,	flags=noclip invisible,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 347,	flags=noclip invisible,fg=lvl3on.bmp;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_SPANDRESS JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene22\\backgrnd.dib,clip=CL CT CR CB,","
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+	/IDC_BACK=0 0,		hot=46 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=spmain.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 403,	flags=noclip, cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 375,	flags=noclip, cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 347,	flags=noclip, cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 403,	flags=noclip, fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 375,	flags=noclip invisible,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 347,	flags=noclip invisible,fg=lvl3on.bmp;","
+
+",0
+} 

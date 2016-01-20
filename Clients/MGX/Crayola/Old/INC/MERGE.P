@@ -1,0 +1,4 @@
+// Source file: MERGE.C
+LPPROCESSPROC GetProcessProc(MERGE_MODE MergeMode, int depth);
+
+

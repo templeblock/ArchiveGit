@@ -1,0 +1,10 @@
+// Source file: GETDEV.C
+short InitPrinterListBox( HWND hDlg, LPSTR lpDevice );
+void GetPrinterListBox( HWND hDlg, LPSTR lpDevice );
+void GetDefaultPrinter( LPSTR lpDevice );
+void SetDefaultPrinter( LPSTR lpDevice );
+short SetupPrinter( HWND hWindow, LPSTR lpDevice );
+void ValidatePrinter( LPSTR lpDevice );
+void DeviceDescription( LPSTR lpDevice, LPSTR lpDescription );
+LOCAL LPSTR GetNextParm( LPSTR lpString );
+

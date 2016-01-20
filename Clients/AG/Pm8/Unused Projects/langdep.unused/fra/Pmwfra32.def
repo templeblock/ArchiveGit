@@ -1,0 +1,5 @@
+; PMWFRA32.def : Declares the module parameters for the DLL.
+
+LIBRARY      PMWFRA32
+DESCRIPTION  'PrintMaster French 32-bit Resources'
+

@@ -1,0 +1,9 @@
+// Source file: constrai.c
+void Grid( BOOL bOn, int x, int y, int dx, int dy );
+void GridSave( void );
+void GridRestore( void );
+void GridPoint( LPPOINT lpPoint );
+BOOL ConstrainXY(LPLONG lpMousePos, BOOL fDown, UINT msg, BOOL fConstrainMode);
+BOOL ConstrainX( void );
+BOOL ConstrainY( void );
+

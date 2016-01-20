@@ -1,0 +1,15 @@
+/*** FACEBOOK HEADER AND FOOTER STYLES ***/
+
+body { overflow: auto; }
+div#FBheader { }
+div#FBheader img.FBlogo { float: left; }
+div#FBheader div.FBheaderRight { float: left; width: 475px; overflow: hidden; }
+div#FBheader div.FBheaderRight a { color: #FFF; }
+div#FBheader div.FBheaderRight ul { width: 477px; background-color: #68B700; color: #FFF; font-weight: bold; margin: 0; padding: 4px 10px; }
+div#FBheader div.FBheaderRight ul li { display: inline; padding: 4px; list-style-type: none; margin: 0; padding: 0; }
+
+div#FBfooter { background-color: #4DB3D0; color: #FFF; padding: 5px 5px; overflow: hidden; }
+div#FBfooter a { color: #FFF; }
+div#FBfooter p { float: left; display: inline; padding: 0; margin: 0; }
+div#FBfooter ul { float: right; display: inline; padding: 0; margin: 0; }
+div#FBfooter ul li { display: inline; padding: 0; margin: 0; }

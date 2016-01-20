@@ -1,0 +1,49 @@
+<html id="main" style="WIDTH:350px; HEIGHT:205px">
+	<head>
+		<TITLE>Hp Design Studio</TITLE>
+		<script language="javascript" src="MessageBox.js"></script>
+		<style type="text/css"> body { font-family:Verdana,sans-serif; font-size:8pt; margin:0px; padding:3px; background-color:#ffffff;}
+	</style>
+	</head>
+	<body onload="Load()" onselectstart="return false;" onmouseover="this.style.cursor='default'"
+		marginheight="0" marginwidth="0" topmargin="0" leftmargin="0">
+		<table height="100%" width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0">
+			<tr height="5">
+				<td></td>
+			</tr>
+			<tr height="*" bgcolor="#ffffff">
+				<td width="100%" valign="middle" height="80">
+					<table height="100%" width="100%" cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<td width="14"></td>
+							<td width="14"></td>
+							<td width="*" id="message">
+								<span id="TxtSpan1" style="FONT-WEIGHT:400;FONT-SIZE:12px;COLOR:#000000;FONT-FAMILY:arial">
+								Please connect to the internet and click on Check for Updates.<br> <br>
+								If you do not wish to check for updates please click on Close Window.
+								</span>
+							</td>
+							<td width="44"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr height="24" bgcolor="#ffffff">
+				<td width="100%" align="right">
+					<div style="PADDING-RIGHT:12px; PADDING-LEFT:12px; FLOAT:right; PADDING-BOTTOM:20px; MARGIN-LEFT:100px; WIDTH:280px; PADDING-TOP:8px">
+						<div style="DISPLAY:inline; WIDTH:125px" tabindex="1" hidefocus onmouseover="OverEx('check_down.gif', 'cYES')"
+							onmouseout="OutEx('check_up.gif', 'cYES')" onmousedown="DownEx('check_down.gif', 'cYES')"
+							onmouseup="UpEx('check_up.gif', 'cYES')" onclick="ReturnValue('YES');">
+							<img id="cYES" src="check_up.gif">
+						</div>
+						<div style="DISPLAY:inline; WIDTH:125px" tabindex="1" hidefocus onmouseover="OverEx('close_down.gif', 'cNO')"
+							onmouseout="OutEx('close_up.gif', 'cNO')" onmousedown="DownEx('close_down.gif', 'cNO')"
+							onmouseup="UpEx('close_up.gif', 'cNO')" onclick="ReturnValue('NO');">
+							<img id="cNO" src="close_up.gif">
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

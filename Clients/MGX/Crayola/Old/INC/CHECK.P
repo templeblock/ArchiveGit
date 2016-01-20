@@ -1,0 +1,4 @@
+// file CHECK.C
+
+BOOL Check_RegisterClass (HINSTANCE hInstance, UINT ClassScope);
+

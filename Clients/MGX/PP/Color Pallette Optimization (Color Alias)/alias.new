@@ -1,0 +1,698 @@
+// alias.cpp : Defines the class behaviors for the application.
+//
+
+#include "stdafx.h"
+#include "alias.h"
+#include "aliasdlg.h"
+#include "tgardr.h"
+#include "tgawrt.h"
+#include "palio.h"
+#include "pal.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char BASED_CODE THIS_FILE[] = __FILE__;
+#endif
+
+//************************************************************************
+LPCSTR FileName( LPCSTR lpPath )
+//************************************************************************
+{
+	LPCSTR lp;
+
+	lp = lpPath;
+	lp += lstrlen( lpPath );
+	while( *lp != '\\' && *lp != ':' )
+	{
+		if ( (--lp) < lpPath )
+		    return( lpPath + lstrlen(lpPath) ); // null string
+	}
+	lp++;
+	return( lp ); // the file name
+}
+
+//************************************************************************
+LPCSTR Extension( LPCSTR lpPath )
+//************************************************************************
+{
+	LPCSTR lp;
+
+	lp = lpPath;
+	lp += lstrlen( lpPath );
+	while( *lp != '.' )
+	{
+		if ( (--lp) < lpPath )
+		    return( lpPath + lstrlen(lpPath) ); // null string
+	}
+	return( lp ); // the extension, including the '.'
+}
+
+//************************************************************************
+LPSTR FixPath( LPSTR lpPath )
+//************************************************************************
+{
+int length;
+
+if ( !(length = lstrlen(lpPath)) )
+	return( lpPath );
+while ( length && (lpPath[length-1] == '\n' || lpPath[length-1] == '\r') )
+	lpPath[--length] = '\0';
+if ( !length )
+	return( lpPath );
+if ( lpPath[length-1] != '\\' )
+	lstrcat( lpPath, "\\" );
+return( lpPath );
+}
+
+//************************************************************************
+LPSTR StripFile( LPSTR lpPath )
+//************************************************************************
+{
+	LPSTR lp;
+
+	if ( lp = (LPSTR)FileName( lpPath ) )
+		*lp = '\0';
+	return( lpPath );
+}
+
+int ExtractNumber(LPCSTR lpString)
+{
+	char szNum[25];
+	int i = 0;
+	int num;
+
+	lstrcpy(szNum, lpString);
+	if (szNum[i] && !isdigit(szNum[i]))
+		++i;
+	if (szNum[i])
+	{
+		if (sscanf(&szNum[i], "%d", &num) == 1)
+			return(num);
+	}
+	return(-1);
+}
+
+LPSTR ExtractPrefix(LPCSTR lpString, LPSTR lpPrefix)
+{
+	char szNum[25];
+	int i = 0;
+
+	lstrcpy(szNum, lpString);
+	if (szNum[i] && !isdigit(szNum[i]))
+	{
+		lpPrefix[i] = szNum[i];
+		++i;
+	}
+	lpPrefix[i] = '\0';
+	return(lpPrefix);
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CAliasApp
+
+BEGIN_MESSAGE_MAP(CAliasApp, CWinApp)
+	//{{AFX_MSG_MAP(CAliasApp)
+		// NOTE - the ClassWizard will add and remove mapping macros here.
+		//    DO NOT EDIT what you see in these blocks of generated code!
+	//}}AFX_MSG
+	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
+END_MESSAGE_MAP()
+
+/////////////////////////////////////////////////////////////////////////////
+// CAliasApp construction
+
+CAliasApp::CAliasApp()
+{
+	// TODO: add construction code here,
+	// Place all significant initialization in InitInstance
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// The one and only CAliasApp object
+
+CAliasApp theApp;
+
+/////////////////////////////////////////////////////////////////////////////
+// CAliasApp initialization
+
+#ifdef UNUSED
+class CMyFileDialog : public CFileDialog
+{
+public:
+	CMyFileDialog(BOOL bOpenFileDialog, // TRUE for FileOpen, FALSE for FileSaveAs
+		LPCTSTR lpszDefExt = NULL,
+		LPCTSTR lpszFileName = NULL,
+		DWORD dwFlags = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
+		LPCTSTR lpszFilter = NULL,
+		CWnd* pParentWnd = NULL) :
+	CFileDialog(bOpenFileDialog, // TRUE for FileOpen, FALSE for FileSaveAs
+		lpszDefExt,
+		lpszFileName,
+		dwFlags,
+		lpszFilter,
+		pParentWnd) {}
+	~CMyFileDialog() {}
+
+	BOOL OnInitDialog();
+	void OnLBSelChangedNotify(UINT nIDBox, UINT iCurSel, UINT nCode);
+};
+
+
+BOOL CMyFileDialog::OnInitDialog()
+{
+	return(CFileDialog::OnInitDialog());
+}
+
+void CMyFileDialog::OnLBSelChangedNotify(UINT nIDBox, UINT iCurSel, UINT nCode)
+{
+	HWND hDlg = GetSafeHwnd();
+	switch (nCode)
+	{
+		case CD_LBSELCHANGE:
+		char buf[256];
+		char buf2[256];
+
+		((CListBox *)GetDlgItem(nIDBox))->GetText(iCurSel, buf2);
+
+		//ListBox_GetText(::GetDlgItem(hDlg, nIDBox), iCurSel, buf2);
+		wsprintf(buf, "nIDBox = %d iCurSel = %d string = %s\n", nIDBox, iCurSel, buf2);
+		OutputDebugString(buf);
+		break;
+		
+		case CD_LBSELSUB:
+		break;
+		
+		case CD_LBSELADD:
+		break;
+		
+		case CD_LBSELNOITEMS:
+		break;
+		
+		default:
+		break; 
+	}
+}
+#endif
+
+BOOL CAliasApp::InitInstance()
+{
+	// Standard initialization
+	// If you are not using these features and wish to reduce the size
+	//  of your final executable, you should remove from the following
+	//  the specific initialization routines you do not need.
+	BOOL bError = FALSE;
+
+	if (!m_Quantize.Init())
+		return(FALSE);
+
+	Enable3dControls();
+	LoadStdProfileSettings();  // Load standard INI file options (including MRU)
+
+	static char BASED_CODE szFilter[] = "Targa Files|*.tga||";
+
+	while (!bError)
+	{
+		char szSceneDir[MAX_PATH];
+		char szGrayDir[MAX_PATH];
+		char szColorDir[MAX_PATH];
+		char szCompDir[MAX_PATH];
+		char szWildCard[MAX_PATH];
+		char szMsg[MAX_PATH];
+		WIN32_FIND_DATA FindData;
+
+		CFileDialog bgdlg(TRUE,
+				"tga",
+				"*.tga",
+				OFN_HIDEREADONLY,
+				szFilter,
+				NULL);
+
+		//fgdlg.m_ofn.Flags &= ~OFN_EXPLORER;
+		bgdlg.m_ofn.lpstrTitle = "Select Scene Background File";
+
+		int nResponse = bgdlg.DoModal();
+		if (nResponse != IDOK)
+		{
+			DWORD dwErr = CommDlgExtendedError();
+			break;
+
+		}
+		CString szBackFile = bgdlg.GetPathName();
+		lstrcpy(szSceneDir, szBackFile);
+		StripFile(szSceneDir);
+
+		lstrcpy(szGrayDir, szSceneDir);
+		lstrcat(szGrayDir, "GRAY\\");
+		lstrcpy(szColorDir, szSceneDir);
+		lstrcat(szColorDir, "COLOR\\");
+		lstrcpy(szCompDir, szSceneDir);
+		lstrcat(szCompDir, "COMP");
+		CreateDirectory(szCompDir, NULL);
+		lstrcat(szCompDir, "\\");
+
+		lstrcpy(szWildCard, szColorDir);
+		lstrcat(szWildCard, "*.*");
+
+		m_Quantize.Reset();
+		HANDLE hFind = FindFirstFile(szWildCard, &FindData);
+		if (!hFind)
+		{
+			wsprintf(szMsg, "No subdirectories found in %s", szGrayDir);
+			MessageBox(NULL, szMsg, "Error", MB_ICONSTOP|MB_OK);
+			continue;
+		}
+		while (hFind != INVALID_HANDLE_VALUE)
+		{
+			if (FindData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY &&
+				FindData.cFileName[0] != '.')
+			{
+				char szColorAnimDir[MAX_PATH];
+				lstrcpy(szColorAnimDir, szColorDir);
+				lstrcat(szColorAnimDir, FindData.cFileName);
+				FixPath(szColorAnimDir);
+				if (!CountColorsInAllFiles(szColorAnimDir))
+				{
+					FindClose(hFind);
+					bError = TRUE;
+					break;
+				}
+			}
+			if (!FindNextFile(hFind, &FindData))
+			{
+				FindClose(hFind);
+				break;
+			}
+		}
+
+		FNAME szPath;
+
+		ZeroMemory(m_StaticMap, sizeof(m_StaticMap));
+		ZeroMemory(m_PaletteMap, sizeof(m_PaletteMap));
+		GetModuleFileName(m_hInstance, szPath, sizeof(szPath));
+		StripFile(szPath);
+		lstrcat(szPath, "static.pal");
+
+		m_nStaticEntries = LoadPalette(szPath, &m_StaticMap[10]);
+		int nEntries = m_Quantize.CreatePalette(m_PaletteMap, 236-m_nStaticEntries);
+		m_Quantize.CreateLookupTable();
+		if (nEntries)
+		{
+			char szPalFile[MAX_PATH];
+
+		 	lstrcpy(szPalFile, szSceneDir);
+		 	lstrcat(szPalFile, "backgrnd.pal");
+			SavePalette(szPalFile, m_PaletteMap, 236-m_nStaticEntries);
+			m_nStaticEntries += 10;
+			for (int i = 0; i < nEntries; ++i)
+				m_StaticMap[i+m_nStaticEntries] = m_PaletteMap[i];
+			CreateIdentityMap(m_StaticMap, 256);
+		 	lstrcpy(szPalFile, szSceneDir);
+		 	lstrcat(szPalFile, "toonavi.pal");
+			SavePalette(szPalFile, m_StaticMap, 256);
+		}
+
+		hFind = FindFirstFile(szWildCard, &FindData);
+		if (!hFind)
+		{
+			wsprintf(szMsg, "No subdirectories found in %s", szGrayDir);
+			MessageBox(NULL, szMsg, "Error", MB_ICONSTOP|MB_OK);
+			continue;
+		}
+		while (hFind != INVALID_HANDLE_VALUE)
+		{
+			if (FindData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY &&
+				FindData.cFileName[0] != '.')
+			{
+				char szGrayAnimDir[MAX_PATH];
+				char szColorAnimDir[MAX_PATH];
+				char szCompAnimDir[MAX_PATH];
+				lstrcpy(szGrayAnimDir, szGrayDir);
+				lstrcat(szGrayAnimDir, FindData.cFileName);
+				FixPath(szGrayAnimDir);
+				lstrcpy(szColorAnimDir, szColorDir);
+				lstrcat(szColorAnimDir, FindData.cFileName);
+				FixPath(szColorAnimDir);
+				lstrcpy(szCompAnimDir, szCompDir);
+				lstrcat(szCompAnimDir, FindData.cFileName);
+				CreateDirectory(szCompAnimDir, NULL);
+				FixPath(szCompAnimDir);
+				if (!ProcessFiles(szGrayAnimDir, szColorAnimDir, szCompAnimDir))
+				{
+					FindClose(hFind);
+					bError = TRUE;
+					break;
+				}
+			}
+			if (!FindNextFile(hFind, &FindData))
+			{
+				FindClose(hFind);
+				break;
+			}
+		}
+
+	}
+
+	// Since the dialog has been closed, return FALSE so that we exit the
+	//  application, rather than start the application's message pump.
+	return FALSE;
+}
+
+BOOL CAliasApp::AntiAliasDib(PDIB pForeDib, PDIB pCompDib)
+{
+	if (pForeDib->GetHeight() != pCompDib->GetHeight() ||
+		pForeDib->GetWidth() != pCompDib->GetWidth())
+	{
+		MessageBox(NULL, "Bitmaps are different sizes", "Error", MB_ICONSTOP|MB_OK);
+		return(FALSE);
+	}
+	if (pForeDib->GetBitCount() != 24 ||
+		pCompDib->GetBitCount() != 24)
+	{
+		MessageBox(NULL, "Bitmaps must both be 24-bits", "Error", MB_ICONSTOP|MB_OK);
+		return(FALSE);
+	}
+
+	RGBS rgb;
+
+	LPTR lpFore = pForeDib->GetPtr();
+	LPTR lpComp = pCompDib->GetPtr();
+	if (FALSE)
+		rgb.red = rgb.green = rgb.blue = 148;
+	else
+		rgb = *((LPRGB)pForeDib->GetXY(0, 0));
+	BYTE r = rgb.red;
+	BYTE g = rgb.green;
+	BYTE b = rgb.blue;
+	UINT uWidthBytes = pForeDib->GetWidthBytes();
+	int iHeight = abs(pForeDib->GetHeight());
+	while (--iHeight >= 0)
+	{
+		int iWidth = pForeDib->GetWidth();
+		LPRGB lpF = (LPRGB)lpFore;
+		LPRGB lpC = (LPRGB)lpComp;
+//		m_Quantize.CountFrequencies((LPRGBTRIPLE)lpComp, iWidth);
+		while (--iWidth >= 0)
+		{
+			if (lpF->red != r || lpF->green != g || lpF->blue != b)
+			{
+				*lpF++ = *lpC++;
+			}
+			else
+			{
+				lpF->red = 255;
+				lpF->green = 0;
+				lpF->blue = 255;
+				++lpF;
+				++lpC;
+			}
+		}
+		lpFore += uWidthBytes;
+		lpComp += uWidthBytes;
+	}
+
+	return(TRUE);
+}
+
+class CMyStatusDlg : public CDialog
+{
+public:
+	CMyStatusDlg();
+
+	void OnCancel();
+	BOOL AbortTest();
+
+public:
+	BOOL m_fAbort;
+};
+
+CMyStatusDlg::CMyStatusDlg()
+{
+	m_fAbort = FALSE;
+}
+
+void CMyStatusDlg::OnCancel()
+{
+	if (MessageBox("Are you sure you want to cancel?", "Cancel Confirmation", MB_ICONSTOP|MB_YESNO) == IDYES)
+		m_fAbort = TRUE;
+}
+
+BOOL CMyStatusDlg::AbortTest()
+{
+	MSG msg;
+
+	while ( !m_fAbort && PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) )
+	{
+		if ( !IsDialogMessage(&msg) )
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+	}
+
+	/* fAbortPrint is TRUE (return is FALSE) if the user has aborted */
+	return( m_fAbort );
+}
+
+CMyStatusDlg statusDlg;
+
+BOOL CAliasApp::CreateAntiAliasedFile(LPCSTR lpForeFile, LPCSTR lpCompFile, LPCSTR lpDstFile, CWnd *pStatusCtrl)
+{
+	PDIB pForeDib, pCompDib, pIndexDib;
+	UINT uWidthRGB, uWidthIndex;
+	int iHeight, iWidth;
+	LPTR lp, lpRGB, lpIndex;
+	LPSTR lpExt;
+	BOOL fRet = FALSE;
+	char szStatus[512];
+	char szFileName[256];
+
+	if (statusDlg.AbortTest())
+		return(FALSE);
+	wsprintf(szStatus, "Reading foreground file: '%s'", lpForeFile);
+	pStatusCtrl->SetWindowText(szStatus);
+	if (!(pForeDib = ReadTarga(lpForeFile)))
+		return(FALSE);
+	if (statusDlg.AbortTest())
+		return(FALSE);
+
+	wsprintf(szStatus, "Reading composite file: '%s'", lpCompFile);
+	pStatusCtrl->SetWindowText(szStatus);
+	if (!(pCompDib = ReadTarga(lpCompFile)))
+	{
+		delete pForeDib;
+		return(FALSE);
+	}
+	if (statusDlg.AbortTest())
+		return(FALSE);
+	pStatusCtrl->SetWindowText("Performing Anti-Aliasing");
+	if (AntiAliasDib(pForeDib, pCompDib))
+	{
+		pIndexDib = new CDib(pForeDib, NULL, FALSE);		
+		pIndexDib->SetBitCount(8);
+		pIndexDib->SetSizeImage(0);
+		pIndexDib->FixHeader();
+		lp = (LPTR)malloc(pIndexDib->GetSizeImage());
+		pIndexDib->SetPtr(lp);
+		hmemcpy( pIndexDib->GetColors(), m_StaticMap, sizeof(m_StaticMap));
+
+		uWidthRGB = pForeDib->GetWidthBytes();
+		uWidthIndex = pIndexDib->GetWidthBytes();
+		iHeight = abs(pIndexDib->GetHeight());
+		lpRGB = pForeDib->GetPtr();
+		lpIndex = pIndexDib->GetPtr();
+		while (--iHeight >= 0)
+		{
+			iWidth = pIndexDib->GetWidth();
+			m_Quantize.MapPixels((LPRGBTRIPLE)lpRGB, lpIndex, iWidth, m_nStaticEntries);
+			// look for transparent pixels
+			LPRGBTRIPLE lpSrc = (LPRGBTRIPLE)lpRGB;
+			LPTR lpDst = lpIndex;
+			while (--iWidth >= 0)
+			{
+				if (lpSrc->rgbtRed == 255 && lpSrc->rgbtGreen == 0 && lpSrc->rgbtBlue == 255)
+					*lpDst = 253; // magenta in indentity palette
+				++lpSrc;
+				++lpDst;
+			}
+			lpRGB += uWidthRGB;
+			lpIndex += uWidthIndex;
+		}
+
+		if (statusDlg.AbortTest())
+			return(FALSE);
+		lstrcpy(szFileName, lpDstFile);
+		lpExt = (LPSTR)Extension(szFileName);
+		*lpExt = '\0';
+		lstrcat(szFileName, ".BMP");
+
+		wsprintf(szStatus, "Writing Output File: '%s'", szFileName);
+		pStatusCtrl->SetWindowText(szStatus);
+		fRet = pIndexDib->WriteFile(szFileName);
+	}
+
+	delete pIndexDib;
+	delete pForeDib;
+	delete pCompDib;
+		
+	return(fRet);
+}
+
+BOOL CAliasApp::ProcessFiles(LPSTR lpGrayDir, LPSTR lpColorDir, LPSTR lpCompDir)
+{
+	WIN32_FIND_DATA FindData;
+	CWnd *pStatusCtrl;
+	BOOL fRet = FALSE;
+	char szWildCard[MAX_PATH];
+	char szGrayFile[MAX_PATH];
+	char szColorFile[MAX_PATH];
+	char szCompFile[MAX_PATH];
+
+	
+	statusDlg.Create(IDD_STATUS);
+	pStatusCtrl = statusDlg.GetDlgItem(IDC_STATUS);
+
+	int nTotal = 0;
+	int nFiles = 0;
+
+	lstrcpy(szWildCard, lpColorDir);
+	lstrcat(szWildCard, "*.tga");
+	HANDLE hFind = FindFirstFile(szWildCard, &FindData);
+	while (hFind != INVALID_HANDLE_VALUE)
+	{
+		if ((FindData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == 0)
+			++nTotal;
+		if (!FindNextFile(hFind, &FindData))
+			break;
+	}
+	if (hFind != INVALID_HANDLE_VALUE)
+		FindClose(hFind);
+	
+	hFind = FindFirstFile(szWildCard, &FindData);
+	while (hFind != INVALID_HANDLE_VALUE)
+	{
+		if (FindData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+		{
+			if (!FindNextFile(hFind, &FindData))
+				break;
+			continue;
+		}
+		statusDlg.SetDlgItemInt(IDC_PERCENT, (nFiles * 100) / nTotal);
+
+		lstrcpy(szGrayFile, lpGrayDir);
+		lstrcat(szGrayFile, FindData.cFileName);
+		lstrcpy(szColorFile, lpColorDir);
+		lstrcat(szColorFile, FindData.cFileName);
+		lstrcpy(szCompFile, lpCompDir);
+		lstrcat(szCompFile, FindData.cFileName);
+
+		// break out if we encounter an error
+		if (!CreateAntiAliasedFile(szGrayFile, szColorFile, szCompFile, pStatusCtrl))
+			break;
+
+		++nFiles;
+		if (!FindNextFile(hFind, &FindData))
+			break;
+	}
+	statusDlg.SetDlgItemInt(IDC_PERCENT, (nFiles * 100) / nTotal);
+
+	if (hFind != INVALID_HANDLE_VALUE)
+		FindClose(hFind);
+
+	statusDlg.DestroyWindow();
+
+	return(!statusDlg.m_fAbort);
+}
+
+BOOL CAliasApp::CountColorsInAllFiles(LPCSTR lpColorDir)
+{
+	WIN32_FIND_DATA FindData;
+	CWnd *pStatusCtrl;
+	BOOL fRet = FALSE;
+	char szWildCard[MAX_PATH];
+	char szColorFile[MAX_PATH];
+
+	
+	statusDlg.Create(IDD_STATUS);
+	pStatusCtrl = statusDlg.GetDlgItem(IDC_STATUS);
+
+	int nTotal = 0;
+	int nFiles = 0;
+
+	lstrcpy(szWildCard, lpColorDir);
+	lstrcat(szWildCard, "*.tga");
+	HANDLE hFind = FindFirstFile(szWildCard, &FindData);
+	while (hFind != INVALID_HANDLE_VALUE)
+	{
+		if ((FindData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == 0)
+			++nTotal;
+		if (!FindNextFile(hFind, &FindData))
+			break;
+	}
+	if (hFind != INVALID_HANDLE_VALUE)
+		FindClose(hFind);
+	
+	hFind = FindFirstFile(szWildCard, &FindData);
+	while (hFind != INVALID_HANDLE_VALUE)
+	{
+		if (FindData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+		{
+			if (!FindNextFile(hFind, &FindData))
+				break;
+			continue;
+		}
+		statusDlg.SetDlgItemInt(IDC_PERCENT, (nFiles * 100) / nTotal);
+
+		lstrcpy(szColorFile, lpColorDir);
+		lstrcat(szColorFile, FindData.cFileName);
+
+		// break out if we encounter an error
+		if (!CountColorsInFile(szColorFile, pStatusCtrl))
+			break;
+
+		++nFiles;
+		if (!FindNextFile(hFind, &FindData))
+			break;
+	}
+	statusDlg.SetDlgItemInt(IDC_PERCENT, (nFiles * 100) / nTotal);
+
+	if (hFind != INVALID_HANDLE_VALUE)
+		FindClose(hFind);
+
+	statusDlg.DestroyWindow();
+
+	return(!statusDlg.m_fAbort);
+}
+
+BOOL CAliasApp::CountColorsInFile(LPCSTR lpFileName, CWnd *pStatusCtrl)
+{
+	PDIB pDib;
+	BOOL fRet = FALSE;
+	char szStatus[512];
+
+	if (statusDlg.AbortTest())
+		return(FALSE);
+	wsprintf(szStatus, "Reading color file: '%s'", lpFileName);
+	pStatusCtrl->SetWindowText(szStatus);
+	if (!(pDib = ReadTarga(lpFileName)))
+		return(FALSE);
+	if (statusDlg.AbortTest())
+	{
+		delete pDib;
+		return(FALSE);
+	}
+
+	LPTR lpLine = pDib->GetPtr();
+	UINT uWidthBytes = pDib->GetWidthBytes();
+	int iHeight = abs(pDib->GetHeight());
+	int iWidth = pDib->GetWidth();
+	while (--iHeight >= 0)
+	{
+		m_Quantize.CountFrequencies((LPRGBTRIPLE)lpLine, iWidth);
+		lpLine += uWidthBytes;
+	}
+
+	delete pDib;
+		
+	return(fRet);
+}
+

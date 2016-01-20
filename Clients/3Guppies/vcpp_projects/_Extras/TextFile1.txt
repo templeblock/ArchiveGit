@@ -1,0 +1,16 @@
+Problem: open url’s in the current tab of an existing IE7 window (launching a url with process.start creates a new tab), 
+also enumerate all open URL’s to avoid opening things that were already open.
+
+1) use EnumWindows to find all windows of the class IEFrame.  Those are just HWND’s and cannot be cast to IWebBrowser objects; you’ll see the point of getting HWND’s at all in a bit.
+
+2) use the IShellWindows interface – obtained using CoCreateInstance(CLSID_ShellWindows) – to enumerate all shell windows on the system.  I then cast each one to an IWebBrowser2.  This actually works for both IE windows and explorer windows, so I need to get rid of the explorer windows.  
+
+Call IWebBrowser2->get_hwnd() on each window.  For IE tabs, this doesn’t give you the HWND for the tab, it gives you the HWND for the top-level IE window.  So I check the get_hwnd() value against my IEFrame HWND list from step (1), and anything that doesn’t match isn’t an IE tab.
+
+3) Now I have IWebBrowser2 objects for each tab, and if I care, I know which IE windows they belong to.  If I want to enumerate open URL’s, this is enough; I can call get_LocationURL() to get the URL from each tab.
+
+5) If I want to open a link in the active tab, I can’t just call IWebBrowser2->navigate() or IWebBrowser2->navigate2(), because this opens a new tab.  And in fact I can’t even ask which tab is active through this interface.  So I cast each one to an IServiceProvider, then to an IOleWindow, on which I call GetWindow, which gives me the HWND for each tab.  Then I can call ::IsWindowEnabled(hwnd); the active tab is always enabled and the background tabs are not.  Now I know which of my IWebBrowser2’s is the active tab.
+
+6) I get an IHTMLDocument2 from that IWebBrowser2 (via get_document()) and call set_url() on the document, which opens a specified document in that tab (note that using IWebBrowser2->navigate() still opens a new tab, so I use the IHTMLDocument2 approach instead...)
+
+This was something of a mess, but it seems to be reliable and was a good tour through the external interfaces to IE.

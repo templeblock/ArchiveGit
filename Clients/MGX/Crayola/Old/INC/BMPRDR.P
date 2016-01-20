@@ -1,0 +1,3 @@
+// Source file: BMPRDR.C
+LPFRAME bmprdr(LPSTR ifile, int outdepth, LPINT lpDataType);
+

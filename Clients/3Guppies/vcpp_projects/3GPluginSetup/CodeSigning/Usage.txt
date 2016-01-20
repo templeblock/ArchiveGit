@@ -1,0 +1,4 @@
+@echo off
+cd "C:\My Projects\AgApplications\CodeSigning"
+call "Sign.bat" "C:\My Projects\AgApplications\JMSrvr\Release\JmSrvr.exe" "JazzyMail" "http://www.bluemountain.com"
+

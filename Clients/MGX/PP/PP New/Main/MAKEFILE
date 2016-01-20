@@ -1,0 +1,160 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#                                                                            #
+#                     MGX standard makefile insert               	          #
+#                                                                            #
+##############################################################################
+#
+#            Instructions:
+# You should do the following before making:
+#
+#   1) Set the PROJ variable to what you are calling your project.
+#   2) Set up any Non-Project Information
+#   3) set up the 'interesting' file and targets
+#
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+REFDIR=ref
+DSTDIR=dst
+BINDIR=bin
+
+all: $(REFDIR) $(DSTDIR) $(BINDIR) PP.BLD
+default: $(REFDIR) $(DSTDIR) APPONLY.BLD
+install: $(REFDIR) $(DSTDIR) $(BINDIR) IMGUTIL.BLD SUPERBLT.BLD CTLLIB.BLD BROWSER.BLD
+fx: FX.BLD
+
+$(REFDIR):
+	@md $(REFDIR)
+
+$(DSTDIR):
+	@md $(DSTDIR)
+
+$(BINDIR):
+	@md $(BINDIR)
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+
+LIB.BLD:
+	@echo -=============================-
+	@echo Building Lib library...
+	@echo -=============================-
+	@cd lib
+	@$(MAKE) install
+	@cd ..
+	
+IMGUTIL.BLD:
+	@echo -=============================-
+	@echo Building Image Utility library...
+	@echo -=============================-
+	@cd imgutil
+	@$(MAKE) install
+	@cd ..
+	
+IMGDLL.BLD:
+	@echo -=============================-
+	@echo Building Image Utility library for DLL's...
+	@echo -=============================-
+	@cd imgutil
+	@$(MAKE) BUILDDLL=1 install
+	@cd ..
+	
+APPUTIL.BLD:
+	@echo -=============================-
+	@echo Building App Utility library...
+	@echo -=============================-
+	@cd apputil
+	@$(MAKE) install
+	@cd ..
+	
+APPDLL.BLD:
+	@echo -=============================-
+	@echo Building App Utility library for DLL's...
+	@echo -=============================-
+	@cd apputil
+	@$(MAKE) BUILDDLL=1 install
+	@cd ..
+	
+BITMAPIO.BLD: IMGDLL.BLD APPDLL.BLD
+	@echo -=============================-
+	@echo Building Bitmap I/O library...
+	@echo -=============================-
+	@cd bitmapio
+	@$(MAKE) install
+	@cd ..
+	
+SUPERBLT.BLD:
+	@echo -=============================-
+	@echo Building SuperBlt library...
+	@echo -=============================-
+	@cd superblt
+	@$(MAKE) install
+	@cd ..
+	
+SUPERDLL.BLD:
+	@echo -=============================-
+	@echo Building SuperBlt library for DLL's...
+	@echo -=============================-
+	@cd superblt
+	@$(MAKE) BUILDDLL=1 install
+	@cd ..
+	
+CTLLIB.BLD:
+	@echo -=============================-
+	@echo Building Control library...
+	@echo -=============================-
+	@cd ctllib
+	@$(MAKE) install
+	@cd ..
+	
+CTLDLL.BLD:
+	@echo -=============================-
+	@echo Building Control DLL library...
+	@echo -=============================-
+	@cd ctllib
+	@$(MAKE) BUILDDLL=1 install
+	@cd ..
+	
+BROWSER.BLD:
+	@echo -=============================-
+	@echo Building Browser...
+	@echo -=============================-
+	@cd browser
+	@$(MAKE) install
+	@cd ..
+	
+PP.BLD: LIB.BLD IMGUTIL.BLD SUPERBLT.BLD CTLLIB.BLD APPUTIL.BLD BITMAPIO.BLD BROWSER.BLD 
+	@echo -=============================-
+	@echo Building Picture Publisher...
+	@echo -=============================-
+	@cd pp
+ 	@$(MAKE) install
+	@cd ..
+	
+APPONLY.BLD: LIB.BLD
+	@echo -=============================-
+	@echo Building Picture Publisher...
+	@echo -=============================-
+	@cd pp
+	@$(MAKE)
+	@cd ..
+	
+FX.BLD: LIB.BLD IMGDLL.BLD SUPERDLL.BLD CTLDLL.BLD
+	@echo -=============================-
+	@echo Building Effects...
+	@echo -=============================-
+	@cd fx\src
+	@$(MAKE) install
+	@cd ..\..
+

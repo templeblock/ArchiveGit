@@ -1,0 +1,71 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#                                                                            #
+#                     MGX standard makefile insert               	          #
+#                                                                            #
+##############################################################################
+#
+#            Instructions:
+# You should do the following before making:
+#
+#   1) Set the PROJ variable to what you are calling your project.
+#   2) Set up any Non-Project Information
+#   3) set up the 'interesting' file and targets
+#
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+REFDIR=..\ref
+MAKDIR=.
+DSTDIR=..\dst
+DEFAULTBUILD=
+INSTALLLIST=\
+	$(REFDIR)\win.mak\
+	$(REFDIR)\ntwin32.mak\
+	$(REFDIR)\BASETYPE.H\
+	$(REFDIR)\FXPARMS.H\
+	$(REFDIR)\PITYPES.H\
+	$(REFDIR)\PIGENERA.H\
+	$(REFDIR)\PIFILTER.H\
+	$(REFDIR)\PIEXPORT.H\
+	$(REFDIR)\PIACQUIR.H\
+	$(REFDIR)\wintab.h\
+	$(REFDIR)\pktdef.h\
+	$(REFDIR)\vfw.h\
+	$(REFDIR)\avifile.h\
+	$(REFDIR)\aviiface.h\
+	$(REFDIR)\wintabx.h\
+	$(REFDIR)\vfw.LIB\
+	$(REFDIR)\MSVIDEO.LIB\
+	$(REFDIR)\ISGDI9.LIB\
+	$(REFDIR)\wntab32x.lib\
+	$(REFDIR)\mapi.h\
+	$(REFDIR)\mgxframe.h\
+	$(REFDIR)\framelib.h\
+	$(REFDIR)\mgxfrm10.lib\
+	$(REFDIR)\mgxfrmd.lib\
+	$(REFDIR)\comctl32.lib\
+	$(REFDIR)\commctrl.h\
+	$(REFDIR)\isgdi9.h\
+	$(REFDIR)\ruby.h\
+	$(REFDIR)\ruby.lib\
+	$(REFDIR)\ime.h
+
+	
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+!include <win.mak>
+
+
+

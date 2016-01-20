@@ -1,0 +1,39 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                    rwho.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Room dialog functions.
+ Date Created:  02/03/94
+       Author:  Stephen M. Suggs
+
+*****************************************************************************/
+
+#ifndef RWHO_P
+#define RWHO_P
+
+/****************************** Public Functions ****************************/
+
+extern BOOL WINPROC EXPORT DlgRoomWhoAreYou (HWND hWnd,UINT wMsg,WPARAM wParam,LPARAM lParam);
+int _mkdir (const char *);
+
+/****************************** Local Functions *****************************/
+
+static void HandleButton (HWND hWnd, int Index);
+static void UpdateButtons (HWND hWnd, int iUserIndex, int iUserCount);
+static BOOL CheckUsername (HWND hWnd);
+static void DoInit (HWND hWnd);
+
+/****************************************************************************/
+
+#endif
+

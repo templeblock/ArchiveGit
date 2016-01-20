@@ -1,0 +1,24 @@
+//®FD1¯®PL1¯®TP0¯®BT0¯®RM200¯
+// (c) Copyright 1991 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX  75081
+#ifndef _RADIO_RH_
+#define _RADIO_RH_
+
+/* Radio Class Style Name */
+#define MGXCTL_RADIOBTN _T("mgxradio")
+
+/* Radio Button Styles */
+#define RBS_AUTO            0x0009L     // Automatic style
+#define RBS_LEFTTEXT        0x0020L     // Text on left of check style
+#define RBS_LED             0x0000L     // Standard 3D LED light
+#define RBS_DIAMOND         0x0100L     // Alternate 3D diamond    
+#define RBS_PUSHBTNLED      0x0200L     // Push button style w/led cookie
+#define RBS_PUSHBTNDMD      0x0300L     // Push button style w/diamond cookie
+#define RBS_OWNERDRAW       0x0400L     // Owner draw (not implimented)
+#define RBS_STDFOCUS        0x0800L     // Standard dotted focas rect style
+
+#endif // _RADIOS_RH_
+
+

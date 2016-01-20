@@ -1,0 +1,542 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("MicroVision WebExpress","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c0ffc0","Wintertree","1") -->
+  <!-- $MVD$:color("19","c0ff","Or1","1") -->
+  <TITLE>Sentry Spelling Checker Engine - Using the Sentry Windows SDK</TITLE>
+ </HEAD>
+ <BODY BGCOLOR="WHITE">
+  <H1>
+   Sentry Spelling Checker Engine<BR>
+   Using the Sentry Windows SDK</H1>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE">Table of Contents</FONT></TD>
+    </TR>
+   </TABLE></H2>
+  <UL>
+   <LI>
+   <P>
+    <A HREF="#Overview">Overview</A><BR>
+    <LI><A HREF="#How2InstallRunTime">How to install the Sentry run-time 
+    software with your applications</A>
+    <UL>
+     <LI><A HREF="#WhichLex">Which lexicons should you include?</A><BR>
+     <LI><A HREF="#How2InstallFiles">How to install the Sentry files on 
+     your users' systems</A></UL>
+    <LI><A HREF="#AboutSentryInWinEnv">About the Sentry DLL in the 
+    Windows environment</A>
+    <UL>
+     <LI><A HREF="#HowSSCEIniIsLocated">How the Sentry DLL locates the 
+     SSCE.INI file</A></UL>
+    <LI><A HREF="#How2CompressLex">How to create compressed lexicons</A><BR>
+    <LI><A HREF="#How2CallAPIs">How to call the Sentry APIs</A><BR>
+    <LI><A HREF="#How2UseOtherAppDict">How to use other applications' 
+    user dictionaries</A><BR>
+    <LI><A HREF="#How2UseDiffHelp">How to use a different help file</A></P>
+   </UL>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Overview"></A>Overview</FONT></TD>
+    </TR>
+   </TABLE></H2>
+  <P>
+   This chapter describes how to use the Sentry Spelling-Checker Engine 
+   (SSCE) software development kit to add spelling-checker capabilities 
+   to a Windows application.</P>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       Sentry Windows Software Development Kit Overview</TD>
+    </TR>
+   </TABLE></H2>
+  <P>
+   The Sentry Spelling-Checker Engine Windows SDK provides everything 
+   needed to add spelling-checker capability to Microsoft Windows 
+   applications. Sentry is compatible with most 16/32-bit DLL-capable 
+   environments, including Visual C++ (including MFC), Borland C++, 
+   Visual Basic, Delphi, Access, and Paradox, and can be used in Active 
+   Server Pages (ASP) applications.</P>
+  <H1>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2InstallRunTime"></A>How to Install 
+       the Sentry Run-time Software with your Applications</FONT></TD>
+    </TR>
+   </TABLE></H1>
+  <P>
+   Some of the Sentry files must be included with your other application 
+   files when your application is installed on your users' systems. The 
+   specific files you include will depend on how your application uses 
+   the Sentry DLL.</P>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="WhichLex"></A>Which lexicons should you include?</TD>
+    </TR>
+   </TABLE></H3>
+  <P>
+   One important consideration is the lexicons your application uses. 
+   The SSCE\RUNTIME\LEX directory contains lexicon files you can 
+   redistribute with your application. You can also create and 
+   redistribute your own lexicon files. Use the following table to 
+   determine which lexicons files you will need. Dictionaries in other 
+   languages, plus medical and legal supplements to the English 
+   dictionaries, are available from Wintertree Software.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="16%" BGCOLOR="#007F00" VALIGN=TOP>
+      <P>
+       <B><FONT COLOR="WHITE">File</FONT></B></TD>
+     <TD WIDTH="84%" BGCOLOR="#007F00" VALIGN=TOP>
+      <P>
+       <B><FONT COLOR="WHITE">Description</FONT></B></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="16%" VALIGN=TOP>
+      <P>
+       ssceam.tlx</TD>
+     <TD WIDTH="84%" VALIGN=TOP>
+      <P>
+       Part of the American English main lexicon.</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="16%" BGCOLOR="#C0FFC0" VALIGN=TOP>
+      <P>
+       ssceam2.clx</TD>
+     <TD WIDTH="84%" BGCOLOR="#C0FFC0" VALIGN=TOP>
+      <P>
+       Part of the American English main lexicon.</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="16%" VALIGN=TOP>
+      <P>
+       sscebr.tlx</TD>
+     <TD WIDTH="84%" VALIGN=TOP>
+      <P>
+       Part of the British English main lexicon.</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="16%" BGCOLOR="#C0FFC0" VALIGN=TOP>
+      <P>
+       sscebr2.clx</TD>
+     <TD WIDTH="84%" BGCOLOR="#C0FFC0" VALIGN=TOP>
+      <P>
+       Part of the British English main lexicon.</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="16%" VALIGN=TOP>
+      <P>
+       ssceca.tlx</TD>
+     <TD WIDTH="84%" VALIGN=TOP>
+      <P>
+       Part of the Canadian English main lexicon.</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="16%" BGCOLOR="#C0FFC0" VALIGN=TOP>
+      <P>
+       ssceca2.clx</TD>
+     <TD WIDTH="84%" BGCOLOR="#C0FFC0" VALIGN=TOP>
+      <P>
+       Part of the Canadian English main lexicon.</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="16%" VALIGN=TOP>
+      <P>
+       correct.tlx</TD>
+     <TD WIDTH="84%" VALIGN=TOP>
+      <P>
+       &quot;Auto Correct&quot; lexicon, which contains several hundred 
+       common English misspellings and their correct replacements. If your 
+       application uses this lexicon, certain common spelling errors will be 
+       corrected automatically or conditionally.</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="16%" BGCOLOR="#C0FFC0" VALIGN=TOP>
+      <P>
+       accent.tlx</TD>
+     <TD WIDTH="84%" BGCOLOR="#C0FFC0" VALIGN=TOP>
+      <P>
+       English words containing non-ASCII characters.</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="16%" VALIGN=TOP>
+      <P>
+       userdic.tlx</TD>
+     <TD WIDTH="84%" VALIGN=TOP>
+      <P>
+       Sample user lexicon.</TD>
+    </TR>
+   </TABLE></P>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="How2InstallFiles"></A>How to Install the Sentry Files on 
+       your User's Systems</TD>
+    </TR>
+   </TABLE></H3>
+  <P>
+   Thirty-two bit applications use the 32-bit Sentry DLL named 
+   SSCE5332.DLL. Sixteen-bit applications use the 16-bit Sentry DLL 
+   named SSCE5316.DLL. The &quot;53&quot; part of the DLL names 
+   identifies the Sentry API version and may change in subsequent releases.</P>
+  <P>
+   Usually, Microsoft Windows applications tell the Sentry DLL which 
+   lexicons to open and what options to enable by setting properties. If 
+   your application uses the 16-bit Sentry DLL, these properties are set 
+   in the SSCE.INI file. If your application uses the 32-bit Sentry DLL, 
+   these properties can be set either in the system registry or in the 
+   SSCE.INI file. When you install your application on a user's system, 
+   your setup program will copy the Sentry DLL and any required 
+   lexicons, and will configure properties in the SSCE.INI file or 
+   system registry. The instructions in this section describe the basic 
+   steps most setup programs need to perform to install an application 
+   which uses SSCE. See <A HREF="#AboutSentryInWinEnv">About the Sentry 
+   DLL in the Windows environment</A> for more information.</P>
+  <P>
+   The term &quot;copy&quot; in the procedure below refers to the action 
+   of your installation procedure on the target system.</P>
+  <OL>
+   <LI>
+   <P>
+    Copy SSCE5332.DLL (or SSCE5316.DLL) to the directory on the target 
+    system where your other application DLLs are stored. Usually, this is 
+    either the directory where your application EXE files are stored or 
+    the System directory. If you copy the file to a shared location such 
+    as the System directory, overwrite an existing copy of the file only 
+    if its version is identical to or older than the file being 
+    installed. Note that the Sentry DLL is copied to the System directory 
+    on your development system when you install the Sentry Windows SDK.</P>
+   <LI>
+   <P>
+    Copy any required lexicon files to the target system. We recommend 
+    copying the lexicons to the following directories:</P>
+   <P>
+    Win 9x/NT: C:\Program Files\Common Files\Wintertree\Spelling</P>
+   <P>
+    Win 3.x: C:\SHARED\WINTREE\SPELLING</P>
+   <P>
+    Copying the lexicons to a common location reduces disk space usage 
+    and allows other applications which use the Sentry DLL to use any 
+    supplemental lexicons installed on the target system. If you copy the 
+    files to a common directory, overwrite an existing copy of a file 
+    only if its modification time is equal to or older than the file 
+    being installed.</P>
+   <P>
+    If your application runs on a network, you may want to copy the main 
+    lexicons to a file server and user lexicons to the user's local hard disk.</P>
+   <LI>
+   <P>
+    If your application uses the SSCE.INI file, copy the SSCE.INI file to 
+    either the directory you copied the Sentry DLL to or to the Windows directory.</P>
+   <LI>
+   <P>
+    Set the MainLexPath property to the directory containing the main 
+    lexicon files. Example:</P><PRE>MainLexPath=&quot;c:\Program Files\Common Files\Wintertree\Spelling&quot;</PRE><P>
+    You can set the MainLexPath property directly in the system registry 
+    or SSCE.INI file when your application is installed, or by calling 
+    the <A HREF="winref.htm#SSCE_SetMainLexPath">SSCE_SetMainLexPath</A> 
+    function the first time your application runs.</P>
+   <LI>
+   <P>
+    Set the UserLexPath property to the directory containing the user 
+    lexicon files. This can be the same directory as specified for 
+    MainLexPath. Example:</P><PRE>UserLexPath=&quot;c:\Program Files\Common Files\Wintertree\Spelling&quot;</PRE><P>
+    You can set the UserLexPath property directly in the system registry 
+    or SSCE.INI file when your application is installed, or by calling 
+    the <A HREF="winref.htm#SSCE_SetUserLexPath">SSCE_SetUserLexPath</A> 
+    function the first time your application runs.</P>
+   <LI>
+   <P>
+    Set the MainLexFiles property to the list of files forming the main 
+    lexicon. Usually, the main lexicon consists of a .TLX file and a .CLX 
+    file. List the .TLX file first. If you have any supplemental lexicons 
+    (e.g., medical or legal), these can be listed here as well. Example:</P><PRE>MainLexFiles=&quot;ssceam.tlx,ssceam2.clx&quot;</PRE><P>
+    You can set the MainLexFiles property directly in the system registry 
+    or SSCE.INI file when your application is installed, or by calling 
+    the <A HREF="winref.htm#SSCE_SetMainLexFile">SSCE_SetMainLexFiles</A> 
+    function the first time your application runs.</P>
+   <LI>
+   <P>
+    Set the UserLexFiles property to the list of user lexicon files. As a 
+    minimum, this list should contain one user lexicon (such as 
+    userdic.tlx). The order of user lexicon files is usually not 
+    important. Example:</P><PRE>UserLexFiles=&quot;userdic.tlx,correct.tlx,html.tlx&quot;</PRE><P>
+    You can set the UserLexFiles property directly in the system registry 
+    or SSCE.INI file when your application is installed, or by calling 
+    the <A HREF="winref.htm#SSCE_SetUserLexFile">SSCE_SetUserLexFiles</A> 
+    function the first time your application runs.</P>
+   <LI>
+   <P>
+    Review the list of properties in <A HREF="winref.htm#Properties">Sentry
+     Properties</A> and set the values of any properties whose default 
+    values are incompatible with your application.</P>
+   </OL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="AboutSentryInWinEnv"></A>About the 
+       Sentry DLL in the Windows Environment</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The Sentry DLL includes a basic, platform-independent API (the Core 
+   API) and a Windows-specific API. The Windows API provides an 
+   easy-to-use mechanism for checking text and edit controls.</P>
+  <P>
+   The Sentry DLL automatically opens a Sentry session and lexicons 
+   within the session. Lexicon file names and various spelling-checker 
+   options are set automatically from <A HREF="winref.htm#Properties">property
+    values</A>. The 16-bit Sentry DLL reads and writes properties in the 
+   SSCE.INI file. The 32-bit Sentry DLL reads and writes properties in 
+   the system registry by default, but can be directed to read and write 
+   properties in an INI file at run time.</P>
+  <P>
+   The Sentry DLL opens the following lexicons automatically when a 
+   function in the Sentry Windows API is called:</P>
+  <OL>
+   <LI>
+   <P>
+    A temporary lexicon which contains words marked &quot;ignore all&quot;
+     and &quot;replace all&quot; by the user</P>
+   <LI>
+   <P>
+    The user lexicons indicated by the UserLexFiles property.</P>
+   <LI>
+   <P>
+    The main lexicon files indicated by the MainLexFiles property.</P>
+   </OL>
+  <P>
+   Words remain in the temporary lexicon even between calls to the 
+   Sentry Windows API, (although the words are lost when Sentry DLL is 
+   unloaded). The temporary lexicon can be cleared explicitly by your 
+   application (see <A HREF="winref.htm#SSCE_ResetLex">SSCE_ResetLex</A>).</P>
+  <P>
+   Lexicons listed in the UserLexFiles property are edited under control 
+   of the user when you invoke the <A HREF="winref.htm#SSCE_EditLexDlg">SSCE_EditLexDlg</A> 
+   function. The user can also edit the lexicons by selecting the 
+   Dictionaries button in the Spelling-Checker dialog. A word is added 
+   to the selected lexicon when the user selects the Add button on the 
+   Spelling-Checker dialog. Lexicons listed in the MainLexFiles property 
+   cannot be edited by the user.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="HowSSCEIniIsLocated"></A>How the Sentry DLL locates the 
+       SSCE.INI file</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   If a full path to the INI file is specified when the <A HREF="winref.htm#SSCE_SetIniFile">SSCE_SetIniFile</A> 
+   function is called, then the INI file is accessed at that path. 
+   Otherwise, the Sentry DLL searches for the SSCE.INI file in the 
+   following places (in this order):</P>
+  <OL>
+   <LI>
+   <P>
+    In the directory containing the Sentry DLL</P>
+   <LI>
+   <P>
+    In the file indicated by the SSCEProfileFile setting in the [SSCE] 
+    section of WIN.INI</P>
+   <LI>
+   <P>
+    In the Windows search path.</P>
+   </OL>
+  <P>
+   Your application can also specify the name of an alternative 
+   &quot;.INI&quot; file to use. See <A HREF="winref.htm#SSCE_SetIniFile">SSCE_SetIniFile</A> 
+   for more information.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2CompressLex"></A>How to create 
+       compressed lexicons</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   You can create your own compressed lexicons using the SqLex16 or 
+   SqLex32 utility program included with the Windows SDK. You can also 
+   compress lexicons within your application; see <A HREF="coreapi.htm#How2CompressLex">How
+    to compress lexicons</A> for more information.</P>
+  <P>
+   Compressed lexicons are created from word lists. Before you can 
+   create a compressed lexicon, you must ensure your set of words is in 
+   an acceptable form. The words can be stored in one or more disk 
+   files. All words with the same first three letters must be stored 
+   together in the same file, in the collation sequence specified by the 
+   Latin 1 (ISO-8859-1) character set. The files must be formatted with 
+   one word per line. Lines beginning with &quot;#&quot; are treated as 
+   comments and are ignored. The word files should include all word 
+   forms considered valid. For example, you might include the following 
+   forms of the word &quot;farm&quot;:</P><BLOCKQUOTE><PRE>farm<BR>farmed<BR>farmer<BR>farming<BR>farms</PRE></BLOCKQUOTE><P>
+   One simple way to ensure your words meet the requirements stated 
+   above is to divide them into a set of files, one file per first 
+   letter, named (for example) A.TXT through Z.TXT. Each file contains 
+   all the words starting with the letter in the file's name. In other 
+   words, A.TXT contains all the words which start with &quot;A&quot;, 
+   B.TXT contains all the words which start with &quot;B&quot;, and so 
+   on. The words in each file must be in the proper collation sequence.</P>
+  <P>
+   One of the ways in which lexicons are compressed is to replace common 
+   suffixes with a shorter token. The tokens occupy the same space as 
+   two characters, so this technique saves space provided the common 
+   suffixes are three characters or longer. The set of common suffixes 
+   is provided in a text file. If you do not specify a suffix file, 
+   SqLex will build a temporary suffix file by analyzing the words being 
+   compressed. Alternatively, you can provide your own suffix file, 
+   containing up to 283 suffixes, one suffix per line. You can determine 
+   the set of suffixes by examining the characteristics of the words in 
+   your word list. Each suffix can contain up to eight characters.</P>
+  <P>
+   Before using SqLex16 or SqLex32 programs for the first time, you must 
+   enter your Sentry license key in the winsqlex.ini file, located in 
+   the ssce\sdk\bin directory. Use a text-editing program such as 
+   Notepad to open winsqlex.ini, and set the LicenseKey key to your 
+   Sentry license key (a hexadecimal number) like this:</P><BLOCKQUOTE><PRE>LicenseKey=1234ABCD</PRE></BLOCKQUOTE><P>
+   The SqLex16/32 program will not work without a valid license key.</P>
+  <P>
+   Detailed instructions for using SqLex16 and SqLex32 are provided in 
+   the on-line help available through the SqLex Help menu.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2CallAPIs"></A>How to call the Sentry APIs</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The Sentry DLL includes two API &quot;layers.&quot;</P>
+  <P>
+   Sentry's Core API provides access to the platform-independent 
+   spelling-checker engine. This API includes functions to check the 
+   spelling of words, look up suggestions for misspelled words, add 
+   words to user lexicons, etc., but it contains no user interface.</P>
+  <P>
+   The Windows API, documented in the chapter titled &quot;Using 
+   Sentry's Windows API&quot;, provides easy-to-use functions to check 
+   the spelling of an edit control, rich-edit control, or text block 
+   using the built-in Spelling-Checker dialog. The Windows API performs 
+   most of the Sentry &quot;housekeeping&quot; chores for you, such as 
+   opening lexicons and setting options.</P>
+  <P>
+   If the built-in Spelling-Checker dialog suits your application's 
+   needs, you don't need to use the Core Sentry API at all. However, if 
+   you wish to create your own spelling-checker user interface, you will 
+   need to call functions in the Core Sentry API. This API is documented 
+   in the &quot;Using Sentry's Core API&quot; chapter.</P>
+  <P>
+   Your application can call both the Windows API and the Core API. You 
+   might want to do this for the following reasons:</P>
+  <UL>
+   <LI>
+   <P>
+    You want to change the Sentry options at run time using the <A HREF="coreref.htm#SSCE_SetOption">SSCE_SetOption</A> function.</P>
+   <LI>
+   <P>
+    You want to create compressed lexicons at run time using the 
+    SSCE_CompressLexXXX functions.</P>
+   <LI>
+   <P>
+    You want to check the spelling of a word or text block without 
+    displaying a dialog using the <A HREF="coreref.htm#SSCE_CheckWord">SSCE_CheckWord</A>,
+     <A HREF="coreref.htm#SSCE_CheckString">SSCE_CheckString</A>, or <A HREF="coreref.htm#SSCE_CheckBlock">SSCE_CheckBlock</A> functions.</P>
+   </UL>
+  <P>
+   The Windows API includes the <A HREF="winref.htm#SSCE_GetSid">SSCE_GetSid</A> 
+   function, which returns the Sentry session id used by the Windows 
+   API. If you call the Core API, you can use this Sentry session by 
+   passing the session id returned by SSCE_GetSid. This session will 
+   contain all the main and user lexicons specified in the SSCE.INI file 
+   or system registry . See <A HREF="winapi.htm#How2CallCoreAPI">How to 
+   call Sentry's Core API</A> for more information.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2UseOtherAppDict"></A>How to user 
+       other applications' user dictionaries</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The Sentry DLL can read and update user dictionaries created by other 
+   applications, including Microsoft Word. (Note that a user dictionary 
+   is not the same as a main dictionary. For technical and legal 
+   reasons, the Sentry DLL cannot use other applications' main dictionaries.)</P>
+  <P>
+   To include another application's user dictionary, include the full 
+   path to the dictionary in the UserLexFiles list. The user dictionary 
+   need not be located in the UserLexPath directory. Following is an 
+   example UserLexFiles property containing an external user dictionary:</P><BLOCKQUOTE><PRE>userdic.tlx,correct.tlx,c:\apps\winword\custom.dic</PRE></BLOCKQUOTE><P>
+   Users of your application can also open external user dictionaries 
+   via the Dictionaries dialog.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2UseDiffHelp"></A>How to use a 
+       different help file</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   When the user presses the Help button on a dialog box, the Sentry DLL 
+   invokes the help file named by the HelpFile property. A specific page 
+   of the help file is displayed based on which dialog the Help button 
+   was pressed. The following help context ids are used to select the 
+   specific pages:</P>
+  <UL>
+   <LI>
+   <P>
+    Spelling-checker dialog box: 100</P>
+   <LI>
+   <P>
+    Options dialog box: 200</P>
+   <LI>
+   <P>
+    Dictionaries dialog box: 300</P>
+   <LI>
+   <P>
+    New Dictionary dialog box: 400</P>
+   </UL>
+  <P>
+   If you would prefer to distribute your own help file, define the 
+   context numbers listed above in it.</P>
+  <P>
+   The file SSCE\SDK\LIB\SSCE.RTF contains the Sentry dialog-box help 
+   file in rich-text format. You can modify the text to suit your 
+   application, or incorporate the help topics into your application's 
+   help file.</P>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <P>
+   Copyright &copy; 2000 <A HREF="http://www.wintertree-software.com">Wintertree
+    Software Inc</A>.<BR>
+   $Revision: 5.14.10 $
+ </BODY>
+</HTML>

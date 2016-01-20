@@ -1,0 +1,491 @@
+WT 0.04 Microsoft Windows Win32 & WinG binaries and source mods
+----------------------------------------------------------------------
+
+Ported by Chris Thomas, 7/20/94.  CSID [75410,2627]
+Revised 7/26/94, for source release.
+
+This is a port of the WT 3D engine to Microsoft Windows.  Specifically,
+it is a Win32 app that uses the WinG graphics library.  
+
+This was ported from the WATCOM DOS port done by Petteri Kangaslampi
+(see README.DOS).  
+
+This release is the executable and my code changes.  I have omitted many of
+the files not relating to the Windows or DOS ports (however all the files
+required to compile and run are here).  If you want the entire thing, get 
+these files (as on cserve) and expand in this sequence:  wt4pls.zip, 
+wt4wc.zip, wt4dos.zip, and this one wt4win.zip.  I haven't recently tried 
+compiling for Watcom, but it should work.  If not, it should be trivial
+to track down any glitches.  I did try Watcom after I rewrote WT.C's main(), 
+and it did work.  All the other changes are #ifdef WIN32'd.
+
+Sorry about the hashed comments.  Some are left from the WinG code, some
+are WT comments, and some are mine.  All have different styles.  Same with
+variable names.
+
+WT comes from the Internet (read:UNIX).  This means that alot of the files
+were in UNIX-newline format.  I included a program, CRLF.C CRLF.EXE, that
+translates a UNIX-newline file into DOS-newline format.  
+        CRLF unix.c > dos.c
+Unfortunately there is a bug in it that writes bogus stuff as the last 
+character of the file.  So, you have to edit the resulting file, go to the
+end, and delete the last few characters.  Voila, problem goes away.  Yeah,
+I know I should just fix it, but it's just a one-shot utility.
+
+You will need one of these combinations to run the windows exe WTWIN.EXE:
+
+        1. WinG library (WING32.DLL) AND Windows 3.1 AND Win32s subsystem.
+        2. WinG library (WING32.DLL) AND Windows NT.
+        3. WinG library (WING32.DLL) AND "Chicago".
+
+#1 is the combination I used to port the thing.  Early on I used Symantec C++,
+but then I switched to Microsoft MSVC32S (v1.0).  MSVC32S is strictly a 
+command-line environment (no GUI support), but that's ok with me.  My code 
+compiles with both, without any changes, but WT runs about 16% faster with 
+MSVC32s.  FYI, I used both Symantec 6.0 +some patches, and Symantec 6.1, 
+both worked fine.  I had problems using IMPLIB with Symantec, which I needed
+to remake the WinG libraries.   So I switched to a WinG interface class that
+uses LoadLibrary/GetProcAddress to link to the WinG DLL.  This class,
+WINGDLL.H WINGDLL.CPP, works with both Symantec and MSVC, as well as 16-bit
+MSVC (if you care to use it in 16-bit land).
+
+It should run on both NT and Chicago, but who knows - I haven't tested it!
+(actually I tried it on NT 3.1 and it couldn't initialize WING32.DLL...I
+don't know why.  I'll try to fix this for the next release. But I think 
+the WinG doc states that you need at least NT 3.5).
+
+WT is designed to be portable.  I had to add a windows message loop, and
+the WinG palette and blitting code.  I consider the WT code to be
+disjoint from the Windows code, even though they occupy the same EXE.  In
+this case, the Windows code is the master, and the WT code is the slave.
+
+See the code for porting comments.  I duplicated some here, at the end
+if this rambling file, for your edification.
+
+This port was done using a Gateway 486/33 ISA, 8mb ram, S3 801 ISA VGA, 
+Windows 3.1, Win32s 1.1, Symantec 6.1 and Microsoft MSVC32S 1.0.   WTWIN.EXE,
+as in this release, was compiled using MSVC32S.  I also tested it on a 
+TriStar 486/66 VLB, 16mb ram, S3 805 VLB VGA, Windows 3.1, Win32s 1.15.
+Performance on the 486/33 ISA is not too good - about 7.6 frames/sec.  On
+the 486/66 VLB, performance is much better - about 23.8 frames/sec.
+(I should point out that these frame rates were done at the startup size
+of 320x200, using the default NEWCASTL.WOR.  I just launched WTWIN and then
+hit Stuff|FrameRate|Dynamic to get the timing).
+
+But you should keep in mind that WT 0.04 has lots of room for optimization!
+WT 0.04 can't handle very complex worlds, so the included demo worlds are 
+pretty trivial.
+
+
+
+How to prepare to run
+-------------------------------
+
+1. Get WinG.  Goto the WINMM forum on cserve and download the WinG beta.
+   Install only the run-time libraries on your machine - you don't need the
+   developer's stuff to run WTWIN.  This installation copies WinG DLLs
+   into your windows directory, so apps can find them.
+
+   Run the WinG samples.  WinG first analyzes your system, which takes a
+   few minutes, so just chill and go get another beer.
+
+   If the WinG samples won't run, WTWIN won't run.
+
+
+[Skip step #2 if you are on NT or Chicago]
+
+2. Get Win32s.  I'm pretty sure you can get this from cserve, somewhere,
+   but I'm not sure.
+
+   Install it, including Freecell!  
+
+   Run Freecell.  If this won't run, WTWIN won't run.
+
+
+3. pkunzip -d WTWIN from where you want it.  It makes a WTWIN subdir, and
+   off that two subdirs - textures\ and worlds\.  
+
+   Run it!  It starts off with worlds\newcastl.wor.  Try the other 
+   worlds.  Ling2.wor is nice.
+
+   Experiment with resizing, try the Stuff|FrameRate choices. Check out
+   stretch factors.
+
+   That's it.  Doesn't do much, but it is cool to fart around with.
+
+
+
+How to use
+-------------------------------
+
+WTWIN moves using the keyboard.  The mouse is not yet supported for player
+movement (sorry!).  The keyboard controls are similar to the popular games
+DOOM and Wolf3d.  You know, these controls:
+  
+        up arrow                - move forward
+        down arrow              - move backward
+        left                    - rotate left
+        right                   - rotate right
+        space                   - jump.  unrealistic, as you jump as long
+                                        as you hold down the spacebar!
+        tab                     - move sideways (same as ALT in DOOM,Wolf3d).
+                                        Windows hogs the ALT key.        
+
+Exit by using the mouse, or the system menu.  The escape key is not 
+recognized as quit.   If keyboard sticks, as sometimes happens when moving
+while resizing, hit Stuff|Reset.       
+
+WT 0.04 has no clipping, so you can walk anywhere you want.
+
+Stuff|FrameRate commands report the time in milliseconds.
+
+
+Features different from DOS
+-------------------------------
+
+* You can resize the window!  It starts out at about 320x200, but you can
+  resize to whatever you want.  
+
+* You can load new worlds.  The DOS version was limited to one world per
+  execution, specified on the command line.  WTWIN lets the user pick and
+  load new worlds on the fly.
+
+* Runs in the background.  If WT's acceleration/deceleration/jumping is
+  happening, you can switch away, and WTWIN will continue to render.  Neat.
+  So if WT ever has monsters, they will still be active even if WTWIN 
+  loses focus.
+
+* Has 1x and 2x zooms.
+
+* You can recompile to enable the "Show Rendering" menu option.  This
+  shows renderings in progress.  Cool to see how it is done, and to track
+  bugs.  Instructions are in WTWIN.CPP AppInit(), but here's a brief
+  recap:  comment out the EnableMenuItem() call in WTWIN.CPP AppInit(), and
+  uncomment the calls to UpdateWT() throughout RENDER.C.  Recompile, then
+  when you hit Stuff|ShowRendering the next frame rendered will be blitted
+  in stages.  May be too fast on a quick machine, rate is ok on my 486/33 ISA.
+
+
+Things you might think are Problems
+------------------------------------
+
+* If you switch away from WTWIN's window (ie WTWIN loses focus), the palette
+  gets remapped to non-WT colors.  This is what we want, really!
+
+* Yes, WT uses a fixed palette.  All worlds conform to this palette.
+
+
+Known Problems
+------------------------------------
+
+* Error handling is the pits.  If you try to load a world file that is
+  corrupted, or texture files that are missing/corrupted, you will crash
+  and burn.
+
+* If WING32.DLL can't be found, you should semi-gracefully exit, but I 
+  haven't tested it.
+
+* If you crash, I recommend that you exit/restart Windows (if you're on 3.1),
+  because at the very least the palette will be cooked.
+
+* Sometimes when you resize, part of the floor will not be rendered.  I 
+  don't know what this problem is, nor do I really care!  (that's because 
+  I'm hoping to ditch the 0.04 guts and replace with at least 0.05, which
+  supposedly has rendering improvements - and perhaps this bug is one of 
+  them!).  I find that if I keep resizing, the problem goes away. Hmmm...
+
+* Somewhat slow still.  WT, in this configuration, uses alot of fixed-point 
+  math.  I couldn't get either the Microsoft or Symantec compilers to inline
+  the fixed-point ASM routines.  I guess code generators are still in the
+  60's mindset - where the hell is my programmable code generator, one that
+  I can plug into the backend of my compiler????
+
+* Sometimes WTWIN will "drop" the palette.  This is a bug of mine, I think.
+  Don't care for this release.  Sometimes if you resize the window it will
+  fix itself...I should just fix this.
+
+* Sometimes WTWIN will miss a key-up event, usually if you using the
+  keyboard to move the player at the same time that you resize the window.
+  If this happens, just it Stuff|Reset in the menu, and the player's 
+  position and the keyboard will be reset.
+
+* World file handling is primitive, at best.  When you load a world file,
+  it expects all textures to be in the WTWIN.EXE path subdir textures.
+  So if WTWIN is in c:\guest, and you load world file d:\puke\heave.wor,
+  it will try to load the textures from c:\guest\textures\.  This is a WT
+  flaw.
+
+* Can't deal with WinG bottom-up bitmaps.  WT can't handle these, as it
+  expects the usual top-down bitmap orientation. You will get a rude message
+  if WTWIN encounters one the bottom-up Blue Meanies.
+
+---------------------------
+
+As soon as I get my hands on a more recent WT I'll be re-porting and 
+re-posting.  
+
+Any questions, you can email me at my employer's CSID [75410,2627].
+
+Chris Thomas.
+
+Enjoy!
+
+
+
+
+
+File Directory
+---------------------------------------------
+
+Unused Files - Files from other ports.  Most of these are omitted from 
+the WT4WIN update.  There are still quite a few random files, left from
+other ports, that are unused in this Windows port.  I just left them alone.
+--------------------------------------
+
+bmload.c       
+collisio.c     
+dos-keyb.c     
+dos-vga.c      
+expand.c       
+object.c       
+slice-ga.c     
+slice-wc.c     
+slice.c        
+tclobjec.c     
+tclwt.c        
+object.h       
+tclobjec.h     
+tclworld.h     
+
+
+Unchanged Files
+--------------------------------------
+
+framebuf.c     
+list.c         
+texture.c      
+view.c         
+view.h         
+dos-keyb.h     
+wtmem.c        
+framebuf.h
+graphics.h     
+input.h        
+list.h         
+render.h       
+slice.h        
+texture.h      
+worldfil.h     
+wt.h           
+wtmem.h        
+
+
+Patched Files
+--------------------------------------
+
+error.c        new Windows error routines, to use GUI.
+fixed.c        __asm routines 
+gifload.c      use WT path when loading palette file.
+render.c       bug fix, resizing fixes, UpdateWT diagnostics.
+slicewin.c     asm routines, ifdef'd out, and the slice.c C routines.
+table.c        free_table routine, to support world binge&purge.
+world.c        free_world routine, to support world binge&purge.
+worldfil.c     use WT path when loading textures.
+wt.c           restructured, added some new helper routines.
+error.h        new Windows error routine prototypes.
+fixed.h        extern's for asm routines in fixed.c
+table.h        free_table proto.
+world.h        free_world proto.
+
+
+New Files
+--------------------------------------
+
+wininput.c     WT input routines.  Virtually identical to dos-keyb.c
+wingraph.c     WT graphics routines.  Gutted dos-vga.c.  See comments.
+wingdll.h      WinG interface class. Symantec had problems with implib.
+wingdll.cpp    WinG interface class.
+winpal.cpp     WinG utility routines, Microsoft's code.  All palette stuff.
+wtwin.h        Our Apps definitions, mostly RC stuff.
+wtwin.cpp      Our Apps message loop.  Calls WT and then uses WinG to display.
+
+
+Windows Support Files
+--------------------------------------
+
+wtwin.def      Windows DEF file for our App.
+wtwin.rc       Windows resource file for Our App.
+wtwinms.mak    makefile for Microsoft MSVC32s.  And NT, Chicago, I guess.	
+wtwinsc.lnk    link file for Symantec.
+wtwinsc.mak    makefile for Symantec.
+
+
+WT Support Files
+--------------------------------------
+
+wt.pal		WT's palette.  DON'T DELETE THIS!!!
+textures\*.* 	sample textures
+worlds\*.*	a few simple worlds to check out.
+
+
+
+
+Some Excerpts from the Code's Comments
+----------------------------------------------
+
+WT.C:
+
+/* 7/13/94 Chris Thomas (GCT).  Mucho chango for Windows message loop
+** compatibility.   Basically, I first rewrote main(), breaking out groups
+** of code.  Toward the end of this file you'll see this new main(), which
+** calls these other functions:  wt_init, loops with { wt_render, wt_input },
+** then terminates with wt_term.  This main() has been tested with Watcom
+** and is known to work fine.  Windows calls the four main functions (wt_init,
+** wt_render, wt_input, wt_term), as well as some new helper functions.
+** [The code in #ifdef ORIGINAL is the original main(), so you can easily
+** see how it has changed.]
+**
+** Broken-out existing routines:
+**
+** wt_init     - sets up renderer with the specified world, using a bitmap
+**                of the specified size.  Sets up the view.
+** wt_input    - alters the view according to input.  does acceleration,etc.
+** wt_render   - renders a single frame to the bitmap.
+** wt_term     - terminates the renderer, freeing resources.
+**
+** New functions, unique to WIN32, are:
+**
+** wt_reinit   - takes a new x,y size, and reinits the renderer to that size.
+**               keeps the current world and view.
+** wt_new_world - reloads the World with the specified world file.  keeps
+**               same view and renderer setup.
+** wt_set_path  - sets a local string to the specified path (path of EXE).
+** wt_reset_view - resets view to starting parameters.
+** wt_get_player_info - returns info about player x,y,angle,height.
+**
+** That's about it.  Let's talk about the porting philosophy used here.  I
+** had two pieces of code: the WT watcom port, and a WinG example.  I knew
+** that I might be upgrading the WT code soon, so I wanted to keep the
+** two code sets disjoint.  The Windows portion used C++, and WT used C.  I
+** could easily call from C++ to C, using extern "C" blocks, but I wasn't
+** too sure about calling from C to C++ (including referencing variables).
+** That's why there is wt_set_path() - this sets a local string, which the
+** rest of WT references, without the rest of WT having to know about the
+** Windows C++ code.  Same with wt_reset_view() - I wanted the Windows C++
+** code to be able to reset the view without having to #include any WT
+** specific information in the C++ code.
+** 
+** That's the reason for the bootstrapping process of setting the WinG
+** bitmap pointer, in wingraph.c.  The C++ code gets the WinG pointer, then
+** calls wt_set_fb_mem(), which stores this pointer in a variable in
+** wingraph.c.  Then WT is initialized, and it ends up calling 
+** get_framebuffer_memory(), which then returns this same pointer.  You'll
+** see a fair amount of this cooperative processing (another example is the
+** keyboard handling in wtwin.cpp, which sets the keyboard array, which
+** wt_input then examines later).
+**
+** In error.c, you'll see UpdateWT().  This is another example of this
+** philosophy.  WT calls this routine which then sends itself a windows
+** message (which was registered previously via the error.c wt_setlink()
+** routine).  This message is received in the C++ message loop, and is 
+** then processed, resulting in the WinG bitmap blit.  This way UpdateWT(),
+** in error.c, doesn't have to know about any of the WinG stuff, or the
+** bitmap sizes, or any of that stuff.  All error.c needs is some basic
+** windows definitions, which it had anyway due to the implementation of
+** DebugOut() and DebugMsg().
+** 
+** UpdateWT() is used to blit partial renderings to the screen.  Cool to
+**    check out how the renderer works.  See render.c for these calls.
+** DebugOut(...) is a printf() style routine that sents the resulting string
+**    to the Windows Output device (dbwin.exe, softice/win, windows 386
+**    debugger).  Have to use this for debugging WM_PAINT messages, as 
+**    DebugMsg() has the potential to start an infinite loop.  Use a newline
+**    at the end of your string!
+** DebugMsg(...) is a printf() style routine that displays the resulting
+**    string in a Windows message box.  Newline at the end of the string
+**    is not required.  NOTE: don't use this in a PAINT message handler!!!
+**    Infinite loops may result!
+**
+** That's it.
+*/
+
+
+SLICE.C
+
+// 7/13/94 Chris Thomas (GCT), Windows Port.
+// Basically identical to original slice.c.  Define USE_ASM_ROUTINES
+// to use the ASM code.  I found Symantec 6.1 to have higher frame rates
+// using this ASM code.  But I found Microsoft MSVC32s to have higher
+// frame rates using the C code.   Even more importantly, MSVC frame rates
+// were about 15% higher than Symantecs, so I chose to comment out the ASM
+// routines.
+// Note: __asm blocks are Symantec and Microsoft compatible.
+
+
+RENDER.C
+
+/* Some minor changes made for the Windows port.
+** by Chris Thomas (GCT).  You'll see a GCT or WIN32 next to my changes. One
+** bug fix, but rest are to increase Windows compatibility (resizing) or
+** for diagnostic/investigative reasons.  I might have missed some GCT tagging.
+** UpdateWT calls are commented out.  These calls repaint the bitmap, so
+** you can see rendering in progress - might be too fast on other machines,
+** but has a good pace on my 486/33 ISA.
+*/
+
+
+WININPUT.C
+
+/* Modified from DOS-KEYB.C by Chris Thomas, 7/13/94 
+**
+** Basically identical to the DOS code, except that no interrupts are 
+** hooked.  The Windows code directly sets bits in the keyboard array,
+** kbPressed[], then calls WT to process this "input".  Sneaky ehh?
+** So init_input_devices() and end_input_devices() simply clear this array,
+** and do nothing else.  The other routines remain unchanged from DOS.
+*/ 
+
+
+WINGRAPH.C
+
+/* Modified from DOS-VGA.C by Chris Thomas, 7/13/94 
+**
+** WTWIN does not use graphics like the other WT ports.  WT does not
+** drive - it is the slave, Windows is the master.  So WT is called to
+** render into a Windows provided bitmap, and then Windows displays this
+** bitmap.  Hence the init_graphics(), term_graphics(), and update_screen()
+** routines are stubs, and load_palette simply fills in a local RGB array.
+** I added some helper routines, called from the Windows part of WTWIN.
+** These start with the wt_ prefix.
+**
+** void wt_set_fb_mem(void *pMem)
+**    Saves the bitmap pointer, pMem, locally so that when WT calls 
+**		get_framebuffer_memory(), it will return this pointer.   The Windows
+**		code calls this with the WinG bitmap address prior to initializing WT.
+**
+** void wt_get_palette_entry(int i, int *r, int *g, int *b)
+**		Gets the specified entry from the local palette.  Called by the 
+**	 	Windows code (after it called wt_load_palette).
+** 
+** wt_load_palette() is just the same old load_palette(), renamed, and with
+** the vga palette writes commented out.  And also it uses the WT path,
+** instead of a hardcoded path.  
+** 
+*/
+
+FIXED.C
+
+/* symantec C inline assembler versions of the aforementioned Watcom stuff.
+ * by Chris Thomas, 7/13/94.  Compatible with Microsoft compiler as well.
+ * Definitely faster, but not a whole lot faster, than the vanilla routines.
+*/
+
+
+
+That's all for now.
+
+I'll be back with WT5, I hope.
+
+Chris
+
+

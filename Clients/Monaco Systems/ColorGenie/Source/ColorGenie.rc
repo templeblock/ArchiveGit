@@ -1,0 +1,1208 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\ColorGenie.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\ColorGenie.ico"
+IDR_ICCTYPE             ICON    DISCARDABLE     "res\\ProfileDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_ICCTYPE MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New Profile\tCtrl+N",        ID_FILE_NEW
+        MENUITEM "&Open Profile...\tCtrl+O",    ID_FILE_OPEN
+        MENUITEM "&Open Gamut Window...",       ID_FILE_OPEN_GAMUT
+        MENUITEM SEPARATOR
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "&Save Profile\tCtrl+S",       ID_FILE_SAVE
+        MENUITEM "Save Profile &As...",         ID_FILE_SAVE_AS
+        MENUITEM "Revert Profile",              ID_FILE_REVERT
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "Preferences...",              ID_EDIT_PREFERENCES
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Pressto! Proof...",    ID_APP_ABOUT
+    END
+END
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New Profile\tCtrl+N",        ID_FILE_NEW
+        MENUITEM "&Open Profile...\tCtrl+O",    ID_FILE_OPEN
+        MENUITEM "&Open Gamut Window...",       ID_FILE_OPEN_GAMUT
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "Preferences...",              ID_EDIT_PREFERENCES
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Pressto! Proof...",    ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 217, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Pressto! Proof"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Pressto! Proof Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) Monaco Systems 1998",IDC_STATIC,40,25,119,
+                    8
+    DEFPUSHBUTTON   "OK",IDOK,168,7,42,14,WS_GROUP,0,HIDOK
+END
+
+IDD_CALIBRATE DIALOGEX 0, 0, 440, 249
+STYLE WS_CHILD | WS_CAPTION
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Import...",IDC_IMPORT,7,33,56,14,0,0,HIDC_IMPORT
+    PUSHBUTTON      "Export...",IDC_EXPORT,70,33,56,14,0,0,HIDC_EXPORT
+    PUSHBUTTON      "Measure ",IDC_MEASURE,133,33,56,14,0,0,HIDC_MEASURE
+    PUSHBUTTON      "Reset",IDC_RESET,70,215,56,14,NOT WS_VISIBLE | 
+                    WS_DISABLED | NOT WS_TABSTOP,0,HIDC_RESET
+    CONTROL         "",IDC_GRID,"{6262D3A0-531B-11CF-91F6-C2863C385E30}",
+                    WS_TABSTOP,7,54,182,154,0,HIDC_GRID
+    CONTROL         "&Cyan",IDC_CYAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    224,31,35,14,0,HIDC_CYAN
+    CONTROL         "&Magenta",IDC_MAGENTA,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,266,31,41,14,0,HIDC_MAGENTA
+    CONTROL         "&Yellow",IDC_YELLOW,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,322,31,35,14,0,HIDC_YELLOW
+    CONTROL         "&Black",IDC_BLACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    371,31,34,14,0,HIDC_BLACK
+    CONTROL         "",IDC_CURVE,"CCurveWindow",WS_TABSTOP,252,70,154,140,0,
+                    HIDC_CURVE
+    EDITTEXT        IDC_DESCRIPTION,63,7,126,14,ES_AUTOHSCROLL
+    LTEXT           "Output Level",IDC_STATIC,336,52,42,11,NOT WS_GROUP
+    LTEXT           "Input Level",IDC_STATIC,252,52,36,8,NOT WS_GROUP
+    CTEXT           "100",IDC_LEVELIN,294,52,22,11,SS_SUNKEN | NOT WS_GROUP,
+                    0,HIDC_LEVELIN
+    CTEXT           "100",IDC_LEVELOUT,385,52,22,11,SS_SUNKEN | NOT WS_GROUP,
+                    0,HIDC_LEVELOUT
+    CONTROL         "  0",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,
+                    247,213,13,8
+    LTEXT           "10",IDC_STATIC,263,213,13,8
+    LTEXT           "20",IDC_STATIC,278,213,13,8
+    LTEXT           "30",IDC_STATIC,294,213,13,8
+    LTEXT           "40",IDC_STATIC,309,213,13,8
+    LTEXT           "50",IDC_STATIC,325,213,13,8
+    LTEXT           "60",IDC_STATIC,340,213,13,8
+    LTEXT           "70",IDC_STATIC,356,213,13,8
+    LTEXT           "80",IDC_STATIC,371,213,13,8
+    LTEXT           "90",IDC_STATIC,387,213,13,8
+    LTEXT           "100",IDC_STATIC,402,213,13,8
+    RTEXT           "0.0",IDC_STATIC,231,206,14,14
+    RTEXT           "0.2",IDC_STATIC,231,192,14,14
+    RTEXT           "0.4",IDC_STATIC,231,178,14,14
+    RTEXT           "0.6",IDC_STATIC,231,164,14,14
+    RTEXT           "0.8",IDC_STATIC,231,150,14,14
+    RTEXT           "1.0",IDC_STATIC,231,136,14,14
+    RTEXT           "1.2",IDC_STATIC,231,122,14,14
+    RTEXT           "1.4",IDC_STATIC,231,108,14,14
+    RTEXT           "1.6",IDC_STATIC,231,94,14,14
+    RTEXT           "1.8",IDC_STATIC,231,80,14,14
+    RTEXT           "2.0",IDC_STATIC,231,66,14,14
+    CTEXT           "Description",IDC_STATIC,7,7,56,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    GROUPBOX        "",IDC_STATIC,203,24,231,217
+    CTEXT           "D",IDC_STATIC,217,94,8,8
+    CTEXT           "N",IDC_STATIC,217,122,8,8,SS_CENTERIMAGE
+    CTEXT           "I",IDC_STATIC,217,150,8,8,SS_CENTERIMAGE
+    CTEXT           "E",IDC_STATIC,217,108,8,8,SS_CENTERIMAGE
+    CTEXT           "S",IDC_STATIC,217,136,8,8,SS_CENTERIMAGE
+    CTEXT           "T",IDC_STATIC,217,164,8,8,SS_CENTERIMAGE
+    CTEXT           "Y",IDC_STATIC,217,178,8,8,SS_CENTERIMAGE
+    LTEXT           "P   A  T  C   H",IDC_STATIC,308,227,56,8
+    LTEXT           "Creation Date:",IDC_STATIC,234,7,46,14,SS_CENTERIMAGE
+    LTEXT           "",IDC_DATE,292,7,128,14,SS_CENTERIMAGE
+END
+
+IDD_TONEADJUST DIALOGEX 0, 0, 440, 233
+STYLE WS_CHILD | WS_CAPTION
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Import...",IDC_IMPORT,7,28,56,14,0,0,HIDC_IMPORT
+    PUSHBUTTON      "Export...",IDC_EXPORT,70,28,56,14,0,0,HIDC_EXPORT
+    PUSHBUTTON      "Reset",IDC_RESET,70,210,56,14,NOT WS_VISIBLE | 
+                    WS_DISABLED | NOT WS_TABSTOP,0,HIDC_RESET
+    CONTROL         "",IDC_GRID,"{6262D3A0-531B-11CF-91F6-C2863C385E30}",
+                    WS_TABSTOP,7,49,182,154,0,HIDC_GRID
+    CONTROL         "&Cyan",IDC_CYAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    224,14,35,14,0,HIDC_BLACK
+    CONTROL         "&Magenta",IDC_MAGENTA,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,266,14,41,14,0,HIDC_CYAN
+    CONTROL         "&Yellow",IDC_YELLOW,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,322,14,35,14,0,HIDC_YELLOW
+    CONTROL         "&Black",IDC_BLACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    371,14,34,14,0,HIDC_RESET
+    CONTROL         "",IDC_CURVE,"CCurveWindow",WS_TABSTOP,252,53,154,140,0,
+                    HIDC_CURVE
+    EDITTEXT        IDC_DESCRIPTION,63,7,126,14,ES_AUTOHSCROLL
+    LTEXT           "Output Level",IDC_STATIC,336,35,42,11,NOT WS_GROUP
+    LTEXT           "Input Level",IDC_STATIC,252,35,36,8,NOT WS_GROUP
+    CTEXT           "100",IDC_LEVELIN,294,35,22,11,SS_SUNKEN | NOT WS_GROUP,
+                    0,HIDC_LEVELIN
+    CTEXT           "100",IDC_LEVELOUT,385,35,22,11,SS_SUNKEN | NOT WS_GROUP,
+                    0,HIDC_LEVELOUT
+    CTEXT           "Description",IDC_STATIC,7,7,56,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    RTEXT           "0",IDC_STATIC,231,189,14,14
+    RTEXT           "10",IDC_STATIC,231,175,14,14
+    RTEXT           "20",IDC_STATIC,231,161,14,14
+    RTEXT           "30",IDC_STATIC,231,147,14,14
+    RTEXT           "40",IDC_STATIC,231,133,14,14
+    RTEXT           "50",IDC_STATIC,231,119,14,14
+    RTEXT           "60",IDC_STATIC,231,105,14,14
+    RTEXT           "70",IDC_STATIC,231,91,14,14
+    RTEXT           "80",IDC_STATIC,231,77,14,14
+    RTEXT           "90",IDC_STATIC,231,63,14,14
+    RTEXT           "100",IDC_STATIC,231,49,14,14
+    GROUPBOX        "",IDC_STATIC,203,4,231,220
+    CTEXT           "P",IDC_STATIC,217,77,8,8
+    CTEXT           "R",IDC_STATIC,217,105,8,8,SS_CENTERIMAGE
+    CTEXT           "E",IDC_STATIC,217,133,8,8,SS_CENTERIMAGE
+    CTEXT           "E",IDC_STATIC,217,91,8,8,SS_CENTERIMAGE
+    CTEXT           "C",IDC_STATIC,217,119,8,8,SS_CENTERIMAGE
+    CTEXT           "N",IDC_STATIC,217,147,8,8,SS_CENTERIMAGE
+    CTEXT           "T",IDC_STATIC,217,161,8,8,SS_CENTERIMAGE
+    LTEXT           "P   A   T   C   H",IDC_STATIC,308,210,56,8
+    CONTROL         "  0",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,
+                    247,196,13,8
+    LTEXT           "10",IDC_STATIC,263,196,13,8
+    LTEXT           "20",IDC_STATIC,278,196,13,8
+    LTEXT           "30",IDC_STATIC,294,196,13,8
+    LTEXT           "40",IDC_STATIC,309,196,13,8
+    LTEXT           "50",IDC_STATIC,325,196,13,8
+    LTEXT           "60",IDC_STATIC,340,196,13,8
+    LTEXT           "70",IDC_STATIC,356,196,13,8
+    LTEXT           "80",IDC_STATIC,371,196,13,8
+    LTEXT           "90",IDC_STATIC,387,196,13,8
+    LTEXT           "100",IDC_STATIC,402,196,13,8
+END
+
+IDD_COLORDATA DIALOGEX 0, 0, 440, 233
+STYLE WS_CHILD | WS_CAPTION
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Import...",IDC_IMPORT,63,78,56,14,0,0,HIDC_IMPORT
+    PUSHBUTTON      "Export...",IDC_EXPORT,126,78,56,14,0,0,HIDC_EXPORT
+    PUSHBUTTON      "Measure ",IDC_MEASURE,189,78,56,14,0,0,HIDC_MEASURE
+    PUSHBUTTON      "Import...",IDC_IMPORT_DRY,63,190,56,14,0,0,
+                    HIDC_IMPORT_DRY
+    PUSHBUTTON      "Export...",IDC_EXPORT_DRY,126,190,56,14,0,0,
+                    HIDC_EXPORT_DRY
+    PUSHBUTTON      "Measure ",IDC_MEASURE_DRY,189,190,56,14,0,0,
+                    HIDC_MEASURE_DRY
+    PUSHBUTTON      "View Gamut",IDC_VIEW_GAMUT,294,78,56,14,0,0,
+                    HIDC_VIEW_GAMUT
+    PUSHBUTTON      "View Gamut",IDC_VIEW_GAMUT_DRY,294,190,56,14,0,0,
+                    HIDC_VIEW_GAMUT_DRY
+    CTEXT           "Description",IDC_STATIC,63,49,56,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "Description",IDC_STATIC,63,161,56,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    EDITTEXT        IDC_DESCRIPTION,119,49,126,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESCRIPTION_DRY,119,161,126,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "View Data",IDC_VIEW_DATA,357,78,56,14,0,0,
+                    HIDC_VIEW_DATA
+    PUSHBUTTON      "View Data",IDC_VIEW_DATA_DRY,357,190,56,14,0,0,
+                    HIDC_VIEW_DATA_DRY
+    CONTROL         415,IDC_DATA_OK,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
+                    21,17,16
+    CONTROL         415,IDC_DATA_OK_DRY,"Static",SS_BITMAP | 
+                    SS_REALSIZEIMAGE,28,133,17,16
+    GROUPBOX        "",IDC_STATIC,14,7,413,105
+    GROUPBOX        "",IDC_STATIC,14,119,413,105
+    CONTROL         418,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,63,
+                    21,17,16,WS_EX_TRANSPARENT
+    CONTROL         417,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,63,
+                    133,91,17
+    LTEXT           "Creation Date:",IDC_STATIC,260,49,46,14,SS_CENTERIMAGE
+    LTEXT           "Creation Date:",IDC_STATIC,260,161,46,14,SS_CENTERIMAGE
+    LTEXT           "",IDC_SRC_DATE,312,49,104,14,SS_CENTERIMAGE
+    LTEXT           "",IDC_DRY_DATE,309,161,104,14,SS_CENTERIMAGE
+END
+
+IDD_SETTINGS DIALOGEX 0, 0, 440, 233
+STYLE WS_CHILD | WS_CAPTION
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Processing Mode",IDC_STATIC,7,9,56,8
+    COMBOBOX        IDC_SETTINGSCOMBO,81,7,95,43,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP,0,HIDC_SETTINGSCOMBO
+    LTEXT           "Text Enhancements:",IDC_STATIC,7,29,66,8
+    CONTROL         "On",IDC_ON,"Button",BS_AUTORADIOBUTTON,99,28,25,10,0,
+                    HIDC_ON
+    CONTROL         "Off",IDC_OFF,"Button",BS_AUTORADIOBUTTON,136,28,25,10,0,
+                    HIDC_OFF
+    CONTROL         "Slider1",IDC_SATURATION_SLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,13,100,100,17
+    LTEXT           "Less",IDC_STATIC,21,118,16,8
+    RTEXT           "More",IDC_STATIC,85,118,17,8
+    CTEXT           "100",IDC_SATURATION_VALUE,113,101,27,13,SS_CENTERIMAGE | 
+                    SS_SUNKEN,0,HIDC_SATURATION_VALUE
+    CONTROL         "Slider1",IDC_BALANCE_SLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,170,156,100,17,0,
+                    HIDC_BALANCE_SLIDER
+    LTEXT           "Shadow",IDC_STATIC,180,174,27,8
+    RTEXT           "Highlight",IDC_STATIC,244,174,28,8
+    CTEXT           "100",IDC_BALANCE_VALUE,270,157,27,13,SS_CENTERIMAGE | 
+                    SS_SUNKEN,0,HIDC_BALANCE_VALUE
+    CONTROL         "Slider1",IDC_CONTRAST_SLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,167,100,100,17,0,
+                    HIDC_CONTRAST_SLIDER
+    LTEXT           "Less",IDC_STATIC,176,118,16,8
+    RTEXT           "More",IDC_STATIC,240,118,17,8
+    CTEXT           "100",IDC_CONTRAST_VALUE,267,101,27,13,SS_CENTERIMAGE | 
+                    SS_SUNKEN,0,HIDC_CONTRAST_VALUE
+    CONTROL         "Slider1",IDC_SMOOTHING_SLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,12,156,100,17,0,
+                    HIDC_SMOOTHING_SLIDER
+    LTEXT           "Less",IDC_STATIC,21,174,16,8
+    RTEXT           "More",IDC_STATIC,85,174,17,8
+    CTEXT           "100",IDC_SMOOTHING_VALUE,112,158,27,13,SS_CENTERIMAGE | 
+                    SS_SUNKEN,0,HIDC_SMOOTHING_VALUE
+    GROUPBOX        "Saturation",IDC_STATIC,7,86,143,50
+    GROUPBOX        "Paper Color Applied To",IDC_STATIC,162,142,143,50
+    GROUPBOX        "Contrast",IDC_STATIC,162,86,143,50
+    GROUPBOX        "Source Data Smoothing",IDC_STATIC,7,142,143,50
+    LTEXT           "Simulate Paper Color:",IDC_STATIC,7,63,76,8
+    CONTROL         "On",IDC_PON,"Button",BS_AUTORADIOBUTTON,99,64,25,10
+    CONTROL         "Off",IDC_POFF,"Button",BS_AUTORADIOBUTTON,136,64,25,10
+    LTEXT           "Apply Tint to Highlight:",IDC_STATIC,7,46,72,8
+    CONTROL         "On",IDC_HON,"Button",BS_AUTORADIOBUTTON,99,46,25,10,0,
+                    HIDC_HON
+    CONTROL         "Off",IDC_HOFF,"Button",BS_AUTORADIOBUTTON,136,46,25,10,
+                    0,HIDC_HOFF
+END
+
+IDD_TUNING DIALOGEX 0, 0, 440, 226
+STYLE WS_CHILD | WS_CAPTION
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TWEAK_LPRINT,371,91,21,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TWEAK_APRINT,371,105,21,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TWEAK_BPRINT,371,119,21,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_TWEAK_SELECT,14,21,97,112,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP,0,HIDC_TWEAK_SELECT
+    PUSHBUTTON      "New",IDC_TWEAK_ADD,119,21,41,14,0,0,HIDC_TWEAK_ADD
+    PUSHBUTTON      "Delete",IDC_TWEAK_DELETE,168,21,42,14,0,0,
+                    HIDC_TWEAK_DELETE
+    GROUPBOX        "Tweak Name",IDC_STATIC,7,7,210,35
+    CONTROL         "",IDC_TWEAK_GAMUT,"Static",SS_ETCHEDFRAME,56,49,161,168
+    CTEXT           "L =",IDC_STATIC,7,49,28,14,SS_CENTERIMAGE
+    CTEXT           "50",IDC_TWEAK_LVALUE,7,70,28,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    SCROLLBAR       IDC_TWEAK_LSCROLL,42,49,10,168,SBS_VERT
+    CONTROL         "Mapping",IDC_TWEAK_GAMUTRADIO,"Button",
+                    BS_AUTORADIOBUTTON,308,52,44,10
+    CONTROL         "Printing",IDC_TWEAK_PRINTRADIO,"Button",
+                    BS_AUTORADIOBUTTON,371,52,42,10
+    GROUPBOX        "Lightness Range",IDC_STATIC,224,7,210,35
+    GROUPBOX        "Color Range",IDC_STATIC,329,7,105,35
+    CONTROL         "Slider1",IDC_TWEAK_LRSLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,225,21,75,14,0,
+                    HIDC_TWEAK_LRSLIDER
+    CTEXT           "100",IDC_TWEAK_LRVALUE,301,21,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN,0,HIDC_TWEAK_LRVALUE
+    CONTROL         "Slider1",IDC_TWEAK_CRSLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,331,21,74,14,0,
+                    HIDC_TWEAK_CRSLIDER
+    CTEXT           "100",IDC_TWEAK_CRVALUE,406,21,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN,0,HIDC_TWEAK_CRVALUE
+    EDITTEXT        IDC_TWEAK_LGAMUT,308,91,21,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TWEAK_AGAMUT,308,105,21,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TWEAK_BGAMUT,308,119,21,14,ES_AUTOHSCROLL
+    CTEXT           "0",IDC_TWEAK_LGAMUT2,308,175,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "0",IDC_TWEAK_AGAMUT2,308,189,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "0",IDC_TWEAK_BGAMUT2,308,203,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "L*",IDC_STATIC,231,91,8,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_TWEAK_LDESIRED,245,91,21,14,ES_AUTOHSCROLL
+    LTEXT           "a*",IDC_STATIC,231,105,8,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_TWEAK_ADESIRED,245,105,21,14,ES_AUTOHSCROLL
+    LTEXT           "b*",IDC_STATIC,231,119,8,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_TWEAK_BDESIRED,245,119,21,14,ES_AUTOHSCROLL
+    LTEXT           "L*",IDC_STATIC,231,175,8,14,SS_CENTERIMAGE
+    CTEXT           "0",IDC_TWEAK_LDESIRED2,245,175,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "a*",IDC_STATIC,231,189,8,14,SS_CENTERIMAGE
+    CTEXT           "0",IDC_TWEAK_ADESIRED2,245,189,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "b*",IDC_STATIC,231,203,8,14,SS_CENTERIMAGE
+    CTEXT           "0",IDC_TWEAK_BDESIRED2,245,203,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "Desired",IDC_STATIC,245,70,25,8
+    LTEXT           "Compressed",IDC_STATIC,308,80,40,8
+    LTEXT           "Printed",IDC_STATIC,371,72,23,8
+    LTEXT           "Color",IDC_STATIC,245,80,17,8
+    LTEXT           "Color",IDC_STATIC,371,80,17,8
+    CTEXT           "0",IDC_TWEAK_LPRINT2,371,175,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "0",IDC_TWEAK_APRINT2,371,189,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "0",IDC_TWEAK_BPRINT2,371,203,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "Gamut",IDC_STATIC,308,72,22,8
+    GROUPBOX        "Tweak Data",IDC_STATIC,224,45,210,98
+    LTEXT           "Desired",IDC_STATIC,245,154,25,8
+    LTEXT           "Gamut",IDC_STATIC,308,147,22,8
+    LTEXT           "Color",IDC_STATIC,308,164,17,8
+    LTEXT           "Printed",IDC_STATIC,371,156,23,8
+    LTEXT           "Color",IDC_STATIC,245,164,17,8
+    LTEXT           "Color",IDC_STATIC,371,164,17,8
+    LTEXT           "Compressed",IDC_STATIC,308,156,40,8
+    CONTROL         "",IDC_TWEAK_CGAMUT,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    329,91,35,42,WS_EX_DLGMODALFRAME | WS_EX_STATICEDGE
+    CONTROL         "",IDC_TWEAK_CDESIRED,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    266,91,35,42,WS_EX_DLGMODALFRAME | WS_EX_STATICEDGE
+    CONTROL         "",IDC_TWEAK_CPRINT,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    392,91,36,42,WS_EX_DLGMODALFRAME | WS_EX_STATICEDGE
+    CONTROL         "",IDC_TWEAK_CDESIRED2,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,266,175,35,42,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_TWEAK_CGAMUT2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    329,175,35,42,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_TWEAK_CPRINT2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    392,175,36,42,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_TWEAK_MOVETOOL,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | BS_PUSHLIKE,8,159,
+                    28,21
+    CONTROL         "",IDC_TWEAK_SIZETOOL,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | BS_PUSHLIKE,8,128,
+                    28,21
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,188,66,20,20,
+                    WS_EX_DLGMODALFRAME | WS_EX_STATICEDGE
+END
+
+IDD_DEVICESETUP DIALOG DISCARDABLE  0, 0, 203, 178
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Device Setup"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Device:",-1,7,7,26,8
+    EDITTEXT        1019,7,17,189,14,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_TABSTOP
+    GROUPBOX        "Settings",-1,7,36,189,49
+    LTEXT           "&Communications Port:",-1,14,49,69,8
+    COMBOBOX        1011,95,46,61,57,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "&Baud Rate:",-1,14,68,37,8
+    COMBOBOX        1012,95,65,61,59,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | 
+                    WS_TABSTOP
+    GROUPBOX        "Reading Options",-1,7,92,189,45
+    LTEXT           "&Readings Per Patch:",-1,14,106,66,8
+    EDITTEXT        1113,95,103,40,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",1020,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,137,103,10,14
+    CONTROL         "Read by &Strip",1210,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,21,122,59,10
+    CONTROL         "Read by &Page",1211,"Button",BS_AUTORADIOBUTTON,92,122,
+                    61,10
+    DEFPUSHBUTTON   "OK",1,43,148,50,14
+    PUSHBUTTON      "Cancel",2,109,148,50,14
+END
+
+IDD_VIEWGAMUT DIALOG DISCARDABLE  0, 0, 244, 233
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "View Gamut"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,196,217,42,14
+END
+
+IDD_MEASURE DIALOG DISCARDABLE  0, 0, 363, 255
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Measure"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,23,228,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,101,228,50,14
+    CONTROL         "",IDC_GRID,"{6262D3A0-531B-11CF-91F6-C2863C385E30}",
+                    WS_TABSTOP,7,15,271,199
+    PUSHBUTTON      "Start",IDC_START_BUT,181,228,50,14
+    LTEXT           "Status:",IDC_STATIC,288,164,23,8,NOT WS_VISIBLE
+    PUSHBUTTON      "Device Setup",IDC_SETUP_BUTTON,287,22,50,14,NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_STATUS_EDIT,288,176,68,48,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_VISIBLE
+    LTEXT           "Patch:",IDC_STATIC,289,66,20,8
+    LTEXT           "",IDC_PATCH_NUM,316,66,28,8
+END
+
+IDD_PATCHFORMAT_PAGE DIALOG DISCARDABLE  0, 0, 188, 65
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_PATCHFORMAT,49,23,78,52,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Calibrate:",IDC_FORMAT_LABEL,17,25,30,8
+END
+
+IDD_SETUP_PAGE DIALOG DISCARDABLE  0, 0, 182, 117
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Setup"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_PORT,74,58,63,44,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_BAUTRATE,74,79,63,43,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Device:",IDC_DEVICE_LABEL,17,18,26,8
+    LTEXT           "Port:",IDC_PORT_LABEL,22,62,16,8
+    LTEXT           "Baud Rate:",IDC_BAUD_RATE_LABEL,22,81,37,8
+    GROUPBOX        "Settings",IDC_STATIC,16,46,147,51
+    COMBOBOX        IDC_DEVICE_COMBO,52,16,83,46,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_POSITION_DLG DIALOG DISCARDABLE  0, 0, 220, 148
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Pressto! Proof"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,149,82,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,149,100,50,14
+    LTEXT           "Please move the device head to the specified patch by using the arrow controls.",
+                    -1,19,13,147,22
+    CONTROL         137,IDC_STATIC_POSITION,"Static",SS_BITMAP,26,38,100,92
+END
+
+IDD_VIEWDATA DIALOGEX 0, 0, 285, 311
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "View Data"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,96,287,50,14
+    CONTROL         "",IDC_GRID,"{6262D3A0-531B-11CF-91F6-C2863C385E30}",
+                    WS_TABSTOP,7,7,210,273,0,0x80d203f5
+    LTEXT           "Patch:",IDC_STATIC,225,52,22,8
+    LTEXT           "",IDC_PATCH_NUM,253,52,24,8
+END
+
+IDD_COLORDATA_WITH_GRIDS DIALOGEX 0, 0, 440, 233
+STYLE WS_CHILD | WS_CAPTION
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Import...",IDC_IMPORT,7,28,56,14,0,0,HIDC_IMPORT
+    PUSHBUTTON      "Export...",IDC_EXPORT,70,28,56,14,0,0,HIDC_EXPORT
+    PUSHBUTTON      "Measure ",IDC_MEASURE,133,28,56,14,0,0,HIDC_MEASURE
+    PUSHBUTTON      "Import...",IDC_IMPORT_DRY,210,28,56,14,0,0,
+                    HIDC_IMPORT_DRY
+    PUSHBUTTON      "Export...",IDC_EXPORT_DRY,273,28,56,14,0,0,
+                    HIDC_EXPORT_DRY
+    PUSHBUTTON      "Measure ",IDC_MEASURE_DRY,336,28,56,14,0,0,
+                    HIDC_MEASURE_DRY
+    PUSHBUTTON      "View Gamut",IDC_VIEW_GAMUT,70,210,56,14,0,0,
+                    HIDC_VIEW_GAMUT
+    PUSHBUTTON      "View Gamut",IDC_VIEW_GAMUT_DRY,273,210,56,14,0,0,
+                    HIDC_VIEW_GAMUT_DRY
+    CTEXT           "Source",IDC_STATIC,7,7,56,14,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "DryJet",IDC_STATIC,210,7,56,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CONTROL         "",IDC_GRID_DST,"{6262D3A0-531B-11CF-91F6-C2863C385E30}",
+                    WS_TABSTOP,210,49,182,154,0,HIDC_GRID_DST
+    CONTROL         "",IDC_GRID_SRC,"{6262D3A0-531B-11CF-91F6-C2863C385E30}",
+                    WS_TABSTOP,7,49,182,154,0,HIDC_GRID_SRC
+    EDITTEXT        IDC_DESCRIPTION,63,7,126,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESCRIPTION_DRY,266,7,126,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "View Data",IDC_VIEW_DATA,133,210,56,14,0,0,
+                    HIDC_VIEW_DATA
+    PUSHBUTTON      "View Data",IDC_VIEW_DATA_DRY,336,210,56,14,0,0,
+                    HIDC_VIEW_DATA_DRY
+END
+
+IDD_BUILD_DIALOG DIALOG DISCARDABLE  0, 0, 188, 65
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Pressto! Proof"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,105,42,50,14
+    CONTROL         "Progress1",IDC_PROGRESS_BAR,"msctls_progress32",
+                    WS_BORDER,14,14,154,14
+    PUSHBUTTON      "Ok",IDOK,28,42,50,14,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "",IDC_PROGRESS_EDIT,28,8,108,8
+END
+
+IDD_MODIFY DIALOG DISCARDABLE  0, 0, 188, 65
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Pressto! Proof"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Modify",IDOK,14,42,49,14
+    PUSHBUTTON      "Cancel",IDCANCEL,126,42,49,14
+    LTEXT           "Do you wish to modify the existing data or clear it?",
+                    IDC_STATIC,14,14,161,21,SS_NOPREFIX
+    PUSHBUTTON      "Clear",IDC_CLEAR,70,42,49,14
+END
+
+IDD_EXCLAM_MESSAGE DIALOG DISCARDABLE  0, 0, 188, 65
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Pressto! Proof"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Save",IDC_SAVE,14,42,49,14
+    PUSHBUTTON      "Cancel",IDCANCEL,126,42,49,14
+    PUSHBUTTON      "Don't Save",IDC_NO_SAVE,70,42,49,14
+    LTEXT           "",IDC_EXCLAM_TEXT,42,14,119,21,SS_NOPREFIX
+    ICON            1107,IDI_EXCLAM_ICON,7,7,20,20
+END
+
+IDD_FISRT_PATCH DIALOG DISCARDABLE  0, 0, 188, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Pressto! Proof"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,28,42,49,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,105,42,49,14
+    LTEXT           "Please measure the first patch with the device so that a reference value can be obtained.",
+                    IDC_STATIC,14,14,154,21
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Pressto! Proof Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Pressto! Proof\0"
+            VALUE "LegalCopyright", "Copyright (C) Monaco Systems 1997\0"
+            VALUE "OriginalFilename", "Pressto! Proof.EXE\0"
+            VALUE "ProductName", "Pressto! Proof Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_HOME                BITMAP  DISCARDABLE     "res\\Home.bmp"
+IDB_MOVEDEPTH           BITMAP  DISCARDABLE     "res\\MoveDepth.bmp"
+IDB_MOVEPLANE           BITMAP  DISCARDABLE     "res\\MovePlane.bmp"
+IDB_ROTATE              BITMAP  DISCARDABLE     "res\\Rotate.bmp"
+IDB_CAMERA              BITMAP  DISCARDABLE     "res\\Camera.bmp"
+IDB_LAB1                BITMAP  DISCARDABLE     "res\\lab1.BMP"
+IDB_LAB2                BITMAP  DISCARDABLE     "res\\lab2.BMP"
+IDB_SPLASH              BITMAP  DISCARDABLE     "res\\Splash.bmp"
+IDB_CHECK1              BITMAP  DISCARDABLE     "res\\check1.bmp"
+IDB_CHECK2              BITMAP  DISCARDABLE     "res\\check2.bmp"
+IDB_DRYJET              BITMAP  DISCARDABLE     "res\\dryjet.bmp"
+IDB_SOURCE              BITMAP  DISCARDABLE     "res\\source.bmp"
+IDB_TAB00               BITMAP  DISCARDABLE     "res\\tab00.bmp"
+IDB_TAB01               BITMAP  DISCARDABLE     "res\\tab01.bmp"
+IDB_TAB02               BITMAP  DISCARDABLE     "res\\tab02.bmp"
+IDB_TAB03               BITMAP  DISCARDABLE     "res\\tab03.bmp"
+IDB_TAB04               BITMAP  DISCARDABLE     "res\\tab04.bmp"
+IDB_TAB05               BITMAP  DISCARDABLE     "res\\tab05.bmp"
+IDB_TAB06               BITMAP  DISCARDABLE     "res\\tab06.bmp"
+IDB_TAB07               BITMAP  DISCARDABLE     "res\\tab07.bmp"
+IDB_TAB08               BITMAP  DISCARDABLE     "res\\tab08.bmp"
+IDB_TAB09               BITMAP  DISCARDABLE     "res\\tab09.bmp"
+IDB_TAB10               BITMAP  DISCARDABLE     "res\\tab10.bmp"
+IDB_TAB11               BITMAP  DISCARDABLE     "res\\tab11.bmp"
+IDB_TAB12               BITMAP  DISCARDABLE     "res\\tab12.bmp"
+IDB_TAB13               BITMAP  DISCARDABLE     "res\\tab13.bmp"
+IDB_TAB14               BITMAP  DISCARDABLE     "res\\tab14.bmp"
+IDB_LAB3                BITMAP  DISCARDABLE     "res\\lab3.bmp"
+IDB_DENSITY1            BITMAP  DISCARDABLE     "res\\density1.bmp"
+IDB_DENSITY2            BITMAP  DISCARDABLE     "res\\density2.bmp"
+IDB_DENSITY3            BITMAP  DISCARDABLE     "res\\density3.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_SETTINGS DLGINIT
+BEGIN
+    IDC_SETTINGSCOMBO, 0x403, 10, 0
+0x7541, 0x6f74, 0x616d, 0x6974, 0x0063, 
+    IDC_SETTINGSCOMBO, 0x403, 7, 0
+0x614d, 0x756e, 0x6c61, "\000" 
+    0
+END
+
+DEFAULT_GRID_DATA DLGINIT
+BEGIN
+    IDC_PROGDLG_PROGRESS, 0x37a, 274, 0
+0x0024, 0x0000, 0x0037, 0x0032, 0x0045, 0x0036, 0x0037, 0x0031, 0x0032, 
+0x0030, 0x002d, 0x0035, 0x0039, 0x0035, 0x0039, 0x002d, 0x0031, 0x0031, 
+0x0063, 0x0066, 0x002d, 0x0039, 0x0031, 0x0046, 0x0036, 0x002d, 0x0043, 
+0x0032, 0x0038, 0x0036, 0x0033, 0x0043, 0x0033, 0x0038, 0x0035, 0x0045, 
+0x0033, 0x0030, 0x0012, 0x0000, 0x0001, 0x0000, 0x000a, 0x0000, 0x004c, 
+0x0000, 0x0000, 0x4321, 0x1234, 0x0008, 0x0000, 0x18ce, 0x0000, 0x1938, 
+0x0000, 0x6f42, 0x506f, 0x0005, 0x0000, 0x0080, 0x0000, 0x0066, 0x0000, 
+0x0005, 0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0005, 
+0x8000, 0x0008, 0x8000, 0x000f, 0x8000, 0x0012, 0x8000, 0x000d, 0x8000, 
+0x000e, 0x8000, 0x8080, 0x0080, 0xc0c0, 0x00c0, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 0x0002, 
+0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 
+0x0004, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0190, 0x4244, 0x0001, 
+0x4d0d, 0x2053, 0x6153, 0x736e, 0x5320, 0x7265, 0x6669, 0x746c, 0x0000, 
+0x0000, 0x0000, 
+    0
+END
+
+IDD_CALIBRATE DLGINIT
+BEGIN
+    IDC_GRID, 0x37a, 274, 0
+0x0024, 0x0000, 0x0037, 0x0032, 0x0045, 0x0036, 0x0037, 0x0031, 0x0032, 
+0x0030, 0x002d, 0x0035, 0x0039, 0x0035, 0x0039, 0x002d, 0x0031, 0x0031, 
+0x0063, 0x0066, 0x002d, 0x0039, 0x0031, 0x0046, 0x0036, 0x002d, 0x0043, 
+0x0032, 0x0038, 0x0036, 0x0033, 0x0043, 0x0033, 0x0038, 0x0035, 0x0045, 
+0x0033, 0x0030, 0x0012, 0x0000, 0x0001, 0x0000, 0x000a, 0x0000, 0x004c, 
+0x0000, 0x0000, 0x4321, 0x1234, 0x0008, 0x0000, 0x1c37, 0x0000, 0x19d7, 
+0x0000, 0x6f42, 0x506f, 0x0005, 0x0000, 0x0080, 0x0000, 0x0066, 0x0000, 
+0x0005, 0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0005, 
+0x8000, 0x0008, 0x8000, 0x000f, 0x8000, 0x0012, 0x8000, 0x000d, 0x8000, 
+0x000e, 0x8000, 0x8080, 0x0080, 0xc0c0, 0x00c0, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 0x0002, 
+0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 
+0x0004, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0190, 0x4244, 0x0001, 
+0x4d0d, 0x2053, 0x6153, 0x736e, 0x5320, 0x7265, 0x6669, 0x746c, 0x0000, 
+0x0000, 0x0000, 
+    0
+END
+
+IDD_TONEADJUST DLGINIT
+BEGIN
+    IDC_GRID, 0x37a, 274, 0
+0x0024, 0x0000, 0x0037, 0x0032, 0x0045, 0x0036, 0x0037, 0x0031, 0x0032, 
+0x0030, 0x002d, 0x0035, 0x0039, 0x0035, 0x0039, 0x002d, 0x0031, 0x0031, 
+0x0063, 0x0066, 0x002d, 0x0039, 0x0031, 0x0046, 0x0036, 0x002d, 0x0043, 
+0x0032, 0x0038, 0x0036, 0x0033, 0x0043, 0x0033, 0x0038, 0x0035, 0x0045, 
+0x0033, 0x0030, 0x0012, 0x0000, 0x0001, 0x0000, 0x000a, 0x0000, 0x004c, 
+0x0000, 0x0000, 0x4321, 0x1234, 0x0008, 0x0000, 0x1e19, 0x0000, 0x1977, 
+0x0000, 0x6f42, 0x506f, 0x0005, 0x0000, 0x0080, 0x0000, 0x0066, 0x0000, 
+0x0005, 0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0005, 
+0x8000, 0x0008, 0x8000, 0x000f, 0x8000, 0x0012, 0x8000, 0x000d, 0x8000, 
+0x000e, 0x8000, 0x8080, 0x0080, 0xc0c0, 0x00c0, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 0x0002, 
+0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 
+0x0004, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0190, 0x30b0, 0x0001, 
+0x4d0d, 0x2053, 0x6153, 0x736e, 0x5320, 0x7265, 0x6669, 0x746c, 0x0000, 
+0x0000, 0x0000, 
+    0
+END
+
+IDD_TUNING DLGINIT
+BEGIN
+    IDC_TWEAK_SELECT, 0x403, 2, 0
+0x0031, 
+    IDC_TWEAK_SELECT, 0x403, 2, 0
+0x0032, 
+    IDC_TWEAK_SELECT, 0x403, 2, 0
+0x0033, 
+    0
+END
+
+IDD_MEASURE DLGINIT
+BEGIN
+    IDC_GRID, 0x37a, 274, 0
+0x0024, 0x0000, 0x0037, 0x0032, 0x0045, 0x0036, 0x0037, 0x0031, 0x0032, 
+0x0030, 0x002d, 0x0035, 0x0039, 0x0035, 0x0039, 0x002d, 0x0031, 0x0031, 
+0x0063, 0x0066, 0x002d, 0x0039, 0x0031, 0x0046, 0x0036, 0x002d, 0x0043, 
+0x0032, 0x0038, 0x0036, 0x0033, 0x0043, 0x0033, 0x0038, 0x0035, 0x0045, 
+0x0033, 0x0030, 0x0012, 0x0000, 0x0001, 0x0000, 0x000a, 0x0000, 0x004c, 
+0x0000, 0x0000, 0x4321, 0x1234, 0x0008, 0x0000, 0x2a11, 0x0000, 0x2162, 
+0x0000, 0x6f42, 0x506f, 0x0005, 0x0000, 0x0080, 0x0000, 0x03e9, 0x0000, 
+0x0006, 0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0005, 
+0x8000, 0x0008, 0x8000, 0x000f, 0x8000, 0x0012, 0x8000, 0x000d, 0x8000, 
+0x000e, 0x8000, 0x8080, 0x0080, 0xc0c0, 0x00c0, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 0x0002, 
+0x0002, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 
+0x0004, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0190, 0x4244, 0x0001, 
+0x4d0d, 0x2053, 0x6153, 0x736e, 0x5320, 0x7265, 0x6669, 0x746c, 0x0000, 
+0x0000, 0x0000, 
+    0
+END
+
+IDD_PATCHFORMAT_PAGE DLGINIT
+BEGIN
+    IDC_PATCHFORMAT, 0x403, 11, 0
+0x3035, 0x7020, 0x7461, 0x6863, 0x7365, "\000" 
+    IDC_PATCHFORMAT, 0x403, 12, 0
+0x3031, 0x2030, 0x6170, 0x6374, 0x6568, 0x0073, 
+    0
+END
+
+IDD_SETUP_PAGE DLGINIT
+BEGIN
+    IDC_PORT, 0x403, 5, 0
+0x6f43, 0x316d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x6f43, 0x326d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x6f43, 0x336d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x6f43, 0x346d, "\000" 
+    IDC_BAUTRATE, 0x403, 5, 0
+0x3834, 0x3030, "\000" 
+    IDC_BAUTRATE, 0x403, 5, 0
+0x3639, 0x3030, "\000" 
+    0
+END
+
+IDD_VIEWDATA DLGINIT
+BEGIN
+    IDC_GRID, 0x37a, 274, 0
+0x0024, 0x0000, 0x0037, 0x0032, 0x0045, 0x0036, 0x0037, 0x0031, 0x0032, 
+0x0030, 0x002d, 0x0035, 0x0039, 0x0035, 0x0039, 0x002d, 0x0031, 0x0031, 
+0x0063, 0x0066, 0x002d, 0x0039, 0x0031, 0x0046, 0x0036, 0x002d, 0x0043, 
+0x0032, 0x0038, 0x0036, 0x0033, 0x0043, 0x0033, 0x0038, 0x0035, 0x0045, 
+0x0033, 0x0030, 0x0012, 0x0000, 0x0001, 0x0000, 0x000a, 0x0000, 0x004c, 
+0x0000, 0x0000, 0x4321, 0x1234, 0x0008, 0x0000, 0x208e, 0x0000, 0x2de4, 
+0x0000, 0x6f42, 0x506f, 0x0005, 0x0000, 0x0080, 0x0000, 0x0066, 0x0000, 
+0x0005, 0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0005, 
+0x8000, 0x0008, 0x8000, 0x000f, 0x8000, 0x0012, 0x8000, 0x000d, 0x8000, 
+0x000e, 0x8000, 0x8080, 0x0080, 0xc0c0, 0x00c0, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 0x0002, 
+0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 
+0x0004, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0190, 0x4244, 0x0001, 
+0x4d0d, 0x2053, 0x6153, 0x736e, 0x5320, 0x7265, 0x6669, 0x746c, 0x0000, 
+0x0000, 0x0000, 
+    0
+END
+
+IDD_COLORDATA_WITH_GRIDS DLGINIT
+BEGIN
+    IDC_GRID_DST, 0x37a, 274, 0
+0x0024, 0x0000, 0x0037, 0x0032, 0x0045, 0x0036, 0x0037, 0x0031, 0x0032, 
+0x0030, 0x002d, 0x0035, 0x0039, 0x0035, 0x0039, 0x002d, 0x0031, 0x0031, 
+0x0063, 0x0066, 0x002d, 0x0039, 0x0031, 0x0046, 0x0036, 0x002d, 0x0043, 
+0x0032, 0x0038, 0x0036, 0x0033, 0x0043, 0x0033, 0x0038, 0x0035, 0x0045, 
+0x0033, 0x0030, 0x0012, 0x0000, 0x0001, 0x0000, 0x000a, 0x0000, 0x004c, 
+0x0000, 0x0000, 0x4321, 0x1234, 0x0008, 0x0000, 0x1e19, 0x0000, 0x1977, 
+0x0000, 0x6f42, 0x506f, 0x0005, 0x0000, 0x0080, 0x0000, 0x0066, 0x0000, 
+0x0005, 0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0005, 
+0x8000, 0x0008, 0x8000, 0x000f, 0x8000, 0x0012, 0x8000, 0x000d, 0x8000, 
+0x000e, 0x8000, 0x8080, 0x0080, 0xc0c0, 0x00c0, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 0x0002, 
+0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 
+0x0004, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0190, 0x30b0, 0x0001, 
+0x4d0d, 0x2053, 0x6153, 0x736e, 0x5320, 0x7265, 0x6669, 0x746c, 0x0000, 
+0x0000, 0x0000, 
+    IDC_GRID_SRC, 0x37a, 274, 0
+0x0024, 0x0000, 0x0037, 0x0032, 0x0045, 0x0036, 0x0037, 0x0031, 0x0032, 
+0x0030, 0x002d, 0x0035, 0x0039, 0x0035, 0x0039, 0x002d, 0x0031, 0x0031, 
+0x0063, 0x0066, 0x002d, 0x0039, 0x0031, 0x0046, 0x0036, 0x002d, 0x0043, 
+0x0032, 0x0038, 0x0036, 0x0033, 0x0043, 0x0033, 0x0038, 0x0035, 0x0045, 
+0x0033, 0x0030, 0x0012, 0x0000, 0x0001, 0x0000, 0x000a, 0x0000, 0x004c, 
+0x0000, 0x0000, 0x4321, 0x1234, 0x0008, 0x0000, 0x1e19, 0x0000, 0x1977, 
+0x0000, 0x6f42, 0x506f, 0x0005, 0x0000, 0x0080, 0x0000, 0x0066, 0x0000, 
+0x0005, 0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0005, 
+0x8000, 0x0008, 0x8000, 0x000f, 0x8000, 0x0012, 0x8000, 0x000d, 0x8000, 
+0x000e, 0x8000, 0x8080, 0x0080, 0xc0c0, 0x00c0, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 0x0002, 
+0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 
+0x0004, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0190, 0x30b0, 0x0001, 
+0x4d0d, 0x2053, 0x6153, 0x736e, 0x5320, 0x7265, 0x6669, 0x746c, 0x0000, 
+0x0000, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_BUILD_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_MODIFY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_EXCLAM_MESSAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_FISRT_PATCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "Pressto! Proof"
+    IDR_ICCTYPE             "ColorGenie\n\nColorG\nICC Profiles (*.icm;*.icc)\n.icc\nICC.Document\nICC Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Pressto! Proof"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+    IDS_CAL_DIRNAME         "Calibration Files"
+    IDS_TONE_DIRNAME        "Tone Adjustments"
+    IDS_DATA_DIRNAME        "Color Data Files"
+    IDS_PROFILE_DIRNAME     "Color Profiles"
+    IDS_DEFAULTS_DIRNAME    "Defaults"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROGRESS_CAPTION    "Creating ICC Profile"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DEVICE              "Device Configuration"
+    IDS_ERR_NOTHREAD        "Thread error."
+    IDS_ERR_NOPORT          "The device is not connected to port."
+    IDS_ERR_NODATA          "Please supply the data to operate."
+    IDS_ERR_GENERAL         "General error occured."
+    IDS_ERR_MEMORY          "Don't have enough memory."
+    IDS_ERR_TIMEOUT         "Device timeout, please push start button to resume reading."
+    IDS_ERR_DEVICE          "Device error."
+    IDS_ERR_NODEVICE        "Can't find the specified device."
+    IDS_ERR_DEVICE_RESET    "Reset device error."
+    IDS_ERR_DEVICE_ILLUMINATION "Set device illumination error."
+    IDS_ERR_DEVICE_MEASUREMENT_TYPE "Can't set device measurement type."
+    IDS_ERR_DEVICE_READ     "Can't read from device."
+    IDS_ERR_INITIALIZATION  "Device initialization error."
+    IDS_ERR_TURN_ONLINE     "Can't turn device online."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ERR_TURN_OFFLINE    "Can't turn device offline."
+    IDS_ERR_MOVE_HEAD       "Can't move the device head."
+    IDS_ERR_HEAD_UP         "Can't move device head up."
+    IDS_ERR_HEAD_DOWN       "Can't move device head down."
+    IDS_ERR_DEVICE_WARM_UP  "Can't warm up the device."
+    IDS_ERR_DEVICE_MEASUREMENT "Device measurement error."
+    IDS_ERR_SEND_REQUEST    "Can't send command to device."
+    IDS_ERR_MEASUREMENT_DATA "Device returned wrong data."
+    IDS_ERR_CALIBRATE       "Can't calibrate the device."
+    IDS_ERR_OPENPORT        "Can't open the communication port."
+    IDS_ERR_NO_CMM          "Can't show the reference color since no  ICC reference files can't be found."
+    IDS_ERR_DENSITY         "A wrong density value has been entered. Please make sure the  densitometer has been properly calibrated. Do you wish to continue?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    CG_IDS_PROGRESS_CAPTION "Saving"
+    IDS_CANTSTARTBUILDPROFILE "Can't build profile."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\ColorGenie.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

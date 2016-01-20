@@ -1,0 +1,18 @@
+// CtlPanelDefault.cpp: implementation of the CCtlPanelDefault class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "CtlPanelDefault.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CCtlPanelDefault::CCtlPanelDefault(CCtp* pMainWnd) : CCtlPanel(pMainWnd, IDD_PANEL_DEFAULT)
+{
+}
+
+CCtlPanelDefault::~CCtlPanelDefault()
+{
+}

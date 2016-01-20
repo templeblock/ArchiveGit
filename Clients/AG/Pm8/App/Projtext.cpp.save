@@ -1,0 +1,1702 @@
+#include "stdafx.h"
+ASSERTNAME
+
+#include "pmw.h"
+#include "projtext.h"
+#include "sortarry.h"
+#include "pmwdoc.h"
+#include "textrec.h"
+#include "macrostd.h"
+#include "macrorec.h"
+#include "util.h"
+#include "frameobj.h"
+#include "compfn.h"	// For CompositeFileName
+#include "fontrec.h" // for FontDataRecord
+#include "stylerec.h" // for TextStyleRecord
+#include "pagerec.h" // for PageRecord
+#include "layrec.h" // for ObjectLayoutRecord
+#include "pathrec.h" // for OutlinePathRecord
+#include "warpfld.h" // for WarpFieldRecord
+#include "framerec.h" // for FrameRecord
+#include "grpobj.h" // for GroupObject
+#include "calobj.h" // for CalendarObject
+#include "lineobj.h" // for LineObject
+#include "patobj.h" // for PatternObject
+#include "grafobj.h" // for GraphicObject
+#include "backobj.h" // for BackgroundObject
+#include "rectobj.h" // for RectangleObject
+#include "brdrobj.h" // for BorderObject
+#include "compobj.h" // for ComponentObject
+#include "dateobj.h" // for CalendarDateObject
+#include "tblobj.h" // for CTableObject
+#include "oleobj.h" // for OleObject
+#include "ComponentView.h" // for RComponentView
+#include "ImageInterface.h" // for RImageInterface
+#include "BitmapImage.h" // for RBitmapImage
+#include "pmgobj.h" // for CObjectProperties
+#include "carddoc.h" // for CCardDoc
+#include "comprec.h" // for ComponentRecord
+#include "ComponentDocument.h" // for ComponentDocument
+#include "PathInterface.h" // for IPathInterface
+#include "HtmlDoc.h" // for CHTMLTagTableData
+#include "Typeface.h" // for FaceEntry
+#include "PmgFont.h" // for PMGFontServer
+#include "Path.h" // for RPath
+
+// Helper functions.
+
+static bool FindImage(const CString& strProjectPath, CString& strFile)
+{
+	CString strFilePath = strProjectPath;
+	CString strFileName = strFile.Mid(strFile.ReverseFind('\\')+1);
+	bool bMisc = !isdigit(strFileName.GetAt(3)) && strFileName.Left(4) != "dlxo";
+
+	CString strFileExtension =  strFile.Mid(strFile.ReverseFind('.')+1);
+	strFileExtension.MakeUpper();
+	if (bMisc)
+	{
+		strFilePath = CString("C:\\Windows\\Desktop\\AGcontent\\");
+		strFile = CString("Misc\\");
+	}
+	else
+	if (strFileExtension == "JPG")
+		strFile = CString("..\\jpg\\");
+	else
+	if (strFileExtension == "PNG")
+		strFile = CString("..\\png\\");
+	else
+	if (strFileExtension == "BMP")
+		strFile = CString("..\\bmp\\");
+	else
+	if (strFileExtension == "WMF")
+		strFile = CString("..\\wmf\\");
+	else
+	if (strFileExtension == "GIF")
+		strFile = CString("..\\gif\\");
+	else
+	if (strFileExtension == "PSD")
+		strFile = CString("..\\psd\\");
+	else
+		strFile = CString("..\\zzz\\");
+
+	for (int i = 0; i <= 5; i++)
+	{
+		strFile += strFileName;
+		strFilePath += strFile;
+
+		CFileStatus tmpStatus;
+		bool bFileFound = !!CFile::GetStatus(strFilePath, tmpStatus);
+		if (bFileFound)
+			return true;
+
+		// Lookup failed
+		if (i == 0)
+		{
+			strFilePath = strProjectPath;
+			strFile = CString("..\\jpg\\");
+			strFileName = strFileName.Left(strFileName.ReverseFind('.')+1) + CString("jpg");
+			continue;
+		}
+
+		if (i == 1)
+		{
+			strFilePath = strProjectPath;
+			strFile = CString("..\\png\\");
+			strFileName = strFileName.Left(strFileName.ReverseFind('.')+1) + CString("png");
+			continue;
+		}
+
+		if (i == 2)
+		{
+			strFilePath = strProjectPath;
+			strFile = CString("..\\bmp\\");
+			strFileName = strFileName.Left(strFileName.ReverseFind('.')+1) + CString("bmp");
+			continue;
+		}
+
+		if (i == 3)
+		{
+			strFilePath = strProjectPath;
+			strFile = CString("..\\wmf\\");
+			strFileName = strFileName.Left(strFileName.ReverseFind('.')+1) + CString("wmf");
+			continue;
+		}
+
+		if (i == 4)
+		{
+			strFilePath = strProjectPath;
+			strFile = CString("..\\gif\\");
+			strFileName = strFileName.Left(strFileName.ReverseFind('.')+1) + CString("gif");
+			continue;
+		}
+
+		strFile = strFilePath + "~Bad";
+		return false;
+	}
+
+	return false;
+}
+
+#ifdef NOTUSED
+static void AddChar(char c, CString& strString)
+{
+	if (c == '\n')
+		strString += 0x0a;
+	else
+	if (c == '\t')
+		strString += "&nbsp;";
+	else
+	if (c == '"')
+		strString += "\"\"";
+	else
+		strString += c;
+}
+#endif NOTUSED
+
+static CString Fixed2Str(CFixed& fixValue)
+{
+	// Truncate to 3 decimal places
+	double fTemp = MakeDouble(fixValue) * 1000.0;
+	fTemp = (fTemp >= 0 ? fTemp + 0.5 : fTemp - 0.5);
+	int iValue = (int)fTemp;
+	double fValue = (double)iValue / 1000.0;
+	CString strOutput;
+	strOutput.Format("%.10g", fValue);
+	return strOutput;
+}
+
+static CString Coord2Str(int iValue)
+{
+	// Divide by the conversion factor (1800), and truncate to 3 decimal places
+//j	double fValue = (double)::MulDiv(iValue, 100, 18) / 1000.0;
+	double fTemp = (double)iValue / 1.7999;
+	fTemp = (fTemp >= 0 ? fTemp + 0.5 : fTemp - 0.5);
+	iValue = (int)fTemp;
+	double fValue = (double)iValue / 1000.0;
+	CString strOutput;
+	strOutput.Format("%.10g", fValue);
+	return strOutput;
+}
+
+static CString Color2Str(COLOR Color)
+{
+	int black = (int)BLACK_COMPONENT_OF(Color);
+	int base = 255 - black;
+	int r = base - (int)CYAN_COMPONENT_OF(Color);
+	int g = base - (int)MAGENTA_COMPONENT_OF(Color);
+	int b = base - (int)YELLOW_COMPONENT_OF(Color);
+	if (r < 0) r = 0;
+	if (g < 0) g = 0;
+	if (b < 0) b = 0;
+
+	CString strOutput;
+	strOutput.Format("%d,%d,%d", r, g, b);
+	return strOutput;
+}
+
+CExtractProjectText::CExtractProjectText(BOOL bAll /* = TRUE*/)
+{
+}
+
+CExtractProjectText::~CExtractProjectText()
+{
+}
+
+CString CExtractProjectText::GetObjectText(CFrameObject* pObj)
+{
+	CString strErrorOutput = ">\n";
+
+	if (!pObj)
+		return strErrorOutput;
+
+//j	try
+	{
+		PMGDatabase* pDatabase = pObj->get_database();
+		if (!pDatabase)
+			return strErrorOutput;
+		PMGFontServer* pFontServer = (PMGFontServer*)(pDatabase->get_font_server());
+		if (!pFontServer)
+			return strErrorOutput;
+
+		ERRORCODE errorcode;
+		CFrameRecord* pFrameRecord = pObj->LockFrameRecord(&errorcode);
+		if (!pFrameRecord || errorcode != ERRORCODE_None)
+			return strErrorOutput;
+
+		// Check for an empty frame
+		CHARACTER_COUNT lCount = pFrameRecord->NumberOfCharacters();
+		if (lCount <= 0)
+		{
+			pFrameRecord->release();
+			return strErrorOutput;
+		}
+
+		CTextRecord* pTextRecord = pObj->LockTextRecord(&errorcode);
+		if (!pTextRecord || errorcode != ERRORCODE_None)
+		{
+			pFrameRecord->release();
+			return strErrorOutput;
+		}
+
+		CString strOutput;
+		CString strAttribute;
+
+		// Loop through style changes and generate the output
+		CTextIterator textIterator;
+		textIterator.SetRecord(pTextRecord);
+		textIterator.Style().Frame(pObj);
+
+		CHTMLFont FontLastOutput;
+		CHTMLFont FontNextOutput;
+		CHTMLFont FontCurrent;
+		CHTMLTagParagraph htmlTagParagraph;
+
+		CHARACTER_INDEX lFirstChar = pFrameRecord->FirstCharacter();
+		CHARACTER_INDEX lLastChar = lFirstChar + lCount - 1;
+		CHARACTER_INDEX lChar = lFirstChar;
+		bool bFirstTimeThru = true;
+		while (lChar >= 0 && lChar <= lLastChar)
+		{
+			textIterator.SetPosition(lChar);
+			CTextStyle textStyle = textIterator.Style();
+
+			// Get next style change
+			CHARACTER_INDEX lCharStyleEnd = textIterator.NextChangeStart() - 1;
+			if (lCharStyleEnd < 0)
+				lCharStyleEnd = lLastChar;
+			if (lCharStyleEnd > lLastChar)
+				lCharStyleEnd = lLastChar;
+
+			if (bFirstTimeThru)
+			{
+				switch(textStyle.m_Paragraph.m_nAlignment)
+				{
+					case ALIGN_left:
+					default:
+						strOutput += " align='Left'";
+						break;
+					case ALIGN_center:
+						strOutput += " align='Center'";
+						break;
+					case ALIGN_right:
+						strOutput += " align='Right'";
+						break;
+					case ALIGN_justify_left:
+						strOutput += " align='Justify'";
+						break;
+				}
+			}
+
+			// Collect the font and style information
+			int nFace = pFontServer->font_record_to_face(textStyle.Font());
+			if (nFace != -1)
+			{
+				FaceEntry* pEntry = typeface_server.get_face(nFace);
+				if (pEntry)
+				{
+					FontCurrent.SetFace(pEntry->get_name());
+					if (bFirstTimeThru)
+					{
+						CString strAttribute;
+						strAttribute.Format(" face='%s'", pEntry->get_name());
+						strOutput += strAttribute;
+					}
+				}
+			}
+		  
+			CFixed lSize = textStyle.Size();
+			if (lSize != UNDEFINED_CFIXED)
+			{
+				int nSize = FixedInteger(lSize);
+				FontCurrent.SetSize(nSize);
+				if (bFirstTimeThru)
+				{
+					CString strAttribute;
+					strAttribute.Format(" size='%d'", nSize);
+					strOutput += strAttribute;
+				}
+			}
+
+			FillFormatV1 fillFormat = textStyle.Fill();
+			COLOR ColorText = fillFormat.m_ForegroundColor;
+			if (ColorText != UNDEFINED_COLOR)
+			{
+				FontCurrent.SetColor(ColorText);
+				if (bFirstTimeThru)
+				{
+					CString strAttribute;
+					strAttribute.Format(" color='%s'", Color2Str(ColorText));
+					strOutput += strAttribute;
+				}
+			}
+
+			int nStyle = CHTMLFont::styleNone;
+			if (textStyle.Bold())
+				nStyle |= CHTMLFont::styleBold;
+			if (textStyle.Italic())
+				nStyle |= CHTMLFont::styleItalic;
+			if (textStyle.Underline())
+				nStyle |= CHTMLFont::styleUnderline;
+			FontCurrent.SetStyle(nStyle);
+
+			if (bFirstTimeThru)
+			{
+				strOutput += ">\n";
+				// If this is the first time through, initialize the font last output
+				FontLastOutput.CopyFontInfoFrom(FontCurrent);
+				FontNextOutput.CopyFontInfoFrom(FontCurrent);
+				bFirstTimeThru = false;
+			}
+
+			// If the font is changing, output any text we have accumulated and prepare a new font object
+			if (!FontNextOutput.CompareFontInfo(FontCurrent))
+			{
+				if (FontNextOutput.IsBody())
+				{
+					CHTMLFont FontSaved;
+					FontSaved.CopyFontInfoFrom(FontNextOutput);
+					FontNextOutput.DiffFontInfoWith(FontLastOutput);
+					htmlTagParagraph.Add(FontNextOutput);
+					FontLastOutput.CopyFontInfoFrom(FontSaved);
+				}
+
+				FontNextOutput.Empty();
+				FontNextOutput.CopyFontInfoFrom(FontCurrent);
+			}
+
+			// Get all characters of this style
+			CHARACTER_COUNT lCharactersAvail = 0;
+			CHARACTER* pCharacter = NULL;
+
+			// Loop through all the characters up to the next style change
+			CString Text;
+			while (lChar <= lCharStyleEnd)
+			{
+				textIterator.SetPosition(lChar);
+				if (!lCharactersAvail)
+					pCharacter = pTextRecord->GetCharacters(lChar, &lCharactersAvail);
+
+				lChar++;
+
+				if (!pCharacter || lCharactersAvail <= 0)
+					break;
+
+				CHARACTER c = *pCharacter++;
+				lCharactersAvail--;
+
+				if (c == '\t')
+					Text += "%tab";
+					else
+				if (c < MACRO_CHARACTER)
+					Text += (char)c;
+				else
+				{ // Have macro server handy if there are fill-in fields in character stream
+					CMacroServer *pMacroServer = pDatabase->GetMacroServer();
+					if (pMacroServer)
+					{
+						// Get the macro text.
+						CHARACTER* pMacroText = pMacroServer->GetMacroText(c);
+						if (pMacroText)
+						{
+							for (CHARACTER* p = pMacroText; *p != 0; p++)
+								Text += (char)*p;
+						}
+					}
+				}
+			}
+
+			// Add any text we may have accumulated
+			FontNextOutput.AddText(Text, FontCurrent.GetStyle());
+		}
+
+		pFrameRecord->release();
+		pTextRecord->release();
+
+		// Add any text that has not been added yet
+		if (FontNextOutput.IsBody())
+		{
+			CHTMLFont FontSaved;
+			FontSaved.CopyFontInfoFrom(FontNextOutput);
+			FontNextOutput.DiffFontInfoWith(FontLastOutput);
+			htmlTagParagraph.Add(FontNextOutput);
+			FontLastOutput.CopyFontInfoFrom(FontSaved);
+		}
+
+		return strOutput + htmlTagParagraph.GetBody();
+	}  // end try
+
+//j	catch (...)
+//j	{
+//j		return strErrorOutput;
+//j	};
+
+	return strErrorOutput;
+}
+
+void CExtractProjectText::WriteObjectProperties(CStdioFile& cfOutput, LPCSTR strType, int x, int y, int dx, int dy, float fAngle)
+{
+	CString strAttribute;
+	strAttribute.Format("\t\t<%s x='%s' y='%s' dx='%s' dy='%s'",
+		strType, Coord2Str(x), Coord2Str(y), Coord2Str(dx), Coord2Str(dy));
+	cfOutput.WriteString(strAttribute);
+
+	if (fAngle)
+	{
+		strAttribute.Format(" angle='%.1f'", fAngle);
+		cfOutput.WriteString(strAttribute);
+	}
+
+	cfOutput.Flush();
+}
+
+void CExtractProjectText::WriteDrawObjectProperties(DrawingObject* pObject, bool bFill, CStdioFile& cfOutput)
+{
+	FillFormatV2 fill = pObject->GetFill();
+	OutlineFormat line = pObject->GetOutline();
+	ShadowFormat shadow = pObject->GetShadow();
+
+	DoWriteDrawProperties(fill, line, shadow, bFill, cfOutput);
+}
+
+void CExtractProjectText::WriteDrawProperties(CObjectProperties& Properties, bool bFill, CStdioFile& cfOutput)
+{
+	FillFormatV2 fill = Properties.m_Fill;
+	OutlineFormat line = Properties.m_Outline;
+	ShadowFormat shadow = Properties.m_Shadow;
+
+	// This is a hack to find out if the fill type is undefined
+	short nFillType = 0;
+	if (!Properties.ApplyFillType(nFillType))
+		fill.m_nFillType = FillFormatV2::FillSolid;
+
+	DoWriteDrawProperties(fill, line, shadow, bFill, cfOutput);
+}
+
+void CExtractProjectText::DoWriteDrawProperties(FillFormatV2& fill, OutlineFormat& line, ShadowFormat& shadow, bool bFill, CStdioFile& cfOutput)
+{
+	if (!fill.IsVisible())
+		fill.m_nFillType = FillFormatV2::FillNone;
+	if (!line.IsVisible())
+		line.m_nStyle = OutlineFormat::None;
+	if (!shadow.IsVisible())
+		shadow.m_nStyle = ShadowFormat::None;
+
+	cfOutput.WriteString("\n\t\t\t");
+
+	CString strProperties;
+
+	// Handle Outline Properties
+	if (line.m_nStyle != OutlineFormat::None)
+	{
+		CString strLineType;
+		switch (line.m_nStyle)
+		{
+			case OutlineFormat::Light:	strLineType = "Hairline"; break;
+			default:					strLineType = "Normal"; break;
+		};
+
+		strProperties.Format(" linetype='%s'", strLineType);
+		cfOutput.WriteString(strProperties);
+
+		strProperties.Format(" linecolor='%s'", Color2Str(line.m_ForegroundColor));
+		cfOutput.WriteString(strProperties);
+
+		if (line.m_nStyle != OutlineFormat::Light) // if not hairline...
+		{
+			strProperties.Format(" linewidth='%s'", Fixed2Str(line.m_lWidth)); // Percent or points
+			cfOutput.WriteString(strProperties);
+		}
+	}
+
+	// Handle Fill Properties
+	if (bFill && fill.m_nFillType != FillFormatV2::FillNone)
+	{
+		CString strFillType;
+		switch (fill.m_nFillType)
+		{
+			case FillFormatV2::FillSolid:			strFillType = "Solid"; break;
+			case FillFormatV2::FillSweepRight:		strFillType = "SweepRight"; break;
+			case FillFormatV2::FillSweepDown:		strFillType = "SweepDown"; break;
+			case FillFormatV2::FillRadialCenter:	strFillType = "RadialCenter"; break;
+			case FillFormatV2::FillRadialCorner:	strFillType = "RadialCorner"; break;
+			default:								strFillType = "Solid"; break;
+		};
+
+		strProperties.Format(" filltype='%s'", strFillType);
+		cfOutput.WriteString(strProperties);
+
+		strProperties.Format(" fillcolor='%s'", Color2Str(fill.m_ForegroundColor));
+		cfOutput.WriteString(strProperties);
+
+		if (fill.m_nFillType != FillFormatV2::FillSolid)
+		{
+			strProperties.Format(" fillblendcolor='%s'", Color2Str(fill.m_GradientBlendColor));
+			cfOutput.WriteString(strProperties);
+		}
+	}
+
+	// Handle Shadow properties
+	if (shadow.m_nStyle != ShadowFormat::None)
+	{
+		CString strShadowType;
+		switch (shadow.m_nStyle)
+		{
+			case ShadowFormat::Drop:		strShadowType = "Drop"; break;
+			case ShadowFormat::Extruded:	strShadowType = "Extrude"; break;
+			default:						strShadowType = "Drop"; break;
+		};
+
+		strProperties.Format(" shadtype='%s' shadcolor='%s' shadx='%s' shady='%s'",
+			strShadowType,
+			Color2Str(shadow.m_ForegroundColor),
+			Fixed2Str(shadow.m_lXOffset), // Percent or points
+			Fixed2Str(shadow.m_lYOffset)); // Percent or points
+		cfOutput.WriteString(strProperties);
+	}
+}
+
+void CExtractProjectText::ExamineObject(const CString& strProjectPath, PMGPageObject* pObject, POINT ptOffset, CStdioFile& cfOutput)
+{
+	if (!pObject)
+		return;
+
+	DB_OBJECT_TYPE iType = pObject->type();
+
+	double fAngle = pObject->get_rotation() * RAD2DEGC;
+	FLAGS flags = pObject->get_flags();
+	bool bFlipX = !!(flags & OBJECT_FLAG_xflipped);
+	bool bFlipY = !!(flags & OBJECT_FLAG_yflipped);
+
+	PBOX Bound = ((RectPageObject*)pObject)->get_unrotated_bound();
+//j	PBOX Bound1 = ((RectPageObject*)pObject)->get_bound();
+	int dx = (int)(Bound.x1 - Bound.x0);
+	int dy = (int)(Bound.y1 - Bound.y0);
+	int x = (int)(Bound.x0 - ptOffset.x);
+	int y = (int)(Bound.y0 - ptOffset.y);
+
+//j This crashes for Components
+//j	PPNT p;
+//j	if (!pObject->original_dims(&p))
+//j	{
+//j		p.x = PAGE_RESOLUTION;
+//j		p.y = PAGE_RESOLUTION;
+//j	}
+
+	PMGDatabase* pDatabase = pObject->get_database();
+	switch (iType)
+	{
+		case OBJECT_TYPE_Frame: // is a RectPageObject
+		{
+			CFrameObject* pObj = (CFrameObject*)pObject;
+			WriteObjectProperties(cfOutput, "text", x, y, dx, dy, fAngle);
+//j			cfOutput.WriteString(">\n");
+
+			CString strItem = GetObjectText(pObj);
+			cfOutput.WriteString(strItem);
+			cfOutput.WriteString("\n");
+
+			cfOutput.WriteString("\t\t</text>\n");
+			break;
+		}
+		case OBJECT_TYPE_CalendarDate: // is a CFrameObject/RectPageObject
+		{
+			CalendarDateObject* pObj = (CalendarDateObject*)pObject;
+			WriteObjectProperties(cfOutput, "date", x, y, dx, dy, fAngle);
+//j			cfOutput.WriteString(">\n");
+
+			CString strItem = GetObjectText(pObj);
+			cfOutput.WriteString(strItem);
+			cfOutput.WriteString("\n");
+
+			cfOutput.WriteString("\t\t</date>\n");
+			break;
+		}
+		case OBJECT_TYPE_Graphic: // is a RectPageObject
+		{
+			GraphicObject* pObj = (GraphicObject*)pObject;
+			WriteObjectProperties(cfOutput, "image", x, y, dx, dy, fAngle);
+
+			// May be a cropped image
+			CDoubleRect& rect = pObj->GetVisibleRect();
+			double x = rect.Width();
+			double y = rect.Height();
+			if (rect.left != 0.0 || rect.top != 0.0 || rect.right != 1.0 || rect.bottom != 1.0)
+				int k = 0;
+
+			const CString* pstrPath = pObj->GetOriginalDataPath();
+			CString strPath = *pstrPath;
+			strPath.TrimLeft();
+			strPath.TrimRight();
+			bool bFound = FindImage(strProjectPath, strPath);
+			if (!bFound)
+			{
+				CString strMessage;
+				strMessage.Format("Exporting file '%s'", strPath);
+				AfxMessageBox(strMessage, MB_OK);
+				bool bWritten = pObj->ExportRawData(&strPath);
+			}
+
+			cfOutput.WriteString("\n\t\t");
+			cfOutput.WriteString(" file=\"" + strPath + "\"");
+			cfOutput.WriteString(" />\n");
+			break;
+		}
+		case OBJECT_TYPE_Line: // is a DrawingObject/RectPageObject
+		{
+			LineObject* pObj = (LineObject*)pObject;
+			WriteObjectProperties(cfOutput, "line", x, y, dx, dy, fAngle);
+			WriteDrawObjectProperties(pObj, false/*bFill*/, cfOutput);
+
+			CString strStart = "UpperLeft";
+			if (bFlipX && bFlipY)
+				strStart = "LowerRight";
+			else
+			if (bFlipX)
+				strStart = "UpperRight";
+			else
+			if (bFlipY)
+				strStart = "LowerLeft";
+
+			CString strOutput;
+			strOutput.Format(" start='%s'", strStart);
+			cfOutput.WriteString(strOutput);
+			cfOutput.WriteString(" />\n");
+			break;
+		}
+		case OBJECT_TYPE_Ellipse: // is a DrawingObject/RectPageObject
+		{
+			EllipseObject* pObj = (EllipseObject*)pObject;
+			WriteObjectProperties(cfOutput, "ellipse", x, y, dx, dy, fAngle);
+			WriteDrawObjectProperties((DrawingObject*)pObj, true/*bFill*/, cfOutput);
+			cfOutput.WriteString(" />\n");
+			break;
+		}
+		case OBJECT_TYPE_Rectangle: // is a DrawingObject/RectPageObject
+		{
+			RectangleObject* pObj = (RectangleObject*)pObject;
+			WriteObjectProperties(cfOutput, "rectangle", x, y, dx, dy, fAngle);
+			WriteDrawObjectProperties(pObj, true/*bFill*/, cfOutput);
+			cfOutput.WriteString(" />\n");
+			break;
+		}
+		case OBJECT_TYPE_Pattern: // is a RectPageObject
+		{
+			PatternObject* pObj = (PatternObject*)pObject;
+			WriteObjectProperties(cfOutput, "pattern", x, y, dx, dy, fAngle);
+
+			CString strOutput;
+			strOutput.Format(" pattern='%d' color='%s' bgcolor='%s'",
+				pObj->get_pattern(),
+				Color2Str(pObj->get_color()),
+				Color2Str(pObj->get_bcolor()));
+			cfOutput.WriteString(strOutput);
+			cfOutput.WriteString(" />\n");
+			break;
+		}
+		case OBJECT_TYPE_Hyperlink: // is a DrawingObject/RectPageObject
+		{
+			// Same as a RectangleObject
+			RectangleObject* pObj = (RectangleObject*)pObject;
+			WriteObjectProperties(cfOutput, "hyperlink", x, y, dx, dy, fAngle);
+			WriteDrawObjectProperties(pObj, true/*bFill*/, cfOutput);
+			cfOutput.WriteString(" />\n");
+			break;
+		}
+		case OBJECT_TYPE_Border: // is a RectPageObject
+		{
+			BorderObject* pObj = (BorderObject*)pObject;
+			WriteObjectProperties(cfOutput, "border", x, y, dx, dy, fAngle);
+			CObjectProperties Properties;
+			ZeroMemory(&Properties.m_Fill, sizeof(Properties.m_Fill));
+			ZeroMemory(&Properties.m_Outline, sizeof(Properties.m_Outline));
+			ZeroMemory(&Properties.m_Shadow, sizeof(Properties.m_Shadow));
+			pObj->GetObjectProperties(Properties);
+			WriteDrawProperties(Properties, true/*bFill*/, cfOutput);
+			cfOutput.WriteString(" />\n");
+			break;
+		}
+		case OBJECT_TYPE_DrawingObject: // is a RectPageObject
+		{
+			DrawingObject* pObj = (DrawingObject*)pObject;
+			WriteObjectProperties(cfOutput, "drawing", x, y, dx, dy, fAngle);
+			WriteDrawObjectProperties(pObj, true/*bFill*/, cfOutput);
+			cfOutput.WriteString(" />\n");
+			break;
+		}
+		case OBJECT_TYPE_Table: // is a GroupObject/RectPageObject
+		{
+			CTableObject* pObj1 = (CTableObject*)pObject;
+			WriteObjectProperties(cfOutput, "table", x, y, dx, dy, fAngle);
+			cfOutput.WriteString(">\n");
+
+			// Same as a Group
+			GroupObject* pGroupObject = (GroupObject*)pObject;
+			ObjectList* pObjectList = pGroupObject->object_list();
+
+			// Run through each object.
+			for (PMGPageObject* pObj = (PMGPageObjectPtr)pObjectList->first_object();
+				pObj != NULL;
+				pObj = (PMGPageObjectPtr)pObj->next_object())
+			{
+				ExamineObject(strProjectPath, pObj, ptOffset, cfOutput);
+			}
+
+			cfOutput.WriteString("</table>\n");
+			break;
+		}
+		case OBJECT_TYPE_Cell: // is a GroupObject/RectPageObject
+		{
+			CCellObject* pObj1 = (CCellObject*)pObject;
+			WriteObjectProperties(cfOutput, "cell", x, y, dx, dy, fAngle);
+			cfOutput.WriteString(">\n");
+
+			// Same as a Group
+			GroupObject* pGroupObject = (GroupObject*)pObject;
+			ObjectList* pObjectList = pGroupObject->object_list();
+
+			// Run through each object.
+			for (PMGPageObject* pObj = (PMGPageObjectPtr)pObjectList->first_object();
+				pObj != NULL;
+				pObj = (PMGPageObjectPtr)pObj->next_object())
+			{
+				ExamineObject(strProjectPath, pObj, ptOffset, cfOutput);
+			}
+
+			cfOutput.WriteString("</cell>\n");
+			break;
+		}
+		case OBJECT_TYPE_Component: // is a RectPageObject
+		{
+			ComponentObject* pObj = (ComponentObject*)pObject;
+			RComponentView* pComponentView = pObj->GetComponentView();
+			if (!pComponentView)
+				break;
+
+//j			RDocument* pRDocument = pComponentView->GetRDocument();
+
+			RImageInterface* pImageInterface = dynamic_cast<RImageInterface*>(pComponentView->GetInterface(kImageInterfaceId));
+			if (pImageInterface)
+			{
+				delete pImageInterface;
+				WriteObjectProperties(cfOutput, "image", x, y, dx, dy, fAngle);
+
+				CSize SizeImage;
+				pObj->GetRawImageSize(&SizeImage);
+
+				const CString* pstrPath = pObj->GetOriginalDataPath();
+				CString strPath = *pstrPath;
+				strPath.TrimLeft();
+				strPath.TrimRight();
+				bool bFound = FindImage(strProjectPath, strPath);
+				if (!bFound)
+				{
+					CString strMessage;
+					strMessage.Format("Exporting file '%s'", strPath);
+					AfxMessageBox(strMessage, MB_OK);
+					bool bWritten = pObj->ExportRawData(&strPath);
+				}
+
+				cfOutput.WriteString("\n\t\t");
+				cfOutput.WriteString(" file=\"" + strPath + "\"");
+				cfOutput.WriteString(" />\n");
+				break;
+			}
+
+			RGraphicInterface* pGraphicInterface = dynamic_cast<RGraphicInterface*>(pComponentView->GetInterface(kGraphicInterfaceId));
+			if (pGraphicInterface)
+			{
+				delete pGraphicInterface;
+				WriteObjectProperties(cfOutput, "graphic", x, y, dx, dy, fAngle);
+				CObjectProperties Properties;
+				ZeroMemory(&Properties.m_Fill, sizeof(Properties.m_Fill));
+				ZeroMemory(&Properties.m_Outline, sizeof(Properties.m_Outline));
+				ZeroMemory(&Properties.m_Shadow, sizeof(Properties.m_Shadow));
+				pObj->GetObjectProperties(Properties);
+				WriteDrawProperties(Properties, true/*bFill*/, cfOutput);
+				cfOutput.WriteString(" />\n");
+				AfxMessageBox("graphic!", MB_OK);
+				break;
+			}
+
+			IPathInterface* pPathInterface = dynamic_cast<IPathInterface*>(pComponentView->GetInterface(kPathInterfaceId));
+			if (pPathInterface)
+			{
+				int nPoints = 0;
+				bool bBeziers = false;
+				bool bSplines = false;
+				int nOperators = 0;
+				int nOutlines = 0;
+				RRealPoint StartPoint;
+				RRealPoint EndPoint;
+				RPath* pPath = pPathInterface->GetPath();
+				if (pPath)
+				{
+					nPoints = pPath->GetPointCount();
+					bBeziers = !!pPath->UsesBeziers();
+					bSplines = !!pPath->UsesSplines();
+					nOperators = pPath->GetOperatorCount();
+					nOutlines = pPath->GetOutlineCount();
+					StartPoint = pPath->GetStartPoint();
+					EndPoint = pPath->GetEndPoint();
+				/*	bool bDefined = !!pPath->IsDefined();
+					long l = pPath->GetLength();
+					RIntSize s = pPath->GetPathSize();*/
+				}
+
+				bool bIsEllipse = (
+					nPoints == 13 &&
+					bBeziers);
+				bool bIsRectangle = (
+					nPoints == 5 &&
+					!bBeziers &&
+					!bSplines &&
+					nOperators == 5 &&
+					nOutlines == 1 &&
+					!StartPoint.m_x &&
+					!StartPoint.m_y &&
+					!EndPoint.m_x &&
+					!EndPoint.m_y);
+
+				bool bIsPath = (!bIsEllipse && !bIsRectangle);
+				LPCSTR strType = (bIsRectangle ? "prectangle" : (bIsEllipse ? "pellipse" : "pdrawing"));
+
+				WriteObjectProperties(cfOutput, strType, x, y, dx, dy, fAngle);
+				CObjectProperties Properties;
+				ZeroMemory(&Properties.m_Fill, sizeof(Properties.m_Fill));
+				ZeroMemory(&Properties.m_Outline, sizeof(Properties.m_Outline));
+				ZeroMemory(&Properties.m_Shadow, sizeof(Properties.m_Shadow));
+				pObj->GetObjectProperties(Properties);
+				WriteDrawProperties(Properties, true/*bFill*/, cfOutput);
+
+				if (!bIsPath)
+					cfOutput.WriteString(" />\n");
+				else
+				{
+					cfOutput.WriteString(">\n");
+
+					RIntRect rect = pPath->GetBoundingRect();
+					YScaleFactor sx = (double)dx / rect.Width();
+					YScaleFactor sy = (double)dy / rect.Height();
+					R2dTransform transform;
+					transform.PreTranslate(x - rect.m_Left, y - rect.m_Top);
+					transform.PreScale(sx, sy);
+
+					RIntPoint* pPoints = NULL;
+					YPointCountArray countArray;
+					pPath->CalcPath(transform, pPoints, countArray);
+					
+					if (pPoints)
+					{
+						// iterate through the collection of points
+						RIntPoint* p = pPoints;
+
+						YPointCountArray::YIterator iterator = countArray.Start();
+						for ( ; iterator != countArray.End(); ++iterator)
+						{	
+							int lastx = 0;
+							int lasty = 0;
+							// Add the points
+							for(int i = 0; i < *iterator; ++i)
+							{
+								// convert from component units to app units, could do in a transform
+								int newx = p->m_x;
+								int newy = p->m_y;
+
+								CString strOutput;
+								if (!i || !(newx == lastx && newy == lasty))
+								{ // Eliminate duplicate points
+									strOutput.Format("\t\t\t<pt x='%s' y='%s' />\n", Coord2Str(newx), Coord2Str(newy));
+									cfOutput.WriteString(strOutput);
+
+									lastx = newx;
+									lasty = newy;
+								}
+
+								p++;
+							}
+						}
+
+						// Clean up
+						::ReleaseGlobalBuffer(reinterpret_cast<uBYTE*>(pPoints));
+					}
+
+					cfOutput.WriteString("\t\t</path>\n");
+				}
+
+				delete pPathInterface;
+
+				break;
+			}
+
+			// An unknown component; probably a Headline, etc. 
+			WriteObjectProperties(cfOutput, "component", x, y, dx, dy, fAngle);
+			cfOutput.WriteString(" />\n");
+
+			break;
+		}
+		case OBJECT_TYPE_Group: // is a GroupObject/RectPageObject
+		{
+			GroupObject* pGroupObject = (GroupObject*)pObject;
+			WriteObjectProperties(cfOutput, "group", x, y, dx, dy, fAngle);
+			cfOutput.WriteString(">\n");
+
+			ObjectList* pObjectList = pGroupObject->object_list();
+
+			// Run through each object.
+			for (PMGPageObject* pObj = (PMGPageObjectPtr)pObjectList->first_object();
+				pObj != NULL;
+				pObj = (PMGPageObjectPtr)pObj->next_object())
+			{
+				ExamineObject(strProjectPath, pObj, ptOffset, cfOutput);
+			}
+
+			cfOutput.WriteString("</group>\n");
+			break;
+		}
+		case OBJECT_TYPE_Calendar: // is a GroupObject/RectPageObject
+		{
+			CalendarObject* pCalendarObject = (CalendarObject*)pObject;
+			WriteObjectProperties(cfOutput, "calendar", x, y, dx, dy, fAngle);
+			cfOutput.WriteString(">\n");
+
+			ObjectList* pObjectList = pCalendarObject->object_list();
+
+			// Run through each object.
+			for (PMGPageObject* pObj = (PMGPageObjectPtr)pObjectList->first_object();
+				pObj != NULL;
+				pObj = (PMGPageObjectPtr)pObj->next_object())
+			{
+				ExamineObject(strProjectPath, pObj, ptOffset, cfOutput);
+			}
+
+			cfOutput.WriteString("</calendar>\n");
+			break;
+		}
+		case OBJECT_TYPE_WarpText: // is a CFrameObject/RectPageObject
+		{
+			CFrameObject* pObj = (CFrameObject*)pObject;
+			AfxMessageBox("warptext!", MB_OK);
+			break;
+		}
+		case OBJECT_TYPE_Background: // is a GraphicObject/RectPageObject
+		{
+			BackgroundObject* pObj = (BackgroundObject*)pObject;
+			AfxMessageBox("background!", MB_OK);
+			break;
+		}
+		case OBJECT_TYPE_OleObject: // is a RectPageObject
+		{
+			OleObject* pObj = (OleObject*)pObject;
+			AfxMessageBox("oleobject!", MB_OK);
+			break;
+		}
+		case OBJECT_TYPE_Serif: // is a RectPageObject
+		{
+			// Same as a OleObject
+			OleObject* pObj = (OleObject*)pObject;
+			AfxMessageBox("serif!", MB_OK);
+			break;
+		}
+		default:
+		{
+			AfxMessageBox("unknown!", MB_OK);
+			break;
+		}
+	}
+
+	cfOutput.Flush();
+}
+
+void CExtractProjectText::ExamineFile(const CString& strProjectPath, const CString& strFileName, CExtractProjectTextProgressDialog* m_pProgressDialog, CStdioFile& cfOutput)
+{
+	CString& strPathName = strProjectPath + strFileName;
+
+	CString strMessage;
+
+	if (!Util::FileExists(strPathName))
+	{
+		strMessage.Format("Project file '%s' does not exist", strPathName);
+		AfxMessageBox(strMessage, MB_OK);
+		return;
+	}
+
+	// Attempt to open the PrintMaster document.
+	CPmwDoc* pDocument = GET_PMWAPP()->OpenHiddenDocument(strPathName);
+	if (!pDocument)
+	{
+		strMessage.Format("Can't open project file '%s'", strPathName);
+		AfxMessageBox(strMessage, MB_OK);
+		return;
+	}
+
+	PMGDatabase* pDatabase = pDocument->get_database();
+	if (!pDatabase)
+	{
+		strMessage.Format("Can't get database for project file '%s'", strPathName);
+		AfxMessageBox(strMessage, MB_OK);
+		pDocument->OnCloseDocument();
+		return;
+	}
+
+	DocumentRecord* pDocumentRecord = pDocument->DocumentRecord();
+	if (!pDocumentRecord)
+	{
+		strMessage.Format("Can't get document record for project file '%s'", strPathName);
+		AfxMessageBox(strMessage, MB_OK);
+		pDocument->OnCloseDocument();
+		return;
+	}
+
+	PROJECT_TYPE ProjectType = pDocumentRecord->get_project_type();
+	if (ProjectType == PROJECT_TYPE_BlankPage)
+		ProjectType = PROJECT_TYPE_Poster; // Blank pages don't really exist
+
+	CString strType;
+	switch (ProjectType)
+	{
+		case PROJECT_TYPE_Generic:			{strType = "Generic";		break;}
+		case PROJECT_TYPE_Poster:			{strType = "Poster";		break;}
+		case PROJECT_TYPE_Card:				{strType = "Card";			break;}
+		case PROJECT_TYPE_Banner:			{strType = "Banner";		break;}
+		case PROJECT_TYPE_Calendar:			{strType = "Calendar";		break;}
+		case PROJECT_TYPE_Label:			{strType = "Label";			break;}
+		case PROJECT_TYPE_Envelope:			{strType = "Envelope";		break;}
+		case PROJECT_TYPE_BusinessCard:		{strType = "BusinessCard";	break;}
+		case PROJECT_TYPE_Certificate:		{strType = "Certificate";	break;}
+		case PROJECT_TYPE_NoteCard:			{strType = "NoteCard";		break;}
+		case PROJECT_TYPE_FaxCover:			{strType = "FaxCover";		break;}
+		case PROJECT_TYPE_Stationery:		{strType = "Stationery";	break;}
+		case PROJECT_TYPE_Newsletter:		{strType = "Newsletter";	break;}
+		case PROJECT_TYPE_Brochure:			{strType = "Brochure";		break;}
+		case PROJECT_TYPE_HalfCard:			{strType = "HalfCard";		break;}
+		case PROJECT_TYPE_WebPub:			{strType = "WebPub";		break;}
+		case PROJECT_TYPE_PostCard:			{strType = "PostCard";		break;}
+		case PROJECT_TYPE_Sticker:			{strType = "Sticker";		break;}
+		case PROJECT_TYPE_TShirt:			{strType = "TShirt";		break;}
+		case PROJECT_TYPE_Craft:			{strType = "Craft";			break;}
+		case PROJECT_TYPE_PhotoProjects:	{strType = "PhotoProjects";	break;}
+		default:							{strType = "Unknown";		break;}
+	};
+
+#ifdef NOTUSED
+	int SubType = pDocumentRecord->GetProjectSubtype();
+
+	CString strSubT;
+	switch (SubType)
+	{
+		case CRAFT_TYPE_Generic:			{strSubT = "Generic";		break;}
+		case CRAFT_TYPE_Album:				{strSubT = "Album";			break;}
+		case CRAFT_TYPE_AttachmentCards:	{strSubT = "AttachmentCards";break;}
+		case CRAFT_TYPE_Bag:				{strSubT = "Bag";			break;}
+		case CRAFT_TYPE_Basket:				{strSubT = "Basket";		break;}
+		case CRAFT_TYPE_BigCards:			{strSubT = "BigCards";		break;}
+		case CRAFT_TYPE_Bookmark:			{strSubT = "Bookmark";		break;}
+		case CRAFT_TYPE_Box:				{strSubT = "Box";			break;}
+		case CRAFT_TYPE_Calendar:			{strSubT = "Calendar";		break;}
+		case CRAFT_TYPE_Centerpiece:		{strSubT = "Centerpiece";	break;}
+		case CRAFT_TYPE_Certificate:		{strSubT = "Certificate";	break;}
+		case CRAFT_TYPE_CutoutCard:			{strSubT = "CutoutCard";	break;}
+		case CRAFT_TYPE_Cutouts:			{strSubT = "Cutouts";		break;}
+		case CRAFT_TYPE_DeskPlaques:		{strSubT = "DeskPlaques";	break;}
+		case CRAFT_TYPE_Doorhanger:			{strSubT = "Doorhanger";	break;}
+		case CRAFT_TYPE_Envelopes:			{strSubT = "Envelopes";		break;}
+		case CRAFT_TYPE_FrameCard:			{strSubT = "FrameCard";		break;}
+		case CRAFT_TYPE_Frame:				{strSubT = "Frame";			break;}
+		case CRAFT_TYPE_Garland:			{strSubT = "Garland";		break;}
+		case CRAFT_TYPE_GiftEnclosures:		{strSubT = "GiftEnclosures";break;}
+		case CRAFT_TYPE_Hat:				{strSubT = "Hat";			break;}
+		case CRAFT_TYPE_Invitation:			{strSubT = "Invitation";	break;}
+		case CRAFT_TYPE_KidsToys:			{strSubT = "KidsToys";		break;}
+		case CRAFT_TYPE_Mask:				{strSubT = "Mask";			break;}
+		case CRAFT_TYPE_Mat:				{strSubT = "Mat";			break;}
+		case CRAFT_TYPE_Mobile:				{strSubT = "Mobile";		break;}
+		case CRAFT_TYPE_NapkinHolder:		{strSubT = "NapkinHolder";	break;}
+		case CRAFT_TYPE_Ornament:			{strSubT = "Ornament";		break;}
+		case CRAFT_TYPE_PackageDecorations:	{strSubT = "PackageDecoration";break;}
+		case CRAFT_TYPE_PlaceCard:			{strSubT = "PlaceCard";		break;}
+		case CRAFT_TYPE_PlaceMat:			{strSubT = "PlaceMat";		break;}
+		case CRAFT_TYPE_PopupCard:			{strSubT = "PopupCard";		break;}
+		case CRAFT_TYPE_Poster:				{strSubT = "Poster";		break;}
+		case CRAFT_TYPE_Puzzle:				{strSubT = "Puzzle";		break;}
+		case CRAFT_TYPE_RecipeCard:			{strSubT = "RecipeCard";	break;}
+		case CRAFT_TYPE_Scrapbook:			{strSubT = "Scrapbook";		break;}
+		case CRAFT_TYPE_SelfMailer:			{strSubT = "SelfMailer";	break;}
+		case CRAFT_TYPE_SliderCards:		{strSubT = "SliderCards";	break;}
+		case CRAFT_TYPE_Stationery:			{strSubT = "Stationery";	break;}
+		case CRAFT_TYPE_Stencil:			{strSubT = "Stencil";		break;}
+		default:							{strSubT = "Unknown";		break;}
+	}										
+#endif NOTUSED
+
+	ORIENTATION orient = pDocumentRecord->get_orientation();
+	CString strOrient;
+	switch (orient)
+	{
+		case PORTRAIT:					{strOrient = "Portrait";	break;}
+		case LANDSCAPE:					{strOrient = "Landscape";	break;}
+		default:						{strOrient = "Unknown";		break;}
+	};
+
+	int Sided = pDocumentRecord->GetSided();
+	int nPages = pDocument->NumberOfPages();
+	bool bCardDoc = false;
+
+	// Adjust the page count if the document is a card; loop on panels
+	if (pDocument->IsKindOf(RUNTIME_CLASS(CCardDoc)))
+	{
+		int nPanels = pDocument->number_of_panels();
+		nPages = nPanels;
+		bCardDoc = true;
+	}
+
+	CString strProject;
+	strProject.Format("<project type='%s' orient='%s' file=\"%s\" sided='%d'>\n",
+		strType,
+		strOrient,
+		strPathName,
+		Sided);
+	cfOutput.WriteString(strProject);
+	cfOutput.Flush();
+
+	// Loop throught the panels/pages and process all of its objects
+	PPNT DocDimensions = pDocumentRecord->get_dimensions();
+	for (int i = 0; i < nPages; i++)
+	{
+		POINT ptPageOffset = {0, 0};
+		int iPageWidth = 0;
+		int iPageHeight = 0;
+		if (bCardDoc)
+		{
+			((CCardDoc*)pDocument)->set_panel(i);
+			PBOX rectPage = {0,0,0,0};
+			pDocument->get_panel_world(&rectPage, i);
+			ptPageOffset.x = rectPage.x0;
+			ptPageOffset.y = rectPage.y0;
+			iPageWidth = rectPage.Width();
+			iPageHeight = rectPage.Height();
+		}
+		else
+		{
+			pDocument->GotoPage(i);
+			ptPageOffset.x = 0;
+			ptPageOffset.y = 0;
+			iPageWidth = DocDimensions.x;
+			iPageHeight = DocDimensions.y;
+		}
+
+		CString strPage;
+		strPage.Format("\t<page dx='%s' dy='%s'>\n", Coord2Str(iPageWidth), Coord2Str(iPageHeight));
+		cfOutput.WriteString(strPage);
+
+		ObjectList* pObjectList = pDocument->object_list();						
+		int iCount = pObjectList->count();
+
+		// Run through each object.
+		for (PMGPageObject* pObj = (PMGPageObjectPtr)pObjectList->first_object();
+			pObj != NULL;
+			pObj = (PMGPageObjectPtr)pObj->next_object())
+		{
+			ExamineObject(strProjectPath, pObj, ptPageOffset, cfOutput);
+		}
+
+		cfOutput.WriteString("\t</page>\n");
+	}
+
+#ifdef NOTUSED
+	// Write out the macros
+	CStdMacroServer* pMacroServer = (CStdMacroServer*)(pDatabase->GetMacroServer());
+	if (pMacroServer)
+	{
+		CMacroList* pMacroList = &(pMacroServer->MacroList());
+		if (pMacroList)
+		{
+			for (int nMacroIndex = 0; nMacroIndex < pMacroList->Macros(); nMacroIndex++)
+			{
+				// Get the macro.
+				CMacro* pMacro = pMacroList->Macro(nMacroIndex);
+				if (!pMacro)
+					continue;
+
+				// Get the field value.
+				bool bString = (pMacro->MacroValueType() == CMacro::VALUE_TYPE_String);
+				CString strValue = (bString ? pMacro->Value() : pMacroServer->GetMacroTextString(pMacro));
+
+				// Only record empty values if the macro is a "User Macro."
+				if (!strValue.IsEmpty() || (pMacro->MacroType() == CMacro::MACRO_TYPE_User))
+				{
+					// Collect value text.
+					CString strItem;
+					for (int nCharacter = 0; nCharacter < strValue.GetLength(); nCharacter++)
+						AddChar(strValue[nCharacter], strItem);
+
+					// Write out the name and value pair
+					cfOutput.WriteString("\t<macro " + pMacro->Name() + "=" + strItem + " />\n");
+					cfOutput.Flush();
+				}
+			}
+		}
+	}
+#endif NOTUSED
+
+#ifdef NOTUSED
+	DB_RECORD_NUMBER nRecord = 0;
+
+	int nCount = pDocumentRecord->NumberOfPages();
+	for (i = 0; i < nCount; i++)
+	{
+		nRecord = pDocumentRecord->GetPage(i);
+		PageRecord* p = (PageRecord*)(pDatabase->get_record(nRecord, NULL, RECORD_TYPE_Page));
+		if (p)
+		{
+			p->release();
+			p = NULL;
+		}
+	}
+	nCount = pDocumentRecord->NumberOfMasterPages();
+	for (i = 0; i < nCount; i++)
+	{
+		nRecord = pDocumentRecord->GetMasterPage(i);
+		PageRecord* p = (PageRecord*)(pDatabase->get_record(nRecord, NULL, RECORD_TYPE_Page));
+		if (p)
+		{
+			p->release();
+			p = NULL;
+		}
+	}
+	nCount = pDocumentRecord->NumberOfInstructionPages();
+	for (i = 0; i < nCount; i++)
+	{
+		nRecord = pDocumentRecord->GetInstructionPage(i);
+		PageRecord* p = (PageRecord*)(pDatabase->get_record(nRecord, NULL, RECORD_TYPE_Page));
+		if (p)
+		{
+			p->release();
+			p = NULL;
+		}
+	}
+	nCount = pDocumentRecord->NumberOfFonts();
+	for (i = 0; i < nCount; i++)
+	{
+		nRecord = pDocumentRecord->GetFont(i);
+		FontDataRecord* p = (FontDataRecord*)(pDatabase->get_record(nRecord, NULL, RECORD_TYPE_FontData));
+		if (p)
+		{
+			p->release();
+			p = NULL;
+		}
+	}
+/*	nCount = pDocumentRecord->NumberOfLayouts();
+	for (i = 0; i < nCount; i++)
+	{
+		nRecord = pDocumentRecord->GetLayout(i);
+		ObjectLayoutRecord* p = (ObjectLayoutRecord*)(pDatabase->get_record(nRecord, NULL, RECORD_TYPE_ObjectLayout));
+		if (p)
+		{
+			p->release();
+			p = NULL;
+		}
+	}*/
+	nCount = pDocumentRecord->NumberOfTextStyles();
+	for (i = 0; i < nCount; i++)
+	{
+		nRecord = pDocumentRecord->GetTextStyle(i);
+		CTextStyleRecord* p = (CTextStyleRecord*)(pDatabase->get_record(nRecord, NULL, RECORD_TYPE_TextStyle));
+		if (p)
+		{
+			p->release();
+			p = NULL;
+		}
+	}
+/*	nCount = pDocumentRecord->NumberOfOutlinePaths();
+	for (i = 0; i < nCount; i++)
+	{
+		nRecord = pDocumentRecord->GetOutlinePath(i);
+		OutlinePathRecord* p = (OutlinePathRecord*)(pDatabase->get_record(nRecord, NULL, RECORD_TYPE_OutlinePath));
+		if (p)
+		{
+			p->release();
+			p = NULL;
+		}
+	}*/
+/*	nCount = pDocumentRecord->NumberOfWarpFields();
+	for (i = 0; i < nCount; i++)
+	{
+		nRecord = pDocumentRecord->GetWarpField(i);
+		WarpFieldRecord* p = (WarpFieldRecord*)(pDatabase->get_record(nRecord, NULL, RECORD_TYPE_WarpField));
+		if (p)
+		{
+			p->release();
+			p = NULL;
+		}
+	}*/
+
+	//j nRecord = object->FrameRecord(i);
+	FrameRecord* p = (FrameRecord*)(pDatabase->get_record(nRecord, NULL, RECORD_TYPE_Frame));
+	if (p)
+	{
+		p->release();
+		p = NULL;
+	}
+#endif NOTUSED
+
+#ifdef NOTUSED
+	// Extract all of the graphics
+	DB_RECORD_NUMBER nRecord = 0;
+	int nCount = pDocumentRecord->NumberOfGraphics();
+	for (i = 0; i < nCount; i++)
+	{
+		nRecord = pDocumentRecord->GetGraphic(i);
+		GraphicRecord* pGraphic = (GraphicRecord*)(pDatabase->get_record(nRecord, NULL, RECORD_TYPE_Graphic));
+		if (pGraphic)
+		{
+			// Nid the filename (in case it has not been yet).
+			static char cbPhotoEnhancerTemplate[5+1] = "~xxxP";
+			GET_PMWAPP()->nid_filename(cbPhotoEnhancerTemplate);
+
+			// Extract the file to a temp file.
+			TmpFile EditFile(cbPhotoEnhancerTemplate);
+			if (EditFile.initialize() == ERRORCODE_None)
+			{
+				bool bContinue = false;
+				if (pGraphic->record.type != GRAPHIC_TYPE_WMF && pGraphic->record.type != GRAPHIC_TYPE_CGM)
+				{
+					bContinue = pGraphic->WriteData(&EditFile) == ERRORCODE_None;
+//j					bContinue = pGraphic->WriteImageAsBMP(&EditFile) == ERRORCODE_None;
+				}
+
+				if (bContinue)
+					EditFile.flush();
+			}
+
+			pGraphic->release();
+			pGraphic = NULL;
+		}
+	}
+#endif NOTUSED
+
+#ifdef NOTUSED
+	DWORD CopyCount = 0;
+	DWORD dwGraphics = pDocumentRecord->NumberOfGraphics();
+	// Loop through all graphics here
+	for (DWORD dwGraphic = 0; dwGraphic < dwGraphics; dwGraphic++)
+	{
+		DB_RECORD_NUMBER recordNum = pDocumentRecord->GetGraphic(dwGraphic);
+		GraphicRecord* pGraphic = (GraphicRecord*)pDatabase->get_record(recordNum, NULL, RECORD_TYPE_Graphic);
+		if (pGraphic)
+		{
+			CompositeFileName cfn(pGraphic->m_csFileName);	// Handles goofy characters maybe used in name
+			if ((!pGraphic->record.source && !pGraphic->record.image))
+			{	
+				ReadOnlyFile	File;
+				ERRORCODE e = pGraphic->prep_storage_file(&File);	// Get a "file" of this graphic
+				if (e == ERRORCODE_None)
+				{
+					// Build a destination file path
+					CString Temp = cfn.get_dynamic_name(TRUE);
+					CString GrafName;
+					Util::SplitPath(Temp, NULL, &GrafName);
+
+					CString GrafDest = "C:\\windows\\desktop\\test\\art";
+					GrafDest += GrafName;
+					// Look busy
+					m_pProgressDialog->AddMessage(GrafDest);
+					StorageFile FileOut(GrafDest);
+					// Copy file
+					e = copy_file(&File, &FileOut);
+					if (e == ERRORCODE_None)
+					{
+						CopyCount++;
+
+						CString csMessage;
+						csMessage.Format(cfn.get_dynamic_name(TRUE), " -> ", GrafDest);
+						m_pProgressDialog->AddMessage(csMessage);
+					}
+					else
+					{
+						CString csMessage;
+						csMessage.Format("Couldn't copy (%s) %s in %s", (LPCSTR)pGraphic->m_csName, cfn.get_dynamic_name(TRUE), csProject);
+						m_pProgressDialog->AddMessage(csMessage);
+					}
+				}
+				else
+				{
+					CString csMessage;
+					csMessage.Format("Couldn't get file for (%s) %s in %s", (LPCSTR)pGraphic->m_csName, cfn.get_dynamic_name(TRUE), csProject);
+					m_pProgressDialog->AddMessage(csMessage);
+				}
+			}
+			else
+			{
+				CopyCount++;
+
+				CString csMessage;
+				csMessage.Format(cfn.get_dynamic_name(TRUE), " (Embedded graphic skipped)");
+				m_pProgressDialog->AddMessage(csMessage);
+			}
+
+			pGraphic->release();
+			pGraphic = NULL;
+		}
+		else
+		{
+			CString csMessage;
+			csMessage.Format("Couldn't get graphic record in %s", csProject);
+			m_pProgressDialog->AddMessage(csMessage);
+		}
+	}
+
+	// Did all the graphics get copied OK?
+	bool bCopyProject = false;
+	if (bCopyProject && dwGraphics == CopyCount)
+	{
+		// Build a project destination path name
+		CString csProjectOut = csProject + ".out";
+		StorageFile FileOut(csProjectOut);
+		ReadOnlyFile FileIn(csProject);
+
+		ERRORCODE e = copy_file(&FileIn, &FileOut);
+		if (e != ERRORCODE_None)
+		{
+			CString csMessage;
+			csMessage.Format("Couldn't copy %s", csProjectOut); 
+			m_pProgressDialog->AddMessage(csMessage);
+		}
+		else
+		{
+			CString csMessage;
+			csMessage.Format("[Project] ", csProject, " -> ", csProjectOut);
+			m_pProgressDialog->AddMessage(csMessage);
+		}
+	}
+#endif NOTUSED
+
+	cfOutput.WriteString("</project>\n");
+	cfOutput.WriteString("\n");
+	cfOutput.Flush();
+
+	// Close the document.
+	pDocument->OnCloseDocument();
+}
+
+void CExtractProjectText::Run(void)
+{
+	// Get the name of the input file
+	CFileDialog OpenDialog(
+					TRUE,
+					"*.txt",
+					NULL,
+					OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT,
+					"Text Files (*.txt)|*.txt|All Files (*.*)|*.*||",
+					AfxGetMainWnd());
+
+	if (OpenDialog.DoModal() != IDOK)
+		return;
+
+	CString strInput = OpenDialog.GetPathName();
+
+	// Get the name of the output file
+	CFileDialog SaveDlg(FALSE, "*.xml", NULL, OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT,
+		"Comma Delimited (*.xml)|*.xml|All Files (*.*)|*.*||", AfxGetMainWnd());
+
+	if (SaveDlg.DoModal() != IDOK)
+		return;
+
+	CString strOutput = SaveDlg.GetPathName();
+
+	// Create a progress dialog.
+	CExtractProjectTextProgressDialog* m_pProgressDialog = new CExtractProjectTextProgressDialog(IDD_EXTRACT_PROJECT_TEXT_PROGRESS_DIALOG, AfxGetMainWnd());
+
+	// Open up the input file.
+	CString strMessage;
+	strMessage.Format("Input File: %s", (LPCSTR)strInput);
+	m_pProgressDialog->AddMessage(strMessage);
+	CStdioFile cfInput;
+	if (!cfInput.Open(strInput, CFile::modeRead|CFile::shareDenyNone|CFile::typeText))
+	{
+		strMessage.Format("Can't open input file %s", (LPCSTR)strInput);
+		m_pProgressDialog->AddMessage(strMessage);
+		return;
+	}
+
+	// Create the output file.
+	strMessage.Format("Output File: %s", (LPCSTR)strOutput);
+	m_pProgressDialog->AddMessage(strMessage);
+	CStdioFile cfOutput;
+	if (!cfOutput.Open(strOutput, CFile::modeCreate|CFile::modeReadWrite|CFile::shareExclusive|CFile::typeBinary))
+	{
+		strMessage.Format("Can't create output file %s", (LPCSTR)strOutput);
+		m_pProgressDialog->AddMessage(strMessage);
+		return;
+	}
+
+	cfOutput.WriteString("<xml>\n");
+
+	// Process each line from the input file.
+	CString strFileName;
+	while (Util::ReadString(&cfInput, strFileName))
+	{
+		if (m_pProgressDialog->CheckForAbort())
+		   break;
+
+		if (strFileName.IsEmpty())
+			continue;
+
+		if (strFileName.GetAt(0) == '@')
+			break;
+
+#ifdef TEST
+		if (strFileName.GetAt(0) != '#')
+			continue;
+		strFileName = strFileName.Mid(1);
+#endif TEST
+
+		if (strFileName.GetAt(0) == '#')
+			continue;
+
+		CString strMessage;
+		strMessage.Format("Processing '%s'", (LPCSTR)strFileName);
+		m_pProgressDialog->AddMessage(strMessage);
+
+		// Build the full path name of the project.
+		CString strFullPath = strInput.Left(strInput.ReverseFind('\\')+1) + strFileName;
+		CString strProjectPath = strFullPath.Left(strFullPath.ReverseFind('\\')+1);
+		strFileName = strFullPath.Mid(strFullPath.ReverseFind('\\')+1);
+		ExamineFile(strProjectPath, strFileName, m_pProgressDialog, cfOutput);
+	}
+
+	cfOutput.WriteString("</xml>\n");
+
+	strMessage.Format("Normal termination");
+	m_pProgressDialog->AddMessage(strMessage);
+
+	if (m_pProgressDialog)
+	{
+		m_pProgressDialog->WaitForDone();
+		m_pProgressDialog->Finish();
+		delete m_pProgressDialog;
+		m_pProgressDialog = NULL;
+	}
+}
+
+
+/////////////////////////////////////////////////////////////////////////////
+// CExtractProjectTextProgressDialog dialog
+
+CExtractProjectTextProgressDialog::CExtractProjectTextProgressDialog(int IDD, CWnd* pParent /*=NULL*/)
+   : CDialog(IDD, pParent)
+{
+   //{{AFX_DATA_INIT(CInstallProgressDialog)
+      // NOTE: the ClassWizard will add member initialization here
+   //}}AFX_DATA_INIT
+
+   m_fIsAborted = FALSE;
+   m_fIsDone = FALSE;
+   m_pMessageList = NULL;
+   m_pParent = pParent;
+   
+   m_pParent->EnableWindow(FALSE);
+   
+   Create(IDD, pParent);
+}
+
+CExtractProjectTextProgressDialog::~CExtractProjectTextProgressDialog()
+{
+   Finish();
+}
+
+void CExtractProjectTextProgressDialog::DoDataExchange(CDataExchange* pDX)
+{
+   CDialog::DoDataExchange(pDX);
+   //{{AFX_DATA_MAP(CExtractProjectTextProgressDialog)
+      // NOTE: the ClassWizard will add DDX and DDV calls here
+   //}}AFX_DATA_MAP
+}
+
+BEGIN_MESSAGE_MAP(CExtractProjectTextProgressDialog, CDialog)
+   //{{AFX_MSG_MAP(CExtractProjectTextProgressDialog)
+   //}}AFX_MSG_MAP
+END_MESSAGE_MAP()
+
+void CExtractProjectTextProgressDialog::Breathe(void)
+{
+   MSG Message;
+
+   while (PeekMessage(&Message, NULL, 0, 0, PM_REMOVE))
+   {
+      if (!m_hWnd || !IsDialogMessage(&Message))
+      {
+         ::TranslateMessage(&Message);
+         ::DispatchMessage(&Message);
+      }
+   }
+}
+
+void CExtractProjectTextProgressDialog::WaitForDone(void)
+{
+   CWnd* pOK = GetDlgItem(IDOK);
+   if (pOK)
+   {
+      pOK->EnableWindow(TRUE);
+      CWnd* pCancel = GetDlgItem(IDCANCEL);
+      if (pCancel)
+      {
+         pCancel->EnableWindow(FALSE);
+      }
+
+      while (!m_fIsDone)
+      {
+         Breathe();
+      }
+   }
+}
+
+void CExtractProjectTextProgressDialog::Finish(void)
+{
+   if (m_hWnd)
+   {
+      m_pParent->EnableWindow(TRUE);
+      DestroyWindow();
+   }
+}
+
+void CExtractProjectTextProgressDialog::AddMessage(LPCSTR pszAction)
+{
+   if (m_pMessageList)
+   {
+      int nIndex = m_pMessageList->AddString(pszAction);
+		if (nIndex != LB_ERR)
+		{
+			m_pMessageList->SetCurSel(nIndex);
+		}
+
+      Breathe();
+   }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CExtractProjectTextProgressDialog message handlers
+
+void CExtractProjectTextProgressDialog::OnCancel()
+{
+   // Make sure the user really wants to cancel the installation.
+   if (AfxMessageBox("Do you really want to stop extracting project text?", MB_YESNO|MB_DEFBUTTON2|MB_ICONQUESTION) == IDYES)
+   {
+      m_fIsAborted = TRUE;
+   }
+}
+
+void CExtractProjectTextProgressDialog::OnOK()
+{
+   m_fIsDone = TRUE;
+}
+
+BOOL CExtractProjectTextProgressDialog::OnInitDialog()
+{
+   CDialog::OnInitDialog();
+
+   CenterWindow();
+
+   m_pMessageList = (CListBox*)GetDlgItem(IDC_PROGRESS_MESSAGE_LIST);
+   
+   return TRUE;  // return TRUE  unless you set the focus to a control
+}

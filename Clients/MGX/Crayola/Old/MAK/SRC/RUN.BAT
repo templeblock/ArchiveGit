@@ -1,0 +1,2 @@
+@win ..\dst\studio.exe
+

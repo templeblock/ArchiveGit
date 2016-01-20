@@ -1,0 +1,219 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""Version.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\CTPUtil.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "Build &Thumbs...",            ID_BUILDTHUMBS
+        MENUITEM "Build &DataSheet...",         ID_BUILDDATASHEET
+        MENUITEM "Build &Xml",                  ID_BUILDXML
+        MENUITEM "Clear &Window",               ID_FILE_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About CTPUtil...",           ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG  0, 0, 217, 65
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About CTPUtil"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "CTPUtil Version ",IDC_VERSION,5,10,208,8,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,84,39,50,14,WS_GROUP
+END
+
+CG_IDD_PROGRESS DIALOGEX 0, 0, 353, 78
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,151,57,50,14
+    CONTROL         "Progress1",CG_IDC_PROGDLG_PROGRESS,"msctls_progress32",
+                    WS_BORDER,17,36,320,12
+    CTEXT           "Counting files to process...",CG_IDC_PROGDLG_PERCENT,17,
+                    22,320,8,SS_NOPREFIX | SS_WORDELLIPSIS
+    CTEXT           "",CG_IDC_PROGDLG_STATUS,17,8,320,8
+END
+
+IDD_XML_DIALOG DIALOGEX 0, 0, 225, 133
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Projects Xml Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Projects directory",IDC_STATIC,10,8,57,8
+    EDITTEXT        IDC_EDT_SOURCE,67,6,138,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_SRC_BROWSE,206,6,12,13
+    LTEXT           "Target directory",IDC_STATIC,10,27,57,8
+    EDITTEXT        IDC_EDT_DEST,67,24,138,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_DST_BROWSE,206,25,12,12
+    LTEXT           "Schema directory",IDC_STATIC,10,45,56,8
+    EDITTEXT        IDC_EDT_SCHEMA,67,42,138,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_SCH_BROWSE,206,42,12,12
+    GROUPBOX        "",IDC_STATIC,154,57,63,50
+    LTEXT           "Test",IDC_STATIC,156,67,13,8
+    EDITTEXT        IDC_EDT_FILE_COUNT,170,66,28,12,ES_AUTOHSCROLL
+    LTEXT           "files",IDC_STATIC,200,67,14,8
+    CONTROL         "Validate Xml",IDC_VALIDATE_XML,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED,157,92,54,10
+    DEFPUSHBUTTON   "&Start",IDOK,60,112,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,114,112,50,14
+    CONTROL         "Unpack files",IDC_UNPACK_FILES,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,157,81,54,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    CG_IDD_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 346
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 71
+    END
+
+    IDD_XML_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 126
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_PROGRESS_THUMBS     "Building Thumbs..."
+    IDS_PROGRESS_DATASHEET  "Building DataSheet..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "Version.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

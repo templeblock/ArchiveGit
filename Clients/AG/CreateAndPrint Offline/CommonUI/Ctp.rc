@@ -1,0 +1,2206 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+#include "Version.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+1                       RT_MANIFEST             "..\\CommonUI\\AxCtp.dll.manifest"
+2                       RT_MANIFEST             "..\\CommonUI\\AxCtp.dll.manifest"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "#include ""Version.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "VS_VERSION_INFO VERSIONINFO\r\n"
+    "FILEVERSION VER_FILE_VERSION\r\n"
+    "PRODUCTVERSION VER_PRODUCT_VERSION\r\n"
+    "FILEFLAGSMASK VS_FFI_FILEFLAGSMASK\r\n"
+    "#ifdef _DEBUG\r\n"
+    "FILEFLAGS VS_FF_DEBUG\r\n"
+    "#else\r\n"
+    "FILEFLAGS 0\r\n"
+    "#endif\r\n"
+    "FILEOS VOS_NT_WINDOWS32\r\n"
+    "FILETYPE VFT_DLL\r\n"
+    "FILESUBTYPE VFT2_UNKNOWN\r\n"
+    "BEGIN\r\n"
+    "    BLOCK ""StringFileInfo""\r\n"
+    "    BEGIN\r\n"
+    "        BLOCK ""040904b0"" // English (United States)\r\n"
+    "        BEGIN\r\n"
+    "            VALUE ""CompanyName"", VER_COMPANY\r\n"
+    "            VALUE ""FileDescription"", ""Create & Print "" VER_COPYRIGHT ""\\0""\r\n"
+    "            VALUE ""FileExtents"", ""ctp\\0""\r\n"
+    "            VALUE ""FileOpenName"", ""Create & Print Files (*.ctp)\\0""\r\n"
+    "            VALUE ""FileVersion"", VER_FILE_VERSION_STR\r\n"
+    "            VALUE ""InternalName"", VER_INTERNAL_NAME\r\n"
+    "            VALUE ""LegalCopyright"", VER_COPYRIGHT\r\n"
+    "            VALUE ""OriginalFilename"", VER_FILE_NAME\r\n"
+    "            VALUE ""ProductName"", ""Create & Print "" VER_PRODUCT_VERSION_STR ""\\0""\r\n"
+    "            VALUE ""ProductVersion"", VER_PRODUCT_VERSION_STR\r\n"
+    "            VER_MIMETYPE\r\n"
+    "        END\r\n"
+    "    END\r\n"
+    "    BLOCK ""VarFileInfo""\r\n"
+    "    BEGIN\r\n"
+    "        VALUE ""Translation"", 0x409, 1200\r\n"
+    "    END\r\n"
+    "END\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// TYPELIB
+//
+
+1                       TYPELIB                 "..\\AxCtp\\AxCtp.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_CTP                 REGISTRY                "Ctp.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PRINT DIALOGEX 0, 0, 455, 307
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Print"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    COMBOBOX        1139,51,24,152,152,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "&Properties",1025,211,22,60,14,WS_GROUP
+    CONTROL         "Force Borderless Printing",IDC_BORDERLESS,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_GROUP | WS_TABSTOP,
+                    51,75,152,10
+    CONTROL         "Hidden Port",1101,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOPREFIX | NOT WS_VISIBLE,211,65,64,10
+    CONTROL         "Print to fi&le",1040,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,211,75,64,12
+    EDITTEXT        1154,351,24,32,12,ES_NUMBER | WS_GROUP
+    CONTROL         "Quarter-fold",IDC_QUARTERFOLD,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,299,64,128,10
+    CONTROL         "Half-fold",IDC_HALFFOLD,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,299,76,128,10
+    COMBOBOX        IDC_PAPERTYPE,299,71,136,80,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    CONTROL         "",IDC_DBLSIDE,"Button",BS_AUTOCHECKBOX | WS_GROUP | 
+                    WS_TABSTOP,311,88,11,10
+    LTEXT           "Run a Paper Feed Print Test",IDC_DBLSIDE2,325,88,105,10
+    CONTROL         "Top",IDC_PAPERFEED_TOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,318,146,36,9
+    CONTROL         "Bottom",IDC_PAPERFEED_BOTTOM,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,356,146,62,9
+    CONTROL         "Left",IDC_PAPERFEED_POS_LEFT,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,318,178,36,9
+    CONTROL         "Center",IDC_PAPERFEED_POS_CENTER,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,356,178,40,9
+    CONTROL         "Right",IDC_PAPERFEED_POS_RIGHT,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,401,178,36,9
+    CONTROL         "Flap Up",IDC_PAPERFEED_FACE_DOWN,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,317,211,48,9
+    CONTROL         "Flap Down",IDC_PAPERFEED_FACE_UP,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,369,211,65,9
+    CONTROL         "Left",IDC_PAPERFEED_EDGE_LEFT,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,317,245,34,9
+    CONTROL         "Right",IDC_PAPERFEED_EDGE_RIGHT,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,356,245,36,9
+    CONTROL         "Top",IDC_PAPERFEED_EDGE_TOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,401,245,36,9
+    DEFPUSHBUTTON   "OK",IDOK,333,289,48,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,396,289,48,14
+    GROUPBOX        " Select Printer ",IDC_SELECTPRINTER_GROUP,9,9,272,93
+    LTEXT           "&Name:",1093,15,25,36,10
+    LTEXT           "Status:",1095,15,41,36,10,SS_NOPREFIX
+    CONTROL         "",1099,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | 
+                    WS_GROUP,51,41,224,10
+    LTEXT           "Type:",1094,15,53,36,10,SS_NOPREFIX
+    CONTROL         "",1098,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | 
+                    WS_GROUP,51,53,224,10
+    GROUPBOX        " Paper Type ",IDC_PAPERTYPE_LABEL,293,51,152,51
+    GROUPBOX        " Copies ",IDC_COPIES_GROUP,293,9,152,33
+    LTEXT           "N&umber:",1103,315,24,31,10,SS_CENTERIMAGE
+    LTEXT           "Your Paper loads from the:",IDC_PAPERLOAD_STATIC,239,
+                    133,147,9,NOT WS_GROUP
+    LTEXT           "You align your paper to the:",IDC_PAPERALIGN_STATIC,239,
+                    166,133,9,NOT WS_GROUP
+    LTEXT           "Your envelope loads paper with the:",
+                    IDC_ENVELOPELOADS_STATIC,239,199,154,8,NOT WS_GROUP
+    LTEXT           "The edge of the envelope that feeds\n into the printer is the:",
+                    IDC_ENVELOPEEDGE_STATIC,239,229,170,17,NOT WS_GROUP
+    GROUPBOX        " Envelope Loading Preview ",IDC_ENVELOPEPREVIEW_GROUP,9,
+                    114,175,160
+    LTEXT           "Please verify your printer settings and use the image below as a guide to load your envelope.",
+                    IDC_ENVELOPEPREVIEW_STATIC,23,134,150,19
+    GROUPBOX        " Printer Settings  ",IDC_PRINTSETTINGS_GROUP,211,114,
+                    233,160
+    CONTROL         510,IDC_PRINTORIENT_IMAGE,"Static",SS_BITMAP,43,170,15,
+                    12
+END
+
+IDD_WAITDLG DIALOGEX 0, 0, 112, 27
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Printing..."
+FONT 18, "Arial", 400, 0, 0x0
+BEGIN
+    CTEXT           "Your project is being printed.\nPlease wait...",
+                    IDC_STATIC,4,4,104,20
+END
+
+IDD_DBLSIDEINTRO DIALOGEX 0, 0, 362, 141
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Paper Feed Print Test"
+FONT 9, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "\n    o    One sheet of plain paper will be used for the test.\n\n    o    This test will only need to be run once for a particular printer.",
+                    IDC_STATIC_1,4,47,280,38
+    LTEXT           "Insert a sheet of plain paper, then click Next to start the print test.",
+                    IDC_STATIC_2,4,114,280,10
+    LTEXT           "In order to properly print your project, we need to gather some information about the way paper feeds through your printer.",
+                    IDC_WIZSTEP1_HDR,11,20,260,23
+    LTEXT           "Step 1 of 4:",IDC_STEP1,1,0,94,14
+END
+
+IDD_DBLSIDESTEP1 DIALOGEX 0, 0, 362, 141
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Paper Feed Print Test"
+FONT 9, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "After the test page has completed printing, you must reinsert it into the printer.",
+                    IDC_WIZSTEP2_HDR,11,23,275,23
+    LTEXT           "Click Next when you are ready to continue the print test.",
+                    IDC_STATIC_4,4,114,280,10
+    LTEXT           "\n    o    the printed side UP\n\n    o    the arrow pointing TOWARD the printer.",
+                    IDC_STATIC_3,4,47,280,38
+    LTEXT           "Step 2 of 4:",IDC_STEP2,1,0,94,14
+END
+
+IDD_DBLSIDESTEP2 DIALOGEX 0, 0, 362, 141
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Paper Feed Print Test"
+FONT 9, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "Please click on the picture below that matches your printed test page.",
+                    IDC_STATIC_5,4,15,280,8
+    CONTROL         "",IDC_FRAME1,"Static",SS_ETCHEDFRAME,4,25,43,80
+    CONTROL         "",IDC_FRAME2,"Static",SS_ETCHEDFRAME,57,25,43,80
+    CONTROL         "",IDC_FRAME3,"Static",SS_ETCHEDFRAME,112,25,88,80
+    CONTROL         "",IDC_FRAME4,"Static",SS_ETCHEDFRAME,210,25,90,80
+    CONTROL         503,IDC_STATIC,"Static",SS_BITMAP,8,47,40,46
+    CONTROL         505,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,61,
+                    47,40,46
+    CONTROL         501,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,116,
+                    47,40,46
+    CONTROL         501,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,215,
+                    47,40,46
+    CONTROL         502,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,160,
+                    47,40,46
+    CONTROL         504,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,259,
+                    47,40,46
+    CTEXT           "Front",IDC_STATIC_FRONT_3,116,94,36,8,SS_CENTERIMAGE
+    CTEXT           "Back",IDC_STATIC_FRONT_4,160,94,36,8,SS_CENTERIMAGE
+    CTEXT           "Front",IDC_STATIC_FRONT_5,215,94,36,8,SS_CENTERIMAGE
+    CTEXT           "Back",IDC_STATIC_FRONT_6,259,94,36,8,SS_CENTERIMAGE
+    LTEXT           "Click Next to complete the print test.",IDC_STATIC_6,4,
+                    114,280,10
+    CTEXT           "Front",IDC_STATIC_FRONT_1,8,94,36,8,SS_CENTERIMAGE
+    CTEXT           "Front",IDC_STATIC_FRONT_2,61,94,36,8,SS_CENTERIMAGE
+    CTEXT           "Option 1:",IDC_WIZSTEP3_OPT1,10,26,34,13,SS_CENTERIMAGE
+    CTEXT           "Option 2:",IDC_WIZSTEP3_OPT2,63,26,34,13,SS_CENTERIMAGE
+    CTEXT           "Option 3:",IDC_WIZSTEP3_OPT3,141,26,34,13,
+                    SS_CENTERIMAGE
+    CTEXT           "Option 4:",IDC_WIZSTEP3_OPT4,237,26,34,13,
+                    SS_CENTERIMAGE
+    LTEXT           "Top",IDC_STATIC_TOP_7,271,39,13,8
+    LTEXT           "Top",IDC_STATIC_TOP_4,172,39,13,8
+    LTEXT           "Top",IDC_STATIC_TOP_2,73,39,13,8
+    LTEXT           "Top",IDC_STATIC_TOP_1,20,39,13,8
+    LTEXT           "Top",IDC_STATIC_TOP_3,128,39,13,8
+    LTEXT           "Top",IDC_STATIC_TOP_5,227,39,13,8
+    LTEXT           "Step 3 of 4:",IDC_STEP3,1,0,94,12
+END
+
+IDD_DBLSIDEEND DIALOGEX 0, 0, 362, 141
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Paper Feed Print Test"
+FONT 9, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "The paper feed print test is complete.\n\nNow it is time to print your project!",
+                    IDC_STATIC_7,4,43,280,52
+    LTEXT           "Insert the paper for your final project, then click Finish to begin printing your project.",
+                    IDC_STATIC_8,4,101,270,21
+    LTEXT           "Step 4 of 4:",IDC_STEP4,1,0,94,14
+END
+
+IDD_NEWDOCWIZINTRO DIALOGEX 0, 0, 352, 173
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Project Wizard"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "Select the type of project you want to create:",
+                    IDC_STATIC,5,8,340,8
+    LISTBOX         IDC_NEWDOC_LIST,5,24,340,144,LBS_OWNERDRAWFIXED | 
+                    LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_MULTICOLUMN | 
+                    WS_HSCROLL | WS_TABSTOP
+END
+
+IDD_NEWDOCWIZSTEP1 DIALOGEX 0, 0, 352, 173
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Project Wizard"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "Select the orientation for your new project:",
+                    IDC_STATIC,5,8,190,8
+    LTEXT           "Select the width and height of each page/panel:",
+                    IDC_STATIC,5,80,190,8
+    CONTROL         "Standard Size",IDC_NEWDOC_STDSIZE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,96,70,10
+    CONTROL         "Landscape",IDC_NEWDOC_LANDSCAPE,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,5,24,190,10
+    CONTROL         "Portrait",IDC_NEWDOC_PORTRAIT,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,5,40,190,10
+    LTEXT           "Inches Tall",IDC_STATIC,60,136,55,16,SS_CENTERIMAGE
+    CONTROL         "",IDC_NEWDOC_SAMPLE,"Static",SS_WHITERECT,205,24,120,
+                    120,WS_EX_DLGMODALFRAME
+    EDITTEXT        IDC_NEWDOC_WIDTH,15,112,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NEWDOC_HEIGHT,15,136,40,14,ES_AUTOHSCROLL
+    LTEXT           "Inches Wide",IDC_STATIC,60,112,55,16,SS_CENTERIMAGE
+    COMBOBOX        IDC_NEWDOC_PAPERTYPE,5,92,155,136,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_NEWDOCWIZSTEP2 DIALOGEX 0, 0, 352, 173
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Project Wizard"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "Enter the number of pages or panels for your new project:",
+                    IDC_STATIC,5,8,340,8
+    EDITTEXT        IDC_NEWDOC_NUMPAGES,15,40,20,16,ES_AUTOHSCROLL
+    LTEXT           "pages/panels",IDC_STATIC,40,40,55,16,SS_CENTERIMAGE
+    LTEXT           "Enter the page or panel names:",IDC_STATIC,5,80,340,8
+    CONTROL         "Standard Names",IDC_NEWDOC_STDPAGENAMES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,96,190,10
+    CONTROL         "Standard Number",IDC_NEWDOC_STDNUMPAGES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,24,190,10
+    EDITTEXT        IDC_NEWDOC_PAGENAME1,15,112,65,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NEWDOC_PAGENAME2,100,112,65,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NEWDOC_PAGENAME3,185,112,65,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NEWDOC_PAGENAME4,270,112,65,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NEWDOC_PAGENAME5,15,136,65,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NEWDOC_PAGENAME6,100,136,65,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NEWDOC_PAGENAME7,185,136,65,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NEWDOC_PAGENAME8,270,136,65,16,ES_AUTOHSCROLL
+    LTEXT           "1.",IDC_NEWDOC_PAGELABEL1,5,112,8,16,SS_CENTERIMAGE
+    LTEXT           "2.",IDC_NEWDOC_PAGELABEL2,90,112,8,16,SS_CENTERIMAGE
+    LTEXT           "3.",IDC_NEWDOC_PAGELABEL3,175,112,8,16,SS_CENTERIMAGE
+    LTEXT           "4.",IDC_NEWDOC_PAGELABEL4,260,112,8,16,SS_CENTERIMAGE
+    LTEXT           "5.",IDC_NEWDOC_PAGELABEL5,5,136,8,16,SS_CENTERIMAGE
+    LTEXT           "6.",IDC_NEWDOC_PAGELABEL6,90,136,8,16,SS_CENTERIMAGE
+    LTEXT           "7.",IDC_NEWDOC_PAGELABEL7,175,136,8,16,SS_CENTERIMAGE
+    LTEXT           "8.",IDC_NEWDOC_PAGELABEL8,260,136,8,16,SS_CENTERIMAGE
+END
+
+IDD_NEWDOCWIZEND DIALOGEX 0, 0, 352, 173
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Project Wizard"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "The new project wizard is complete.",IDC_STATIC,5,8,340,
+                    8
+    LTEXT           "Click Finish when you are ready.",IDC_STATIC,5,160,340,
+                    8
+END
+
+IDD_PANEL_TEXT DIALOGEX 0, 0, 300, 48
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 0, 0, 0x0
+BEGIN
+    CONTROL         613,IDC_SYMTEXT,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,
+                    16,15,13
+    LTEXT           "Text",IDC_TYPELABEL,8,5,27,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    CONTROL         "",IDC_BACK,"Button",BS_OWNERDRAW | WS_TABSTOP,8,31,16,
+                    12,WS_EX_RIGHT
+    LTEXT           "Font and Style",IDC_BIGLABEL3,36,5,100,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_FONT,36,16,100,244,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    CONTROL         "",IDC_BOLD,"Button",BS_AUTOCHECKBOX | BS_ICON | 
+                    BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,36,30,16,12
+    CONTROL         "",IDC_ITALIC,"Button",BS_AUTOCHECKBOX | BS_ICON | 
+                    BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,52,30,16,12
+    CONTROL         "",IDC_UNDERLINE,"Button",BS_AUTOCHECKBOX | BS_ICON | 
+                    BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,68,30,16,12
+    RTEXT           "Size ",IDC_SMALLLABEL1,87,30,17,12,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_TEXT_SIZE,104,30,32,220,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "Alignment",IDC_BIGLABEL4,140,5,48,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    RADIOBUTTON     "",IDC_LEFT,140,16,16,12,BS_ICON | BS_PUSHLIKE | 
+                    WS_GROUP
+    RADIOBUTTON     "",IDC_CENTER,156,16,16,12,BS_ICON | BS_PUSHLIKE | 
+                    WS_GROUP
+    RADIOBUTTON     "",IDC_RIGHT,172,16,16,12,BS_ICON | BS_PUSHLIKE | 
+                    WS_GROUP
+    RADIOBUTTON     "",IDC_TOP,140,30,16,12,BS_ICON | BS_PUSHLIKE | WS_GROUP
+    RADIOBUTTON     "",IDC_MIDDLE,156,30,16,12,BS_ICON | BS_PUSHLIKE | 
+                    WS_GROUP
+    RADIOBUTTON     "",IDC_BOTTOM,172,30,16,12,BS_ICON | BS_PUSHLIKE | 
+                    WS_GROUP
+    LTEXT           "Inside Fill",IDC_BIGLABEL1,196,5,64,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_FILL_TYPE,196,16,64,220,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR,196,30,32,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR2,228,30,32,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "Outline",IDC_BIGLABEL2,260,5,32,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_LINE_SIZE,260,16,32,220,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_LINE_COLOR,260,30,32,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+END
+
+IDD_PROGRESSDLG DIALOGEX 0, 0, 124, 28
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN
+EXSTYLE WS_EX_TRANSPARENT
+FONT 18, "Arial", 0, 0, 0x1
+BEGIN
+    CTEXT           "Your message\ngoes here...",IDC_PROGRESSTEXT,0,4,124,24
+END
+
+IDD_CHOOSECOLOR DIALOGEX 0, 0, 148, 203
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Choose a Color"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    CONTROL         "",720,"Static",SS_SIMPLE | WS_GROUP | WS_TABSTOP,1,218,
+                    42,12
+    CONTROL         "",721,"Static",SS_SIMPLE | WS_GROUP | WS_TABSTOP,48,217,
+                    41,12
+    PUSHBUTTON      "&Define Custom Colors >>",719,3,250,94,14,NOT 
+                    WS_VISIBLE | WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,4,184,64,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,80,184,64,14,WS_GROUP
+    PUSHBUTTON      "&Help",1038,2,234,44,14,NOT WS_VISIBLE | WS_GROUP
+    CONTROL         "",710,"Static",SS_SIMPLE | SS_SUNKEN,4,4,120,116
+    CONTROL         "",702,"Static",SS_SIMPLE | SS_SUNKEN,132,4,12,116
+    CONTROL         "",709,"Static",SS_SIMPLE | SS_SUNKEN,4,124,44,40
+    PUSHBUTTON      "&o",713,50,234,24,14,WS_GROUP
+    CTEXT           "Color",730,4,164,40,12,SS_CENTERIMAGE
+    RTEXT           "Hu&e:",723,48,124,20,12,SS_CENTERIMAGE
+    EDITTEXT        703,72,124,20,12,WS_GROUP
+    RTEXT           "&Sat:",724,48,144,20,12,SS_CENTERIMAGE
+    EDITTEXT        704,72,144,20,12,WS_GROUP
+    RTEXT           "&Lum:",725,48,164,20,12,SS_CENTERIMAGE
+    EDITTEXT        705,72,164,20,12,WS_GROUP
+    RTEXT           "&Red:",726,96,124,24,12,SS_CENTERIMAGE
+    EDITTEXT        706,124,124,20,12,WS_GROUP
+    RTEXT           "&Green:",727,96,144,24,12,SS_CENTERIMAGE
+    EDITTEXT        707,124,144,20,12,WS_GROUP
+    RTEXT           "Bl&ue:",728,96,164,24,12,SS_CENTERIMAGE
+    EDITTEXT        708,124,164,20,12,WS_GROUP
+    PUSHBUTTON      "&Add",712,77,233,44,14,WS_GROUP
+END
+
+IDD_PROPERTIESDLG DIALOGEX 0, 0, 108, 161
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Project Properties"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Apply",IDOK,4,140,48,14
+    PUSHBUTTON      "Cancel",IDCANCEL,56,140,48,14
+    COMBOBOX        IDC_DOCTYPE,4,20,100,112,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Project type:",IDC_STATIC,4,8,100,8,SS_CENTERIMAGE
+    LTEXT           "Page Names:",IDC_STATIC,4,44,100,8,SS_CENTERIMAGE
+    COMBOBOX        IDC_PAGENAMES,4,56,100,100,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Page Size:",IDC_STATIC,4,80,100,8,SS_CENTERIMAGE
+    RTEXT           "Width: ",IDC_STATIC,8,92,24,12,SS_CENTERIMAGE
+    RTEXT           "Height: ",IDC_STATIC,8,112,24,12,SS_CENTERIMAGE
+    EDITTEXT        IDC_WIDTH,36,92,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HEIGHT,36,112,40,14,ES_AUTOHSCROLL
+    LTEXT           "inches",IDC_STATIC,80,92,24,12,SS_CENTERIMAGE
+    LTEXT           "inches",IDC_STATIC,80,112,24,12,SS_CENTERIMAGE
+END
+
+CHECKSPELLINGDLG DIALOGEX 0, 0, 189, 187
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Check Spelling"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "Suggestions:",ID_SUGGESTIONS_LBL,8,36,112,8
+    LISTBOX         ID_SUGGEST_LIST,8,48,112,76,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Ignore",ID_IGNORE_BTN,128,8,52,14
+    PUSHBUTTON      "I&gnore All",ID_IGNORE_ALL_BTN,128,28,52,14
+    PUSHBUTTON      "&Change",ID_REPLACE_BTN,128,48,52,14
+    PUSHBUTTON      "Change A&ll",ID_REPLACE_ALL_BTN,128,68,52,14
+    PUSHBUTTON      "&Add",ID_ADD_TO_LEX_BTN,379,121,45,12
+    PUSHBUTTON      "&Suggest",ID_SUGGEST_BTN,379,134,45,12
+    LTEXT           "Add &words to:",ID_ADD_WORDS_LBL,213,151,72,8
+    COMBOBOX        ID_IGN_LEX_CB,289,150,88,40,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Dictio&naries...",ID_EDIT_LEX_BTN,213,172,51,16
+    PUSHBUTTON      "&Options...",ID_OPTIONS_BTN,267,172,51,16
+    PUSHBUTTON      "Cancel",IDCANCEL,128,108,52,14
+    LTEXT           "Not in dictionary:",ID_PROBLEM_LBL,8,8,112,8,NOT 
+                    WS_GROUP
+    EDITTEXT        ID_PROBLEM_WORD_EDT,8,20,112,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Help...",IDC_STATIC,321,172,51,16
+    EDITTEXT        ID_CONTEXT_EDT,8,132,172,44,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_NOHIDESEL | ES_READONLY | NOT 
+                    WS_VISIBLE | WS_DISABLED | WS_VSCROLL
+    PUSHBUTTON      "&Undo",ID_UNDO_BTN,379,150,45,12
+END
+
+IDD_ENVELOPES DIALOGEX 0, 0, 248, 127
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Paper Feed Settings"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "Tell us how envelopes and custom paper feed into your printer.",
+                    IDC_STATIC,8,8,232,20
+    CTEXT           "Feeds from:",IDC_STATIC,68,36,52,8,SS_CENTERIMAGE
+    GROUPBOX        "",IDC_STATIC,68,44,52,52,WS_GROUP
+    CONTROL         "Left",IDC_PAPERFEED_POS_LEFT,"Button",
+                    BS_AUTORADIOBUTTON,76,56,40,10
+    CONTROL         "Center",IDC_PAPERFEED_POS_CENTER,"Button",
+                    BS_AUTORADIOBUTTON,76,68,40,10
+    CONTROL         "Right",IDC_PAPERFEED_POS_RIGHT,"Button",
+                    BS_AUTORADIOBUTTON,76,80,40,10
+    CTEXT           "Printed side:",IDC_STATIC,128,36,52,8,SS_CENTERIMAGE
+    GROUPBOX        "",IDC_STATIC,128,44,52,52,WS_GROUP
+    CONTROL         "Down",IDC_PAPERFEED_FACE_DOWN,"Button",
+                    BS_AUTORADIOBUTTON,136,56,40,10
+    CONTROL         "Up",IDC_PAPERFEED_FACE_UP,"Button",BS_AUTORADIOBUTTON,
+                    136,68,40,10
+    CTEXT           "First edge in:",IDC_STATIC,188,36,52,8,SS_CENTERIMAGE
+    GROUPBOX        "",IDC_STATIC,188,44,52,52,WS_GROUP
+    CONTROL         "Left",IDC_PAPERFEED_EDGE_LEFT,"Button",
+                    BS_AUTORADIOBUTTON,196,56,40,10
+    CONTROL         "Right",IDC_PAPERFEED_EDGE_RIGHT,"Button",
+                    BS_AUTORADIOBUTTON,196,68,40,10
+    CONTROL         "Top",IDC_PAPERFEED_EDGE_TOP,"Button",BS_AUTORADIOBUTTON,
+                    196,80,40,10
+    DEFPUSHBUTTON   "OK",IDOK,128,104,52,14
+    PUSHBUTTON      "Cancel",IDCANCEL,188,104,52,14
+    CONTROL         513,IDC_PAPERFEED_ACTIVE,"Static",SS_BITMAP,17,60,31,22
+    GROUPBOX        "",IDC_STATIC,8,44,52,52,WS_GROUP
+    CTEXT           "Example:",IDC_STATIC,8,36,52,8,SS_CENTERIMAGE
+END
+
+IDD_PAPERFEED DIALOGEX 0, 0, 128, 127
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Paper Feed Settings"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "Tell us how custom paper and envelopes feed into your printer.",
+                    IDC_STATIC,8,8,112,20
+    CTEXT           "Feeds from:",IDC_STATIC,68,36,52,8,SS_CENTERIMAGE
+    GROUPBOX        "",IDC_STATIC,68,44,52,52,WS_GROUP
+    CONTROL         "Left",IDC_PAPERFEED_POS_LEFT,"Button",
+                    BS_AUTORADIOBUTTON,76,56,40,10
+    CONTROL         "Center",IDC_PAPERFEED_POS_CENTER,"Button",
+                    BS_AUTORADIOBUTTON,76,68,40,10
+    CONTROL         "Right",IDC_PAPERFEED_POS_RIGHT,"Button",
+                    BS_AUTORADIOBUTTON,76,80,40,10
+    CONTROL         510,IDC_PAPERFEED_ACTIVE,"Static",SS_BITMAP,17,60,31,22
+    DEFPUSHBUTTON   "OK",IDOK,8,104,52,14
+    PUSHBUTTON      "Cancel",IDCANCEL,68,104,52,14
+    GROUPBOX        "",IDC_STATIC,8,44,52,52,WS_GROUP
+    CTEXT           "Example:",IDC_STATIC,8,36,52,8,SS_CENTERIMAGE
+END
+
+CHECKSPELLINGDLGORIG DIALOGEX 0, 0, 220, 200
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Check Spelling"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "S&uggestions:",ID_SUGGESTIONS_LBL,4,17,71,8
+    LISTBOX         ID_SUGGEST_LIST,78,17,88,71,WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Ignore",ID_IGNORE_BTN,170,2,45,12
+    PUSHBUTTON      "I&gnore All",ID_IGNORE_ALL_BTN,170,17,45,12
+    PUSHBUTTON      "&Change",ID_REPLACE_BTN,170,32,45,12
+    PUSHBUTTON      "Change A&ll",ID_REPLACE_ALL_BTN,170,47,45,12
+    PUSHBUTTON      "&Add",ID_ADD_TO_LEX_BTN,170,62,45,12
+    PUSHBUTTON      "&Suggest",ID_SUGGEST_BTN,170,77,45,12
+    LTEXT           "Add &words to:",ID_ADD_WORDS_LBL,4,95,72,8
+    COMBOBOX        ID_IGN_LEX_CB,78,92,88,40,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Dictio&naries...",ID_EDIT_LEX_BTN,4,112,51,16
+    PUSHBUTTON      "&Options...",ID_OPTIONS_BTN,58,112,51,16
+    PUSHBUTTON      "Cancel",IDCANCEL,166,112,51,16
+    LTEXT           "Consider Changing:",ID_PROBLEM_LBL,4,4,72,8,NOT 
+                    WS_GROUP
+    EDITTEXT        ID_PROBLEM_WORD_EDT,78,2,88,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Help...",ID_HELP_BTN,112,112,51,16
+    EDITTEXT        ID_CONTEXT_EDT,4,136,212,60,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_NOHIDESEL | 
+                    ES_READONLY | NOT WS_VISIBLE | WS_DISABLED | WS_VSCROLL | 
+                    WS_HSCROLL
+    PUSHBUTTON      "&Undo",ID_UNDO_BTN,170,92,45,12
+END
+
+IDD_CONVERT DIALOGEX 0, 0, 320, 162
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Convert Project"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Convert",IDOK,4,140,48,14
+    PUSHBUTTON      "Cancel",IDCANCEL,56,140,48,14
+    LTEXT           "Project type:",IDC_STATIC,4,8,100,8,SS_CENTERIMAGE
+    LTEXT           "Paper Type:",IDC_STATIC,4,44,100,8,SS_CENTERIMAGE
+    COMBOBOX        IDC_PAPERTYPE,4,56,152,100,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Project Size:",IDC_STATIC,4,80,100,8,SS_CENTERIMAGE
+    LTEXT           "Width: ",IDC_STATIC,8,92,24,12,SS_CENTERIMAGE
+    LTEXT           "Height: ",IDC_STATIC,8,112,24,12,SS_CENTERIMAGE
+    EDITTEXT        IDC_WIDTH,36,92,40,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_HEIGHT,36,112,40,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "inches",IDC_STATIC,80,92,24,12,SS_CENTERIMAGE
+    LTEXT           "inches",IDC_STATIC,80,112,24,12,SS_CENTERIMAGE
+    CTEXT           "Static",IDC_DOCTYPE,4,20,100,12,SS_NOPREFIX | 
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CONTROL         "",IDC_SAMPLE,"Static",SS_WHITERECT,176,20,120,120,
+                    WS_EX_DLGMODALFRAME
+END
+
+IDD_PANEL_GRAPHIC DIALOGEX 0, 0, 300, 48
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    CONTROL         615,IDC_SYMGRAPHIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,
+                    8,16,15,13
+    LTEXT           "Shape",IDC_TYPELABEL,8,5,31,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    LTEXT           "Inside Fill",IDC_BIGLABEL1,129,5,64,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_FILL_TYPE,129,16,64,220,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_SHAPE_NAME,36,16,87,220,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR2,161,30,32,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "Outline",IDC_BIGLABEL2,193,5,32,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_LINE_SIZE,193,16,32,220,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_LINE_COLOR,193,30,32,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "Name",IDC_BIGLABEL3,36,5,64,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_FILL_COLOR,129,30,32,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+END
+
+IDD_PANEL_DEFAULT DIALOGEX 0, 0, 300, 48
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "To edit text, pictures, or shapes, simply select the object you wish to change on the page below.",
+                    IDC_INSTRUCTLABEL,36,18,246,24,SS_NOPREFIX
+END
+
+IDD_PANEL_IMAGE DIALOGEX 0, 0, 300, 48
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 0, 0, 0x0
+BEGIN
+    CONTROL         614,IDC_SYMIMAGE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,
+                    16,15,13
+    LTEXT           "Picture",IDC_TYPELABEL,8,5,34,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    LTEXT           "Color Picker",IDC_BIGLABEL1,36,5,80,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_FILL_COLOR,36,16,32,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "Use the buttons on the left to move, size, or edit the selected picture.",
+                    IDC_INSTRUCTLABEL,36,18,246,24,SS_NOPREFIX
+END
+
+IDD_PANEL_PAGE DIALOGEX 0, 0, 224, 48
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    PUSHBUTTON      "X",IDC_DOC_PAGEDELETE,100,4,8,8,BS_ICON | BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    PUSHBUTTON      "+",IDC_DOC_PAGEADD,92,4,8,8,BS_ICON | BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    CONTROL         "",IDC_DOC_PAGENAV,"SysListView32",LVS_SINGLESEL | 
+                    LVS_SHAREIMAGELISTS | LVS_ALIGNLEFT | LVS_NOSCROLL | 
+                    WS_TABSTOP,15,16,86,28
+    LTEXT           "Page Name",IDC_DOC_PAGENAME,8,5,84,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    PUSHBUTTON      "<",IDC_DOC_PAGEPREV,7,16,8,28,BS_ICON | BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    PUSHBUTTON      "",IDC_DOC_PAGENEXT,101,16,8,28,BS_ICON | BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+END
+
+IDD_PANEL_INFO DIALOGEX 0, 0, 48, 21
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_INFO,0,0,47,21,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+END
+
+IDD_PANEL_CALENDAR DIALOGEX 0, 0, 300, 48
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 0, 0, 0x0
+BEGIN
+    CONTROL         616,IDC_SYMCALENDAR,"Static",SS_BITMAP | 
+                    SS_REALSIZEIMAGE,8,16,15,13
+    LTEXT           "Calendar",IDC_TYPELABEL,8,5,40,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    LTEXT           "Date",IDC_BIGLABEL1,52,5,32,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_CALENDAR_MONTH,52,16,40,220,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_CALENDAR_YEAR,52,30,40,220,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "Fonts",IDC_BIGLABEL3,104,5,32,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    PUSHBUTTON      "Month",IDC_CALENDAR_STYLEMONTH,104,16,32,9,BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    COMBOBOX        IDC_FILL_COLOR,144,16,64,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "Week",IDC_CALENDAR_STYLEWEEK,104,25,32,9,BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    COMBOBOX        IDC_FILL_COLOR2,144,30,32,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "Days",IDC_CALENDAR_STYLEDAYS,104,34,32,9,BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    COMBOBOX        IDC_FILL_COLOR3,176,30,32,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "Options",IDC_CALENDAR_LAYOUT,256,24,32,12
+    CTEXT           "Backgrounds",IDC_BIGLABEL4,144,5,64,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    LTEXT           "Outline",IDC_BIGLABEL2,216,5,32,8,SS_NOPREFIX | 
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_LINE_SIZE,216,16,32,220,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_LINE_COLOR,216,30,32,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+END
+
+IDD_ENVELOPE_SIZE_SELECT DIALOGEX 0, 0, 128, 257
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Select the Envelope Size",IDC_STATIC,4,4,120,120
+    LTEXT           "Choose the size of envelope you wish to create from the list below.",
+                    IDC_STATIC,8,20,112,20
+    LTEXT           "Height:",IDC_STATIC,24,80,32,8,SS_CENTERIMAGE
+    LTEXT           "Width:",IDC_STATIC,24,64,32,8,SS_CENTERIMAGE
+    COMBOBOX        IDC_NEWDOC_PAPERTYPE,8,44,112,136,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "static",IDC_NEWDOC_WIDTH,56,64,54,8
+    LTEXT           "static",IDC_NEWDOC_HEIGHT,56,80,54,8
+    CONTROL         "Show Background",IDC_ENABLE_BACKGROUND,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,184,112,10
+    LTEXT           "Check the ""Show Background"" box below to add a backgournd color to your envelope project.",
+                    IDC_STATIC,8,148,112,28
+    GROUPBOX        "Select a Background Color",IDC_STATIC,4,132,120,120
+    LTEXT           "You can change the color and style of the background by using the controls in the project workspace, located above your envelope project.",
+                    IDC_STATIC,8,204,112,44
+END
+
+IDD_ENVELOPE_ADDRESS_SELECT DIALOGEX 0, 0, 128, 257
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_RETURN_ADDRESS,8,52,112,66,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_SEND_ADDRESS,8,180,112,66,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    GROUPBOX        "Enter the Return Address",IDC_STATIC,4,4,120,120
+    LTEXT           "Type the recipient's mailing address  for your envelope, in the space below.",
+                    IDC_STATIC,8,148,112,28
+    LTEXT           "Type the return address for your envelope, in the space below.",
+                    IDC_STATIC,8,20,112,28
+    GROUPBOX        "Enter the Mailing Address",IDC_STATIC,4,132,120,120
+END
+
+IDD_ENVELOPE_PICT_SELECT DIALOGEX 0, 0, 128, 257
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Add Images to the Envelope",IDC_STATIC,4,4,120,248
+    LTEXT           "Add additional images to your envelope from the original card project.  Click and drag from the list of images below, and drop them anywhere on your envelope project.",
+                    IDC_STATIC,8,20,112,52
+    LTEXT           "After adding images to your envelope, you can click to select them and press the delete key to remove them.",
+                    IDC_STATIC,8,212,112,36
+    CONTROL         "",IDC_PICTURE_SELECT,"SysListView32",LVS_SINGLESEL | 
+                    LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | 
+                    WS_TABSTOP,8,72,112,136
+END
+
+IDD_ENVELOPE_COLOR_SELECT DIALOGEX 0, 0, 128, 257
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+END
+
+IDD_ENVELOPEWIZARD DIALOGEX 0, 0, 128, 285
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOPMOST | WS_EX_WINDOWEDGE
+CAPTION "Envelope Wizard"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Back",ID_PREV_VIEW,4,264,36,14
+    DEFPUSHBUTTON   "Next",ID_NEXT_VIEW,46,264,36,14
+    PUSHBUTTON      "Done",IDCANCEL,88,264,36,14
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,0,0,128,257
+END
+
+IDD_ENVELOPE_FINAL DIALOGEX 0, 0, 128, 257
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Your Envelope Is Complete!",IDC_STATIC,4,4,120,248
+    LTEXT           "Success!  You have just completed your matching envelope project.",
+                    IDC_STATIC,8,20,112,32
+    LTEXT           "After clicking the ""Done"" button below, you can then choose to ""Print"" your envelope, or you can continue to edit it with any of the tools available to you in the project workspace.",
+                    IDC_STATIC,8,56,112,56
+    LTEXT           "If you need to return to this wizard at any time, simply click on the Extra's icon in the upper right hand corner of the your project workspace.",
+                    IDC_STATIC,8,116,112,48
+END
+
+IDD_CALENDAR_LAYOUT DIALOGEX 0, 0, 208, 142
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Calendar Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "",IDC_STATIC,8,4,192,56
+    LTEXT           "Month and Year Bar",IDC_STATIC,12,24,72,8
+    LTEXT           "Day of Week Bar",IDC_STATIC,12,40,72,8
+    CTEXT           "Format",IDC_STATIC,84,12,72,8
+    CTEXT           "Height",IDC_STATIC,160,12,32,8
+    COMBOBOX        IDC_STYLE_MONTHYEAR,84,24,72,86,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_TITLE_SIZE,160,24,32,84,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_STYLE_WEEK,84,40,72,64,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_WEEK_SIZE,160,40,32,84,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,8,64,108,48
+    CONTROL         "Hide unused date boxes",IDC_UNUSEDBOXES_INVISIBLE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,72,96,11
+    CONTROL         "All unused boxes ",IDC_ALLBOXES,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,20,84,86,10
+    CONTROL         "Empty rows",IDC_LASTROW_BOXES,"Button",
+                    BS_AUTORADIOBUTTON,20,96,86,8
+    GROUPBOX        "",IDC_STATIC,124,64,76,48
+    CONTROL         "First day of week",IDC_STATIC,"Static",
+                    SS_LEFTNOWORDWRAP | WS_GROUP,128,72,56,8
+    CONTROL         "Sunday",IDC_SUNDAY_START,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,136,84,41,10
+    CONTROL         "Monday",IDC_MONDAY_START,"Button",BS_AUTORADIOBUTTON,
+                    136,96,41,10
+    DEFPUSHBUTTON   "OK",IDOK,44,121,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,112,121,50,14
+END
+
+IDD_HTMLDIALOG DIALOGEX 0, 0, 200, 100
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_ENVELOPES_2 DIALOGEX 0, 0, 316, 191
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Paper Feed Settings"
+FONT 9, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,198,166,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,253,166,50,14
+    CTEXT           "Please follow the steps below and tell us how envelopes feed into your printer:",
+                    IDC_HDR,8,5,300,20
+    CTEXT           "Step 2:",IDC_STEP2,92,32,61,9,SS_CENTERIMAGE
+    GROUPBOX        "",IDC_STATIC,88,24,67,91,WS_GROUP
+    CONTROL         "Left",IDC_PAPERFEED_POS_LEFT,"Button",
+                    BS_AUTORADIOBUTTON,103,72,40,11
+    CONTROL         "Center",IDC_PAPERFEED_POS_CENTER,"Button",
+                    BS_AUTORADIOBUTTON,103,85,40,11
+    CONTROL         "Right",IDC_PAPERFEED_POS_RIGHT,"Button",
+                    BS_AUTORADIOBUTTON,103,98,40,11
+    CTEXT           "Step 3:",IDC_STEP3,166,32,61,9,SS_CENTERIMAGE
+    GROUPBOX        "",IDC_STATIC,162,24,67,91,WS_GROUP
+    CONTROL         "Down",IDC_PAPERFEED_FACE_DOWN,"Button",
+                    BS_AUTORADIOBUTTON,175,69,40,11
+    CONTROL         "Up",IDC_PAPERFEED_FACE_UP,"Button",BS_AUTORADIOBUTTON,
+                    175,82,40,11
+    CTEXT           "Step 4:",IDC_STEP4,243,32,52,9,SS_CENTERIMAGE
+    GROUPBOX        "",IDC_STATIC,236,24,67,91,WS_GROUP
+    CONTROL         "Left",IDC_PAPERFEED_EDGE_LEFT,"Button",
+                    BS_AUTORADIOBUTTON,251,70,40,11
+    CONTROL         "Right",IDC_PAPERFEED_EDGE_RIGHT,"Button",
+                    BS_AUTORADIOBUTTON,251,83,40,11
+    CONTROL         "Top",IDC_PAPERFEED_EDGE_TOP,"Button",BS_AUTORADIOBUTTON,
+                    251,96,40,11
+    GROUPBOX        "",IDC_IMAGE_BOX,12,122,49,53,WS_GROUP
+    CTEXT           "Step 1:",IDC_STEP1,16,32,61,9
+    GROUPBOX        "",IDC_STATIC,15,24,67,91,WS_GROUP
+    CONTROL         "Bottom",IDC_PAPERFEED_BOTTOM,"Button",
+                    BS_AUTORADIOBUTTON,28,86,39,10
+    CONTROL         "Top",IDC_PAPERFEED_TOP,"Button",BS_AUTORADIOBUTTON,28,
+                    73,28,10
+    CONTROL         513,IDC_PAPERFEED_ACTIVE,"Static",SS_BITMAP,7,124,57,53
+    CTEXT           "Where is the envelope loaded into the printer?",
+                    IDC_STATIC,17,42,61,24
+    CTEXT           "Envelopes feed from:",IDC_STATIC,91,42,61,24
+    CTEXT           "The side to print on is facing:",IDC_STATIC,165,42,61,
+                    24
+    CTEXT           "Which side of the paper touches the side of your printer?",
+                    IDC_STATIC,239,42,61,24
+    CONTROL         "Check this box if the image to the left matches how envelopes load into your printer (if not, please change your answers to the questions above until the image matches your printer)",
+                    IDC_CHECKMATCH,"Button",BS_AUTOCHECKBOX | BS_TOP | 
+                    BS_MULTILINE | BS_FLAT | WS_TABSTOP,67,123,130,58
+END
+
+IDD_PAPERFEED_2 DIALOGEX 0, 0, 203, 195
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Paper Feed Settings"
+FONT 9, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,50,175,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,105,175,50,14
+    CTEXT           "Tell us how custom paper and envelopes feed into your printer:",
+                    IDC_HDR,8,5,174,18
+    CTEXT           "Step 2:",IDC_STEP2,115,30,67,8,SS_CENTERIMAGE
+    GROUPBOX        "",IDC_STATIC,107,24,80,88,WS_GROUP
+    CONTROL         "Left",IDC_PAPERFEED_POS_LEFT,"Button",
+                    BS_AUTORADIOBUTTON,131,70,40,11
+    CONTROL         "Center",IDC_PAPERFEED_POS_CENTER,"Button",
+                    BS_AUTORADIOBUTTON,131,83,40,11
+    CONTROL         "Right",IDC_PAPERFEED_POS_RIGHT,"Button",
+                    BS_AUTORADIOBUTTON,131,96,40,11
+    CONTROL         510,IDC_PAPERFEED_ACTIVE,"Static",SS_BITMAP,20,128,31,24
+    GROUPBOX        "",IDC_IMAGE_BOX,11,117,47,43,WS_GROUP
+    CTEXT           "Step 1:",IDC_STEP1,23,30,67,8
+    GROUPBOX        "",IDC_STATIC,17,24,80,88
+    CTEXT           "Where is the paper loaded into the printer?",IDC_STATIC,
+                    24,39,62,25
+    CTEXT           "Custom sized paper feeds from:",IDC_STATIC,117,39,62,24
+    CONTROL         "Top",IDC_PAPERFEED_TOP,"Button",BS_AUTORADIOBUTTON,38,
+                    70,39,10
+    CONTROL         "Bottom",IDC_PAPERFEED_BOTTOM,"Button",
+                    BS_AUTORADIOBUTTON,38,83,39,10
+    CONTROL         "Check this box if the image to the left matches how paper loads into your printer (if not, please change your answers to the questions above until the image matches your printer)",
+                    IDC_CHECKMATCH,"Button",BS_AUTOCHECKBOX | BS_TOP | 
+                    BS_MULTILINE | BS_FLAT | WS_TABSTOP,63,117,131,58
+END
+
+IDD_ENVELOPESETTINGS_DIALOG DIALOGEX 0, 0, 329, 370
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Create & Print"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_NEWDOC_PAPERTYPE,180,30,112,136,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Yes, show background",IDC_ENABLE_BACKGROUND,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,180,77,122,14
+    CONTROL         "",IDC_PICTURE_SELECT,"SysListView32",LVS_SINGLESEL | 
+                    LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | 
+                    WS_TABSTOP,180,111,132,87
+    EDITTEXT        IDC_RETURN_ADDRESS,33,252,112,63,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_SEND_ADDRESS,191,252,112,63,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    DEFPUSHBUTTON   "OK",IDOK,204,352,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,273,352,50,14
+    LTEXT           "1. Choose the size of the envelope:",IDC_STEP1_STATIC,
+                    22,28,117,13
+    LTEXT           "2. Change Background Color:",IDC_STEP2A_STATIC,22,50,
+                    126,8
+    LTEXT           "You can change the color and style of the envelope's background by using the tools in the project workspace (after clicking 'OK').",
+                    IDC_STEP2B_STATIC,30,63,147,28
+    LTEXT           "3. Add images to your envelope:",IDC_STEP3_STATIC,21,
+                    108,115,8
+    LTEXT           "4. Enter the return and mailing address:",
+                    IDC_STEP4_STATIC,21,209,150,8
+    GROUPBOX        " Return Address ",IDC_RETURN_STATIC,23,228,132,103
+    GROUPBOX        " Mailing Address ",IDC_MAILING_STATIC,180,228,132,103
+    LTEXT           "Click and drag from the list of images to the right, and drop them anywhere on your envelope project.",
+                    IDC_STEP3A_STATIC,31,122,112,36
+    LTEXT           "After adding images to your envelope, you can click to select them and press the delete key to remove them.",
+                    IDC_STEP3B_STATIC,31,159,112,39
+    GROUPBOX        " Envelope Wizard ",IDC_ENVELOPEWIZ_STATIC,8,7,315,338
+END
+
+IDD_ENVELOPEDLG2 DIALOG  0, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,129,26,50,16
+END
+
+IDD_TOOLSPANEL_TEXT DIALOGEX 0, 0, 493, 17
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_FONT,8,1,77,244,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_TEXT_SIZE,86,1,26,244,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_TYPE,288,1,57,244,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR,347,1,25,244,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR2,373,1,25,244,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_LINE_SIZE,418,1,32,244,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_LINE_COLOR,451,1,25,244,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    CONTROL         "",IDC_BOLD,"Button",BS_AUTOCHECKBOX | BS_ICON | 
+                    BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,118,1,14,13
+    CONTROL         "",IDC_ITALIC,"Button",BS_AUTOCHECKBOX | BS_ICON | 
+                    BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,134,1,14,13
+    CONTROL         "",IDC_UNDERLINE,"Button",BS_AUTOCHECKBOX | BS_ICON | 
+                    BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,150,1,14,13
+    RADIOBUTTON     "",IDC_LEFT,170,1,14,13,BS_ICON | BS_PUSHLIKE | WS_GROUP
+    RADIOBUTTON     "",IDC_CENTER,186,1,14,13,BS_ICON | BS_PUSHLIKE | 
+                    WS_GROUP
+    RADIOBUTTON     "",IDC_RIGHT,202,1,14,13,BS_ICON | BS_PUSHLIKE | 
+                    WS_GROUP
+    RADIOBUTTON     "",IDC_TOP,217,1,14,13,BS_ICON | BS_PUSHLIKE | WS_GROUP
+    RADIOBUTTON     "",IDC_MIDDLE,233,1,14,13,BS_ICON | BS_PUSHLIKE | 
+                    WS_GROUP
+    RADIOBUTTON     "",IDC_BOTTOM,249,1,14,13,BS_ICON | BS_PUSHLIKE | 
+                    WS_GROUP
+    CONTROL         729,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,265,1,
+                    4,14
+    CONTROL         729,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,166,1,
+                    4,14
+    CONTROL         729,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,114,1,
+                    4,14
+    CONTROL         731,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,272,1,
+                    15,13
+    CONTROL         730,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,403,1,
+                    15,13
+END
+
+IDD_TOOLSPANEL_COMMON DIALOGEX 0, 0, 493, 17
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_SHAPE_NAME,32,1,87,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FILL_TYPE,128,1,24,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_LINE_SIZE,211,1,33,13,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR,156,1,23,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR2,184,1,24,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_LINE_COLOR,253,1,77,30,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_TOOLSPANEL_DEFAULT DIALOGEX 0, 0, 493, 17
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+END
+
+IDD_TOOLSPANEL_GRAPHIC DIALOGEX 0, 0, 493, 17
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_SHAPE_NAME,23,1,74,244,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_TYPE,121,1,62,244,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR,184,1,28,244,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR2,212,1,28,244,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_LINE_SIZE,261,1,45,244,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_LINE_COLOR,307,1,28,244,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    CONTROL         762,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,8,1,
+                    15,13
+    CONTROL         729,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,99,1,
+                    5,13
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,106,1,
+                    15,13
+    CONTROL         763,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,243,1,
+                    15,13
+END
+
+IDD_TOOLSPANEL_CALENDAR DIALOGEX 0, 0, 493, 17
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_CALENDAR_MONTH,27,1,40,220,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_CALENDAR_YEAR,68,1,40,220,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR,137,1,64,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR2,203,1,26,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_FILL_COLOR3,230,1,26,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_LINE_SIZE,280,1,32,220,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_LINE_COLOR,313,1,26,220,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "",IDC_CALENDAR_STYLEMONTH,364,1,26,12,BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    PUSHBUTTON      "",IDC_CALENDAR_STYLEWEEK,393,1,26,12,BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    PUSHBUTTON      "",IDC_CALENDAR_STYLEDAYS,421,1,26,12,BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    PUSHBUTTON      "",IDC_CALENDAR_LAYOUT,449,1,26,12,BS_CENTER | 
+                    BS_VCENTER
+    CONTROL         766,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,8,1,
+                    15,13
+    CONTROL         729,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,110,1,
+                    5,13
+    CONTROL         767,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,118,1,
+                    15,13
+    CONTROL         765,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,261,1,
+                    15,13
+    CONTROL         729,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,341,1,
+                    5,13
+    CONTROL         731,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,346,1,
+                    15,13
+END
+
+IDD_NAV_PANEL DIALOGEX 0, 0, 359, 21
+STYLE DS_SETFONT | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_DOC_PAGENAV,"SysListView32",LVS_SINGLESEL | 
+                    LVS_SHAREIMAGELISTS | LVS_ALIGNLEFT | LVS_NOSCROLL | 
+                    WS_TABSTOP,16,1,267,17
+    PUSHBUTTON      "<",IDC_DOC_PAGEPREV,4,2,12,15,BS_ICON | BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    PUSHBUTTON      "",IDC_DOC_PAGENEXT,283,2,12,15,BS_ICON | BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    PUSHBUTTON      "X",IDC_DOC_PAGEDELETE,302,7,40,6,BS_ICON | BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+    PUSHBUTTON      "+",IDC_DOC_PAGEADD,303,1,40,6,BS_ICON | BS_CENTER | 
+                    BS_VCENTER | WS_GROUP
+END
+
+IDD_PRINT2 DIALOGEX 0, 0, 453, 147
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_FIXEDSYS | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Print"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        1139,51,26,152,152,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "&Properties",1025,211,24,60,15,WS_GROUP
+    CONTROL         "Force Borderless Printing",IDC_BORDERLESS,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_GROUP | WS_TABSTOP,
+                    51,81,152,11
+    CONTROL         "Hidden Port",1101,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOPREFIX | NOT WS_VISIBLE,211,70,64,11
+    CONTROL         "Print to fi&le",1040,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,211,81,64,13
+    EDITTEXT        1154,351,26,32,13,ES_NUMBER | WS_GROUP
+    GROUPBOX        " Paper Type ",IDC_PAPERTYPE_LABEL,293,55,152,55
+    CONTROL         "Quarter-fold",IDC_QUARTERFOLD,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,299,69,128,11
+    CONTROL         "Half-fold",IDC_HALFFOLD,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,299,82,128,11
+    COMBOBOX        IDC_PAPERTYPE,299,76,136,80,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    CONTROL         "",IDC_DBLSIDE,"Button",BS_AUTOCHECKBOX | WS_GROUP | 
+                    WS_TABSTOP,311,95,11,11
+    LTEXT           "Run a Paper Feed Print Test",IDC_DBLSIDE2,325,95,105,11
+    DEFPUSHBUTTON   "OK",IDOK,329,129,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,395,129,50,14
+    GROUPBOX        " Select Printer ",IDC_SELECTPRINTER_GROUP,9,10,272,100
+    LTEXT           "&Name:",1093,15,27,36,11
+    LTEXT           "Status:",1095,15,44,36,11,SS_NOPREFIX
+    CONTROL         "",1099,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | 
+                    WS_GROUP,51,44,224,11
+    LTEXT           "Type:",1094,15,57,36,11,SS_NOPREFIX
+    CONTROL         "",1098,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | 
+                    WS_GROUP,51,57,224,11
+    GROUPBOX        " Copies ",IDC_COPIES_GROUP,293,10,152,36
+    LTEXT           "N&umber:",1103,315,26,31,11,SS_CENTERIMAGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_1UP                 BITMAP                  "Res\\1up.bmp"
+IDB_2UP                 BITMAP                  "Res\\2up.bmp"
+IDB_3UP                 BITMAP                  "Res\\3up.bmp"
+IDB_2DOWN               BITMAP                  "Res\\2down.bmp"
+IDB_1UP2DOWN            BITMAP                  "Res\\1up2down.bmp"
+IDB_SYMTEXT             BITMAP                  "Res\\SymText.bmp"
+IDB_SYMIMAGE            BITMAP                  "Res\\SymImage.bmp"
+IDB_SYMGRAPHIC          BITMAP                  "Res\\SymGraphic.bmp"
+IDB_SYMCALENDAR         BITMAP                  "Res\\SymCalendar.bmp"
+IDB_HATCH_BORDER        BITMAP                  "Res\\sel_bord.bmp"
+IDB_HATCH_BORDER_1      BITMAP                  "Res\\sel_bord_1.bmp"
+IDB_DIVIDER             BITMAP                  "Res\\Tool_divider.bmp"
+IDB_TEXT_OUTLINE        BITMAP                  "Res\\Tool_Text_Outline.bmp"
+IDB_TEXT_COLOR          BITMAP                  "Res\\Tool_Text_Color.bmp"
+IDB_GRAPHIC_ICON        BITMAP                  "Res\\Graphic_Icon.bmp"
+IDB_GRAPHIC_OUTLINE     BITMAP                  "Res\\Graphic_Outline.bmp"
+IDB_GRAPHIC_FILL        BITMAP                  "Res\\Graphic_Fill.bmp"
+IDB_CALENDAR_OUTLINE    BITMAP                  "Res\\Calendar_Outline.bmp"
+IDB_CALENDAR_ICON       BITMAP                  "Res\\Calendar_Icon.bmp"
+IDB_CALENDAR_FILL       BITMAP                  "Res\\Calendar_Fill.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// GIF
+//
+
+IDR_AGLOGO              GIF                     "Res\\AGlogo.gif"
+IDR_BMLOGO              GIF                     "Res\\BMlogo.gif"
+IDR_HPLOGO              GIF                     "Res\\HPlogo.gif"
+IDR_HPAGLOGO            GIF                     "Res\\HPAGlogo.gif"
+IDB_CTLPANELBG          GIF                     "Res\\CtlPanel.gif"
+IDB_CTLPANELBG_HP       GIF                     "Res\\CtlPanel_hp.gif"
+IDB_BACK                GIF                     "Res\\Back.gif"
+IDR_CAL_BTNWEEK         GIF                     "Res\\week.gif"
+IDR_CAL_BTNDAYS         GIF                     "Res\\days.gif"
+IDR_CAL_BTNMONTH        GIF                     "Res\\month.gif"
+IDR_CAL_BTNOPTIONS      GIF                     "Res\\options.gif"
+IDB_TOOLPANEL_AG        GIF                     "Res\\top_toolbar_dflt.gif"
+IDR_NAVTOOLBAR_BG       GIF                     "Res\\nav_toolbar_bg.gif"
+IDR_BOLD                GIF                     "Res\\Tool_bold.gif"
+IDR_UNDERLINE           GIF                     "Res\\Tool_Underline.gif"
+IDR_ITALIC              GIF                     "Res\\Tool_Italics.gif"
+IDR_RIGHT               GIF                     "Res\\Tool_Right.gif"
+IDR_LEFT                GIF                     "Res\\Tool_Left.gif"
+IDR_CENTER              GIF                     "Res\\Tool_Center.gif"
+IDR_TOP                 GIF                     "Res\\Tool_Top.gif"
+IDR_MIDDLE              GIF                     "Res\\Tool_Middle.gif"
+IDR_BOTTOM              GIF                     "Res\\Tool_Bottom.gif"
+IDR_PAGE_P1S            GIF                     "Res\\page_p1s.gif"
+IDR_PAGE_CP1S           GIF                     "Res\\page_cp1s.gif"
+IDR_PAGE_CP2            GIF                     "Res\\page_cp2.gif"
+IDR_PAGE_CP2S           GIF                     "Res\\page_cp2s.gif"
+IDR_PAGE_CP3            GIF                     "Res\\page_cp3.gif"
+IDR_PAGE_CP3S           GIF                     "Res\\page_cp3s.gif"
+IDR_PAGE_CP4            GIF                     "Res\\page_cp4.gif"
+IDR_PAGE_CP4S           GIF                     "Res\\page_cp4s.gif"
+IDR_PAGE_P1             GIF                     "Res\\page_p1.gif"
+IDR_PAGE_CP1            GIF                     "Res\\page_cp1.gif"
+IDR_PAGE_L1S            GIF                     "Res\\page_l1s.gif"
+IDR_PAGE_CL1S           GIF                     "Res\\page_cl1s.gif"
+IDR_PAGE_CL2            GIF                     "Res\\page_cl2.gif"
+IDR_PAGE_CL2S           GIF                     "Res\\page_cl2s.gif"
+IDR_PAGE_CL3            GIF                     "Res\\page_cl3.gif"
+IDR_PAGE_CL3S           GIF                     "Res\\page_cl3s.gif"
+IDR_PAGE_CL4            GIF                     "Res\\page_cl4.gif"
+IDR_PAGE_CL4S           GIF                     "Res\\page_cl4s.gif"
+IDR_PAGE_L1             GIF                     "Res\\page_l1.gif"
+IDR_PAGE_CL1            GIF                     "Res\\page_cl1.gif"
+IDR_PAGEPREV            GIF                     "Res\\PagePrev.gif"
+IDR_PAGENEXT            GIF                     "Res\\PageNext.gif"
+IDR_PAGEDELETE          GIF                     "Res\\PageDelete.gif"
+IDR_PAGEADD             GIF                     "Res\\PageAdd.gif"
+IDB_TOP_FEED_RIGHT      GIF                     "Res\\feed_right_top.gif"
+IDB_ENV_BCDR            GIF                     "Res\\env_cdr.gif"
+IDB_ENV_BCDT            GIF                     "Res\\env_cdt.gif"
+IDB_ENV_BCUL            GIF                     "Res\\env_cul.gif"
+IDB_ENV_BCUR            GIF                     "Res\\env_cur.gif"
+IDB_ENV_BCUT            GIF                     "Res\\env_cut.gif"
+IDB_ENV_BLDL            GIF                     "Res\\env_ldl.gif"
+IDB_ENV_BLDR            GIF                     "Res\\env_ldr.gif"
+IDB_ENV_BLDT            GIF                     "Res\\env_ldt.gif"
+IDB_ENV_BLUL            GIF                     "Res\\env_lul.gif"
+IDB_ENV_BLUR            GIF                     "Res\\env_lur.gif"
+IDB_ENV_BLUT            GIF                     "Res\\env_lut.gif"
+IDB_ENV_BRDL            GIF                     "Res\\env_rdl.gif"
+IDB_ENV_BRDR            GIF                     "Res\\env_rdr.gif"
+IDB_ENV_BRDT            GIF                     "Res\\env_rdt.gif"
+IDB_ENV_BRUL            GIF                     "Res\\env_rul.gif"
+IDB_ENV_BRUR            GIF                     "Res\\env_rur.gif"
+IDB_ENV_BRUT            GIF                     "Res\\env_rut.gif"
+IDB_ENV_TCDL            GIF                     "Res\\env_tcdl.gif"
+IDB_ENV_TCDR            GIF                     "Res\\env_tcdr.gif"
+IDB_ENV_TCDT            GIF                     "Res\\env_tcdt.gif"
+IDB_ENV_TCUL            GIF                     "Res\\env_tcul.gif"
+IDB_ENV_TCUR            GIF                     "Res\\env_tcur.gif"
+IDB_ENV_TCUT            GIF                     "Res\\env_tcut.gif"
+IDB_ENV_TLDL            GIF                     "Res\\env_tldl.gif"
+IDB_ENV_TLDR            GIF                     "Res\\env_tldr.gif"
+IDB_ENV_TLUL            GIF                     "Res\\env_tlul.gif"
+IDB_ENV_TLUR            GIF                     "Res\\env_tlur.gif"
+IDB_ENV_TRDL            GIF                     "Res\\env_trdl.gif"
+IDB_ENV_TRDR            GIF                     "Res\\env_trdr.gif"
+IDB_ENV_TRDT            GIF                     "Res\\env_trdt.gif"
+IDB_ENV_TRUL            GIF                     "Res\\env_trul.gif"
+IDB_ENV_TRUR            GIF                     "Res\\env_trur.gif"
+IDB_ENV_TRUT            GIF                     "Res\\env_trut.gif"
+IDB_FEED_CENTER         GIF                     "Res\\feed_center_bottom.gif"
+IDB_TOP_FEED_CENTER     GIF                     "Res\\feed_center_top.gif"
+IDB_FEED_LEFT           GIF                     "Res\\feed_left_bottom.gif"
+IDB_TOP_FEED_LEFT       GIF                     "Res\\feed_left_top.gif"
+IDB_FEED_RIGHT          GIF                     "Res\\feed_right_bottom.gif"
+IDB_ENV_BCDL            GIF                     "Res\\env_cdl.gif"
+IDB_ENV_TLDT            GIF                     "res\\env_tldt.gif"
+IDB_ENV_TLUT            GIF                     "Res\\env_tlut.gif"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_POPUPMENU MENU 
+BEGIN
+    POPUP "(Popup Menu)"
+    BEGIN
+        POPUP "Project"
+        BEGIN
+            MENUITEM "Open...",                     IDC_DOC_OPEN
+            MENUITEM "Close",                       IDC_DOC_CLOSE
+            MENUITEM "Save",                        IDC_DOC_SAVE
+            MENUITEM "Save As...",                  IDC_DOC_SAVEAS
+            MENUITEM "Print...",                    IDC_DOC_PRINT
+            MENUITEM "Spell Check...",              IDC_DOC_SPELLCHECK
+        END
+        POPUP "Add"
+        BEGIN
+            MENUITEM "Text Box",                    IDC_DOC_ADDTEXTBOX
+            MENUITEM "Picture...",                  IDC_DOC_ADDIMAGE
+            MENUITEM "Shape...",                    IDC_DOC_ADDSHAPE
+        END
+        POPUP "Zoom"
+        BEGIN
+            MENUITEM "In",                          IDC_DOC_ZOOMIN
+            MENUITEM "Out",                         IDC_DOC_ZOOMOUT
+            MENUITEM "Full",                        IDC_DOC_ZOOMFULL
+            MENUITEM "Page Width",                  IDC_DOC_ZOOM1
+            MENUITEM "Selection",                   IDC_DOC_ZOOM2
+            MENUITEM "300%",                        IDC_DOC_ZOOM3
+            MENUITEM "400%",                        IDC_DOC_ZOOM4
+            MENUITEM "500%",                        IDC_DOC_ZOOM5
+        END
+        POPUP "Transform"
+        BEGIN
+            MENUITEM "Move/Size",                   IDC_DOC_TRANSFORM
+            MENUITEM "Flip Top To Bottom",          IDC_DOC_FLIP
+            MENUITEM "Mirror Left To Right",        IDC_DOC_MIRROR
+            MENUITEM "Rotate Clockwise",            IDC_DOC_ROTATECW
+            MENUITEM "Rotate Counter Clockwise",    IDC_DOC_ROTATECCW
+        END
+        POPUP "Position"
+        BEGIN
+            MENUITEM "Center",                      IDC_DOC_POSCENTER
+            MENUITEM "Center Horizontally",         IDC_DOC_POSCENTERH
+            MENUITEM "Center Vertically",           IDC_DOC_POSCENTERV
+            MENUITEM "At Left",                     IDC_DOC_POSLEFT
+            MENUITEM "At Right",                    IDC_DOC_POSRIGHT
+            MENUITEM "At Top-Left",                 IDC_DOC_POSTOPLEFT
+            MENUITEM "At Top",                      IDC_DOC_POSTOP
+            MENUITEM "At Top-Right",                IDC_DOC_POSTOPRIGHT
+            MENUITEM "At Bottom-Left",              IDC_DOC_POSBOTTOMLEFT
+            MENUITEM "At Bottom",                   IDC_DOC_POSBOTTOM
+            MENUITEM "At Bottom-Right",             IDC_DOC_POSBOTTOMRIGHT
+        END
+        POPUP "Layers"
+        BEGIN
+            MENUITEM "Push To Back",                IDC_DOC_PUSHTOBACK
+            MENUITEM "Back One",                    IDC_DOC_BACKONE
+            MENUITEM "Forward One",                 IDC_DOC_FORWARDONE
+            MENUITEM "Bring To Front",              IDC_DOC_BRINGTOFRONT
+        END
+        POPUP "Select"
+        BEGIN
+            MENUITEM "Previous",                    IDC_DOC_SELECTPREV
+            MENUITEM "Next",                        IDC_DOC_SELECTNEXT
+            MENUITEM "All Text",                    IDC_DOC_SELECTALL
+        END
+        POPUP "Size"
+        BEGIN
+            MENUITEM "Maximize",                    IDC_DOC_MAXIMIZE
+            MENUITEM "Maximize Width",              IDC_DOC_MAXWIDTH
+            MENUITEM "Maximum Height",              IDC_DOC_MAXHEIGHT
+        END
+        POPUP "Page"
+        BEGIN
+            MENUITEM "Previous",                    IDC_DOC_PAGEPREV
+            MENUITEM "Next",                        IDC_DOC_PAGENEXT
+            MENUITEM "Add...",                      IDC_DOC_PAGEADD
+            MENUITEM "Delete...",                   IDC_DOC_PAGEDELETE
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Undo",                        IDC_DOC_UNDO
+        MENUITEM "Redo",                        IDC_DOC_REDO
+        MENUITEM "Cut",                         IDC_DOC_CUT
+        MENUITEM "Copy",                        IDC_DOC_COPY
+        MENUITEM "Paste",                       IDC_DOC_PASTE
+        MENUITEM "Delete",                      IDC_DOC_DELETE
+        MENUITEM "Snap to Grid",                IDC_DOC_GRID
+        MENUITEM SEPARATOR
+        MENUITEM "Download Fonts...",           IDC_DOC_DOWNLOADFONTS
+        MENUITEM "Download Spell Check...",     IDC_DOC_DOWNLOADSPELLCHECK
+        MENUITEM "Envelope Wizard...",          IDC_DOC_ENVELOPE_WIZ
+        MENUITEM SEPARATOR
+        MENUITEM "About...",                    IDC_ABOUT
+    END
+END
+
+IDR_POPUPMENU_EX MENU 
+BEGIN
+    POPUP "(Popup Menu)"
+    BEGIN
+        POPUP "Project"
+        BEGIN
+            MENUITEM "New...",                      IDC_DOC_NEW
+            MENUITEM "Open...",                     IDC_DOC_OPEN
+            MENUITEM "Close",                       IDC_DOC_CLOSE
+            MENUITEM "Save",                        IDC_DOC_SAVE
+            MENUITEM "Save As...",                  IDC_DOC_SAVEAS
+            MENUITEM "Save As PDF...",              IDC_DOC_SAVEAS_PDF
+            MENUITEM "Save As XML...",              IDC_DOC_SAVEAS_XML
+            MENUITEM "Print...",                    IDC_DOC_PRINT
+            MENUITEM "Spell Check...",              IDC_DOC_SPELLCHECK
+            MENUITEM "Convert...",                  IDC_DOC_CONVERT
+            MENUITEM "Properties...",               IDC_DOC_PROPERTIES
+        END
+        POPUP "Add"
+        BEGIN
+            MENUITEM "Text Box",                    IDC_DOC_ADDTEXTBOX
+            MENUITEM "Picture...",                  IDC_DOC_ADDIMAGE
+            MENUITEM "Shape...",                    IDC_DOC_ADDSHAPE
+            MENUITEM "Calendar...",                 IDC_DOC_ADDCALENDAR
+            MENUITEM SEPARATOR
+            MENUITEM "Add-A-Photo® box",            IDC_DOC_ADDAPHOTO
+        END
+        POPUP "Zoom"
+        BEGIN
+            MENUITEM "In",                          IDC_DOC_ZOOMIN
+            MENUITEM "Out",                         IDC_DOC_ZOOMOUT
+            MENUITEM "Full",                        IDC_DOC_ZOOMFULL
+            MENUITEM "Page Width",                  IDC_DOC_ZOOM1
+            MENUITEM "Selection",                   IDC_DOC_ZOOM2
+            MENUITEM "300%",                        IDC_DOC_ZOOM3
+            MENUITEM "400%",                        IDC_DOC_ZOOM4
+            MENUITEM "500%",                        IDC_DOC_ZOOM5
+        END
+        POPUP "Transform"
+        BEGIN
+            MENUITEM "Move/Size",                   IDC_DOC_TRANSFORM
+            MENUITEM "Flip Top To Bottom",          IDC_DOC_FLIP
+            MENUITEM "Mirror Left To Right",        IDC_DOC_MIRROR
+            MENUITEM "Rotate Clockwise",            IDC_DOC_ROTATECW
+            MENUITEM "Rotate Counter Clockwise",    IDC_DOC_ROTATECCW
+        END
+        POPUP "Position"
+        BEGIN
+            MENUITEM "Center",                      IDC_DOC_POSCENTER
+            MENUITEM "Center Horizontally",         IDC_DOC_POSCENTERH
+            MENUITEM "Center Vertically",           IDC_DOC_POSCENTERV
+            MENUITEM "At Left",                     IDC_DOC_POSLEFT
+            MENUITEM "At Right",                    IDC_DOC_POSRIGHT
+            MENUITEM "At Top-Left",                 IDC_DOC_POSTOPLEFT
+            MENUITEM "At Top",                      IDC_DOC_POSTOP
+            MENUITEM "At Top-Right",                IDC_DOC_POSTOPRIGHT
+            MENUITEM "At Bottom-Left",              IDC_DOC_POSBOTTOMLEFT
+            MENUITEM "At Bottom",                   IDC_DOC_POSBOTTOM
+            MENUITEM "At Bottom-Right",             IDC_DOC_POSBOTTOMRIGHT
+        END
+        POPUP "Layers"
+        BEGIN
+            MENUITEM "Push To Back",                IDC_DOC_PUSHTOBACK
+            MENUITEM "Back One",                    IDC_DOC_BACKONE
+            MENUITEM "Forward One",                 IDC_DOC_FORWARDONE
+            MENUITEM "Bring To Front",              IDC_DOC_BRINGTOFRONT
+        END
+        POPUP "Select"
+        BEGIN
+            MENUITEM "Previous",                    IDC_DOC_SELECTPREV
+            MENUITEM "Next",                        IDC_DOC_SELECTNEXT
+            MENUITEM "All Text",                    IDC_DOC_SELECTALL
+        END
+        POPUP "Size"
+        BEGIN
+            MENUITEM "Maximize",                    IDC_DOC_MAXIMIZE
+            MENUITEM "Maximize Width",              IDC_DOC_MAXWIDTH
+            MENUITEM "Maximum Height",              IDC_DOC_MAXHEIGHT
+        END
+        POPUP "Page"
+        BEGIN
+            MENUITEM "Previous",                    IDC_DOC_PAGEPREV
+            MENUITEM "Next",                        IDC_DOC_PAGENEXT
+            MENUITEM "Add...",                      IDC_DOC_PAGEADD
+            MENUITEM "Delete...",                   IDC_DOC_PAGEDELETE
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Undo",                        IDC_DOC_UNDO
+        MENUITEM "Redo",                        IDC_DOC_REDO
+        MENUITEM "Cut",                         IDC_DOC_CUT
+        MENUITEM "Copy",                        IDC_DOC_COPY
+        MENUITEM "Paste",                       IDC_DOC_PASTE
+        MENUITEM "Delete",                      IDC_DOC_DELETE
+        MENUITEM "Snap to Grid",                IDC_DOC_GRID
+        MENUITEM SEPARATOR
+        MENUITEM "Download Fonts...",           IDC_DOC_DOWNLOADFONTS
+        MENUITEM "Download Spell Check...",     IDC_DOC_DOWNLOADSPELLCHECK
+        MENUITEM "Envelope Wizard...",          IDC_DOC_ENVELOPE_WIZ
+        MENUITEM SEPARATOR
+        MENUITEM "About...",                    IDC_ABOUT
+        MENUITEM SEPARATOR
+        MENUITEM "Locked",                      IDC_DOC_LOCKED
+        MENUITEM "Transparent",                 IDC_DOC_TRANSPARENT
+        MENUITEM "Hidden",                      IDC_DOC_HIDDEN
+        MENUITEM "Show All Hidden",             IDC_DOC_SHOWHIDDEN
+        MENUITEM SEPARATOR
+        POPUP "Convert Art to JPG"
+        BEGIN
+            MENUITEM "Q10",                         IDC_CONVERT_TO_JPG10
+            MENUITEM "Q20",                         IDC_CONVERT_TO_JPG20
+            MENUITEM "Q30",                         IDC_CONVERT_TO_JPG30
+            MENUITEM "Q40",                         IDC_CONVERT_TO_JPG40
+            MENUITEM "Q50",                         IDC_CONVERT_TO_JPG50
+            MENUITEM "Q55",                         IDC_CONVERT_TO_JPG55
+            MENUITEM "Q60",                         IDC_CONVERT_TO_JPG60
+            MENUITEM "Q65",                         IDC_CONVERT_TO_JPG65
+            MENUITEM "Q70",                         IDC_CONVERT_TO_JPG70
+            MENUITEM "Q75",                         IDC_CONVERT_TO_JPG75
+            MENUITEM "Q80",                         IDC_CONVERT_TO_JPG80
+            MENUITEM "Q85",                         IDC_CONVERT_TO_JPG85
+            MENUITEM "Q90",                         IDC_CONVERT_TO_JPG90
+            MENUITEM "Q95",                         IDC_CONVERT_TO_JPG95
+        END
+        MENUITEM "Edit Master Layer",           IDC_DOC_MASTERLAYER
+        MENUITEM "Metric",                      IDC_DOC_METRIC
+        MENUITEM "Crop Art...",                 IDC_DOC_CROP
+        MENUITEM "Access the Art Gallery...",   IDC_DOC_ARTGALLERY
+    END
+END
+
+IDR_POPUPMENU_EXTRAS MENU 
+BEGIN
+    POPUP "Extras"
+    BEGIN
+        MENUITEM "&Check for Updates...",       IDC_CHECKFORUPDATES
+        MENUITEM "Download Fonts...",           IDC_DOC_DOWNLOADFONTS
+        MENUITEM "Download Spell Check...",     IDC_DOC_DOWNLOADSPELLCHECK
+        MENUITEM "Envelope Wizard...",          IDC_DOC_ENVELOPE_WIZ
+        MENUITEM SEPARATOR
+        MENUITEM "About...",                    IDC_ABOUT
+    END
+END
+
+IDR_POPUPMENU_FILE MENU 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "&Open \tCtrl+O",              IDC_DOC_OPEN
+        MENUITEM "&Close",                      IDC_DOC_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "&Save \tCtrl+S",              IDC_DOC_SAVE
+        MENUITEM "Save &As",                    IDC_DOC_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print \tCtrl+P",             IDC_DOC_PRINT
+    END
+END
+
+IDR_POPUPMENU_EDIT MENU 
+BEGIN
+    POPUP "Edit"
+    BEGIN
+        MENUITEM "&Undo",                       IDC_DOC_UNDO
+        MENUITEM "&Redo",                       IDC_DOC_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t",                        IDC_DOC_CUT
+        MENUITEM "&Copy",                       IDC_DOC_COPY
+        MENUITEM "&Paste",                      IDC_DOC_PASTE
+        MENUITEM "&Delete",                     IDC_DOC_DELETE
+        MENUITEM SEPARATOR
+        POPUP "&Layers..."
+        BEGIN
+            MENUITEM "Send Object to &Back",        IDC_DOC_PUSHTOBACK
+            MENUITEM "Send Object to &Front",       IDC_DOC_BRINGTOFRONT
+        END
+    END
+END
+
+IDR_POPUPMENU_VIEW MENU 
+BEGIN
+    POPUP "View"
+    BEGIN
+        MENUITEM "View &All",                   ID_VIEW_ZOOMFULL
+        MENUITEM "Page &Width",                 ID_VIEW_PAGEWIDTH
+        MENUITEM "&Selection",                  ID_VIEW_SELECTION
+        POPUP "&Zoom..."
+        BEGIN
+            MENUITEM "25%",                         ID_ZOOM_25
+            MENUITEM "&33%",                        ID_ZOOM_33
+            MENUITEM "&50%",                        ID_ZOOM_50
+            MENUITEM "&75%",                        ID_ZOOM_75
+            MENUITEM "&100%",                       ID_ZOOM_100
+            MENUITEM "&200%",                       ID_ZOOM_200
+            MENUITEM "300%",                        ID_ZOOM_300
+            MENUITEM "&400%",                       ID_ZOOM_400
+            MENUITEM "500%",                        ID_ZOOM_500
+        END
+    END
+END
+
+IDR_POPUPMENU_TOOLS MENU 
+BEGIN
+    POPUP "Tools"
+    BEGIN
+        POPUP "&Add"
+        BEGIN
+            MENUITEM "&Photo",                      IDC_DOC_ADDIMAGE
+            MENUITEM "&Shape",                      IDC_DOC_ADDSHAPE
+            MENUITEM "&Text Box",                   IDC_DOC_ADDTEXTBOX
+        END
+        MENUITEM "&Spell Check \tF7",           IDC_DOC_SPELLCHECK
+        MENUITEM "&Grid",                       IDC_DOC_GRID
+        MENUITEM SEPARATOR
+        MENUITEM "&Envelope Wizard...",         IDC_DOC_ENVELOPE_WIZ
+    END
+END
+
+IDR_POPUPMENU_FORMAT MENU 
+BEGIN
+    POPUP "Format"
+    BEGIN
+        POPUP "&Horizontal Text Alignment"
+        BEGIN
+            MENUITEM "&Left",                       IDC_HORZTEXT_LEFT
+            MENUITEM "&Center",                     IDC_HORZTEXT_CENTER
+            MENUITEM "&Right",                      IDC_HORZTEXT_RIGHT
+        END
+        POPUP "&Vertical Text Alignment"
+        BEGIN
+            MENUITEM "&Top",                        IDC_VERTTEXT_TOP
+            MENUITEM "&Middle",                     IDC_VERTTEXT_MIDDLE
+            MENUITEM "&Bottom",                     IDC_VERTTEXT_BOTTOM
+        END
+        POPUP "&Position"
+        BEGIN
+            MENUITEM "&Center",                     IDC_DOC_POSCENTER
+            MENUITEM "Center &Horizontally",        IDC_DOC_POSCENTERH
+            MENUITEM "Center &Vertically",          IDC_DOC_POSCENTERV
+            MENUITEM SEPARATOR
+            MENUITEM "&Left",                       IDC_DOC_POSLEFT
+            MENUITEM "&Right",                      IDC_DOC_POSRIGHT
+            MENUITEM SEPARATOR
+            MENUITEM "&Top",                        IDC_DOC_POSTOP
+            MENUITEM "Top L&eft",                   IDC_DOC_POSTOPLEFT
+            MENUITEM "Top R&ight",                  IDC_DOC_POSTOPRIGHT
+            MENUITEM SEPARATOR
+            MENUITEM "&Bottom",                     IDC_DOC_POSBOTTOM
+            MENUITEM "Bottom Le&ft",                IDC_DOC_POSBOTTOMLEFT
+            MENUITEM "Bottom Ri&ght",               IDC_DOC_POSBOTTOMRIGHT
+        END
+        POPUP "&Transform"
+        BEGIN
+            MENUITEM "Flip &Top to Bottom",         IDC_DOC_FLIP
+            MENUITEM "Flip &Left to Right",         IDC_DOC_MIRROR
+            MENUITEM SEPARATOR
+            MENUITEM "&Rotate Clockwise",           IDC_DOC_ROTATECW
+            MENUITEM "R&otate Counter Clockwise",   IDC_DOC_ROTATECCW
+            MENUITEM "&Free Rotate \tF3",           IDC_DOC_FREEROTATE
+            MENUITEM SEPARATOR
+            MENUITEM "&Move/Size \tF4",             IDC_DOC_TRANSFORM
+        END
+        POPUP "&Size"
+        BEGIN
+            MENUITEM "&Maximize",                   IDC_DOC_MAXIMIZE
+            MENUITEM "Maximize &Width",             IDC_DOC_MAXWIDTH
+            MENUITEM "Maximize &Height",            IDC_DOC_MAXHEIGHT
+        END
+    END
+END
+
+IDR_POPUPMENU_HELP MENU 
+BEGIN
+    POPUP "Help"
+    BEGIN
+        MENUITEM "Create && Print &Help...",    IDC_DOC_HELP
+        MENUITEM "Check For &Updates...",       IDC_CHECKFORUPDATES
+        MENUITEM SEPARATOR
+        MENUITEM "Download &Fonts...",          IDC_DOC_DOWNLOADFONTS
+        MENUITEM "Download &Spell Check...",    IDC_DOC_DOWNLOADSPELLCHECK
+        MENUITEM SEPARATOR
+        MENUITEM "&About...",                   IDC_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+ID_ROTATE               CURSOR                  "Res\\Rotate.cur"
+ID_HAND                 CURSOR                  "Res\\Hand.cur"
+ID_HAND_UR              CURSOR                  "Res\\HandUR.cur"
+ID_HAND_FR              CURSOR                  "Res\\HandFR.cur"
+ID_HAND_LI              CURSOR                  "Res\\HandLI.cur"
+ID_HAND_FE              CURSOR                  "Res\\HandFE.cur"
+ID_HAND_UE              CURSOR                  "Res\\HandUE.cur"
+ID_HAND_IM              CURSOR                  "Res\\HandIM.cur"
+ID_HAND_CAL             CURSOR                  "Res\\HandCal.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_AGICON              ICON                    "Res\\AGicon.ico"
+IDI_BMICON              ICON                    "Res\\BMicon.ico"
+IDI_HPICON              ICON                    "Res\\HPicon.ico"
+IDI_BANNER              ICON                    "Res\\Banner.ico"
+IDI_BUSINESSCARD        ICON                    "Res\\BusinessCard.ico"
+IDI_BROCHURE            ICON                    "Res\\Brochure.ico"
+IDI_CDBOOKLET           ICON                    "Res\\CdBooklet.ico"
+IDI_CDLABEL             ICON                    "Res\\CdLabel.ico"
+IDI_ENVELOPE            ICON                    "Res\\Envelope.ico"
+IDI_FULLSHEET           ICON                    "Res\\Newsletter.ico"
+IDI_GIFTNAMECARD        ICON                    "Res\\GiftNameCard.ico"
+IDI_HALFCARD            ICON                    "Res\\HalfCard.ico"
+IDI_HOLIDAYCARD         ICON                    "Res\\HolidayCard.ico"
+IDI_IRONON              ICON                    "Res\\IronOn.ico"
+IDI_LABEL               ICON                    "Res\\Label.ico"
+IDI_NOTECARD            ICON                    "Res\\NoteCard.ico"
+IDI_PHOTOCARD           ICON                    "Res\\Photos.ico"
+IDI_POSTCARD            ICON                    "Res\\Postcard.ico"
+IDI_QUARTERCARD         ICON                    "Res\\QuarterCard.ico"
+IDI_TRIFOLD             ICON                    "Res\\Trifold.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATORS ACCELERATORS 
+BEGIN
+    "V",            IDC_DOC_PASTE,          VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+
+TOP.SWF                 HTML                    "Res\\Top.swf"
+TOPFLIP.SWF             HTML                    "Res\\TopFlip.swf"
+BOTTOM.SWF              HTML                    "Res\\Bottom.swf"
+BOTTOMFLIP.SWF          HTML                    "Res\\BottomFlip.swf"
+MESSAGEBOX.HTM          HTML                    "Res\\MessageBox.htm"
+MESSAGEBOX_HP.HTM       HTML                    "Res\\MessageBox_hp.htm"
+MESSAGEBOX.JS           HTML                    "Res\\MessageBox.js"
+ICONERROR.GIF           HTML                    "Res\\IconError.gif"
+ICONQUESTION.GIF        HTML                    "Res\\IconQuestion.gif"
+ICONINFO.GIF            HTML                    "Res\\IconInfo.gif"
+ICONWARNING.GIF         HTML                    "Res\\IconWarning.gif"
+SPACE.GIF               HTML                    "Res\\Space.gif"
+MSGLOGO.GIF             HTML                    "Res\\MsgLogo.gif"
+MSGTILE.GIF             HTML                    "Res\\MsgTile.gif"
+MSGTILE_HP.GIF          HTML                    "Res\\MsgTile_hp.gif"
+MSGTILE2.GIF            HTML                    "Res\\MsgTile2.gif"
+MSGTILE2_HP.GIF         HTML                    "Res\\MsgTile2_hp.gif"
+SHAPESELECT.HTM         HTML                    "Res\\ShapeSelect.htm"
+SHAPELIST.HTM           HTML                    "Res\\ShapeList.htm"
+SHAPECIRCLEOFF.GIF      HTML                    "Res\\ShapeCircleOff.gif"
+SHAPESQUAREOFF.GIF      HTML                    "Res\\ShapeSquareOff.gif"
+SHAPELINEOFF.GIF        HTML                    "Res\\ShapeLineOff.gif"
+SHAPEHEARTOFF.GIF       HTML                    "Res\\ShapeHeartOff.gif"
+SHAPETRIANGLEOFF.GIF    HTML                    "Res\\ShapeTriangleOff.gif"
+SHAPESTAROFF.GIF        HTML                    "Res\\ShapeStarOff.gif"
+SHAPESTARBURSTOFF.GIF   HTML                    "Res\\ShapeStarburstOff.gif"
+SHAPEARROW1OFF.GIF      HTML                    "Res\\ShapeArrow1Off.gif"
+SHAPEARROW2OFF.GIF      HTML                    "Res\\ShapeArrow2Off.gif"
+SHAPEARROW3OFF.GIF      HTML                    "Res\\ShapeArrow3Off.gif"
+SHAPEARROW4OFF.GIF      HTML                    "Res\\ShapeArrow4Off.gif"
+SHAPEARROW5OFF.GIF      HTML                    "Res\\ShapeArrow5Off.gif"
+SHAPEARROW6OFF.GIF      HTML                    "Res\\ShapeArrow6Off.gif"
+SHAPEARROW7OFF.GIF      HTML                    "Res\\ShapeArrow7Off.gif"
+SHAPEARROW8OFF.GIF      HTML                    "Res\\ShapeArrow8Off.gif"
+SHAPEBADGE1OFF.GIF      HTML                    "Res\\ShapeBadge1Off.gif"
+SHAPEBADGE2OFF.GIF      HTML                    "Res\\ShapeBadge2Off.gif"
+SHAPEBADGE3OFF.GIF      HTML                    "Res\\ShapeBadge3Off.gif"
+SHAPEBANNER1OFF.GIF     HTML                    "Res\\ShapeBanner1Off.gif"
+SHAPEBANNER2OFF.GIF     HTML                    "Res\\ShapeBanner2Off.gif"
+SHAPEBOLTOFF.GIF        HTML                    "Res\\ShapeBoltOff.gif"
+SHAPEBOWLINGPINOFF.GIF  HTML                    "Res\\ShapeBowlingPinOff.gif"
+SHAPECOGOFF.GIF         HTML                    "Res\\ShapeCogOff.gif"
+SHAPECROWNOFF.GIF       HTML                    "Res\\ShapeCrownOff.gif"
+SHAPECROSS1OFF.GIF      HTML                    "Res\\ShapeCross1Off.gif"
+SHAPECROSS2OFF.GIF      HTML                    "Res\\ShapeCross2Off.gif"
+SHAPECROSS3OFF.GIF      HTML                    "Res\\ShapeCross3Off.gif"
+SHAPECROSS4OFF.GIF      HTML                    "Res\\ShapeCross4Off.gif"
+SHAPECROSS5OFF.GIF      HTML                    "Res\\ShapeCross5Off.gif"
+SHAPECUPOFF.GIF         HTML                    "Res\\ShapeCupOff.gif"
+SHAPEEGGOFF.GIF         HTML                    "Res\\ShapeEggOff.gif"
+SHAPEFLOWEROFF.GIF      HTML                    "Res\\ShapeFlowerOff.gif"
+SHAPEFLAMEOFF.GIF       HTML                    "Res\\ShapeFlameOff.gif"
+SHAPEGEAROFF.GIF        HTML                    "Res\\ShapeGearOff.gif"
+SHAPEHANDOFF.GIF        HTML                    "Res\\ShapeHandOff.gif"
+SHAPEHORSESHOEOFF.GIF   HTML                    "Res\\ShapeHorseShoeOff.gif"
+SHAPELEAFOFF.GIF        HTML                    "Res\\ShapeLeafOff.gif"
+SHAPEPHONEOFF.GIF       HTML                    "Res\\ShapePhoneOff.gif"
+SHAPEPLANEOFF.GIF       HTML                    "Res\\ShapePlaneOff.gif"
+SHAPERNDTRIANGLEOFF.GIF HTML                    "Res\\ShapeRndTriangleOff.gif"
+SHAPERNDRECTOFF.GIF     HTML                    "Res\\ShapeRndRectOff.gif"
+SHAPESIGNOFF.GIF        HTML                    "Res\\ShapeSignOff.gif"
+SHAPESTARBURST1OFF.GIF  HTML                    "Res\\ShapeStarBurst1Off.gif"
+SHAPESTARBURST2OFF.GIF  HTML                    "Res\\ShapeStarBurst2Off.gif"
+SHAPESTARBURST3OFF.GIF  HTML                    "Res\\ShapeStarBurst3Off.gif"
+SHAPESTAR1OFF.GIF       HTML                    "Res\\ShapeStar1Off.gif"
+SHAPESTAR2OFF.GIF       HTML                    "Res\\ShapeStar2Off.gif"
+SHAPESTAR3OFF.GIF       HTML                    "Res\\ShapeStar3Off.gif"
+SHAPESTAR4OFF.GIF       HTML                    "Res\\ShapeStar4Off.gif"
+SHAPEHOUSEOFF.GIF       HTML                    "Res\\ShapeHouseOff.gif"
+SHAPESHAPE1OFF.GIF      HTML                    "Res\\ShapeShape1Off.gif"
+SHAPESHAPE2OFF.GIF      HTML                    "Res\\ShapeShape2Off.gif"
+SHAPESHAPE3OFF.GIF      HTML                    "Res\\ShapeShape3Off.gif"
+SHAPESHAPE4OFF.GIF      HTML                    "Res\\ShapeShape4Off.gif"
+SHAPESHAPE5OFF.GIF      HTML                    "Res\\ShapeShape5Off.gif"
+SHAPESHAPE6OFF.GIF      HTML                    "Res\\ShapeShape6Off.gif"
+SHAPESHAPE7OFF.GIF      HTML                    "Res\\ShapeShape7Off.gif"
+SHAPESHAPE8OFF.GIF      HTML                    "Res\\ShapeShape8Off.gif"
+SHAPECLEFOFF.GIF        HTML                    "Res\\ShapeClefOff.gif"
+SHAPENOTEOFF.GIF        HTML                    "Res\\ShapeNoteOff.gif"
+SHAPESHAPE9OFF.GIF      HTML                    "Res\\ShapeShape9Off.gif"
+PRINTMETHODAG.HTM       HTML                    "Res\\PrintMethodAg.htm"
+PRINTMETHODLOGOAG.GIF   HTML                    "Res\\PrintMethodLogoAg.gif"
+PRINTMETHODLOGOBM.GIF   HTML                    "Res\\PrintMethodLogoBm.gif"
+PRINTMETHODCONTINUE.GIF HTML                    "Res\\PrintMethodContinue.gif"
+PRINTMETHODFORYOU.GIF   HTML                    "Res\\PrintMethodForYou.gif"
+PRINTMETHODLOCAL.GIF    HTML                    "Res\\PrintMethodLocal.gif"
+PRINTOPTIONSAG.HTM      HTML                    "Res\\PrintOptionsAg.htm"
+PRINTFINALSTEP.HTM      HTML                    "Res\\PrintFinalStep.htm"
+PRINTER.GIF             HTML                    "Res\\Printer.gif"
+PRINT_BTN.GIF           HTML                    "Res\\Print_btn.gif"
+JOIN_BTN.GIF            HTML                    "Res\\Join_btn.gif"
+SIGN_IN.GIF             HTML                    "Res\\Sign_In.gif"
+AG_LOGO.GIF             HTML                    "Res\\Ag_Logo.gif"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PRINT, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 303
+    END
+
+    IDD_DBLSIDEINTRO, DIALOG
+    BEGIN
+        RIGHTMARGIN, 349
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_DBLSIDESTEP1, DIALOG
+    BEGIN
+        RIGHTMARGIN, 349
+        BOTTOMMARGIN, 126
+    END
+
+    IDD_DBLSIDESTEP2, DIALOG
+    BEGIN
+        RIGHTMARGIN, 349
+        BOTTOMMARGIN, 126
+    END
+
+    IDD_DBLSIDEEND, DIALOG
+    BEGIN
+        RIGHTMARGIN, 349
+        BOTTOMMARGIN, 126
+    END
+
+    IDD_PANEL_TEXT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 268
+    END
+
+    IDD_PROGRESSDLG, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 10
+    END
+
+    IDD_PANEL_GRAPHIC, DIALOG
+    BEGIN
+        RIGHTMARGIN, 295
+    END
+
+    IDD_PANEL_DEFAULT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 264
+    END
+
+    IDD_PANEL_IMAGE, DIALOG
+    BEGIN
+        RIGHTMARGIN, 268
+    END
+
+    IDD_PANEL_PAGE, DIALOG
+    BEGIN
+        RIGHTMARGIN, 116
+        BOTTOMMARGIN, 36
+    END
+
+    IDD_PANEL_INFO, DIALOG
+    BEGIN
+        RIGHTMARGIN, 16
+        BOTTOMMARGIN, 9
+    END
+
+    IDD_PANEL_CALENDAR, DIALOG
+    BEGIN
+        RIGHTMARGIN, 184
+    END
+
+    IDD_ENVELOPE_SIZE_SELECT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 122
+        BOTTOMMARGIN, 255
+    END
+
+    IDD_ENVELOPE_PICT_SELECT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 99
+        VERTGUIDE, 91
+        VERTGUIDE, 97
+        BOTTOMMARGIN, 210
+    END
+
+    IDD_ENVELOPE_COLOR_SELECT, DIALOG
+    BEGIN
+        TOPMARGIN, 5
+    END
+
+    IDD_ENVELOPEWIZARD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 117
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 277
+    END
+
+    IDD_ENVELOPE_FINAL, DIALOG
+    BEGIN
+        RIGHTMARGIN, 110
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 210
+    END
+
+    IDD_CALENDAR_LAYOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 135
+    END
+
+    IDD_HTMLDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_ENVELOPES_2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_PAPERFEED_2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+    END
+
+    IDD_ENVELOPESETTINGS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+        RIGHTMARGIN, 323
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 366
+        HORZGUIDE, 70
+    END
+
+    IDD_ENVELOPEDLG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_TOOLSPANEL_TEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 492
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_TOOLSPANEL_COMMON, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 492
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_TOOLSPANEL_DEFAULT, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 492
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_TOOLSPANEL_GRAPHIC, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 492
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_TOOLSPANEL_CALENDAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 492
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_NAV_PANEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 358
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 20
+    END
+
+    IDD_PRINT2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 446
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_MSGBOXTITLE         "Create & Print"
+    IDS_MSGBOXTITLE2        "HP Design Studio"
+    IDS_MANIFEST_URL        "cp/install/manifest.xml"
+    IDS_AUTOUPDATE_ONLINE_PROMPT 
+                            "We cannot check for updates at this time.  You are not online."
+    IDS_MANIFEST_ERROR      "Error while checking for product updates."
+    IDS_NEWVERSION_PROMPT   "A new version of this product is available.\n\nClick Yes to download it now."
+    IDS_CURRENTVERSION_PROMPT 
+                            "You are already running the most current version."
+    IDS_VERSIONUPDATED_PROMPT "Your product has been updated."
+    IDS_HPMANIFEST_URL      "cp/install/hpmanifest.xml"
+END
+
+STRINGTABLE 
+BEGIN
+    IDC_CALENDAR_MONTH      "Set the calendar month"
+    IDC_CALENDAR_YEAR       "Set the calendat year"
+    IDC_DOC_PAGENAV         "Select a page to view or edit"
+    IDC_LINE_SIZE           "Change the size of the object border"
+    IDC_FONT                "Change the typeface of the selected text"
+    IDC_TEXT_SIZE           "Change the size of the selected text"
+END
+
+STRINGTABLE 
+BEGIN
+    IDC_LINE_COLOR          "Change the line color of the selected text or object"
+    IDC_FILL_TYPE           "Select a gradient for your shapes fill color"
+    IDC_FILL_COLOR          "Change the fill color of the selected text or object"
+    IDC_FILL_COLOR2         "Change the fill color of the selected object"
+    IDC_FILL_COLOR3         "Change the fill color of the selected object"
+END
+
+STRINGTABLE 
+BEGIN
+    IDC_DOC_PAGEADD         "Add a copy of the current page"
+    IDC_DOC_PAGEDELETE      "Delete the current page"
+    IDC_DOC_PAGENEXT        "View or edit the next page"
+    IDC_DOC_PAGEPREV        "View or edit the previous page"
+END
+
+STRINGTABLE 
+BEGIN
+    IDC_BOLD                "Bold the selected text"
+    IDC_ITALIC              "Italicize the selected text"
+    IDC_UNDERLINE           "Underline the selected text"
+    IDC_LEFT                "Align text with the left edge of the text box"
+    IDC_CENTER              "Center text horizontally in the text box"
+    IDC_RIGHT               "Align text with the right edge of the text box"
+    IDC_TOP                 "Align text with the top edge of the text box"
+    IDC_MIDDLE              "Center text vertically in the text box"
+    IDC_BOTTOM              "Align text with the bottom edge of the text box"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PRINTORIENT_PAPER   "Please verify your printer settings and use the image below as a guide to load your paper"
+    IDS_PRINTORIENT_ENVELOPE 
+                            "Please verify your printer settings and use the image below as a guide to load your envelope."
+    IDS_PRINTORIENT_PAPERGROUP " Paper Loading Preview "
+    IDS_PRINTORIENT_ENVELOPEGROUP " Envelope Loading Preview "
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION VER_FILE_VERSION
+PRODUCTVERSION VER_PRODUCT_VERSION
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+FILEFLAGS VS_FF_DEBUG
+#else
+FILEFLAGS 0
+#endif
+FILEOS VOS_NT_WINDOWS32
+FILETYPE VFT_DLL
+FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0" // English (United States)
+        BEGIN
+            VALUE "CompanyName", VER_COMPANY
+            VALUE "FileDescription", "Create & Print " VER_COPYRIGHT "\0"
+            VALUE "FileExtents", "ctp\0"
+            VALUE "FileOpenName", "Create & Print Files (*.ctp)\0"
+            VALUE "FileVersion", VER_FILE_VERSION_STR
+            VALUE "InternalName", VER_INTERNAL_NAME
+            VALUE "LegalCopyright", VER_COPYRIGHT
+            VALUE "OriginalFilename", VER_FILE_NAME
+            VALUE "ProductName", "Create & Print " VER_PRODUCT_VERSION_STR "\0"
+            VALUE "ProductVersion", VER_PRODUCT_VERSION_STR
+            VER_MIMETYPE
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

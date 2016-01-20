@@ -1,0 +1,115 @@
+// AxEditor.idl : IDL source for AxEditor
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AxEditor.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(F47FEED5-6905-4C8B-8B09-AEEB7FF147CD),
+	dual,
+	nonextensible,
+	helpstring("ITextEditor Interface"),
+	pointer_default(unique)
+]
+interface ITextEditor : IDispatch{
+	[id(1), helpstring("method IncrementLineHeight")] HRESULT IncrementLineHeight(void);
+	[id(2), helpstring("method DecrementLineHeight")] HRESULT DecrementLineHeight(void);
+	[id(3), helpstring("method IncrementCharWidth")] HRESULT IncrementCharWidth(void);
+	[id(4), helpstring("method DecrementCharWidth")] HRESULT DecrementCharWidth(void);
+	[id(5), helpstring("method SetFontSize")] HRESULT SetFontSize([in] USHORT FontSize);
+	[id(6), helpstring("method SetCurveType")] HRESULT SetCurveType(USHORT CurveType);
+	[id(7), helpstring("method SetImageSize")] HRESULT SetImageSize([in] FLOAT Width, [in] FLOAT Height);
+	[id(8), helpstring("method SetString")] HRESULT SetString([in] BSTR LineString, [in] USHORT Index);
+	[id(9), helpstring("method SaveImage")] HRESULT SaveImage([in] BSTR FileName, [in] USHORT ImageType);
+	[id(10), helpstring("method RefreshPreviewWindow")] HRESULT RefreshPreviewWindow(void);
+	[id(11), helpstring("method SetColor1")] HRESULT SetColor1([in] LONG Color1);
+	[id(12), helpstring("method SetColor2")] HRESULT SetColor2([in] LONG Color2);
+	[id(13), helpstring("method SetPreviewBkColor")] HRESULT SetPreviewBkColor([in] LONG Clr);
+	[id(14), helpstring("method DeleteString")] HRESULT DeleteString([in] USHORT Index);
+	[id(15), helpstring("method SetImageBkColor")] HRESULT SetImageBkColor([in] LONG Clr);
+	[id(16), helpstring("method SetColorGradientMode")] HRESULT SetColorGradientMode([in] USHORT SweepMode);
+	[id(17), helpstring("method SetFont")] HRESULT SetFont([in] BSTR FontName);
+	[id(18), helpstring("method SetWhiteBkgdTransparent")] HRESULT SetWhiteBkgdTransparent([in] VARIANT_BOOL bkgdTransparent);
+};
+
+[
+	uuid(02C32C47-C723-4DC6-B1E6-9140849D8656),
+	version(1.0),
+	helpstring("AxEditor 1.0 Type Library")
+]
+library AxEditorLib
+{
+	importlib("stdole2.tlb");
+
+	typedef [
+		uuid(2868435B-9B83-48ac-A533-88880B3B1E93),
+		helpstring("String Curve Types"),
+		public,
+		v1_enum
+	]
+	enum STR_TYPES
+	{
+		STR_BEZIER = 0,
+		STR_CIRCLE = 1, 
+		STR_SEMICIRCLE = 2, 
+		STR_ELLIPSE = 3, 
+		STR_HORIZONTALLINE = 4, 
+		STR_VERTICALLINE = 5, 
+		STR_INVERTEDSEMICIRCLE = 6, 
+		STR_INVERTEDBEZIER = 7, 
+		STR_SPIRAL = 8
+	}STR_TYPES_T;
+
+	typedef [
+		uuid(022F90FA-1375-4abf-B286-3D68A601037A),
+		helpstring("Image Types"),
+		public,
+		v1_enum
+	]
+	enum IMAGE_TYPES
+	{
+		BMP = 0, 
+		JPEG = 1, 
+		GIF = 2, 
+		TIFF = 3, 
+		PNG = 4
+	}IMAGE_TYPES_T;
+
+	typedef [
+		uuid(532717E9-776D-42cd-AF62-165F815ED81D),
+		helpstring("Color Sweep Mode"),
+		public,
+		v1_enum
+	]
+	enum LINEAR_MODES
+	{
+		SWEEP_RIGHT = 0,
+		SWEEP_DOWN = 1,
+		SWEEP_RIGHT_DIAGONAL = 2,
+		SWEEP_LEFT_DIAGONAL = 3
+	} LINEAR_MODES_T;
+
+	[
+		uuid(47CA4C48-94FD-41DF-BD11-676EB4479ED0),
+		helpstring("_ITextEditorEvents Interface")
+	]
+	dispinterface _ITextEditorEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(4A443D96-6C35-48D2-9C3B-E185CF3D8B5A),
+		helpstring("TextEditor Class")
+	]
+	coclass TextEditor
+	{
+		[default] interface ITextEditor;
+		[default, source] dispinterface _ITextEditorEvents;
+	};
+};

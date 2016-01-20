@@ -1,0 +1,30 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                   rmazes.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Room dialog functions.
+ Date Created:  01/11/94
+       Author:  Michael P. Dagate
+
+*****************************************************************************/
+
+#ifndef RMAZES_P
+#define RMAZES_P
+
+/****************************** Public Functions ****************************/
+
+extern BOOL WINPROC EXPORT DlgRoomMazes (HWND hWnd,UINT wMsg,WPARAM wParam,LPARAM lParam);
+
+/****************************************************************************/
+
+#endif

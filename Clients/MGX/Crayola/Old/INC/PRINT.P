@@ -1,0 +1,19 @@
+// Source file: PRINT.C
+int my_sqrt(int value);
+int PrintLabelCentered( HDC hDC, int x, int y, COLOR Color, int idStr, ... );
+int PrintTest( HWND hWnd, LPSTR szFile, LPIMAGE lpImage );
+int PrintImage( HDC hDC, BOOL bToScreen, LPRECT lpSourceRect, LPRECT lpDestRect, int xDiva, int yDiva, int yTop, int yTotal, int nTotalBits, LPIMAGE lpImage, LPFRAME lpFrame);
+int PrintFile (HWND hWnd, LPSTR szFile, BOOL EjectPage, LPIMAGE lpImage, LPFRAME lpFrame);
+void OutputFurniture( HDC hDC, LPRECT lpBandRect, LPRECT lpRect, int xRes, int yRes, BYTE cSep );
+int PrintLabel( HDC hDC, int x, int y, COLOR Color, int idStr, ... );
+void OutputRegMark( HDC hDC, LPRECT lpRect );
+BOOL CALLBACK EXPORT AbortTest( HDC hDC, int iCode );
+BOOL WINPROC EXPORT DlgFnAbort (HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+HDC GetPrinterDC( void );
+void PrintErr(HWND hWnd, int ierr);
+BOOL AstralLaserPrint( LPIMAGE lpImage, LPFRAME lpFrame, int xSrc, int ySrc, int dxSrc, int dySrc, int xDest, int yDest, int dxDest, int dyDest, int iPrResX, int iPrResY );
+BOOL LaserPrint( LPSTR lpFormat, ... );
+BOOL IsPostScript( void );
+void SuperLock( BOOL Bool );
+BOOL SuperPaint( HWND hWnd );
+

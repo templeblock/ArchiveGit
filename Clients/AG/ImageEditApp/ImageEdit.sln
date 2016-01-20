@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageEdit", "ImageEdit.vcproj", "{08727121-C26E-4450-97E5-E9231E0EC2CD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C} = {68228D2F-1484-4E15-A0B6-9A48D9048B7C}
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\SetupImageEdit.vdproj", "{B665B3E0-5EBA-4083-A0DF-4C37A32D5FE5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageControl", "..\ImageControl\ImageControl.vcproj", "{D3458694-A6F9-4029-93AD-6A12FE845042}"
+	ProjectSection(ProjectDependencies) = postProject
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C} = {68228D2F-1484-4E15-A0B6-9A48D9048B7C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "..\Shared\Shared.vcproj", "{68228D2F-1484-4E15-A0B6-9A48D9048B7C}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccProjectUniqueName0 = ..\\Shared\\Shared.vcproj
+		SccProjectName0 = \u0022$/AgApplications/PrintAtHome\u0022,\u0020CPJAAAAA
+		SccLocalPath0 = ..
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectFilePathRelativizedFromConnection0 = Shared\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08727121-C26E-4450-97E5-E9231E0EC2CD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{08727121-C26E-4450-97E5-E9231E0EC2CD}.Debug|Win32.Build.0 = Debug|Win32
+		{08727121-C26E-4450-97E5-E9231E0EC2CD}.Release|Win32.ActiveCfg = Release|Win32
+		{08727121-C26E-4450-97E5-E9231E0EC2CD}.Release|Win32.Build.0 = Release|Win32
+		{B665B3E0-5EBA-4083-A0DF-4C37A32D5FE5}.Debug|Win32.ActiveCfg = Debug
+		{B665B3E0-5EBA-4083-A0DF-4C37A32D5FE5}.Debug|Win32.Build.0 = Debug
+		{B665B3E0-5EBA-4083-A0DF-4C37A32D5FE5}.Release|Win32.ActiveCfg = Release
+		{B665B3E0-5EBA-4083-A0DF-4C37A32D5FE5}.Release|Win32.Build.0 = Release
+		{D3458694-A6F9-4029-93AD-6A12FE845042}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D3458694-A6F9-4029-93AD-6A12FE845042}.Debug|Win32.Build.0 = Debug|Win32
+		{D3458694-A6F9-4029-93AD-6A12FE845042}.Release|Win32.ActiveCfg = Release|Win32
+		{D3458694-A6F9-4029-93AD-6A12FE845042}.Release|Win32.Build.0 = Release|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Debug|Win32.Build.0 = Debug|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Release|Win32.ActiveCfg = Release|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SZOpenFile = false
+		SZOpenFolder = false
+		SZPath = C:\Documents and Settings\Administrator\Desktop\Source.zip
+	EndGlobalSection
+EndGlobal

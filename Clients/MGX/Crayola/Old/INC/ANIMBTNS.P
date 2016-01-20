@@ -1,0 +1,41 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                   intermsn.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Animated buttons.
+ Date Created:  2/25/94
+       Author:  Ray
+
+*****************************************************************************/
+
+#ifndef ANIMBTNS_P
+#define ANIMBTNS_P
+
+/****************************** Public Functions ****************************/
+
+// Main interface
+void AnimateButtonDoAnimation(HWND hWnd);
+void AnimateButtonPaint(HWND hWnd);
+void ResizeAnimatedButton(HWND hWnd);
+HBITMAP AnimateButtonGetBitmap(HWND hWnd);
+
+// Sub components
+void AnimateButtonStart(HWND hWnd, BOOL bCopyBackground);
+void AnimateButtonPlay();
+void AnimateButtonEnd();
+BOOL AnimateButtonGetIsRunning();
+BOOL IsButtonAnimated(HWND hWnd);
+
+/****************************************************************************/
+
+#endif

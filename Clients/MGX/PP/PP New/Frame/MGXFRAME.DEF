@@ -1,0 +1,142 @@
+;*****************************************************************************
+;        (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.        *
+;   Permission to use this work for any purpose must by obtained in writing  *
+;        from Micrografx Inc., 1303 E. Arapaho, Richardson, TX. 75081.       *
+;----------------------------------------------------------------------------*
+; Subsystem: Frame Library                                                   *
+;    Module: Module definitions                                              *
+;      Date: January 20, 1995                                                *
+;----------------------------------------------------------------------------*
+; Description:                                                               *
+;                                                                            *
+;   This is the module definition file for the bitmap filter DLL.            *
+;----------------------------------------------------------------------------*
+; Revision history:                                                          *
+;                                                                            *
+; Code    Rev      Date    Who  Description                                  *
+; ----  -------  --------  ---  -------------------------------------------- *
+;                                                                            *
+;****************************************************************************/
+
+LIBRARY MGXFRM10
+
+DESCRIPTION 'MGXFRAME -- Micrografx Frame Library, copyright 1995, Micrografx'
+
+EXETYPE WINDOWS
+
+CODE MOVEABLE DISCARDABLE
+
+DATA MOVEABLE SINGLE
+
+HEAPSIZE 128
+
+EXPORTS
+	?FrameConvert@@YAPAU_frame@@PAU1@W4FRMDATATYPE@@P6AHHHH@ZW4DITHER_TYPE@@@Z
+	?FrameConvert@@YAPAU_frame@@PAU1@UFRMTYPEINFO@@P6AHHHH@ZW4DITHER_TYPE@@@Z
+	?FrameSample@@YAXPAU_frame@@PAEH1HHN@Z
+	?FrameSampleMW@@YAXPAU_frame@@PAEH1HHN1@Z
+	?FrameRGB2Pixel@@YAXPAU_frame@@PAU_rgb@@PAJ@Z
+	?FramePixel2RGB@@YAXPAU_frame@@PAJPAU_rgb@@@Z
+	?FrameGetRGB@@YAXPAU_frame@@PAEPAU_rgb@@H@Z
+	?FramePutRGB@@YAXPAU_frame@@PAU_rgb@@PAEH@Z
+	?FrameSetRGB@@YAXPAU_frame@@PAU_rgb@@PAEH@Z
+	?FrameGetPixel@@YAXPAU_frame@@PAEPAJH@Z
+	?FramePutPixel@@YAXPAU_frame@@PAJPAEH@Z
+	?FrameSetPixel@@YAXPAU_frame@@JPAEH@Z
+	?FrameSetPixelEx@@YAXW4FRMDATATYPE@@JPAEH@Z
+	?FrameToDIB@@YAPAEPAU_frame@@PAUtagRECT@@@Z
+	?DIBToFrame@@YAPAU_frame@@PAEH@Z
+	?FramePreload@@YAHPAU_frame@@HKP6AKKPAEK@ZKP6AHHHHK@Z@Z
+	?FrameGetCurrent@@YAPAU_frame@@XZ
+	?FrameSetCurrent@@YAPAU_frame@@PAU1@@Z
+	?FrameSettings@@YAXPADHH@Z
+	?FrameSetError@@YAXH@Z
+	?FrameGetError@@YAHXZ
+	?FrameOpen@@YAPAU_frame@@W4FRMDATATYPE@@HHH@Z
+	?FrameOpen@@YAPAU_frame@@UFRMTYPEINFO@@HHH@Z
+	?FrameClose@@YAXPAU_frame@@@Z
+	?FrameRead@@YAHPAU_frame@@HHHPAEH@Z
+	?FrameWrite@@YAHPAU_frame@@HHHPAEH@Z
+	?FrameMode@@YAHPAU_frame@@H@Z
+	?FrameInMemory@@YAHPAU_frame@@@Z
+	?LineInMemory@@YAPAEPAU_frame@@H@Z
+	?FramePointer@@YAPAEPAU_frame@@HHHH@Z
+	?FramePointerRaw@@YAPAEPAU_frame@@HHHH@Z
+	?FrameName@@YAPADPAU_frame@@@Z
+	?FrameType@@YA?AW4FRMDATATYPE@@PAU_frame@@@Z
+	?FrameTypeInfo@@YA?AUFRMTYPEINFO@@PAU_frame@@@Z
+	?FrameTypeInfoEqual@@YAHUFRMTYPEINFO@@0@Z
+	?FrameDepth@@YAHPAU_frame@@@Z
+	?FrameGetTypeInfo@@YAPAUFRMTYPEINFO@@PAU_frame@@PAU1@@Z
+	?FrameSetTypeInfo@@YAPAUFRMTYPEINFO@@PAU1@W4FRMDATATYPE@@PAU_frmcolormap@@@Z
+	?FrameSetTypeInfo@@YAPAUFRMTYPEINFO@@PAU1@W4FRMDATATYPE@@PAU_frmcolormap@@PAU_ptinfo@@@Z
+	?FrameXSize@@YAHPAU_frame@@@Z
+	?FrameYSize@@YAHPAU_frame@@@Z
+	?FrameByteWidth@@YAHPAU_frame@@@Z
+	?FrameResolution@@YAHPAU_frame@@@Z
+	?FrameSetResolution@@YAHPAU_frame@@H@Z
+	?FrameSetBackground@@YAXPAU_frame@@E@Z
+	?FrameGetBackground@@YAEPAU_frame@@@Z
+	?FrameSetColorMap@@YAHPAU_frame@@PAU_frmcolormap@@@Z
+	?FrameGetNearestIndex@@YAEPAU_frmcolormap@@PAU_rgb@@@Z
+	?FrameGetColorMap@@YAPAU_frmcolormap@@PAU_frame@@@Z
+	?FrameCreateColorMap@@YAPAU_frmcolormap@@XZ
+	?FrameCopyColorMap@@YAPAU_frmcolormap@@PAU1@@Z
+	?FrameCopyColorMap@@YAXPAU_frmcolormap@@0@Z
+	?FrameCreateFixedColorMap@@YAPAU_frmcolormap@@XZ
+	?FrameDestroyColorMap@@YAXPAU_frmcolormap@@@Z
+	?FrameColorMapsEqual@@YAHPAU_frmcolormap@@0@Z
+	?FrameCopyLine@@YAXPAU_frame@@0H@Z
+	?FrameExchLine@@YAXPAU_frame@@0H@Z
+	?FrameDuplicateLine@@YAXPAU_frame@@0HH@Z
+	?FrameCopy@@YAPAU_frame@@PAU1@PAUtagRECT@@@Z
+	?SetRGBToCMYKProc@@YAXP6AXPAU_rgb@@PAU_cmyk@@H@ZP6AX10H@Z@Z
+	?RGBtoCMYK@@YAXEEEPAU_cmyk@@@Z
+	?RGBtoCMYKScanline@@YAXPAU_rgb@@PAU_cmyk@@H@Z
+	?CMYKtoRGB@@YAXEEEEPAU_rgb@@@Z
+	?CMYKtoRGBScanline@@YAXPAU_cmyk@@PAU_rgb@@H@Z
+	?CMYKtoRGBBuf@@YAXPAU_cmyk@@PAU_rgb@@HUFRMTYPEINFO@@H@Z
+	?CMYKtoL@@YAEPAU_cmyk@@@Z
+	?CMYKtoS@@YAXPAU_cmyk@@PAU_hsl@@@Z
+	?CMYKtoH@@YAXPAU_cmyk@@PAU_hsl@@@Z
+	?CMYKtoSL@@YAXPAU_cmyk@@PAU_hsl@@@Z
+	?CMYKtoHL@@YAXPAU_cmyk@@PAU_hsl@@@Z
+	?CMYKtoHS@@YAXPAU_cmyk@@PAU_hsl@@@Z
+	?CMYKtoHSL@@YAXEEEEPAU_hsl@@@Z
+	?HSLtoCMYK@@YAXEEEPAU_cmyk@@@Z
+	?RGBtoL@@YAEPAU_rgb@@@Z
+	?RGBtoHSL@@YAXEEEPAU_hsl@@@Z
+	?HSLtoRGB@@YAXEEEPAU_rgb@@@Z
+	?RGBtoHS@@YAXEEEPAU_hsl@@@Z
+	?RGBtoHL@@YAXEEEPAU_hsl@@@Z
+	?RGBtoSL@@YAXEEEPAU_hsl@@@Z
+	?RGBtoH@@YAXEEEPAU_hsl@@@Z
+	?RGBtoS@@YAXEEEPAU_hsl@@@Z
+	?MiniRGBtoRGB@@YAXGPAU_rgb@@@Z
+	?MiniRGBtoL@@YAEG@Z
+	?MiniRGBtoHSL@@YAXGPAU_hsl@@@Z
+	?HSLtoMiniRGB@@YAGPAU_hsl@@@Z
+	?Sample_1@@YAXPAEH0HHN@Z
+	?Sample_1MW@@YAXPAEH0HHN0@Z
+	?Sample_8@@YAXPAEH0HHN@Z
+	?Sample_8MW@@YAXPAEH0HHN0@Z
+	?Sample_24@@YAXPAEH0HHN@Z
+	?Sample_24MW@@YAXPAEH0HHN0@Z
+	?Sample_32@@YAXPAEH0HHN@Z
+	?Sample_32MW@@YAXPAEH0HHN0@Z
+	?frame_set@@YAPAU_frame@@PAU1@@Z
+	?CreateErrorLut15@@YAXPAU_rgb@@PAE1H@Z
+	?CreatePaletteLut15@@YAPAEPAU_rgb@@HPAEP6AHHHH@Z@Z
+	?fget16@@YAJJJ@Z
+	?special_fget16@@YAJJJ@Z
+	?fmul16@@YAJJJ@Z
+	?tmul16@@YAJJJ@Z
+	?FixedAscii@@YAPADNPADH@Z
+	?AsciiFixed@@YANPAD@Z
+	?ToMaxi@@3QAEA
+	?BumpPtr@@YAPAEPAEK@Z
+	?lpKCMSEvalProc@@3P6AXPAUFRMTYPEINFO@@0PAXPAE2HH@ZA
+	?lpKCMSCnctProc@@3P6APAXPAUFRMTYPEINFO@@0PAXJ@ZA
+	?lpKCMSFreeProc@@3P6AXPAX@ZA
+	?lpKCMSUidmProc@@3P6AHPAUFRMTYPEINFO@@0@ZA
+	

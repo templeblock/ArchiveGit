@@ -1,0 +1,333 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("MicroVision WebExpress","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c0ffc0","Wintertree","1") -->
+  <!-- $MVD$:color("19","c0ff","Or1","1") -->
+  <TITLE>Using Sentry Spelling Checker Engine with ASP</TITLE>
+  <META NAME="description" CONTENT="This document describes how a server-based application implemented using ASP (Active Server Pages) can use Sentry Spelling Checker Engine to check the spelling of text submitted in Web-page forms. When used this way, the spelling check is performed on the server.">
+ </HEAD>
+ <BODY BGCOLOR="WHITE">
+  <H1>
+   Using Sentry Spelling Checker Engine with ASP</H1>
+  <P>
+   Contents:</P>
+  <UL>
+   <LI>
+   <P>
+    <A HREF="#Introduction">Introduction</A>
+    <UL>
+     <LI><A HREF="#GeneralInfo">General information</A></P>
+    </UL>
+   <LI>
+   <P>
+    <A HREF="#DemoApplication">Example application</A>
+    <UL>
+     <LI><A HREF="#DemoOverview">Overview</A><BR>
+     <LI><A HREF="#DemoClient">Client</A><BR>
+     <LI><A HREF="#DemoServer">Server</A></P>
+    </UL>
+   <LI>
+   <P>
+    <A HREF="#APIRef">SentryASC API Reference</A></P>
+   </UL>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Introduction"></A>Introduction</FONT></TD>
+    </TR>
+   </TABLE></H2>
+  <P>
+   This document describes how a server-based application implemented 
+   using ASP (Active Server Pages) can use Sentry Spelling Checker 
+   Engine to check the spelling of text submitted in Web-page forms. 
+   When used this way, the spelling check is performed on the server.</P>
+  <P>
+   This document assumes familiarity with ASP pages, Web servers, HTML, 
+   VBScript, and capabilities of the Sentry Spelling Checker Engine.</P>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="GeneralInfo"></A>General information</TD>
+    </TR>
+   </TABLE></H3>
+  <P>
+   The Sentry DLL (ssce5332.dll) cannot be called by VBScript directly. 
+   Instead, the Sentry DLL is accessed through an ActiveX DLL called 
+   SentryASC.DLL, which in turn calls ssce5332.dll. SentryASC.DLL is a 
+   &quot;thin wrapper&quot; around the Sentry API, meaning it forwards 
+   API calls to the Sentry DLL and does very little processing.</P>
+  <P>
+   SentryASC.DLL defines methods which implement the functions in the <A HREF="coreapi.htm">Core
+    Sentry API</A> and <A HREF="winapi.htm">Sentry Windows API</A>. 
+   Parameter sequence and types used in SentryASC.DLL are very similar 
+   to the parameters used in the Sentry APIs with the following exceptions:</P>
+  <UL>
+   <LI>
+   <P>
+    All output parameters and in/out parameters are declared as type Variant.</P>
+   <LI>
+   <P>
+    Most string-length parameters have been removed. SentryASC.DLL 
+    changes the size of output string parameters as necessary to 
+    accommodate the string contents, so the size parameters are 
+    unnecessary. For example, the SSCE_CheckWord function in the Core 
+    Sentry API includes an otherWord parameter (an output string) and an 
+    otherWordSz parameter (which indicates the capacity of the otherWord 
+    parameter in characters). SentryASC.DLL includes a CheckWord method 
+    that returns the otherWord parameter as a string. The size of the 
+    string is set (by SentryASC.DLL) to the size of the other word, so 
+    the otherWordSz parameter isn't needed.</P>
+   <LI>
+   <P>
+    The Suggest method returns suggestions as an array of words rather 
+    than a single text block containing multiple null-terminated words. 
+    Each individual suggestion returned by the Suggest method can be 
+    accessed using a simple array index.</P>
+   <LI>
+   <P>
+    Null (0) values cannot be used as placeholders for output parameters 
+    whose values are not needed. For example, in the GetBlockInfo method, 
+    all parameters must be provided and may not be null.</P>
+   </UL>
+  <P>
+   See <A HREF="#APIRef">Sentry ASC API Reference</A> for API syntax.</P>
+  <P>
+   Several clients may request a spelling check concurrently. The Sentry 
+   DLL supports concurrent access, provided each thread of execution 
+   uses its own Sentry session (i.e., the OpenSession method is called 
+   for each thread). This would require that lexicons (dictionaries) be 
+   opened for each thread, which would consume processor time and 
+   memory. An alternative approach, used by the Sentry ASP demo program, 
+   is to open one session for all clients, and call Application.Lock to 
+   ensure only one thread uses the Sentry session at a time. In ASP 
+   pages used by large numbers of clients, this may result in delays. 
+   The SSCE_GetSid function (or the GetSid method in SentryASC.DLL) 
+   should not be used to obtain a session id if there is any chance that 
+   the Sentry DLL will be used by other application software running on 
+   the server.</P>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="DemoApplication"></A>Example application</FONT></TD>
+    </TR>
+   </TABLE></H2>
+  <P>
+   An application which demonstrates the techniques presented in this 
+   document is included with the Sentry Spelling Checker Engine Windows 
+   SDK in directory ssce/sdk/examples/asp/example1.</P>
+  <P>
+   To set up the example do the following:</P>
+  <OL>
+   <LI>
+   <P>
+    Edit global.asa in the example1 directory and set the licenseKey 
+    variable to your Sentry license key, provided by Wintertree Software. 
+    See <A HREF="winapi.htm#AboutLicenseKey">About the Sentry license key</A> 
+    for more information.</P>
+   <LI>
+   <P>
+    Copy form.html, default.asp, and global.asa from the example1 
+    directory to a directory on the Web server.</P>
+   <LI>
+   <P>
+    Copy ssceam.tlx and ssceam2.clx from the ssce/runtime directory to 
+    c:\Program Files\Common Files\Wintertree\Spelling. (Alternatively, 
+    copy the files to another directory, and edit the statement that sets 
+    the &quot;lexPath&quot; variable in global.asa to point to the directory.)</P>
+   <LI>
+   <P>
+    Create a virtual Web directory named &quot;sentry&quot; which points 
+    to the directory on your Web server where you copied the global.asa 
+    file in a previous step. Make sure this directory has &quot;read&quot;
+     and &quot;scripts&quot; permissions set.</P>
+   <LI>
+   <P>
+    Copy ssce5332.dll from the windows\system (or windows\system32) 
+    directory on your development computer (the computer where the Sentry 
+    Spelling Checker Engine Windows SDK was installed) to the 
+    windows\system32 directory on the Web server.</P>
+   <LI>
+   <P>
+    Make sure a copy of MSVBVM60.DLL is installed on the server. This DLL 
+    contains the Visual Basic run-time library, and is needed by 
+    SentryASC.DLL. You can <A HREF="ftp://ftp.wintertree-software.com/pub/msvbvm60.zip">download
+     this file from Wintertree Software's FTP site</A>.</P>
+   <LI>
+   <P>
+    Copy SentryASC.DLL to any directory on your Web server. Run regsvr32 
+    to register SentryASC.DLL. If you don't have a copy of regsvr32 on 
+    your system, <A HREF="ftp://ftp.wintertree-software.com/pub/regsvrd.exe">download
+     regsvrd</A> and use it to register SentryASC.DLL like this:</P><PRE>regsvrd SentryASC.DLL</PRE></OL><P>
+   To run the example, enter the URL of the virtual &quot;sentry&quot; 
+   directory in a Web browser:</P><BLOCKQUOTE><PRE>http://hostname/sentry</PRE></BLOCKQUOTE><P>
+   The example works with either Netscape or Internet Explorer.</P>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="DemoOverview"></A>Overview</TD>
+    </TR>
+   </TABLE></H2>
+  <P>
+   The example application consists of three parts:</P>
+  <UL>
+   <LI>
+   <P>
+    form.html: An HTML page which includes a simple form containing a 
+    text area and buttons labelled &quot;Check Spelling&quot; and &quot;Submit.&quot;</P>
+   <LI>
+   <P>
+    default.asp: An ASP page which includes VBScript code which is 
+    executed on the server plus HTML which is sent to the client browser 
+    for display.</P>
+   <LI>
+   <P>
+    global.asa: A file containing Application_OnStart and 
+    Application_OnEnd event handlers, which perform initialization and 
+    termination functions.</P>
+   </UL>
+  <P>
+   The form in form.html (named &quot;demoForm&quot;) has 
+   &quot;default.asp&quot; as its ACTION attribute. When the form is 
+   submitted, its contents are posted to default.asp on the server. The 
+   form is submitted if either the &quot;Check Spelling&quot; or 
+   &quot;Submit&quot; buttons are pressed. If the &quot;Check 
+   Spelling&quot; button is pressed, the spelling of any text entered 
+   into the text area is checked, and any misspelled words and 
+   suggestions are displayed.</P>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="DemoClient"></A>Client</TD>
+    </TR>
+   </TABLE></H2>
+  <P>
+   Form.html contains the demoForm form. The form contains two 
+   SUBMIT-type buttons, labelled &quot;Submit&quot; and &quot;Check 
+   Spelling.&quot; Pressing either button causes the browser to submit 
+   the form to default.asp on the server.</P>
+  <H2>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="DemoServer"></A>Server</TD>
+    </TR>
+   </TABLE></H2>
+  <H4>
+   Default.asp</H4>
+  <P>
+   When the URL of the virtual directory is opened, the Web server 
+   invokes default.asp. In response, default.asp reads the contents of 
+   form.html and returns the HTML stream it contains. This causes the 
+   browser to display an empty form.</P>
+  <P>
+   When the user clicks the &quot;Submit&quot; or &quot;Check 
+   Spelling&quot; buttons in the form, the browser submits the form to 
+   default.asp. Default.asp examines the VALUE attribute of the button 
+   which caused the submission to determine what action to take next.</P>
+  <P>
+   If the &quot;Check Spelling&quot; button was pressed, the spelling of 
+   text in the textArea1 field is checked. Otherwise, the form is 
+   submitted as normal. In this example, a normal submission does 
+   nothing interesting, but in your application it will do whatever is necessary.</P>
+  <P>
+   If a spelling check is requested, default.asp calls the CheckString 
+   method to check the text submitted in the form. In the demo, the 
+   words in the text are spell-checked and never replaced, so we don't 
+   have to leave room for the text to grow (as would happen if a word 
+   was replaced by a longer word). The CheckString method returns when 
+   it finds a misspelled word or when it reaches the end of the text. 
+   When a misspelled word is found, default.asp calls the Suggest method 
+   to obtain suggested replacements, and the misspelled word and 
+   suggestions are saved. Looking up suggestions can be time consuming, 
+   so default.asp is careful not to do this if the misspelled word was 
+   encountered previously.</P>
+  <P>
+   After all words in the text have been checked (as signaled by a 
+   return value from the CheckString method), the misspelled words and 
+   their suggestions are formatted and returned to the client in an 
+   updated copy of form.html, including the original text and the 
+   spelling-check results.</P>
+  <H4>
+   Global.asa</H4>
+  <P>
+   The global.asa file contains two event handlers: Application_OnStart 
+   and Application_OnEnd. Application_OnStart is invoked by the Web 
+   server when an ASP application in the virtual directory is first 
+   started (since default.asp is the only ASP application in the virtual 
+   directory, Application_OnStart will be called the first time a 
+   browser opens the virtual directory's URL). Application_OnStart opens 
+   a Sentry session (by calling the OpenSession method), and opens the 
+   American English lexicon within that session. You can modify 
+   Application_OnStart in global.asa to open other lexicons if desired. 
+   The Sentry session id returned by the OpenSession method is saved as 
+   the &quot;SSCESid&quot; application variable. This Sentry session id 
+   is shared by all clients. Note that a Sentry &quot;session&quot; is 
+   different from and has nothing to do with an ASP &quot;session.&quot; 
+   All ASP &quot;sessions&quot; (or, more accurately, by all instances 
+   of the default.asp application) share the same Sentry &quot;session.&quot;</P>
+  <P>
+   Default.asp is designed to support multiple clients and to correctly 
+   handle the situation where multiple clients request a spelling check 
+   simultaneously. Sentry sessions were not designed to be shared by 
+   multiple concurrent processing threads, so Application.Lock is used 
+   to ensure that only one ASP session uses the Sentry session at a 
+   time. Any call to a function in the Sentry API is bracketed by calls 
+   to Application.Lock and Application.Unlock.</P>
+  <P>
+   An alternative approach would involve opening one Sentry session per 
+   ASP session (i.e., per application instance). This approach would 
+   make it unnecessary to share Sentry session ids, and it would 
+   therefore not be necessary to call Application.Lock. However, each 
+   open Sentry session would need its own set of dictionaries, resulting 
+   in significant memory consumption if a large number of clients 
+   requested a spelling check.</P>
+  <P>
+   The Sentry API includes the GetSid function, which returns the Sentry 
+   session id automatically opened by the Sentry DLL. This session has 
+   dictionaries and option settings made from values in the system 
+   registry. Although it would be very convenient to use this function 
+   rather than opening a session, opening dictionaries, and setting 
+   options, doing so in a server environment is risky. The GetSid 
+   function is available to all applications running on the server 
+   computer. A desktop application or another ASP application running on 
+   the same server might also use the Sentry session id returned by 
+   GetSid, and this would result in the unsynchronized sharing of a 
+   session id, which is not safe. Calling Application.Lock in this 
+   situation would not help, since Application.Lock locks instances of 
+   the current ASP application and has no effect on other ASP 
+   applications or desktop applications.</P>
+  <P>
+   The Application_OnEnd event handler is called by the server when it 
+   shuts down. Application_OnEnd closes the Sentry session, which also 
+   closes any lexicons open within the session.</P>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H1>
+   <A NAME="APIRef"></A>SentryASC API Reference</H1>
+  <P>
+   This section contains information on the syntax of the API provided 
+   by SentryASC.DLL. See the corresponding functions in the SSCE 
+   Programmer's Guide for descriptions, parameter meanings, and 
+   additional information.</P><PRE>Public Function AddToLex(ByVal sid%, ByVal lexId%, ByVal word$,<BR>  ByVal action%, ByVal otherWord$) As Integer</PRE><PRE>Public Function CheckBlock(ByVal sid%, ByVal blkId%,<BR>  errWord As Variant, otherWord As Variant) As Integer</PRE><PRE>Public Function CheckBlockDlg(ByVal parentWin&amp;, block As Variant,<BR>  ByVal blkLen&amp;, ByVal blkSz&amp;, ByVal showContext%) As Long</PRE><PRE>Public Function CheckCtrlBackground(ByVal ctrlWin&amp;) As Integer</PRE><PRE>Public Function CheckCtrlDlg(ByVal parentWin&amp;, ByVal ctrlWin&amp;,<BR>  ByVal selectedOnly%) As Integer</PRE><PRE>Public Function CheckString(ByVal sid%, ByVal str$,<BR>  cursor As Variant, word As Variant, otherWord As Variant) As<BR>  Integer</PRE><PRE>Public Function CheckWord(ByVal sid%, ByVal word$,<BR>  otherWord As Variant) As Integer</PRE><PRE>Public Function ClearLex(ByVal sid%, ByVal lexId%) As Integer</PRE><PRE>Public Function CloseBlock(ByVal sid%, ByVal blkId) As Integer</PRE><PRE>Public Function CloseLex(ByVal sid%, ByVal lexId%) As Integer</PRE><PRE>Public Function CloseSession(ByVal sid%) As Integer</PRE><PRE>Public Sub CompressLexAbort(ByVal sid%)</PRE><PRE>Public Function CompressLexEnd(ByVal sid%) As Integer</PRE><PRE>Public Function CompressLexFile(ByVal sid%, ByVal fileName$,<BR>  errLine As Variant) As Integer</PRE><PRE>Public Function CompressLexInit(ByVal sid%, ByVal lexFileName$,<BR>  ByVal suffixFileName$, ByVal langId%, errLine As Variant) As Integer</PRE><PRE>Public Function CountStringWords(ByVal sid%, ByVal str$) As Long</PRE><PRE>Public Function CreateLex(ByVal sid%, ByVal fileName$,<BR>  ByVal lang%) As Integer</PRE><PRE>Public Function DelBlockText(ByVal sid%, ByVal blkId%,<BR>  ByVal numChars&amp;) As Integer</PRE><PRE>Public Function DelBlockWord(ByVal sid%, ByVal blkId%,<BR>  delText As Variant) As Long</PRE><PRE>Public Function DelFromLex(ByVal sid%, ByVal lexId%,<BR>  ByVal word$) As Integer</PRE><PRE>Public Function DelStringWord(ByVal sid%, str As Variant,<BR>  ByVal cursor&amp;, delText As Variant) As Long</PRE><PRE>Public Function EditLexDlg(ByVal parentWin&amp;) As Integer</PRE><PRE>Public Function GetAutoCorrect() As Integer</PRE><PRE>Public Function GetBlock(ByVal sid%, ByVal blkId%, block As Variant) As<BR>  Long</PRE><PRE>Public Function GetBlockInfo(ByVal sid%, ByVal blkId%,<BR>  blkLen As Variant, blkSz As Variant, curPos As Variant,<BR>  wordCount As Variant) As Integer</PRE><PRE>Public Function GetBlockWord(ByVal sid%, ByVal blkId%,<BR>  word As Variant) As Integer</PRE><PRE>Public Sub GetHelpFile(fileName As Variant)</PRE><PRE>Public Function GetLex(ByVal sid%, ByVal lexId%, lexBfr As Variant) As<BR>  Long</PRE><PRE>Public Function GetLexId(ByVal lexFileName$) As Integer</PRE><PRE>Public Function GetLexInfo(ByVal sid%, ByVal lexId%,<BR>  lexSz As Variant, lexFormat As Variant, lang As Variant) As Integer</PRE><PRE>Public Sub GetMainLexFiles(fileList As Variant)</PRE><PRE>Public Sub GetMainLexPath(path As Variant)</PRE><PRE>Public Function GetMinSuggestDepth() As Integer</PRE><PRE>Public Function GetOption(ByVal sid%, ByVal opt&amp;) As Long</PRE><PRE>Public Sub GetRegTreeName(regTreeName As Variant)</PRE><PRE>Public Sub GetSelUserLexFile(fileName As Variant)</PRE><PRE>Public Function GetSid() As Integer</PRE><PRE>Public Sub GetStatistics(wordsChecked As Variant,<BR>  wordsChanged As Variant, errorsDetected As Variant)</PRE><PRE>Public Sub GetStringTableName(tableName As Variant)</PRE><PRE>Public Function GetStringWord(ByVal sid%, ByVal str$,<BR>  ByVal cursor&amp;, word As Variant) As Long</PRE><PRE>Public Sub GetUserLexFiles(files As Variant)</PRE><PRE>Public Sub GetUserLexPath(path As Variant)</PRE><PRE>Public Function InsertBlockText(ByVal sid%, ByVal blkId%,<BR>  ByVal text$) As Integer</PRE><PRE>Public Function InsertStringText(ByVal sid%, str As Variant,<BR>  ByVal strSz&amp;, ByVal cursor&amp;, ByVal text$) As Long</PRE><PRE>Public Function NextBlockWord(ByVal sid%, ByVal blkId%) As Integer</PRE><PRE>Public Function OpenBlock(ByVal sid%, ByVal block$,<BR>  ByVal blkLen&amp;, ByVal blkSz&amp;, ByVal copyBlock%) As Integer</PRE><PRE>Public Function OpenLex(ByVal sid%, ByVal fileName$,<BR>  ByVal memBudget&amp;) As Integer</PRE><PRE>Public Function OpenSession() As Integer</PRE><PRE>Public Function OptionsDlg(ByVal parentWin&amp;) As Integer</PRE><PRE>Public Function ReplaceBlockWord(ByVal sid%, ByVal blkId%,<BR>  ByVal word$) As Integer</PRE><PRE>Public Function ReplaceStringWord(ByVal sid%, str As Variant,<BR>  ByVal strSz&amp;, ByVal cursor&amp;, ByVal word$) As Long</PRE><PRE>Public Function ResetLex() As Integer</PRE><PRE>Public Function SetAutoCorrect(ByVal autoCorrect%) As Integer</PRE><PRE>Public Function SetBlockCursor(ByVal sid%, ByVal blkId%,<BR>  ByVal cursor&amp;) As Integer</PRE><PRE>Public Sub SetDebugFile(ByVal debugFile$)</PRE><PRE>Public Sub SetDialogOrigin(ByVal x%, ByVal y%)</PRE><PRE>Public Function SetHelpFile(ByVal helpFile$) As Integer</PRE><PRE>Public Function SetIniFile(ByVal iniFile$) As Integer</PRE><PRE>Public Function SetKey(ByVal key&amp;) As Integer</PRE><PRE>Public Function SetMainLexFiles(ByVal fileList$) As Integer</PRE><PRE>Public Function SetMainLexPath(ByVal path$) As Integer</PRE><PRE>Public Function SetMinSuggestDepth(ByVal depth%) As Integer</PRE><PRE>Public Function SetOption(ByVal sid%, ByVal opt&amp;, ByVal optVal&amp;) As Long</PRE><PRE>Public Function SetRegTreeName(ByVal regTreeName$) As Integer</PRE><PRE>Public Function SetSelUserLexFile(ByVal fileName$) As Integer</PRE><PRE>Public Function SetStringTableName(ByVal tableName$) As Integer</PRE><PRE>Public Function SetUserLexFiles(ByVal fileList$) As Integer</PRE><PRE>Public Function SetUserLexPath(ByVal path$) As Integer</PRE><PRE>Public Function Suggest(ByVal sid%, ByVal word$, ByVal depth%,  suggestions As Variant, scores As Variant, ByVal nSuggestions%) As Integer</PRE><PRE>Public Sub Version(ver As Variant)</PRE><P
+    ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <P>
+   Copyright &copy; 2000 <A HREF="http://www.wintertree-software.com">Wintertree
+    Software Inc</A>.<BR>
+   $Revision: 5.14.8 $
+ </BODY>
+</HTML>

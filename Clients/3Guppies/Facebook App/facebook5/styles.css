@@ -1,0 +1,33 @@
+body, html
+{
+	height:100%; /* fix height to 100% for IE */
+	max-height:100%; /* fix height for other browsers */
+	padding:0; /*remove padding */
+	margin:0; /* remove margins */
+	border:0; /* remove borders */
+}
+.headerlinks
+{
+	padding:0px 0px 0px 20px; /* trbl*/
+	background:#68b700;
+	height:21px;
+	color:#ffffff;
+	font:bold 10pt Arial;
+}
+.headerlinks a
+{
+	color:#ffffff;
+	font:bold 10pt Arial;
+}
+.footerlinks
+{
+	padding:3px;
+	background:#4db3d0;
+	color:#ffffff;
+	font:9pt Arial;
+}
+.footerlinks a
+{
+	color:#ffffff;
+	font:9pt Arial;
+}

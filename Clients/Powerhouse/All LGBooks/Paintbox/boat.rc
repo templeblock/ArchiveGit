@@ -1,0 +1,359 @@
+//***********************************************************************
+IDD_BOATI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_BOATI GAMETABLE
+//***********************************************************************
+{
+"
+	intros=intro1.wav intro2.wav intro3.wav,","
+	success1=succi.wav,","
+	success2=succ2.wav,","
+	success3=succ3.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANBOATI GAMETABLE
+//***********************************************************************
+{
+"
+	intros=spintro1.wav spintro2.wav spintro3.wav,","
+	success1=spsucci.wav,","
+	success2=spsucc2.wav,","
+	success3=spsucc3.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_BOATI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+// *** Page Icon *** //
+
+	/PAGE=0 0,				pos=291 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,	hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0,	hot=218 441,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITY5,fg=sound.bmp,hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0,	hot=389 441,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=options.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_NEXT=0 0,		hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans,fg=help.bmp, cmd=IDC_HELP, hint=helphint.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANBOATI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+// *** Page Icon *** //
+
+	/PAGE=0 0,				pos=291 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,	hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=spprev.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=spmain.wav;","
+	/IDC_SOUNDBOX=0 0,	hot=218 441,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITY5,fg=sound.bmp,hint=spsounds.wav;","
+	/IDC_OPTIONS=0 0,	hot=389 441,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=spoption.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=spactivy.wav;","
+	/IDC_NEXT=0 0,		hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=spnext.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans,fg=help.bmp, cmd=IDC_HELP, hint=sphelp1.wav;","
+
+",0
+}   
+
+//***********************************************************************
+IDD_BOAT1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_BOAT1 GAMETABLE
+//***********************************************************************
+{
+"
+	intros=intro1.wav intro2.wav intro3.wav,","
+	success1=succ1.wav,","
+	success2=succ2.wav,","
+	success3=succ3.wav;","
+",0
+}
+  
+//***********************************************************************
+IDD_SPANBOAT1 GAMETABLE
+//***********************************************************************
+{
+"
+	intros=spintro1.wav spintro2.wav spintro3.wav,","
+	success1=spsucc1.wav,","
+	success2=spsucc2.wav,","
+	success3=spsucc3.wav;","
+",0
+}
+
+  
+//***********************************************************************
+IDD_BOAT1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+//*** Action Strip Icons ***//
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANBOAT1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+//*** Action Strip Icons ***//
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_BOAT2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_BOAT2 GAMETABLE
+//***********************************************************************
+{
+"
+	intros=intro1.wav intro2.wav intro3.wav,","
+	success1=succ1.wav,","
+	success2=succ2.wav,","
+	success3=succ3.wav;","
+",0
+}
+  
+//***********************************************************************
+IDD_SPANBOAT2 GAMETABLE
+//***********************************************************************
+{
+"
+	intros=spintro1.wav spintro2.wav spintro3.wav,","
+	success1=spsucc1.wav,","
+	success2=spsucc2.wav,","
+	success3=spsucc3.wav;","
+",0
+}
+
+  
+//***********************************************************************
+IDD_BOAT2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+
+//*** Action Strip Icons ***//
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANBOAT2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+
+//*** Action Strip Icons ***//
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+",0
+}
+         
+//***********************************************************************
+IDD_BOAT3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_BOAT3 GAMETABLE
+//***********************************************************************
+{
+"
+	intros=intro1.wav intro2.wav intro3.wav,","
+	success1=succ1.wav,","
+	success2=succ2.wav,","
+	success3=succ3.wav;","
+",0
+}
+  
+//***********************************************************************
+IDD_SPANBOAT3 GAMETABLE
+//***********************************************************************
+{
+"
+	intros=spintro1.wav spintro2.wav spintro3.wav,","
+	success1=spsucc1.wav,","
+	success2=spsucc2.wav,","
+	success3=spsucc3.wav;","
+",0
+}
+
+  
+//***********************************************************************
+IDD_BOAT3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+//*** Action Strip Icons ***//
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANBOAT3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene08\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+//*** Action Strip Icons ***//
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 445,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+",0
+}
+         

@@ -1,0 +1,467 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "BeBold"=.\BeBold\BeBold.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ColorTips"=.\ColorTips\ColorTips.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ColorWheel"=.\ColorWheel\ColorWheel.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ConnectingText"=.\ConnectingText\ConnectingText.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Tutorial/ConnectingText", RDGAAAAA
+    .\connectingtext
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "EmbossingGraphicShapes"=.\EmbossingGraphicShapes\EmbossingGraphicShapes.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "FontTips"=.\FontTips\FontTips.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GroupingElements"=.\GroupingElements\GroupingElements.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "HookedToInternet"=.\HookedToInternet\HookedToInternet.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Tutorial/HookedToInternet", XHGAAAAA
+    .\hookedtointernet
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Introduction"=.\Introduction\Introduction.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "KeepElementsDifferent"=.\KeepElementsDifferent\KeepElementsDifferent.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "KeepItSimple"=.\KeepItSimple\KeepItSimple.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "LayoutHints"=.\LayoutHints\LayoutHints.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "LineEmUp"=.\LineEmUp\LineEmUp.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "MailMerge"=.\MailMerge\MailMerge.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Tutorial/MailMerge", RIGAAAAA
+    .\mailmerge
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NewsLetterTips"=.\NewsLetterTips\NewsLetterTips.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "OversizeCaps"=.\OversizeCaps\OversizeCaps.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "RepeatingElements"=.\RepeatingElements\RepeatingElements.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "RotatingElements"=.\RotatingElements\RotatingElements.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Scanners"=.\Scanners\Scanners.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Tutorial/Scanners", WIGAAAAA
+    .\scanners
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ScreenedBackground"=.\ScreenedBackground\ScreenedBackground.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "StrongCoverArt"=.\StrongCoverArt\StrongCoverArt.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Tutorial"=.\Tutorial.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Tutorial", LJEAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name ColorWheel
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name BeBold
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ColorTips
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name EmbossingGraphicShapes
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name FontTips
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GroupingElements
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Introduction
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name KeepElementsDifferent
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name KeepItSimple
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LayoutHints
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LineEmUp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NewsLetterTips
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name OversizeCaps
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name RepeatingElements
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name RotatingElements
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ScreenedBackground
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name StrongCoverArt
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name UsingGuidelines
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name WhatsNew
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ConnectingText
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name UsingArtGallery
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name WebPagePublishing
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name WebPageDesign
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name MailMerge
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name WrapText
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Scanners
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name HookedToInternet
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "UsingArtGallery"=.\UsingArtGallery\UsingArtGallery.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "UsingGuidelines"=.\UsingGuidelines\UsingGuidelines.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "WebPageDesign"=.\WebPageDesign\WebPageDesign.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Tutorial/WebPageDesign", NHGAAAAA
+    .\webpagedesign
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "WebPagePublishing"=.\WebPagePublishing\WebPagePublishing.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Tutorial/WebPagePublishing", SHGAAAAA
+    .\webpagepublishing
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "WhatsNew"=.\WhatsNew\WhatsNew.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "WrapText"=.\WrapText\WrapText.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Tutorial/WrapText", MIGAAAAA
+    .\wraptext
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+    {94FB2C46-512E-11D2-8BEF-00A0C9B12C3D}
+}}}
+
+###############################################################################
+

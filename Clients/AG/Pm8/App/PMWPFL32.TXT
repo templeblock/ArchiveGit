@@ -1,0 +1,86 @@
+/* Source base directory */
+
+BaseSourceDir "Q:\"
+
+/* Destination base directory */
+
+//BaseDestinationDir ""
+
+/* Program Group - Content */
+
+groups 1;
+flags 0;
+
+File "CONTENT\*.BDR" to directory "CONTENT";
+File "CONTENT\*.BDT" to directory "CONTENT";
+File "CONTENT\*.BMP" to directory "CONTENT";
+File "CONTENT\*.CDR" to directory "CONTENT";
+//File "CONTENT\*.CDT" to directory "CONTENT";		// pl only
+File "CONTENT\*.IDR" to directory "CONTENT";
+File "CONTENT\*.IDT" to directory "CONTENT";
+File "CONTENT\*.INI" to directory "CONTENT";
+File "CONTENT\*.KDR" to directory "CONTENT";
+File "CONTENT\*.ORD" to directory "CONTENT";
+File "CONTENT\*.PMO" to directory "CONTENT";
+//File "CONTENT\*.TDT" to directory "CONTENT";		// pl only
+//File "CONTENT\*.TDR" to directory "CONTENT";		// pl only
+File "CONTENT\PM7PHOTO.CDT" to directory "CONTENT";
+File "CONTENT\PM7PHOTO.TDR" to directory "CONTENT";
+File "CONTENT\PM7PHOTO.TDT" to directory "CONTENT";
+File "CONTENT\PM7DXART.CDT" to directory "CONTENT";
+File "CONTENT\PM7DXART.TDR" to directory "CONTENT";
+File "CONTENT\PM7DXART.TDT" to directory "CONTENT";
+File "CONTENT\PACKS\*.*" to directory "CONTENT";
+
+// Web Publishing Wizard install
+groups 1;
+flags 0;
+File "INSTALL\IE4\WPIE415.EXE" to "WPIE415.EXE";
+
+/* Shared Files */
+groups 1;
+flags 7; 	// Shared+IgnoreIfInUse+IgnoreIfOlder
+Directory "INSTALL\OCX" to directory "";
+Directory "INSTALL\SHARED" to directory "";
+
+/*	Twain Group */
+groups 32;
+flags 23; 	// Shared+IgnoreIfInUse+IgnoreIfOlder+ForceWindowsDir
+File "INSTALL\TWAIN\TWAIN.DLL" to "TWAIN.DLL";
+File "INSTALL\TWAIN\TWAIN_32.DLL" to "TWAIN_32.DLL";
+File "INSTALL\TWAIN\TWUNK_16.EXE" to "TWUNK_16.EXE";
+File "INSTALL\TWAIN\TWUNK_32.EXE" to "TWUNK_32.EXE";
+
+flags 7; 	// Shared+IgnoreIfInUse+IgnoreIfOlder
+File "INSTALL\TWAIN\MSVCRT20.DLL" to "MSVCRT20.DLL";
+
+/* Program Group - MSREG */
+
+groups 1;
+flags 0;
+
+File "MSREG\MSREG.INI" to "MSREG.INI";
+File "MSREG\MSREG32.DLL" to "MSREG32.DLL";
+File "MSREG\MSRUN32.EXE" to "MSRUN.EXE";
+File "MSREG\PMWDEMO.INF" to "PMWDEMO.INF";
+File "MSREG\PMG.ICO" to "PMG.ICO";
+
+/* Program Group - PMW */
+
+groups 1;
+flags 0;
+
+/*
+Directory "PMW\NFX" recurse to directory "NFX";
+Directory "PMW\PHOTOENP" recurse to directory "PHOTOENP";
+Directory "PMW\WITHHELP" recurse to directory "WITHHELP";
+*/
+Directory "PMW" recurse to directory "";
+
+/* Program Group - PMW32 */
+
+File "PMW32\*.*" to directory "";
+
+/* Program Group - Sound Effects */
+
+Directory "SOUNDFX" recurse to directory "SOUNDFX";

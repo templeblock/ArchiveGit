@@ -1,0 +1,8 @@
+// Source file: ROTATE.C
+BOOL RotateImage( int Angle, BOOL bSmartSize, int dirty );
+LPFRAME RotateFrame( LPFRAME lpSrcFrame, int Angle, LPCOLORINFO lpBGColor, BOOL bSmartSize );
+long average_pixel(LPFRAME lpFrame, LFIXED xp, LFIXED yp, int depth, int top, int left, int bottom, int right, BOOL offimage_average, COLOR bgPixel);
+void average_pixel8(LPFRAME lpFrame, LFIXED xp, LFIXED yp, int top, int left, int bottom, int right, BOOL offimage_average, BYTE bgPixel, LPTR lpNewPixel);
+void average_pixel24(LPFRAME lpFrame, LFIXED xp, LFIXED yp, int top, int left, int bottom, int right, BOOL offimage_average, RGBS bgPixel, LPRGB lpNewPixel);
+void average_pixel32(LPFRAME lpFrame, LFIXED xp, LFIXED yp, int top, int left, int bottom, int right, BOOL offimage_average, CMYKS bgPixel, LPCMYK lpNewPixel);
+

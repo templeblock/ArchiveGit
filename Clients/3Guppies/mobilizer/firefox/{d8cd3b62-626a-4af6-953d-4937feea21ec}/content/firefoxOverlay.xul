@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://mobilizer/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://mobilizer/locale/mobilizer.dtd">
+<overlay id="mobilizer-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="overlay.js"/>
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="mobilizer-strings" src="chrome://mobilizer/locale/mobilizer.properties"/>
+  </stringbundleset>
+
+  <popup id="contentAreaContextMenu">
+    <menuitem id="context-mobilizer" label="&mobilizerContext.label;"
+	      class="menuitem-iconic"
+              insertafter="context-stop"
+              oncommand="mobilizer.onMenuItemCommand(event)"
+	      image="chrome://mobilizer/skin/mobilizer.png"/>
+    <menuitem id="context-mobilizer-all" label="&mobilizerContextAll.label;"
+	      class="menuitem-iconic"
+	      insertafter="context-stop"
+	      oncommand="mobilizer.openNewExternalMobilizerTab(false)"
+	      image="chrome://mobilizer/skin/mobilizer.png"/>
+  </popup>
+
+</overlay>

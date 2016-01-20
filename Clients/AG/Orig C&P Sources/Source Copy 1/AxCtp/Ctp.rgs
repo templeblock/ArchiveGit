@@ -1,0 +1,35 @@
+HKCR
+{
+	Ctp.Ctp.1 = s 'Ctp Class'
+	{
+		CLSID = s '{38578BF0-0ABB-11D3-9330-0080C6F796A1}'
+	}
+	Ctp.Ctp = s 'Ctp Class'
+	{
+		CLSID = s '{38578BF0-0ABB-11D3-9330-0080C6F796A1}'
+		CurVer = s 'Ctp.Ctp.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {38578BF0-0ABB-11D3-9330-0080C6F796A1} = s 'Ctp Class'
+		{
+			ProgID = s 'Ctp.Ctp.1'
+			VersionIndependentProgID = s 'Ctp.Ctp'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove 'Control'
+			ForceRemove 'Programmable'
+			ForceRemove 'Insertable'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 1'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '131473'
+			}
+			'TypeLib' = s '{38578BF1-0ABB-11D3-9330-0080C6F796A1}'
+			'Version' = s '1.0'
+		}
+	}
+}

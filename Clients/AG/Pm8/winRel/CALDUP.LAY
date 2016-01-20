@@ -1,0 +1,89 @@
+# This is the CALENDAR layout file for PrintMaster Gold
+# A layout begins with a name on a line by itself.
+# On the next line, the first number is a "flags" number composed of the
+# sum of:
+#    1 - X Flipped              : Not implemented yet
+#    2 - Y Flipped              : Not implemented yet
+#    4 - Relative Size          : Use the actual size of the graphic
+#    8 - Repeated X             : Not implemented yet
+#   16 - Repeated Y             : Not implemented yet
+#   32 - Centered X             : Graphic is centered horizontally
+#   64 - Centered Y             : Graphic is centered vertically
+#  128 - Align Left             : Graphic is aligned to the left of the box
+#  256 - Align Right            : Graphic is aligned to the right of the box
+#  512 - Align Top              : Graphic is aligned to the top of the box
+# 1024 - Align Bottom           : Graphic is aligned to the bottom of the box
+#
+# The next four numbers are the element box with 0 being left or top and
+# 1000 being right or bottom. Numbers are left, top, right, bottom.
+# Flags like aligned are with respect to the edges of the element box.
+# Flags like centered are with respect to the page (and override align).
+# If no left or right align flags are given, the element is centered within
+# the box horizontally.
+# If no top or bottom align flags are given, the element is centered within
+# the box vertically.
+#............................CALENDAR DUPLICATION LAYOUT FILE 
+
+Tiled Header
+512 0 0 200 100
+512 200 0 400 100
+512 400 0 600 100
+512 600 0 800 100
+512 800 0 1000 100.
+
+Small Tiled Header
+512 0 0 100 100
+512 100 0 200 100
+512 200 0 300 100
+512 300 0 400 100
+512 400 0 500 100
+512 500 0 600 100
+512 600 0 700 100
+512 700 0 800 100
+512 800 0 900 100
+512 900 0 1000 100.
+
+Tiled Border
+1920 0 0 200 200
+1920 200 0 400 200
+1920 400 0 600 200
+1920 600 0 800 200
+1920 800 0 1000 200
+1920 0 200 200 400
+1920 800 200 1000 400
+1920 0 400 200 600
+1920 800 400 1000 600
+1920 0 600 200 800
+1920 800 600 1000 800
+1920 0 800 200 1000
+1920 200 800 400 1000
+1920 400 800 600 1000
+1920 600 800 800 1000
+1920 800 800 1000 1000.
+
+Tiled Cover
+1920 0 0 200 200
+1920 200 0 400 200
+1920 400 0 600 200
+1920 600 0 800 200
+1920 800 0 1000 200
+1920 0 200 200 400
+1920 200 200 400 400
+1920 400 200 600 400
+1920 600 200 800 400
+1920 800 200 1000 400
+1920 0 400 200 600
+1920 200 400 400 600
+1920 400 400 600 600
+1920 600 400 800 600
+1920 800 400 1000 600
+1920 0 600 200 800
+1920 200 600 400 800
+1920 400 600 600 800
+1920 600 600 800 800
+1920 800 600 1000 800
+1920 0 800 200 1000
+1920 200 800 400 1000
+1920 400 800 600 1000
+1920 600 800 800 1000
+1920 800 800 1000 1000.

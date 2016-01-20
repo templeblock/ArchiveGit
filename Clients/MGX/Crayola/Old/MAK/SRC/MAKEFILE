@@ -1,0 +1,417 @@
+##############################################################################
+#                                                                            #
+#        (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.        #
+#                                                                            #
+#        This material is confidential and considered a trade secret.        #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#         from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.         #
+#                                                                            #
+##############################################################################
+#                                                                            #
+#                           Application makefile                             #
+#                                                                            #
+##############################################################################
+
+!if "$(APP)"=="ADVENT"
+ADVENT  =1                          # define application flag
+PROJECT =Crayola Art ADVENTURE      # proper name of application
+EXENAME =adventur
+!else
+APP     =STUDIO
+STUDIO  =1                          # define application flag
+PROJECT =Crayola Art STUDIO         # proper name of application
+EXENAME =studio
+!endif
+
+BINDIR  =../bin                     # standard paths
+
+!if exist (..\user.mak)
+!    message User profile loaded.
+!    include ..\user.mak
+!endif
+
+!if DEFINED(DST)
+!    message Using DST override: $(DST)
+DSTDIR  =$(DST)
+!else
+DSTDIR  =..\dst
+!endif
+
+!if DEFINED(OBJ)
+!    message Using OBJ override: $(OBJ)
+OBJDIR  =$(OBJ)
+!else
+!if DEFINED(ADVENT)
+OBJDIR  =..\obj\adv
+!else
+OBJDIR  =..\obj
+!endif
+!endif
+
+!if DEFINED(REF)
+!    message Using REF override: $(REF)
+REFLIB  =$(REF)                     # reflib takes regular directory slashes
+!else
+REFLIB  =..\ref                     #    because that is all LINK can handle
+!endif
+REFDIR  =$(REFLIB:\=/)              # reverse slashes for RX and RC
+
+!if DEFINED(RES)
+!    message Using RES override: $(RES)
+RESDIR  =$(RES)
+!else
+RESDIR  =..\res
+!endif
+
+app: begin.mak                  \
+     $(DSTDIR)\$(EXENAME).exe   \
+     $(OBJDIR)\$(EXENAME).res   \
+     end.mak
+
+#--------------------------------- Settings ---------------------------------#
+.silent:
+
+!IFNDEF CPU
+CPU = 3                                 # target CPU setting
+!ENDIF
+
+!IFNDEF DEFAULT_OPTS
+#DEFAULT_OPTS = /Od
+DEFAULT_OPTS = /f- /O2clego /Gs         # default compile options
+!ENDIF
+
+LINK_FLAGS = /nod /noe /onerror:noexe /packf /seg:250 /al:64 /farcalltrans
+
+MODEL=M
+
+CPPFLAGS   = /A$(MODEL) /c /Fo$(OBJDIR)\ /FPc /GA /G$(CPU)sy /u /W3 /Zpe
+PDB        = $(OBJDIR)\$(EXENAME).pdb
+CFLAGS     = $(CPPFLAGS)
+
+START      = tm start /N
+FINISH     = tm stop  /N
+BLANK      = echo Done
+TEE        = tee $(@B).err
+
+!ifdef MAPOPTS
+MAPFILE = $(DSTDIR)\$(EXENAME).map
+!else
+MAPFILE = NUL.MAP
+!endif
+
+#------------------------ Conditional Make Options --------------------------#
+
+!if EXIST(pvcs)
+!   error Please do not compile on the network...
+!endif
+
+DEFINES=$(DEFINES) -D$(APP) -DUSEWAVEMIX -DUSEOLE
+
+!if "$(CDROM)"=="CDROM"
+!   message CD-ROM version of $(PROJECT)
+DEFINES=$(DEFINES) -DCDBUILD
+!endif
+
+!if "$(BUILD)"=="SHIP"
+!   message $(DSTDIR) Shipping version of $(PROJECT)
+COPTS  = $(DEFAULT_OPTS)
+LOPTS  =
+DEFINES=$(DEFINES) -DSHIPBUILD
+!elseif "$(BUILD)"=="DNL"
+!   message $(DSTDIR) Debug (without linenumber info) version of $(PROJECT)
+COPTS  = $(DEFAULT_OPTS)
+LOPTS  = /CO
+!elseif "$(BUILD)"=="CVL"
+!   message $(DSTDIR) Codeview link version of $(PROJECT)
+COPTS  = $(DEFAULT_OPTS) /Zd
+LOPTS  = /CO
+!elseif "$(BUILD)"=="CV"
+!   message $(DSTDIR) Codeview version of $(PROJECT)
+COPTS  = $(DEFAULT_OPTS) /Zi /Fd$(PDB)
+LOPTS  = /CO
+!else
+!   message $(DSTDIR) Default version of $(PROJECT)
+COPTS  = $(DEFAULT_OPTS)
+LOPTS  = /CO
+!endif
+
+#--------------------------------- Files ------------------------------------#
+
+INC     = $(REFDIR);$(OBJDIR)
+LIB     = $(REFLIB);$(LIB)
+PATH    = $(PATH);$(BINDIR)
+INCLUDE = $(INC);$(INCLUDE)
+
+OBJ_LIST = $(OBJDIR)\about.obj    \
+           $(OBJDIR)\animate.obj  \
+           $(OBJDIR)\animbtns.obj \
+           $(OBJDIR)\astral.obj   \
+           $(OBJDIR)\blend.obj    \
+           $(OBJDIR)\bmprdr.obj   \
+           $(OBJDIR)\bmpwrt.obj   \
+           $(OBJDIR)\bomb.obj     \
+           $(OBJDIR)\bruprocs.obj \
+           $(OBJDIR)\brush.obj    \
+           $(OBJDIR)\brushup.obj  \
+           $(OBJDIR)\brushsim.obj \
+           $(OBJDIR)\check.obj    \
+           $(OBJDIR)\class.obj    \
+           $(OBJDIR)\cmask.obj    \
+           $(OBJDIR)\color.obj    \
+           $(OBJDIR)\combo.obj    \
+           $(OBJDIR)\commands.obj \
+           $(OBJDIR)\compress.obj \
+           $(OBJDIR)\constrai.obj \
+           $(OBJDIR)\controls.obj \
+           $(OBJDIR)\cpo.obj      \
+           $(OBJDIR)\ctlutil.obj  \
+           $(OBJDIR)\cursors.obj  \
+           $(OBJDIR)\cut.obj      \
+           $(OBJDIR)\dda.obj      \
+           $(OBJDIR)\defaults.obj \
+           $(OBJDIR)\dlgfile.obj  \
+           $(OBJDIR)\dlgmgr.obj   \
+           $(OBJDIR)\doclist.obj  \
+           $(OBJDIR)\drawfram.obj \
+           $(OBJDIR)\drive.obj    \
+           $(OBJDIR)\effects.obj  \
+           $(OBJDIR)\engine.obj   \
+           $(OBJDIR)\enginea.obj  \
+           $(OBJDIR)\explode.obj  \
+           $(OBJDIR)\extname.obj  \
+           $(OBJDIR)\filt.obj     \
+           $(OBJDIR)\filter.obj   \
+           $(OBJDIR)\flood.obj    \
+           $(OBJDIR)\fonts.obj    \
+           $(OBJDIR)\gallery.obj  \
+           $(OBJDIR)\getdev.obj   \
+           $(OBJDIR)\help.obj     \
+           $(OBJDIR)\hidden.obj   \
+           $(OBJDIR)\image.obj    \
+           $(OBJDIR)\imgutil.obj  \
+           $(OBJDIR)\intelio.obj  \
+           $(OBJDIR)\intermsn.obj \
+           $(OBJDIR)\layout.obj   \
+           $(OBJDIR)\makepath.obj \
+           $(OBJDIR)\marquee.obj  \
+           $(OBJDIR)\mask.obj     \
+           $(OBJDIR)\maskio.obj   \
+           $(OBJDIR)\measure.obj  \
+           $(OBJDIR)\menu.obj     \
+           $(OBJDIR)\merge.obj    \
+           $(OBJDIR)\message.obj  \
+           $(OBJDIR)\mgxdde.obj   \
+           $(OBJDIR)\midikeyb.obj \
+           $(OBJDIR)\object.obj   \
+           $(OBJDIR)\objedit.obj  \
+           $(OBJDIR)\objio.obj    \
+           $(OBJDIR)\opening.obj  \
+           $(OBJDIR)\palio.obj    \
+           $(OBJDIR)\pallist.obj  \
+           $(OBJDIR)\palprocs.obj \
+           $(OBJDIR)\pixmap.obj   \
+           $(OBJDIR)\popups.obj   \
+           $(OBJDIR)\ppole.obj    \
+           $(OBJDIR)\ppoledoc.obj \
+           $(OBJDIR)\ppoleobj.obj \
+           $(OBJDIR)\ppolesvr.obj \
+           $(OBJDIR)\print.obj    \
+           $(OBJDIR)\prnprocs.obj \
+           $(OBJDIR)\process.obj  \
+           $(OBJDIR)\progmgr.obj  \
+           $(OBJDIR)\ps.obj       \
+           $(OBJDIR)\raddon.obj   \
+           $(OBJDIR)\radio.obj    \
+           $(OBJDIR)\rdot2dot.obj \
+           $(OBJDIR)\register.obj \
+           $(OBJDIR)\retouch.obj  \
+           $(OBJDIR)\rgallery.obj \
+           $(OBJDIR)\rhidden.obj  \
+           $(OBJDIR)\rjokes.obj   \
+           $(OBJDIR)\rmazes.obj   \
+           $(OBJDIR)\rmixup.obj   \
+           $(OBJDIR)\rpuzzle.obj  \
+           $(OBJDIR)\rooms.obj    \
+           $(OBJDIR)\rotate.obj   \
+           $(OBJDIR)\rshapes.obj  \
+           $(OBJDIR)\rslide.obj   \
+           $(OBJDIR)\rspotdot.obj \
+           $(OBJDIR)\rsubsets.obj \
+           $(OBJDIR)\rulers.obj   \
+           $(OBJDIR)\rwho.obj     \
+           $(OBJDIR)\rworld.obj   \
+           $(OBJDIR)\rwrong.obj   \
+           $(OBJDIR)\saveload.obj \
+           $(OBJDIR)\scroll.obj   \
+           $(OBJDIR)\select.obj   \
+           $(OBJDIR)\slider.obj   \
+           $(OBJDIR)\smart.obj    \
+           $(OBJDIR)\sound.obj    \
+           $(OBJDIR)\spin.obj     \
+           $(OBJDIR)\swirltab.obj \
+           $(OBJDIR)\tanimate.obj \
+           $(OBJDIR)\tcontrol.obj \
+           $(OBJDIR)\tcrayon.obj  \
+           $(OBJDIR)\tdraw.obj    \
+           $(OBJDIR)\text.obj     \
+           $(OBJDIR)\teffects.obj \
+           $(OBJDIR)\terase.obj   \
+           $(OBJDIR)\tfill.obj    \
+           $(OBJDIR)\tgallery.obj \
+           $(OBJDIR)\tifrdr.obj   \
+           $(OBJDIR)\tifwrt.obj   \
+           $(OBJDIR)\tlines.obj   \
+           $(OBJDIR)\tmarker.obj  \
+           $(OBJDIR)\toolbar.obj  \
+           $(OBJDIR)\toolproc.obj \
+           $(OBJDIR)\tpaint.obj   \
+           $(OBJDIR)\tprobe.obj   \
+           $(OBJDIR)\tracer.obj   \
+           $(OBJDIR)\track.obj    \
+           $(OBJDIR)\tstamp.obj   \
+           $(OBJDIR)\ttext.obj    \
+           $(OBJDIR)\ttform.obj   \
+           $(OBJDIR)\view.obj     \
+           $(OBJDIR)\vignette.obj \
+           $(OBJDIR)\wacom.obj    \
+           $(OBJDIR)\wallpape.obj \
+           $(OBJDIR)\winimage.obj \
+           $(OBJDIR)\winpal.obj   \
+           $(OBJDIR)\winprocs.obj \
+           $(OBJDIR)\wintools.obj
+
+# The libraries in this list are listed in reverse order of their dependency.
+# Libraries will get initialized in a bottom-to-top order.
+# If you add new libraries to this list, add them to the TOP!
+
+LIB_LIST = wavemix.lib		\
+           frame.lib		\
+           animate.lib      \
+           mmgxutil.lib
+
+STD_LIBS = libw             \
+           $(MODEL)libcew   \
+           mmsystem         \
+           oldnames         \
+           olesvr           \
+		   toolhelp			\
+           shell
+
+#--------------------------- Dependency Commands ----------------------------#
+
+DEPEND_INC=..\obj\DEPEND.INC
+
+automake depends:
+!if EXIST ($(DEPEND_INC)) || DEFINED(DEPEND)
+    echo Building dependencies...
+    automake @<<
+-x
+-o$(DEPEND_INC)
+-listcat(VLIB_LIST,{$$(LIB)},$(LIB_LIST))
+-vINC=$(INC)
+-tOBJDIR\
+-Relative
+$(OBJDIR)\$(EXENAME).res
+$(OBJ_LIST)
+<<
+!endif
+
+!ifndef JIM
+!   ifndef DEPEND
+!      if !EXIST ($(DEPEND_INC))
+!          if [$(MAKE) /C DEPEND=1 depends]!=0
+!              error could not build dependencies
+!          endif
+!      endif
+!      include $(DEPEND_INC)
+!   endif
+!endif
+
+#----------------------------- Inference Rules ------------------------------#
+
+.SUFFIXES:
+.SUFFIXES: .exe .obj .cpp .res .rc .c .asm
+
+{}.asm{$(OBJDIR)\}.obj:
+    echo Assembling $(@F)...
+    $(START)
+    masm $(@B) $@; | $(TEE)
+    $(FINISH)
+
+{}.c{$(OBJDIR)\}.obj:
+    echo Compiling $(@F)...
+    $(START)
+    $(CPP) /nologo @<< -Tc $< | $(TEE)
+$(COPTS) $(CFLAGS) $(DEFINES) -DSTRICT
+<<
+    $(FINISH)
+
+{}.cpp{$(OBJDIR)\}.obj:
+    echo Compiling $(@F)...
+    $(START)
+    $(CPP) /nologo @<< -Tp $< | $(TEE)
+$(COPTS) $(CPPFLAGS) $(DEFINES) -DSTRICT
+<<
+    $(FINISH)
+
+SAVECL=$(CL)
+{}.rc{$(OBJDIR)\}.res:
+    echo Building RES file from $<...
+    $(START)
+    rc -r -z $(DEFINES) -fo$@ -I$(RESDIR) $<
+    $(FINISH)
+    $(BLANK)
+
+#------------------------------ Link Commands -------------------------------#
+
+$(OBJDIR)\$(EXENAME).lnk: makefile
+        echo Creating linker response file:  <<$@
+$(OBJ_LIST: = +^
+)
+$(DSTDIR)\$(EXENAME).exe $(LINK_FLAGS)
+$(MAPFILE)
+$(LIB_LIST: = +^
+) +
+$(STD_LIBS)
+$(EXENAME).def
+<<keep
+
+
+LINK_LIST = $(OBJ_LIST)                 \
+            $(VLIB_LIST)                \
+            $(OBJDIR)\$(@B).lnk         \
+            $(EXENAME).def
+
+$(DSTDIR)\$(EXENAME).exe:: $(LINK_LIST)
+    echo Linking $(@F)...
+    $(START)
+    link /nol /b $(LOPTS) $(MAPOPTS) @$(OBJDIR)\$(@B).lnk
+    $(FINISH)
+    $(BLANK)
+
+$(DSTDIR)\$(EXENAME).exe:: $(LINK_LIST) $(OBJDIR)\$(EXENAME).res
+    echo Binding resources for $(PROJECT)
+    rc -k -31 -t $(OBJDIR)\$(EXENAME).res $@
+
+#----------------------- Miscellaneous Pseudo-targets -----------------------#
+
+res: $(OBJDIR)\$(EXENAME).res
+   echo $(PROJECT) resources built
+
+cvpack:
+   echo Packing CodeView information...
+   exehdr /nologo /reseterror $(DSTDIR)\$(EXENAME).exe >nul
+   cvpack $(DSTDIR)\$(EXENAME).exe
+
+#----------------------------- Timing Commands ------------------------------#
+
+begin.mak:
+    tm start /C4 /N
+
+end.mak:
+    tm "Total Build Time" stop /C4 /N
+    echo $(PROJECT) completed
+
+##############################################################################
+
+

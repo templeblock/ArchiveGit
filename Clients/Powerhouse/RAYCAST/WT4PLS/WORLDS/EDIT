@@ -1,0 +1,606 @@
+
+wm minsize . 500 400
+wm geometry . 800x550
+
+proc CreateWidgets {} {
+    global scale mode
+    wm minsize . 500 400 
+    wm geometry . 800x550
+    frame .menu -relief raised
+    frame .edit -relief raised
+    frame .bottom -relief raised
+    label .bottom.msg -text "Ready." -relief sunken
+    canvas [set canvas .edit.canvas] \
+	-xscroll ".edit.xscroll set" \
+	-yscroll ".edit.v.yscroll set" \
+	-relief sunken -background white
+    
+    frame .edit.v -borderwidth 0
+    scrollbar .edit.v.yscroll -orient vertical -command "$canvas yview"
+    scrollbar .edit.xscroll -orient horizontal -command "$canvas xview"
+    label .edit.v.corner
+    menubutton .menu.file -text "File" \
+	-menu [set filemenu .menu.file.b] \
+	-underline 0
+    menu $filemenu
+    $filemenu add command -label "Open ..." \
+	-command "LoadWorld $canvas" \
+	-underline 0
+    $filemenu add command -label "Save" \
+	-command "SaveWorld" \
+	-underline 0
+    
+    $filemenu add command -label "Exit" \
+	-command "destroy ." \
+	-underline 0
+    menubutton .menu.options -text "Mode" \
+	-menu [set opmenu .menu.options.b] \
+	-underline 0
+
+    menu $opmenu
+    set mode vertex
+    $opmenu add radiobutton -label "Vertex" -value vertex -variable mode \
+	-command "SwitchMode $canvas vertex" -underline 1
+
+    $opmenu add radiobutton -label "Wall" -value wall -variable mode \
+	-command "SwitchMode $canvas wall" -underline 1
+
+    $opmenu add radiobutton -label "Region" -value region -variable mode \
+	-command "SwitchMode $canvas region" -underline 1
+
+    $opmenu add radiobutton -label "Info" -value info -variable mode \
+	-command "SwitchMode $canvas info" -underline 1
+
+    menubutton .menu.magstep -text "Magstep" \
+	-menu [set magmenu .menu.magstep.b] \
+	-underline 0
+    menu $magmenu
+    $magmenu add radiobutton -label "10" -value 10 -variable scale \
+	-command "DrawObjects $canvas" -underline 1
+    $magmenu add radiobutton -label "20" -value 20 -variable scale \
+	-command "DrawObjects $canvas" -underline 1
+    $magmenu add radiobutton -label "30" -value 30 -variable scale \
+	-command "DrawObjects $canvas" -underline 1
+    $magmenu add radiobutton -label "40" -value 40 -variable scale \
+	-command "DrawObjects $canvas" -underline 1
+    $magmenu add radiobutton -label "50" -value 50 -variable scale \
+	-command "DrawObjects $canvas" -underline 1
+    $magmenu add radiobutton -label "75" -value 75 -variable scale \
+	-command "DrawObjects $canvas" -underline 0
+    $magmenu add radiobutton -label "100" -value 100 -variable scale \
+	-command "DrawObjects $canvas"
+    $magmenu add radiobutton -label "200" -value 200 -variable scale \
+	-command "DrawObjects $canvas"
+    set scale 10
+    menubutton .menu.misc -text "Misc" \
+	-menu [set miscmenu .menu.misc.b] \
+	-underline 1
+    menu $miscmenu
+    set bgcolor [option get . background *]
+    $miscmenu add command -label "xmag" -command "exec xmag -bg $bgcolor &" \
+	-underline 0
+    
+    tk_menuBar .menu .menu.file .menu.options .menu.magstep .menu.misc
+    tk_bindForTraversal .
+    pack .menu -side top -fill x
+    pack .menu.file .menu.options .menu.magstep .menu.misc -in .menu -side left
+    pack .edit -side top -fill both -expand yes
+    pack .edit.v.yscroll -expand yes -fill y
+    pack .edit.v.corner -fill both
+    pack .edit.v -side right -fill y
+    pack .edit.xscroll -side bottom -fill x
+    pack $canvas -side right -fill both -expand yes
+    pack .bottom.msg -expand yes -fill x
+    pack .bottom -side bottom -fill x
+    CreateObjectInfo
+    follow_mouse .edit.canvas 1
+    ClearWorld $canvas
+    SwitchMode $canvas vertex
+    bind $canvas <3> "itemStartDrag $canvas %x %y"
+    bind $canvas <B3-Motion> "itemDrag $canvas %x %y"
+    bind $canvas <Key-Escape> "StopDrag $canvas"
+    bind $canvas <Any-Enter> "focus $canvas"
+    scale_canvas $canvas
+    focus default .
+}
+
+proc GetNumber { s } {
+    return [string range [lindex $s 0] 1 end]
+}
+
+proc CreateObjectInfo {} {
+    toplevel .info
+    wm minsize .info 350 250
+    wm geometry .info 450x250
+    frame .info.top -relief raised
+    frame .info.bot -relief raised
+    text .info.top.text -wrap none \
+	-yscrollcommand ".info.top.scrolly set" \
+	-font 9x15bold
+    scrollbar .info.top.scrolly -orient vertical \
+	-command ".info.top.text yview"
+    button .info.bot.btn -text "Close" -command "wm withdraw .info"
+    pack .info.top.scrolly -side right -fill y
+    pack .info.top.text
+    pack .info.bot.btn
+    pack .info.bot -side bottom -expand yes -fill x
+    pack .info.top -side top -expand yes -fill both
+    wm withdraw .info
+}
+
+proc SwitchMode { canvas mode } {
+    global edit_mode
+    set edit_mode $mode
+    switch $mode {
+	vertex { 
+	    bind $canvas <1> {
+		CreateVertex .edit.canvas \
+		    [expr [.edit.canvas canvasx %x].0/$scale] \
+		    [expr [.edit.canvas canvasy %y].0/$scale]
+	    }
+	}
+	wall { 
+	    bind $canvas <1> "ConnectPoints $canvas" 
+	}
+	region {
+	    bind $canvas <1> ""
+	}
+	info {
+	    bind $canvas <1> "ObjectInfo $canvas"
+	}	    
+	default {}
+    }
+}
+
+proc ObjectInfo { canvas } {
+    global wall
+    SelectItem $canvas
+    if { "[$canvas find withtag current]" != "" } {
+	set item [$canvas find withtag current]
+	wm deiconify .info
+	raise .info
+	set tags [$canvas gettags current]
+	set w .info.top.text
+	$w delete 0.0 end
+	$w insert insert $tags
+	switch [lindex $tags 1] {
+	    wall { 
+		$w insert insert $wall([GetNumber [lindex $tags 0]])
+	    }
+	    default {}
+	}	
+    }
+}
+
+proc LoadWorld { canvas } {
+    global BBpath
+    set fn [FSBox "Select blackboard" "*.world" "" "$BBpath"]
+    if { "$fn" != "" } {
+	set fd [open $fn "r"]
+	ReadWorld $fd $canvas
+	close $fd
+    }
+}
+
+proc ClearWorld { canvas } {
+    $canvas delete all
+    global maxx maxy minx miny vindex windex tindex rindex 
+    global texture vertex wall region default
+    set maxx 5
+    set maxy 5
+    set minx 0 
+    set miny 0
+    set vindex 0
+    set windex 0
+    set tindex 0
+    set rindex 0
+    if { [info exists vertex] } {
+	unset vertex
+    }
+    if { [info exists wall] } {
+	unset wall
+    }
+    if { [info exists texture] } {
+	unset texture
+    }
+    if { [info exists region] } {
+	unset region
+    }
+    if { [info exists p1] } {
+	unset p1
+    }
+    if { [info exists p2] } {
+	unset p2
+    }
+    set default(texture) "Undefined"
+    set default(freg) 1
+    set default(breg) 0
+    set default(xscale) 0.1
+    set default(yscale) 0.1
+    set default(xphase) 0
+    set default(yphase) 0
+    scale_canvas $canvas
+}
+
+proc ReadWorld { fd canvas } {
+    global texture tindex region rindex default
+    ClearWorld $canvas
+    while { ![eof $fd] } {
+	set line [gets $fd]
+	switch  -- [lindex $line 0] {
+	    texture {
+		set texture($tindex) "[lindex $line 1] [lindex $line 2]"
+		incr tindex
+	    }
+	    vertex { 
+		CreateVertex $canvas [lindex $line 1] [lindex $line 2] 
+	    }
+	    wall {
+		while {[llength $line]<10} {
+		    set line [concat $line [gets $fd]]
+		}
+		eval "CreateWall $canvas [lrange $line 1 9]"
+	    }
+	    region {
+		set region($rindex) \
+		    "[lindex $line 1] [lindex $line 2] \
+                     [lindex $line 3] [lindex $line 4]"
+		incr rindex
+	    }
+	    ";" {}
+	    default {}
+	}
+    }
+    UpdateRegions $canvas
+    set default(texture) [lindex $texture(0) 0]
+    scale_canvas $canvas
+}
+
+proc SaveWorld { } {
+    global BBpath
+    set fn [FSBox "Select Worldfile" "*.world" "" "$BBpath"]
+    if { "$fn" != "" } {
+	set fd [open $fn "w"]
+	WriteWorld $fd
+	close $fd
+    }
+}
+
+proc WriteWorld { fd } {
+    global texture vertex wall region
+    global tindex vindex windex rindex
+    puts $fd "\n; texture\n"
+    if { [info exists texture] } {
+	for { set i 0 } { $i<$tindex } { incr i } {
+	    puts $fd "texture $texture($i)\t; t$i"
+	}
+    }
+    puts $fd "\n; vertex\n"
+    if { [info exists vertex] } {
+	for { set i 0 } { $i<$vindex } { incr i } {
+	    puts $fd "vertex $vertex($i)\t; v$i"
+	}
+    }
+    puts $fd "\n; region\n"
+    if { [info exists region] } {
+	for { set i 0 } { $i<$rindex } { incr i } {
+	    puts $fd "region $region($i)\t; r$i"
+	}
+    }
+    puts $fd "\n; wall\n"
+    if { [info exists wall] } {
+	for { set i 0 } { $i<$windex } { incr i } {
+	    puts $fd "wall [lrange $wall($i) 0 2] \
+                           [lrange $wall($i) 3 4] \
+                           [lrange $wall($i) 5 8]\t; w$i"
+	}
+    }
+}
+
+proc DrawVertex { canvas x y index } {
+    global scale
+    $canvas create oval \
+	[expr ($x*$scale)-3] \
+	[expr ($y*$scale)-3] \
+	[expr ($x*$scale)+3] \
+	[expr ($y*$scale)+3] \
+	-fill red \
+	-tags "[format v%d $index] vertex"
+}
+
+proc CreateVertex { canvas x y } {
+    global scale maxx maxy minx miny vertex vindex
+
+    set maxx [max $maxx $x]
+    set maxy [max $maxy $y]
+    set minx [min $minx $x]
+    set miny [min $miny $y]
+    set vertex($vindex) "$x $y"
+    DrawVertex $canvas $x $y $vindex
+    incr vindex
+}
+
+proc DrawWall { canvas v1 v2 index } {
+    global scale vertex
+    $canvas create line \
+	[expr [lindex $vertex($v1) 0]*$scale] \
+	[expr [lindex $vertex($v1) 1]*$scale] \
+	[expr [lindex $vertex($v2) 0]*$scale] \
+	[expr [lindex $vertex($v2) 1]*$scale] \
+	-fill blue \
+	-tags "[format w%d $index] wall"
+    $canvas raise vertex
+}
+
+
+proc CreateWall { canvas v1 v2 tname rback rfore xs ys xp yp } {
+    global vertex scale wall windex p1 p2
+    set wall($windex) [list $v1 $v2 $tname $rback $rfore $xs $ys $xp $yp]
+    lappend p1($v1) $windex
+    lappend p2($v2) $windex
+    DrawWall $canvas $v1 $v2 $windex
+    incr windex
+}
+
+proc ConnectPoints { canvas } {
+    global vfirst vprev cline default
+    set tags [$canvas gettags [$canvas find withtag current]]
+    echo ConnectPoints $tags
+    if { "[lindex $tags 1]"=="vertex" } {
+	set vnum [string range [lindex $tags 0] 1 end]
+	if { ![info exists vfirst] } {
+	    set vfirst [lindex $tags 0]
+	    set vprev $vfirst
+	    set coords [$canvas coords $vprev]
+	    set x1 [expr [lindex $coords 0]+3]
+	    set y1 [expr [lindex $coords 1]+3]
+	    set cline [$canvas create line $x1 $y1 $x1 $y1 \
+			   -tags connect]
+	    bind $canvas <Motion> "ConnectDrag $canvas %x %y"
+	} else {
+	    $canvas delete connect
+	    set vnext [lindex $tags 0]
+	    CreateWall $canvas \
+		[GetNumber $vprev] \
+		[GetNumber $vnext] \
+		$default(texture) \
+		$default(freg) $default(breg) \
+		$default(xscale) $default(yscale) \
+                $default(xphase) $default(yphase)
+	    if { "$vnext"=="$vfirst" } {
+		unset vfirst
+		unset vprev
+		follow_mouse .edit.canvas 1
+	    } else {
+		set vprev $vnext
+		set coords [$canvas coords $vprev]
+		set x1 [expr [lindex $coords 0]+3]
+		set y1 [expr [lindex $coords 1]+3]
+		set cline [$canvas create line $x1 $y1 $x1 $y1 \
+			   -tags connect]
+		bind $canvas <Motion> "ConnectDrag $canvas %x %y"
+	    }
+	}
+    }
+}
+
+proc ConnectDrag { canvas x y } {
+    set coords [$canvas coords connect]
+    $canvas coords connect [lindex $coords 0] [lindex $coords 1] \
+	[$canvas canvasx $x] [$canvas canvasy $y]
+    $canvas lower connect
+}
+proc DrawRegion { canvas } {
+}
+
+proc follow_mouse { canvas state } {
+    if { $state } {
+	bind $canvas <Motion> [list update_mpos $canvas %x %y]
+    } else {
+	bind $canvas <Motion> ""
+    }
+}
+
+proc update_mpos { canvas x y } {
+    .bottom.msg configure \
+	-text [format "%4d %4d" [$canvas canvasx $x] [$canvas canvasy $y]]
+}
+
+
+proc itemStartDrag {c x y} {
+    global lastX lastY
+    set lastX [$c canvasx $x]
+    set lastY [$c canvasy $y]
+}
+
+proc itemDrag {c x y} {
+    global lastX lastY p1 p2 wall vertex scale
+    set x [$c canvasx $x]
+    set y [$c canvasy $y]
+    set item [$c find withtag current]
+    if { "[lindex [$c gettags current] 1]"=="vertex"} {
+	$c move current [expr $x-$lastX] [expr $y-$lastY]
+	set vnum [GetNumber [lindex [$c gettags current] 0]]
+	set vertex($vnum) "[expr $x.0/$scale] [expr $y.0/$scale]"
+	if {[info exists p1($vnum)]} {
+	    foreach i $p1($vnum) {
+		set w [format w%d $i]
+		set coords [$c coords $w]
+	        $c coords $w \
+		    $x $y [lindex $coords 2] [lindex $coords 3]
+	    }
+	}
+	if {[info exists p2($vnum)]} {
+	    foreach i $p2($vnum) {
+		set w [format w%d $i]
+		set coords [$c coords $w]
+		echo $coords
+	        $c coords $w  \
+		    [lindex $coords 0] [lindex $coords 1] $x $y
+
+	    }
+	}
+	set lastX $x
+	set lastY $y
+    }
+}
+
+proc StopDrag { canvas } {
+    global vfirst vprev
+    echo stop
+    catch {
+	unset vfirst 
+	unset vprev
+	$canvas delete current
+    }
+    follow_mouse $canvas 1
+}
+
+proc itemEnter {c} {
+    global restoreCmd
+
+    if {[tk colormodel $c] != "color"} {
+	set restoreCmd {}
+	return
+    }
+    set type [$c type current]
+    if {$type == "bitmap"} {
+	set bg [lindex [$c itemconf current -background] 4]
+	set restoreCmd [list $c itemconfig current -background $bg]
+	$c itemconfig current -background SteelBlue2
+	return
+    }
+    set fill [lindex [$c itemconfig current -fill] 4]
+    if {(($type == "rectangle") 
+         || ($type == "oval") 
+         || ($type == "arc"))
+	    && ($fill == "")} {
+	set outline [lindex [$c itemconfig current -outline] 4]
+	set restoreCmd "$c itemconfig current -outline $outline"
+	$c itemconfig current -outline SteelBlue2
+    } else {
+	set restoreCmd "$c itemconfig current -fill $fill"
+	$c itemconfig current -fill SteelBlue2
+    }
+}
+
+proc itemLeave {c} {
+    global restoreCmd
+    eval $restoreCmd
+}
+
+proc DrawObjects { canvas } {
+    global scale vertex wall
+    scale_canvas $canvas
+    $canvas delete all
+    if {[info exists vertex]} {
+	foreach i [array names vertex] {
+	    DrawVertex $canvas [lindex $vertex($i) 0] [lindex $vertex($i) 1] $i
+	}
+    }
+    if {[info exists wall]} {
+	foreach i [array names wall] {
+	    DrawWall $canvas [lindex $wall($i) 0] [lindex $wall($i) 1] $i
+	}
+    }
+}
+
+proc FindWallsWithFore { r } {
+    global wall windex
+    set result ""
+    for { set i 0 } { $i<$windex } { incr i } {
+	if {"[lindex $wall($i) 3]"=="$r"} {
+	    lappend result $i
+	}
+    }
+    return $result
+}
+
+proc FindWallsWithBack { r } {
+    global wall windex
+    set result ""
+    for { set i 0 } { $i<$windex } { incr i } {
+	if {"[lindex $wall($i) 4]"=="$r"} {
+	    lappend result $i
+	}
+    }
+    return $result
+}
+
+proc UpdateRegions { canvas } {
+    global region wall vertex rindex scale
+    if {[info exists wall]} {
+	for { set r 0 } { $r<$rindex } { incr r } {
+	    set walls [FindWallsWithFore $r]
+	    set coords ""
+	    echo region $r fore :
+	    foreach w $walls {
+		if {"$coords"==""} {
+		    set coords $vertex([lindex $wall($w) 0])
+		}
+		set coords [concat $coords $vertex([lindex $wall($w) 1])]
+		echo \t$wall($w)
+	    }
+	    if {[llength $coords]>=6} {
+		set tc ""
+		foreach i $coords {
+		    set tc [concat $tc [expr $i*$scale]]
+		}
+		eval "$canvas create polygon $tc \
+                                  -fill \"\" \
+                                  -tags \{ [format r%d $r] region \}"
+	    }
+	    echo coords : $coords
+	}
+	for { set r 0 } { $r<$rindex } { incr r } {
+	    set walls [FindWallsWithBack $r]
+	    set coords ""
+	    echo region $r back :
+	    foreach w $walls {
+		if {"$coords"==""} {
+		    set coords $vertex([lindex $wall($w) 0])
+		}
+		set coords [concat $coords $vertex([lindex $wall($w) 1])]
+		echo \t$wall($w)
+	    }
+	    if {[llength $coords]>=6} {
+		set tc ""
+		foreach i $coords {
+		    set tc [concat $tc [expr $i*$scale]]
+		}
+		eval "$canvas create polygon $tc \
+                                  -fill \"\" \
+                                  -tags \{ [format r%d $r] region \}"
+	    }
+	    echo coords : $coords
+	}
+    }
+    $canvas lower region
+}
+
+proc SelectItem {canvas } {
+    global selected scolor
+    set item [$canvas find withtag current]
+    echo [$canvas gettags $item]
+    if {[info exists selected]} {
+	$canvas itemconfigure $selected -fill $scolor
+    }
+    set scolor [lindex [$canvas itemconf $item -fill] 4]
+    echo [$canvas itemconf $item -fill]
+    set selected $item
+    $canvas itemconfigure $item -fill orange
+}
+    
+proc scale_canvas { canvas } {
+    global scale maxx maxy minx miny
+    $canvas configure -scrollregion \
+	" [expr $minx*$scale-50] [expr $miny*$scale-50] \
+	[expr $maxx*$scale+50] [expr $maxy*$scale+50]"
+}
+
+set installdir /home/thomas/wt-0.04/worlds
+
+set auto_path "$installdir $auto_path"
+set BBpath $env(PWD)
+source $installdir/Gray14.tcl
+CreateWidgets

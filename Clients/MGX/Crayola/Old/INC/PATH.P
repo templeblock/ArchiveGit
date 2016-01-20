@@ -1,0 +1,3 @@
+// Source file: PATH.C
+DWORD WINPROC PathControl(HWND hPath,UINT Message,WPARAM wParm,LPARAM lParm);
+

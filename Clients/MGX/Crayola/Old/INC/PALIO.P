@@ -1,0 +1,4 @@
+// Source file: PALIO.C
+BOOL WritePalette(LPSTR lpFileName, LPPALETTE lpPalette);
+LPPALETTE ReadPalette( LPSTR lpFileName, BOOL bCombine );
+

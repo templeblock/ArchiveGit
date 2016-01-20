@@ -1,0 +1,10 @@
+// Source file: toolbar.c
+WORD ActivateTool( WORD idTool );
+void DeactivateTool( void );
+void InstallTool(BOOL fAlternate);
+static void ToolMover( HWND hWnd, ITEMID idTool );
+HINSTANCE OptionLoadLibrary( HWND hDlg, ITEMID idFirst, int iCount, ITEMID idType, int iCategory, int iTotalCategories );
+BOOL OptionGetString( HINSTANCE hOptions, int iTool, LPSTR lpString );
+BOOL OptionGetFileName( HINSTANCE hOptions, int iTool, LPSTR lpFileName );
+int OptionGetCategoryNum(int iCategory, int iTotalCategories, ITEMID idType);
+

@@ -1,0 +1,5 @@
+// Source file: SLIDE.C
+BOOL InitSlide( HWND hDlg, ITEMID idItem, int iValue, int iMin, int iMax );
+BOOL SetSlide( HWND hDlg, ITEMID idItem, int iValue );
+int HandleSlide( HWND hDlg, WORD wParam, long lParam, LPINT lpBoolCompleted );
+

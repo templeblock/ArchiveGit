@@ -1,0 +1,946 @@
+#include "windows.h"
+#include "resource.h"
+#include "commonid.h"
+#include "jungleid.h"
+#include "control.h"
+
+//***********************************************************************
+stringtable LMD
+//***********************************************************************
+	{
+	IDS_CLASS,	"jungle"
+	IDS_TITLE,	"The Jungle Book"
+	IDS_INI,	"jungle.ini"
+	}
+
+//***********************************************************************
+// Imbedded icons, cursors, bitmaps, wave files, etc.
+//***********************************************************************
+-1						icon	LMD jungle.ico
+IDI_HOTSPOT				bitmap	LMD hotspot.bmp
+IDI_INSTINCT			bitmap	LMD instinct.bmp
+IDC_HAND_POINT_CURSOR	cursor	LMD hpoint.cur
+IDC_HAND_CLOSED_CURSOR	cursor	LMD no.cur
+
+// Save and resume game controls
+IDC_GAME0				bitmap	LMD buttout.bmp
+IDC_GAME0x				bitmap	LMD buttin.bmp
+IDC_GAME1				bitmap	LMD buttout.bmp
+IDC_GAME1x				bitmap	LMD buttin.bmp
+IDC_GAME2				bitmap	LMD buttout.bmp
+IDC_GAME2x				bitmap	LMD buttin.bmp
+IDC_GAME3				bitmap	LMD buttout.bmp
+IDC_GAME3x				bitmap	LMD buttin.bmp
+IDC_GAME4				bitmap	LMD buttout.bmp
+IDC_GAME4x				bitmap	LMD buttin.bmp
+IDC_GAME5				bitmap	LMD buttout.bmp
+IDC_GAME5x				bitmap	LMD buttin.bmp
+
+// Combination control bitmaps
+IDC_COMBO1				bitmap	LMD 00out.bmp
+IDC_COMBO2				bitmap	LMD 05out.bmp
+IDC_COMBO3				bitmap	LMD 10out.bmp
+IDC_COMBO4				bitmap	LMD 15out.bmp
+IDC_COMBO5				bitmap	LMD 20out.bmp
+IDC_COMBO6				bitmap	LMD 25out.bmp
+IDC_COMBO7				bitmap	LMD 30out.bmp
+IDC_COMBO8				bitmap	LMD 35out.bmp
+IDC_COMBO_DIGIT1		bitmap	LMD 00out.bmp
+IDC_COMBO_DIGIT2		bitmap	LMD 00out.bmp
+IDC_COMBO_DIGIT3		bitmap	LMD 00out.bmp
+//IDC_COMBO_TRYIT		bitmap	LMD tryitout.bmp
+//IDC_COMBO_TRYITx		bitmap	LMD tryitin.bmp
+//IDC_COMBO_GIVEUP		bitmap	LMD giveupot.bmp
+//IDC_COMBO_GIVEUPx		bitmap	LMD giveupin.bmp
+
+// Options screen resources
+IDC_SLIDER_MIDIVOL		bitmap	LMD thumb.bmp
+IDC_SLIDER_WAVVOL		bitmap	LMD thumb.bmp
+IDC_VOICE				bitmap	LMD voiceoff.bmp
+IDC_VOICEx				bitmap	LMD voiceon.bmp
+IDC_EXPERT				bitmap	LMD expertof.bmp
+IDC_EXPERTx				bitmap	LMD experton.bmp
+IDC_TALK_BUTTON			bitmap	LMD talkout.bmp
+IDC_TALK_BUTTONx		bitmap	LMD talkin.bmp
+IDC_INSTINCT_METER		bitmap	LMD instinc1.bmp
+IDC_INSTINCT_METER2		bitmap	LMD instinc2.bmp
+
+IDC_START				bitmap	LMD startout.bmp
+IDC_STARTx				bitmap	LMD startin.bmp
+IDC_RESUME				bitmap	LMD resumeot.bmp
+IDC_RESUMEx				bitmap	LMD resumein.bmp
+IDC_CREDITS				bitmap	LMD creditot.bmp
+IDC_CREDITSx			bitmap	LMD creditin.bmp
+IDC_OPTIONS				bitmap	LMD earout.bmp
+IDC_OPTIONSx			bitmap	LMD earin.bmp
+IDC_NOT					bitmap	LMD noout.bmp
+IDC_NOTx				bitmap	LMD noin.bmp
+IDC_YES					bitmap	LMD yesout.bmp
+IDC_YESx				bitmap	LMD yesin.bmp
+IDC_RETURN				bitmap	LMD rtrnout.bmp
+IDC_RETURNx				bitmap	LMD rtrnin.bmp
+IDC_EXIT				bitmap	LMD exitout.bmp
+IDC_EXITx				bitmap	LMD exitin.bmp
+IDC_ZOOM				bitmap	LMD zoomout.bmp
+IDC_ZOOMx				bitmap	LMD zoomin.bmp
+IDC_SAVE				bitmap	LMD saveout.bmp
+IDC_SAVEx				bitmap	LMD savein.bmp
+IDC_CANCEL				bitmap	LMD cancelot.bmp
+IDC_CANCELx				bitmap	LMD cancelin.bmp
+
+// Bitmaps for decisions
+IDC_LEFT				bitmap	LMD arrowlot.bmp
+IDC_LEFTx				bitmap	LMD arrowlin.bmp
+IDC_UP					bitmap	LMD arrowuot.bmp
+IDC_UPx					bitmap	LMD arrowuin.bmp
+IDC_RIGHT				bitmap	LMD arrowrot.bmp
+IDC_RIGHTx				bitmap	LMD arrowrin.bmp
+IDC_DOWN				bitmap	LMD arrowdot.bmp
+IDC_DOWNx				bitmap	LMD arrowdin.bmp
+IDC_HOME				bitmap	LMD arrowdot.bmp
+IDC_HOMEx				bitmap	LMD arrowdin.bmp
+
+IDC_DP5_L				bitmap	LMD arrowlot.bmp
+IDC_DP5_Lx				bitmap	LMD arrowlin.bmp
+IDC_DP5_U				bitmap	LMD arrowuot.bmp
+IDC_DP5_Ux				bitmap	LMD arrowuin.bmp
+IDC_DP5_R				bitmap	LMD arrowrot.bmp
+IDC_DP5_Rx				bitmap	LMD arrowrin.bmp
+
+IDC_DP7_L				bitmap	LMD wgn1out.bmp
+IDC_DP7_Lx				bitmap	LMD wgn1in.bmp
+IDC_DP7_R				bitmap	LMD wgn2out.bmp
+IDC_DP7_Rx				bitmap	LMD wgn2in.bmp
+
+IDC_DP8_L				bitmap	LMD arwbrgot.bmp
+IDC_DP8_Lx				bitmap	LMD arwbrgin.bmp
+IDC_DP8_R				bitmap	LMD arrowdot.bmp
+IDC_DP8_Rx				bitmap	LMD arrowdin.bmp
+
+IDC_DP10_L				bitmap	LMD jungleot.bmp
+IDC_DP10_Lx				bitmap	LMD junglein.bmp
+IDC_DP10_U				bitmap	LMD waterout.bmp
+IDC_DP10_Ux				bitmap	LMD waterin.bmp
+IDC_DP10_R				bitmap	LMD rwboatot.bmp
+IDC_DP10_Rx				bitmap	LMD rwboatin.bmp
+
+IDC_DP13_L				bitmap	LMD arch1ot.bmp
+IDC_DP13_Lx				bitmap	LMD arch1in.bmp
+IDC_DP13_U				bitmap	LMD arch2ot.bmp
+IDC_DP13_Ux				bitmap	LMD arch2in.bmp
+IDC_DP13_R				bitmap	LMD arch3ot.bmp
+IDC_DP13_Rx				bitmap	LMD arch3in.bmp
+IDC_DP13_D				bitmap	LMD arch4ot.bmp
+IDC_DP13_Dx				bitmap	LMD arch4in.bmp
+IDC_DP13_H				bitmap	LMD arch5ot.bmp
+IDC_DP13_Hx				bitmap	LMD arch5in.bmp
+
+IDC_DP25_L				bitmap	LMD arrowlot.bmp
+IDC_DP25_Lx				bitmap	LMD arrowlin.bmp
+IDC_DP25_U				bitmap	LMD arrowuot.bmp
+IDC_DP25_Ux				bitmap	LMD arrowuin.bmp
+IDC_DP25_R				bitmap	LMD arrowrot.bmp
+IDC_DP25_Rx				bitmap	LMD arrowrin.bmp
+
+IDC_DP27_L				bitmap	LMD arrowlot.bmp
+IDC_DP27_Lx				bitmap	LMD arrowlin.bmp
+
+IDC_DP32_L				bitmap	LMD arrowlot.bmp
+IDC_DP32_Lx				bitmap	LMD arrowlin.bmp
+IDC_DP32_U				bitmap	LMD arrowuot.bmp
+IDC_DP32_Ux				bitmap	LMD arrowuin.bmp
+IDC_DP32_R				bitmap	LMD arrowrot.bmp
+IDC_DP32_Rx				bitmap	LMD arrowrin.bmp
+
+IDC_DP43_L				bitmap	LMD aloneout.bmp
+IDC_DP43_Lx				bitmap	LMD alonein.bmp
+IDC_DP43_R				bitmap	LMD arwbrgot.bmp
+IDC_DP43_Rx				bitmap	LMD arwbrgin.bmp
+
+IDC_DP44_L				bitmap	LMD basketot.bmp
+IDC_DP44_Lx				bitmap	LMD basketin.bmp
+IDC_DP44_R				bitmap	LMD tntout.bmp
+IDC_DP44_Rx				bitmap	LMD tntin.bmp
+
+IDC_DP45_L				bitmap	LMD gunout.bmp
+IDC_DP45_Lx				bitmap	LMD gunin.bmp
+IDC_DP45_R				bitmap	LMD nogunot.bmp
+IDC_DP45_Rx				bitmap	LMD nogunin.bmp
+
+IDC_DP48_L				bitmap	LMD maletout.bmp
+IDC_DP48_Lx				bitmap	LMD maletin.bmp
+IDC_DP48_R				bitmap	LMD whipout.bmp
+IDC_DP48_Rx				bitmap	LMD whipin.bmp
+
+IDC_DP49_L				bitmap	LMD braceout.bmp
+IDC_DP49_Lx				bitmap	LMD bracein.bmp
+IDC_DP49_R				bitmap	LMD grbcrnot.bmp
+IDC_DP49_Rx				bitmap	LMD grbcrnin.bmp
+
+IDC_DP57_L				bitmap	LMD mouthot.bmp
+IDC_DP57_Lx				bitmap	LMD mouthin.bmp
+IDC_DP57_R				bitmap	LMD nomothot.bmp
+IDC_DP57_Rx				bitmap	LMD nomothin.bmp
+
+IDC_DP59_L				bitmap	LMD arrowlot.bmp
+IDC_DP59_Lx				bitmap	LMD arrowlin.bmp
+IDC_DP59_U				bitmap	LMD arrowuot.bmp
+IDC_DP59_Ux				bitmap	LMD arrowuin.bmp
+IDC_DP59_R				bitmap	LMD arrowrot.bmp
+IDC_DP59_Rx				bitmap	LMD arrowrin.bmp
+ 
+IDC_DP60_L				bitmap	LMD togethot.bmp
+IDC_DP60_Lx				bitmap	LMD togethin.bmp
+IDC_DP60_R				bitmap	LMD aloneout.bmp
+IDC_DP60_Rx				bitmap	LMD alonein.bmp
+
+IDC_DP69_L				bitmap	LMD door1out.bmp
+IDC_DP69_Lx				bitmap	LMD door1in.bmp
+IDC_DP69_U				bitmap	LMD door2out.bmp
+IDC_DP69_Ux				bitmap	LMD door2in.bmp
+IDC_DP69_R				bitmap	LMD door3out.bmp
+IDC_DP69_Rx				bitmap	LMD door3in.bmp
+IDC_DP69_D				bitmap	LMD door4out.bmp
+IDC_DP69_Dx				bitmap	LMD door4in.bmp
+
+IDC_DP71_L				bitmap	LMD nokeyout.bmp
+IDC_DP71_Lx				bitmap	LMD nokeyin.bmp
+IDC_DP71_R				bitmap	LMD keyout.bmp
+IDC_DP71_Rx				bitmap	LMD keyin.bmp
+
+IDC_DP76_L				bitmap	LMD plant2ot.bmp
+IDC_DP76_Lx				bitmap	LMD plant2in.bmp
+IDC_DP76_R				bitmap	LMD plant1ot.bmp
+IDC_DP76_Rx				bitmap	LMD plant1in.bmp
+
+IDC_DP77_L				bitmap	LMD aloneout.bmp
+IDC_DP77_Lx				bitmap	LMD alonein.bmp
+IDC_DP77_R				bitmap	LMD lockout.bmp
+IDC_DP77_Rx				bitmap	LMD lockin.bmp
+
+IDC_DP79_L				bitmap	LMD aloneout.bmp
+IDC_DP79_Lx				bitmap	LMD alonein.bmp
+IDC_DP79_R				bitmap	LMD brakeot.bmp
+IDC_DP79_Rx				bitmap	LMD brakein.bmp
+
+IDC_DP82_L				bitmap	LMD arrowlot.bmp
+IDC_DP82_Lx				bitmap	LMD arrowlin.bmp
+IDC_DP82_R				bitmap	LMD leverot.bmp
+IDC_DP82_Rx				bitmap	LMD leverin.bmp
+
+IDC_DP101_L				bitmap	LMD arch1ot.bmp
+IDC_DP101_Lx			bitmap	LMD arch1in.bmp
+IDC_DP101_U				bitmap	LMD arch2ot.bmp
+IDC_DP101_Ux			bitmap	LMD arch2in.bmp
+IDC_DP101_R				bitmap	LMD arch3ot.bmp
+IDC_DP101_Rx			bitmap	LMD arch3in.bmp
+IDC_DP101_D				bitmap	LMD arch4ot.bmp
+IDC_DP101_Dx			bitmap	LMD arch4in.bmp
+IDC_DP101_H				bitmap	LMD arch5ot.bmp
+IDC_DP101_Hx			bitmap	LMD arch5in.bmp
+
+// Bitmaps for puzzle progress icons
+IDC_PUZ_PROGRESS		bitmap	LMD key1.bmp
+IDC_PUZ_PROGRESSx		bitmap	LMD key2.bmp
+
+IDC_VP3					bitmap	LMD key1.bmp
+IDC_VP3x				bitmap	LMD key2.bmp
+
+IDC_VP18				bitmap	LMD bone1.bmp
+IDC_VP18x				bitmap	LMD bone2.bmp
+
+IDC_VP22				bitmap	LMD oar1.bmp
+IDC_VP22x				bitmap	LMD oar2.bmp
+
+IDC_VP28				bitmap	LMD waterf1.bmp
+IDC_VP28x				bitmap	LMD waterf2.bmp
+
+IDC_VP30				bitmap	LMD wolf1.bmp
+IDC_VP30x				bitmap	LMD wolf2.bmp
+
+IDC_VP46				bitmap	LMD key1.bmp
+IDC_VP46x				bitmap	LMD key2.bmp
+
+IDC_VP50				bitmap	LMD rope1.bmp
+IDC_VP50x				bitmap	LMD rope2.bmp
+
+IDC_VP52				bitmap	LMD fire1.bmp
+IDC_VP52x				bitmap	LMD fire2.bmp
+
+IDC_VP53				bitmap	LMD panther1.bmp
+IDC_VP53x				bitmap	LMD panther2.bmp
+
+IDC_VP55				bitmap	LMD crown1.bmp
+IDC_VP55x				bitmap	LMD crown2.bmp
+
+// Bitmaps for puzzle buttons
+IDC_PUZ_BTN1			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN1x			bitmap	LMD monk1in.bmp
+IDC_PUZ_BTN2			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN2x			bitmap	LMD monk2in.bmp
+IDC_PUZ_BTN3			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN3x			bitmap	LMD monk3in.bmp
+IDC_PUZ_BTN4			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN4x			bitmap	LMD monk4in.bmp
+IDC_PUZ_BTN5			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN5x			bitmap	LMD monk5in.bmp
+IDC_PUZ_BTN6			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN6x			bitmap	LMD monk6in.bmp
+IDC_PUZ_BTN7			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN7x			bitmap	LMD monk6in.bmp
+IDC_PUZ_BTN8			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN8x			bitmap	LMD monk5in.bmp
+IDC_PUZ_BTN9			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN9x			bitmap	LMD monk4in.bmp
+IDC_PUZ_BTN10			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN10x			bitmap	LMD monk3in.bmp
+IDC_PUZ_BTN11			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN11x			bitmap	LMD monk2in.bmp
+IDC_PUZ_BTN12			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN12x			bitmap	LMD monk1in.bmp
+
+IDC_CLOSE				wave	LMD goodbye.wav
+
+Right0					wave	LMD right0.wav
+Right1					wave	LMD right1.wav
+Right2					wave	LMD right2.wav
+Right3					wave	LMD right3.wav
+Right4					wave	LMD right4.wav
+Success0 				wave	LMD success0.wav
+Success1 				wave	LMD success1.wav
+Success2 				wave	LMD success2.wav
+Success3 				wave	LMD success3.wav
+Success4 				wave	LMD success4.wav
+Wrong0					wave	LMD wrong0.wav
+Wrong1					wave	LMD wrong1.wav
+Wrong2					wave	LMD wrong2.wav
+Wrong3					wave	LMD wrong3.wav
+Wrong4					wave	LMD wrong4.wav
+
+//***********************************************************************
+// Title specific scenes (dialogs)	stages, (backgrounds)  and props (controls)
+//
+// STAGE switches are as follows:
+//					/t# = transition #
+//					/s	= scaled to fit window
+//					/c	= centered
+//					/n	= do not use WinG
+//					/a	= animation will be used (requires 2 DIB's)
+// VIDEO switches are as follows:
+// Note: Two videos in one scene may cause a hang
+//					/a	= auto play (when scene begins)
+//					/f	= full screen playback
+//					/z	= zoom factor
+// GOTOSCENE switches are as follows:
+//					/t# = timed to go of in # seconds even if not clicked
+
+//***********************************************************************
+1 SCENE // The logo scene
+//***********************************************************************
+STAGE "ibm.bmp"
+PROPS
+	{
+	GOTOSCENE( "20/timer=5", -1, 0, 0, 640, 480 )
+	}
+
+//***********************************************************************
+2 SCENE // The main menu scene
+//***********************************************************************
+STAGE "main.bmp/transition=10,jungle.mid/l"
+PROPS
+	{
+	DDIB( IDC_START, 126, 404 )		// Start a New Game
+	DDIB( IDC_RESUME, 260, 404 )	// Resume the last Game
+	DDIB( IDC_CREDITS, 403, 404 )	// Credits
+	DDIB( IDC_OPTIONS, 8, 418 )		// Option
+	DDIB( IDC_EXIT, 556, 418 )		// Quit
+}
+
+//***********************************************************************
+20 SCENE // The game scene
+//***********************************************************************
+STAGE "play.bmp/a"
+PROPS
+	{
+	VIDEO( "jungle%d.avi/zoom=2/autoplay", IDC_VIDEO_GAME, 320, 156 )
+	DDIB( IDC_PUZ_BTN1,	0, 0 )			 // Puzzle buttons 53 x 44
+	DDIB( IDC_PUZ_BTN2,	0, 0 )
+	DDIB( IDC_PUZ_BTN3,	0, 0 )
+	DDIB( IDC_PUZ_BTN4,	0, 0 )
+	DDIB( IDC_PUZ_BTN5,	0, 0 )
+	DDIB( IDC_PUZ_BTN6,	0, 0 )
+	DDIB( IDC_PUZ_BTN7,	0, 0 )
+	DDIB( IDC_PUZ_BTN8,	0, 0 )
+	DDIB( IDC_PUZ_BTN9,	0, 0 )
+	DDIB( IDC_PUZ_BTN10,0, 0 )
+	DDIB( IDC_PUZ_BTN11,0, 0 )
+	DDIB( IDC_PUZ_BTN12,0, 0 )
+	METER( IDC_PUZ_PROGRESS, 104, 364 )
+	DDIB( IDC_TALK_BUTTON, 112, 410 )
+
+	DDIB( IDC_LEFT,	168, 363 )
+	DDIB( IDC_UP,	276, 363 )
+	DDIB( IDC_RIGHT,384, 363 )
+	DDIB( IDC_DOWN,	492, 363 )
+	DDIB( IDC_HOME,	492, 363 )
+
+	METERX( IDC_INSTINCT_METER, 169, 334 )
+
+	BMULTI( IDC_COMBO_DIGIT1, 220, 363 )
+	BMULTI( IDC_COMBO_DIGIT2, 288, 363 )
+	BMULTI( IDC_COMBO_DIGIT3, 356, 363 )
+//	DDIB( IDC_COMBO_TRYIT,	  335, 353 )
+//	DDIB( IDC_COMBO_GIVEUP,	  430, 353 )
+
+	DDIB( IDC_OPTIONS,	8, 418 )
+	DDIB( IDC_EXIT, 556, 418 )
+	DDIB( IDC_ZOOM, 110, 454 )
+	DDIB( IDC_SAVE, 480, 454 )
+
+	#ifdef _DEBUG
+	LTEXT( "", IDC_VIDEO_SHOTNAME, 4, 315, 100, 20 ) | WS_BORDER
+	LTEXT( "", IDC_VIDEO_SHOTFRAME, 4, 335, 100, 20 ) | WS_BORDER
+	EDIT( IDC_VIDEO_GOTO, 4, 355, 100, 30 )
+	#endif
+	}
+
+//***********************************************************************
+30 SCENE // The resume game scene
+//***********************************************************************
+STAGE "resume.bmp/transition=10,jungle.mid/l"
+PROPS
+	{
+	LTEXT( "", IDC_GAME1_NAME, 254,  85, 195, 18 )
+	LTEXT( "", IDC_GAME2_NAME, 254, 121, 195, 18 )
+	LTEXT( "", IDC_GAME3_NAME, 254, 157, 195, 18 )
+	LTEXT( "", IDC_GAME4_NAME, 254, 192, 195, 18 )
+	LTEXT( "", IDC_GAME5_NAME, 254, 229, 195, 18 )
+	DDIB( IDC_GAME1, 182,  79 )
+	DDIB( IDC_GAME2, 182, 115 )
+	DDIB( IDC_GAME3, 182, 151 )
+	DDIB( IDC_GAME4, 182, 186 )
+	DDIB( IDC_GAME5, 182, 223 )
+	DDIB( IDC_GAME0, 182, 259 )
+	DDIB( IDC_CANCEL, 265, 370 )
+	}
+
+//***********************************************************************
+40 SCENE // The options screen
+//***********************************************************************
+STAGE "options.bmp/a/transition=12"
+PROPS
+	{
+	HSLIDER( IDC_SLIDER_WAVVOL,	 170-8, 115-11, 301+16, 25+22 ) // thumb is 16x47 pixels
+	HSLIDER( IDC_SLIDER_MIDIVOL, 170-8, 190-11, 301+16, 25+22 )
+	DDIB( IDC_VOICE, 427, 224 )
+	DDIB( IDC_EXPERT, 427, 269 )
+	DDIB( IDC_RETURN, 265, 370 )
+	}
+
+//***********************************************************************
+50 SCENE // The credits scene
+//***********************************************************************
+STAGE "credits.bmp/a/transition=12,jungle.mid/l"
+PROPS
+	{
+	DDIB( IDC_RETURN, 265, 370 )
+	}
+
+//***********************************************************************
+50 RCDATA
+//***********************************************************************
+{
+"
+	name Producers,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Curt Marvis,					start 600 120, end 040 120, delay 100;","
+	name  Dean Mauro,					start 600 150, end 040 150, delay 002;","
+	name Creative Director/Writer,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Chris Painter,				start 600 120, end 040 120, delay 100;","
+	name Lead Developer,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Jim McCurdy,					start 600 120, end 040 120, delay 100;","
+	name Software Development,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Ted Rogers,					start 600 090, end 040 090, delay 100;","
+	name  Brian McGlasson,				start 600 120, end 040 120, delay 100;","
+	name  Peter Tarca,					start 600 150, end 040 150, delay 100;","
+	name  Steve Suggs,					start 600 180, end 040 180, delay 100;","
+	name Live-Action Director,			start 040 040, end 040 300, delay 000, speed 50;","
+	name Director of Photography,		start 040 040, end 040 300, delay 500, speed 50;","
+	name  Mackenzie Waggaman,			start 600 120, end 040 120, delay 100;","
+	name Editor,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Conrad Smart,					start 600 120, end 040 120, delay 100;","
+	name Production Designer,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Kirk Petrucelli,				start 600 120, end 040 120, delay 100;","
+	name Line Producer,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  J.P. Paster,					start 600 120, end 040 120, delay 100;","
+	name 1st Assistant Director,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Marc Oppenheimer,				start 600 120, end 040 120, delay 100;","
+	name Post-Production Supervisor,	start 040 040, end 040 300, delay 000, speed 50;","
+	name Additional Editing,			start 040 040, end 040 300, delay 500, speed 50;","
+	name  Rob Claridge,					start 600 120, end 040 120, delay 100;","
+	name Composer/Sound Design,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Chuck Barth,					start 600 120, end 040 120, delay 100;","
+	name Sound Design/FX editing,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Derek Sample,					start 600 090, end 040 090, delay 100;","
+	name  Tass Filipos,					start 600 120, end 040 120, delay 100;","
+	name  Marty Blasick,				start 600 150, end 040 150, delay 100;","
+	name  Justin Walden,				start 600 180, end 040 180, delay 100;","
+	name Interface Design,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Nick Newton,					start 600 120, end 040 120, delay 100;","
+	name Executive Producer,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Frank Mazza,					start 600 120, end 040 120, delay 100;","
+	name Cast,							start 040 040, end 040 300, delay 000, speed 50;","
+	name  Gary Schwartz as Illy,		start 600 120, end 040 120, delay 100;","
+	name  Nicholas Guest as Sargeant Polk,	start 600 150, end 040 150, delay 100;","
+	name  Amy Scholl as Young Woman,	start 600 180, end 040 180, delay 100;","
+	name  Eddie Ripley as La Tee,		start 600 210, end 040 210, delay 100;","
+	name Soldiers,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Michael Cervin,				start 600 090, end 040 090, delay 100;","
+	name  Simon Alexander,				start 600 120, end 040 120, delay 100;","
+	name  Anthony Crane,				start 600 150, end 040 150, delay 100;","
+	name  Frank Galandtha,				start 600 180, end 040 180, delay 100;","
+	name  Gary Applebaum,				start 600 210, end 040 210, delay 100;","
+	name  Paul O’Mahoney,				start 600 240, end 040 240, delay 100;","
+	name Program Executive - IBM,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Bernie Rice,					start 600 120, end 040 120, delay 100;","
+	name Executive Producer - IBM,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Paul Zuzelo,					start 600 120, end 040 120, delay 100;","
+	name Business Development - IBM,	start 040 040, end 040 300, delay 000, speed 50;","
+	name  Jim Mediate,					start 600 120, end 040 120, delay 100;","
+	name Producer - IBM,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Steffen Bartschat,			start 600 120, end 040 120, delay 100;","
+	name Assistant Producer - IBM,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Mike Cox,						start 600 120, end 040 120, delay 100;","
+	name Test Leads - IBM,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Irenie Poitras,				start 600 120, end 040 120, delay 100;","
+	name  Kim Wilkens,					start 600 150, end 040 150, delay 100;","
+	name Testing - IBM,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Patrick Veedock,				start 600 120, end 040 120, delay 100;","
+	name  Larry Hsieh,					start 600 150, end 040 150, delay 100;","
+	name  Russ Chapman,					start 600 180, end 040 180, delay 100;","
+	name Test Lead - Beacon Rock,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Aaron Prentice,				start 600 120, end 040 120, delay 100;","
+	name Testing - Beacon Rock,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Eric Basler,					start 600 120, end 040 120, delay 100;","
+	name  Bobby Bell,					start 600 150, end 040 150, delay 100;","
+	name  Bob Swenson,					start 600 180, end 040 180, delay 100;","
+	name Operations Manager,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Helene Forman,				start 600 120, end 040 120, delay 100;","
+	name Production Coordinator,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Joseph Boyle,					start 600 120, end 040 120, delay 100;","
+	name Script Supervisor,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Ethlie Ann Vare,				start 600 120, end 040 120, delay 100;","
+	name 2nd Script Supervisor,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Austen Povorotney,			start 600 120, end 040 120, delay 100;","
+	name 2nd Assistant Director,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Tia Ardran,					start 600 120, end 040 120, delay 100;","
+	name Set Decorator,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Katie Lipsitt,				start 600 120, end 040 120, delay 100;","
+	name Art Director,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Robert Joseph,				start 600 120, end 040 120, delay 100;","
+	name Camera Operators,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Michael Miller,				start 600 120, end 040 120, delay 100;","
+	name  Peter Hutchinson,				start 600 150, end 040 150, delay 100;","
+	name Steadicam Operator,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Gerard O’Malley,				start 600 120, end 040 120, delay 100;","
+	name Video Technician,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Chris White,					start 600 120, end 040 120, delay 100;","
+	name Ultimatte Operator,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Aaron Wince,					start 600 120, end 040 120, delay 100;","
+	name Gaffer,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Mark Whitney,					start 600 120, end 040 120, delay 100;","
+	name  Doug Blagg,					start 600 150, end 040 150, delay 100;","
+	name Best Boy Electric,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Brian Roach,					start 600 120, end 040 120, delay 100;","
+	name  Chris Bothwell,				start 600 150, end 040 150, delay 100;","
+	name  James Davis,					start 600 180, end 040 180, delay 100;","
+	name  Skip McGraw,					start 600 210, end 040 210, delay 100;","
+	name  Dominique Sfreddo,			start 600 240, end 040 240, delay 100;","
+	name Electric,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Britt Daniel,					start 600 120, end 040 120, delay 100;","
+	name Key Grip,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Kurt Wolff,					start 600 120, end 040 120, delay 100;","
+	name  Todd Newton,					start 600 150, end 040 150, delay 100;","
+	name Best Boy Grip,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Steve Dornbush,				start 600 120, end 040 120, delay 100;","
+	name  Bill Petty,					start 600 150, end 040 150, delay 100;","
+	name Grip,							start 040 040, end 040 300, delay 000, speed 50;","
+	name  Cicero Demoraes,				start 600 120, end 040 120, delay 100;","
+	name  Jacqueline McLaughlin,		start 600 150, end 040 150, delay 100;","
+	name Swing/Driver,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Charlie Dalrymple,			start 600 120, end 040 120, delay 100;","
+	name Swing,							start 040 040, end 040 300, delay 000, speed 50;","
+	name  Shark Fralick,				start 600 120, end 040 120, delay 100;","
+	name Grip (Tenn),					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Peter Kimball,				start 600 120, end 040 120, delay 100;","
+	name Sound Mixer,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Don Summers,					start 600 120, end 040 120, delay 100;","
+	name Boom Operator,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Bryant Grizzell,				start 600 120, end 040 120, delay 100;","
+	name Animatronics,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Rod Matsui,					start 600 120, end 040 120, delay 100;","
+	name Key Hair/Makeup,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Valerie Tuohy-Shutt,			start 600 120, end 040 120, delay 100;","
+	name Asst. Makeup,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Yvonne Hawker,				start 600 120, end 040 120, delay 100;","
+	name Key Wardrobe Stylist,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Eric Berg,					start 600 120, end 040 120, delay 100;","
+	name Asst. Wardrobe,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Jamie Lauren,					start 600 120, end 040 120, delay 100;","
+	name Location Scout (LA),			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Errol Reichow,				start 600 120, end 040 120, delay 100;","
+	name Location Scout (Tenn),			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Mark Ragland,					start 600 120, end 040 120, delay 100;","
+	name Storyboards,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Georgia Bragg,				start 600 120, end 040 120, delay 100;","
+	name Graphic Artist,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Shamooi Torres,				start 600 120, end 040 120, delay 100;","
+	name Art Swing,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Drew Daywalt,					start 600 120, end 040 120, delay 100;","
+	name  Michael Baker,				start 600 150, end 040 150, delay 100;","
+	name  Andreas Gabor,				start 600 180, end 040 180, delay 100;","
+	name  James Collins,				start 600 210, end 040 210, delay 100;","
+	name  Bill Rosier,					start 600 240, end 040 240, delay 100;","
+	name Office Production Assistant,	start 040 040, end 040 300, delay 000, speed 50;","
+	name  David Scheinbaum,				start 600 120, end 040 120, delay 100;","
+	name Production Assistant/Driver,	start 040 040, end 040 300, delay 000, speed 50;","
+	name  Wade Whitley,					start 600 120, end 040 120, delay 100;","
+	name Production Assistant,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Edna Alonso,					start 600 120, end 040 120, delay 100;","
+	name  Chip Rothenberger,			start 600 150, end 040 150, delay 100;","
+	name  Marc George,					start 600 180, end 040 180, delay 100;","
+	name  Mike Jaques,					start 600 210, end 040 210, delay 100;","
+	name  Walter Flores,				start 600 120, end 040 120, delay 2500;","
+	name  Woody Johnson,				start 600 150, end 040 150, delay 100;","
+	name  Gary Sims,					start 600 180, end 040 180, delay 100;","
+	name  Aurelio Sanchez,				start 600 210, end 040 210, delay 100;","
+	name Art Intern,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Raquel Hieney,				start 600 120, end 040 120, delay 100;","
+	name Production Intern,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Evan Rice,					start 600 120, end 040 120, delay 100;","
+	name  Juana Martinez,				start 600 150, end 040 150, delay 100;","
+	name Production Asst. (Tenn),		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Ronnie Burgess,				start 600 120, end 040 120, delay 100;","
+	name  Maxy Robertson,				start 600 150, end 040 150, delay 100;","
+	name  Aaron Loyd,					start 600 180, end 040 180, delay 100;","
+	name  Steve Myers,					start 600 210, end 040 210, delay 100;","
+	name Craft Service,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Laura Bagano,					start 600 120, end 040 120, delay 100;","
+	name  Tim Kloppenburg,				start 600 150, end 040 150, delay 100;","
+	name Asst. Editor,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Bronwyn Barkan,				start 600 120, end 040 120, delay 100;","
+	name Computer Graphics,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Radical 3D,					start 600 120, end 040 120, delay 100;","
+	name  Jason McKinley,				start 600 150, end 040 150, delay 100;","
+	name On-Line Services,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Bedlam,						start 600 120, end 040 120, delay 100;","
+	name  Tony Selzer,					start 600 150, end 040 150, delay 100;","
+	name On-Line Editor,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Tim Stepich,					start 600 120, end 040 120, delay 100;","
+",0
+}
+
+//***********************************************************************
+60 SCENE // The quit scene
+//***********************************************************************
+STAGE "quit.bmp/transition=13,jungle.mid/l"
+PROPS
+	{
+	DDIB( IDC_YES, 200, 380 )
+	DDIB( IDC_NOT, 331, 380 )
+	}
+
+//***********************************************************************
+70 SCENE // The save game scene
+//***********************************************************************
+STAGE "save.bmp/transition=10,jungle.mid/l"
+PROPS
+	{
+	EDITX( IDC_GAME1_NAME, 253, 102, 195, 18 )
+	EDITX( IDC_GAME2_NAME, 253, 138, 195, 18 )
+	EDITX( IDC_GAME3_NAME, 253, 174, 195, 18 )
+	EDITX( IDC_GAME4_NAME, 253, 209, 195, 18 )
+	EDITX( IDC_GAME5_NAME, 253, 246, 195, 18 )
+	DDIB( IDC_GAME1, 182,  96 )
+	DDIB( IDC_GAME2, 182, 132 )
+	DDIB( IDC_GAME3, 182, 168 )
+	DDIB( IDC_GAME4, 182, 203 )
+	DDIB( IDC_GAME5, 182, 240 )
+	DDIB( IDC_CANCEL, 265, 370 )
+	}
+
+#define alias 0 0 0, end
+
+//***********************************************************************
+IDC_VIDEO_GAME rcdata LMD
+//***********************************************************************
+{
+"
+//---------------------------------------------------------------------------------------------------
+// DISK 1
+//---------------------------------------------------------------------------------------------------
+
+						//---------------------------------------------------------------------------
+						// S3 - puzzle at the iron gate
+						//---------------------------------------------------------------------------
+						// Road to point S3
+/S3R3	  4520	4738 1, end /S3D1;","
+						// Front portion of 3D
+/S3D1	  5196	5554 1, end /S3L;","
+						// Start loop at iron gate
+/S3L	  4716	4806 1, end /stop, up /S3L1, down /S3B, value A_PUZZLE 3;","
+						// Choice 3L1 (first improper voice response) - stay in loop
+/S3L1	  4716	4806 1, end /stop, up /S3L2, down /S3B, value A_PUZZLE 3;","
+						// Choice 3L2 (second improper voice response) - stay in loop
+/S3L2	  4716	4806 1, end /stop, up /S3D2, down /S3B, value A_PUZZLE 3 A_HELPER_CLIP_DONE;","
+						// Choice 3B (proper response)
+/S3B	  4812	5187 1, end /S10R1, value A_ADD_IQ2;","
+						// Choice 3D (3rd improper response)
+/S3D2	  5556	5823 1, end /S3D3, value A_SUB_IQ2;","
+/S3D3	  6004	6219 1, end /S10R1;","
+
+						// Hotspots 5B
+/Hot58	  8892	9088 1, end /prev, value A_ADD_IQ;"," // panther, bear, wolf, Mogli "animals are our friends"
+/Hot04	 10556 10638 1, end /prev, value A_ADD_IQ;"," // panther running up a tree
+/Hot24	 10644 10671 1, end /prev, value A_ADD_IQ;"," // monkey
+/Hot47	 10676 10775 1, end /prev, value A_ADD_IQ;"," // tiger on cliff
+/Hot54	 10784 10794 1, end /prev, value A_ADD_IQ;"," // wolf
+/Hot78	 10800 11127 1, end /prev, value A_ADD_IQ;"," // starshape explains tiger Shere Khan
+
+						// Hotspots 5B
+/Hot25	 12620 12671 1, end /prev, value A_ADD_IQ;"," // monkey climbs tree
+/Hot30	 12676 12943 1, end /prev, value A_ADD_IQ;"," // bear with head stuck, young Mowgli
+/Hot44	 12948 13071 1, end /prev, value A_ADD_IQ;"," // Mowgli and panther in tree
+//Hot77	 13076 13344 1, end /prev, value A_ADD_IQ;"," // starshape explains deciding for you
+
+						//---------------------------------------------------------------------------
+						// S7 - on mountain trail at wagon
+						//---------------------------------------------------------------------------
+						// Loop for S7
+//S7R	  9096 10549 1, end /S7L, leftsub /Sub24 count 7, rightsub /Sub24 count 7;","
+/S7R	 10036 10549 1, end /S7L, leftsub /Sub24 count 7, rightsub /Sub24 count 7;","
+/Sub24	  9160	9240 1, end /prev, left /Hot24 7904, value A_SPECIAL;","
+/Sub04	  9240	9275 1, end /prev, left /Hot04 0204, value A_SPECIAL;","
+/Sub78	  9378	9458 1, end /prev, left /Hot78 0204, value A_SPECIAL;","
+/Sub54	  9665	9715 1, end /prev, left /Hot54 0909, value A_SPECIAL;","
+/Sub47	  9715	9780 1, end /prev, left /Hot47 0909, value A_SPECIAL;","
+/Sub58	  9780	9854 1, end /prev, left /Hot58 0909, value A_SPECIAL;","
+/S7S1	 10332 10549 1, end /prev, left /S7B 1538, right /S7C 7908;","
+/S7S2	     0 99999 1, end /prev, left /S7B, right /S7C;","
+/S7L	 10332 10549 1, end /S7E, leftsub /S7S1 count 2, rightsub /S7S1 count 2, value A_DECISION 7;","
+						// Choice 7B (get into wagon) - goto S79
+/S7B	 13744 14111 1, end /S79R, leftsub /Sub42;","
+/Sub42	 13744 13834 1, end /prev, left /Hot42 0347, value A_SPECIAL;","
+						// Choice 7C (keep moving) - goto S5
+/S7C	 14652 15069 1, end /S10R1;","
+						// Choice 7E (do nothing)
+/S7E	 15076 15173 1, end /S7L, left /S7B 1538, right /S7C 7908, value A_DECISION 7;","
+
+						//---------------------------------------------------------------------------
+						// S79 - in the wagon
+						//---------------------------------------------------------------------------
+						// Loop for S79
+/S79R	 14112 14200 1, end /S79L, leftsub /S79S1 count 2, rightsub /S79S1 count 2;","
+/S79L	 14112 14200 1, end /S79L, leftsub /S79S1 count 2, rightsub /S79S1 count 2, value A_DECISION 79;","
+/S79S1	 14150 14200 1, end /prev, left /S79C 4609, right /S79B 8839;","
+/S79S2	     0 99999 1, end /prev, left /S79C, right /S79B;","
+						// Choice 79B (release wagon brake) - goto S80
+/S79B	 15908 16019 1, end /S80R;","
+						// Choice 79C (run for it) - goto S5
+/S79C	 16476 16691 1, end /S3R3;","
+
+						// Hotspot 42 - hint for wild wagon ride
+/Hot42	 14252 14647 1, end /prev, value A_ADD_IQ;"," // tiger invades village, wagon burns and explodes
+
+						//---------------------------------------------------------------------------
+						// S80 - in wagon going down hill
+						//---------------------------------------------------------------------------
+						// Road to S80
+/S80R	 16020 16471 1, end /S80C, leftsub /S80S1 count 4;","
+						// Subshots
+/S80S1	 16342 16357 1, end /prev, left /S80B 0309;","
+/S80S2	 16378 16403 1, end /prev, left /S80B 6909;","
+/S80S3	 16433 16446 1, end /prev, left /S80B 0309;","
+/S80S4	 16447 16471 1, end /prev, left /S80B 6909;","
+						// Choice 80B (player jumps) - goto S5
+/S80B	 16696 17123 1, end /S3R3;","
+						// Choice 80C - (player doesn't jump) random choice between 80CL and 80CR
+/S80C	 17128 17223 1, end /S80C1 count 2;","
+						// 80C Random choice - left path (hit tree and explode)
+/S80C1	 17228 17515 1, end /S80C.*1;","
+						// 80C Random choice - right path (fall off of cliff)
+/S80C2	 17520 17718 1, end /S80C.*1;","
+						 // Starshape - explaining about instinct
+/S80C.*1 17728 18137 1, end /S3R3;","
+
+						//---------------------------------------------------------------------------
+						// S10 - at river's edge
+						//---------------------------------------------------------------------------
+						// Road to shot 10
+//S10R	 20112 20627 1, end /S10L, leftsub /Sub01 count 2;","
+//S10ALTR 26024 26555 1, end /S10ALTL, leftsub /Sub56 count 2;","
+						// Subshots
+//Sub01	 20135 20225 1, end /prev, left /Hot01 0302, value A_SPECIAL;","
+//Sub71	 20262 20352 1, end /prev, left /Hot71 8905, value A_SPECIAL;","
+//Sub56	 26032 26122 1, end /prev, left /Hot56 9902, value A_SPECIAL;","
+//Sub12	 26181 26271 1, end /prev, left /Hot12 0303, value A_SPECIAL;","
+						// Road to shot 10 - reentry from S13B
+/S10R1	 20394 20627 1, end /S10L;","
+						// Loop for S10
+/S10L	 20628 20789 1, end /S10L, left /S10D, up /S10C, right /S10B, value A_DECISION 10;","
+/S10ALTL 26556 26667 1, end /S10ALTL, left /S10D, up /S10C, right /S10B, value A_DECISION 10;","
+						// Choice 10B (take wooden boat) - goto S21
+/S10B alias /S21R;","
+						// Choice 10C (take river trail) - goto S13
+/S10C alias /S18R;","
+						// Choice 10D (trail into jungle) - goto S5
+/S10D alias /S7R;","
+
+						// Hotspots 10B
+/Hot35	 22920 23022 1, end /prev, value A_ADD_IQ;"," // Mowgli riding an elephant
+/Hot41	 23028 23367 1, end /prev, value A_ADD_IQ;"," // young Mowgli and wolf ride log down hill
+/Hot60	 23372 23446 1, end /prev, value A_ADD_IQ;"," // Mowgli and wolf running
+
+						// Hotspots 10C/13R
+/Hot05	 24780 24875 1, end /prev, value A_ADD_IQ;"," // panther running
+/Hot33	 24888 25226 1, end /prev, value A_ADD_IQ;"," // young Mowgli and panther
+/Hot45	 25232 25267 1, end /prev, value A_ADD_IQ;"," // monkeys in tree
+/Hot49	 25272 25307 1, end /prev, value A_ADD_IQ;"," // tiger running towards us
+
+						// Hotspots 10D
+/Hot06	 25816 25831 1, end /prev, value A_ADD_IQ;"," // bear closeup
+/Hot12	 25836 25882 1, end /prev, value A_ADD_IQ;"," // panther closeup
+/Hot56	 25888 26019 1, end /prev, value A_ADD_IQ;"," // wolves
+
+						//---------------------------------------------------------------------------
+						// S21 - on the river
+						//---------------------------------------------------------------------------
+						// slice out a little too much whirlpool
+/S21R	 20796 22476 1, end /S21R1, leftsub /Sub32x count 24;","
+/S21R1	 22824 22915 1, end /S22F2;","
+
+						// Subshots for S21
+/Sub32x	 21327 21386 1, end /prev, left /Hot32 0909, value A_SPECIAL;","
+/Sub17x	 21387 21444 1, end /prev, left /Hot17 0909, value A_SPECIAL;","
+/Sub47x	 21445 21504 1, end /prev, left /Hot47 0909, value A_SPECIAL;","
+/Sub07x	 21505 21587 1, end /prev, left /Hot07 0909, value A_SPECIAL;","
+/Sub35	 21768 21864 1, end /prev, left /Hot35 0909, value A_SPECIAL;","
+/S21S1	 22018 22044 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S2	 22062 22087 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S3	 22108 22118 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S4	 22131 22142 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S5	 22153 22164 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S6	 22195 22229 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S7	 22230 22255 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S8	 22255 22265 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S9	 22279 22288 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S10	 22304 22310 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S11	 22319 22324 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S13	 22354 22361 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S14	 22371 22377 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S15	 22386 22393 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S16	 22402 22408 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S17	 22417 22424 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S18	 22433 22439 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S19	 22448 22455 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S20	 22469 22476 1, end /prev, left /S21B 4919;"," // click on LaTee
+						// Choice 21B (click on La-Tee)
+/S21B	 26672 27149 1, end /S22L;","
+						// Choice 21C (click on soldier)
+/S21C	 27268 27583 1, end /S21C.*4;","
+						// Starshape - get caught by soldier without getting the oar
+/S21C.*4 27588 27696 1, end /S10R1;"," // not your fault - not easy without an oar
+
+/Hot07	 37196 37211 1, end /prev, value A_ADD_IQ;"," // bear closeup
+/Hot32	 40328 40579 1, end /prev, value A_ADD_IQ;"," // Mowgli jumps off waterfall
+						//---------------------------------------------------------------------------
+						// S22 - puzzle while floating down river
+						//---------------------------------------------------------------------------
+						// Loop for point S22
+/S22L	 27152 27263 1, end /stop, up /S22C1, down /S22B, value A_PUZZLE 22;","
+						// Choice 22B (proper response) - goto S13
+/S22B	 27704 28043 1, end /S22Success, value A_ADD_IQ2;","
+/S22Success 44920 44991 1, end /S3R3;"," // good job, now let's go find...
+						// Choice 22C (first improper response) - goto loop for S22
+/S22C1	 28048 28127 1, end /stop, up /S22C2, down /S22B, value A_PUZZLE 22;","
+						// Choice 22C (second improper response) - goto loop for S22
+/S22C2	 28132 28235 1, end /S22C2X, up /S22C3, down /S22B, value A_PUZZLE 22;","
+/S22C2X	 28108 28127 1, end /stop, up /S22C3, down /S22B, value A_PUZZLE 22;","
+						// Choice 22C (third improper response) - goto loop for S22
+/S22C3	 28240 28387 1, end /S22C3X, up /S22F1, down /S22B, value A_PUZZLE 22 A_HELPER_CLIP_DONE;","
+/S22C3X	 28108 28127 1, end /stop, up /S22F1, down /S22B, value A_PUZZLE 22 A_HELPER_CLIP_DONE;","
+						// Choice 22F (you go over the rapids)
+/S22F1	 28392 28551 1, end /S22F2, value A_SUB_IQ2;","
+						// Illy wet on the trail
+/S22F2	 28556 28807 1, end /S22F.*5;","
+						// Starshape - listen to Latee - go back and try again
+/S22F.*5 28812 28963 1, end /S10L count 2;"," // latee was telling you what to do - you need to learn language - go try again
+
+						// Hotspots 13C
+/Hot02	 29772 29826 1, end /prev, value A_ADD_IQ;"," // panther down from tree
+/Hot08	 29832 29867 1, end /prev, value A_ADD_IQ;"," // bear closeup
+/Hot14	 29872 29979 1, end /prev, value A_ADD_IQ;"," // tiger closeup
+
+						// Hotspots 13E
+/Hot55	 30136 30158 1, end /prev, value A_ADD_IQ;"," // lone wolf
+/Hot59	 30164 30199 1, end /prev, value A_ADD_IQ;"," // tiger running
+/Hot61	 30204 30299 1, end /prev, value A_ADD_IQ;"," // baby Baloo climbing a tree
+
+						// Hotspots 13F
+/Hot15	 31408 31454 1, end /prev, value A_ADD_IQ;"," // tiger
+/Hot46	 31460 31475 1, end /prev, value A_ADD_IQ;"," // tiger running
+/Hot51	 31480 31547 1, end /prev, value A_ADD_IQ;"," // monkey
+
+						//---------------------------------------------------------------------------
+						// S18 - in the graveyard
+						//---------------------------------------------------------------------------
+						// Road to S18
+/S18R	 31952 32467 1, end /S18L;","
+						// Loop for S18
+/S18L	 32512 32547 1, end /stop, up /S18C, down /S18Success, value A_PUZZLE 18;","
+						// Choice 18B (proper voice response) - goto S25
+/S18Success 44920 44991 1, end /S18B;"," // good job, now let's go find...
+/S18B	 32888 33731 1, end /S10R1, leftsub /Sub17 count 3, value A_ADD_IQ2;","
+/Sub17	 32940 33010 1, end /prev, left /Hot17 8904, value A_SPECIAL;","
+/Sub37	 33170 33250 1, end /prev, left /Hot37 4556, value A_SPECIAL;","
+/Sub83	 33617 33691 1, end /prev, left /Hot83 0959, value A_SPECIAL;","
+						// Choice 18C (first improper voice response) - stay in loop for S18
+/S18C	 33968 34071 1, end /S18L2, up /S18C2, down /S18B, value A_PUZZLE 18;","
+						// Loop for S18
+/S18L2	 32512 32547 1, end /stop, up /S18C2, down /S18B, value A_PUZZLE 18;","
+						// Choice 18C (second improper voice response) - stay in loop for S18
+/S18C2	 33968 34071 1, end /S18L3, up /S18G, down /S18B, value A_PUZZLE 18;","
+						// Loop for S18
+/S18L3	 32512 32547 1, end /stop, up /S18G, down /S18B, value A_PUZZLE 18 A_HELPER_CLIP_DONE;","
+						// Choice 18G (third improper response) - goto S27
+/S18G	 34076 34678 1, end /S10R1, value A_SUB_IQ2;","
+
+						// Hotspots 18
+/Hot11	 32552 32590 1, end /prev, value A_ADD_IQ;"," // panther closeup
+/Hot17	 32600 32703 1, end /prev, value A_ADD_IQ;"," // elephants
+/Hot37	 32708 32842 1, end /prev, value A_ADD_IQ;"," // Mowgli awakened and jumps from tree
+
+						// Hotspots 18B
+/Hot83	 33820 33887 1, end /prev, value A_ADD_IQ, leftsub /Sub84;"," // wide view of fort
+/Sub84	 33820 33887 1, end /prev, left /Hot84 3825, value A_SPECIAL;","
+/Hot84	 33892 33963 1, end /prev, value A_ADD_IQ, leftsub /Sub74;"," // closeup of fort
+/Sub74	 33892 33963 1, end /prev, left /Hot74 3827, value A_SPECIAL;","
+/Hot74	 33740 33814 1, end /S18X, value A_ADD_IQ;"," // rotating crown
+/S18X	 33676 33731 1, end /S10R1;","
+
+						// New starshapes
+/Hlp1Talk   43380 43547 1, end /prev;"," // help when idle; talk and puzzle buttons
+/Hlp1Idle   43552 43711 1, end /prev;"," // help when idle; talk and puzzle buttons
+/Hlp1Whak   43716 43811 1, end /prev;"," // help on whak-a-monk
+/Hlp1Simon  43816 43959 1, end /prev;"," // help on simon
+/Hlp1Blokr  43964 44051 1, end /prev;"," // help on blocker (7th guest)
+/Hlp1Match  44056 44159 1, end /prev;"," // help on matching
+/Hlp1GoBack 44164 44271 1, end /prev;"," // help on going back in time
+/Hlp1ShereK 44276 44671 1, end /prev;"," // help on getting eaten by shere khan
+/Hlp1MSN	44676 44839 1, end /prev;"," // help on your mission to find the crown
+/Hlp1NoTime 44844 44915 1, end /prev;"," // help when your wasting time
+/Hlp1Success 44920 44991 1, end /prev;"," // good job, now let's go find...
+/Hlp1Instinct 44996 45191 1, end /prev;"," // if you have enough instinct...
+
+",
+0
+}

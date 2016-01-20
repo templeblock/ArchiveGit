@@ -1,0 +1,3 @@
+// Source file: wallpape.c
+BOOL SaveWallpaper( LPSTR lpName, BOOL fTiled );
+

@@ -1,0 +1,26 @@
+Compiling...
+e:\c-src\windows\fd\fdview.cpp
+e:\c-src\windows\fd\ack\ackldbmp.cpp
+Linking...
+Binding resources...
+Creating browser database...
+DOSXNT : fatal error DX1020: unhandled exception: General protection fault
+
+         ;
+
+contact Microsoft Support Services
+
+ProcessId=16141 ThreadId=16142
+
+User Registers:
+
+EAX=0015E2F8h EBX=0000206Fh ECX=01010129h EDX=00000FCBh
+
+ESI=000898B4h EDI=00080DEDh EBP=00080F9Ch ErrorCode = 80000000h
+
+DS=00C7h ES=00C7h FS=00E7h GS=00C7h FLG=00010202h
+
+CS:EIP=00BFh:00053F48h SS:ESP=00C7h:00080D74h
+
+ BSCMAKE returned error code 5.
+FD.EXE - 2 error(s), 0 warning(s)

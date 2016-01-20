@@ -1,0 +1,112 @@
+/* (c) Copyright 1991 MICROGRAFX, Inc., All Rights Reserved.  This material is
+   confidential and a trade secret.  Permission to use this work for any purpose
+   must be obtained in writing from:
+              MICROGRAFX, 1303 E Arapaho, Richardson, TX  75081 */
+
+IDC_DESIGNER dialog loadoncall moveable discardable 0, 0, 210, 110
+STYLE (WS_MODAL | DS_MODALFRAME)
+BEGIN
+PICON( IDC_DESIGNER, 4, 4, 20, 20 )
+TEXTBLOCK( TXTBLK_DESIGNER, 28, 4, 178, 88 )
+DUTTON( "OK",IDOK, 28, 94, 32, 14 )
+END
+
+IDC_CHARISMA dialog loadoncall moveable discardable 0, 0, 210, 110
+STYLE (WS_MODAL | DS_MODALFRAME)
+BEGIN
+PICON( IDC_CHARISMA, 4, 4, 20, 20 )
+TEXTBLOCK( TXTBLK_CHARISMA, 28, 4, 178, 88 )
+DUTTON( "OK",IDOK, 28, 94, 32, 14 )
+END
+
+IDC_DRAWPLUS dialog loadoncall moveable discardable 0, 0, 210, 110
+STYLE (WS_MODAL | DS_MODALFRAME)
+BEGIN
+PICON( IDC_DRAWPLUS, 4, 4, 20, 20 )
+TEXTBLOCK( TXTBLK_DRAWPLUS, 28, 4, 178, 88 )
+DUTTON( "OK",IDOK, 28, 94, 32, 14 )
+END
+
+IDC_CLIPART dialog loadoncall moveable discardable 0, 0, 210, 110
+STYLE (WS_MODAL | DS_MODALFRAME)
+BEGIN
+PICON( IDC_CLIPART, 4, 4, 20, 20 )
+TEXTBLOCK( TXTBLK_CLIPART, 28, 4, 178, 88 )
+DUTTON( "OK",IDOK, 28, 94, 32, 14 )
+END
+
+IDC_TECHSUPT dialog loadoncall moveable discardable 0, 0, 210, 110
+STYLE (WS_MODAL | DS_MODALFRAME)
+BEGIN
+PICON( IDC_TECHSUPT, 4, 4, 20, 20 )
+TEXTBLOCK( TXTBLK_TECHSUPT, 28, 4, 178, 88 )
+DUTTON( "OK",IDOK, 28, 94, 32, 14 )
+END
+
+/* ****************************** Text Blocks ******************************* */
+
+TXTBLK_DESIGNER rcdata loadoncall moveable discardable
+BEGIN
+    "Micrografx Picture Publisher...",
+    "Image Editing for Presentation and Printing. ",
+    "Picture Publisher offers a complete suite of tools for manipulating, ",
+    "enhancing, and controlling the production of high-quality photos. One of ",
+    "the first 'electronic darkroom' products that is a sophisticated program ",
+    "and also fun to use. ",
+    "For more information, call Micrografx Sales:\n\n",
+    "1-800-733-3729, ext 5050 (U.S.)\n",
+    "1-800-733-3729, ext 3710 (Canada)\n",
+    "1-214-234-1769, ext 3710 (Outside North America)", 0
+END
+
+TXTBLK_CHARISMA rcdata loadoncall moveable discardable
+BEGIN
+    "Micrografx Charisma is the leading Windows 3.0 business graphics product ",
+    "that solves the graphics needs of business users. It provides powerful ",
+    "charting, extensive drawing, dynamic presentation capability and ",
+    "comprehensive compatibility in one product. Charisma provides the ",
+    "business graphic features and compatibility that business users ",
+    "require. ",
+    "For more information, call Micrografx Sales:\n\n",
+    "1-800-733-3729, ext 5050 (U.S.)\n",
+    "1-800-733-3729, ext 3710 (Canada)\n",
+    "1-214-234-1769, ext 3710 (Outside North America)", 0
+END
+
+TXTBLK_DRAWPLUS rcdata loadoncall moveable discardable
+BEGIN
+    "Micrografx Draw Plus is the quick and simple Windows drawing tool. It is ",
+    "perfect for new Windows users who are looking for an easy-to-learn, ",
+    "entry-level drawing product that provides most of the functionality of ",
+    "higher-end illustration products. ",
+    "For more information, call Micrografx Sales:\n\n",
+    "1-800-733-3729, ext 5050 (U.S.)\n",
+    "1-800-733-3729, ext 3710 (Canada)\n",
+    "1-214-234-1769, ext 3710 (Outside North America)", 0
+END
+
+TXTBLK_CLIPART rcdata loadoncall moveable discardable
+BEGIN
+    "Micrografx ClipArt is the largest collection of object-oriented clip art ",
+    "available on the market today, offering more than 15, 000 separate ",
+    "images. The Micrografx ClipArt Collections include Business, Personal, ",
+    "Publishing, and Technical; the Micrografx ClipArt Special Editions ",
+    "include Anatomy, US Maps, and World Geography. ",
+    "For more information, call Micrografx Sales:\n\n",
+    "1-800-733-3729, ext 5050 (U.S.)\n",
+    "1-800-733-3729, ext 3710 (Canada)\n",
+    "1-214-234-1769, ext 3710 (Outside North America)", 0
+END
+
+TXTBLK_TECHSUPT rcdata loadoncall moveable discardable
+BEGIN
+    "Micrografx Technical Support provides answers to your questions M-F 7AM ",
+    "to 7PM Central Time. Before calling, have access to your computer and ",
+    "know the contents of your CONFIG.SYS and AUTOEXEC.BAT files, ",
+    "what TSR programs you have, your basic system configuration, ",
+    "and your product serial number.\n\n",
+    "MICROGRAFX TECHNICAL SUPPORT: 214-234-2694\n",
+    "OTHER HELP: Call the Micrografx BBS 214-644-4194, 24 hours a day, ",
+    "7 days a week. CompuServe users can type GO WINAPA (see Section 10).", 0
+END
+

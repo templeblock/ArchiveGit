@@ -1,0 +1,145 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "AppStudio.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "QuoteInterfaceResource.h"
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "AppStudio.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""QuoteInterfaceResource.h""\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DIALOG_QUOTEVERSE_BROWSER DIALOG DISCARDABLE  0, 0, 402, 255
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a Quote or Verse"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        CONTROL_LIST_QUOTEVERSE_PREVIEW,143,7,252,72,
+                    ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY
+    LISTBOX         CONTROL_LIST_QUOTEVERSE_RESULTS,143,86,252,137,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "OK",IDOK,208,235,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,275,235,54,14
+    PUSHBUTTON      "&Help",ID_HELP,340,235,54,14
+    CONTROL         "Tab1",CONTROL_TAB_QUOTEVERSE_TABS,"SysTabControl32",
+                    WS_TABSTOP,7,5,129,218
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,229,387,1
+END
+
+DIALOG_QVKEYWORD_TAB DIALOG DISCARDABLE  0, 0, 124, 202
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Search for these Keyword(s):",IDC_STATIC,6,8,92,8
+    EDITTEXT        CONTROL_EDIT_QVKEYWORD_KEYWORD,7,18,108,14,
+                    ES_AUTOHSCROLL
+    LTEXT           "Suggested Keywords:",IDC_STATIC,6,40,70,8
+    COMBOBOX        CONTROL_COMBO_QVKEYWORD_KEYWORD,7,50,108,92,
+                    CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Progress1",CONTROL_BAR_QVKEYWORD_PROGRESS,
+                    "msctls_progress32",WS_BORDER,5,175,112,10
+    CTEXT           "Quotes & Verses found: %d",
+                    CONTROL_STATIC_QVKEYWORD_NUMFOUND,7,188,108,8,
+                    SS_NOPREFIX
+    DEFPUSHBUTTON   "&Start Search",CONTROL_BUTTON_QVKEYWORD_START_SEARCH,17,
+                    152,90,16
+END
+
+DIALOG_QVCATEGORY_TAB DIALOG DISCARDABLE  0, 0, 124, 200
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Tree2",CONTROL_TREE_QVCATEGORY_CATEGORY,"SysTreeView32",
+                    TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | 
+                    TVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,7,110,185
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    DIALOG_QUOTEVERSE_BROWSER, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 249
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_QV_CATEGORY_TAB_TEXT "Categories"
+    STRING_QV_KEYWORD_TAB_TEXT "Keywords"
+    STRING_QV_ALL_CATEGORIES "All Categories"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

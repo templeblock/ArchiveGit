@@ -1,0 +1,7 @@
+/* Gradient Control */
+// for gradctl.c
+
+
+// window Styles 
+#define GS_HORIZ	0		// horizontal gradient
+#define GS_VERT		1		// vertical gradient

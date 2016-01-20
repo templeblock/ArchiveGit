@@ -1,0 +1,217 @@
+;*****************************************************************************
+;        (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.        *
+;   Permission to use this work for any purpose must by obtained in writing  *
+;        from Micrografx Inc., 1303 E. Arapaho, Richardson, TX. 75081.       *
+;----------------------------------------------------------------------------*
+; Subsystem: Frame Library                                                   *
+;    Module: Module definitions                                              *
+;      Date: December 1, 1992                                                *
+;----------------------------------------------------------------------------*
+; Description:                                                               *
+;                                                                            *
+;   This is the module definition file for the bitmap filter DLL.            *
+;----------------------------------------------------------------------------*
+; Revision history:                                                          *
+;                                                                            *
+; Code    Rev      Date    Who  Description                                  *
+; ----  -------  --------  ---  -------------------------------------------- *
+;                                                                            *
+;****************************************************************************/
+
+LIBRARY FRAME
+
+DESCRIPTION 'FRAME -- Micrografx Frame Library, copyright 1992, Micrografx'
+
+EXETYPE WINDOWS
+
+STUB 'WINSTUB.EXE'
+
+CODE MOVEABLE DISCARDABLE
+
+DATA MOVEABLE SINGLE
+
+HEAPSIZE 128
+
+EXPORTS
+;	_Alloc
+;	_AllocLines
+;	_AllocX
+;	_Ascii2Int
+;	_AsciiFixed
+;	_AsciiRGB
+;	_AstralIntersectRect
+;	_AstralSubtractRect
+;	_AstralUnionRect
+;	_AvailableMemory
+;	_BezierToPoints
+;	_bound
+;	_BoundRect
+;	_BumpPtr
+;	_clr
+;
+;	_diffuse
+;	_con16to1
+;	_con16to24
+;	_con16to8
+;	_con1to16
+;	_con1to24
+;	_con1to8
+;	_con24to1
+;	_con24to16
+;	_con24to8
+;	_con2la
+;	_la2con
+;	_con8to1
+;	_con8to16
+;	_con8to24
+;	_ConvertData
+;
+;	_copy
+;	_CopyFile
+;	_CountColors
+;	_CreateHistogram
+;	_CreateOptimizedPalette
+;	_DIBToFrame
+;	_DiskSpace
+;	_dither
+;	_EnumFiles
+;	_extension
+;	_fget
+;	_FileAccess
+;	_FileDate
+;	_FileExists
+;	_filename
+;	_FileSize
+;	_FixedAscii
+;	_FixFileName
+;	_FixPath
+;	_fmul
+;	_FrameByteWidth
+;	_FrameClose
+;	_FrameCopyline
+;	_FrameDepth
+;	_FrameGetColorMap
+;	_FrameGetError
+;	_FrameGetPixel
+;	_FrameGetRGB
+;	_FrameInMemory
+;	_FrameMode
+;	_FrameOpen
+;	_FramePixel2RGB
+;	_FramePointer
+;	_FramePutPixel
+;	_FramePutRGB
+;	_FrameRead
+;	_FrameResolution
+;	_FrameRGB2pixel
+;	_FrameSample
+;	_FrameSampleMW
+;	_FrameSetColorMap
+;	_FrameSetError
+;	_FrameSetPixel
+;	_FrameSetRGB
+;	_FrameSettings
+;	_FrameToDIB
+;	_FrameType
+;	_FrameWrite
+;	_FrameXSize
+;	_FrameYSize
+;	_FreeUp
+;	_FreeUpShapes
+;	_FTransformer
+;	_GetBuffers16Kx4
+;	_GetCurrentDir
+;	_GetTempFilename
+;	_GetVolumnID
+;	_hist
+;	_HSLtoMiniRGB
+;	_HSLTORGB
+;	_htoi
+;	_Int2Ascii
+;	_IsMasked
+;	_IsMaskOutside
+;	_itoh
+;	_lclr
+;	_lmemcpy
+;	_Lowercase
+;	_lsqrt
+;	_lstrchr
+;	_lstrfind
+;	_MakeFullPath
+;	_map
+;	_MapRGB24
+;	_MapRGB8
+;	_MaskLoad
+;	_MaskLoadS
+;	_mask_active
+;	_mask_close
+;	_mask_compute
+;	_mask_create
+;	_mask_link
+;	_mask_offset
+;	_mask_point
+;	_mask_rect
+;	_mask_unlink
+;	_MiniRGBtoHSL
+;	_MiniRGBtoL
+;	_MiniRGBtoRGB
+;	_mirror24
+;	_mirror8
+;	_negate
+;	_OptimizeBegin
+;	_OptimizeData
+;	_OptimizeEnd
+;	_ramp
+;	_RemoveWhiteSpace
+;	_RGBAscii
+;	_RGBtoH
+;	_RGBtoHL
+;	_RGBtoHS
+;	_RGBTOHSL
+;	_RGBtoL
+;	_RGBtoS
+;	_RGBtoSL
+;	_Sample_24
+;	_Sample_24MW
+;	_Sample_32
+;	_Sample_32MW
+;	_Sample_8
+;	_Sample_8MW
+;	_ScaleRect
+;	_ScaleToFit
+;	_set
+;	_set16
+;	_set24
+;	_SetCurrentDir
+;	_setifset
+;	_SetMaskOutside
+;	_ShapeConvertPoints
+;	_ShiftUp2Lut
+;	_SinCos
+;	_SkipSpaces
+;	_special_fget
+;	_StringsEqual
+;	_StringsEqualN
+;	_stripdir
+;	_stripext
+;	_stripfile
+;	_StripTrailer
+;	_swapl
+;	_swapw
+;	_TFMove
+;	_TInit
+;	_TInvert
+;	_TMove
+;	_tmul
+;	_TMultiply
+;	_ToMaxi
+;	_Transformer
+;	_TransformRect
+;	_TRotate
+;	_TScale
+;	_TShearX
+;	_TShearY
+;	_Unpack4
+;	_Uppercase
+;	_WildcardDelete
+;

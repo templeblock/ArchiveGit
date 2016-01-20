@@ -1,0 +1,44 @@
+#include <olectl.h>
+// AxCtp.idl : IDL source for AxCtp.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AxCtp.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(38578BFE-0ABB-11D3-9330-0080C6F796A1),
+	dual,
+	helpstring("ICtp Interface"),
+	pointer_default(unique)
+]
+interface ICtp : IDispatch
+{
+	[propput, id(0)] HRESULT Fonts([in]BSTR strFonts);
+	[propget, id(0)] HRESULT Fonts([out,retval]BSTR* pstrFonts);
+	[propput, id(1)] HRESULT Src([in]BSTR strSrc);
+	[propget, id(1)] HRESULT Src([out,retval]BSTR* pstrSrc);
+};
+
+[
+	uuid(38578BF1-0ABB-11D3-9330-0080C6F796A1),
+	version(1.0),
+	helpstring("AxCtp 1.0 Type Library")
+]
+library AXCTPLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(38578BF0-0ABB-11D3-9330-0080C6F796A1),
+		helpstring("Ctp Class")
+	]
+	coclass Ctp
+	{
+		[default] interface ICtp;
+	};
+};

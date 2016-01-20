@@ -1,0 +1,251 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\DongleMaker.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 223, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About DongleMaker"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "DongleMaker Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 1998",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,168,7,49,14,WS_GROUP
+END
+
+IDD_DongleMaker_DIALOG DIALOGEX 0, 0, 251, 261
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "DongleMaker"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Dongle Serial Number:",IDC_STATIC,49,10,77,8
+    CTEXT           "",IDC_SN,14,7,28,13,SS_NOPREFIX | SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CONTROL         "Tree1",IDC_APPTREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_DISABLEDRAGDROP | 
+                    TVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,14,28,112,224
+    LTEXT           "Versions:",IDC_STATIC,140,70,35,8
+    LTEXT           "Features:",IDC_STATIC,140,91,35,8
+    EDITTEXT        IDC_COUNT,196,129,42,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Read Dongle",IDC_READ,140,7,98,14
+    PUSHBUTTON      "Program Dongle",IDC_PROGRAM,140,154,98,14
+    DEFPUSHBUTTON   "Done",IDOK,140,238,98,14
+    CTEXT           "",IDC_APPNAME,140,49,98,13,SS_NOPREFIX | SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "",IDC_VERSIONS,182,70,56,14,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "",IDC_FEATURES,182,91,56,14,SS_CENTERIMAGE | SS_SUNKEN
+    CONTROL         "Unlimited Use",IDC_UNLIMITED,"Button",
+                    BS_AUTORADIOBUTTON,140,112,98,10
+    CONTROL         "Limit Uses",IDC_LIMITED_USES,"Button",
+                    BS_AUTORADIOBUTTON,140,126,48,10
+    DEFPUSHBUTTON   "Process an Order",IDC_ORDER,140,217,98,14
+    DEFPUSHBUTTON   "Test IsMonacoPrint()",IDC_TEST_DONGLE,140,175,98,14
+    CONTROL         "Limit Days",IDC_LIMITED_DAYS,"Button",
+                    BS_AUTORADIOBUTTON,140,136,48,10
+    LTEXT           "Selected Application:",IDC_STATIC,140,35,77,8
+    DEFPUSHBUTTON   "Test MonacoPrint Serial#",IDC_TEST_SERIALNUMBER,140,196,
+                    98,14
+END
+
+8000 DIALOG DISCARDABLE  0, 0, 195, 247
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Monaco Systems Application Upgrade"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Application:",IDC_STATIC,7,154,70,8
+    CTEXT           "",9001,84,152,105,14,SS_CENTERIMAGE | SS_SUNKEN
+    LTEXT           "Purchase #:",IDC_STATIC,7,196,70,8
+    EDITTEXT        9004,84,197,105,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "Order #:",IDC_STATIC,7,182,70,8
+    LTEXT           "Version:",IDC_STATIC,7,167,70,8
+    CTEXT           "",9002,84,167,105,14,SS_CENTERIMAGE | SS_SUNKEN
+    DEFPUSHBUTTON   "Upgrade",IDOK,35,223,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,112,223,50,14
+    EDITTEXT        9003,84,183,105,14,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        9000,7,7,182,140,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY
+END
+
+7000 DIALOG DISCARDABLE  0, 0, 195, 170
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter Your Serial Number"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Application:",IDC_STATIC,7,105,70,8
+    CTEXT           "",7002,84,105,105,14,SS_CENTERIMAGE | SS_SUNKEN
+    LTEXT           "Serial Number",IDC_STATIC,7,119,70,8
+    EDITTEXT        7003,84,119,105,14,ES_CENTER | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,35,147,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,112,147,50,14
+    EDITTEXT        7001,7,7,175,84,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\DongleMaker.ico"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "DongleMaker MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "DongleMaker\0"
+            VALUE "LegalCopyright", "Copyright (C) 1998\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "DongleMaker.EXE\0"
+            VALUE "ProductName", "DongleMaker Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_IMAGELIST           BITMAP  DISCARDABLE     "res\\imagelist.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About DongleMaker..."
+    IDS_NOKEY               "Can't find the key, please reconnect the key and try again."
+    IDS_WRONG_SN            "The serial number is wrong, please check key and try again."
+    IDS_PROGRAM_ERR         "Can't program the key."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

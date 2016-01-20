@@ -1,0 +1,34 @@
+//®FD1¯®PL1¯®TP0¯®BT0¯®RM200¯
+// (c) Copyright 1991 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX  75081
+#ifndef _SLIDER_RH_
+#define _SLIDER_RH_
+
+#include "common.rh"
+
+/* Slider Class Style Name */
+#define MGXCTL_SLIDER _T("slider")
+
+/* Slider Styles */
+#define  SS_VERTSLIDER      0L          // simple slider styles
+#define  SS_HORZSLIDER      0x0001L
+#define  SS_TICKSLEFT       0L
+#define  SS_TICKSRIGHT      0x0020L
+#define  SS_TICKSTOP        0L
+#define  SS_TICKSBOTTOM     0x0020L
+
+#define  SS_NOSNAP          0L          // commen slider styles
+#define  SS_SNAP            0x0002L
+#define  SS_SNAPDRAG        0x0004L
+#define  SS_CLICKSTEP       0x0008L
+#define  SS_LEFTTORIGHT     0L
+#define  SS_RIGHTTOLEFT     0x0010L
+#define  SS_TOPTOBOTTOM     0L
+#define  SS_BOTTOMTOTOP     0x0010L
+#define  SS_OWNERDRAW       0x4000L
+#define  SS_NOMOUSEFOCUS    0x8000L
+
+#endif // _SLIDER_RH_
+

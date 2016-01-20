@@ -1,0 +1,84 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","990000","Custom #1","0") -->
+  <!-- $MVD$:color("19","996699","Custom #2","0") -->
+  <!-- $MVD$:color("20","999999","Custom #3","0") -->
+  <!-- $MVD$:fontset("Untitled Font Set 1","Verdana","Arial","Helvetica","MS","Sans","Serif","sans-serif") -->
+  <TITLE>Picture Attributes</TITLE>
+ <LINK REL="StyleSheet" HREF="styles.css"></HEAD>
+ <BODY>
+  <H6>
+   Advanced Features and Tools</H6>
+  <H6 CLASS="Heading6a">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</H6>
+  <H6 CLASS="Heading6a">
+   Picture Attributes</H6>
+  <P>
+   Use the <B>Attributes</B> command in the Format menu or the popup 
+   menu to change the printing attributes of the currently selected picture.</P>
+  <P>
+   Select the Render Method and Coloring Book options in this dialog. 
+   Some options may not be available for certain types of pictures in 
+   which case they will be &#147;grayed out&#148;. In general, the 
+   Render Method option applies to pictures in a bitmapped format such 
+   as TIF or PCX. The coloring book option is available for CGM pictures.</P>
+  <P>
+   <B>Render Method:</B></P>
+  <P>
+   Use Render Method to adjust the way PrintMaster combines colored dots 
+   to simulate color shading and gray tones in bitmapped graphics. Most 
+   bitmapped graphics have more colors or grays than the output device 
+   (screen or printer) is capable of showing. PrintMaster uses two 
+   methods to approximate those colors as well as possible on an output 
+   device. For example, consider an image with 256 colors on a printer 
+   that supports only 16 colors. PrintMaster makes the 256 colors appear 
+   by mixing the 16 colors available.</P>
+  <P>
+   The general name for processing an image for the screen or printer is 
+   &#147;rendering&#148;. The specific rendering methods available in 
+   PrintMaster are Ordered Dither and Error Diffusion.</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    <B><I>Ordered Dither</I></B></P>
+   <P>
+    An Ordered Dither uses a fixed set of patterns to blend colors. Each 
+    color or gray in the image changes to a pattern of colors on the 
+    output device. The appearance of the resulting image is very regular.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    <B><I>Error Diffusion</I></B></P>
+   <P>
+    Error Diffusion on the other hand, is a dynamic process. It creates 
+    patterns &#147;on-the-fly&#148;, and the resulting patterns tend to 
+    be more dense and unique. Images often look better with Error 
+    Diffusion, though the patterns look very unusual when viewed up 
+    close. Also, because Error Diffusion patterns are denser, the image 
+    tends to darken due to bleeding of ink or toner when the image is 
+    printed. This means that if you use Error Diffusion, you will 
+    probably also need to adjust your printer contrast to lighten the image.</P>
+   </UL>
+  <P>
+   <B>Coloring Book:</B></P>
+  <P>
+   Select Coloring Book to print only the outline of the selected 
+   picture, with the color fills printed as white. The final printout 
+   can be colored using crayons or pens.</P>
+  <P>
+   <B>Picture Color:</B></P>
+  <P>
+   Change the color of a selected picture can be changed by clicking on 
+   a color name in the list. Clicking the <B>More...</B> button lets you 
+   pick colors from the Windows Color dialog or define your own custom colors.</P>
+  <P>
+   Most of the pictures included with PrintMaster contain many different 
+   colors. When you change the &#147;color&#148; of these pictures, 
+   PrintMaster will change all the black parts of the picture to the 
+   selected color. The other colors in the picture may get lighter, 
+   darker, or change hue depending on the original picture color and the 
+   color to which the picture is changing. Only pictures that are all 
+   black will completely change to the selected color.
+ </BODY>
+</HTML>

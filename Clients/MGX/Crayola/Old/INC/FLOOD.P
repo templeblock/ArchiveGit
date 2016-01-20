@@ -1,0 +1,6 @@
+// Source file: FLOOD.C
+void MgxFlood(LPIMAGE lpImage, int x, int y, int Range, int opacity, LPCOLORINFO lpColor, MERGE_MODE MergeMode, int idColorModel);
+void MgxMagicMask(LPIMAGE lpImage, int x, int y, int Range, int idColorModel, int iMode, int dirty);
+void MgxMagicMaskSimilar(LPIMAGE lpImage, int x, int y, int Range, int idColorModel, int iMode);
+BOOL TintFillColor( LPIMAGE lpImage, LPCOLORINFO lpColor, int iOpacity, MERGE_MODE MergeMode, int dirty );
+

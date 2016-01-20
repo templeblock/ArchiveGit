@@ -1,0 +1,417 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\remind.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "RES\\REMIND.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+EVENTWIZ                BITMAP  DISCARDABLE     "RES\\EVENTWIZ.BMP"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_UPCOMING_EVENTS DIALOG DISCARDABLE  0, 0, 279, 183
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "TITLE"
+CLASS "PMGEVENTREMINDER"
+FONT 8, "Arial"
+BEGIN
+    DEFPUSHBUTTON   "&Close",IDCANCEL,216,156,50,16
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,11,20,20,WS_GROUP
+    LTEXT           "REMINDER",IDC_REMINDER,34,18,218,8
+    LTEXT           "To add or change a reminder, click ""@@R List...""",
+                    IDC_NO_EVENTS_HINT1,10,136,264,8
+    LTEXT           "Each time you start Windows, @@R will check your @@N address books for birthdays, anniversaries, or other events which are coming up soon.",
+                    IDC_NO_EVENTS_HINT2,10,100,259,24
+    GROUPBOX        "Nearest event",IDC_NEXT_EVENT_BORDER,34,45,226,39
+    LTEXT           "Next Event",IDC_NEXT_EVENT,44,61,207,16
+    LISTBOX         IDC_LIST,9,41,262,78,LBS_SORT | LBS_OWNERDRAWFIXED | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+    LTEXT           "Hint: Click on an event to mark it with an ""X"" if you don't want @@N to automatically remind you again until next year.",
+                    IDC_LIST_HINT,10,123,264,16
+    PUSHBUTTON      "&@@R List...",IDC_EVENT_REMINDER_LIST,55,157,92,16,
+                    WS_GROUP
+END
+
+IDD_EVENT_REMINDER_LIST DIALOG DISCARDABLE  0, 0, 287, 189
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "@@R List"
+FONT 8, "Arial"
+BEGIN
+    DEFPUSHBUTTON   "&Close",IDCANCEL,218,161,50,16
+    LTEXT           "@@N will remind you of the events listed below.",
+                    IDC_STATIC,10,8,241,8
+    LTEXT           "To add a new reminder, click New. To change or delete an existing reminder, select the reminder and click Change or Delete.",
+                    IDC_STATIC,10,22,241,16
+    LTEXT           "Address Book",IDC_ADDRESS_BOOK_TITLE,10,55,53,8
+    LTEXT           "Event",IDC_EVENT_TITLE,66,55,67,8
+    LTEXT           "Name",IDC_NAME_TITLE,136,55,91,8
+    CTEXT           "Days before event to remind",IDC_DAYS_TITLE,221,46,55,
+                    17
+    LISTBOX         IDC_LIST,9,65,270,86,LBS_OWNERDRAWFIXED | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+    PUSHBUTTON      "&New...",IDC_NEW,18,161,46,16,WS_GROUP
+    PUSHBUTTON      "C&hange...",IDC_CHANGE,75,161,46,16
+    PUSHBUTTON      "&Delete",IDC_DELETE,132,161,46,16
+END
+
+IDD_ADD_NEW_EVENT_ADDRESS_BOOK DIALOG DISCARDABLE  0, 0, 280, 150
+STYLE WS_CHILD | WS_DISABLED
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Select the address book that contains the birthday, anniversary, or other event for which you want a reminder.",
+                    IDC_STATIC,86,0,154,24
+    LISTBOX         IDC_LIST,86,31,116,87,LBS_SORT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+    LTEXT           "Click Next to continue.",IDC_STATIC,86,129,154,8
+    CONTROL         "",IDC_BITMAP,"Static",SS_BLACKRECT | WS_GROUP,0,0,76,
+                    150
+END
+
+IDD_ADD_NEW_EVENT_TYPE DIALOG DISCARDABLE  0, 0, 280, 150
+STYLE WS_CHILD | WS_DISABLED
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Select the type of event for which you want a reminder. @@N will check the dates you've entered in your address book and remind you when an event is coming up.",
+                    IDC_STATIC,86,0,165,32
+    LISTBOX         IDC_LIST,86,38,154,73,WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    CONTROL         "",IDC_BITMAP,"Static",SS_BLACKRECT | WS_GROUP,0,0,76,
+                    150
+END
+
+IDD_ADD_NEW_EVENT_NAME DIALOG DISCARDABLE  0, 0, 280, 150
+STYLE WS_CHILD | WS_DISABLED
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Select the name of the person whose birthday, anniversary, etc. you want to be reminded of.",
+                    IDC_STATIC,86,0,180,16
+    LTEXT           "Select ""All"" to select everyone in your address book.",
+                    IDC_STATIC,86,23,180,8
+    LISTBOX         IDC_LIST,86,38,154,73,LBS_OWNERDRAWFIXED | WS_VSCROLL | 
+                    WS_GROUP | WS_TABSTOP
+    CONTROL         "",IDC_BITMAP,"Static",SS_BLACKRECT | WS_GROUP,0,0,76,
+                    150
+END
+
+IDD_ADD_NEW_EVENT_DAYS DIALOG DISCARDABLE  0, 0, 280, 150
+STYLE WS_CHILD | WS_DISABLED
+FONT 8, "Arial"
+BEGIN
+    EDITTEXT        IDC_DAYS,86,23,31,12,ES_AUTOHSCROLL | WS_GROUP
+    LTEXT           "days",IDC_STATIC,121,25,25,8
+    LTEXT           "Choose the number of days before the event you want to start being reminded.",
+                    IDC_STATIC,86,0,180,16
+    CONTROL         "",IDC_BITMAP,"Static",SS_BLACKRECT | WS_GROUP,0,0,76,
+                    150
+END
+
+IDD_ADD_NEW_EVENT_CONGRATULATIONS DIALOG DISCARDABLE  0, 0, 280, 150
+STYLE WS_CHILD | WS_DISABLED
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Click Finish to add the following @@M:",IDC_STATIC_TM,
+                    86,0,180,8
+    RTEXT           "Address Book",IDC_STATIC,81,24,88,8
+    EDITTEXT        IDC_ADDRESS_BOOK_DISPLAY,174,22,104,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    RTEXT           "Type of Event",IDC_STATIC,81,40,88,8
+    EDITTEXT        IDC_TYPE_DISPLAY,174,38,104,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    RTEXT           "Name",IDC_STATIC,81,56,88,8
+    EDITTEXT        IDC_NAME_DISPLAY,174,54,104,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    RTEXT           "Days before to Remind",IDC_STATIC,81,72,88,8
+    EDITTEXT        IDC_DAYS_DISPLAY,174,70,104,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Click Cancel if you do not want to add this @@R.",
+                    IDC_STATIC,86,107,151,20
+    CONTROL         "",IDC_BITMAP,"Static",SS_BLACKRECT | WS_GROUP,0,0,76,
+                    150
+END
+
+IDD_NO_ADDRESS_BOOKS DIALOG DISCARDABLE  0, 0, 198, 89
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "No Address Books"
+CLASS "PMGEVENTREMINDER"
+FONT 8, "Arial"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,74,61,50,16
+    LTEXT           "There are no @@N address books available.",IDC_STATIC,9,
+                    9,180,8
+    LTEXT           "Add some entries to your @@N address book, and this reminder program will remind you of upcoming birthdays, anniversaries, and other events.",
+                    IDC_STATIC,8,26,180,24
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,503
+ PRODUCTVERSION 1,0,0,503
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Reminder Application\0"
+            VALUE "FileVersion", "1, 0, 0, 503\0"
+            VALUE "InternalName", "REMIND\0"
+            VALUE "LegalCopyright", "Copyright © 1999, The Learning Company.\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "REMINDER.EXE\0"
+            VALUE "ProductName", "\0"
+            VALUE "ProductVersion", "8.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About remind..."
+    IDS_WIZBACK             "< &Back"
+    IDS_WIZNEXT             "&Next >"
+    IDS_WIZCANCEL           "Cancel"
+    IDS_WIZFINISH           "Finish"
+    IDS_EVENT_WIZARD        "@@R Wizard"
+    IDS_UNKNOWN             "Unknown"
+    IDS_EVENT_WIZARD_CANT_ACCESS_ADDRESS_BOOK 
+                            "The selected address book cannot be accessed."
+    IDS_EVENT_WIZARD_NO_FIELD_NAMES 
+                            "The selected address book does not contain any field names."
+    IDS_EVENT_WIZARD_CANT_CREATE_EVENT 
+                            "An error occurred while creating the event reminder."
+    IDS_STANDARD_DATABASE_DESCRIPTION 
+                            "PrintMaster Gold Standard Address Book Database v1.0"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STANDARD_DATE_FIELD_NAMES "Birthday|Anniversary|User Defined Date"
+    IDS_ALL_EVENT_TYPE_NAME "All Events"
+    IDS_ALL_ENTRIES_NAME    "All"
+    IDS_JANUARY             "January"
+    IDS_FEBRUARY            "February"
+    IDS_MARCH               "March"
+    IDS_APRIL               "April"
+    IDS_MAY                 "May"
+    IDS_JUNE                "June"
+    IDS_JULY                "July"
+    IDS_AUGUST              "August"
+    IDS_SEPTEMBER           "September"
+    IDS_OCTOBER             "October"
+    IDS_NOVEMBER            "November"
+    IDS_DECEMBER            "December"
+    IDS_DATE_SEPARATORS     "!@#$%^&*(){}[]-_=+;:.,/\\?| `~'"""
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DEFAULT_DATE_FORMAT "MDY"
+    IDS_INITIAL_DAYS_COUNT  "7"
+    IDS_UPCOMING_EVENT_FORMAT_STANDARD "%N's %e is %T (%D)"
+    IDS_UPCOMING_EVENT_FORMAT_IMPORTED "%E for %N is %T (%D)"
+    IDS_TODAY               "today"
+    IDS_TOMORROW            "tomorrow"
+    IDS_DAYS_AWAY           "%d days away"
+    IDS_NEXT_EVENT_FORMAT   "%s"
+    IDS_EVENTS_TITLE        "Upcoming Events"
+    IDS_NO_EVENTS_TITLE     "No Upcoming Events"
+    IDS_EVENTS_REMINDER     "The following events are coming up soon."
+    IDS_NO_EVENTS_REMINDER  "There are no events to report."
+    IDS_DEFAULT_EVENTS      "ADDRESS|0|15|-1|7|-1:ADDRESS|0|16|-1|7|-1:SENDER|1|14|-1|7|-1:SENDER|1|15|-1|7|-1"
+    IDS_SAVE_EVENTS         "Do you want to save changes to your event list?"
+    IDS_STANDARD_SENDER_DATABASE_DESCRIPTION 
+                            "PrintMaster Gold Standard Sender Database v1.0"
+    IDS_NETWORK_FILE_IN_USE "The network user file, %s, is currently in use."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_NETWORK_FILE_CORRUPTED "The network user file, %s, is corrupted."
+    IDS_NETWORK_FILE_CANT_CREATE "Unable to create the network user file, %s."
+    IDS_INSTDAT_NAME        "PMINST.DAT"
+    IDS_INSTDAT_MISSING     "Installation file %s missing or bad."
+    IDS_CONFIG_NO_SEE       "Cannot determine configuration."
+    IDS_PMG                 "PrintMaster"
+    IDS_PMGPS               "PrintMaster Publishing Suite"
+    IDS_PMGPSCD             "the PrintMaster Publishing Suite"
+    IDS_PMGBP               "PrintMaster Bonus Pack"
+    IDS_PMGBPCD             "the PrintMaster Bonus Pack"
+    IDS_PMGDX               "PrintMaster Deluxe"
+    IDS_PMGDXCD             "the PrintMaster Deluxe"
+    IDS_GROUP_PMG_TRIAL     "PrintMaster - Trial Version"
+    IDS_NAME_PMG_TRIAL1     "PrintMaster Trial"
+    IDS_NAME_PMG_TRIAL2     "PrintMaster Trial Version"
+    IDS_NAME_PMG_TRIAL3     "the Trial Version of the PrintMaster Publishing Suite"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PMGC                "PrintMaster Classic"
+    IDS_PMGCCD              "the PrintMaster Classic"
+    IDS_PMP                 "PrintMaster Platinum"
+    IDS_PMPCD               "the PrintMaster Platinum"
+    IDS_PM                  "PrintMaster"
+    IDS_PMGNGCD             "the PrintMaster Greeting Cards Edition"
+    IDS_PMPR                "PrintMaster Premier"
+    IDS_PMPRCD              "the PrintMaster Premier"
+    IDS_PMOS                "PrintMaster Office Suite"
+    IDS_PMOSCD              "the PrintMaster Offce Suite"
+    IDS_PMSU                "PrintMaster Supreme"
+    IDS_PMSUCD              "the PrintMaster Supreme"
+    IDS_AGFPST              "American Greetings Print!"
+    IDS_AGFPST_CD           "the American Greetings Print!"
+    IDS_AGFPPR              "American Greetings Print! Premium"
+    IDS_AGFPPR_CD           "the American Greetings Crafts!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_AGSPST              "American Greetings Spiritual Expressions"
+    IDS_AGSPST_CD           "the American Greetings Spiritual Expressions"
+    IDS_AGCRST              "American Greetings Crafts!"
+    IDS_AGCRST_CD           "the American Greetings Spiritual Expressions"
+    IDS_REMINDER            "Event Reminder"
+    IDS_FORGET_ME_NOT       "Forget Me Not"
+    IDS_FORGET_ME_NOT_TM    "Forget Me Not™"
+    IDS_NOT_SUPPORTED       "This feature is not supported by @@N.  You can add support for this feature by upgrading.\nTo upgrade, start @@N and select the File Upgrade menu option."
+    IDS_UNSUP_NOADDR        "The Address Book is not available in @@T."
+    IDS_UNSUP_NOREMINDER    "The Event Reminder is not available in @@T."
+    IDS_UNSUP_CARDSERVER    "Online Greetings are not available in @@T."
+    IDS_ASTORE              "American Greetings Print! Art & More Edition"
+    IDS_ASTORE_CD           "the American Greetings Print! Art & More Edition"
+    IDS_AGCRDX              "American Greetings Crafts! Deluxe"
+    IDS_AGCRDX_CD           "the American Greetings Crafts!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PMGOLD              "PrintMaster Gold"
+    IDS_PMGOLDCD            "PrintMaster Gold"
+    IDS_PMSILVER            "PrintMaster Silver"
+    IDS_PMSILVERCD          "PrintMaster Silver"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\remind.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

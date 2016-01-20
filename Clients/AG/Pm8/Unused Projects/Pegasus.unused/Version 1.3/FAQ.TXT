@@ -1,0 +1,31 @@
+FAQ.TXT
+June 26, 1998
+PICTools version 1.03.110
+
+This file contains the answers to some questions which are frequently
+answered our Technical Support Department.
+=====================================================================
+
+
+Q. I just started using the PICTools libraries, but my programs crashes
+   in the Pegasus DLL whenever I call Pegasus().
+A. Be sure to zero the PIC_PARM structure using memset() before your
+   other PIC_PARM initialization and before passing the structure to
+   Pegasus().
+
+Q. I don't get the last strip of my image when I decompress it.
+A. If you are responding to the RES_PUT_NEED_SPACE event to display or
+   write the DIB, remember that additional output is placed in the
+   buffer after the final RES_PUT_NEED_SPACE event.  You will need to
+   add code after the response/request loop to retrieve the final strip.
+
+Q. My application used to work, but I got a new version of the DLL's and
+   now I get a -2101 error.
+A. You must set the PicParm.ParmVer to the appropriate value for the
+   Development Kit whose DLL's you are using. The correct value to
+   use is the CURRENT_PARMVER, defined in the PIC.H you received for
+   the new Development Kit.
+
+
+=====================================================================
+<end of FAQ.TXT>

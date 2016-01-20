@@ -1,0 +1,50 @@
+//
+// Version.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+#include "version.h"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION VER_FILE_VERSION
+ PRODUCTVERSION VER_PRODUCT_VERSION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", VER_COMPANY
+            VALUE "FileDescription", "Create and Print Plug-in\0"
+            VALUE "FileExtents", "ctp\0"
+            VALUE "FileOpenName", "CTP Files(*.ctp)\0"
+            VALUE "FileVersion", VER_FILE_VERSION_STR
+            VALUE "InternalName", "NpCtp\0"
+            VALUE "LegalCopyright", VER_COPYRIGHT
+            VALUE "MIMEType", "application/x-ctp-plugin\0"
+            VALUE "OriginalFilename", "NpCtp.dll\0"
+            VALUE "ProductName", "CTP Plug-in " VER_PRODUCT_VERSION_STR
+            VALUE "ProductVersion", VER_PRODUCT_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////

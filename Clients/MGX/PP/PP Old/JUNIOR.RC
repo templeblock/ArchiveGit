@@ -1,0 +1,348 @@
+;®BT5¯®RFA®FC¯Page ®PN¯ of ®FP¯ -- pmtpp ®VA$FI¯ -- 2:50 PM , September 5, 1988¯
+; astral.rc	Picture Publisher application Resource file
+;----------------------------------------------------------
+rcinclude astral.h
+
+ID_LOGO		ICON astral.ico
+ID_FRANK	ICON frank.ico
+ID_JED		ICON jed.ico
+ID_PETER	ICON peter.ico
+ID_JIM		ICON jim.ico
+
+ID_CLOCK01	CURSOR clock01.cur
+ID_CLOCK02	CURSOR clock02.cur
+ID_CLOCK03	CURSOR clock03.cur
+ID_CLOCK04	CURSOR clock04.cur
+ID_CLOCK05	CURSOR clock05.cur
+ID_CLOCK06	CURSOR clock06.cur
+ID_CLOCK07	CURSOR clock07.cur
+ID_CLOCK08	CURSOR clock08.cur
+ID_CLOCK09	CURSOR clock09.cur
+ID_CLOCK10	CURSOR clock10.cur
+ID_CLOCK11	CURSOR clock11.cur
+ID_CLOCK12	CURSOR clock12.cur
+
+rcinclude resource.h
+
+PP MENU
+BEGIN
+    POPUP	"File"
+    BEGIN
+	MENUITEM	"&Open...\t^O",		IDM_OPEN
+;	MENUITEM	"Grab",			IDM_ACQUIRE
+	MENUITEM	"&Save\t^S",		IDM_SAVE
+	MENUITEM	"Save &as...\t^A",	IDM_SAVEAS
+	MENUITEM	"&Print...\t^P",	IDM_PRINT
+	MENUITEM	"Print Setup...",	IDM_PRINTSETUP
+	MENUITEM	"Save Preferences",	IDM_PREF
+	MENUITEM	SEPARATOR
+	MENUITEM	"About...",		IDM_ABOUT
+	MENUITEM	"Re&vert to Saved\t^V",	IDM_REVERT
+	MENUITEM	"E&xit\t^X",		IDM_CLOSE
+    END
+    POPUP	"Map"
+    BEGIN
+	MENUITEM	"Reset Map",		IDT_GRAYRESET
+	MENUITEM	"Commit Map",		IDT_GRAYAPPLY
+	MENUITEM	"Map Adjustments...", IDT_CONTBRIT
+    END
+    POPUP	"Mask"
+    BEGIN
+	MENUITEM	"Remove Mask",		IDT_MASKREMOVE
+	MENUITEM	"Crop to Mask...",	IDT_CROP
+    END
+    POPUP	"View"
+    BEGIN
+	MENUITEM	"Full image view",	IDT_VIEWALL
+	MENUITEM	"Zoom In",		IDT_ZOOMIN
+	MENUITEM	"Zoom Out",		IDT_ZOOMOUT
+    END
+    POPUP	"Process"
+    BEGIN
+	MENUITEM	"&Image Processor...\t^E", IDM_PROCESS
+    END
+END
+
+ID_ACCEL ACCELERATORS
+BEGIN
+	"^A", IDM_SAVEAS, CONTROL
+	"^E", IDM_PROCESS, CONTROL
+	"^O", IDM_OPEN, CONTROL
+	"^P", IDM_PRINT, CONTROL
+	"^S", IDM_SAVE, CONTROL
+	"^X", IDM_CLOSE, CONTROL
+	"^V", IDM_REVERT, CONTROL
+END
+
+STRINGTABLE LOADONCALL
+BEGIN
+IDS_APPNAME,	"Picture Publisher® Junior"
+IDS_PREVIEW,	"%d%% %ls"
+IDS_UNTITLED,	"UNTITLED.TIF"
+IDS_PRINTERR,	"Error occurred while printing; check your software and hardware print connections"
+IDS_PRINTMEM,	"Not enough memory to print"
+IDS_PRINTDISK,	"Not enough disk space to print"
+IDS_PRINTUSER,	"Printing has been cancelled by the user"
+IDS_WELCOME,	"Welcome to Astral "
+IDS_STATUS1,	" left; %d%% in memory"
+IDS_STATUS2,	" left; no image in memory"
+IDS_USING,	" using "
+IDS_AREYOUSURE,	"Save '%ls' before closing?"
+IDS_EWININI,	"The program was not properly installed - no defaults can be found in WIN.INI.  Picture Publisher will complete the WIN.INI installation using directory %ls for all files.  WIN.INI may be edited later."
+IDS_EPICWIN,	"Error %d while in the picture window"
+IDS_EPICWINMEM,	"Not enough memory for the picture window!"
+IDS_EIMGMEMORY,	"Can't get %ld bytes of memory to display the image!"
+IDS_EIMGBITMAP,	"Error creating the Windows bitmap"
+IDS_EIMGPTR,	"Can't get a pointer to the bitmap image data!"
+IDS_EIMGWRITE,	"Error writing to image file '%ls'"
+IDS_EIMGREAD,	"Error reading from image file '%ls'"
+IDS_EIMGOPEN,	"Error opening image file '%ls'"
+IDS_EIMGVERSION,"'%ls' is not TIFF version 4.2; will continue"
+IDS_EIMGBAD,	"'%ls' is not a valid TIFF image; cannot be opened"
+IDS_EIMGBITS,	"'%ls' is a TIFF image with %d bits per pixel; cannot be opened"
+IDS_EIMGCOMP,	"'%ls' is a CCITT or Packbits TIFF image; cannot be opened"
+IDS_EIMGPHOTO,	"'%ls' is a TIFF image with non-standard photo interpretation (like color); will continue"
+IDS_EIMGFILL,	"'%ls' is a TIFF image with non-standard fill order; will continue"
+IDS_EIMGORIENT,	"'%ls' is an oriented TIFF image; will continue"
+IDS_EIMGSAMPLES,"'%ls' is a TIFF image with multiple samples; cannot be opened"
+IDS_EIMGPLANES,	"'%ls' is a TIFF image with multiple planes; will continue"
+IDS_EGRAYASC,	"Input points must be in ascending order"
+IDS_EGRAYBAD,	"'%ls' is not a valid GrayMap file"
+IDS_EGRAYOPEN,	"Error opening GrayMap file '%ls'"
+IDS_EGRAYWRITE, "Error writing to GrayMap file '%ls'"
+IDS_ESCROPEN,	"Could not open the image cache file in directory '%ls'"
+IDS_ESCRWRITE,	"Write failed on cache file in directory '%ls'"
+IDS_EWILLOW,	"Unable to get Video or Frame Grab hardware error"
+IDS_CRIPPLED,	"This version of Picture Publisher is for demonstration or educational use only.  If you wish to save image files, you must purchase Picture Publisher from your local distributor"
+IDS_ESCAN,	"Scanner error %d; check your scanner operator's manual"
+IDS_ESCANMEM,	"Not enough memory to continue scanning!"
+IDS_ESCANCOM,	"Can't communicate with the scanner; check to see if it is powered up, the cable is connected, and scanner setup has been run"
+IDS_ESCANGET,	"Error %d retrieving image data from the scanner; check your scanner operator's manual"
+IDS_ESCANBAND,	"Got %d lines of image data, but asked for %d"
+IDS_ESCANWRITE,	"Write failed on cache file in directory '%ls'; Try closing any images before continuing"
+IDS_EVIDEOREAD,	"That TIFF image was not created by Picture Publisher Video.  If you wish to read TIFF images created by scanners and other frame grabbers, please contact Astral Development at 603-432-6800 to upgrade to Picture Publisher."
+IDS_EBADWILLOW, "This version of Picture Publisher is for specific use on the Willow Peripherals Publishers' VGA (with frame grabber).  We will allow you to continue, however you cannot grab or save images.  Read the About dialog box for sales info."
+IDS_COPYPROTECTED, "Picture Publisher has detected a system change from the original program installation.  You must reinstall the program to run in this new environment.  This program will continue to run, however, you cannot save image files."
+
+IDS_COPYDRV, "Copying driver %ls to %ls"
+IDS_ETUTORIAL, "Could not run the tutorial"
+IDS_WARNDRV, "In order to have the %ls driver take effect, close down Picture Publisher and restart it.  You may install other drivers before you exit."
+IDS_CLIPEMPTY, "Clipboard doesn't contain a bitmap or is empty"
+IDS_ECLIPMULTIBIT, "Can only handle 1 bit per pixel / 1 plane images on the clipboard"
+IDS_EMEMALLOC, "Can't allocate enough memory to complete the operation"
+IDS_ECLIPOPEN, "Unable to open the clipboard"
+IDS_ECLIPWRITE, "Error writing to the clipboard"
+IDS_EMASKOPEN, "Error opening Mask file '%ls'"
+IDS_EMASKBADFILE, "'%ls' is not a valid Mask file"
+IDS_EMASKCREATE, "Error opening the new mask"
+IDS_ENOMASK, "There is no active mask"
+IDS_EMASKWRITE, "Error writing to the mask file"
+IDS_EFILEWRITE, "Error writing to the file"
+IDS_EMAXIMAGEHEIGHT, "Can't allocate a picture longer than 32K lines"
+IDS_EIMAGEOVERHEAD, "Can't open an image that requires > 64K of overhead"
+IDS_ELINEPOOLALLOC, "Failed to allocate %ld bytes of %ls memory"
+IDS_EROTANDSMART, "Cannot rotate and use SmartSizing at the same time"
+IDS_ECOMPRESSINIT, "Can't init the compressed image"
+IDS_ECOMPRESSCLOSE, "Can't close out the compressed image"
+IDS_STRETCHREADINGS, "Your readings will be adjusted by stretching your minimum (%d%%) and maximum (%d%%) readings between 0 and 100%%"
+IDS_ECALBADFILE, "Graymap file %ls is not an 11 point calibration map; Cannot load"
+IDS_ECALILLEGALFILE, "Graymap file %ls is a standard Graymap and not an 11 point calibration map - Cannot load"
+IDS_DISABLEEMS, "Disabling the use of expanded memory for any newly cached images"
+IDS_ENABLEEMS, "Enabling the use of expanded memory for any newly cached images"
+IDS_ETOOWIDE, "The width of the image you are creating exceeds your system's maximum - Please reduce the size before continuing"
+IDS_NOGRB, "Unable to get Video or Frame Grab hardware error"
+IDS_GRBABORT, "User aborted grab"
+IDS_EBADDEVICE, "No default printer; Use the Control Panel to select one"
+IDS_EBADDRIVER, "Windows printer driver %ls won't load"
+IDS_ESCANOPEN,	"Can't open the scanner driver: %ls"
+IDS_ESCANINIT, "Can't initialize the scanner: %ls"
+IDS_ESCANENV, "Can't get the scanner environment: %ls"
+IDS_ESCANGETATT, "Can't get the scanner attributes: %ls"
+IDS_ESCANSETATT, "Can't set the scanner attributes: %ls"
+IDS_ESCANCLOSE, "Can't close the scanner properly: %ls"
+IDS_ESCANSTART, "Can't start a scan: %ls"
+IDS_ESCANIMAGE, "Can't get data from the scanner: %ls"
+IDS_ESCANCROP, "Crop area is empty; cannot scan"
+IDS_SCANCHECK, "Number of gray levels found is %d; Maximum gray is %d; Minimum gray is %d"
+IDS_EDISKCACHE, "The new image requires %ldK bytes of unused disk space.  Your disk has only %ldK bytes of unused space.  Free up some space on the disk or edit the Control.RamDisk=%ls statement in WIN.INI to use a larger disk for your image cache."
+IDS_EDISKSPACE, "Cannot write file '%ls'.  The new file requires %ldK bytes of unused disk space.  Your disk has only %ldK bytes of unused space."
+;
+END
+
+IDD_ABORT DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 45, 125, 70
+CAPTION "Abort"
+STYLE WS_MODAL
+BEGIN
+CTEXT( "Sending image", -1, 0,  5, 125, TDY )
+CTEXT( "", ID_NAME, 0, 15, 125, TDY )
+CTEXT( "", ID_PRINTER, 0, 25, 125, TDY )
+CTEXT( "", ID_PORT, 0, 35, 125, TDY )
+BUTTON( "Cancel", IDCANCEL, 45, 45, 35, BDY )
+END
+
+; was 138
+IDD_CONTBRIT DIALOG LOADONCALL MOVEABLE DISCARDABLE 76, 20, 95, 120
+CAPTION "Contrast/Brightness"
+STYLE WS_MODELESSFLOAT
+BEGIN
+CHECK( "Invert", IDC_GRAYNEGATE, 5, 5, 32, CDY )
+TEXT( "Con:", -1, 5, 25, 16, TDY )
+EDIT( IDC_CONTRAST, 5, 35, 16, EDY )
+TEXT( "Bri:", -1, 5, 50, 16, TDY )
+EDIT( IDC_BRIGHTNESS, 5, 60, 16, EDY )
+; try 40 x 40
+STICK( IDC_CONTBRIT, 25, 25, 60, 60 )
+TEXT( "Number of levels", -1, 5, 90, 64, TDY )
+EDIT( IDC_GRAYLEVELS, 73, 90, 16, EDY )
+TEXT( "Threshold level", -1, 5, 105, 60, TDY )
+EDIT( IDC_GRAYTHRESH, 73, 105, 16, EDY )
+;DUTTON( "OK", IDOK, 10, 120, 35, BDY )
+;BUTTON( "Cancel", IDCANCEL, 55, 120, 35, BDY )
+END
+
+IDD_SIZE DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 208
+CAPTION "Process"
+STYLE WS_MODAL
+BEGIN
+CTEXT( "-- Image Processor --", -1, 0, 4, 124, TDY )
+CHECK( "Allow Size Distortions", IDC_DISTORT, 10, 15, 100, CDY )
+TEXT( "Height", -1, 10, 30, 25, TDY )
+EDIT( IDC_HEIGHT, 40, 30, 25, EDY )
+TEXT( " inches", -1, 70, 30, 30, TDY )
+TEXT( "Width", -1, 10, 45, 25, TDY )
+EDIT( IDC_WIDTH, 40, 45, 25, EDY )
+TEXT( " inches", -1, 70, 45, 30, TDY )
+TEXT( "HScale", -1, 10, 60, 25, TDY )
+EDIT( IDC_SCALEY, 40, 60, 25, EDY )
+TEXT( " percent", -1, 70, 60, 35, TDY )
+TEXT( "WScale", -1, 10, 75, 25, TDY )
+EDIT( IDC_SCALEX, 40, 75, 25, EDY )
+TEXT( " percent", -1, 70, 75, 32, TDY )
+TEXT( "Res", -1, 10, 90, 25, TDY )
+EDIT( IDC_RES, 40, 90, 25, EDY )
+TEXT( " / inch", -1, 70, 90, 30, TDY )
+TEXT( "Rotate", -1, 10, 105, 25, 9)
+EDIT( IDC_ANGLE, 40, 105, 25, EDY )
+TEXT( " degrees", -1, 70, 105, 35, TDY )
+TEXT( "Mirror", -1, 10, 120, 30, TDY )
+RADIO( "None", IDC_MIRRORNONE, 10, 130, 28, RDY )
+RADIO( "Top-Bottom", IDC_MIRRORY, 55, 130, 55, RDY )
+RADIO( "Left-Right", IDC_MIRRORX, 55, 140, 55, RDY )
+RADIO( "Diagonal", IDC_MIRRORXY, 10, 140, 44, RDY )
+CHECK( "Use SmartSizing", IDC_SMARTSIZE, 10, 155, 100, CDY )
+TEXT( "Image requires:", 18, 10, 170, 60, TDY )
+RTEXT( "9999", IDC_MEMORY, 70, 170, 20, TDY )
+RTEXT( "K", -1, 90, 170, 5, TDY )
+DUTTON( "Process", IDOK, 20, 185, 35, BDY )
+BUTTON( "Cancel", IDCANCEL, 70, 185, 35, BDY )
+END
+
+IDD_PRINT DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 208
+CAPTION "Print"
+STYLE WS_MODAL
+BEGIN
+CTEXT( "-- Print the Image --", -1, 0, 4, 124, TDY )
+CHECK( "Allow Size Distortions", IDC_DISTORT, 10, 14, 100, CDY )
+TEXT( "Height", -1, 10, 28, 25, TDY )
+EDIT( IDC_HEIGHT, 40, 28, 25, EDY )
+TEXT( " inches", -1, 70, 28, 30, TDY )
+TEXT( "Width", -1, 10, 42, 25, TDY )
+EDIT( IDC_WIDTH, 40, 42, 25, EDY )
+TEXT( " inches", -1, 70, 42, 30, TDY )
+TEXT( "HScale", -1, 10, 56, 25, TDY )
+EDIT( IDC_SCALEY, 40, 56, 25, EDY )
+TEXT( " percent", -1, 70, 56, 35, TDY )
+TEXT( "WScale", -1, 10, 70, 25, TDY )
+EDIT( IDC_SCALEX, 40, 70, 25, EDY )
+TEXT( " percent", -1, 70, 70, 32, TDY )
+CHECK( "Center on page", IDC_CENTERED, 10, 84, 100, CDY )
+TEXT( "Top", -1, 10, 98, 25, TDY )
+EDIT( IDC_OFFSETY, 40, 98, 25, EDY )
+TEXT( " inches", -1, 70, 98, 35, TDY )
+TEXT( "Left", -1, 10, 112, 25, TDY )
+EDIT( IDC_OFFSETX, 40, 112, 25, EDY )
+TEXT( " inches", -1, 70, 112, 35, TDY )
+CHECK( "ScatterPrint®", IDC_SCATTER, 10, 126, 100, CDY )
+TEXT( "Screen", -1, 10, 140, 25, TDY )
+EDIT( IDC_SCRULING, 40, 140, 25, EDY )
+TEXT( " / inch", -1, 70, 140, 35, TDY )
+CHECK( "Use a Calibration Map", IDC_CALIBRATE, 10, 155, 105, CDY )
+BUTTON( "", IDC_CALNAME, 10, 170, 105, BDY )
+DUTTON( "Print", IDOK, 20, 190, 35, BDY )
+BUTTON( "Cancel", IDCANCEL, 70, 190, 35, BDY )
+END
+
+IDD_IMAGE DIALOG LOADONCALL MOVEABLE DISCARDABLE 20, 9, 280, 186
+CAPTION "image.tif"
+STYLE WS_MODELESSFLOAT | WS_THICKFRAME | WS_MAXIMIZEBOX | WS_VSCROLL | WS_HSCROLL
+BEGIN
+;IMAGE( -1, 0, 0, 256, 256 )
+END
+
+IDD_STATUS DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 360, 20
+CAPTION "Status"
+STYLE WS_MODELESS
+BEGIN
+END
+
+IDD_PICTURE DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 0, 0
+CAPTION "Picture"
+STYLE WS_POPUP
+BEGIN
+END
+
+IDD_ACQUIRE DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 0, 0
+CAPTION "Acquire"
+STYLE WS_POPUP
+BEGIN
+END
+
+IDD_OPEN DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_MODAL
+BEGIN
+TEXT( "Open Image File:", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+DUTTON( "Open", IDOK, 83, 60, 35, BDY )
+BUTTON( "Cancel", IDCANCEL, 83, 84, 35, BDY )
+END
+
+IDD_SAVEAS DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 126, 198
+STYLE WS_MODAL
+BEGIN
+TEXT( "Save Image File:", -1, 7, 4, 110, TDY )
+FILENAME( IDC_FNAME, 7, 18, 110, 12 )
+TEXT( "", IDC_FPATH, 7, 39, 400, TDY )
+LIST( IDC_FLIST, 7, 52, 70, 125 )
+RADIO( "Grayscale", IDC_SAVECT, 80, 50, 45, RDY )
+RADIO( "Line art", IDC_SAVELA, 80, 60, 45, RDY )
+RADIO( "Scattered", IDC_SAVESP, 80, 70, 45, RDY )
+RADIO( "Full Color", IDC_SAVE24BITCOLOR, 80, 80, 45, RDY )
+RADIO( "Mini Color", IDC_SAVE8BITCOLOR, 80, 90, 45, RDY )
+RADIO( "TIFF", IDC_SAVETIFF, 80, 105, 28, RDY )
+RADIO( "EPSF", IDC_SAVEEPS, 80, 115, 28, RDY )
+DUTTON( "Save", IDOK, 83, 135, 35, BDY )
+BUTTON( "Cancel", IDCANCEL, 83, 159, 35, BDY )
+CHECK( "Use LZW Compression?", IDC_SAVECOMPRESS, 10, 175, 100, CDY )
+END
+
+IDD_ABOUT DIALOG LOADONCALL MOVEABLE DISCARDABLE 75, 20, 185, 167
+CAPTION "About"
+STYLE WS_MODAL
+BEGIN
+BOX( IDC_LOGO, 6, 6, 96, 103 )
+CTEXT( "Picture", -1, 110, 16, 64, TDY )
+CTEXT( "Publisher®", -1, 110, 26, 64, TDY )
+BOX( -1, 110, 14, 64, 24 )
+BOX( -1, 110, 14, 64, 88 )
+ICON( ID_JIM, 122, 47, 16, 17 )
+ICON( ID_PETER, 146, 48, 16, 17 )
+ICON( ID_FRANK, 122, 72, 16, 17 )
+ICON( ID_JED, 146, 72, 16, 17 )
+CTEXT( "Version 2.1a Junior", -1, 0, 116, 182, TDY )
+CTEXT( "© 1988-91, Astral Development Corp.", -1, 0, 124, 182, TDY )
+DUTTON( "Shoot!", IDOK, 74, 138, 35, BDY )
+END
+
+

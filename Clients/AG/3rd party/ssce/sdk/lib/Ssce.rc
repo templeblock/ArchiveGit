@@ -1,0 +1,302 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "res.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Canada) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "res.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+CHECKSPELLINGDLG DIALOG DISCARDABLE  15, 28, 254, 175
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Check Spelling"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Ignore",ID_IGNORE_BTN,203,4,45,12
+    PUSHBUTTON      "I&gnore All",ID_IGNORE_ALL_BTN,203,18,45,12
+    PUSHBUTTON      "&Add",ID_ADD_TO_LEX_BTN,203,32,45,12
+    PUSHBUTTON      "&Change",ID_CHANGE_BTN,203,46,45,12
+    PUSHBUTTON      "Change A&ll",ID_CHANGE_ALL_BTN,203,60,45,12
+    PUSHBUTTON      "&Suggest",ID_SUGGEST_BTN,203,74,45,12
+    PUSHBUTTON      "U&ndo",ID_UNDO_BTN,5,93,45,12
+    PUSHBUTTON      "&Options...",ID_OPTIONS_BTN,55,92,45,12
+    PUSHBUTTON      "&Dictionaries...",ID_EDIT_LEX_BTN,104,92,45,12
+    PUSHBUTTON      "&Help...",ID_HELP_BTN,153,92,45,12
+    PUSHBUTTON      "Cancel",IDCANCEL,203,92,45,12
+    LTEXT           "Consider Changing:",ID_PROBLEM_LBL,5,4,160,8,NOT 
+                    WS_GROUP
+    EDITTEXT        ID_PROBLEM_WORD_EDT,5,13,193,12,ES_AUTOHSCROLL
+    LTEXT           "S&uggestions:",ID_SUGGESTIONS_LBL,5,29,163,8
+    LISTBOX         ID_SUGGEST_LIST,5,38,193,34,WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Add &words to:",ID_ADD_WORDS_LBL,5,68,72,8
+    COMBOBOX        ID_IGN_LEX_CB,5,76,193,40,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_CONTEXT_EDT,5,110,243,60,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_NOHIDESEL | ES_READONLY | NOT 
+                    WS_VISIBLE | WS_DISABLED | WS_VSCROLL
+END
+
+EDITLEXDLG DIALOG DISCARDABLE  15, 27, 272, 175
+STYLE DS_MODALFRAME | DS_NOIDLEMSG | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Dictionaries"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Words:",ID_WORDS_LBL,5,4,52,8
+    COMBOBOX        ID_LEX_CONTENTS_CB,5,12,124,56,CBS_SIMPLE | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "A&ction:",IDC_STATIC,5,68,132,8
+    COMBOBOX        ID_LEX_ACTION_CB,5,76,260,56,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "O&ther word:",IDC_STATIC,135,4,124,8
+    EDITTEXT        ID_LEX_OTHER_WORD_EDT,135,12,131,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Add Word",ID_LEX_ADD_WORD_BTN,138,30,60,14
+    PUSHBUTTON      "&Delete Word",ID_LEX_DEL_WORD_BTN,138,47,60,14
+    PUSHBUTTON      "I&mport...",ID_IMPORT_BTN,205,30,60,14
+    PUSHBUTTON      "&Export...",ID_EXPORT_BTN,205,47,60,14
+    LTEXT           "F&iles:",ID_FILES_LBL,9,99,40,8,NOT WS_GROUP
+    COMBOBOX        ID_LEX_FILES_CB,9,107,176,56,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "Add &File",ID_LEX_ADD_FILE_BTN,200,99,59,14
+    PUSHBUTTON      "&New File...",ID_LEX_NEW_FILE_BTN,200,115,59,14
+    PUSHBUTTON      "&Remove File",ID_LEX_DEL_FILE_BTN,200,131,59,14
+    PUSHBUTTON      "&Help",ID_HELP_BTN,85,155,44,13
+    DEFPUSHBUTTON   "Cl&ose",IDCANCEL,141,155,44,13
+    GROUPBOX        "",IDC_STATIC,5,89,260,60
+    RTEXT           "Language:",ID_LANGUAGE_LBL,9,123,36,8
+    LTEXT           "",ID_LANG_TEXT,49,123,144,8
+END
+
+OPTIONSDLG DIALOG DISCARDABLE  64, 32, 197, 213
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Ignore &capitalized words (e.g., Canada)",
+                    IDC_IGNORE_CAPS_CHK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,4,4,185,10
+    CONTROL         "Ignore &all-caps words (e.g., ASAP)",
+                    IDC_IGNORE_ALL_CAPS_CHK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,4,14,185,10
+    CONTROL         "I&gnore words with &numbers (e.g., Win95)",
+                    IDC_IGNORE_MIXED_DIGITS_CHK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,4,24,185,10
+    CONTROL         "Ignore words with mi&xed case (e.g., SuperBase)",
+                    IDC_IGNORE_MIXED_CASE_CHK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,4,34,185,10
+    CONTROL         "&Ignore domain names (e.g., xyz.com)",
+                    IDC_IGNORE_DOMAIN_NAMES_CHK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,4,44,185,10
+    CONTROL         "Report &doubled words (e.g., the the)",
+                    IDC_REPORT_DOUBLED_WORDS_CHK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,4,54,185,10
+    CONTROL         "Cas&e sensitive",IDC_CASE_SENSITIVE_CHK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,64,185,10
+    CONTROL         "&Phonetic suggestions",IDC_PHONETIC_SUGG_CHK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,74,185,10
+    CONTROL         "&Typographical suggestions",IDC_TYPO_SUGG_CHK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,84,185,10
+    CONTROL         "Suggest sp&lit words",IDC_SUGGEST_SPLIT_WORDS_CHK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,94,185,10
+    CONTROL         "A&uto correct",IDC_AUTO_CORRECT_CHK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,104,185,10
+    GROUPBOX        "Suggestions",IDC_STATIC,3,146,190,42
+    CONTROL         "&Fast but less accurate",IDC_SUGG_DEPTH_LOW_RB,"Button",
+                    BS_AUTORADIOBUTTON,11,157,152,8
+    CONTROL         "&Moderately fast and accurate",IDC_SUGG_DEPTH_MED_RB,
+                    "Button",BS_AUTORADIOBUTTON,11,167,152,8
+    CONTROL         "Slo&w but accurate",IDC_SUGG_DEPTH_HI_RB,"Button",
+                    BS_AUTORADIOBUTTON,11,177,151,8
+    DEFPUSHBUTTON   "&OK",IDOK,36,193,32,14
+    PUSHBUTTON      "&Help",ID_HELP_BTN,84,193,32,14
+    PUSHBUTTON      "Cancel",IDCANCEL,128,193,32,14
+    COMBOBOX        IDC_DICT_LANG_CBO,3,128,190,52,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Main Dictionar&y language:",IDC_STATIC,3,119,190,8
+END
+
+NEWLEXDLG DIALOG DISCARDABLE  0, 0, 297, 74
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "New Dictionary"
+FONT 8, "MS Sans Serif"
+BEGIN
+    RTEXT           "&File Name:",ID_FILE_NAME_LBL,12,8,40,8
+    EDITTEXT        ID_FILE_NAME_EDIT,56,4,174,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Browse...",ID_BROWSE_BTN,240,5,50,14
+    RTEXT           "&Language",ID_LANGUAGE_LBL,4,24,48,8
+    COMBOBOX        ID_LANGUAGE_CB,56,24,174,56,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,59,52,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,187,52,50,14
+    PUSHBUTTON      "&Help",ID_HELP_BTN,123,52,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    "CHECKSPELLINGDLG", DIALOG
+    BEGIN
+        TOPMARGIN, 4
+    END
+
+    "OPTIONSDLG", DIALOG
+    BEGIN
+        RIGHTMARGIN, 193
+        BOTTOMMARGIN, 207
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_SPELLING_CONTEXT_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "junk"
+    BEGIN
+        MENUITEM "Suggestion 1",                IDM_SPELLING_CONTEXT_SUGGESTION_1
+        , GRAYED
+        MENUITEM "Suggestion 2",                IDM_SPELLING_CONTEXT_SUGGESTION_2
+        , GRAYED
+        MENUITEM "Suggestion 3",                IDM_SPELLING_CONTEXT_SUGGESTION_3
+        , GRAYED
+        MENUITEM "Suggestion 4",                IDM_SPELLING_CONTEXT_SUGGESTION_4
+        , GRAYED
+        MENUITEM "Suggestion 5",                IDM_SPELLING_CONTEXT_SUGGESTION_5
+        , GRAYED
+        MENUITEM "Suggestion 6",                IDM_SPELLING_CONTEXT_SUGGESTION_6
+        , GRAYED
+        MENUITEM "Suggestion 7",                IDM_SPELLING_CONTEXT_SUGGESTION_7
+        , GRAYED
+        MENUITEM "Suggestion 8",                IDM_SPELLING_CONTEXT_SUGGESTION_8
+        , GRAYED
+        MENUITEM "Suggestion 9",                IDM_SPELLING_CONTEXT_SUGGESTION_9
+        , GRAYED
+        MENUITEM "Suggestion 10",               IDM_SPELLING_CONTEXT_SUGGESTION_10
+        , GRAYED
+        MENUITEM "Suggestion 11",               IDM_SPELLING_CONTEXT_SUGGESTION_11
+        , GRAYED
+        MENUITEM "Suggestion 12",               IDM_SPELLING_CONTEXT_SUGGESTION_12
+        , GRAYED
+        MENUITEM "Suggestion 13",               IDM_SPELLING_CONTEXT_SUGGESTION_13
+        , GRAYED
+        MENUITEM "Suggestion 14",               IDM_SPELLING_CONTEXT_SUGGESTION_14
+        , GRAYED
+        MENUITEM "Suggestion 15",               IDM_SPELLING_CONTEXT_SUGGESTION_15
+        , GRAYED
+        MENUITEM "Suggestion 16",               IDM_SPELLING_CONTEXT_SUGGESTION_16
+        , GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "I&gnore All",                 IDM_SPELLING_CONTEXT_IGNORE_ALL
+
+        MENUITEM "&Add",                        IDM_SPELLING_CONTEXT_ADD
+        MENUITEM SEPARATOR
+    END
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 5,14,10,0
+ PRODUCTVERSION 5,14,10,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0xbL
+#else
+ FILEFLAGS 0xaL
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "Comments", "www.wintertreesoftware.com\0"
+            VALUE "CompanyName", "Wintertree Software Inc.\0"
+            VALUE "FileDescription", "Sentry Spelling-Checker Engine\0"
+            VALUE "FileVersion", "5.14.10.0\0"
+            VALUE "InternalName", "SSCE\0"
+            VALUE "LegalCopyright", "Copyright © 2001 Wintertree Software Inc.\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "SSCE53xx.DLL\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Sentry Spelling-Checker Engine\0"
+            VALUE "ProductVersion", "5.14.10.0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // English (Canada) resources
+/////////////////////////////////////////////////////////////////////////////
+
+

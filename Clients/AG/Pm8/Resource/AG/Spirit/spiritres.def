@@ -1,0 +1,7 @@
+; SpiritRes.def : Declares the module parameters for the DLL.
+
+LIBRARY      SpiritRes
+DESCRIPTION  'American Greetings Craft Product Resources'
+
+EXPORTS
+    ; Explicit exports can go here

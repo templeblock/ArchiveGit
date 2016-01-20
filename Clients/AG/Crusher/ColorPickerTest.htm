@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<script>
+		function ColorPicker()
+		{
+			var plugin = null;
+			try
+			{
+				plugin = new ActiveXObject('Crusher.Plugin');
+				if (!plugin)
+					throw '';
+			}
+			catch(error)
+			{
+				alert('The Crusher plugin does not exist');
+				return;
+			}
+
+			var strColor = '';
+			try
+			{
+				strColor = plugin.ColorPicker(0/*iFormat*/);
+			}
+			catch(error)
+			{
+				alert('The Crusher plugin does not have a ColorPicker function');
+				return;
+			}
+
+			alert('ColorPicker returns: "' + strColor + '"');
+
+		}
+		</script>
+	</head>
+	<body>
+		<form>
+			<p>
+				<input type="button" id="Button3" name="button1" value="ColorPicker!" onclick="JavaScript:ColorPicker()">
+			</p>
+		</form>
+		<object id="crusher" style="visibility: hidden;" hspace="0" vspace="0" border="0" width="100" height="100" classid="clsid:BD8667B7-38D8-4C77-B580-18C3E146372C" codebase="http://10.10.240.145/cnp/ol/Crusher.cab#version=1,0,0,1" viewastext>
+			<!--iframe width="100%" height="100%" frameborder=0 src="http://www.americangreetings.com/cnp/noactivex.htm">
+		</iframe-->
+		</object>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+// (c) Copyright 1994 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX  75081
+#ifndef _LUTCTL_RH_
+#define _LUTCTL_RH_
+
+/* Lut Control Class Style Name */
+#define MGXCTL_LUT _T("lutctl")
+
+// styles
+#define LS_INVERTX		0x0002			// invert the x axis on display
+#define LS_INVERTY		0x0004			// invert the y axis on display
+
+
+#endif // _LUTCTL_RH_
+

@@ -1,0 +1,6 @@
+// Source file: ttext.c
+BOOL WINPROC EXPORT DlgTextProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+int TextProc( HWND hWindow, LPARAM lParam, UINT msg );
+static void TextDeactivate( void );
+static void TextSetFocus( void );
+

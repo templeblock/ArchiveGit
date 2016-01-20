@@ -1,0 +1,14 @@
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX  75081
+#ifndef _CTLLIB_RH_
+#define _CTLLIB_RH_
+
+#include "common.rh"
+#include "stick.rh"
+#include "gradctl.rh"
+#include "patch.rh"
+#include "lutctl.rh"
+#include "stext.rh"
+
+#endif // _CTLLIB_RH_

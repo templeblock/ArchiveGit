@@ -1,0 +1,137 @@
+[OPTIONS]
+Compiled File=Pmw.chm-temp
+Title=PrintMaster v7 Help
+Contents File=toc.hhc
+Index File=index.hhk
+Default topic=Contents.htm
+Error log file=
+Display compile progress=Yes
+Display compile notes=Yes
+Full-text search=Yes
+Binary Index=No
+
+[WINDOWS]
+main="PrintMaster Help","toc.hhc","index.hhk","Contents.htm","Contents.htm","","","","",0x520,0,0x2046,[5,5,512,384],0x0,0x0,,0,0,0,
+
+[FILES]
+TextStretch.htm
+TextItalic.htm
+TextBold.htm
+TextShape.htm
+TextJustify.htm
+TextCenter.htm
+Previewing_and_Printing.htm
+The_Hub_Screen.htm
+Hints.htm
+The_Big_Picture.htm
+Advanced_Features_and_Tools.htm
+Resources.htm
+Design_Basics.htm
+Working_With_Projects.htm
+Creating_New_Documents.htm
+Getting_Started.htm
+Contents.htm
+What's New.htm
+Fun For Kids.htm
+Text Box.htm
+Creating_a_Brand_New_Project.htm
+The_Design_Wizard.htm
+Using_the_Design_Wizard.htm
+Using_ReadyMade_Designs.htm
+Art_gallery.htm
+Technical Support Information.htm
+Designing Calendars.htm
+Art and More Store.htm
+Original Art Gallery.htm
+Online Art Gallery.htm
+Designing Web Pages.htm
+Web Page Links.htm
+Web Publishing.htm
+The_Design_Workspace.htm
+Project_Types.htm
+Importing_and_Exporting_Projects.htm
+Connecting_text_boxes.htm
+Creating_Newsletters.htm
+Creating_Matching_Sets.htm
+Project_Browser.htm
+Using_your_address_book.htm
+Using_the_Art_Browser.htm
+Mail Merge Fields.htm
+Creating Calendars.htm
+Scanning_pictures_and_graphics.htm
+Making_Changes.htm
+Elements_Layers.htm
+Adding_Design_Elements.htm
+The_Global_toolbar.htm
+Arranging_Elements.htm
+Checking_Spelling.htm
+Saving_your_Project.htm
+Elements_Shapes.htm
+Elements_Lines_Rectangles_and_El.htm
+Elements_Text.htm
+Elements_Sentiments.htm
+Elements_Pictures.htm
+Using_the_Status_Bar.htm
+Using_the_Modify_Toolbar.htm
+Text__Styles_and_Shapes.htm
+Text__Adding_and_removing_text_b.htm
+Elements_CartoonOMatic.htm
+Using_the_Sentiment_Gallery.htm
+Elements_Fillin_Fields.htm
+Elements_Objects.htm
+Elements_Free_Draw.htm
+List_of_Font_Sizes.htm
+List_of_Fonts.htm
+Text__Changing_text_box_size_and.htm
+Text_Formatting.htm
+Line_Width.htm
+Color.htm
+Using_the_Popup_Menu.htm
+Using_PhotoEnhancer.htm
+Shadow.htm
+Dimensions.htm
+Location.htm
+View_Popup_Menu.htm
+View_Side.htm
+Oops_I_didnt_want_that.htm
+Rotation_Angle.htm
+Event_Reminders.htm
+Printing_Large_Projects_Output_S.htm
+Print_Alignment.htm
+Doublesided_Printing.htm
+Projects_Printing_a_Project_Cata.htm
+Pictures_Printing_a_Picture_Cata.htm
+Working_with_Pictures.htm
+PrintMaster_Gold_on_the_Internet.htm
+Text_Wrap.htm
+Advanced_Print_Settings.htm
+Custom_Rotation.htm
+Picture_Attributes.htm
+Setting_Position_and_Size.htm
+Applying_Values_to_Fillin_Fields.htm
+Shortcut_Key_Combinations.htm
+Setting_Preferences.htm
+Duplicating_Elements.htm
+TextAlgnleft.htm
+TextAlgnright.htm
+TextUnderlined.htm
+Popup_NewProject.htm
+Popup_ProjectBrowser.htm
+EULA.htm
+Craft_Templates.htm
+Elements_Tables.htm
+Year.htm
+Using_Guidelines.htm
+Web_Pages.htm
+Elements_BorderPlus.htm
+Elements_DrawPlus.htm
+#BSSC
+[ALIAS]
+#include Pmw.ali
+
+[MAP]
+#include D:\PMWHELP\Mindscape\pmw7\pmw.hh
+
+[TEXT POPUPS]
+D:\PMWHELP\Mindscape\pmw7\pmw.hh
+

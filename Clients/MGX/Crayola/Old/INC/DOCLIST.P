@@ -1,0 +1,8 @@
+// Source file: DOCLIST.C
+BOOL AddDoc(HWND doc);
+BOOL RemDoc(HWND doc);
+BOOL IsDoc(HWND doc);
+int NumDocs( void );
+HWND GetDoc(int index);
+
+

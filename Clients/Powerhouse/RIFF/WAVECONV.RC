@@ -1,0 +1,129 @@
+/** waveconv.rc
+ *
+     (C) Copyright Microsoft Corp. 1991, 1992.  All rights reserved.
+
+     You have a royalty-free right to use, modify, reproduce and 
+     distribute the Sample Files (and/or any modified version) in 
+     any way you find useful, provided that you agree that 
+     Microsoft has no warranty obligations or liability for any 
+     Sample Application Files which are modified. 
+	 
+     If you did not get this from Microsoft Sources, then it may not be the
+     most current version.  This sample code in particular will be updated
+     and include more documentation.  
+
+     Sources are:
+     	The MM Sys File Transfer BBS: The phone number is 206 936-4082.
+	CompuServe: WINSDK forum, MDK section.
+	Anonymous FTP from ftp.uu.net vendors\microsoft\multimedia
+ *
+ ** */
+
+
+//
+//
+//
+#include <windows.h>
+#include "waveconv.h"
+#include "waveconv.rcv"
+
+//
+//  misc. resources
+//
+ICON_APP            ICON    waveconv.ico
+
+
+//
+//  the menu
+//
+MENU_APP MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open...",                    IDM_FILE_OPEN
+        MENUITEM "Save &As...",                 IDM_FILE_SAVEAS
+        MENUITEM SEPARATOR
+	MENUITEM "&Play!",			IDM_PLAY
+        MENUITEM SEPARATOR
+        MENUITEM "A&bout Wave Converter...",    IDM_FILE_ABOUT
+        MENUITEM "E&xit",                       IDM_FILE_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+	MENUITEM "&INFO",			IDM_INFO
+	MENUITEM "&DISP",			IDM_DISP
+    END
+#if 0
+// not in version 0.9
+    POPUP "&Convert"
+    BEGIN
+	MENUITEM "&Format...",			IDM_FORMAT
+	POPUP "&Channels"
+	BEGIN
+		MENUITEM	"&Stereo",	IDM_STEREO
+		MENUITEM	"&Mono",	IDM_MONO
+	END
+	MENUITEM "&Sample Rate...",		IDM_SAMPLE
+    END
+#endif
+END
+
+
+//
+//  the convert dialog box
+//
+DLG_CONVERT DIALOG 10, 10, 186, 70
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Wave Convert"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Cancel", IDCANCEL, 75, 48, 40, 14
+
+    RTEXT           "Input:", -1, 7, 8, 36, 8
+    LTEXT           "", IDD_TXT_INFILEPATH, 44, 8, 138, 8
+    RTEXT           "Output:", -1, 7, 20, 36, 8
+    LTEXT           "", IDD_TXT_OUTFILEPATH, 44, 20, 138, 8
+    RTEXT           "Status:", -1, 7, 33, 36, 8
+    LTEXT           "", IDD_TXT_STATUS, 44, 33, 30, 8
+END
+
+ABOUTBOX DIALOG LOADONCALL MOVEABLE DISCARDABLE 22, 17, 144, 87
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "About Wave Converter"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Microsoft Windows",              -1,  5,  5, 144, 8
+    CTEXT           MMVERSIONPRODUCTNAME, -1,  5, 14, 144, 8
+    CTEXT           "Multimedia Systems Group",       -1,  5, 23, 144, 8
+    CTEXT           MMSAMPVERSIONSTR, 		      -1,  5, 34, 144, 8
+    CTEXT           MMVERSIONCOPYRIGHT, -1, 5, 47, 144, 8
+    CTEXT           "All Rights Reserved.", 	      -1,  5, 58, 144, 8
+    ICON            ICON_APP, -1, 3, 5, 0, 0
+    DEFPUSHBUTTON   "Ok", IDOK, 60, 70, 32, 14, WS_GROUP
+END
+
+#include "riffsup.h"
+
+DLG_INFOEDIT DIALOG 12, 12, 253, 154
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "'INFO' Editor"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "INFO Items", -1, 8, 3, 72, 8
+    CONTROL         "", -1, "Static", SS_BLACKFRAME, 127, 7, 1, 140
+    LTEXT           "* means contains data", -1, 6, 137, 90, 8
+    LTEXT           "1. Select INFO item to edit/create.", -1, 134, 9, 113, 19
+    LTEXT           "2. Make change in text below.", -1, 134, 28, 112, 11
+    LTEXT           "3. When done, select OK to save changes.", -1, 134, 44, 
+			119, 19
+    LTEXT           "Text", IDD_INFOINFO, 8, 60, 111, 71
+    COMBOBOX        IDD_INFOLIST, 5, 20, 117, 112, CBS_DROPDOWNLIST | 
+			WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "OK", IDOK, 153, 135, 80, 14
+    EDITTEXT        IDD_INFOTEXT, 134, 66, 114, 59, ES_MULTILINE | 
+			ES_AUTOVSCROLL | ES_AUTOHSCROLL
+    GROUPBOX        "Description of Item", 33, 3, 39, 121, 97
+END
+
+
+/** EOF: waveconv.rc **/

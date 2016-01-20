@@ -1,0 +1,411 @@
+//***********************************************************************
+IDD_SOUNDOFFI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_SOUNDOFFI GAMETABLE
+//***********************************************************************
+{
+"
+wave=cow.wav,thebody=cow.bmp,bodyx=399,bodyy=99,correcthead=cowy.bmp,ccells=6,x=339,y=80,incorrecthead=cown.bmp,wcells=7,mousex=360,mousey=75,mouselen=150,mousewid=100, headwid=75, headlen=75;","
+wave=donkey.wav,thebody=donkey.bmp,bodyx=90,bodyy=239,correcthead=donkeyy.bmp,ccells=6,x=137,y=176,incorrecthead=donkeyn.bmp,wcells=7,mousex=100,mousey=240,mouselen=150,mousewid=60;","
+wave=lamb.wav,thebody=sheep.bmp,bodyx=35,bodyy=319,correcthead=sheepy.bmp,ccells=4,x=95,y=291,incorrecthead=sheepn.bmp,wcells=4,mousex=45,mousey=320,mouselen=100,mousewid=110;","
+wave=horse.wav,thebody=horse.bmp,bodyx=119,bodyy=150,correcthead=horsey.bmp,ccells=6,x=196,y=133,incorrecthead=horsen.bmp,wcells=7,mousex=100,mousey=140,mouselen=150,mousewid=80;","
+wave=goat.wav,thebody=goat.bmp,bodyx=438,bodyy=228,correcthead=goaty.bmp,ccells=6,x=390,y=196,incorrecthead=goatn.bmp,wcells=7,mousex=400,mousey=220,mouselen=140,mousewid=110;","
+wave=duck.wav,correcthead=ducky.bmp,ccells=7,x=307,y=209,incorrecthead=duckn.bmp,wcells=7,mousex=307,mousey=209,mouselen=100,mousewid=50;","
+wave=cat.wav,correcthead=caty.bmp,ccells=4,x=531,y=214,incorrecthead=catn.bmp,wcells=8,mousex=531,mousey=214,mouselen=100,mousewid=100;","
+wave=chicken.wav,correcthead=chickeny.bmp,ccells=7,x=237,y=228,incorrecthead=chickenn.bmp,wcells=7,mousex=237,mousey=228,mouselen=100,mousewid=100;","
+wave=mouse.wav,correcthead=mousey.bmp,ccells=7,x=135,y=342,incorrecthead=mousen.bmp,wcells=7,mousex=135,mousey=342,mouselen=100,mousewid=100;","
+
+flagwrongreset=1,matches=6,animals=4,animspeed=10,introwav=intro1.wav,exitwav=succ3.wav;","
+successwav=succ.wav;","
+failwav=fail.wav;","
+",0
+} 
+
+//***********************************************************************
+IDD_SPANSOUNDOFFI GAMETABLE
+//***********************************************************************
+{
+"
+wave=cow.wav,thebody=cow.bmp,bodyx=399,bodyy=99,correcthead=cowy.bmp,ccells=6,x=339,y=80,incorrecthead=cown.bmp,wcells=7,mousex=360,mousey=75,mouselen=150,mousewid=100, headwid=75, headlen=75;","
+wave=donkey.wav,thebody=donkey.bmp,bodyx=90,bodyy=239,correcthead=donkeyy.bmp,ccells=6,x=137,y=176,incorrecthead=donkeyn.bmp,wcells=7,mousex=100,mousey=240,mouselen=150,mousewid=60;","
+wave=lamb.wav,thebody=sheep.bmp,bodyx=35,bodyy=319,correcthead=sheepy.bmp,ccells=4,x=95,y=291,incorrecthead=sheepn.bmp,wcells=4,mousex=45,mousey=320,mouselen=100,mousewid=110;","
+wave=horse.wav,thebody=horse.bmp,bodyx=119,bodyy=150,correcthead=horsey.bmp,ccells=6,x=196,y=133,incorrecthead=horsen.bmp,wcells=7,mousex=100,mousey=140,mouselen=150,mousewid=80;","
+wave=goat.wav,thebody=goat.bmp,bodyx=438,bodyy=228,correcthead=goaty.bmp,ccells=6,x=390,y=196,incorrecthead=goatn.bmp,wcells=7,mousex=400,mousey=220,mouselen=140,mousewid=110;","
+wave=duck.wav,correcthead=ducky.bmp,ccells=7,x=307,y=209,incorrecthead=duckn.bmp,wcells=7,mousex=307,mousey=209,mouselen=100,mousewid=50;","
+wave=cat.wav,correcthead=caty.bmp,ccells=4,x=531,y=214,incorrecthead=catn.bmp,wcells=8,mousex=531,mousey=214,mouselen=100,mousewid=100;","
+wave=chicken.wav,correcthead=chickeny.bmp,ccells=7,x=237,y=228,incorrecthead=chickenn.bmp,wcells=7,mousex=237,mousey=228,mouselen=100,mousewid=100;","
+wave=mouse.wav,correcthead=mousey.bmp,ccells=7,x=135,y=342,incorrecthead=mousen.bmp,wcells=7,mousex=135,mousey=342,mouselen=100,mousewid=100;","
+
+flagwrongreset=1,matches=6,animals=4,animspeed=10,introwav=spintro1.wav,exitwav=spsucc3.wav;","
+successwav=spsucc.wav;","
+failwav=spfail.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SOUNDOFFI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene21\\backgrnd.dib,clip=CL CT CR CB,","
+	prev=FADE CLIP TRANS_PREV STEP_SIZE TOTAL_TIME,","
+	next=FADE CLIP TRANS_NEXT STEP_SIZE TOTAL_TIME,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","  
+
+//*** Action Strip Icons ***//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 443,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 443,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=options.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, fg=help.bmp, hint=helphint.wav, cmd=IDC_HELP;","
+
+",0
+}  
+  
+//***********************************************************************
+IDD_SPANSOUNDOFFI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene21\\backgrnd.dib,clip=CL CT CR CB,","
+	prev=FADE CLIP TRANS_PREV STEP_SIZE TOTAL_TIME,","
+	next=FADE CLIP TRANS_NEXT STEP_SIZE TOTAL_TIME,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","  
+
+//*** Action Strip Icons ***//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=spprev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=spmain.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 443,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=spsounds.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 443,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=spoption.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=spactivy.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=spnext.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, fg=help.bmp, hint=sphelp.wav, cmd=IDC_HELP;","
+
+",0
+}  
+
+//***********************************************************************
+IDD_SOUNDOFF1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_SOUNDOFF1 GAMETABLE
+//***********************************************************************
+{
+"
+wave=cow.wav,thebody=cow.bmp,bodyx=399,bodyy=99,correcthead=cowy.bmp,ccells=6,x=339,y=80,incorrecthead=cown.bmp,wcells=7,mousex=360,mousey=75,mouselen=150,mousewid=100;","
+wave=donkey.wav,thebody=donkey.bmp,bodyx=90,bodyy=239,correcthead=donkeyy.bmp,ccells=6,x=137,y=176,incorrecthead=donkeyn.bmp,wcells=7,mousex=100,mousey=240,mouselen=150,mousewid=60;","
+wave=lamb.wav,thebody=sheep.bmp,bodyx=35,bodyy=319,correcthead=sheepy.bmp,ccells=4,x=95,y=291,incorrecthead=sheepn.bmp,wcells=4,mousex=45,mousey=320,mouselen=100,mousewid=110;","
+wave=horse.wav,thebody=horse.bmp,bodyx=119,bodyy=150,correcthead=horsey.bmp,ccells=6,x=196,y=133,incorrecthead=horsen.bmp,wcells=7,mousex=100,mousey=140,mouselen=150,mousewid=80;","
+wave=goat.wav,thebody=goat.bmp,bodyx=438,bodyy=228,correcthead=goaty.bmp,ccells=6,x=390,y=196,incorrecthead=goatn.bmp,wcells=7,mousex=400,mousey=220,mouselen=140,mousewid=110;","
+wave=duck.wav,correcthead=ducky.bmp,ccells=7,x=307,y=209,incorrecthead=duckn.bmp,wcells=7,mousex=307,mousey=209,mouselen=100,mousewid=50;","
+wave=cat.wav,correcthead=caty.bmp,ccells=4,x=531,y=214,incorrecthead=catn.bmp,wcells=8,mousex=531,mousey=214,mouselen=100,mousewid=100;","
+wave=chicken.wav,correcthead=chickeny.bmp,ccells=7,x=237,y=228,incorrecthead=chickenn.bmp,wcells=7,mousex=237,mousey=228,mouselen=100,mousewid=100;","
+wave=mouse.wav,correcthead=mousey.bmp,ccells=7,x=135,y=342,incorrecthead=mousen.bmp,wcells=7,mousex=135,mousey=342,mouselen=100,mousewid=100;","
+
+flagwrongreset=1,matches=6,animals=4,animspeed=10,introwav=intro1.wav,exitwav=succ1.wav;","
+successwav=succ.wav;","
+failwav=fail.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANSOUNDOFF1 GAMETABLE
+//***********************************************************************
+{
+"
+wave=cow.wav,thebody=cow.bmp,bodyx=399,bodyy=99,correcthead=cowy.bmp,ccells=6,x=339,y=80,incorrecthead=cown.bmp,wcells=7,mousex=360,mousey=75,mouselen=150,mousewid=100;","
+wave=donkey.wav,thebody=donkey.bmp,bodyx=90,bodyy=239,correcthead=donkeyy.bmp,ccells=6,x=137,y=176,incorrecthead=donkeyn.bmp,wcells=7,mousex=100,mousey=240,mouselen=150,mousewid=60;","
+wave=lamb.wav,thebody=sheep.bmp,bodyx=35,bodyy=319,correcthead=sheepy.bmp,ccells=4,x=95,y=291,incorrecthead=sheepn.bmp,wcells=4,mousex=45,mousey=320,mouselen=100,mousewid=110;","
+wave=horse.wav,thebody=horse.bmp,bodyx=119,bodyy=150,correcthead=horsey.bmp,ccells=6,x=196,y=133,incorrecthead=horsen.bmp,wcells=7,mousex=100,mousey=140,mouselen=150,mousewid=80;","
+wave=goat.wav,thebody=goat.bmp,bodyx=438,bodyy=228,correcthead=goaty.bmp,ccells=6,x=390,y=196,incorrecthead=goatn.bmp,wcells=7,mousex=400,mousey=220,mouselen=140,mousewid=110;","
+wave=duck.wav,correcthead=ducky.bmp,ccells=7,x=307,y=209,incorrecthead=duckn.bmp,wcells=7,mousex=307,mousey=209,mouselen=100,mousewid=50;","
+wave=cat.wav,correcthead=caty.bmp,ccells=4,x=531,y=214,incorrecthead=catn.bmp,wcells=8,mousex=531,mousey=214,mouselen=100,mousewid=100;","
+wave=chicken.wav,correcthead=chickeny.bmp,ccells=7,x=237,y=228,incorrecthead=chickenn.bmp,wcells=7,mousex=237,mousey=228,mouselen=100,mousewid=100;","
+wave=mouse.wav,correcthead=mousey.bmp,ccells=7,x=135,y=342,incorrecthead=mousen.bmp,wcells=7,mousex=135,mousey=342,mouselen=100,mousewid=100;","
+
+flagwrongreset=1,matches=6,animals=4,animspeed=10,introwav=spintro1.wav,exitwav=spsucc1.wav;","
+successwav=spsucc.wav;","
+failwav=spfail.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SOUNDOFF1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene21\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME,","
+	jumpscene=IDD_SOUNDOFF3 NOFADE NOCLIP TRANS_NONE;","
+
+	/IDC_BACK=0 0,			hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=603 395,	flags=noclip,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,  hot=603 359,	flags=noclip,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,  hot=603 323,	flags=noclip,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=603 395,	flags=noclip,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=603 359,	flags=noclip invisible,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=603 323,	flags=noclip invisible,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANSOUNDOFF1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene21\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME,","
+	jumpscene=IDD_SOUNDOFF3 NOFADE NOCLIP TRANS_NONE;","
+
+	/IDC_BACK=0 0,			hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=603 395,	flags=noclip,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,  hot=603 359,	flags=noclip,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,  hot=603 323,	flags=noclip,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=603 395,	flags=noclip,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=603 359,	flags=noclip invisible,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=603 323,	flags=noclip invisible,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SOUNDOFF2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_SOUNDOFF2 GAMETABLE
+//***********************************************************************
+{
+"
+wave=cow.wav,thebody=cow.bmp,bodyx=399,bodyy=99,correcthead=cowy.bmp,ccells=6,x=339,y=80,incorrecthead=cown.bmp,wcells=7,mousex=360,mousey=75,mouselen=150,mousewid=100;","
+wave=donkey.wav,thebody=donkey.bmp,bodyx=90,bodyy=239,correcthead=donkeyy.bmp,ccells=6,x=137,y=176,incorrecthead=donkeyn.bmp,wcells=7,mousex=100,mousey=240,mouselen=150,mousewid=60;","
+wave=lamb.wav,thebody=sheep.bmp,bodyx=35,bodyy=319,correcthead=sheepy.bmp,ccells=4,x=95,y=291,incorrecthead=sheepn.bmp,wcells=4,mousex=45,mousey=320,mouselen=100,mousewid=110;","
+wave=horse.wav,thebody=horse.bmp,bodyx=119,bodyy=150,correcthead=horsey.bmp,ccells=6,x=196,y=133,incorrecthead=horsen.bmp,wcells=7,mousex=100,mousey=140,mouselen=150,mousewid=80;","
+wave=goat.wav,thebody=goat.bmp,bodyx=438,bodyy=228,correcthead=goaty.bmp,ccells=6,x=390,y=196,incorrecthead=goatn.bmp,wcells=7,mousex=400,mousey=220,mouselen=140,mousewid=110;","
+wave=duck.wav,correcthead=ducky.bmp,ccells=7,x=307,y=209,incorrecthead=duckn.bmp,wcells=7,mousex=307,mousey=209,mouselen=100,mousewid=50;","
+wave=cat.wav,correcthead=caty.bmp,ccells=4,x=531,y=214,incorrecthead=catn.bmp,wcells=8,mousex=531,mousey=214,mouselen=100,mousewid=100;","
+wave=chicken.wav,correcthead=chickeny.bmp,ccells=7,x=237,y=228,incorrecthead=chickenn.bmp,wcells=7,mousex=237,mousey=228,mouselen=100,mousewid=100;","
+wave=mouse.wav,correcthead=mousey.bmp,ccells=7,x=135,y=342,incorrecthead=mousen.bmp,wcells=7,mousex=135,mousey=342,mouselen=100,mousewid=100;","
+
+flagwrongreset=1,matches=6,animals=6,animspeed=10,introwav=intro2.wav,exitwav=succ2.wav;","
+successwav=succ.wav;","
+failwav=fail.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANSOUNDOFF2 GAMETABLE
+//***********************************************************************
+{
+"
+wave=cow.wav,thebody=cow.bmp,bodyx=399,bodyy=99,correcthead=cowy.bmp,ccells=6,x=339,y=80,incorrecthead=cown.bmp,wcells=7,mousex=360,mousey=75,mouselen=150,mousewid=100;","
+wave=donkey.wav,thebody=donkey.bmp,bodyx=90,bodyy=239,correcthead=donkeyy.bmp,ccells=6,x=137,y=176,incorrecthead=donkeyn.bmp,wcells=7,mousex=100,mousey=240,mouselen=150,mousewid=60;","
+wave=lamb.wav,thebody=sheep.bmp,bodyx=35,bodyy=319,correcthead=sheepy.bmp,ccells=4,x=95,y=291,incorrecthead=sheepn.bmp,wcells=4,mousex=45,mousey=320,mouselen=100,mousewid=110;","
+wave=horse.wav,thebody=horse.bmp,bodyx=119,bodyy=150,correcthead=horsey.bmp,ccells=6,x=196,y=133,incorrecthead=horsen.bmp,wcells=7,mousex=100,mousey=140,mouselen=150,mousewid=80;","
+wave=goat.wav,thebody=goat.bmp,bodyx=438,bodyy=228,correcthead=goaty.bmp,ccells=6,x=390,y=196,incorrecthead=goatn.bmp,wcells=7,mousex=400,mousey=220,mouselen=140,mousewid=110;","
+wave=duck.wav,correcthead=ducky.bmp,ccells=7,x=307,y=209,incorrecthead=duckn.bmp,wcells=7,mousex=307,mousey=209,mouselen=100,mousewid=50;","
+wave=cat.wav,correcthead=caty.bmp,ccells=4,x=531,y=214,incorrecthead=catn.bmp,wcells=8,mousex=531,mousey=214,mouselen=100,mousewid=100;","
+wave=chicken.wav,correcthead=chickeny.bmp,ccells=7,x=237,y=228,incorrecthead=chickenn.bmp,wcells=7,mousex=237,mousey=228,mouselen=100,mousewid=100;","
+wave=mouse.wav,correcthead=mousey.bmp,ccells=7,x=135,y=342,incorrecthead=mousen.bmp,wcells=7,mousex=135,mousey=342,mouselen=100,mousewid=100;","
+
+flagwrongreset=1,matches=6,animals=6,animspeed=10,introwav=spintro2.wav,exitwav=spsucc2.wav;","
+successwav=spsucc.wav;","
+failwav=spfail.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SOUNDOFF2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene21\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=NOFADE NOCLIP TRANS_NONE;","
+
+	/IDC_BACK=0 0,			hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=603 395,	flags=noclip,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,  hot=603 359,	flags=noclip,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,  hot=603 323,	flags=noclip,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=603 395,	flags=noclip invisible,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=603 359,	flags=noclip,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=603 323,	flags=noclip invisible,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANSOUNDOFF2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene21\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=NOFADE NOCLIP TRANS_NONE;","
+
+	/IDC_BACK=0 0,			hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=603 395,	flags=noclip,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,  hot=603 359,	flags=noclip,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,  hot=603 323,	flags=noclip,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=603 395,	flags=noclip invisible,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=603 359,	flags=noclip,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=603 323,	flags=noclip invisible,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SOUNDOFF3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_SOUNDOFF3 GAMETABLE
+//***********************************************************************
+{
+"
+wave=cow.wav,thebody=cow.bmp,bodyx=399,bodyy=99,correcthead=cowy.bmp,ccells=6,x=339,y=80,incorrecthead=cown.bmp,wcells=7,mousex=360,mousey=75,mouselen=150,mousewid=100;","
+wave=donkey.wav,thebody=donkey.bmp,bodyx=90,bodyy=239,correcthead=donkeyy.bmp,ccells=6,x=137,y=176,incorrecthead=donkeyn.bmp,wcells=7,mousex=100,mousey=240,mouselen=150,mousewid=60;","
+wave=lamb.wav,thebody=sheep.bmp,bodyx=35,bodyy=319,correcthead=sheepy.bmp,ccells=4,x=95,y=291,incorrecthead=sheepn.bmp,wcells=4,mousex=45,mousey=320,mouselen=100,mousewid=110;","
+wave=horse.wav,thebody=horse.bmp,bodyx=119,bodyy=150,correcthead=horsey.bmp,ccells=6,x=196,y=133,incorrecthead=horsen.bmp,wcells=7,mousex=100,mousey=140,mouselen=150,mousewid=80;","
+wave=goat.wav,thebody=goat.bmp,bodyx=438,bodyy=228,correcthead=goaty.bmp,ccells=6,x=390,y=196,incorrecthead=goatn.bmp,wcells=7,mousex=400,mousey=220,mouselen=140,mousewid=110;","
+wave=duck.wav,correcthead=ducky.bmp,ccells=7,x=307,y=209,incorrecthead=duckn.bmp,wcells=7,mousex=307,mousey=209,mouselen=100,mousewid=50;","
+wave=cat.wav,correcthead=caty.bmp,ccells=4,x=531,y=214,incorrecthead=catn.bmp,wcells=8,mousex=531,mousey=214,mouselen=100,mousewid=100;","
+wave=chicken.wav,correcthead=chickeny.bmp,ccells=7,x=237,y=228,incorrecthead=chickenn.bmp,wcells=7,mousex=237,mousey=228,mouselen=100,mousewid=100;","
+wave=mouse.wav,correcthead=mousey.bmp,ccells=7,x=135,y=342,incorrecthead=mousen.bmp,wcells=7,mousex=135,mousey=342,mouselen=100,mousewid=100;","
+
+flagwrongreset=1,matches=10,animals=9,animspeed=10,introwav=intro3.wav,exitwav=succ3.wav;","
+successwav=succ.wav;","
+failwav=fail.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANSOUNDOFF3 GAMETABLE
+//***********************************************************************
+{
+"
+wave=cow.wav,thebody=cow.bmp,bodyx=399,bodyy=99,correcthead=cowy.bmp,ccells=6,x=339,y=80,incorrecthead=cown.bmp,wcells=7,mousex=360,mousey=75,mouselen=150,mousewid=100;","
+wave=donkey.wav,thebody=donkey.bmp,bodyx=90,bodyy=239,correcthead=donkeyy.bmp,ccells=6,x=137,y=176,incorrecthead=donkeyn.bmp,wcells=7,mousex=100,mousey=240,mouselen=150,mousewid=60;","
+wave=lamb.wav,thebody=sheep.bmp,bodyx=35,bodyy=319,correcthead=sheepy.bmp,ccells=4,x=95,y=291,incorrecthead=sheepn.bmp,wcells=4,mousex=45,mousey=320,mouselen=100,mousewid=110;","
+wave=horse.wav,thebody=horse.bmp,bodyx=119,bodyy=150,correcthead=horsey.bmp,ccells=6,x=196,y=133,incorrecthead=horsen.bmp,wcells=7,mousex=100,mousey=140,mouselen=150,mousewid=80;","
+wave=goat.wav,thebody=goat.bmp,bodyx=438,bodyy=228,correcthead=goaty.bmp,ccells=6,x=390,y=196,incorrecthead=goatn.bmp,wcells=7,mousex=400,mousey=220,mouselen=140,mousewid=110;","
+wave=duck.wav,correcthead=ducky.bmp,ccells=7,x=307,y=209,incorrecthead=duckn.bmp,wcells=7,mousex=307,mousey=209,mouselen=100,mousewid=50;","
+wave=cat.wav,correcthead=caty.bmp,ccells=4,x=531,y=214,incorrecthead=catn.bmp,wcells=8,mousex=531,mousey=214,mouselen=100,mousewid=100;","
+wave=chicken.wav,correcthead=chickeny.bmp,ccells=7,x=237,y=228,incorrecthead=chickenn.bmp,wcells=7,mousex=237,mousey=228,mouselen=100,mousewid=100;","
+wave=mouse.wav,correcthead=mousey.bmp,ccells=7,x=135,y=342,incorrecthead=mousen.bmp,wcells=7,mousex=135,mousey=342,mouselen=100,mousewid=100;","
+
+flagwrongreset=1,matches=10,animals=9,animspeed=10,introwav=spintro3.wav,exitwav=spsucc3.wav;","
+successwav=spsucc.wav;","
+failwav=spfail.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SOUNDOFF3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene21\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=NOFADE NOCLIP TRANS_NONE;","
+
+	/IDC_BACK=0 0,			hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=603 395,	flags=noclip,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,  hot=603 359,	flags=noclip,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,  hot=603 323,	flags=noclip,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=603 395,	flags=noclip invisible,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=603 359,	flags=noclip invisible,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=603 323,	flags=noclip,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANSOUNDOFF3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene21\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=NOFADE NOCLIP TRANS_NONE;","
+
+	/IDC_BACK=0 0,			hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=603 395,	flags=noclip,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,  hot=603 359,	flags=noclip,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,  hot=603 323,	flags=noclip,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=603 395,	flags=noclip invisible,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=603 359,	flags=noclip invisible,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=603 323,	flags=noclip,fg=lvl3on.bmp;","
+",0
+}

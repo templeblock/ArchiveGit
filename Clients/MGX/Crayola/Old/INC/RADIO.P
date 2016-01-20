@@ -1,0 +1,4 @@
+// file RADIO.C
+
+BOOL Radio_RegisterClass(HINSTANCE hInstance, UINT ClassScope);
+

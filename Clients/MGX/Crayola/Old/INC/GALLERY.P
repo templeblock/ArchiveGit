@@ -1,0 +1,34 @@
+// File: gallery.c
+BOOL SaveToIniEntry (LPSTR lpFileName, LPSTR lpTitle);
+BOOL GetNextIniFilename (LPSTR lpFileName);
+int GetNextIniEntry (FNAME IniName, LPSTR lpSection);
+int far GetNumberIniEntries (void);
+BOOL GetFileNameByIndex (LPSTR lpFileName, int Index);
+BOOL DeleteFileAndIniEntry (LPSTR lpFileName);
+BOOL GetFilenameTitle (LPSTR lpFileName, LPSTR lpTitle);
+BOOL SetFilenameTitle (LPSTR lpFileName, LPSTR lpTitle);
+
+int far GetNumberOfUsers (void);
+BOOL GetUserNameString (int Index, LPSTR lpBuff);
+BOOL GetUserNameByDir (LPSTR lpDir, LPSTR lpBuff);
+BOOL DeleteUserName (LPSTR lpName);
+BOOL SaveUsername (LPSTR lpUserName, LPSTR lpFullName);
+BOOL GetUserDir (LPSTR lpUsername, LPSTR lpDir);
+
+BOOL SaveToSlideshow (LPSTR lpFileName, LPSTR lpNum);
+BOOL SaveSlideNumber (LPSTR lpFileName);
+BOOL GetSlideNumber (LPSTR lpFileName);
+int far GetNumberSlides (void);
+BOOL GetSlideFileIniEntry (LPSTR lpFileName, int Index);
+BOOL SaveImageDelay (LPSTR lpImage, LPSTR lpDelay);
+BOOL GetImageDelay (int Index, LPSTR lpDelay);
+BOOL GetSlideArtFileName (int Index, LPSTR lpFileName);
+
+INIPTR FindFirstINIKey(LPSTR lpszFile,LPSTR lpszSection,LPSTR lpBuff,UINT uBuffLen);
+BOOL FindNextINIKey(INIPTR hIni, LPSTR lpBuff, UINT uBuffLen);
+static INIPTR _OpenINIFile(LPSTR lpszIniFile, UINT uMode);
+static VOID _CloseINIFile(INIPTR iPtr);
+static UINT _ReadINIKey(INIPTR iPtr, LPSTR lpszKey, LPSTR lpBuff, UINT uBuffLen);
+static BOOL _FindINISection(INIPTR iPtr, LPSTR lpszSection);
+static int _ConvertFileNum (LPSTR lpBuff);
+

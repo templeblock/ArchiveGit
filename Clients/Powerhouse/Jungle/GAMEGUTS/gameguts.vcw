@@ -1,0 +1,26 @@
+[MSVC Status File]
+Version=1.00
+ProjectType=10
+External=0
+BrkptCount=4
+BrkptType1=0
+BrkptActive1=1
+BrkptAmbig1=0
+BrkptIndex1=-1
+BrkptLoc1={,d:\dev\power\gameguts\wintools.cpp,} .666
+BrkptType2=0
+BrkptActive2=1
+BrkptAmbig2=0
+BrkptIndex2=-1
+BrkptLoc2={,d:\dev\power\gameguts\wintools.cpp,} .636
+BrkptType3=0
+BrkptActive3=1
+BrkptAmbig3=0
+BrkptIndex3=-1
+BrkptLoc3={,d:\dev\power\gameguts\offscren.cpp,} .183
+BrkptType4=0
+BrkptActive4=1
+BrkptAmbig4=0
+BrkptIndex4=-1
+BrkptLoc4={,d:\dev\power\gameguts\offscren.cpp,} .205
+WatchCount=0

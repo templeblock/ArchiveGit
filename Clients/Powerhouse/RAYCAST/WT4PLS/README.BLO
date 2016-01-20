@@ -1,0 +1,52 @@
+Blocky Mode for wt-0.04 (FIXED VERSION)
+
+Sat May 14 17:10:38 JST 1994
+justinb@lehman.com
+-----------
+
+Who can use this:
+
+	anyone using shared-memory extension to X.
+
+What it does:
+
+	2x,3x or 4x times the "internal" size on the
+	screen, by expanding the render buffer at the
+	time it gets put out to X.
+
+Please find:
+	expand.c	(new)
+	x11graphics.c	(#ifdef BLOCKY=?)
+	framebuf.c	(#ifdef BLOCKY=?)
+
+What to do
+
+	This just replace x11graphics.c with a
+	new one, and include expand.o as a new
+	object in the OBJETCS line...
+	then, in the CFLAGS line, add -DBLOCKY=n
+	where n is the multiple you want. Must
+	be one of 2,3 or 4 if you want to see
+	blocky mode, otherwise xwt operates normally.
+
+Does it work?
+
+	On a Sun, using gcc, yes.
+	If it doesnt work (you don't have bcopy or
+	something), then just hack it to suit.
+
+Benchmarks:
+	All measurements on a sparc 10 model 51, at
+	startup position in newcastle.world:
+
+	Buffer				Screen
+	Internal	BLOCKY		Size	FPS
+
+	80x50		4		320x200	72
+	160x100		3		480x300 33
+	320x200		(original)	320x200	33
+	240x150		2		480x300 26
+	160x100		4		640x400	22
+	240x150		3		720x450 16
+	320x200		2		640x400 16
+

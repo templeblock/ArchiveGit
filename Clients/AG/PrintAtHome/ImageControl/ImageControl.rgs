@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'ImageControl'
+		'ImageControl.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

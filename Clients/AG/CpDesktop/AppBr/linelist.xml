@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='linelist.xsl'?>
+<!--Copyright © 2004 AmericanGreetings.com-->
+<linelist title="Content linelist"><variables><var name="drawicons" value="0"/></variables><folder type="folder" name="Baskin-Robbins"><folder type="folder" name="Greeting Cards"><folder type="folderx" name="Birthday"><file type="file" name="58312"/></folder><folder type="folderx" name="Holiday"><file type="file" name="58313"/></folder><folder type="folderx" name="Just For Fun"><file type="file" name="58314"/></folder></folder><folder type="folderx" name="Bookmarks"><file type="file" name="58322"/></folder><folder type="folderx" name="Coloring Sheets"><file type="file" name="58323"/></folder><folder type="folderx" name="Coupon Book"><file type="file" name="58324"/></folder><folder type="folderx" name="Package Decorations"><file type="file" name="58462"/></folder></folder></linelist>

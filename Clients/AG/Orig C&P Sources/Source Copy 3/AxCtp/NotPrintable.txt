@@ -1,0 +1,4 @@
+Work\CrtPrt\Axctp\AxCtp.ncb : viewable only from MSC++, but not printable
+Work\CrtPrt\Axctp\AxCtp.opt : viewable only from MSC++, but not printable
+Work\CrtPrt\Axctp\AxCtp.tlb : viewable only from MSC++, but not printable
+Work\CrtPrt\Axctp\VsSver.scc : viewable only from MSC++, but not printable

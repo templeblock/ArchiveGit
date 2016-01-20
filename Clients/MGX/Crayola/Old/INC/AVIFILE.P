@@ -1,0 +1,10 @@
+// Source file: AVIFILE.C
+LONG FAR avifileOpen(HAVI FAR *lphfile, LPSTR lpFileName, MainAVIHeader FAR *lphdr);
+LONG FAR avifileAddStream(HAVI hfile, int FAR *lpstream, AVIStreamHeader FAR *lphdr, LPVOID lpFormat, LONG cbFormat);
+LONG FAR avifileWriteToHeader(HAVI hfile, int stream, DWORD ckid, LPVOID lpData, LONG cbData);
+LONG FAR avifileWrite(HAVI hfile, int stream, LPVOID lpData, LONG cbData, WORD cktype, DWORD dwFlags);
+LONG FAR avifileEndRecord(HAVI hfile);
+LONG FAR avifileClose(HAVI hfile);
+LONG FAR aviVideoOpen(HAVI FAR *lphfile, LPSTR lpFileName, LPBITMAPINFOHEADER lpbi, DWORD dwMicroSecPerFrame);
+LONG FAR aviVideoWriteFrame(HAVI hfile, LPBITMAPINFOHEADER lpbi, LPVOID lp, DWORD dwFlags);
+

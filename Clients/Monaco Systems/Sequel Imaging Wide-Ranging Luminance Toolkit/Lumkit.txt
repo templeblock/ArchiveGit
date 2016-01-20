@@ -1,0 +1,152 @@
+Sequel Imaging Wide-Ranging Luminance Toolkit
+32-bit Windows DLL
+
+This document describes the toolkit routines available to a developer to
+interface to the Sequel Imaging Luminance Calibrator.  The folowing files
+are required:
+	Lumkit.H
+	LumW32.LIB
+	LumW32.DLL
+
+The toolkit routine names are all prefaced with "sip" which stands for "Sequel
+Imaging Process".  They are listed below by groups:
+
+A. Communication setup
+   1.   sipOpenCalibrator
+   2.   sipCloseCalibrator
+
+B. Measurement setup
+   1.   sipMeasMonFreqAndSetIntTime
+   2.   sipSetIntegrationTime
+   3.   sipGetIntegrationTime
+
+C. Taking measurements
+   1.   sipMeasureLuminance
+   2.   sipMeasureRawDataScaled
+
+D. Informational
+   1.   sipGetToolkitRev
+   2.   sipGetCalibratorSerialNumber
+   3.   sipGetCalibrationDate
+
+
+A1. long sipOpenCalibrator ( short sPort, char *szVersion, void *Option )
+
+	Opens the serial port and reads calibration data from the calibrator.
+	This routine must be called first successfully, before any other routine.
+
+-Arguments
+	sPort		serial port on which calibrator is attached
+	*szVersion	calibrator firmware version string returned
+	*Option		reserved, set to NULL
+
+-Return
+	0 if SUCCESS
+	else, error code returned
+
+
+A2. long sipCloseCalibrator ( void )
+
+	Closes the serial port and ends the calibrator session.
+
+-Return
+	0 if SUCCESS
+	else, error code returned
+
+
+B1. long sipMeasMonFreqAndSetIntTime ( short sNumFields, double *dMonFreq )
+
+	This routine is used to measure the monitor's vertical refresh
+	frequency and set the proper integration time in the calibrator.
+	It should be called before taking any data.
+	The integration time is set in the calibrator and is valid
+	for all subsequent measurements until reset by this routine or by the
+	sipSetIntegrationTime routine.  Calling sipCloseCalibrator or unplugging
+	the calibrator also clear the integration time.  The default integration
+	time after calling sipOpenCalibrator is 1 second.
+
+	The calibrator should be mounted on the monitor and a white patch
+	displayed when this routine is called.  The calibrator will measure the 
+	monitor's frequency when its output is 4 Foot-Lamberts or greater.
+
+-Arguments
+
+	sNumFields	number of vertical refreshes to measure
+	*dMonFreq	vertical refresh frequency returned
+
+-Return
+	0 if SUCCESS
+	else, error code returned
+
+
+B2. long sipSetIntegrationTime ( double dSeconds )
+
+	Set the integration time in seconds in the calibrator.
+
+-Argument
+	dSeconds	int time in seconds
+
+-Return
+	0 if SUCCESS
+	else, error code returned
+
+
+B3. long sipGetIntegrationTime ( double *dSeconds )
+
+	Returns the current integration time in seconds set in the calibrator.
+
+-Argument
+	*dSeconds	int time in seconds returned
+
+-Return
+	0 if SUCCESS
+	else, error code returned
+
+
+
+C. Taking measurements
+C1. long sipMeasureLuminance ( double *dLuminance, short sUnits )
+
+	This routine takes a measurement using the current integration time and
+	returns luminance data.
+
+-Argument
+	*dLuminance	data returned
+	sUnits		selects which units for data:
+				#define  FOOT_LAMBERTS  0
+				#define  CANDELAS       1
+
+-Return
+	0 if SUCCESS
+	else, error code returned
+
+
+
+C2. long sipMeasureRawDataScaled (double *dRawDataScaled )
+
+	This routine takes a measurement using the current integration time and
+	returns machine units scaled for integration time.
+
+-Argument
+	*dRawDataScaled data returned
+
+-Return
+	0 if SUCCESS
+	else, error code returned
+
+
+D. Informational
+D1. long sipGetToolkitRev ( char *szToolkitRev )
+
+	Returns the DLL toolkit version string.
+
+D2. unsigned long sipGetCalibratorSerialNumber ( void )
+
+	Returns the calibrator's serial number read at initialization.
+
+D3. long sipGetCalibrationDate ( char *szCalDate )
+
+	Returns the date and time of the last factory calibration
+	read at initialization.
+
+

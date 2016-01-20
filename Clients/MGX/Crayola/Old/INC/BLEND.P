@@ -1,0 +1,4 @@
+// Source file: BLEND.C
+BOOL DoBlend(LPFRAME lpFrame, LPMASK lpMask, int Pressure);
+LPPOINT BlendBuildOutline (LPMASK lpMask, int *nPoints, int xmin, int xmax);
+

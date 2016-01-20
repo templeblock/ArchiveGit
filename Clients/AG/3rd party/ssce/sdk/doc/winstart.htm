@@ -1,0 +1,630 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("MicroVision WebExpress","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c0ffc0","Wintertree","1") -->
+  <!-- $MVD$:color("19","c0ff","Or1","1") -->
+  <TITLE>Getting Started with the Sentry Windows SDK</TITLE>
+ </HEAD>
+ <BODY BGCOLOR="WHITE">
+  <H1>
+   Sentry Spelling Checker Engine<BR>
+   Software Development Kit for Windows<BR>
+   Getting Started</H1>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE">Table of Contents</FONT></TD>
+    </TR>
+   </TABLE></H3>
+  <UL>
+   <LI>
+   <P>
+    <A HREF="#How2InstallSDK">How to install the Sentry Windows Software 
+    Development Kit</A>
+    <UL>
+     <LI><A HREF="#FilesInSDK">Files in the Sentry Windows SDK</A></UL>
+    <LI><A HREF="#How2RunDemo">How to run the Sentry example program</A><BR>
+    <LI><A HREF="#How2UseSentryInApp">Quick start: How to use Sentry in 
+    your application</A>
+    <UL>
+     <LI><A HREF="#MFCApp">How to add Sentry to your MFC application</A><BR>
+     <LI><A HREF="#VBApp">How to add Sentry to your Visual Basic application</A><BR>
+     <LI><A HREF="#How2Add2CApp">How to add Sentry to your C or C++ application</A><BR>
+     <LI><A HREF="#DelphiApp">How to add Sentry to your Delphi application</A><BR>
+     <LI><A HREF="#PBApp">How to add Sentry to your PowerBuilder application</A><BR>
+     <LI><A HREF="#MSAccessApp">How to add Sentry to your Microsoft Access application</A><BR>
+     <LI><A HREF="#ParadoxApp">How to add Sentry to your Paradox application</A><BR>
+     <LI><A HREF="#ASPApp">How to add Sentry to your Active Server Pages 
+     (ASP) application</A><BR>
+     <LI><A HREF="#OtherApp">How to add Sentry to other application types</A></UL>
+    <LI><A HREF="#Where2Go">Where to go from here</A></P>
+   </UL>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2InstallSDK"></A>How to install the 
+       Sentry Windows Software Development Kit</FONT></TD>
+    </TR>
+   </TABLE></H3>
+  <P>
+   Sentry is distributed on diskette, CD-ROM, or as a self-extracting, 
+   self-installing executable program. If Sentry is distributed on 
+   diskette or CD-ROM, run the SETUP.EXE program on the diskette or 
+   CD-ROM. If Sentry is distributed electronically, run the installation 
+   program provided.</P>
+  <P>
+   Follow the instructions displayed by the setup program. You can 
+   install Sentry to any directory on your computer. By default, the 
+   Sentry SDK is installed to C:\Program Files\ssce.</P>
+  <P>
+   The setup program copies software development and runtime files to 
+   the SSCE directory. It also copies the Sentry DLL (SSCE5332.DLL or 
+   SSCE5316.DLL) to the System directory. When you install the Sentry 
+   Win16 SDK, SSCE.INI is also copied to your System directory. When you 
+   install the Win32 SDK, the HKEY_CURRENT_USER\Software\Wintertree\SSCE 
+   key is created in the system registry.</P>
+  <P>
+   See also:</P>
+  <UL>
+   <LI>
+   <P>
+    <A HREF="#How2RunDemo">How to run the Sentry Example Program</A></P>
+   <LI>
+   <P>
+    <A HREF="#How2UseSentryInApp">How to add Sentry to your Windows Application</A></P>
+   </UL>
+  <H4>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="FilesInSDK"></A>Files in the Sentry Windows SDK</TD>
+    </TR>
+   </TABLE></H4>
+  <P>
+   The following files and directories are installed on your development 
+   system when you install the Sentry Windows SDK. The &quot;ssce&quot; 
+   directory refers to the default installation directory, C:\Program Files\ssce.</P>
+  <UL>
+   <LI>
+   <P>
+    ssce\readme.html: Information describing the current release of the 
+    Sentry Windows SDK: changes to the programmer's guide, updates to the 
+    API, bug fixes, etc.</P>
+   <LI>
+   <P>
+    ssce\runtime\: Redistributable software, lexicons, and data files.
+    <UL>
+     <LI>ssce.hlp: Help file displayed when the &quot;Help&quot; button is 
+     pressed in one of the built-in dialog boxes.</P>
+    </UL>
+   <LI>
+   <P>
+    ssce\runtime\lex: Redistributable dictionaries:
+    <UL>
+     <LI>accent.tlx: English words containing non-ASCII characters.<BR>
+     <LI>correct.tlx: &quot;Auto correct&quot; lexicon containing several 
+     hundred common English misspellings and their correct replacements. 
+     When this lexicon is used by Sentry, certain common spelling errors 
+     will be corrected automatically or conditionally.<BR>
+     <LI>ssceam.tlx: Part of the American English main lexicon.<BR>
+     <LI>ssceam2.clx: Part of the American English main lexicon.<BR>
+     <LI>sscebr.tlx: Part of the British English main lexicon.<BR>
+     <LI>sscebr2.clx: Part of the British English main lexicon.<BR>
+     <LI>userdic.tlx: Same user lexicon.</P>
+    </UL>
+   <LI>
+   <P>
+    ssce\sdk\: Non-redistributable files forming the Sentry software 
+    development kit.</P>
+   <LI>
+   <P>
+    ssce\sdk\bin\: Executable utility programs:
+    <UL>
+     <LI>SqLex16.exe: 16-bit version of the WinSqLex program.<BR>
+     <LI>SqLex32.exe: 32-bit version of the WinSqLex program.</P>
+    </UL>
+   <LI>
+   <P>
+    ssce\sdk\delphi\: Delphi-related files:
+    <UL>
+     <LI>ssce.pas: Pascal definitions for the Sentry API.<BR>
+     <LI>sscevcl.pas: Source code for the Sentry VCL.</P>
+    </UL>
+   <LI>
+   <P>
+    ssce\sdk\doc\: This Programmer's Guide in HTML form, plus other documents.</P>
+   <LI>
+   <P>
+    ssce\sdk\examples\: Example programs that show how to use Sentry with 
+    application written in various languages, each in its own sub-directory.
+     See readme.txt in each sub-directory for a description of the 
+    example program.</P>
+   <LI>
+   <P>
+    ssce\sdk\examples\asp\: Active Server Page (ASP) example programs.</P>
+   <LI>
+   <P>
+    ssce\sdk\examples\c\: C example programs.</P>
+   <LI>
+   <P>
+    ssce\sdk\examples\delphi\: Delphi example programs.</P>
+   <LI>
+   <P>
+    ssce\sdk\examples\mfc\: MFC example programs.</P>
+   <LI>
+   <P>
+    ssce\sdk\examples\vb\: Visual Basic example programs.</P>
+   <LI>
+   <P>
+    ssce\sdk\include\: C/C++ include (.h) files:
+    <UL>
+     <LI>ssce.h: C include file for the Sentry API.<BR>
+     <LI>ssce.hpp: C++ classes for the Core Sentry API.<BR>
+     <LI>sscemfc.hpp: MFC-like classes for the Sentry Windows API.<BR>
+     <LI>res.h: Resource ids used by the Sentry dialog resources.</P>
+    </UL>
+   <LI>
+   <P>
+    ssce\sdk\lib\: Various SDK-related files:
+    <UL>
+     <LI>ssce.rtf: Text for the Sentry dialog-box help file.<BR>
+     <LI>SSCE5332.lib: Library file for the 32-bit Sentry DLL.<BR>
+     <LI>SSCE5316.lib: Library file for the 16-bit Sentry DLL.<BR>
+     <LI>Note: These .LIB files will not work with the linker included 
+     with the Borland C/C++ compiler. See <A HREF="#How2Add2CApp">How to 
+     add Sentry to a C or C++ application</A> for instructions on creating 
+     compatible .LIB files.<BR>
+     <LI>ssce.rc: Resource script for the Sentry dialog boxes.<BR>
+     <LI>sentryasc.dll: COM DLL for using Sentry from ASP.</P>
+    </UL>
+   <LI>
+   <P>
+    ssce\sdk\vb\: Definitions of the Sentry API for Visual Basic programs:
+    <UL>
+     <LI>ssce.bas: Definitions of the Sentry API.<BR>
+     <LI>sscevb.bas: Alternate Sentry API.</P>
+    </UL>
+   <LI>
+   <P>
+    windows\system or windows\system32: Common runtime files:
+    <UL>
+     <LI>ssce5332.dll: Sentry Spelling Checker Engine 32-bit DLL<BR>
+     <LI>ssce5316.dll: Sentry Spelling Checker Engine 16-bit DLL<BR>
+     <LI>ssce.ini: INI file used by the 16-bit Sentry DLL.</P>
+    </UL>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2RunDemo"></A>How to run the Sentry 
+       Example Program</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   After installing the Sentry SDK, you should run the example program 
+   to insure the installation was successful. To run the Sentry Example Program:</P>
+  <UL>
+   <LI>
+   <P>
+    Select Start + Programs + Sentry Spelling Checker Engine + Sentry 
+    Example Program.</P>
+   </UL>
+  <P>
+   The example program displays information on how to use it. The 
+   example program was written in C++ using MFC. The source code for the 
+   example program is included in ssce\sdk\examples\mfc.</P>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2UseSentryInApp"></A>Quick Start: How 
+       to use Sentry in your Windows Application</FONT></TD>
+    </TR>
+   </TABLE></H3>
+  <P>
+   This topic contains quick instructions for adding Sentry's built-in 
+   spelling-checker dialog box to your application with a minimum of 
+   fuss, using a default configuration. See <A HREF="winapi.htm">Using 
+   the Sentry Windows API</A> for information on other approaches to 
+   incorporating Sentry into your application.</P>
+  <H4>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="MFCApp"></A>How to add Sentry to your MFC Application</TD>
+    </TR>
+   </TABLE></H4>
+  <OL>
+   <LI>
+   <P>
+    Add ssce\sdk\include to your compiler's include path setting.</P>
+   <LI>
+   <P>
+    16-bit applications only: Make sure the preprocessor symbol _WIN16 is 
+    defined. You can define it using your compiler's preprocessor-symbol option.</P>
+   <LI>
+   <P>
+    Add the following lines to the source file where you intend to invoke 
+    the Spelling-Checker dialog:</P><BLOCKQUOTE><PRE>#include &lt;sscemfc.hpp&gt;</PRE></BLOCKQUOTE><LI>
+   <P>
+    If you want to check the text in an edit control or rich-edit 
+    control, insert the following statement in an event-handler (e.g., in 
+    response to a menu selection or button press) in a CWnd-derived class:</P><BLOCKQUOTE><PRE>CSentrySpellDlg spellDlg(this);<BR>spellDlg.SetKey(0x1234abcd);<BR>spellDlg.Check(&amp;editCtrlWnd);</PRE></BLOCKQUOTE><P>
+    Replace the &quot;0x1234abcd&quot; parameter with the Sentry license 
+    key provided with the Sentry Windows SDK. See <A HREF="winapi.htm#AboutLicenseKey">About
+     the Sentry license key for more information</A>.</P>
+   <P>
+    The editCtrlWnd parameter is the address of a CEdit or CRichEdit 
+    control object associated with the control containing the text you 
+    want to check. The control should have No Hide Selection and Auto 
+    VScroll edit styles enabled.</P>
+   <LI>
+   <P>
+    If you want to check the text in a CString, insert statements similar 
+    to the following in an event handler (e.g., in response to a menu 
+    selection or button press) in a CWnd-derived class:</P><BLOCKQUOTE><PRE>CString text(&quot;heloo worlld&quot;);<BR>CSentrySpellDlg spellDlg(this);<BR>spellDlg.SetKey(0x1234abcd);<BR>SSCE_S32 newLen = spellDlg.Check(text);</PRE></BLOCKQUOTE><LI>
+   <P>
+    16-bit applications only: Add ssce\sdk\lib\ssce5316.lib to your project.</P>
+   <P>
+    32-bit applications only: Add ssce\sdk\lib\ssce5332.lib to your project.</P>
+   <LI>
+   <P>
+    Rebuild your project.</P>
+   <LI>
+   <P>
+    Run your application. If you are checking text in an edit or 
+    rich-edit control type some text into the control, being sure to 
+    enter misspelled words.</P>
+   <LI>
+   <P>
+    Invoke the event handler to which you added the CSentrySpellDlg 
+    statements. You should see the Spelling-Checker dialog box.</P>
+   </OL>
+  <P>
+   See ssce\sdk\examples\mfc for an example program showing other ways 
+   of using Sentry from your application.</P>
+  <H4>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="VBApp"></A>How to add Sentry to your Visual Basic Application</TD>
+    </TR>
+   </TABLE></H4>
+  <OL>
+   <LI>
+   <P>
+    Add the file ssce\sdk\vb\ssce.bas to your project.</P>
+   <LI>
+   <P>
+    If you want to check the text in a text box or rich-text box, insert 
+    the following statement in an event-handler (e.g., in response to a 
+    menu selection or button press):</P><BLOCKQUOTE><PRE>Dim rv As Integer<BR>Call SSCE_SetKey(&amp;H1234ABCD)<BR>rv = SSCE_CheckCtrlDlg(Form1.HWnd, Text1.HWnd, False)</PRE></BLOCKQUOTE><P>
+    The text box or rich-text box should have the Hide Selection property 
+    set to False and the ScrollBars property set to Vertical.</P>
+   <P>
+    Replace the &quot;&amp;H1234ABCD&quot; parameter to SSCE_SetKey with 
+    the Sentry license key provided with the Sentry Windows SDK. See <A HREF="winapi.htm#AboutLicenseKey">About
+     the Sentry license key for more information</A>.</P>
+   <P>
+    Set the formHWnd parameter to the HWnd property of the form you are 
+    invoking the Spelling-Checker dialog from. Set the boxHWnd parameter 
+    to the HWnd property of the text box or rich-text box containing text 
+    you want to check. Example:</P><BLOCKQUOTE><PRE>rv = SSCE_CheckCtrlDlg(Form1.hWnd, RichText1.hWnd, False)</PRE></BLOCKQUOTE><LI>
+   <P>
+    If you want to check a string, insert statements similar to the 
+    following in an event-handler (e.g., in response to a menu selection 
+    or button press):</P><BLOCKQUOTE><PRE>Dim text As String<BR>Dim textLen As Long<BR>Dim newLen As Long<BR><!-- $MVD$:spaceretainer() --> <BR>text = &quot;heloo worlld&quot;<BR>len = Len(text)<BR><!-- $MVD$:spaceretainer() --> <BR>Call SSCE_SetKey(&amp;H1234ABCD)<BR><!-- $MVD$:spaceretainer() --> <BR>text = text + Space$(200)<BR>newLen = SSCE_CheckBlockDlg(Form1.HWnd, text, textLen, Len(text), True)</PRE></BLOCKQUOTE><LI>
+   <P>
+    Run your application. If you are checking text in a text box or 
+    rich-text box type some text into the box, being sure to enter 
+    misspelled words.</P>
+   <LI>
+   <P>
+    Invoke the event handler to which you added the SSCE_CheckCtrlDlg or 
+    SSCE_CheckBlockDlg statements. You should see the spelling-checker 
+    dialog box.</P>
+   </OL>
+  <P>
+   See ssce\sdk\examples\vb for an example program showing other ways of 
+   using Sentry from an application.</P>
+  <P>
+   <B>Note</B>: The file SSCE\SDK\VB\SSCEVB.BAS contains an alternate 
+   API for Sentry which Visual Basic programmers may find easier to use. 
+   The alternate API contains the same functions as Sentry, but each 
+   function is named SSCEVB_xxx rather than SSCE_xxx. The alternate API 
+   is nearly identical to the regular API, but most string-length 
+   parameters have been removed. See the Sentry example project in 
+   ssce\sdk\examples\vb to see how the alternate API is used. To use the 
+   alternate API, add both SSCE.BAS and SSCEVB.BAS to your Visual Basic project.</P>
+  <H4>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="How2Add2CApp"></A>How to add Sentry to a C or C++ application</TD>
+    </TR>
+   </TABLE></H4>
+  <OL>
+   <LI>
+   <P>
+    Add ssce\sdk\include to your compiler's include path setting.</P>
+   <LI>
+   <P>
+    16-bit applications only: Make sure the preprocessor symbol _WIN16 is 
+    defined. You can define it using your compiler's preprocessor-symbol option.</P>
+   <LI>
+   <P>
+    Add the following lines to the source file where you intend to invoke 
+    the Spelling-Checker dialog:</P><BLOCKQUOTE><PRE>#include &lt;ssce.h&gt;</PRE></BLOCKQUOTE><LI>
+   <P>
+    If you want to check the text in an edit control or rich-edit 
+    control, insert the following statement in an event-handler (e.g., in 
+    response to a menu selection or button press):</P><BLOCKQUOTE><PRE>SSCE_SetKey(0x1234abcd);<BR>SSCE_CheckCtrlDlg(parentHWnd, editHWnd, FALSE);</PRE></BLOCKQUOTE><P>
+    Replace the &quot;0x1234abcd&quot; parameter in the SSCE_SetKey 
+    function call with your Sentry license key, provided with the Sentry 
+    Windows SDK. See <A HREF="winapi.htm#AboutLicenseKey">About the 
+    Sentry license key for more information</A>.</P>
+   <P>
+    Set the parentHWnd parameter to the window handle of your 
+    application's main window, or the handle of the child window from 
+    which the Spelling-Checker dialog will be invoked. If you don't know 
+    what these handle values are, set the parentHWnd parameter to NULL.</P>
+   <P>
+    Set the editHWnd parameter to the handle of the edit control or rich 
+    edit control containing the text you want to check. The control 
+    should have ES_NOHIDESEL and ES_AUTOVSCROLL edit styles enabled.</P>
+   <LI>
+   <P>
+    If you want to check the text in a string, insert statements similar 
+    to the following in an event handler (e.g., in response to a menu 
+    selection or button press):</P><BLOCKQUOTE><PRE>SSCE_S32 newLen;<BR>SSCE_S32 len;<BR>SSCE_CHAR text[200];<BR><!-- $MVD$:spaceretainer() --> <BR>SSCE_SetKey(0x1234abcd);<BR><!-- $MVD$:spaceretainer() --> <BR>strcpy((char *)text, &quot;heloo worlld&quot;);<BR>len = strlen((char *)text);<BR>newLen = SSCE_CheckBlockDlg(parentHWnd, text, len, sizeof(text), TRUE);</PRE></BLOCKQUOTE><LI>
+   <P>
+    16-bit applications only: Add ssce\sdk\lib\ssce5316.lib to your project.</P>
+   <P>
+    32-bit applications only: Add ssce\sdk\lib\ssce5332.lib to your project.</P>
+   <P>
+    Note: If you are using the Borland C/C++ compiler, run the IMPLIB 
+    utility (included with the Borland package) on SSCE5316.DLL or 
+    SSCE5332.DLL (located in the System directory). IMPLIB creates a .LIB 
+    file compatible with the Borland linker. Use that .LIB file in place 
+    of SSCE5316.LIB or SSCE5332.LIB.</P>
+   <LI>
+   <P>
+    Rebuild your project.</P>
+   <LI>
+   <P>
+    Run your application. If you are checking text in an edit or 
+    rich-edit control type some text into the control, being sure to 
+    enter misspelled words.</P>
+   <LI>
+   <P>
+    Invoke the event handler to which you added the SSCE_CheckCtrlDlg or 
+    SSCE_CheckBlockDlg statements. You should see the Spelling Checker 
+    dialog box.</P>
+   </OL>
+  <P>
+   See ssce\sdk\examples\c and ssce\sdk\examples\cpp for example 
+   programs showing other ways of using Sentry from an application.</P>
+  <H4>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="DelphiApp"></A>How to add Sentry to your Delphi Application</TD>
+    </TR>
+   </TABLE></H4>
+  <P>
+   Delphi users who prefer to access Sentry's API through a VCL can look 
+   at ssce\sdk\delphi. The readme.txt file in that directory contains 
+   information on using the VCL, which is provided in source-code form 
+   and is unsupported.</P>
+  <P>
+   Use the following instructions to call Sentry's API directly from 
+   your Delphi application:</P>
+  <OL>
+   <LI>
+   <P>
+    Add the file ssce\sdk\delphi\ssce.pas to your project.</P>
+   <LI>
+   <P>
+    Add &quot;SSCE&quot; to the &quot;uses&quot; clause of the unit you 
+    want to call Sentry from.</P>
+   <LI>
+   <P>
+    If you want to check the text in a TEdit, TRichEdit, or TMemo 
+    component, insert statements similar to the following statement in an event-handler
+     (e.g., in response to a menu selection or button press):</P><BLOCKQUOTE><PRE>var<BR>   rv: SSCE_S16;<BR>begin<BR>   SSCE_SetKey($1234abcd);<BR>   rv := SSCE_CheckCtrlDlg(Form1.Handle, Memo1.Handle, SSCE_S16(False));<BR>end;</PRE></BLOCKQUOTE><P>
+    The control should have the Hide Selection property set to False and 
+    the ScrollBars property set to ssBoth.</P>
+   <P>
+    Replace the &quot;$1234abcd&quot; parameter in the SSCE_SetKey 
+    function call with the Sentry license key provided with the Sentry 
+    Windows SDK. See <A HREF="winapi.htm#AboutLicenseKey">About the 
+    Sentry license key for more information</A>.</P>
+   <LI>
+   <P>
+    If you want to check a string, insert statements similar to the 
+    following in an event-handler (e.g., in response to a menu selection 
+    or button press):</P><BLOCKQUOTE><PRE>var<BR>  text: array[0..255] of Char;<BR>  newLen: SSCE_S32;<BR>  str: String;<BR>begin<BR>  SSCE_SetKey($1234abcd);<BR>  str := 'heloo worlld';<BR>  StrPCopy(text, str);<BR>  newLen := SSCE_CheckBlockDlg(Form1.Handle, text,<BR>   Length(str), Sizeof(text), SSCE_S16(True));<BR>end;</PRE></BLOCKQUOTE><LI>
+   <P>
+    Run your application.</P>
+   <LI>
+   <P>
+    Invoke the event handler to which you added the 
+    &quot;SSCE_CheckCtrlDlg&quot; or &quot;SSCE_CheckBlockDlg&quot; 
+    statements. You should see the Spelling-Checker dialog box.</P>
+   </OL>
+  <P>
+   See ssce\sdk\examples\delphi for an example program showing other 
+   ways of using Sentry from an application.</P>
+  <H3>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=TOP>
+      <H3>
+       <A NAME="PBApp"></A>How to add Sentry to your PowerBuilder Application</TD>
+    </TR>
+   </TABLE></H3>
+  <OL>
+   <LI>
+   <P>
+    Declare the following local (or global) external functions:</P><BLOCKQUOTE><PRE>Function integer SSCE_SetKey(ulong key) library &quot;SSCE5332.DLL&quot;<BR>Function integer SSCE_CheckCtrlDlg(ulong parentWin, ulong ctrlWin,<BR>  integer selectedOnly) library &quot;SSCE5332.DLL&quot;</PRE></BLOCKQUOTE><LI>
+   <P>
+    Convert your Sentry license key from hexadecimal to decimal using a 
+    hex-capable calculator (if you don't have one, use the Windows 
+    calculator in &quot;Scientific&quot; mode). For example, 1234ABCD 
+    (hexadecimal) is 305441741 (decimal).</P>
+   <LI>
+   <P>
+    If you want to check the text in a multi-line edit control, insert 
+    statements similar to the following in an event handler (e.g., in 
+    response to a menu selection or button press):</P><BLOCKQUOTE><PRE>/* Sentry license key converted to decimal */<BR>ulong ll_key = 305441741<BR>long ll_rc<BR>ll_rc = SSCE_SetKey(ull_key)<BR>ll_rc = SSCE_CheckCtrlDlg(Handle(This), Handle(myMLE), 0)</PRE></BLOCKQUOTE><LI>
+   <P>
+    Run your application. Type some text in the multi-line edit control, 
+    being sure to enter some misspelled words.</P>
+   <LI>
+   <P>
+    Invoke the event handler to which you added the call to 
+    SSCE_CheckCtrlDlg. You should see the spelling-checker dialog box.</P>
+   </OL>
+  <H4>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="MSAccessApp"></A>How to add Sentry to your Microsoft Access Application</TD>
+    </TR>
+   </TABLE></H4>
+  <P>
+   The SSCE_CheckCtrlDlg function requires the window handle of the 
+   control to be checked. Microsoft Access does not currently provide a 
+   mechanism that allows you to pass the window handle of a 
+   text-containing control to the Sentry DLL.</P>
+  <P>
+   Instead, you can use the SSCE_CheckBlockDlg function. The following 
+   example shows how to call SSCE_CheckBlockDlg from Microsoft Access.</P>
+  <P>
+   Suppose you have a form called Form1. Form1 contains a multi-line 
+   text edit control called Memo1 and a button called SpellBtn. Memo1 is 
+   bound to a memo field in some table in your database. You want the 
+   text contained in Memo1 to be spelling-checked when the user clicks 
+   on SpellBtn.</P>
+  <P>
+   Create a new module (or update an existing module), and add a new 
+   function called CheckMemo1:</P><BLOCKQUOTE><PRE>Declare Function SSCE_CheckBlockDlg Lib &quot;ssce5332.dll&quot; (ByVal parent&amp;, ByVal block$, ByVal blkLen&amp;, ByVal blkSz&amp;, ByVal showContext%) As Long<BR><BR>Declare Function SSCE_SetKey Lib &quot;ssce5332.dll&quot; (ByVal key&amp;) As Integer<BR><BR>Function CheckMemo1 () As Integer<BR>  Dim text As String<BR>  Dim textLen As Long<BR>  Dim newLen As Long<BR><BR>  ' Replace &amp;H1234ABCD in the call below to your Sentry license<BR>  ' key, provided with the Sentry Windows SDK:<BR>  Call SSCE_SetKey(&amp;H1234ABCD)<BR><BR>  ' Extract the text from Memo1<BR>  text = Forms![Form1]![Memo1]<BR>  textLen = Len(text)<BR><BR>  ' Increase the size of the string by 20% to allow<BR>  ' room for growth.<BR>  text = text + String$(textLen / 5, &quot; &quot;)<BR><BR>  ' Check the spelling.<BR>  newLen = SSCE_CheckBlockDlg(Forms![Form1].Hwnd, text, _<BR>  textLen, Len(text), True)<BR><BR>  ' Replace the text in Memo1<BR>  If newLen &gt; 0 Then<BR>    Forms![Form1]![Memo1] = Left$(text, newLen)<BR>  End If<BR>End Function</PRE></BLOCKQUOTE><P>
+   Create a macro called CheckMemo1. Add the action &quot;RunCode&quot; 
+   to the macro, and set the Function Name parameter of the 
+   &quot;RunCode&quot; action to CheckMemo1. In Form1, set SpellBtn's 
+   OnClick property to CheckMemo1.</P>
+  <P>
+   To call other functions in Sentry's API, open ssce\sdk\vb\ssce.bas 
+   using a text editor such as Notepad. Locate the &quot;Declare&quot; 
+   statement for the function you want to call. Note that each function 
+   is declared twice: Once for 32-bit applications, and once for 16-bit 
+   applications. Use the 32-bit declaration with Microsoft Access. The 
+   32-bit declaration will refer to &quot;ssce5332.dll&quot; as the 
+   &quot;Lib&quot; attribute. Copy the declarations you need to the 
+   clipboard, and paste them into your module's code where other 
+   declarations are placed.</P>
+  <H4>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="ParadoxApp"></A>How to add Sentry to your Paradox Application</TD>
+    </TR>
+   </TABLE></H4>
+  <P>
+   The SSCE_CheckCtrlDlg function requires the window handle of the 
+   control to be checked. Paradox does not currently provide a mechanism 
+   that allows you to pass the window handle of a text-containing 
+   control to the Sentry DLL.</P>
+  <P>
+   Instead, you can use the SSCE_CheckBlockDlg function. The following 
+   example shows how to call SSCE_CheckBlockDlg from Paradox.</P>
+  <P>
+   This description assumes you have a &quot;Check Spelling&quot; button 
+   on a form, and that you have a field called Notes on the same form. 
+   The Notes field contains text you want to spell-check.</P>
+  <P>
+   Open the Object Explorer for the Check Spelling button. Select the 
+   Methods page, then double-click on the Uses method. (Note that 
+   different versions of Paradox may use different names and instructions.)</P>
+  <P>
+   If you are working with a 16-bit version of Paradox, edit the Uses 
+   clause so it looks like the following:</P><BLOCKQUOTE><PRE>Uses<BR>SSCE5316<BR>  SSCE_CheckBlockDlg(parentWin CWord, block CPtr, blkLen CLong,<BR>  blkSz CLong, showContext CWord) CLong<BR><BR>  SSCE_SetKey(key CLong) CWord<BR>endUses</PRE></BLOCKQUOTE><P>
+   If you are working with a 32-bit version of Paradox (e.g., Paradox 7 
+   or later for Windows 9x/NT), edit the Uses clause so it looks like 
+   the following:</P><BLOCKQUOTE><PRE>Uses<BR>SSCE5332<BR>  SSCE_CheckBlockDlg(parentWin CLong, block CPtr, blkLen CLong,<BR>  blkSz CLong, showContext CWord) CLong [STDCALL]<BR><BR>  SSCE_SetKey(key CLong) CWord [STDCALL]<BR>endUses</PRE></BLOCKQUOTE><P>
+   Next, double-click the pushButton event in the Object Explorer Event 
+   tab for the Check Spelling button. Edit the pushButton event so it 
+   looks like the following:</P><PRE>method pushButton(var eventInfo Event)<BR>var<BR>  text String<BR>  rv LongInt<BR>  textLen LongInt<BR>  textSz LongInt<BR>endvar<BR><BR>  ; Replace $1234abcd with the Sentry license key (in hexadecimal)<BR>  ; provided with the Sentry Windows SDK:<BR>  SSCE_KeyKey($1234abcd)<BR>  text = Notes.Text<BR>  textLen = text.size()<BR>  ; Pad with some spaces to allow room for growth<BR>  text = text + &quot;                                                &quot;<BR>  textSz = text.size()<BR>  rv = SSCE_CheckBlockDlg(0, text, textLen, textSz, 1)<BR>  if rv &gt;= 0 then<BR>    Notes.Text = text.substr(1, rv + 1)<BR>  endif<BR>endMethod</PRE><H4>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="ASPApp"></A>How to add Sentry to Active Server Pages (ASP) Applications</TD>
+    </TR>
+   </TABLE></H4>
+  <P>
+   See <A HREF="sentry_asp.html">Using the Sentry Spelling Checker 
+   Engine with ASP</A> for information on using the Sentry engine from 
+   ASP applications.</P>
+  <H4>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="2">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       <A NAME="OtherApp"></A>Adding Sentry to Other Application Types</TD>
+    </TR>
+   </TABLE></H4>
+  <P>
+   Sentry can be invoked from any DLL-capable application environment. 
+   You will need to create an interface to the Sentry DLL. See your 
+   development environment's user guide for instructions on calling 
+   functions in DLLs. The SSCE\SDK\VB\SSCE.BAS and 
+   SSCE\SDK\DELPHI\SSCE.PAS files may be helpful to you as examples.</P>
+  <P>
+   Once you have an interface ready, you can invoke the Spelling-Checker 
+   dialog by calling the SSCE_CheckCtrlDlg or SSCE_CheckBlockDlg 
+   functions. See the descriptions of these functions in <A HREF="winapi.htm">Using
+    the Sentry Windows API</A> for details.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Where2Go"></A>Where to go from here</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <UL>
+   <LI>
+   <P>
+    <A HREF="winsdk.htm">Using the Sentry Windows SDK</A></P>
+   <LI>
+   <P>
+    <A HREF="winapi.htm">Using Sentry's Windows API</A></P>
+   <LI>
+   <P>
+    <A HREF="coreapi.htm">Using Sentry's Core API</A></P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <P>
+   Copyright &copy; 2000 <A HREF="http://www.wintertree-software.com">Wintertree
+    Software Inc</A>.<BR>
+   $Revision: 5.14.2 $
+ </BODY>
+</HTML>

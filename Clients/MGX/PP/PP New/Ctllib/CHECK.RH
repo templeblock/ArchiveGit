@@ -1,0 +1,27 @@
+//®FD1¯®PL1¯®TP0¯®BT0¯®RM200¯
+// (c) Copyright 1991 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX  75081
+#ifndef _CHECK_RH_
+#define _CHECK_RH_
+
+/* Check Class Style Name */
+#define MGXCTL_CHECKBOX _T("mgxcheck")
+
+/* Check Button Styles */
+#define CBS_SQUAREBTN1      0x0000L     // Standard square 3D box
+#define CBS_SQUAREBTN2      0x0001L     // Alternate square 3D box   
+#define CBS_CHECKBTN        0x0002L     // Checkmark 3D box 
+#define CBS_PUSHBTNCHECK    0x0003L     // Push button style w/checkmark cookie
+#define CBS_PUSHBTNSQUARE   0x0004L     // Push button style w/square cookie
+#define CBS_OWNERDRAW       0x0005L     // Owner draw (not implimented)
+#define CBS_3STATE          0x0008L     // 3 state style
+#define CBS_AUTO            0x0010L     // Automatic style
+#define CBS_LEFTTEXT        0x0020L     // Text on left of check style
+#define CBS_MULTILINE       0x0040L     // Multiline text in control
+#define CBS_STDFOCUS        0x0080L     // Standard dotted focas rect style
+
+#endif // _CHECK_RH_
+
+

@@ -1,0 +1,159 @@
+; $Header:   L:/PMW5/PMW/NETWORK.DEv   1.0   14 Aug 1997 15:22:52   Fred  $
+; $Log:   L:/PMW5/PMW/NETWORK.DEv  $
+; 
+;    Rev 1.0   14 Aug 1997 15:22:52   Fred
+; Initial revision.
+; 
+;    Rev 1.0   14 Aug 1997 09:46:20   Fred
+; Initial revision.
+; 
+;    Rev 1.0   14 Mar 1996 13:28:08   Jay
+; Initial revision.
+; 
+;    Rev 1.0   16 Feb 1996 12:32:02   FRED
+; Initial revision.
+; 
+;    Rev 2.0   07 Feb 1995 16:26:00   JAY
+; Initial revision.
+; 
+;    Rev 1.0   16 Dec 1993 16:29:28   JAY
+;  
+; 
+;    Rev 1.5   14 Aug 1992 13:38:32   ADAM
+; Made conditional compiler directives for TrueType.
+; 
+;    Rev 1.4   17 Jun 1992 15:23:18   ADAM
+; Added some more error codes
+; 
+;    Rev 1.3   15 Jun 1992 18:52:36   mrh
+; Uses MFINST.DAT format.
+; 
+;    Rev 1.2   03 Jun 1992 16:36:34   acr
+; More definitions for network modules.
+; 
+;    Rev 1.1   01 Jun 1992 17:36:56   acr
+; 
+;    Rev 1.0   28 May 1992 13:54:06   acr
+; Initial revision.
+; 
+;    Rev 1.1   13 Nov 1991 17:32:16   acr
+; 	new definitions file for MoreFonts 3.0
+; 	ASM to PAS conversion of NETWORK.DEF
+; 	added a checksum field to the SUC structure
+; 	commented NCS_count placement
+; 	defined some common messages.
+; 
+;    Rev 1.0   04 Nov 1991 10:28:32   acr
+; Initial revision.
+;ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+;³ 									³
+;³									³
+;³		Network definition file for MoreFonts 3.0		³
+;³									³
+;ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+;³									³
+;³									³
+;³          Copyright (C) MicroLogic Software, Inc. 1988-92		³
+;³                           All Rights Reserved                        ³
+;³									³
+;³									³
+;ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+;
+; This is the size of the workspace NETCOUNT requires.
+;
+
+NetworkWorkSpaceSize	equ	4096
+
+;
+; This is the maximum length of a user name.
+;
+
+UserNameLengthMax	equ	48
+
+;
+; These are errors from Get user id.
+;
+
+GUIERR_FileInUse	equ	(-1)
+GUIERR_FileCorrupt	equ	(-2)
+
+;
+; These are the values for the network_flag variable.
+;
+
+NF_SINGLE_USER	equ	0
+NF_NETWORK	equ	1
+
+;
+; This is the format of the simultaneous user count file: MF.NET
+;
+
+NCN1	equ	<'Simultaneous user support for '>	; 30
+NCN2	equ	<'0000'>				; 4
+NCN3	equ	<' users (c) MicroLogic Software, Inc. 1988-92.', 13, 10, 26>	; 48
+NCN4	equ	<0,0,0,0,0,0,0,0,0,0,0,0>		; 12
+
+NCN2_POSITION	equ	30
+NCN_LENGTH	equ	94	; I counted!
+
+
+NETWORK_SUC_STRUCTURE	struc
+
+	NCS_non_network_data	db	505 dup (?)
+	NCS_count				db	?
+	NCS_timestamp			db 4 dup (?)
+
+;
+; This must be the last 2 bytes in the file.
+;
+
+	NCS_checksum		dw	?
+
+	ends
+
+
+
+NLFS_COPYRIGHT_LENGTH	equ	80
+NLFS_COPYRIGHT_NOTICE 	equ <'Simultaneous user access   (c) MicroLogic Software, Inc. 1988-92',13,10,26,0,0,0,0,0,0,0,0,0,0,0,0,0>
+
+;
+; The lock file has 2 regions:
+;	  0..255:  Active locks
+;	256..511:  File locking test region.
+;
+
+NLFS_LockTestRegion	= 256	
+NLFS_MAXIMUM_LOCKS	= 256
+
+NETWORK_LOCK_FILE_STRUCTURE	struc
+
+	NLFS_copyright		db NLFS_COPYRIGHT_LENGTH dup (?)
+	NLFS_random_block_1	db NLFS_MAXIMUM_LOCKS-NLFS_COPYRIGHT_LENGTH dup (?)
+
+	ends
+
+;
+; Messages
+;
+
+NFEM	equ	<'Error while accessing network support files.',13,10,'$'>
+NCEM	equ	<'Network workstation count exceeded.',13,10,'$'>
+
+NetResult_FileLockingNotAvailable	equ	4
+NetResult_ProblemAccessingFiles		equ	3
+NetResult_UserIdAlreadyLocked		equ	2
+NetResult_NoLocksAvailable		equ	1
+NetResult_LockPlaced			equ	0
+
+;
+; Filenames
+;
+
+IFNDEF TrueType
+NET_LOCK_FILENAME	equ	<'NETL.MF'>
+NET_COUNT_FILENAME	equ	<'MFINST.DAT'>
+ELSE
+NET_LOCK_FILENAME	equ	<'NETL.TT'>
+NET_COUNT_FILENAME	equ	<'TTINST.DAT'>
+ENDIF

@@ -1,0 +1,32 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                   rshapes.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Room dialog functions.
+ Date Created:  02/11/94
+       Author:  Ray
+
+*****************************************************************************/
+
+#ifndef RSHAPES_P
+#define RSHAPES_P
+
+/****************************** Public Functions ****************************/
+
+BOOL WINPROC EXPORT DlgRoomShapes (HWND hWnd,UINT wMsg,WPARAM wParam,LPARAM lParam);
+
+/******************************* Local Functions ****************************/
+
+static void HideBitmaps (HWND hWnd);
+
+#endif

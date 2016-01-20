@@ -1,0 +1,9 @@
+VBMIX.FRM
+VBMIX.BAS
+MSGBLAST.VBX
+VBABOUT.FRM
+ProjWinSize=371,2,211,149
+ProjWinShow=2
+IconForm="main"
+Title="VBMIX"
+ExeName="VBMIX.EXE"

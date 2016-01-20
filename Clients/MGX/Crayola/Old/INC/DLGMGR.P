@@ -1,0 +1,19 @@
+// Source file: DLGMGR.C
+int AstralControlRect( HWND hWindow, int idControl, LPRECT lpRect );
+int AstralControlPaint( HWND hWindow, int idControl );
+int AstralControlRepaint( HWND hWindow, int idControl );
+int ControlEnable( HWND hWindow, int idControl, BOOL bGray );
+int AstralDlg( int iModeless, HINSTANCE hInstance, HWND hWndParent, ITEMID idDlgIn, DLGPROC lpDlgControl );
+int CALLBACK EXPORT AstralDlgEnd( HWND hDlg, int iResult );
+void AstralDlgEndAll( void );
+BOOL AstralDlgMsg( LPMSG lpMsg );
+BOOL AstralDlgClear( HWND hDlg );
+HWND AstralDlgGet( int idDlg );
+int AstralDlgGetID( HWND hDlg );
+DLGPROC AstralDlgGetProc( HWND hDlg );
+BOOL AstralDlgCheck( HWND hDlg );
+BOOL AstralDlgSet( int idDlg, HWND hDlg, DLGPROC lpProc );
+VOID AstralDlgShow( int idDlg );
+VOID AstralDlgHide( int idDlg );
+
+

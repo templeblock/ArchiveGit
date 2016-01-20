@@ -1,0 +1,8 @@
+; PMToolbar.def : Declares the module parameters for the DLL.
+
+LIBRARY      "PMToolbar"
+DESCRIPTION  'PMToolbar Windows Dynamic Link Library'
+
+EXPORTS
+	LoadToolbar
+	GetToolbar

@@ -1,0 +1,279 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_enu)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\CpDesktop.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\r\n"
+    "1 TYPELIB ""HPapp.tlb""\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_LOGOHP              ICON                    "res\\LogoHp.ico"
+IDI_LOGOAG              ICON                    "res\\LogoAg.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 280, 54
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About HP Design Studio"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDI_LOGOHP,IDC_STATIC,11,10,20,20
+    LTEXT           "HP Design Studio version ",IDHELP,40,10,151,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright © AmericanGreetings.com",IDC_STATIC,40,25,202,
+                    8
+    ICON            IDI_LOGOAG,IDC_STATIC,192,17,20,20
+    DEFPUSHBUTTON   "OK",IDOK,222,7,50,16,WS_GROUP
+END
+
+IDD_CPDESKTOP DIALOGEX 0, 0, 126, 81
+STYLE DS_SETFONT | DS_NOIDLEMSG | DS_CENTER | WS_MINIMIZEBOX | 
+    WS_MAXIMIZEBOX | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_NOPARENTNOTIFY | WS_EX_APPWINDOW
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+END
+
+IDD_HTMLDIALOG DIALOGEX 0, 0, 120, 81
+STYLE DS_SETFONT | DS_NOIDLEMSG | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | 
+    WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+EXSTYLE WS_EX_NOPARENTNOTIFY | WS_EX_APPWINDOW
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,5065,0
+ PRODUCTVERSION 2,0,5065,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "AmericanGreetings.com"
+            VALUE "FileDescription", "HP Design Studio by AmericanGreetings.com"
+            VALUE "FileVersion", "2.0 (build 5065)"
+            VALUE "InternalName", "HpApp.exe"
+            VALUE "LegalCopyright", "© AmericanGreetings.com, Inc.  All rights reserved."
+            VALUE "OriginalFilename", "HpApp.exe"
+            VALUE "ProductName", "HP Design Studio"
+            VALUE "ProductVersion", "2.0 (build 5065)"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 47
+    END
+
+    IDD_CPDESKTOP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 119
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    IDD_HTMLDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 113
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+
+MESSAGEBOX_HP.HTM       HTML                    "Res\\MessageBox_hp.htm"
+MESSAGEBOX.JS           HTML                    "Res\\MessageBox.js"
+ICONINFO.GIF            HTML                    "Res\\IconInfo.gif"
+ICONWARNING.GIF         HTML                    "Res\\IconWarning.gif"
+ICONQUESTION.GIF        HTML                    "Res\\IconQuestion.gif"
+ICONERROR.GIF           HTML                    "Res\\IconError.gif"
+SPACE.GIF               HTML                    "Res\\Space.gif"
+MSGTILE2.GIF            HTML                    "Res\\MsgTile2.gif"
+MSGTILE_HP.GIF          HTML                    "Res\\MsgTile_hp.gif"
+MSGTILE2_HP.GIF         HTML                    "Res\\MsgTile2_hp.gif"
+CHECKUPDATE_0.HTM       HTML                    "Res\\CheckUpdate_0.htm"
+CHECKUPDATE.HTM         HTML                    "Res\\CheckUpdate.htm"
+NO_UP.GIF               HTML                    "Res\\no_up.gif"
+NO_DOWN.GIF             HTML                    "Res\\no_down.gif"
+YES_UP.GIF              HTML                    "Res\\yes_up.gif"
+YES_DOWN.GIF            HTML                    "Res\\yes_down.gif"
+CLOSE_DOWN.GIF          HTML                    "Res\\close_down.gif"
+CHECK_DOWN.GIF          HTML                    "Res\\check_down.gif"
+CLOSE_UP.GIF            HTML                    "Res\\close_up.gif"
+CHECK_UP.GIF            HTML                    "Res\\check_up.gif"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_SPLASHHP            BITMAP                  "res\\SplashHp.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_HPAPP               REGISTRY                "HPapp.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About HP Design Studio..."
+    IDS_HOME_PAGE           "index.htm"
+    IDS_LINELIST_PAGE       "tree.xml"
+    IDS_AUTOUPDATE_ONLINE_PROMPT 
+                            "We cannot check for updates at this time.  You are not online."
+    IDS_APPAG_FOLDER        "html\\"
+    IDS_MANIFEST_ERROR      "Error while checking for product updates."
+    IDS_NEWVERSION_PROMPT   "A new version of this product is available.\n\nClick Yes to download it now."
+    IDS_CURRENTVERSION_PROMPT 
+                            "You are already running the most current version."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CONTENT_FOLDER      "html\\"
+    IDS_PRODUCT_FOLDER      "content\\"
+    IDS_LINELIST_FOLDER     "linelist\\"
+    IDS_THUMBSLIST_FOLDER   "paths\\"
+    IDS_UIUPDATES_FOLDER    "updates\\"
+    IDS_TITLEAG             "HP Design Studio by AmericanGreetings.com"
+    IDS_VERSIONUPDATED_PROMPT "Your product has been updated."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_enu)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\CpDesktop.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+1 TYPELIB "HPapp.tlb"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

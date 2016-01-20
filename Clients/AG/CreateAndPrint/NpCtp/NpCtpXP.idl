@@ -1,0 +1,14 @@
+#include "nsISupports.idl"
+
+[scriptable, uuid(38578BF2-0ABB-11D3-9330-0080C6F796A1)]
+interface NpCtpXP : nsISupports
+{
+	void PutSrc(string);
+	string GetSrc();
+	void PutContext(string);
+	string GetContext();
+	int DoCommand(string);
+	int GetCommand(string);
+	void FileDownload(string);
+};
+

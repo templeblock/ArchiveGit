@@ -1,0 +1,15 @@
+//
+// ISOUND.RC - install sound resources (App Studio does not edit directly)
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by App Studio
+#endif //APSTUDIO_INVOKED
+
+#include "soundres.h"
+
+/*
+// The main sound map.
+*/
+
+#include "isndmap.rc"

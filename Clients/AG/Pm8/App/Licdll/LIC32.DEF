@@ -1,0 +1,15 @@
+; lic32.def : Declares the module parameters for the DLL.
+
+LIBRARY      LIC32
+DESCRIPTION  'License Content Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+   License @1
+;  GetEncryptionInfo @2
+   IsLicensed @3
+   BuildDataFile @4
+   Initialize @5
+   GetLastDllError @6
+   IsLicensedByCode @7
+   CanClose @8

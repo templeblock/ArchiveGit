@@ -1,0 +1,268 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""winres.h""\r\n"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""Version.rc2""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CTLPANEL DIALOGEX 0, 0, 133, 166
+STYLE WS_CHILD
+EXSTYLE WS_EX_TRANSPARENT
+FONT 12, "CAC Futura Casual", 0, 0, 0x1
+BEGIN
+    LTEXT           "View Card Panel",IDC_STATIC,4,0,80,8
+    CONTROL         "Front",IDC_PAGE1,"Button",BS_AUTORADIOBUTTON,8,8,76,8
+    CONTROL         "Inside Left",IDC_PAGE2,"Button",BS_AUTORADIOBUTTON,8,16,
+                    76,8
+    CONTROL         "Inside Right",IDC_PAGE3,"Button",BS_AUTORADIOBUTTON,8,
+                    24,76,8
+    CONTROL         "Back",IDC_PAGE4,"Button",BS_AUTORADIOBUTTON,8,32,76,8
+    LTEXT           "Font",IDC_STATIC,4,44,80,8,0,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_FONT,8,52,116,112,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | CBS_SORT | CBS_HASSTRINGS | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "Point Size",IDC_STATIC,4,68,80,8,0,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_PTSIZE,8,76,40,88,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_GROUP | WS_TABSTOP
+    LTEXT           "Text Color",IDC_STATIC,4,92,80,8,0,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_COLOR,8,100,67,67,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_TABSTOP,
+                    WS_EX_TRANSPARENT
+    LTEXT           "Text Alignment",IDC_STATIC,4,116,80,8,0,
+                    WS_EX_TRANSPARENT
+    CONTROL         "Left",IDC_LEFT,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,8,124,76,8,WS_EX_TRANSPARENT
+    CONTROL         "Center",IDC_CENTER,"Button",BS_AUTORADIOBUTTON,8,132,76,
+                    8,WS_EX_TRANSPARENT
+    CONTROL         "Right",IDC_RIGHT,"Button",BS_AUTORADIOBUTTON,8,140,76,8,
+                    WS_EX_TRANSPARENT
+    PUSHBUTTON      "Print",IDC_PRINT,4,152,52,12
+END
+
+IDD_PRINT DIALOG DISCARDABLE  32, 32, 287, 157
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Print"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Printer",1075,8,4,272,84,WS_GROUP
+    LTEXT           "&Name:",1093,16,20,36,8
+    COMBOBOX        1139,52,18,152,152,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "&Properties",1025,212,17,60,14,WS_GROUP
+    LTEXT           "Status:",1095,16,36,36,10,SS_NOPREFIX
+    CONTROL         "",1099,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | 
+                    WS_GROUP,52,36,224,10
+    LTEXT           "Type:",1094,16,48,36,10,SS_NOPREFIX
+    CONTROL         "",1098,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | 
+                    WS_GROUP,52,48,224,10
+    LTEXT           "Where:",1097,16,60,36,10,SS_NOPREFIX
+    CONTROL         "",1101,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | 
+                    WS_GROUP,52,60,224,10
+    LTEXT           "Comment:",1096,16,72,36,10,SS_NOPREFIX
+    CONTROL         "",1100,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | 
+                    WS_GROUP,52,72,152,10
+    CONTROL         "Print to fi&le",1040,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,212,70,64,12
+    GROUPBOX        "Print Format",IDC_STATIC,8,93,136,39,WS_GROUP
+    CONTROL         "Single-fold",IDC_SINGLEFOLD,"Button",BS_AUTORADIOBUTTON,
+                    15,104,80,10
+    CONTROL         "Quarter-fold",IDC_QUARTERFOLD,"Button",
+                    BS_AUTORADIOBUTTON,15,116,80,10
+    LTEXT           "Number of &copies:",1092,162,105,68,8
+    EDITTEXT        1154,234,103,32,12,ES_NUMBER | WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,180,137,48,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,232,137,48,14
+    GROUPBOX        "Copies",IDC_STATIC,152,93,128,39,WS_GROUP
+    CONTROL         "Run Double-Sided Printing Test",IDC_DBLSIDE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,140,115,10
+END
+
+IDD_WAITDLG DIALOG DISCARDABLE  0, 0, 186, 44
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Printing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Your document is being printed.  Please wait...",
+                    IDC_STATIC,6,14,173,8
+END
+
+IDD_DBLSIDEINTRO DIALOG DISCARDABLE  0, 0, 346, 105
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Double-Sided Printing Test"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "To help guide you through printing a single-fold card on both sides of a page, some information needs to be gathered about the way paper feeds through your printer.",
+                    IDC_STATIC,0,4,345,24
+    LTEXT           "This print test will use one piece of paper.  It will only need to be run once for a particular printer.",
+                    IDC_STATIC,0,32,345,24
+    LTEXT           "Click Next when you are ready to print the test page.",
+                    IDC_STATIC,0,97,345,8
+END
+
+IDD_DBLSIDESTEP1 DIALOG DISCARDABLE  0, 0, 346, 105
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Double-Sided Printing Test"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "After the test page has printed, it must be printed on once more to complete this test.",
+                    IDC_STATIC,0,4,345,8
+    LTEXT           "Please put the page back into the printer with the printed side UP and the arrow pointing TOWARD the printer.",
+                    IDC_STATIC,0,24,345,24
+    LTEXT           "Click Next when you are ready to print.",IDC_STATIC,0,
+                    97,345,8
+END
+
+IDD_DBLSIDESTEP2 DIALOG DISCARDABLE  0, 0, 346, 105
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Double-Sided Printing Test"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Please click on the option below that matches your printed page.",
+                    IDC_STATIC,0,4,345,8
+    CONTROL         "",IDC_FRAME1,"Static",SS_ETCHEDFRAME,0,20,56,68
+    CONTROL         "",IDC_FRAME2,"Static",SS_ETCHEDFRAME,66,20,56,68
+    CONTROL         "",IDC_FRAME3,"Static",SS_ETCHEDFRAME,132,20,102,68
+    CONTROL         "",IDC_FRAME4,"Static",SS_ETCHEDFRAME,244,20,102,68
+    CONTROL         210,IDC_STATIC,"Static",SS_BITMAP,8,26,40,49
+    CONTROL         212,IDC_STATIC,"Static",SS_BITMAP,74,26,40,49
+    CONTROL         208,IDC_STATIC,"Static",SS_BITMAP,140,26,40,49
+    CONTROL         208,IDC_STATIC,"Static",SS_BITMAP,252,26,40,49
+    CONTROL         209,IDC_STATIC,"Static",SS_BITMAP,186,26,40,49
+    CONTROL         211,IDC_STATIC,"Static",SS_BITMAP,298,26,40,49
+    LTEXT           "Front",IDC_STATIC,152,76,17,8
+    LTEXT           "Back",IDC_STATIC,197,76,18,8
+    LTEXT           "Front",IDC_STATIC,264,77,17,8
+    LTEXT           "Back",IDC_STATIC,309,77,18,8
+    LTEXT           "Click Next to continue.",IDC_STATIC,0,97,345,8
+END
+
+IDD_DBLSIDEEND DIALOG DISCARDABLE  0, 0, 346, 105
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Double-Sided Printing Test"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "The double-sided printing test is complete.",IDC_STATIC,
+                    0,4,345,8
+    LTEXT           "It is now time to print your card.",IDC_STATIC,0,24,345,
+                    8
+    LTEXT           "Click Finish when you are ready.",IDC_STATIC,0,97,345,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_WAITDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 37
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AGIMAGE
+//
+
+IDR_AGLOGO              AGIMAGE DISCARDABLE     "AGLogo.agi"
+IDR_CPLOGO              AGIMAGE DISCARDABLE     "C&PLogo.agi"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// TTZ
+//
+
+IDR_CACFC               TTZ     DISCARDABLE     "Cacfc___.ttz"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_1UP                 BITMAP  DISCARDABLE     "1up.bmp"
+IDB_2UP                 BITMAP  DISCARDABLE     "2up.bmp"
+IDB_3UP                 BITMAP  DISCARDABLE     "3up.bmp"
+IDB_2DOWN               BITMAP  DISCARDABLE     "2down.bmp"
+IDB_1UP2DOWN            BITMAP  DISCARDABLE     "1up2down.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJNAME            "AxCtp"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "Version.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

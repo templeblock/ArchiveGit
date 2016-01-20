@@ -1,0 +1,610 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\Upgrade.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "UPGRADE DLL\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "UPGRADE\0"
+            VALUE "LegalCopyright", "Copyright © 1996\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "UPGRADE.DLL\0"
+            VALUE "ProductName", "UPGRADE Dynamic Link Library\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_CONGRATULATIONS     BITMAP  DISCARDABLE     "RES\\THANKS.BMP"
+IDB_INFORMATION         BITMAP  DISCARDABLE     "RES\\WOMANCLP.BMP"
+IDB_SEARCHING           BITMAP  DISCARDABLE     "RES\\SHERLOCK.BMP"
+IDB_SENDING             BITMAP  DISCARDABLE     "RES\\DELIVERY.BMP"
+IDB_WHAT_HAPPENED       BITMAP  DISCARDABLE     "RES\\HUH.BMP"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CALL_FAILED DIALOG DISCARDABLE  0, 0, 326, 178
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Call Not Completed"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,137,153,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "InstantUpgradeWmfControl",WS_DISABLED | WS_GROUP,8,10,
+                    309,134
+    CONTROL         "IDB_WHAT_HAPPENED",IDC_USER1,"InstantUpgradeBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "The call to send your upgrade order could not be completed.\n|black|white",
+                    IDC_STATIC,116,26,195,8
+    LTEXT           "Some things to check...|black|white",IDC_STATIC,116,46,
+                    195,10
+    LTEXT           "Make sure your modem is turned on and ready to go.\n|black|white",
+                    IDC_STATIC,131,61,180,8
+    LTEXT           "If your phone system requires dialing a prefix number to reach an outside line, then verify that the Dial-Out Prefix is correct.|black|white",
+                    IDC_STATIC,131,75,180,24
+    LTEXT           "If you have questions about upgrading by modem, please call @HelpNumber@|black|white",
+                    IDC_HELP_INFO,19,117,281,16
+END
+
+IDD_CONGRATULATIONS DIALOG DISCARDABLE  0, 0, 275, 221
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Congratulations!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,112,197,50,16,WS_GROUP
+    CONTROL         "IDB_CONGRATULATIONS",IDC_USER1,"InstantUpgradeBitmap",
+                    WS_DISABLED,28,9,215,113
+    CTEXT           "Congratulations test goes here.",IDC_CONGRATS_UPGRADED,
+                    16,128,241,63
+END
+
+IDD_DIALING_OPTIONS DIALOG DISCARDABLE  0, 0, 270, 189
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialing Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,73,164,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,147,164,50,16
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER3,
+                    "InstantUpgradeWmfControl",WS_DISABLED | WS_GROUP,14,18,
+                    7,7
+    LTEXT           "If you are using a phone system that requires dialing a prefix number to reach an outside line, enter the number into the box below.",
+                    IDC_STATIC,29,17,219,16
+    RTEXT           "&Prefix",IDC_STATIC,34,44,29,9
+    EDITTEXT        IDC_PREFIX,66,42,54,12,ES_AUTOHSCROLL
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER4,
+                    "InstantUpgradeWmfControl",WS_DISABLED | WS_GROUP,14,66,
+                    7,7
+    LTEXT           "Most U.S. and Canadian phone systems require you to dial a ""1"" before an 800 number. If your phone system does not require you to dial a ""1"", remove the checkmark below.",
+                    IDC_STATIC,29,65,218,24
+    CONTROL         " &Dial ""1"" before 800 numbers",IDC_DIAL1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,45,97,124,10
+    LTEXT           "Number that will be dialed:",IDC_STATIC,19,122,236,8
+    LTEXT           "",IDC_DIALING_NUMBER,28,136,150,8
+    GROUPBOX        "",IDC_STATIC,8,4,253,151,WS_GROUP
+END
+
+IDD_EXPIRATION_DATE DIALOG DISCARDABLE  0, 0, 245, 94
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Credit Card Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,99,68,50,16,WS_GROUP
+    LTEXT           "The credit card information you have entered is not valid.",
+                    IDC_STATIC,21,18,200,8
+    GROUPBOX        "",IDC_STATIC,8,4,228,57,WS_GROUP
+    LTEXT           "Please enter the number and expiration date as shown on your credit card and try again.",
+                    IDC_STATIC,21,34,200,16
+END
+
+IDD_NO_MODEM DIALOG DISCARDABLE  0, 0, 317, 143
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "No Modem Found"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,132,118,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "InstantUpgradeWmfControl",WS_DISABLED | WS_GROUP,8,8,
+                    301,101
+    CONTROL         "IDB_WHAT_HAPPENED",IDC_USER1,"InstantUpgradeBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "A working modem could not be found on your computer.\n|black|white",
+                    IDC_STATIC,116,19,187,16
+    LTEXT           "Make sure your modem is turned on and ready to go then try again.\n|black|white",
+                    IDC_STATIC,116,45,187,24
+    LTEXT           "If you have questions about upgrading by modem, please call @HelpNumber@|black|white",
+                    IDC_HELP_INFO,116,78,187,24
+END
+
+IDD_ORDER_FAILED DIALOG DISCARDABLE  0, 0, 319, 178
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Upgrade Not Processed"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,134,153,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "InstantUpgradeWmfControl",WS_DISABLED | WS_GROUP,8,10,
+                    303,133
+    CONTROL         "IDB_WHAT_HAPPENED",IDC_USER1,"InstantUpgradeBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "",IDC_REASON,116,43,184,48
+    LTEXT           "If you have questions about upgrading by modem, please call @HelpNumber@|black|white",
+                    IDC_HELP_INFO,19,117,281,16
+END
+
+IDD_UPGRADE DIALOG DISCARDABLE  0, 0, 262, 178
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Instantly Order Your Upgrade!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Upgrade by Modem, Phone, Fax or Mail:",IDC_STATIC,13,
+                    144,131,8
+    DEFPUSHBUTTON   "&Modem...",IDC_ORDERBYMODEM,10,155,39,16,WS_GROUP
+    PUSHBUTTON      "&Phone...",IDC_ORDERBYPHONE,56,155,35,16
+    PUSHBUTTON      "&Fax or Mail...",IDC_ORDERBYMAIL,98,155,51,16
+    PUSHBUTTON      "&Return",IDCANCEL,168,155,84,16
+    LTEXT           "Sale Price",IDC_STATIC,174,4,36,8
+    LTEXT           "Extension",IDC_STATIC,214,4,36,8
+    LISTBOX         IDC_PRODUCT_LIST,9,14,244,49,NOT LBS_NOTIFY | 
+                    LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    RTEXT           "Subtotal:",IDC_STATIC,159,72,43,8
+    CONTROL         "",IDC_SUBTOTAL,"Button",BS_OWNERDRAW | WS_DISABLED,210,
+                    70,35,12
+    RTEXT           "Applicable Tax:",IDC_STATIC,4,85,131,8
+    COMBOBOX        IDC_TAX_LIST,139,83,62,50,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_TAX,"Button",BS_OWNERDRAW | WS_DISABLED,210,84,35,
+                    12
+    RTEXT           "Processing fee:",IDC_STATIC,146,100,56,8
+    CONTROL         "",IDC_FEE,"Button",BS_OWNERDRAW | WS_DISABLED,210,98,35,
+                    12
+    RTEXT           "Total:",IDC_STATIC,174,119,28,8
+    CONTROL         "",IDC_TOTAL,"Button",BS_OWNERDRAW | WS_DISABLED,210,117,
+                    35,12
+    CTEXT           "Country you are ordering from:",IDC_STATIC,14,113,126,8
+    COMBOBOX        IDC_COUNTRY_LIST,16,125,122,59,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_PRICE_ALIGN,"Static",SS_BLACKFRAME | NOT 
+                    WS_VISIBLE,199,0,1,177
+    CONTROL         "",IDC_EXTENSION_ALIGN,"Static",SS_BLACKFRAME | NOT 
+                    WS_VISIBLE,240,0,1,177
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKRECT,202,113,50,1
+END
+
+IDD_PHONE_NUMBER DIALOG DISCARDABLE  0, 0, 251, 106
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Phone Number"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,99,79,50,16,WS_GROUP
+    LTEXT           "Please enter your phone number as the 3 digit area code followed by the 7 digit number.",
+                    IDC_STATIC,21,18,206,25
+    CTEXT           "Example:     123 555-6789",IDC_STATIC,21,47,206,9
+    GROUPBOX        "",IDC_STATIC,8,4,235,64,WS_GROUP
+END
+
+IDD_REQUIRED_INFORMATION DIALOG DISCARDABLE  0, 0, 254, 166
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Required Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,99,140,50,16,WS_GROUP
+    LTEXT           "Additional information is required to process your upgrade order. Please make sure the following fields are properly filled in and try again.",
+                    IDC_STATIC,18,18,222,16
+    LTEXT           "",IDC_REQUIRED_FIELD_NAMES,46,45,184,72
+    GROUPBOX        "",IDC_STATIC,8,4,239,127,WS_GROUP
+END
+
+IDD_SEARCHING DIALOG DISCARDABLE  0, 0, 309, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Searching for Modem"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,129,122,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "InstantUpgradeWmfControl",WS_DISABLED | WS_GROUP,8,8,
+                    293,104
+    CONTROL         "IDB_SEARCHING",IDC_USER1,"InstantUpgradeBitmap",
+                    WS_DISABLED | WS_GROUP,9,10,116,100
+    CTEXT           "Searching for a modem on your computer:\n|black|white",
+                    IDC_STATIC,131,22,164,23
+    CTEXT           "Searching...\n|blue|white",IDC_SEARCH_STATUS,131,52,164,
+                    28
+    CTEXT           "Click Cancel to stop searching\n|black|white",
+                    IDC_STATIC,131,91,164,16
+END
+
+IDD_SENDING DIALOG DISCARDABLE  0, 0, 307, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Processing Upgrade Order"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,128,120,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "InstantUpgradeWmfControl",WS_DISABLED | WS_GROUP,8,8,
+                    292,102
+    CONTROL         "IDB_SENDING",IDC_USER1,"InstantUpgradeBitmap",
+                    WS_DISABLED | WS_GROUP,9,10,96,97
+    CTEXT           "Your order is being sent by modem to Mindscape's Electronic Order Desk.\n|black|white",
+                    IDC_STATIC,112,17,184,23
+    CTEXT           "Sending...|blue|white",IDC_SEND_STATUS,112,47,184,8
+    CONTROL         "",IDC_PROGRESS_BAR,"InstantUpgradeProgressBar",
+                    WS_DISABLED | WS_GROUP,118,61,172,12
+    CTEXT           "Click Cancel to stop sending\n|black|white",
+                    IDC_CANCEL_MESSAGE,112,88,184,17
+END
+
+IDD_ORDER_FORM_INFORMATION DIALOG DISCARDABLE  0, 0, 310, 257
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Upgrade Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,98,232,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,162,232,50,16
+    PUSHBUTTON      "Dial Out Prefi&x",IDC_DIALOUTPREFIX,236,232,64,16
+    LTEXT           "Please enter the information requested below and click OK.",
+                    IDC_STATIC,7,7,211,8
+    RTEXT           "&First Name",IDC_STATIC,10,40,56,8
+    EDITTEXT        IDC_FIRSTNAME,70,39,85,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    RTEXT           "&Last/Surname",IDC_STATIC,158,40,50,8
+    EDITTEXT        IDC_LASTNAME,212,39,84,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    RTEXT           "C&ompany",IDC_STATIC,10,55,56,8
+    EDITTEXT        IDC_COMPANY,70,54,192,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    RTEXT           "&Address",IDC_STATIC,10,70,56,8
+    EDITTEXT        IDC_ADDRESS1,70,69,192,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    RTEXT           "A&ddress",IDC_STATIC,10,85,56,8
+    EDITTEXT        IDC_ADDRESS2,70,84,192,12,ES_AUTOHSCROLL
+    RTEXT           "&City/Town",IDC_STATIC,10,100,56,8
+    EDITTEXT        IDC_CITY,70,99,104,12,ES_AUTOHSCROLL
+    RTEXT           "&State/Province",IDC_STATIC,179,100,53,8
+    EDITTEXT        IDC_STATE,236,99,60,12,ES_UPPERCASE | ES_AUTOHSCROLL
+    RTEXT           "&Zip/Postal Code",IDC_STATIC,10,115,56,8
+    EDITTEXT        IDC_ZIP,70,114,80,12,ES_AUTOHSCROLL
+    RTEXT           "Co&untry",IDC_STATIC,152,115,30,8
+    COMBOBOX        IDC_COUNTRY_LIST,186,114,110,92,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "&Phone",IDC_STATIC,10,130,56,8
+    EDITTEXT        IDC_PHONE,70,129,80,12,ES_AUTOHSCROLL
+    RTEXT           "&E-Mail",IDC_STATIC,152,130,30,8
+    EDITTEXT        IDC_EMAIL,186,129,110,12,ES_AUTOHSCROLL
+    GROUPBOX        "Customer Information",IDC_STATIC,7,26,296,123
+    CONTROL         "&VISA",IDC_VISA,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    20,174,28,10
+    CONTROL         "&MasterCard",IDC_MASTERCARD,"Button",BS_AUTORADIOBUTTON,
+                    56,174,49,10
+    CONTROL         "AmE&x",IDC_AMEX,"Button",BS_AUTORADIOBUTTON,113,174,30,
+                    10
+    CONTROL         "D&iscover",IDC_DISCOVER,"Button",BS_AUTORADIOBUTTON,151,
+                    174,41,10
+    CONTROL         "C&heck or Money Order",IDC_CHECK_MONEY_ORDER,"Button",
+                    BS_AUTORADIOBUTTON,200,174,88,10
+    LTEXT           "Credit Card &Number",IDC_CREDIT_CARD_LABEL,20,190,67,8
+    EDITTEXT        IDC_CREDIT_CARD,89,189,101,13,ES_AUTOHSCROLL
+    LTEXT           "Exp. Da&te",IDC_EXPIRATION_DATE_LABEL1,199,190,36,8
+    CTEXT           "(MM/YY)",IDC_EXPIRATION_DATE_LABEL2,199,199,34,8
+    EDITTEXT        IDC_EXPIRATION_DATE,236,189,49,13,ES_AUTOHSCROLL
+    LTEXT           "Total Payment:",IDC_STATIC,20,209,54,8
+    LTEXT           "",IDC_PAYMENT_AMOUNT,77,209,216,8
+    GROUPBOX        "Payment Information",IDC_STATIC,7,160,296,65,WS_GROUP
+END
+
+IDD_ORDERBYPHONE DIALOG DISCARDABLE  0, 0, 250, 247
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Upgrade by Phone"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,68,223,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,130,223,50,16
+    LTEXT           "Call @FreePhone?toll-free:@ to instantly enable your order!",
+                    IDC_STATIC,7,5,242,8
+    LTEXT           "1.  Call @PhoneNumber@",IDC_CALL_MICROLOGIC,10,20,239,8
+    LTEXT           "2.  Provide the operator with the Offer Code: ",
+                    IDC_STATIC,10,32,146,8
+    LTEXT           "3.  Describe the items you want to order:",IDC_STATIC,
+                    10,44,226,9
+    LISTBOX         IDC_PRODUCT_LIST,21,55,220,53,NOT LBS_NOTIFY | 
+                    LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_GROUP | WS_TABSTOP
+    RTEXT           "Processing fee:",IDC_STATIC,129,130,53,8
+    RTEXT           "Total:",IDC_STATIC,161,150,21,8
+    CONTROL         "",IDC_TOTAL,"Button",BS_OWNERDRAW | WS_DISABLED,188,148,
+                    40,12
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKRECT,179,144,56,1
+    LTEXT           "4.  Provide the operator with the Request Code for your order:",
+                    IDC_STATIC,10,174,202,9
+    EDITTEXT        IDC_REQUEST_CODE,215,172,27,13,ES_UPPERCASE | 
+                    ES_AUTOHSCROLL
+    LTEXT           "5.  Type in the Access Code provided to you by the operator:",
+                    IDC_STATIC,10,189,202,9
+    EDITTEXT        IDC_ACCESS_CODE,215,187,27,13,ES_UPPERCASE | 
+                    ES_AUTOHSCROLL | WS_GROUP
+    CTEXT           "Click OK to continue.",IDC_STATIC,0,206,248,8
+    CONTROL         "",IDC_PRICE_ALIGN,"Static",SS_BLACKFRAME | NOT 
+                    WS_VISIBLE,222,1,1,246
+    EDITTEXT        IDC_OFFER_CODE,158,30,64,13,ES_UPPERCASE | 
+                    ES_AUTOHSCROLL
+    RTEXT           "Applicable Tax:",IDC_STATIC,4,116,110,8
+    COMBOBOX        IDC_TAX_LIST,118,113,62,54,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "",IDC_FEE,"Button",BS_OWNERDRAW | WS_DISABLED,188,128,
+                    40,12
+    CONTROL         "",IDC_TAX,"Button",BS_OWNERDRAW | WS_DISABLED,188,113,
+                    40,12
+END
+
+IDD_ORDERBYMAIL DIALOG DISCARDABLE  0, 0, 287, 221
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Upgrade by Fax or Mail"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,85,194,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,151,194,50,16
+    LTEXT           "Fax or Mail your upgrade order for express processing!",
+                    IDC_STATIC,7,6,203,8
+    LTEXT           "1.  Print an order form by clicking this button:",
+                    IDC_STATIC,9,24,151,8
+    PUSHBUTTON      "&Print Upgrade Order Form...",IDC_PRINTORDERFORM,166,20,
+                    107,16,WS_GROUP
+    LTEXT           "2.  Complete the Customer Information section of the order form.",
+                    IDC_STATIC,9,44,236,8
+    LTEXT           "3.  Fax or mail your upgrade order to Mindscape as shown on the order form.",
+                    IDC_FAX,9,64,273,8
+    LTEXT           "4.  Click OK to return.",IDC_STATIC,9,112,251,8
+    GROUPBOX        " When you receive your invoice... ",IDC_STATIC,7,132,
+                    274,51
+    LTEXT           "&Type the Access Code from your invoice into this box:",
+                    IDC_STATIC,17,148,180,8
+    EDITTEXT        IDC_ACCESS_CODE,199,146,73,13,ES_UPPERCASE | 
+                    ES_AUTOHSCROLL | WS_GROUP
+    CTEXT           "Click OK to continue.",IDC_STATIC,52,165,168,8
+    LTEXT           "When you receive your invoice, return to this menu and type the Access Code printed on your invoice into the box shown below. Your upgrade will be instantly enabled!",
+                    IDC_STATIC,20,77,244,24
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// METAFILE
+//
+
+ID_ORDERFORM_WMF        METAFILE MOVEABLE PURE  "RES\\ORDERFRM.WMF"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_REQUIRED_INFORMATION, DIALOG
+    BEGIN
+        RIGHTMARGIN, 251
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_VISA                "VISA"
+    IDS_MASTERCARD          "MasterCard"
+    IDC_AMERICAN_EXPRESS    "American Express"
+    IDS_PAGE_N_OF_M         "Page %d of %d"
+    IDS_ORDER_FORM          "Order Form"
+    IDS_CONTINUED_ON_NEXT_PAGE "Continued on next page..."
+    IDS_ITEM_NUMBER         "#"
+    IDS_ITEM_DESCRIPTION    "Item Description"
+    IDS_ITEM_PRICE          "Price"
+    IDS_FREE_CATEGORY       "This collection contains free graphics.\nIt is automatically added to your first order."
+    IDS_INCLUDED_FREE       "* included FREE with this order"
+    IDS_ENTER_VALID_ACCESS_CODE "Please enter a valid access code."
+    IDS_DEPARTMENT          "Upgrade Dept. %s"
+    IDS_FIRST_NAME          "First Name"
+    IDS_LAST_NAME           "Last Name"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDC_DISCOVER            "Discover"
+    IDC_CHECK_OR_MONEY_ORDER "Check or Money Order Enclosed"
+    IDS_PRICE_DOLLAR_FORMAT "$%ld.%02ld"
+    IDS_PRICE_NO_DOLLAR_FORMAT "%ld.%02ld"
+    IDS_INVALID_ACCESS_CODE "The Access Code you have entered is not valid.\n\nPlease enter the Access Code shown on your invoice."
+    IDS_FREE                "Free"
+    IDS_OFFER_CODE          "Offer code: %s"
+    IDS_EXPIRES             "Expires %s"
+    IDS_PRINTED             "Printed %d/%d/%02d  %d:%02d:%02d"
+    IDS_TAX                 "%s Tax"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_APPLICABLE_TAX_WILL_BE_ADDED "(any applicable tax will be added)"
+    IDS_PROCESSING_FEE      "Processing fee"
+    IDS_SUBTOTAL            "Subtotal"
+    IDS_TOTAL               "Total"
+    IDS_REQUEST_CODE        "Request code"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ADDRESS             "Address"
+    IDS_CITY                "City"
+    IDS_STATE               "State"
+    IDS_ZIP                 "Zip"
+    IDS_PHONE               "Phone"
+    IDS_CREDIT_CARD_NUMBER  "Credit Card Number"
+    IDS_EXPIRATION_DATE     "Exp. Date"
+    IDS_INCLUDES_TAX        "   (includes %s tax)"
+    IDS_NO_TAX              "None"
+    IDS_CANCEL_ORDER        "Cancel order..."
+    IDS_TRYING_COMMUNICATIONS_PORT "Trying communications port COM%d"
+    IDS_FOUND_MODEM         "Found modem on communications port COM%d"
+    IDS_CANT_FIND_MODEM     "Unable to locate a modem."
+    IDS_TESTING_COMMUNICATIONS_PORT "Testing COM%d at %ld baud"
+    IDS_CANT_DETERMINE_MODEM_SPEED "Unable to find a speed for your modem."
+    IDS_FOUND_MODEM_SPEED   "Tested COM%d at %ld baud"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_WORKING             "Working..."
+    IDS_UNABLE_TO_COMPLETE_ORDER "Unable to complete order."
+    IDS_CALLING             "Calling Mindscape..."
+    IDS_FORWARDING          "Forwarding your order to Mindscape..."
+    IDS_RECEIVING           "Receiving confirmation from Mindscape..."
+    IDS_ORDER_COMPLETE      "Order complete."
+    IDS_HANGING_UP          "Hanging up..."
+    IDS_NO_ITEMS_SELECTED_PHONE 
+                            "You do not have any items selected.\n\nSelect the items you want to order and then choose Order by Phone."
+    IDS_NO_ITEMS_SELECTED_MODEM 
+                            "You do not have any items selected.\n\nSelect the items you want to order and then choose Order by Modem."
+    IDS_COULD_NOT_SAVE_INFORMATION 
+                            "Your upgrade order information could not be saved to disk.\n\nPlease check that your disk is not full or write-protected and try again."
+    IDS_INVALID_CREDIT_CARD_NUMBER 
+                            "The credit card number you have given is not valid.\n\nPlease enter the number that appears on your credit card and try again.|black|white"
+    IDS_EXPIRED_CREDIT_CARD "Your credit card has expired.\n\nPlease verify the expiration date you entered or try again with a different credit card.|black|white"
+    IDS_INCOMPLETE_CUSTOMER_INFORMATION 
+                            "Your customer information is incomplete.\n\nPlease make sure your customer information is correct and try again.|black|white"
+    IDS_COULD_NOT_PROCESS   "Your upgrade order could not be processed by Mindscape.\n\nPlease make sure your order information is correct and try again.|black|white"
+    IDS_CANT_LOAD_INTL_DLL  "Can't load international information library (INTLxx.DLL)."
+    IDS_CANT_INTIALIZE_INI_NAMES "Memory error initializing INI file names."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_UPGRADE_PMW         "PrintMaster Gold Publishing Suite Upgrade"
+    IDS_UPGRADE_AG_PRINT    "American Greetings Print! Premium Upgrade"
+    IDS_CONGRATS            "Congratulations!  Your copy of %s has been upgraded!\n\nPlus, you're automatically registered as a %s owner.  Your Free Fonts and Graphics are now available in %s.\n\nClick OK to return to %s."
+    IDS_UPGRADE_AG_CRAFT    "American Greetings Craft! Deluxe Upgrade"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\Upgrade.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

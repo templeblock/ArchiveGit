@@ -1,0 +1,154 @@
+; net2world generated wt world file.
+
+; textures
+; -----------------------------------------------------------------
+;       Name         File         Description
+; -----------------------------------------------------------------
+texture World        marbled.tx   ;dark blue
+texture Lan          smooth.tx    ;stone
+texture Segment      cloudy.tx    ;green
+texture Host         cloudy.tx    ;green
+texture sky stars.tx
+
+; ------------------------------------------------------------------
+;       X-pos  Y-pos                                           Index
+; ------------------------------------------------------------------
+vertex   16.0   16.0                                          ;v0000
+vertex  -16.0   16.0                                          ;v0001
+vertex  -16.0  -16.0                                          ;v0002
+vertex   16.0  -16.0                                          ;v0003
+vertex   12.0   -2.5                                          ;v0004
+vertex  -12.0   -2.5                                          ;v0005
+vertex  -12.0   -3.5                                          ;v0006
+vertex   12.0   -3.5                                          ;v0007
+vertex   -7.0   -7.0                                          ;v0008
+vertex   -9.0   -7.0                                          ;v0009
+vertex   -9.0   -9.0                                          ;v0010
+vertex   -7.0   -9.0                                          ;v0011
+vertex   -3.0   -7.0                                          ;v0012
+vertex   -5.0   -7.0                                          ;v0013
+vertex   -5.0   -9.0                                          ;v0014
+vertex   -3.0   -9.0                                          ;v0015
+vertex    1.0   -7.0                                          ;v0016
+vertex   -1.0   -7.0                                          ;v0017
+vertex   -1.0   -9.0                                          ;v0018
+vertex    1.0   -9.0                                          ;v0019
+vertex    5.0   -7.0                                          ;v0020
+vertex    3.0   -7.0                                          ;v0021
+vertex    3.0   -9.0                                          ;v0022
+vertex    5.0   -9.0                                          ;v0023
+vertex    9.0   -7.0                                          ;v0024
+vertex    7.0   -7.0                                          ;v0025
+vertex    7.0   -9.0                                          ;v0026
+vertex    9.0   -9.0                                          ;v0027
+vertex   12.0    3.5                                          ;v0028
+vertex  -12.0    3.5                                          ;v0029
+vertex  -12.0    2.5                                          ;v0030
+vertex   12.0    2.5                                          ;v0031
+vertex   -7.0    9.0                                          ;v0032
+vertex   -9.0    9.0                                          ;v0033
+vertex   -9.0    7.0                                          ;v0034
+vertex   -7.0    7.0                                          ;v0035
+vertex   -3.0    9.0                                          ;v0036
+vertex   -5.0    9.0                                          ;v0037
+vertex   -5.0    7.0                                          ;v0038
+vertex   -3.0    7.0                                          ;v0039
+vertex    1.0    9.0                                          ;v0040
+vertex   -1.0    9.0                                          ;v0041
+vertex   -1.0    7.0                                          ;v0042
+vertex    1.0    7.0                                          ;v0043
+vertex    5.0    9.0                                          ;v0044
+vertex    3.0    9.0                                          ;v0045
+vertex    3.0    7.0                                          ;v0046
+vertex    5.0    7.0                                          ;v0047
+vertex    9.0    9.0                                          ;v0048
+vertex    7.0    9.0                                          ;v0049
+vertex    7.0    7.0                                          ;v0050
+vertex    9.0    7.0                                          ;v0051
+
+vertex   -50 -50
+vertex   -50 50
+vertex   50 50
+vertex   50 -50
+
+; ------------------------------------------------------------------
+;      yFloor  yCeil textureFloor textureCeil                  Index
+; ------------------------------------------------------------------
+region    0.0   100.0 World        World                       ;r0000
+region    0.5   100.0 Lan          World                       ;r0001
+region    1.5   100.0 Segment      World                       ;r0002
+region    2.5   100.0 Host         World                       ;r0003
+region    2.5   100.0 Host         World                       ;r0004
+region    2.5   100.0 Host         World                       ;r0005
+region    2.5   100.0 Host         World                       ;r0006
+region    2.5   100.0 Host         World                       ;r0007
+region    1.5   100.0 Segment      World                       ;r0008
+region    2.5   100.0 Host         World                       ;r0009
+region    2.5   100.0 Host         World                       ;r0010
+region    2.5   100.0 Host         World                       ;r0011
+region    2.5   100.0 Host         World                       ;r0012
+region    2.5   100.0 Host         World                       ;r0013
+
+region    100.0  100.0 World World
+
+; ------------------------------------------------------------------
+;       vLeft vRight textureWall  rFront  rBack Scale Offset   Index
+; ------------------------------------------------------------------
+wall        1      0 Lan               0      1  1  1   0  0  ;w0000
+wall        2      1 Lan               0      1  1  1   0  0  ;w0001
+wall        3      2 Lan               0      1  1  1   0  0  ;w0002
+wall        0      3 Lan               0      1  1  1   0  0  ;w0003
+wall        5      4 Segment           1      2  1  1   0  0  ;w0004
+wall        6      5 Segment           1      2  1  1   0  0  ;w0005
+wall        7      6 Segment           1      2  1  1   0  0  ;w0006
+wall        4      7 Segment           1      2  1  1   0  0  ;w0007
+wall        9      8 Host              1      3  1  1   0  0  ;w0008
+wall       10      9 Host              1      3  1  1   0  0  ;w0009
+wall       11     10 Host              1      3  1  1   0  0  ;w0010
+wall        8     11 Host              1      3  1  1   0  0  ;w0011
+wall       13     12 Host              1      4  1  1   0  0  ;w0012
+wall       14     13 Host              1      4  1  1   0  0  ;w0013
+wall       15     14 Host              1      4  1  1   0  0  ;w0014
+wall       12     15 Host              1      4  1  1   0  0  ;w0015
+wall       17     16 Host              1      5  1  1   0  0  ;w0016
+wall       18     17 Host              1      5  1  1   0  0  ;w0017
+wall       19     18 Host              1      5  1  1   0  0  ;w0018
+wall       16     19 Host              1      5  1  1   0  0  ;w0019
+wall       21     20 Host              1      6  1  1   0  0  ;w0020
+wall       22     21 Host              1      6  1  1   0  0  ;w0021
+wall       23     22 Host              1      6  1  1   0  0  ;w0022
+wall       20     23 Host              1      6  1  1   0  0  ;w0023
+wall       25     24 Host              1      7  1  1   0  0  ;w0024
+wall       26     25 Host              1      7  1  1   0  0  ;w0025
+wall       27     26 Host              1      7  1  1   0  0  ;w0026
+wall       24     27 Host              1      7  1  1   0  0  ;w0027
+wall       29     28 Segment           1      8  1  1   0  0  ;w0028
+wall       30     29 Segment           1      8  1  1   0  0  ;w0029
+wall       31     30 Segment           1      8  1  1   0  0  ;w0030
+wall       28     31 Segment           1      8  1  1   0  0  ;w0031
+wall       33     32 Host              1      9  1  1   0  0  ;w0032
+wall       34     33 Host              1      9  1  1   0  0  ;w0033
+wall       35     34 Host              1      9  1  1   0  0  ;w0034
+wall       32     35 Host              1      9  1  1   0  0  ;w0035
+wall       37     36 Host              1     10  1  1   0  0  ;w0036
+wall       38     37 Host              1     10  1  1   0  0  ;w0037
+wall       39     38 Host              1     10  1  1   0  0  ;w0038
+wall       36     39 Host              1     10  1  1   0  0  ;w0039
+wall       41     40 Host              1     11  1  1   0  0  ;w0040
+wall       42     41 Host              1     11  1  1   0  0  ;w0041
+wall       43     42 Host              1     11  1  1   0  0  ;w0042
+wall       40     43 Host              1     11  1  1   0  0  ;w0043
+wall       45     44 Host              1     12  1  1   0  0  ;w0044
+wall       46     45 Host              1     12  1  1   0  0  ;w0045
+wall       47     46 Host              1     12  1  1   0  0  ;w0046
+wall       44     47 Host              1     12  1  1   0  0  ;w0047
+wall       49     48 Host              1     13  1  1   0  0  ;w0048
+wall       50     49 Host              1     13  1  1   0  0  ;w0049
+wall       51     50 Host              1     13  1  1   0  0  ;w0050
+wall       48     51 Host              1     13  1  1   0  0  ;w0051
+
+
+wall       52     55 sky 0 14  .1 1 0 0
+wall       55     54 sky 0 14  .1 1 0 0
+wall       54     53 sky 0 14  .1 1 0 0
+wall       53     52 sky 0 14  .1 1 0 0

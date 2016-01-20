@@ -1,0 +1,43 @@
+#include "windows.h"
+#include "..\gameguts\resource.h"
+#include "..\gameguts\commonid.h"
+#include "mainid.h"
+
+//***********************************************************************
+stringtable LMD
+//***********************************************************************
+{
+	IDS_CLASS, "palfix"
+	IDS_TITLE, "Palette Fixer by Powerhouse Entertainment"
+}
+
+//***********************************************************************
+// Imbedded icons, cursors, bitmaps, wave files, etc.
+//***********************************************************************
+-1 icon	LMD palfix.ico
+IDC_HAND_POINT_CURSOR	cursor	LMD hpoint.cur
+IDC_HAND_CLOSED_CURSOR	cursor	LMD hclosed.cur
+
+
+//***********************************************************************
+1 SCENE //	replace 1
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	BUTTON( "Add System Colors",   IDC_ADDSYSCOL,    5,   5, 150, 25 )
+	BUTTON( "Add Reserved Colors", IDC_ADDRESCOL,    5,  35, 150, 25 )
+	BUTTON( "Clr System Colors",   IDC_CLRSYSCOL,    5,  65, 150, 25 )
+	BUTTON( "Clr Reserved Colors", IDC_CLRRESCOL,    5,  95, 150, 25 )
+	BUTTON( "Shift Down",          IDC_SHIFTDOWN,    5, 125, 150, 25 )
+	BUTTON( "Shift Down 20",       IDC_SHIFTDOWN20,  5, 155, 150, 25 )
+	BUTTON( "Shift Up",            IDC_SHIFTUP,      5, 185, 150, 25 )
+	BUTTON( "Trim Tail",           IDC_TRIMTAIL,     5, 215, 150, 25 )
+	BUTTON( "Add Text Colors",     IDC_ADDTXTCOL,    5, 245, 150, 25 )
+	BUTTON( "Add Magenta",		   IDC_ADDMAGENTA,   5, 275, 150, 25 )
+	CHECK( "Convert Files",		   IDC_CONVERT,      5, 305, 150, 20 )
+	CHECK( "Read Only",			   IDC_READONLY,     5, 330, 150, 20 )
+	CHECK( "Silent",			   IDC_SILENT,       5, 355, 150, 20 )
+	CHECK( "Compress",			   IDC_COMPRESS,     5, 380, 150, 20 )
+	EDIT(						   IDC_DEST_DIR,     5, 410, 250, 25 )
+}

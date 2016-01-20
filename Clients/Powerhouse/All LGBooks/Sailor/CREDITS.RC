@@ -1,0 +1,60 @@
+//***********************************************************************
+IDD_CREDITS SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_CREDITS JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=credits\\backgrnd.dib,clip=CL CT CR CB;","
+//*** Action Strip Icons ***//
+
+	/IDC_OPTIONS=0 0,		hot=304 443,	flags=noclip autobutton click alwaysenabled,cmd=IDC_OPTIONS,fg=options.bmp,hint=options.wav;","
+",0
+} 
+
+//***********************************************************************
+IDD_CREDITS GAMETABLE
+//***********************************************************************
+{
+"
+	face1=Arial,face2=Arial,size1=30,size2=20,italic1=0,italic2=0,","
+	bgcolor=0 0 0,color1=255 255 255,color2=255 255 255,center=1,gamearea=CL CT CR CB,","
+	soundtrack=sndtrack.wav;","
+
+	name Animation Producer,  			start=0 433, end=0 0, delay=000,speed=25,type=1;","
+	name  Rocky Solotoff,				start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+	name Creative Director/Writer,		start=0 433, end=0 0, delay=3000,speed=25,type=1;","
+	name  David Holmes,					start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+	name Art Director,					start=0 433, end=0 0, delay=3000,speed=25,type=1;","
+	name  Frank Suarez,					start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+	name  Greg Bowron,					start=0 433, end=0 0, delay=1000,speed=25,type=2;","
+	name Project Manager,				start=0 433, end=0 0, delay=3000,speed=25,type=1;","
+	name  Dean Mauro,					start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+	name Product Marketing,				start=0 433, end=0 0, delay=3000,speed=25,type=1;","
+	name  Patti Saitow, 				start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+	name Lead Developer,				start=0 433, end=0 0, delay=3000,speed=25,type=1;","
+	name  Ted Rogers,					start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+	name Software Development,			start=0 433, end=0 0, delay=3000,speed=25,type=1;","
+	name  Elliot Nadelman,				start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+	name Product Designer,				start=0 433, end=0 0, delay=3000,speed=25,type=1;","
+	name  Craig Simmons, 				start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+	name Product Authoring,				start=0 433, end=0 0, delay=3000,speed=25,type=1;","
+	name  Shanna, 						start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+	name  Mac,	 						start=0 433, end=0 0, delay=1000,speed=25,type=2;","
+	name  Dan, 							start=0 433, end=0 0, delay=1000,speed=25,type=2;","
+	name  Thomas Chesney,				start=0 433, end=0 0, delay=1000,speed=25,type=2;","
+	name Quality Assurance,				start=0 433, end=0 0, delay=3000,speed=25,type=1;","
+	name  Brian McGlasson, 				start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+	name  Aaron Prentice, 				start=0 433, end=0 0, delay=1000,speed=25,type=2;","
+	name Asset Management,				start=0 433, end=0 0, delay=3000,speed=25,type=1;","
+	name  Chaun Rauls,	 				start=0 433, end=0 0, delay=1500,speed=25,type=2;","
+",0
+}
+

@@ -1,0 +1,1784 @@
+//®FD1¯®PL1¯®TP0¯®BT0¯®RM255¯®PL1¯ (c) Copyright 1993 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+
+#include <windows.h>
+#include "id.h"
+
+#ifdef _MAC
+#define DLG_FONT	// Default system font
+#else
+#define DLG_FONT	// Default system font
+#endif
+
+#define DLG_GRAY
+//#define DLG_GRAY    class "graydialog"
+
+//************************************************************************
+// Defined values
+//************************************************************************
+#define RELEASE_DATE	"July 22, 1994"
+#define COPYRIGHT		"© Micrografx Inc. 1991-94"
+#define RIGHTS			"All Rights Reserved."
+#ifdef STUDIO
+#define VERSION_STRING	"Crayola Art Studio 1.1"
+#else
+#define VERSION_STRING	"Crayola Amazing Art Adventure 1.1"
+#endif
+
+#define	SS_HORZSLIDER	0x0001L
+#define	SS_OWNERDRAW	0x4000L
+
+// these are the same as in radio.rh
+#define RBS_LED			0x0000L		// std. LED light
+#define RBS_AUTO		0x0009L		// automatic style
+#define RBS_DIAMOND		0x0100L		// alternate 3D diamond shape
+#define RBS_OWNERDRAW	0x0400L
+
+// mgxcheck settings
+#define CBS_AUTO		0x0010L		// auto style
+
+//************************************************************************
+// Replacement macros for getting rid of RX
+//************************************************************************
+#define Modeless WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | DS_NOIDLEMSG
+#define Modeless2 WS_CHILD | WS_CLIPSIBLINGS | DS_NOIDLEMSG
+#define Modelessfloat WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_BORDER | WS_CAPTION | WS_SYSMENU | DS_NOIDLEMSG
+#define Modal WS_POPUP | WS_VISIBLE | WS_DLGFRAME | DS_NOIDLEMSG
+#define Modalfloat WS_POPUP | WS_VISIBLE | WS_DLGFRAME | WS_CAPTION | DS_NOIDLEMSG
+#define Modalfull WS_POPUP | WS_VISIBLE
+
+#define ANIMATED_TOY( n, id, x, y )	control n,  id, "toy", 0, x, y, 1, 1
+#define BACKGRND(id, x, y, dx, dy )	control "", id, "toy", \
+									WS_DISABLED, x, y, dx, dy
+#define BLACKFRAME(x, y, dx, dy) 	control "", -1, "static", SS_BLACKFRAME|WS_CHILD|WS_VISIBLE, x, y, dx, dy
+#define BOPTION(id, x, y)			control "", id, "icon", WS_BITMAP, \
+									x, y, 45, 45
+#define BUTTON(n, id, x, y, dx, dy)	pushbutton n, id, x, y, dx, dy, 0
+#define TBUTTON(n, id, x, y) 		pushbutton n, id, x, y, 45, 45, WS_VISIBLE
+#define CBITEM(n, id)				pushbutton n, id, 9999, 9999, 10, 10, 0
+#define CBITMAP( id, x, y, dx, dy )	control "", id, "bitmap", WS_BITMAP, \
+									x, y, dx, dy
+#define CHECKO(n, id, x, y, dx, dy)	checkbox n, id, x, y, dx, dy, 0
+#define CCHECK(n, id, x, y, dx, dy) control n, id, "mgxcheck", \
+									WS_VISIBLE | CBS_AUTO, x, y, dx, dy
+#define COLOR2(id, x, y)			control "", id, "color2", \
+									WS_BITMAP | WS_VISIBLE, x, y, 20, 90
+#define COLOR22(id, x, y)			control "", id, "color2", \
+									WS_BITMAP | WS_TWOFACED | WS_VISIBLE, \
+									x, y, 20, 90
+// category button, no initial text
+#define COPTION(id, x, y)			control "", id, "icon", WS_BITMAP|WS_TEXT, \
+									x, y, 90, 90
+// category button with static text
+#define CTOPTION(n, id, x, y)		control n, id, "icon", WS_BITMAP|WS_TEXT, \
+									x, y, 90, 90
+#define CTEXT(n,id,x,y,dx,dy)		ctext n, id, x, y, dx, dy, 0
+#define DUTTON(n, id, x, y, dx, dy)	defpushbutton n, id, x, y, dx, dy, 0
+#define EDIT(id, x, y, dx,dy)		control "",  id, "cedit", \
+									WS_BORDER | WS_VISIBLE | WS_TABSTOP, x, y, dx, dy
+#define HBLACKLINE(x, y, dx) 		control "", -1, "static", SS_BLACKFRAME|WS_CHILD|WS_VISIBLE, x, y, dx, 1
+#define HOTSPOT( id, x, y, dx, dy )	control "", id, "toy", 0, x, y, dx, dy
+#define HSLIDE( id, x, y)			control "", id, "slider", \
+									SS_HORZSLIDER | WS_BITMAP | WS_TABSTOP | WS_VISIBLE, \
+									x, y, 89, 16
+#define IMAGE(n, id, x, y, dx,dy)	control n,  id, "image", \
+									WS_TABSTOP | WS_CLIPCHILDREN | WS_VISIBLE, \
+									x, y, dx, dy
+#define LIST(id, x, y, dx, dy)		listbox id, x, y, dx, dy, LBS_SORT | WS_VSCROLL
+#define OBJLIST(n, id, x, y, dx,dy)	control n,  id, "image", \
+									WS_TABSTOP | WS_CLIPCHILDREN | WS_VISIBLE | WS_OBJECT, \
+									x, y, dx, dy
+#define ODCOMBO(id, x, y, dx, dy)	combobox id, x, y, dx, dy, \
+									CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | \
+									CBS_OWNERDRAWFIXED | CBS_HASSTRINGS
+#define ODLIST(id, x, y, dx, dy)	listbox id, x, y, dx, dy, \
+									LBS_OWNERDRAWVARIABLE | LBS_HASSTRINGS | LBS_SORT | WS_VSCROLL
+#define ODSORTCOMBO(id, x, y, dx, dy) \
+									combobox id, x, y, dx, dy, CBS_SORT | \
+									CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_VSCROLL | \
+									CBS_OWNERDRAWFIXED | CBS_HASSTRINGS
+#define RADIO(n, id, x, y, dx, dy)	radiobutton n, id, x, y, dx, dy, 0
+#define CRADIO(n, id, x, y, dx, dy) control n, id, "mgxradio", \
+									WS_VISIBLE | RBS_DIAMOND | RBS_OWNERDRAW, \
+									x, y, dx, dy
+#define RRCDATA(id) id RCDATA LOADONCALL MOVEABLE DISCARDABLE
+#define SWITCH(id, x, y)			control "", id, "icon", \
+									WS_BITMAP | WS_TWOFACED | WS_NOSHADOWS, \
+									x, y, 97, 48
+#define TEXT(n,id,x,y,dx,dy)		ltext n, id, x, y, dx, dy, 0
+#define TICON( id, x, y )			icon id, 0, x, y, 20, 20
+#define TOY( id, x, y )				control "", id, "toy", 0, x, y, 1, 1
+#define STOY( id, x, y, dx, dy )	control "", id, "toy", 0, x, y, dx, dy
+
+//************************************************************************
+// Standard Control Heights -- MAY BE EDITTED FOR LOCALIZATIONS
+//************************************************************************
+#define TDY 10
+#define EDY 13
+#define NDY 12
+#define BDY 15
+#define CDY 13
+#define RDY 10
+#define SLY 10
+#define CBY 9
+#define MINIY 12
+#define PPMINIY 13
+#define MINIX 16
+
+//************************************************************************
+// Standard Widths for Decimal Digits - MAY BE EDITTED FOR LOCALIZATIONS
+// 4 * nDigits + 5
+//************************************************************************
+#define DX1 9
+#define DX2 13
+#define DX3 17
+#define DX4 21
+#define DX5 25
+#define DX6 29
+#define DX7 33
+#define DX8 37
+#define SP 3
+
+//************************************************************************
+// Private Styles and Style Groupings
+//************************************************************************
+// Generic custom control definitions
+#define WS_NOTACTIVE	1L
+
+//***************************************************
+// Icon & image controls share some code.. be careful about overlapping flags
+// Icon control styles & LabeledFrame Also
+#define WS_NOSHADOWS	0x0002L
+#define WS_BITMAP 		0x0004L
+#define WS_TOOL  		0x0008L
+#define WS_TEXT	  		0x0010L
+#define WS_IMAGE  		0x0020L
+#define WS_ONTIMER		0x0040L
+#define WS_OBJECT		0x0080L
+#define WS_BORDERONLY	0x0100L
+#define WS_TWOFACED		0x0200L
+// Image control styles
+#define IS_STRETCHABLE	0x0002L
+#define IS_MOVEABLE		0x0004L
+#define IS_HASCHANGED	0x0010L
+#define IS_RATIO_CONSTRAIN  0x0020L
+#define IS_LIMITSIZE	0x0040L
+
+RRCDATA( "STUBMSG" )
+begin
+	"This Micrografx for Kids program requires Microsoft Windows!"
+end
+
+//************************************************************************
+// The keyboard ACCELERATOR assignments
+//************************************************************************
+ID_ACCEL accelerators
+	{
+	VK_BACK,	IDM_UNDO,			virtkey,		alt
+	VK_DELETE,	IDM_DELETE,			virtkey,		control
+	VK_DELETE,	IDM_CUT,			virtkey,		shift
+	VK_INSERT,	IDM_COPY,			virtkey,		control
+	VK_INSERT,	IDM_PASTE,			virtkey,		shift
+	VK_UP,		IDM_SIZEUP,			virtkey,		control
+	VK_DOWN,	IDM_SIZEDOWN,		virtkey,		control
+	VK_RIGHT,	IDM_SHAPEUP,		virtkey,		control
+	VK_LEFT,	IDM_SHAPEDOWN,		virtkey,		control
+	VK_UP,		IDM_MOVEUP,			virtkey,		shift
+	VK_DOWN,	IDM_MOVEDOWN,		virtkey,		shift
+	VK_RIGHT,	IDM_MOVERIGHT,		virtkey,		shift
+	VK_LEFT,	IDM_MOVELEFT,		virtkey,		shift
+	VK_ESCAPE,	IDM_ESCAPE,			virtkey,		control
+	VK_NEXT,	IDC_ZOOMOUT,		virtkey,		control
+	VK_PRIOR,	IDC_ZOOMIN,			virtkey,		control
+	VK_HOME,	IDC_VIEWALL,		virtkey,		control
+	VK_END,		IDC_VIEWLAST,		virtkey,		control
+	"A",		IDM_SAVEAS,			virtkey,		control
+	"C",		IDM_COPY,			virtkey,		control
+	"N",		IDM_NEW,			virtkey,		control
+	"O",		IDM_OPEN,			virtkey,		control
+	"P",		IDM_PRINT,			virtkey,		control
+	"S",		IDC_SOUND,			virtkey,		control
+	"T",		IDM_HELP,			virtkey,		control
+	"U",		IDM_PASTEASNEW,		virtkey,		control
+	"V",		IDM_PASTE,			virtkey,		control
+	"X",		IDM_COPY,			virtkey,		control
+	"Z",		IDM_UNDO,			virtkey,		control
+	}
+
+//************************************************************************
+// The main APPLICATION MENU commands
+//************************************************************************
+CDP menu loadoncall moveable
+	{
+	popup "&Adult"
+		{
+		menuitem		"&New"					IDM_NEW
+		menuitem		"&Open..."				IDM_OPEN
+		menuitem		"Sa&ve As..."			IDM_SAVEAS
+		menuitem		"Sta&rt Over"			IDM_REVERT
+		menuitem		"&Print Setup..."		IDM_PRINTSETUP
+		menuitem		"&Wallpaper Maker"		IDM_SAVEWALLPAPER
+		menuitem		"Pr&eferences..."		IDM_PREF
+		menuitem		"E&xit"					IDM_EXIT
+		menuitem		"&About..."				IDM_ABOUT
+		menuitem		separator
+		menuitem		"&Sound\tCtrl S"		IDC_SOUND
+		menuitem		"&Tour Guide\tCtrl T"	IDM_HELP
+		}
+	}
+
+//************************************************************************
+// The ICON assignements
+//************************************************************************
+
+// For the about box...
+#ifdef STUDIO
+	IDC_ABOUTAPP		icon loadoncall moveable discardable "studio.ico"
+#else
+	IDC_ABOUTAPP		icon loadoncall moveable discardable "adventur.ico"
+#endif
+
+// For the browser...
+IDC_PATHICON_ROOT		icon loadoncall moveable discardable "ROOT.ico"
+IDC_PATHICON_OPEN		icon loadoncall moveable discardable "OPEN.ico"
+IDC_PATHICON_ACTIVE		icon loadoncall moveable discardable "ACTIVE.ico"
+IDC_PATHICON_CLOSED		icon loadoncall moveable discardable "CLOSED.ico"
+IDC_PATHICON_FIXED		icon loadoncall moveable discardable "DRIVE.ico"
+IDC_PATHICON_NET		icon loadoncall moveable discardable "net.ico"
+IDC_PATHICON_FLOPPY		icon loadoncall moveable discardable "floppy.ico"
+IDC_PATHICON_CDDRIVE	icon loadoncall moveable discardable "cd.ico"
+IDC_PATHICON_RAMDRIVE	icon loadoncall moveable discardable "ram.ico"
+
+//************************************************************************
+// The CURSOR assignments
+//************************************************************************
+ID_NULL					cursor loadoncall moveable discardable "null.cur"
+ID_ARROW				cursor loadoncall moveable discardable "arrow.cur"
+ID_HAND01				cursor loadoncall moveable discardable "hand01.cur"
+ID_HAND02				cursor loadoncall moveable discardable "hand02.cur"
+ID_CLOCK01				cursor loadoncall moveable discardable "clock01.cur"
+ID_CLOCK02				cursor loadoncall moveable discardable "clock02.cur"
+ID_CLOCK03				cursor loadoncall moveable discardable "clock03.cur"
+ID_CLOCK04				cursor loadoncall moveable discardable "clock04.cur"
+ID_CLOCK05				cursor loadoncall moveable discardable "clock05.cur"
+ID_CLOCK06				cursor loadoncall moveable discardable "clock06.cur"
+ID_CLOCK07				cursor loadoncall moveable discardable "clock07.cur"
+ID_CLOCK08				cursor loadoncall moveable discardable "clock08.cur"
+ID_CLOCK09				cursor loadoncall moveable discardable "clock09.cur"
+ID_CLOCK10				cursor loadoncall moveable discardable "clock10.cur"
+ID_CLOCK11				cursor loadoncall moveable discardable "clock11.cur"
+ID_CLOCK12				cursor loadoncall moveable discardable "clock12.cur"
+ID_BALL1				cursor loadoncall moveable discardable "BBALL1.cur"
+ID_BALL2				cursor loadoncall moveable discardable "BBALL2.cur"
+ID_BALL3				cursor loadoncall moveable discardable "BBALL3.cur"
+ID_BALL4				cursor loadoncall moveable discardable "BBALL4.cur"
+
+ID_EFFECTS				cursor loadoncall moveable discardable "EFFECTS.cur"
+ID_TEXT					cursor loadoncall moveable discardable "TEXT.cur"
+ID_FILL					cursor loadoncall moveable discardable "FILL.cur"
+ID_LINES				cursor loadoncall moveable discardable "PENCIL.cur"
+ID_ERASE				cursor loadoncall moveable discardable "ERASE.cur"
+ID_SHAPES				cursor loadoncall moveable discardable "SHAPES.cur"
+ID_TRANSFORMER			cursor loadoncall moveable discardable "TRANSFRM.cur"
+
+ID_PLAY_OBJECT			cursor loadoncall moveable discardable "PLAY.cur"
+ID_NO_ACTION			cursor loadoncall moveable discardable "NOACTION.cur"
+ID_CUT					cursor loadoncall moveable discardable "CUT.cur"
+
+//************************************************************************
+// The BITMAP assignments
+//************************************************************************
+
+// The opening
+IDC_MGX_LOGO			bitmap loadoncall moveable discardable "MGX.bmp"
+IDC_FUTURE_LOGO			bitmap loadoncall moveable discardable "FUTURE.bmp"
+IDC_PRESENTS_LOGO		bitmap loadoncall moveable discardable "PRESENTS.bmp"
+
+// Miscellaneous
+IDC_GOBACK				bitmap loadoncall moveable discardable "GOBACK.bmp"
+IDC_AMBULANCE1			bitmap loadoncall moveable discardable "AMBULAN1.bmp"
+IDC_AMBULANCE2			bitmap loadoncall moveable discardable "AMBULAN2.bmp"
+
+// The tools
+IDC_TRANSFORMER			bitmap loadoncall moveable discardable "TRANSFRM.bmp"
+IDC_CRAYON				bitmap loadoncall moveable discardable "CRAYON.bmp"
+IDC_MARKER				bitmap loadoncall moveable discardable "MARKER.bmp"
+IDC_PAINT				bitmap loadoncall moveable discardable "PAINT.bmp"
+IDC_STAMP				bitmap loadoncall moveable discardable "STAMP.bmp"
+IDC_ERASER				bitmap loadoncall moveable discardable "ERASER.bmp"
+IDC_FILL				bitmap loadoncall moveable discardable "FILL.bmp"
+IDC_LINES				bitmap loadoncall moveable discardable "PENCIL.bmp"
+IDC_SHAPES				bitmap loadoncall moveable discardable "SHAPES.bmp"
+IDC_TEXT				bitmap loadoncall moveable discardable "TEXT.bmp"
+IDC_TOY					bitmap loadoncall moveable discardable "TOY.bmp"
+IDC_EFFECTS				bitmap loadoncall moveable discardable "EFFECTS.bmp"
+IDC_GALLERY				bitmap loadoncall moveable discardable "GALLERY.bmp"
+IDM_UNDO				bitmap loadoncall moveable discardable "UNDO.bmp"
+
+// Color swatches...
+#ifdef STUDIO
+IDC_COLORS_CRAYON		bitmap loadoncall moveable discardable "COLORS1.bmp"
+IDC_COLORS_MARKER		bitmap loadoncall moveable discardable "COLORS2.bmp"
+IDC_COLORS_PAINT		bitmap loadoncall moveable discardable "COLORS3.bmp"
+IDC_COLORS_TEXT			bitmap loadoncall moveable discardable "COLORS4.bmp"
+IDC_COLORS_LINES		bitmap loadoncall moveable discardable "COLORS5.bmp"
+IDC_COLORS_FILL			bitmap loadoncall moveable discardable "COLORS6.bmp"
+IDC_COLORS_SHAPES		bitmap loadoncall moveable discardable "COLORS7.bmp"
+#else
+IDC_COLORS_CRAYON		bitmap loadoncall moveable discardable "COLORS1a.bmp"
+IDC_COLORS_MARKER		bitmap loadoncall moveable discardable "COLORS2a.bmp"
+IDC_COLORS_PAINT		bitmap loadoncall moveable discardable "COLORS3a.bmp"
+IDC_COLORS_TEXT			bitmap loadoncall moveable discardable "COLORS4a.bmp"
+IDC_COLORS_LINES		bitmap loadoncall moveable discardable "COLORS5a.bmp"
+IDC_COLORS_FILL			bitmap loadoncall moveable discardable "COLORS6a.bmp"
+IDC_COLORS_SHAPES		bitmap loadoncall moveable discardable "COLORS7a.bmp"
+#endif
+
+#ifdef STUDIO
+IDC_TRANSFORMER_T1		bitmap loadoncall moveable discardable "transf01.bmp"
+IDC_TRANSFORMER_T2		bitmap loadoncall moveable discardable "transf02.bmp"
+IDC_TRANSFORMER_T3		bitmap loadoncall moveable discardable "transf03.bmp"
+IDC_TRANSFORMER_T4		bitmap loadoncall moveable discardable "transf04.bmp"
+IDC_TRANSFORMER_T5		bitmap loadoncall moveable discardable "transf05.bmp"
+IDC_TRANSFORMER_T6		bitmap loadoncall moveable discardable "transf06.bmp"
+IDC_TRANSFORMER_T7		bitmap loadoncall moveable discardable "transf07.bmp"
+IDC_TRANSFORMER_T8		bitmap loadoncall moveable discardable "transf08.bmp"
+IDC_TRANSFORMER_T9		bitmap loadoncall moveable discardable "transf09.bmp"
+IDC_TRANSFORMER_T10		bitmap loadoncall moveable discardable "transf10.bmp"
+IDC_TRANSFORMER_T11		bitmap loadoncall moveable discardable "transf11.bmp"
+IDC_TRANSFORMER_T12		bitmap loadoncall moveable discardable "transf12.bmp"
+IDC_TRANSFORMER_T13		bitmap loadoncall moveable discardable "transf13.bmp"
+#endif
+
+#ifdef STUDIO
+IDC_EFFECTS_SW1			bitmap loadoncall moveable discardable "sw_effe1.bmp"
+IDC_EFFECTS_SW1a		bitmap loadoncall moveable discardable "sw_effe2.bmp"
+IDC_EFFECTS_SL			bitmap loadoncall moveable discardable "sl_effe.bmp"
+#endif
+
+IDC_SHAPES_T1			bitmap loadoncall moveable discardable "shapes01.bmp"
+IDC_SHAPES_T2			bitmap loadoncall moveable discardable "shapes02.bmp"
+IDC_SHAPES_T3			bitmap loadoncall moveable discardable "shapes03.bmp"
+IDC_SHAPES_T4			bitmap loadoncall moveable discardable "shapes04.bmp"
+IDC_SHAPES_T5			bitmap loadoncall moveable discardable "shapes05.bmp"
+IDC_SHAPES_T6			bitmap loadoncall moveable discardable "shapes06.bmp"
+IDC_SHAPES_T7			bitmap loadoncall moveable discardable "shapes07.bmp"
+IDC_SHAPES_T8			bitmap loadoncall moveable discardable "shapes08.bmp"
+IDC_SHAPES_T9			bitmap loadoncall moveable discardable "shapes09.bmp"
+IDC_SHAPES_T10			bitmap loadoncall moveable discardable "shapes10.bmp"
+#ifdef STUDIO
+IDC_SHAPES_T11			bitmap loadoncall moveable discardable "shapes11.bmp"
+IDC_SHAPES_T12			bitmap loadoncall moveable discardable "shapes12.bmp"
+IDC_SHAPES_T13			bitmap loadoncall moveable discardable "shapes13.bmp"
+IDC_SHAPES_T14			bitmap loadoncall moveable discardable "shapes14.bmp"
+IDC_SHAPES_T15			bitmap loadoncall moveable discardable "shapes15.bmp"
+IDC_SHAPES_T16			bitmap loadoncall moveable discardable "shapes16.bmp"
+IDC_SHAPES_T17			bitmap loadoncall moveable discardable "shapes17.bmp"
+IDC_SHAPES_T18			bitmap loadoncall moveable discardable "shapes18.bmp"
+IDC_SHAPES_T19			bitmap loadoncall moveable discardable "shapes19.bmp"
+IDC_SHAPES_T20			bitmap loadoncall moveable discardable "shapes10.bmp"
+IDC_SHAPES_T21			bitmap loadoncall moveable discardable "shapes21.bmp"
+IDC_SHAPES_T22			bitmap loadoncall moveable discardable "shapes22.bmp"
+IDC_SHAPES_T23			bitmap loadoncall moveable discardable "shapes23.bmp"
+IDC_SHAPES_T24			bitmap loadoncall moveable discardable "shapes24.bmp"
+IDC_SHAPES_T25			bitmap loadoncall moveable discardable "shapes25.bmp"
+IDC_SHAPES_T26			bitmap loadoncall moveable discardable "shapes26.bmp"
+IDC_SHAPES_T27			bitmap loadoncall moveable discardable "shapes27.bmp"
+IDC_SHAPES_T28			bitmap loadoncall moveable discardable "shapes28.bmp"
+IDC_SHAPES_T29			bitmap loadoncall moveable discardable "shapes29.bmp"
+IDC_SHAPES_T30			bitmap loadoncall moveable discardable "shapes30.bmp"
+IDC_SHAPES_T31			bitmap loadoncall moveable discardable "shapes31.bmp"
+IDC_SHAPES_T32			bitmap loadoncall moveable discardable "shapes32.bmp"
+IDC_SHAPES_T33			bitmap loadoncall moveable discardable "shapes33.bmp"
+IDC_SHAPES_T34			bitmap loadoncall moveable discardable "shapes34.bmp"
+IDC_SHAPES_T35			bitmap loadoncall moveable discardable "shapes35.bmp"
+IDC_SHAPES_T36			bitmap loadoncall moveable discardable "shapes36.bmp"
+IDC_SHAPES_T37			bitmap loadoncall moveable discardable "shapes37.bmp"
+IDC_SHAPES_T38			bitmap loadoncall moveable discardable "shapes38.bmp"
+IDC_SHAPES_T39			bitmap loadoncall moveable discardable "shapes39.bmp"
+IDC_SHAPES_T40			bitmap loadoncall moveable discardable "shapes40.bmp"
+IDC_SHAPES_SW1			bitmap loadoncall moveable discardable "sw_sha11.bmp"
+IDC_SHAPES_SW1a			bitmap loadoncall moveable discardable "sw_sha12.bmp"
+IDC_SHAPES_SW2			bitmap loadoncall moveable discardable "sw_sha21.bmp"
+IDC_SHAPES_SW2a			bitmap loadoncall moveable discardable "sw_sha22.bmp"
+#endif
+
+IDC_ERASER_T1			bitmap loadoncall moveable discardable "eraser01.bmp"
+IDC_ERASER_T2			bitmap loadoncall moveable discardable "eraser02.bmp"
+IDC_ERASER_T3			bitmap loadoncall moveable discardable "eraser03.bmp"
+IDC_ERASER_T4			bitmap loadoncall moveable discardable "eraser04.bmp"
+IDC_ERASER_T5			bitmap loadoncall moveable discardable "eraser05.bmp"
+IDC_ERASER_T6			bitmap loadoncall moveable discardable "eraser06.bmp"
+IDC_ERASER_T7			bitmap loadoncall moveable discardable "eraser07.bmp"
+IDC_ERASER_T8			bitmap loadoncall moveable discardable "eraser08.bmp"
+IDC_ERASER_T9			bitmap loadoncall moveable discardable "eraser09.bmp"
+IDC_ERASER_T10			bitmap loadoncall moveable discardable "eraser10.bmp"
+IDC_ERASER_T11			bitmap loadoncall moveable discardable "eraser11.bmp"
+IDC_ERASER_T12			bitmap loadoncall moveable discardable "eraser12.bmp"
+IDC_ERASER_T13			bitmap loadoncall moveable discardable "eraser13.bmp"
+IDC_ERASER_T14			bitmap loadoncall moveable discardable "eraser14.bmp"
+IDC_ERASER_T15			bitmap loadoncall moveable discardable "eraser15.bmp"
+IDC_ERASER_T16			bitmap loadoncall moveable discardable "eraser16.bmp"
+IDC_ERASER_T17			bitmap loadoncall moveable discardable "eraser17.bmp"
+IDC_ERASER_T18			bitmap loadoncall moveable discardable "eraser18.bmp"
+IDC_ERASER_T19			bitmap loadoncall moveable discardable "eraser19.bmp"
+IDC_ERASER_T20			bitmap loadoncall moveable discardable "eraser20.bmp"
+#ifdef STUDIO
+IDC_ERASER_SW1			bitmap loadoncall moveable discardable "sw_eras1.bmp"
+IDC_ERASER_SW1a			bitmap loadoncall moveable discardable "sw_eras2.bmp"
+IDC_ERASER_SL			bitmap loadoncall moveable discardable "sl_eras.bmp"
+#endif
+
+#ifdef STUDIO
+IDC_MARKER_T1			bitmap loadoncall moveable discardable "marker01.bmp"
+IDC_MARKER_T2			bitmap loadoncall moveable discardable "marker02.bmp"
+IDC_MARKER_T3			bitmap loadoncall moveable discardable "marker03.bmp"
+IDC_MARKER_T4			bitmap loadoncall moveable discardable "marker04.bmp"
+IDC_MARKER_T5			bitmap loadoncall moveable discardable "marker05.bmp"
+IDC_MARKER_T6			bitmap loadoncall moveable discardable "marker06.bmp"
+IDC_MARKER_T7			bitmap loadoncall moveable discardable "marker07.bmp"
+IDC_MARKER_T8			bitmap loadoncall moveable discardable "marker08.bmp"
+IDC_MARKER_T9			bitmap loadoncall moveable discardable "marker09.bmp"
+IDC_MARKER_T10			bitmap loadoncall moveable discardable "marker10.bmp"
+IDC_MARKER_SW1			bitmap loadoncall moveable discardable "sw_mark1.bmp"
+IDC_MARKER_SW1a			bitmap loadoncall moveable discardable "sw_mark2.bmp"
+IDC_MARKER_SL			bitmap loadoncall moveable discardable "sl_mark.bmp"
+#else
+IDC_MARKER_T1			bitmap loadoncall moveable discardable "marker01.bmp"
+IDC_MARKER_T2			bitmap loadoncall moveable discardable "marker02.bmp"
+IDC_MARKER_T5			bitmap loadoncall moveable discardable "marker05.bmp"
+IDC_MARKER_T6			bitmap loadoncall moveable discardable "marker06.bmp"
+IDC_MARKER_T7			bitmap loadoncall moveable discardable "marker07.bmp"
+IDC_MARKER_T10			bitmap loadoncall moveable discardable "marker10.bmp"
+//IDC_MARKER_SL			bitmap loadoncall moveable discardable "sl_marka.bmp"
+#endif
+
+#ifdef STUDIO
+IDC_CRAYON_T1			bitmap loadoncall moveable discardable "crayon01.bmp"
+IDC_CRAYON_T2			bitmap loadoncall moveable discardable "crayon02.bmp"
+IDC_CRAYON_T3			bitmap loadoncall moveable discardable "crayon03.bmp"
+IDC_CRAYON_T4			bitmap loadoncall moveable discardable "crayon04.bmp"
+IDC_CRAYON_T5			bitmap loadoncall moveable discardable "crayon05.bmp"
+IDC_CRAYON_T6			bitmap loadoncall moveable discardable "crayon06.bmp"
+IDC_CRAYON_T7			bitmap loadoncall moveable discardable "crayon07.bmp"
+IDC_CRAYON_T8			bitmap loadoncall moveable discardable "crayon08.bmp"
+IDC_CRAYON_T9			bitmap loadoncall moveable discardable "crayon09.bmp"
+IDC_CRAYON_T10			bitmap loadoncall moveable discardable "crayon10.bmp"
+IDC_CRAYON_SW1			bitmap loadoncall moveable discardable "sw_cray1.bmp"
+IDC_CRAYON_SW1a			bitmap loadoncall moveable discardable "sw_cray2.bmp"
+IDC_CRAYON_SL			bitmap loadoncall moveable discardable "sl_cray.bmp"
+#else
+IDC_CRAYON_T1			bitmap loadoncall moveable discardable "crayon01.bmp"
+IDC_CRAYON_T4			bitmap loadoncall moveable discardable "crayon04.bmp"
+IDC_CRAYON_T5			bitmap loadoncall moveable discardable "crayon05.bmp"
+IDC_CRAYON_T6			bitmap loadoncall moveable discardable "crayon06.bmp"
+IDC_CRAYON_T9			bitmap loadoncall moveable discardable "crayon09.bmp"
+IDC_CRAYON_T3			bitmap loadoncall moveable discardable "crayon03.bmp"
+//IDC_CRAYON_SL			bitmap loadoncall moveable discardable "sl_craya.bmp"
+#endif
+
+#ifdef STUDIO
+IDC_PAINT_T1			bitmap loadoncall moveable discardable "paint01.bmp"
+IDC_PAINT_T2			bitmap loadoncall moveable discardable "paint02.bmp"
+IDC_PAINT_T3			bitmap loadoncall moveable discardable "paint03.bmp"
+IDC_PAINT_T4			bitmap loadoncall moveable discardable "paint04.bmp"
+IDC_PAINT_T5			bitmap loadoncall moveable discardable "paint05.bmp"
+IDC_PAINT_T6			bitmap loadoncall moveable discardable "paint06.bmp"
+IDC_PAINT_T7			bitmap loadoncall moveable discardable "paint07.bmp"
+IDC_PAINT_T8			bitmap loadoncall moveable discardable "paint08.bmp"
+IDC_PAINT_T9			bitmap loadoncall moveable discardable "paint09.bmp"
+IDC_PAINT_T10			bitmap loadoncall moveable discardable "paint10.bmp"
+IDC_PAINT_SL1			bitmap loadoncall moveable discardable "sl_pain1.bmp"
+IDC_PAINT_SL2			bitmap loadoncall moveable discardable "sl_pain2.bmp"
+#else
+IDC_PAINT_T1			bitmap loadoncall moveable discardable "paint01.bmp"
+IDC_PAINT_T2			bitmap loadoncall moveable discardable "paint02.bmp"
+IDC_PAINT_T4			bitmap loadoncall moveable discardable "paint04.bmp"
+IDC_PAINT_T6			bitmap loadoncall moveable discardable "paint06.bmp"
+IDC_PAINT_T3			bitmap loadoncall moveable discardable "paint03.bmp"
+IDC_PAINT_T10			bitmap loadoncall moveable discardable "paint10.bmp"
+//IDC_PAINT_SL1			bitmap loadoncall moveable discardable "sl_paina.bmp"
+#endif
+
+#ifdef STUDIO
+IDC_TEXT_SL1			bitmap loadoncall moveable discardable "sl_text1.bmp"
+IDC_TEXT_SL2			bitmap loadoncall moveable discardable "sl_text2.bmp"
+#else
+//IDC_TEXT_SL1			bitmap loadoncall moveable discardable "sl_texta.bmp"
+#endif
+
+#ifdef STUDIO
+IDC_STAMP_SW1			bitmap loadoncall moveable discardable "sw_stam1.bmp"
+IDC_STAMP_SW1a			bitmap loadoncall moveable discardable "sw_stam2.bmp"
+#endif
+
+IDC_TOY_SW1				bitmap loadoncall moveable discardable "sw_toy1.bmp"
+IDC_TOY_SW1a			bitmap loadoncall moveable discardable "sw_toy2.bmp"
+
+IDC_GALLERY_T1			bitmap loadoncall moveable discardable "galler01.bmp"
+IDC_GALLERY_T2			bitmap loadoncall moveable discardable "galler02.bmp"
+IDC_GALLERY_T3			bitmap loadoncall moveable discardable "galler03.bmp"
+IDC_GALLERY_T4			bitmap loadoncall moveable discardable "galler04.bmp"
+
+#ifdef STUDIO
+HS_SLIDE_NEXTPAGE		bitmap loadoncall moveable discardable "rightmor.bmp"
+HS_SLIDE_PREVPAGE		bitmap loadoncall moveable discardable "leftmore.bmp"
+HS_SLIDE_PLAYMOVIE		bitmap loadoncall moveable discardable "playm.bmp"
+IDC_SLIDEPLAY_STOP		bitmap loadoncall moveable discardable "popstop.bmp"
+IDC_SLIDEPLAY_START		bitmap loadoncall moveable discardable "play.bmp"
+#endif
+
+HS_GALLERY_GOPAINT		bitmap loadoncall moveable discardable "gpaint.bmp"
+IDC_GALLERY_SW1			bitmap loadoncall moveable discardable "ganimat1.bmp"
+IDC_GALLERY_SW1a		bitmap loadoncall moveable discardable "ganimat2.bmp"
+HS_GALLERY_SLIDES		bitmap loadoncall moveable discardable "gslides.bmp"
+HS_GALLERY_TRASH		bitmap loadoncall moveable discardable "gtrash.bmp"
+HS_GALLERY_BEFORE		bitmap loadoncall moveable discardable "gbefore.bmp"
+HS_GALLERY_NEXT			bitmap loadoncall moveable discardable "gnext.bmp"
+
+HS_SHOWME			    bitmap loadoncall moveable discardable "showme.bmp"
+HS_GIVEUP			    bitmap loadoncall moveable discardable "giveup.bmp"
+HS_RESTART			    bitmap loadoncall moveable discardable "restart.bmp"
+HS_COLORME				bitmap loadoncall moveable discardable "colorme.bmp"
+
+#ifdef STUDIO
+HS_MIXUP_FHEAD			bitmap loadoncall moveable discardable "fhead.bmp"
+HS_MIXUP_FTOP			bitmap loadoncall moveable discardable "ftop.bmp"
+HS_MIXUP_FBOTTOM		bitmap loadoncall moveable discardable "fbottom.bmp"
+HS_MIXUP_FRONT			bitmap loadoncall moveable discardable "front.bmp"
+HS_MIXUP_MIDDLE			bitmap loadoncall moveable discardable "middle.bmp"
+HS_MIXUP_REAR			bitmap loadoncall moveable discardable "rear.bmp"
+#else
+HS_MIXUP_HEAD			bitmap loadoncall moveable discardable "head.bmp"
+HS_MIXUP_BODY			bitmap loadoncall moveable discardable "body.bmp"
+HS_MIXUP_LEGS			bitmap loadoncall moveable discardable "legs.bmp"
+#endif
+
+#ifdef STUDIO
+HS_LOGO_BOARDWALK       bitmap loadoncall moveable discardable "lboardw.bmp"
+HS_LOGO_EUROPE	 	    bitmap loadoncall moveable discardable "leurope.bmp"
+HS_LOGO_FASHION         bitmap loadoncall moveable discardable "lfashn.bmp"
+HS_LOGO_JOKES	 	    bitmap loadoncall moveable discardable "ljokes.bmp"
+HS_LOGO_MAILMAZE	    bitmap loadoncall moveable discardable "lmailmz.bmp"
+HS_LOGO_SAFARI	 	    bitmap loadoncall moveable discardable "lsafari.bmp"
+HS_LOGO_VEHICLE 	    bitmap loadoncall moveable discardable "lvehicl.bmp"
+HS_LOGO_WORLD	 	    bitmap loadoncall moveable discardable "lworld.bmp"
+HS_XTRA_BOARDWALK	    bitmap loadoncall moveable discardable "xboardw.bmp"
+HS_XTRA_EUROPE   	    bitmap loadoncall moveable discardable "xeurope.bmp"
+HS_XTRA_JOKES   	    bitmap loadoncall moveable discardable "xjokes.bmp"
+HS_XTRA_MAILMAZE	    bitmap loadoncall moveable discardable "xmailmz.bmp"
+HS_XTRA_WORLD    	    bitmap loadoncall moveable discardable "xworld.bmp"
+#else
+HS_LOGO_CIRCUS	 	    bitmap loadoncall moveable discardable "lcircus.bmp"
+HS_LOGO_DRAGON	 	    bitmap loadoncall moveable discardable "ldragon.bmp"
+HS_LOGO_JUNGLE	 	    bitmap loadoncall moveable discardable "ljungle.bmp"
+HS_LOGO_MAZES	 	    bitmap loadoncall moveable discardable "lmazes.bmp"
+HS_LOGO_MONSTER 	    bitmap loadoncall moveable discardable "lmonstr.bmp"
+HS_LOGO_SHAPES	 	    bitmap loadoncall moveable discardable "lshapes.bmp"
+HS_LOGO_SPACEBALL       bitmap loadoncall moveable discardable "lspaceb.bmp"
+HS_LOGO_SUBSETS 	    bitmap loadoncall moveable discardable "lsubset.bmp"
+HS_LOGO_WRONG	 	    bitmap loadoncall moveable discardable "lwrong.bmp"
+HS_XTRA_CIRCUS   	    bitmap loadoncall moveable discardable "xcircus.bmp"
+HS_XTRA_DRAGON   	    bitmap loadoncall moveable discardable "xdragon.bmp"
+HS_XTRA_MAZES   	    bitmap loadoncall moveable discardable "xmazes.bmp"
+HS_XTRA_SHAPES   	    bitmap loadoncall moveable discardable "xshapes.bmp"
+HS_XTRA_SPACEBALL	    bitmap loadoncall moveable discardable "xspaceb.bmp"
+HS_XTRA_SUBSETS  	    bitmap loadoncall moveable discardable "xsubset.bmp"
+HS_XTRA_WRONG    	    bitmap loadoncall moveable discardable "xwrong.bmp"
+#endif
+
+#ifndef STUDIO
+// What's Wrong cover bitmaps
+HS_WRONG_LBULBS			bitmap loadoncall moveable discardable "wrlbulbs.bmp"
+HS_WRONG_APPLES			bitmap loadoncall moveable discardable "wrapples.bmp"
+HS_WRONG_PIZZA			bitmap loadoncall moveable discardable "wrpizza.bmp"
+HS_WRONG_NUT			bitmap loadoncall moveable discardable "wrnut.bmp"
+HS_WRONG_BEAR			bitmap loadoncall moveable discardable "wrbear.bmp"
+HS_WRONG_FISH			bitmap loadoncall moveable discardable "wrfish.bmp"
+HS_WRONG_PINE			bitmap loadoncall moveable discardable "wrpine.bmp"
+HS_WRONG_PALM			bitmap loadoncall moveable discardable "wrpalm.bmp"
+HS_WRONG_DUCK1			bitmap loadoncall moveable discardable "wrduck1.bmp"
+HS_WRONG_DUCK2			bitmap loadoncall moveable discardable "wrduck2.bmp"
+HS_WRONG_PIG			bitmap loadoncall moveable discardable "wrpig.bmp"
+HS_WRONG_BIRD			bitmap loadoncall moveable discardable "wrbird.bmp"
+#endif
+
+#ifndef STUDIO
+// Adventure Hidden Treasure cover bitmaps
+IDC_HT_HAT				bitmap loadoncall moveable discardable "hthat.bmp"
+IDC_HT_IGLOO			bitmap loadoncall moveable discardable "htigloo.bmp"
+IDC_HT_DOG				bitmap loadoncall moveable discardable "htdog.bmp"
+IDC_HT_BBEYES			bitmap loadoncall moveable discardable "htbbeyes.bmp"
+IDC_HT_NECKLACE			bitmap loadoncall moveable discardable "htnecklc.bmp"
+IDC_HT_TREE				bitmap loadoncall moveable discardable "httree.bmp"
+IDC_HT_RACOON1			bitmap loadoncall moveable discardable "htracn1.bmp"
+IDC_HT_LBEYES			bitmap loadoncall moveable discardable "htlbeyes.bmp"
+IDC_HT_SAW				bitmap loadoncall moveable discardable "htsaw.bmp"
+IDC_HT_APPLE			bitmap loadoncall moveable discardable "htapple.bmp"
+IDC_HT_UNICORN			bitmap loadoncall moveable discardable "htunicrn.bmp"
+IDC_HT_RACOON2			bitmap loadoncall moveable discardable "htracn2.bmp"
+IDC_HT_GEYES			bitmap loadoncall moveable discardable "htgeyes.bmp"
+#endif
+
+#ifndef STUDIO
+// Sets and Subsets cover bitmaps
+IDC_SS_CLOWN			bitmap loadoncall moveable discardable "ssclown.bmp"
+IDC_SS_PINEAPPLE		bitmap loadoncall moveable discardable "sspinea.bmp"
+IDC_SS_PAN				bitmap loadoncall moveable discardable "sspan.bmp"
+IDC_SS_PAROT1			bitmap loadoncall moveable discardable "ssparot1.bmp"
+IDC_SS_CARROT			bitmap loadoncall moveable discardable "sscarrot.bmp"
+IDC_SS_CRAB1			bitmap loadoncall moveable discardable "sscrab1.bmp"
+IDC_SS_PIG				bitmap loadoncall moveable discardable "sspig.bmp"
+IDC_SS_ELEPHANT			bitmap loadoncall moveable discardable "sseleph.bmp"
+IDC_SS_GFISH			bitmap loadoncall moveable discardable "ssgfish.bmp"
+IDC_SS_SAW				bitmap loadoncall moveable discardable "sssaw.bmp"
+IDC_SS_APPLE			bitmap loadoncall moveable discardable "ssapple.bmp"
+IDC_SS_COW				bitmap loadoncall moveable discardable "sscow.bmp"
+IDC_SS_TOUCAN1			bitmap loadoncall moveable discardable "sstoucn1.bmp"
+IDC_SS_FOOTBALL			bitmap loadoncall moveable discardable "ssfootbl.bmp"
+IDC_SS_GIRAFFE			bitmap loadoncall moveable discardable "ssgiraff.bmp"
+IDC_SS_OCTOPUS			bitmap loadoncall moveable discardable "ssoctpus.bmp"
+IDC_SS_BUTFLY			bitmap loadoncall moveable discardable "ssbutfly.bmp"
+IDC_SS_W1				bitmap loadoncall moveable discardable "ssw.bmp"
+IDC_SS_H1				bitmap loadoncall moveable discardable "ssh.bmp"
+IDC_SS_A1				bitmap loadoncall moveable discardable "ssa.bmp"
+IDC_SS_T1				bitmap loadoncall moveable discardable "sst.bmp"
+IDC_SS_S1				bitmap loadoncall moveable discardable "sss.bmp"
+IDC_SS_I				bitmap loadoncall moveable discardable "ssi.bmp"
+IDC_SS_N				bitmap loadoncall moveable discardable "ssn.bmp"
+IDC_SS_QUEST1			bitmap loadoncall moveable discardable "ssquest.bmp"
+IDC_SS_W2				bitmap loadoncall moveable discardable "ssw.bmp"
+IDC_SS_H2				bitmap loadoncall moveable discardable "ssh.bmp"
+IDC_SS_A2				bitmap loadoncall moveable discardable "ssa.bmp"
+IDC_SS_T2				bitmap loadoncall moveable discardable "sst.bmp"
+IDC_SS_S2				bitmap loadoncall moveable discardable "sss.bmp"
+IDC_SS_O				bitmap loadoncall moveable discardable "sso.bmp"
+IDC_SS_U				bitmap loadoncall moveable discardable "ssu.bmp"
+IDC_SS_T3				bitmap loadoncall moveable discardable "sst.bmp"
+IDC_SS_QUEST2			bitmap loadoncall moveable discardable "ssquest.bmp"
+#endif
+
+// misc. bitmaps
+HS_WHO_UPARROW          bitmap loadoncall moveable discardable "uparrow.bmp"
+HS_WHO_DNARROW          bitmap loadoncall moveable discardable "dnarrow.bmp"
+IDC_WHO_DELNAME			bitmap loadoncall moveable discardable "delname.bmp"
+
+#ifdef STUDIO
+IDC_TIMER_BLK  			bitmap loadoncall moveable discardable "timer.bmp"
+#endif
+
+#ifdef STUDIO
+IDC_STATUSBUBBLE        bitmap loadoncall moveable discardable "bubble.bmp"
+#else
+IDC_STATUSBUBBLE        bitmap loadoncall moveable discardable "bubblea.bmp"
+#endif
+
+IDC_STATUSBITMAP        bitmap loadoncall moveable discardable "jokephon.bmp"
+
+SPA_BITMAP				bitmap loadoncall moveable discardable "SPA.bmp"
+
+//************************************************************************
+// The application STRING assignments
+//************************************************************************
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+// These bubble hints interfere with menu highlighting!
+//IDM_OPEN				"Click to open an existing image. (Ctrl+O)"
+//IDM_SAVE				"Click to save the active image. (Ctrl+S)"
+//IDM_PRINTSETUP			"Click to set printer options."
+
+IDS_RETAIL				"X"
+IDS_POS_CLIENT			"10,10,480,360"
+
+// Menu Strings
+IDS_UNDO				"&Undo "
+IDS_REDO				"&Redo "
+IDS_EDITS				"Edits"
+
+IDS_RECT_STATUS			"%ls x %ls %ls at (%ls,%ls)"
+
+IDS_BYTES				"B"
+IDS_KILOBYTES			"KB"
+IDS_MEGABYTES			"MB"
+IDS_GIGABYTES			"GB"
+
+IDS_PREVIEW				"%d%% %ls"
+IDS_UNTITLED			"Untitled"
+IDS_PORT_SEPARATOR		" on "
+IDS_PRINTERR			"Error occurred while printing. Check your software and hardware print connections."
+IDS_PRINTMEM			"Not enough memory to print."
+IDS_PRINTDISK			"Not enough disk space to print."
+IDS_PRINTUSER			"Printing cancelled."
+IDS_PLEASEWAIT			"Please wait..."
+IDS_READY				"Ready"
+IDS_HASHELP				"[F1 for Help]"
+IDS_AREYOUSURE			"Save changes to '%ls'?"
+IDS_OKTOOPEN			"The file '%ls' is already opened.  Open as an Untitled image?"
+IDS_OKTORENDERCLIPBOARD	"Leave all image data on the clipboard?"
+IDS_OKTOSAVEPREF		"Are you sure you want to save the preferences for the %ls?"
+IDS_OKTOAPPLY			"Is it OK to apply all your pending changes so that processing will go faster?"
+IDS_OKTOREMOVEMASK		"Is it OK to remove your mask so that processing will go faster?"
+IDS_OKTOCLOSEALL		"Is it OK to close all of the open images so that scanning will go faster?"
+IDS_OKTOREVERT			"Revert to last saved version of '%ls'?"
+IDS_OBJECTSNEEDCOMBINE	"You need to combine your objects before executing that function."
+IDS_OBJECTDELETE		"Are you sure you want to delete selected object(s) ?"
+IDS_ECUSTOMBRUSH		"That brush is larger than %d pixels. The center portion will be used."
+IDS_EMEMALLOC			"Can't allocate enough memory to complete the operation."
+IDS_ETOOCOMPLEX			"Mask too complex.\nOnly operation will only be partially completed."
+IDS_EXTNAME_BADFILE		"The %ls named '%ls' refers to a file (%ls) that cannot be found.\n\nClick YES if you wish to delete the named entry.\n\nClick NO if you wish to check the location for %ls files in the preference dialog, and try again."
+IDS_EXTNAME_CREATE		"Can't create the file '%ls'"
+IDS_EXTNAME_COPY		"Can't copy '%ls' to file '%ls'"
+IDS_INI_NOEXIST			"The '%ls' file cannot be found.  Check the location of this file in the preference dialog, and try again."
+IDS_INI_NOWRITE			"The '%ls' is READ ONLY.  You will not be able to change its settings without having write access to this file."
+IDS_EDIRECTORYCHANGE	"Can't change to directory '%ls'."
+IDS_EWRITEPROTECT		"Can't change the write-protected file '%ls'."
+IDS_SWAPPINGUNDO		"Processing Undo."
+IDS_ECLIPOPEN			"The clipboard is empty."
+IDS_ENOMASK				"There is no active mask."
+IDS_ENOMASKAREA			"There is no area to transform."
+IDS_EMASKREAD			"Error reading mask file '%ls'."
+IDS_EWRITEFILE			"Error writing to file."
+IDS_EWRITE				"Error writing to file '%ls'."
+IDS_EREAD				"Error reading from file '%ls'."
+IDS_EOPEN				"File '%ls' not found."
+IDS_ECREATE				"Error creating the new file '%ls'."
+IDS_EIMGVERSION			"'%ls' is not TIFF version 4.2; will continue."
+IDS_EIMGCOMP			"'%ls' is a CCITT or Packbits TIFF image; cannot be opened."
+IDS_EIMGPHOTO			"'%ls' is a TIFF image with non-standard photo interpretation (like color); will continue."
+IDS_EIMGFILL			"'%ls' is a TIFF image with non-standard fill order; will continue."
+IDS_EIMGORIENT			"'%ls' is an oriented TIFF image; will continue."
+IDS_EIMGBAD				"'%ls' is not a valid TIFF image file."
+IDS_EBADMAP				"'%ls' is not a valid map file."
+IDS_EBADMASK			"'%ls' is not a valid mask file."
+IDS_EBADCLIP			"Invalid clipboard format."
+IDS_CRIPPLED			"This version of Crayola Paint is for demonstration or educational use only.  If you wish to save image files,you must purchase Crayola Paint from your local distributor."
+IDS_ECOMPRESS			"Error decoding the compressed image."
+IDS_EBADDEVICE			"No printer selected; Use Print Setup to select one."
+IDS_ESCROPEN			"Can't create cache file in cache directory '%ls'."
+IDS_ESCRWRITE			"Write failed on cache file in directory '%ls'."
+IDS_ESCRREAD			"Read failed on cache file in directory '%ls'."
+IDS_EMAXIMAGEHEIGHT		"Can't open a picture longer than 32K lines."
+IDS_EMAXIMAGEWIDTH		"Can't open a picture wider than 32K lines."
+IDS_EIMAGEOVERHEAD		"Error opening an image with more than 16384 lines."
+IDS_EMALLOC				"Not enough memory."
+IDS_ELINEPOOLALLOC		"Not enough memory for image data."
+IDS_EDISKCACHE			"Not enough disk space for cache file in cache directory '%ls'.  Your disk has only %ld bytes of unused space.  Free up some space on the disk or change your preference for the image cache location to a larger disk."
+IDS_EDISKSPACE			"Cannot write file '%ls'.  The new file requires %ldK bytes of unused disk space.  Your disk has only %ldK bytes of unused space."
+IDS_ENOTSPACE			"Not enough free space on this floppy disk to save the picture !"
+IDS_DELETEEXTFILE		"Are you sure want to delete %ls '%ls' (%ls)?"
+IDS_OVERWRITEEXTFILE	"Replace existing extended file '%ls'?"
+IDS_NOUNDO				"Not enough memory to create an Undo buffer.  Undo will not work on some operations."
+IDS_EERASENOTHING		"Nothing to erase."
+IDS_EERASESIZE			"You cannot erase editing that includes a size change."
+IDS_EIMAGEOPEN			"Can't open image %ls."
+IDS_EPROCESSOPEN		"Can't complete the operation - %ls."
+IDS_EFRAMEREAD			"Can't access the image data - %ls."
+
+IDS_GRAYVALUE  			"(%d%ls gray)"
+IDS_RGBVALUE			"(%d, %d, %d%ls RGB)"
+IDS_CMYKVALUE  			"(%d, %d, %d, %d%ls CMYK)"
+IDS_HSLVALUE			"(%d °, %d%%, %d%% HSL)"
+IDS_PERCENT				"%"
+IDS_ACTIVECOLOR			"Double click to change this active color %ls."
+IDS_ALTERNATECOLOR		"Click to activate this alternate color %ls."
+IDS_COLOR				"Double click to change this color %ls%ls."
+IDS_COLOR2				"%ls%ls."
+IDS_COLORLABEL			"'%ls'"
+IDS_COLORCOUNT			"%ld pixels have an average of %ls."
+
+IDS_INVALIDPALETTE		"Invalid palette file format: '%ls'."
+IDS_OVERWRITEIMAGE		"Replace existing file '%ls'?"
+IDS_SCALEXY				"Scaling width by %ls %%; Scaling height by %ls %%"
+IDS_SCALE				"Scaling by %ls %%."
+IDS_ROTATEXY			"Rotating X by %d degrees; Rotating Y by %d degrees."
+IDS_ROTATE				"Rotating by %d degrees."
+IDS_BADMGXIMAGE			"Unsupported 'MGX_IMAGE' clipboard type."
+IDS_CONFIRM_CONVERT		"Do you want to convert the open image to the same format as the saved image?"
+IDS_BADZOOM				"New viewing percentage is out of range."
+IDS_CANNOTREAD			"Cannot read."
+IDS_ECOPY				"Error copying file\nfrom '%ls'\nto '%ls'\n\nContinue?"
+IDS_ERENAME				"Error renaming file\nfrom '%ls'\nto '%ls'\n\nContinue?"
+IDS_EDELETE				"Error deleting file\n'%ls'\n\nContinue?"
+IDS_CONFIRMDELETE		"Are you sure you want to delete this picture ?"
+IDS_INVALIDFILESPEC		"Invalid file specification: '%ls'."
+IDS_NOSOURCEFILES		"No files matching file specification: '%ls'."
+
+IDS_BRUSH_READONLY		"This brush is a read only - change the name to save a new brush."
+IDS_BRUSHINVALID		"Cannot open file '%ls' to create brush."
+//
+// unit description messages
+//
+IDS_INCHES				"inches"
+IDS_MM					"mm"
+IDS_PICAS				"picas"
+IDS_CM					"cm"
+IDS_PIXELS				"pixels"
+//
+// printer labels
+//
+IDS_LABELPICNAME		"%ls printed on %ls"
+IDS_LABELSTYLE			"Print Style '%ls'"
+IDS_LABELPRINTER		"Print Device '%ls %ls'"
+IDS_LABELNOINKCORRECT	"No ink correction"
+IDS_LABELRINKCORRECT	"Ink correction: Recipe for Red is %d%% Magenta plus %d%% Yellow"
+IDS_LABELGINKCORRECT	"Ink correction: Recipe for Green is %d%% Yellow plus %d%% Cyan"
+IDS_LABELBINKCORRECT	"Ink correction: Recipe for Blue is %d%% Cyan plus %d%% Magenta"
+IDS_LABELNOHALFTONING	"No halftoning info sent"
+IDS_LABELCOLORFREQUENCY	"Halftone frequency C %ls M %ls Y %ls K %ls lines/inch"
+IDS_LABELCOLORANGLE		"Halftone angle C %ls° M %ls° Y %ls° K %ls°"
+IDS_LABELSINGLEHALFTONE	"Halftone frequency %ls lines/inch - angle %ls°"
+IDS_LABELMINMAXDOT		"Halftone dot is %ls - Minimum dot %d%% - Maximum dot %d%%"
+IDS_LABELNOBLACKGEN		"No black generation or UCR"
+IDS_LABELBLACKGEN		"Black generation amount '%ls'"
+IDS_LABELUCR			"Black generated from %d%% UCR and %d%% additive boost"
+IDS_LABELNOCALIBRATION	"No device/dot gain correction"
+IDS_LABELCALIBRATION	"Device/dot gain correction '%ls'"
+IDS_LABELSEPC			"Cyan"
+IDS_LABELSEPM			"Magenta"
+IDS_LABELSEPY			"Yellow"
+IDS_LABELSEPK			"Black"
+IDC_PRINT_GRAY			"Grayscale"
+IDC_PRINT_COLOR			"Full color"
+IDC_PRINT_COLORGRAY		"Full Color and Grayscale"
+IDC_PRINT_BLACKSEPS		"Black ink separations"
+IDC_PRINT_COLORSEPS		"Color ink separations"
+//IDC_PRINTER_IS_MONO		"Monochrome"
+//IDC_PRINTER_IS_RGB		"RGB Color"
+//IDC_PRINTER_IS_CMYK		"CMYK Color"
+IDC_ELLIPSEDOT			"Elliptical"
+IDC_SQUAREDOT			"Square"
+IDC_CIRCLEDOT			"Circular"
+//
+// The following progress message do not have undo equivalents
+//
+IDS_PROGRESS1			"Processing...  %d%% complete.  Press and hold ESC to abort."
+IDS_PROGRESS2			"Processing...  %d%% complete."
+
+IDS_YES			"Yes"
+IDS_NO			"No"
+//
+IDS_INFOSIZE			"%d pixels (%s %s)"
+IDS_INFOIMAGEDISK			"%ldKB Disk"
+
+IDS_NONE									"(None)"
+
+IDS_MODENORMAL 					"(Normal)"
+IDS_MODEADDITIVE					"Additive"
+IDS_MODESUBTRACTIVE			"Subtractive"
+IDS_MODEIFLIGHTER  				"If Lighter"
+IDS_MODEIFDARKER					"If Darker"
+IDS_MODEHUESAT 					"Color"
+IDS_MODEHUE						"Hue"
+IDS_MODESAT						"Saturation"
+IDS_MODELUM						"Luminance"
+IDS_MODERED						"Red"
+IDS_MODEGREEN  					"Green"
+IDS_MODEBLUE						"Blue"
+IDS_MODECYAN							"Cyan"
+IDS_MODEMAGENTA						"Magenta"
+IDS_MODEYELLOW 						"Yellow"
+IDS_MODEBLACK							"Black"
+IDS_MODESCREEN  						"Filter"
+IDS_MODEMULTIPLY						"Multiply"
+IDS_MODEDIFFERENCE  			"Difference"
+IDS_MODETEXTURIZE						"Texturize"
+
+/*=========================*\
+	PostScript (tm) Strings
+\*=========================*/
+
+IDS_PS_STARTBLOCK				"{"
+IDS_PS_ENDBLOCK 				"}"
+IDS_PS_POP  					"pop"
+IDS_PS_IFELSE			"ifelse"
+IDS_PS_DEF  					"bind def"
+IDS_PS_END  					"end"
+IDS_PS_DICTDEF  				"40 dict begin\r\n/mysave save def\r\n/noimage { {pop 1} settransfer image } def\r\n/colorext systemdict /colorimage known def"
+IDS_PS_HEXDATA  				"/readdata { currentfile exch readhexstring pop } bind def"
+IDS_PS_BINDATA  				"/readdata { currentfile exch readstring pop } bind def"
+IDS_PS_ELLDOT1  				"/myspotfunc { abs exch abs 2 copy 3 mul exch 4 mul add 3 sub dup 0 lt\r\n{ pop dup mul exch .75 div dup mul add 4 div 1 exch sub }\r\n{ dup 1 gt {pop 1 exch sub dup mul exch 1 exch sub .75 div dup mul add 4 div 1 sub }"
+IDS_PS_ELLDOT2  				"{ .5 exch sub exch pop exch pop } ifelse } ifelse } bind def"
+IDS_PS_SQUDOT			"/myspotfunc { abs exch abs 2 copy gt {pop} {exch pop} ifelse 1 exch sub } bind def"
+IDS_PS_CIRDOT			"/myspotfunc { abs exch abs 2 copy add 1 gt\r\n{ 1 sub dup mul exch 1 sub dup mul add 1 sub }\r\n{ dup mul exch dup mul add 1 exch sub }\r\nifelse } bind def"
+IDS_PS_TRIDOT			"/myspotfunc {2 exch sub exch abs 2 mul sub 3 div } bind def"
+IDS_PS_PROPDOT  				"/myspotfunc { /y exch def /x exch def\r\n/ang y x .001 add atan cvi def\r\nang 72 mod 72 sub abs 72 div\r\ny y mul x x mul add 1 exch sub\r\nadd 2 div } bind def"
+IDS_PS_SETSCREEN				"%ls %ls /myspotfunc load setscreen"
+IDS_PS_COLOREXT 				"colorext"
+IDS_PS_SETSPOT  				"%ls %ls /myspotfunc load"
+IDS_PS_SETCOLORSCREEN			"setcolorscreen"
+IDS_PS_BLACKSEPS				"/doinvert true def"
+IDS_PS_COLORSEPS				"/doinvert colorext not def"
+IDS_PS_NOINVERT 				"/doinvert false def"
+IDS_PS_CHECKINVERT  			"doinvert { {1 exch sub} settransfer }{ {} settransfer } ifelse"
+IDS_PS_TRANSLATE				"%d %d translate"
+IDS_PS_SCALE			"%d %d scale"
+IDS_PS_LINE1			"/pps1 %d string def"
+IDS_PS_LINE2			"/pps2 %d string def"
+IDS_PS_LINE3			"/pps3 %d string def"
+IDS_PS_LINE4			"/pps4 %d string def"
+IDS_PS_LINE5			"/pps5 %d string def"
+IDS_PS_DOCOLORSEPDEF			"/docolorsep colorext def"
+IDS_PS_NOCOLORSEPDEF			"/docolorsep false def"
+IDS_PS_DOIMAGEDEF				"/doimage"
+IDS_PS_DOIMAGE  				"doimage"
+IDS_PS_COLORSEPVAL  			"docolorsep"
+IDS_PS_SEPCYAN  				"{pps1 readdata} {pps2} {pps2} {pps2}"
+IDS_PS_SEPMAGENTA				"{pps2} {pps1 readdata} {pps2} {pps2}"
+IDS_PS_SEPYELLOW				"{pps2} {pps2} {pps1 readdata} {pps2}"
+IDS_PS_SEPBLACK 				"{pps2} {pps2} {pps2} {pps1 readdata}"
+IDS_PS_COLORIMAGE3  			"true 3 colorimage"
+IDS_PS_COLORIMAGE4  			"true 4 colorimage"
+IDS_PS_GETLINE1 				"{pps1 readdata}"
+IDS_PS_GETLINE2 				"{pps2 readdata}"
+IDS_PS_GETLINE3 				"{pps3 readdata}"
+IDS_PS_GETLINE4 				"{pps4 readdata}"
+IDS_PS_GETLINE5 				"{pps5 readdata}"
+IDS_PS_DUMPLINE1				"pps1 readdata pop"
+IDS_PS_DUMPLINE2				"pps2 readdata pop"
+IDS_PS_DUMPLINE3				"pps3 readdata pop"
+IDS_PS_DUMPLINE4				"pps4 readdata pop"
+IDS_PS_DUMPLINE5				"pps5 readdata pop"
+IDS_PS_IMAGE					"image"
+IDS_PS_NOIMAGE  				"noimage"
+IDS_PS_TRANSFORM				"%d %d %d [%d 0 0 %d 0 0]"
+IDS_PS_BEGINBINARY  			"%%%%BeginBinary: %ld"
+IDS_PS_ENDBINARY				"\r\n%%%%EndBinary"
+IDS_PS_MYSAVERESTORE			"\r\nmysave restore"
+IDS_PS_CRLF 					"\r\n"
+
+//
+// extended name stuff
+//
+IDN_ART  						"*.art"
+IDN_TIFF						"*.tif"
+IDN_BMP 						"*.bmp"
+IDN_BGMAP						"*.map"
+IDN_HALFTONE					"*.htn"
+IDN_SEPARATE					"*.sep"
+IDN_CALMAP  					"*.map"
+IDN_TEXTURE 					"*.tif"
+IDN_EFFECTS 					"*.dfx"
+IDN_STYLE						"*.sty"
+IDN_CLIPBOARD					"*.tif"
+IDN_MASK						"*.tif"
+IDN_CUSTOM  					"*.tif"
+IDN_PALETTE 					"*.pal"
+IDN_PAINTSTYLE  				"*.mbs"
+IDN_CRAYONSTYLE  				"*.mbs"
+IDN_MARKERSTYLE  				"*.mbs"
+IDN_LINESTYLE  					"*.mbs"
+IDN_SHAPESTYLE  				"*.mbs"
+IDN_ERASESTYLE  				"*.mbs"
+
+// gallery strings
+IDS_GALLERY_PREFIX              "PIC"
+IDS_GALLERY_EXT                 ".ART"
+IDS_GALLERY_INIFILE             "CGALLERY.INI"
+IDS_GALLERY_FILE_SECTION        "Files"
+IDS_DEFAULT_EXTENSION           ".INI"
+
+// font information - do not localize for language
+IDS_FONT_ITALIC					"Arial Bold Italic"
+IDS_FONT_NORMAL					"Arial Bold"
+
+// misc. strings
+IDS_IM_NEW						"I'm New"
+IDS_YOUR_NAME					"Your Name"
+IDS_USER_INIFILE				"USERLIST.INI"
+IDS_USER_FILE_SECTION			"Users"
+IDS_REG_CODE_TITLE              "Check Code"
+IDS_REG_CODE_MSG                "The code you entered is incorrect.  Please try another."
+IDS_SLIDE_FILE_SECTION			"SlideShow"
+IDS_SLIDE_FILE2_SECTION			"Slide"
+IDS_SLIDE_FILE2_ENTRY			"New"
+IDS_GUEST						"Guest"
+IDS_SAVEFLOPPY					"Save To Floppy"
+IDS_LOADFLOPPY					"Load From Floppy"
+IDS_SELFLOPPY					"Select which floppy drive to use."
+IDS_NOPICTURES					"No pictures found on this floppy."
+IDS_SOUND_ON  					"Sound is ON."
+IDS_SOUND_OFF 					"Sound is OFF."
+
+
+( IDN_TEXTURE + MAX_FILETYPES )			"Texture Name"
+( IDN_EFFECTS + MAX_FILETYPES )			"Effect Name"
+( IDN_STYLE + MAX_FILETYPES )			"Printer Style Name"
+( IDN_CLIPBOARD + MAX_FILETYPES )			"Clipboard Name"
+( IDN_MASK + MAX_FILETYPES )			"Mask Name"
+( IDN_CUSTOM + MAX_FILETYPES )			"Brush Name"
+( IDN_PALETTE + MAX_FILETYPES )			"Palette Name"
+( IDN_PAINTSTYLE + MAX_FILETYPES )			"Brush Style Name"
+
+// Start of special ribbon hint lines
+// Tools bar controls
+( IDC_CUSTOMVIEW + IDC_TOOLNAMESTART )			"Custom View tool"
+( IDC_TEXT + IDC_TOOLNAMESTART )			"Text tool"
+( IDC_TRANSFORMER + IDC_TOOLNAMESTART )			"Mask Transform tool"
+( IDC_PAINT + IDC_TOOLNAMESTART )			"Paint tool"
+( IDC_ERASER + IDC_TOOLNAMESTART )			"Eraser tool"
+( IDC_FILL + IDC_TOOLNAMESTART )			"Bucket Fill tool"
+( IDC_LINES + IDC_TOOLNAMESTART )			"Crazy Line tool"
+( IDC_SHAPES + IDC_TOOLNAMESTART )			"Shape tool"
+}
+
+
+#ifdef STUDIO
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+50001   "Knock, knock.\nWho's there?\nWooden.\nWooden who?\nWooden you like to know."
+50002   "Knock, knock.\nWho's there?\nPunch.\nPunch who?\nNot me, please!"
+50003   "Knock, knock.\nWho's there?\nKen. Ken who?\nKen I come in?"
+50004   "Knock, knock.\nWho's there?\nJuicy. Juicy who?\nJuicy that dinosaur run down the street?"
+50005   "Knock, knock.\nWho's there?\nFangs.\nFangs who?\nFangs for telling a dinosaur joke!"
+50006   "Tap, tap.\nWho's there?\nHurd.\nHurd who?\nHurd my hand, so I couldn't knock."
+50007   "What peels and chips but doesn't crack?"
+51007   "Potatoes"
+50008   "What do you get if you cross a potato and a sponge?"
+51008   "A vegetable that soaks up lots of gravy."
+50009   "Where is the best place to see a man-eating fish?"
+51009   "In a seafood restaurant."
+50010   "What kind of fish do they serve on airplanes?"
+51010   "Flying fish."
+50011   "What do you get if you cross a kangaroo and a crocodile?"
+51011   "Leaping Lizards."
+50012   "What do whales like to chew?"
+51012   "Blubber gum."
+50013   "What cuts lawns and gives milk?"
+51013   "A lawn moo-er."
+50014   "When is the best time to milk a cow?"
+51014   "When she is in the moo-d."
+50015   "What part of your body has the most rhythm?"
+51015   "Your eardrum."
+50016   "Why did they let the turkey join the band?"
+51016   "Because it had drumsticks."
+50017   "What do you get if you cross a hyena and a collie?"
+51017   "An animal that laughs through Lassie movies."
+50018   "What kind of ball is fun to play with but doesn't bounce?"
+51018   "A snowball."
+50019   "What do you get if you cross a hyena and a parrot?"
+51019   "An animal that laughs at its own jokes."
+50020   "What do you call pigs who write letters to each other?"
+51020   "Pen pals."
+50021   "Did anyone laugh when the Tyrannosaurus fell on the ice?"
+51021   "No, they were too scared. Only the ice made some cracks."
+50022   "Why didn't the Goofasaurus realize it was standing in quicksand?"
+51022   "It took a long time to sink in."
+50023   "What do you get when you cross a dinosaur with peanut butter?"
+51023   "A sticky mess."
+50024   "What do you get when you cross a dinosaur with a pig?"
+51024   "An Oinkasaurus!"
+50025   "What does a dinosaur have for dinner?"
+51025   "A lot!"
+50026   "What do you call a dinosaur without teeth?"
+51026   "A vegetarian!"
+50027   "How can you tell when there is a dinosaur in your refrigerator?"
+51027   "Its footprints are in the cheesecake!"
+50028   "Why did the dinosaur put a candy bar under its pillow?"
+51028   "It wanted to make sure it had sweet dreams!"
+50029   "How do you stop a 2000-pound dinosaur from charging?"
+51029   "Take away its credit cards!"
+50030   "Why do mining companies and bridge building companies hire a lot of dinosaurs?"
+51030   "Because they are experts with dino-mite!"
+50031   "Which dinosaurs had trunks?"
+51031   "The ones that went on vacation."
+50032   "Why did the girl wear loud socks?"
+51032   "She didn't want her feet to fall asleep."
+50033   "What do you get if you cross a centipede and a parrot?"
+51033   "A walkie-talkie."
+50034   "What do you get if you cross a homing pigeon and a woodpecker?"
+51034   "A bird that not only delivers messages, but also knocks on the door."
+50035   "If the green house is on the right side of the road, and the red house is on the left side of the road, where is the white house?"
+51035   "In Washington, D.C."
+50036   "How can you say rabbit without using the letter R?"
+51036   "Bunny."
+50037   "Why did the girl put sugar under her pillow?"
+51037   "She wanted sweet dreams."
+50038   "What is the front part of geography book?"
+51038   "The table of continents (contents)."
+50039   "What did one car say to the other?"
+51039   "You look familiar. Haven't we bumped into each other before?"
+50040   "What two words have thousands of letters in them?"
+51040   "Post office."
+50041   "Why do hurricanes travel so fast?"
+51041   "Because if they traveled slowly, we'd have to call them slow-i-canes."
+50042   "If two's company and three's a crowd, what is four and five?"
+51042   "Nine."
+50043   "Why do statues and paintings of George Washington always show him standing?"
+51043   "Because he would never lie."
+50044   "What animals are well educated?"
+51044   "Fish, because they go around in schools."
+50045   "What is green and pecks on trees?"
+51045   "Woody Wood Pickle."
+50046   "What do you call someone who carries a dictionary in his jeans?"
+51046   "Smarty pants."
+50047   "When is it bad luck to have a black cat follow you?"
+51047   "When you are a mouse."
+50048   "What do you get if your sheep studies karate?"
+51048   "A lamb chop."
+50049   "How did the chimpanzee escape from his cage?"
+51049   "He used a monkey wrench."
+50050   "What is big and white and is found in Florida?"
+51050   "A lost polar bear."
+50051   "Why is it confusing when a dog growls and wags his tail at the same time?"
+51051   "It's hard to know which end to believe."
+50052   "What shampoo do mountains use?"
+51052   "Head and Boulders."
+50053   "If you were walking in a jungle and saw a lion, what time would it be?"
+51053   "Time to run."
+50054   "What did the rug say to the floor?"
+51054   "I've got you covered."
+50055   "What kind of a truck does a ballerina drive?"
+51055   "A toe (tow) truck."
+50056   "What kind of car does Dracula drive?"
+51056   "A bloodmobile."
+50057   "What kind of policemen enjoy their work most?"
+51057   "Traffic policemen, because they whistle while they work."
+50058   "What is the difference between a jeweler and a jailer?"
+51058   "A jeweler sells watches, a jailer watches cells."
+50059   "Why did the spy pull the sheets over his head?"
+51059   "He was an undercover agent."
+50060   "What person tries to make you smile most of the time?"
+51060   "A photographer."
+50061   "How is a judge like an English teacher?"
+51061   "They both hand out long sentences."
+50062   "Where do mummies go when they visit Arizona?"
+51062   "The Petrified Forest."
+50063   "What musical instrument does a skeleton play?"
+51063   "The trombone."
+50064   "Why did the comedian tell jokes to the eggs?"
+51064   "He wanted to crack them up."
+50065   "If a band plays music in a thunderstorm, who is most likely to get hit by lightning?"
+51065   "The conductor."
+50066   "What kind of band doesn't make music?"
+51066   "A rubber band."
+50067   "What kind of beans won't grow in a garden?"
+51067   "Jelly beans."
+50068   "What has a foot on each side and one in the middle?"
+51068   "A yardstick."
+50069   "What has a neck but no head?"
+51069   "A bottle."
+50070   "What goes from side to side, and up and down, but never moves?"
+51070   "A road."
+50071   "What can you hold in your left hand but not in your right hand?"
+51071   "Your right elbow."
+50072   "What kind of bow can't be tied?"
+51072   "A rainbow."
+50073   "How many worms make a foot?"
+51073   "Twelve inchworms"
+50074   "On which side does a chicken have the most feathers?"
+51074   "On the outside."
+50075   "What invention allows you to see through walls?"
+51075   "A window."
+50076   "When does an Irish potato change nationality?"
+51076   "When it is French fried."
+50077   "What lottery did the broom win?"
+51077   "The sweepstakes."
+50078   "Why does a chicken lay an egg?"
+51078   "If she dropped it, it would break."
+50079   "What fish did the knights eat?"
+51079   "Swordfish."
+50080   "Where do hogs keep their money?"
+51080   "In piggy banks."
+50081   "Where do Eskimos keep their money?"
+51081   "In snowbanks."
+50082   "Where do fish keep their money?"
+51082   "In riverbanks."
+50083   "What has a head, can't think, but drives?"
+51083   "A hammer."
+50084   "What is blue, green, yellow, purple, brown, black, and grey?"
+51084   "A box of crayons."
+50085   "How does a witch tell time?"
+51085   "With a witch watch."
+50086   "What driver doesn't have a license?"
+51086   "A screw driver."
+50087   "What is purple and 5,000 miles long?"
+51087   "The grape wall of China."
+50088   "Where can you find the largest diamond in the world?"
+51088   "On a baseball field."
+50089   "What is the biggest baseball team?"
+51089   "The Giants."
+50090   "Why is the longest human nose on record only 11 inches long?"
+51090   "Because if it were 12 inches long it would be a foot."
+50091   "How do you know that bees are happy?"
+51091   "Because they hum while they work."
+50092   "What did one termite say to the other termite when he saw a house burning?"
+51092   "Barbecue tonight!"
+50093   "How do rabbits keep their fur neat?"
+51093   "They use a harebrush (hairbrush)."
+50094   "What did one firefly say to the other firefly when his light went out?"
+51094   "Give me a push. My battery is dead."
+50095   "How do birds stop themselves in the air?"
+51095   "With air brakes."
+50096   "Why do cows wear bells?"
+51096   "Because their horns don't work."
+50097   "What happens to grapes that worry too much?"
+51097   "They get wrinkled and turn into raisins."
+50098   "What do you call nervous insects?"
+51098   "Jitterbugs."
+50099   "What would happen if an elephant sat in front of you at the movies?"
+51099   "You would miss most of the show."
+50100   "Why did the elephant wear sunglasses?"
+51100   "With all the silly elephant riddles around, he didn't want to be recognized."
+50101   "Who is Count Dracula's favorite person on a baseball team?"
+51101   "The bat boy."
+50102   "What do you get when two strawberries meet?"
+51102   "A strawberry shake."
+50103   "What did the dentist say to the golfer?"
+51103   "You have a hole in one."
+50104   "What kind of animal needs oiling?"
+51104   "A mouse. It squeaks."
+50105   "What is the first thing ghosts do when they get in a car?"
+51105   "They fasten their sheet (seat) belts."
+50106   "What did the jack say to the car?"
+51106   "Can I give you a lift?"
+50107   "Where does the sandman keep his sleeping sand?"
+51107   "In his knapsack (nap sack)."
+50108   "How does a baby ghost cry?"
+51108   "Boo-hoo! Boo-hoo!"
+50109   "Did you hear the story about the skunk?"
+51109   "Never mind, it stinks."
+50110   "How can you name the capital of every U.S. state in two seconds?"
+51110   "Washington D.C."
+50111   "What wears shoes but has no feet?"
+51111   "The sidewalk."
+50112   "What have eyes but can't see?"
+51112   "Needles, storms and potatoes."
+50113   "What insect can be spelled with just one letter?"
+51113   "Bee."
+50114   "What is the brightest fish?"
+51114   "Sun fish."
+50115   "What kind of gum do bees chew?"
+51115   "Bumble gum."
+50116   "What does a match do when it loses its temper?"
+51116   "It flares up."
+50117   "What pillar is never used to hold up a building?"
+51117   "A caterpillar."
+50118   "What do canaries say on Halloween?"
+51118   "Twick or tweet!"
+50119   "What is green and sour and gives presents at Christmas time?"
+51119   "Santapickle."
+50120   "Where can you buy a ruler that's three feet long?"
+51120   "At a yard sale."
+50121   "What's faster than a speeding bullet, more powerful than a locomotive - and green?"
+51121   "Super pickle!"
+50122   "Why did the cook put the cake in the refrigerator?"
+51122   "Because she wanted icing on it."
+50123   "How many apples grow on a tree?"
+51123   "All of them."
+50124   "What did the pencil sharpener say to the pencil?"
+51124   "Stop going around in circles and get to the point."
+}
+#endif
+
+
+
+/******************************* Room Dialogs *******************************/
+
+RM_OPENING DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    HOTSPOT( HS_OPENING, 0, 0, 640, 480 )
+end
+
+/****************************************************************************/
+
+RM_WHOAREYOU DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+	HOTSPOT( HS_WHO, 496, 225, 50, 54 )
+	TOY( HS_WHO_UPARROW, 434, 195 )
+	TOY( HS_WHO_DNARROW, 434, 276 )
+	CRADIO( "", IDC_WHO_BUTTON1, 160, 135, 260, 46 )
+	CRADIO( "", IDC_WHO_BUTTON2, 160, 185, 260, 46 )
+	CRADIO( "", IDC_WHO_BUTTON3, 160, 235, 260, 46 )
+	CRADIO( "", IDC_WHO_BUTTON4, 160, 285, 260, 46 )
+	CRADIO( "", IDC_WHO_NEWBUTTON, 160, 365, 260, 46 )
+	EDIT( IDC_WHO_EDIT, 160,365, 260, 46 )
+	TOY( IDC_WHO_DELNAME, 604, 444 )
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+	IDC_WHO_DELNAME		"Click to remove a name from the menu."
+}
+
+
+/****************************************************************************/
+
+RM_GALLERY DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    EDIT( IDC_GALLERY_EDIT, 162, 18, 332, 20 )
+    OBJLIST("", IDC_GALLERY_IMAGE, 88, 51, 480, 360 )
+    HOTSPOT(HS_BACKSHOW,      579, 21, 50, 63 )
+	HOTSPOT(HS_GALLERY_TEXT1,	0, 50, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT2,	0, 70, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT3,	0, 90, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT4,	0,110, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT5,	0,130, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT6,	0,150, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT7,	0,170, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT8,	0,190, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT9,	0,210, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT10,	0,230, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT11,	0,250, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT12,	0,270, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT13,	0,290, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT14,	0,310, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT15,	0,330, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT16,	0,350, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT17,	0,370, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT18,	0,390, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT19,	0,410, 15, 10 )
+	HOTSPOT(HS_GALLERY_TEXT20,	0,430, 15, 10 )
+
+    TOY( HS_GALLERY_GOPAINT, 194, 420 )
+	SWITCH( IDC_GALLERY_SW1, 270, 420 )
+    TOY( HS_GALLERY_TRASH, 381, 420 )
+    TOY( HS_GALLERY_SLIDES, 287, 420 )
+    TOY( HS_GALLERY_BEFORE, 16, 436 )
+    TOY( HS_GALLERY_NEXT, 590, 437 )
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+	IDC_GALLERY_EDIT	"Click here to change picture title."
+	IDC_GALLERY_SW1		"Click to START and STOP the moving toys."
+	HS_GALLERY_GOPAINT	"Click to paint this picture."
+	HS_GALLERY_TRASH	"Click to delete this picture."
+	HS_GALLERY_SLIDES	"Click to add this picture to the Picture Show."
+	HS_GALLERY_BEFORE	"More pictures."
+	HS_GALLERY_NEXT		"More pictures."
+	HS_BACKSHOW			"Go back to Picture Show Maker."
+}
+
+//************************************************************************
+// Access: Select File menu, then Open
+//************************************************************************
+IDD_OPEN DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 250, 163
+style Modalfloat
+caption "Open Image File"
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	TEXT( "Path:", -1, 6, 6, 30, TDY )
+	TEXT( "", IDC_FPATH, 6 + 35, 6, 194, TDY )
+	TEXT( "Dri&ves:", -1, 6, 20, 80, TDY )
+	ODSORTCOMBO( IDC_DRIVES, 6, 32, 80, 80 )
+	TEXT( "", IDC_DISKSPACE, 6, 46, 80, TDY )
+	TEXT( "&Directories:", -1, 6, 63, 80, TDY )
+	ODLIST( IDC_DIRS, 6, 75, 80, 80 )
+	TEXT( "File &Name:", -1, 92, 49, 64, TDY )
+	EDIT( IDC_FNAME, 92, 61, 80, EDY )
+	LIST( IDC_FLIST, 92, 75, 80, 80 )
+	TEXT( "File &Types:", -1, 92, 20, 80, TDY )
+	ODCOMBO( IDC_FILETYPES, 92, 32, 80, 40 )
+	CBITEM( "ART", IDC_ART )
+	CBITEM( "TIFF", IDC_TIFF )
+	CBITEM( "BMP", IDC_BMP )
+	DUTTON( "Open", IDOK, 180, 60, 60, BDY )
+	BUTTON( "Cancel", IDCANCEL, 180, 78, 60, BDY )
+	CCHECK( "&Save Path", IDC_SAVEPATH, 180, 142, 60, CDY )
+end
+
+//************************************************************************
+// Access: Select File menu, then Save As
+//************************************************************************
+IDD_SAVEAS DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 250, 163
+style Modalfloat
+caption "Save Image File"
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	TEXT( "Path:", -1, 6, 6, 30, TDY )
+	TEXT( "", IDC_FPATH, 6 + 35, 6, 194, TDY )
+	TEXT( "Dri&ves:", -1, 6, 20, 80, TDY )
+	ODSORTCOMBO( IDC_DRIVES, 6, 32, 80, 80 )
+	TEXT( "", IDC_DISKSPACE, 6, 46, 80, TDY )
+	TEXT( "&Directories:", -1, 6, 63, 80, TDY )
+	ODLIST( IDC_DIRS, 6, 75, 80, 80 )
+	TEXT( "File &Name:", -1, 92, 49, 64, TDY )
+	EDIT( IDC_FNAME, 92, 61, 80, EDY )
+	LIST( IDC_FLIST, 92, 75, 80, 80 )
+	TEXT( "File &Types:", -1, 92, 20, 80, TDY )
+	ODCOMBO( IDC_FILETYPES, 92, 32, 80, 40 )
+	CBITEM( "ART", IDC_ART )
+	CBITEM( "TIFF", IDC_TIFF )
+	CBITEM( "BMP", IDC_BMP )
+	DUTTON( "Save", IDOK, 180, 60, 60, BDY )
+	BUTTON( "Cancel", IDCANCEL, 180, 78, 60, BDY )
+	CCHECK( "&Compress", IDC_SAVECOMPRESS, 180, 126, 60, CDY )
+	CCHECK( "&Save Path", IDC_SAVEPATH, 180, 142, 60, CDY )
+end
+
+
+//************************************************************************
+// Access: Click on "Load From Floppy" in Gallery Tool
+//************************************************************************
+IDD_LOADFLOPPY DIALOG LOADONCALL MOVEABLE DISCARDABLE 50, -150, 173, 73
+style Modalfloat
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	LIST( IDC_CHOOSEFILE, 46, 4, 80, 33 )
+	TEXT( "Select which floppy to use.", IDC_FLOPPY_TEXT, 39, 40, 120, TDY )
+	BUTTON( "   ", IDC_FLOPPY1, 6, 54, 35, BDY )
+	BUTTON( "   ", IDC_FLOPPY2, 48, 54, 35, BDY )
+	DUTTON( "OK", IDOK, 91, 54, 35, BDY )
+	BUTTON( "Cancel", IDCANCEL, 132, 54, 35, BDY )
+end
+
+
+//************************************************************************
+// Access: Click on "Save To Floppy" in Gallery Tool
+//************************************************************************
+IDD_SAVEFLOPPY DIALOG LOADONCALL MOVEABLE DISCARDABLE 50, -120, 173, 40
+style Modalfloat
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	LIST( IDC_CHOOSEFILE, 1, 1, 1, 1 )
+	TEXT( "Select which floppy to use.", IDC_FLOPPY_TEXT, 39, 10, 120, TDY )
+	BUTTON( "   ", IDC_FLOPPY1, 28, 21, 35, BDY )
+	BUTTON( "   ", IDC_FLOPPY2, 68, 21, 35, BDY )
+	BUTTON( "Cancel", IDCANCEL, 110, 21, 35, BDY )
+end
+
+
+//************************************************************************
+// Access: Select File menu, then Print, Press Print button
+//************************************************************************
+IDD_ABORT DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 172, 74
+style Modal
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	TEXT( "- Printing -", -1, 66, 4, 50, TDY )
+	TEXT( "Image Name :", -1, 4, 18, 55, TDY )
+	TEXT( " ", ID_NAME, 57, 19, 105, TDY )
+#ifndef _MAC	
+    // These don't exist on the mac
+	TEXT( "Device Name :", -1, 4, 30, 55, TDY )
+	TEXT( "Device Port :", -1, 4, 41, 57, TDY )
+#endif	
+	TEXT( " ", ID_PRINTER, 57, 30, 105, TDY )
+	TEXT( " ", ID_PORT, 57, 41, 105, TDY)
+	BUTTON( "Cancel", IDCANCEL, 60, 58, 35, BDY )
+end
+
+
+//************************************************************************
+// Access: Select File menu, then Setup, then Printer
+//************************************************************************
+IDD_PRINTSETUP DIALOG LOADONCALL MOVEABLE DISCARDABLE 50, -150, 154, 194
+style Modalfloat
+caption "Setup Printer"
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	LTEXT "Select Print De&vice", -1, 8, 6, 79, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	ODLIST( IDC_PRINTSELECT, 8, 19, 141, 89 )
+	BUTTON( "Setup Print &Device...", IDC_PRINTSETUP, 8, 113, 141, BDY )
+	HBLACKLINE( 0, 131, 154 )
+	LTEXT "Printer &Type", -1, 11, 138, 51, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	ODCOMBO( IDC_PRINTERTYPES, 66, 136, 67, 33 )
+	CBITEM( "Monochrome", IDC_PRINTER_IS_MONO )
+	CBITEM( "Color",      IDC_PRINTER_IS_RGB )
+	CCHECK( "Send &Binary PostScript", IDC_BINARY_PS, 11, 153, 100, CDY )
+	HBLACKLINE( 0, 171, 154 )
+	DUTTON( "OK", IDOK, 33, 176, 38, BDY )
+	BUTTON( "Cancel", IDCANCEL, 76, 176, 38, BDY )
+end
+
+
+//************************************************************************
+// Access: Select Edit menu, then Preferences
+//************************************************************************
+#ifdef STUDIO
+IDD_PREF DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 204, 106
+#else
+IDD_PREF DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 204, 118
+#endif
+style Modalfloat
+caption "Preferences"
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	CCHECK( "&Disable Bandage Undo", IDC_PREF_UNDO, 6, 5, 106, CDY )
+	CCHECK( "D&isable Opening Theme", IDC_PREF_NOTHEME, 6, 17, 108, CDY )
+#ifdef USEWAVEMIX
+	CCHECK( "Di&sable Mixing Animation Sounds", IDC_PREF_USEWAVEMIX, 6, 30, 131, CDY )
+#endif
+	HBLACKLINE( 0, 45, 204 )
+	LTEXT "S&creen saver animation time: (1 - 999 minutes):", -1, 7, 52, 161, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	EDIT( IDC_PREF_SAVER, 168, 50, 30, EDY )
+	LTEXT "&Maximum animations running at a time: (1 - 30):", -1, 7, 66, 162, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	EDIT( IDC_PREF_ANIMATIONS, 168, 64, 30, EDY )
+	HBLACKLINE( 0, 80, 204 )
+#ifdef STUDIO
+	BUTTON( "Sa&ve", IDC_PREF_SAVE, 40, 87, 33, BDY )
+	DUTTON( "OK", IDOK, 85, 87, 33, BDY )
+	BUTTON( "Cancel", IDCANCEL, 130, 87, 33, BDY )
+#else
+	LTEXT "Brush:", -1, 6, 85, 30, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	RADIO( "Small",  IDC_PREF_SMALL,  40, 83, 40, 12)
+	RADIO( "Medium", IDC_PREF_MEDIUM, 90, 83, 40, 12)
+	RADIO( "Large",  IDC_PREF_LARGE,  140, 83, 40, 12)
+	HBLACKLINE( 0, 98, 204 )
+	BUTTON( "Sa&ve", IDC_PREF_SAVE, 40, 101, 33, BDY )
+	DUTTON( "OK", IDOK, 85, 101, 33, BDY )
+	BUTTON( "Cancel", IDCANCEL, 130, 101, 33, BDY )
+#endif
+end
+
+
+//************************************************************************
+// Access: Help / About Picture Publisher command
+//************************************************************************
+IDD_ABOUT DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 254, 123
+style Modal
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	TICON( IDC_ABOUTAPP, 4, 4 )
+	CTEXT( VERSION_STRING, -1, 24, 20, 118, TDY )
+	CTEXT( RELEASE_DATE, -1, 28, 32, 110, TDY )
+	CTEXT( COPYRIGHT, -1, 28, 44, 110, TDY )
+	CTEXT( RIGHTS, -1, 28, 56, 110, TDY )
+	CTEXT( " ", IDC_CUSTOMER, 28, 70, 110, TDY )
+	CTEXT( " ", IDC_COMPANY, 28, 82, 110, TDY )
+	CTEXT( " ", IDC_SERIALNO, 28, 94, 110, TDY )
+
+	TEXT( "Thanks to:", -1, 149, 5, 54, TDY )
+	CTEXT( " ", IDC_CAST, 149, 18, 101, 80 )
+	BLACKFRAME( 148, 16, 104, 84 )
+	DUTTON( "Thank You!", IDOK, 148, 103, 103, BDY )
+end
+
+RRCDATA( IDC_CASTTEXT )
+BEGIN
+	"\n"
+	"\n"
+	"\n"
+	"\n"
+	"\n"
+	"\n"
+	"Product Development:\n"
+	" Jim Kowalczyk\n"
+	" Jim McCurdy\n"
+	" Michael Dagate\n"
+	" Stephen Suggs\n"
+	" Ray White\n"
+	" Dave Haber\n"
+	" Dave Custalow\n"
+	" Brian McGlasson\n"
+	" James Hoiby\n"
+	"\n"
+	"Product Management:\n"
+	" David Williams\n"
+	" Fred Geyer\n"
+	"\n"
+	"Kid Tested by:\n"
+	" Lana Bryan\n"
+	" Allison Gutekunst\n"
+	" Ambra Nealy\n"
+	" Ami Tucker\n"
+	" Britney Schaeffer\n"
+	" Casey McCurdy\n"
+	" Diana Wilkinson\n"
+	" Forrest Tanner\n"
+	" Freddie Geyer\n"
+	" Jason Cohen\n"
+	" Jed Dearborn\n"
+	" Josh Halloran\n"
+	" Joshua McGlasson\n"
+	" Kelsey Indorf\n"
+	" Kevin Tarca\n"
+	" Laura Neal\n"
+	" Lisa Brudener\n"
+	" Luke White\n"
+	" Pam Fritz\n"
+	" Maura McCurdy\n"
+	" Nicholas Geyer\n"
+	" Rachel Williams\n"
+	" Rebecca Emmons\n"
+	" Tori Hite\n"
+	"\n"
+	"Grownup Tested by:\n"
+	" Bob Swenson\n"
+	" James Hoiby\n"
+	" Lisa Farnsworth\n"
+	" Mary Jo Pilch\n"
+	" Scotty Gibson\n"
+	" Susan Harrison\n"
+	" Terrell Cantrell\n"
+	" Kelly Wahlen\n"
+	" Tim Allendorf\n"
+	"\n"
+	"Voices by:\n"
+	" Craig Simmons\n"
+	" Patty Saitow\n"
+	"\n"
+	"Publications:\n"
+	" Shannon Krakosky\n"
+	"\n"
+	"Artwork by:\n"
+	" Linda Speake\n"
+	" Michael Palan\n"
+	" Dawn DeRosa\n"
+	" Merry Cassino\n"
+	" Debi Falkenham\n"
+	" Kim Mulkey\n"
+	" Joe Lacey\n"
+	" Troy Heinrich\n"
+	" David Riley\n"
+	"\n"
+	"Animations by:\n"
+	" DNA Productions\n"
+	" Dream Time Imagineering\n"
+ 	""0
+END
+
+
+//************************************************************************
+// Access: When not properly installed in WIN.INI
+//************************************************************************
+IDD_WARNING DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 220, 270
+style Modal
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	CBITMAP( SPA_BITMAP, 5, 5, 200, 180 )
+	CTEXT( TXTBLK_WARNING, -1, 5, 190, 50, TDY )
+	CTEXT( "Report copyright violations to:", -1, 5, 200, 180, TDY )
+	CTEXT( "Software Publishers Association", -1, 5, 215, 180, TDY )
+	CTEXT( "1101 Connecticut Ave, NW, Suite 901", -1, 5, 230, 180, TDY )
+	CTEXT( "Washington, DC 20036", -1, 5, 245, 180, TDY )
+	DUTTON( "Continue", IDOK, 90, 260, 45, BDY )
+end
+
+RCDATA( TXTBLK_WARNING )
+begin
+	"Federal copyright law permits you to make a backup copy of this "
+	"software for archival purposes only. Any other duplication, "
+	"including copies offered for sale, loan, rental, or gift, is a "
+	"violation of law, and subject to both criminal and civil penalties." 0
+end
+
+
+//************************************************************************
+// Access: Register software with Micrografx when accessing some features.
+//************************************************************************
+IDD_ASK_REGISTER DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 173, 158
+style Modal
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	TICON( IDC_ABOUTAPP, 40, 4 )
+	#ifdef STUDIO
+		TEXT( "Free Bonus Activity!", -1, 65, 10, 73, TDY )
+		CTEXT( "You have discovered the secret", -1, 9, 25, 155, TDY )
+		CTEXT( "WORD PUZZLER!", -1, 15, 37, 144, TDY )
+		CTEXT( "To find out the secret password which unlocks", -1, 5, 50, 164, TDY )
+		CTEXT( "this exciting game, call toll free:", -1, 6, 63, 162, TDY )
+		CTEXT( "1-800-2MGRAFX and give them your code.", -1, 6, 76, 160, TDY )
+	#else
+		TEXT( "Free Bonus Activity!", -1, 65, 10, 73, TDY )
+		CTEXT( "You have discovered the secret", -1, 9, 25, 155, TDY )
+		CTEXT( "PLACE MAT MAKER!", -1, 15, 37, 144, TDY )
+		CTEXT( "To find out the secret password which unlocks", -1, 5, 50, 164, TDY )
+		CTEXT( "this exciting activity, call toll free:", -1, 6, 63, 162, TDY )
+		CTEXT( "1-800-2MGRAFX and give them your code.", -1, 6, 76, 160, TDY )
+	#endif
+
+	HBLACKLINE( 0, 91, 173 )
+	TEXT( "Your Code:", -1, 20, 99, 55, TDY )
+    TEXT( " ",IDC_REG_CODE, 83, 99, 55, TDY )
+	TEXT( "Secret Code:", -1, 20, 114, 55, TDY )
+    EDIT( IDC_REG_KEY, 82, 112, 55, EDY )
+
+	HBLACKLINE( 0, 131, 173 )
+	DUTTON( "OK", IDOK, 35, 138, 40, BDY )
+	BUTTON( "Cancel", IDCANCEL, 92, 138, 43, BDY )
+end
+
+
+#ifdef CDBUILD
+//************************************************************************
+// Access: Unlock CD software
+//************************************************************************
+IDD_ASK_UNLOCK DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 226, 230
+style Modal
+font 8, "MS Sans Serif"
+DLG_GRAY
+begin
+	TICON( IDC_ABOUTAPP, 8, 8 )
+#ifdef STUDIO
+	LTEXT "Congratulations on your purchase of Crayola Amazing", -1, 35, 12, 183, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "Art Adventure! In addition to Amazing Art Adventure,", -1, 35, 22, 183, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "we have another program, Crayola Art Studio which we are", -1, 8, 32, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "offering on this CD. If you would like to find out more about", -1, 8, 42, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "the program, double click the ""Crayola Rocks Demo"" icon in", -1, 8, 52, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "the Micrografx for Kids group of the Program Manager. If you", -1, 8, 62, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "want to purchase the program, call us with your credit card", -1, 8, 72, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "and the secret code below. For the special direct price of", -1, 8, 82, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "$59.99, we will give you the secret password that will instantly", -1, 8, 92, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "open a whole new world of creative fun for you and your family.", -1, 8, 102, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "", -1, 8, 112, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+#else
+	LTEXT "Congratulations on your purchase of Crayola Art Studio!", -1, 35, 12, 183, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "In addition to Art Studio, we have another program,", -1, 35, 22, 183, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "Crayola Amazing Art Adventure which we are offering on this", -1, 8, 32, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "CD. If you would like to find out more about the program,", -1, 8, 42, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "double click the ""Crayola Rocks Demo"" icon in the Micrografx", -1, 8, 52, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "for Kids group of the Program Manager. If you want to purchase", -1, 8, 62, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "the program, call us with your credit card and the secret code", -1, 8, 72, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "below. For the special direct price of $59.99, we will give you", -1, 8, 82, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "the secret password that will instantly open a whole new world", -1, 8, 92, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "of creative fun for you and your family.", -1, 8, 102, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "", -1, 8, 112, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+#endif
+	HBLACKLINE( 0, 124, 230 )
+	LTEXT "Your Code:", -1, 62, 128, 39, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+    TEXT( " ",IDC_REG_CODE, 104, 128, 65, 8 )
+	LTEXT "Secret Code:", -1, 57, 144, 45, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+    EDIT( IDC_REG_KEY, 104, 142, 65, 12 )
+	HBLACKLINE( 0, 157, 230 )
+
+	LTEXT "To order call 1-800-283-6620.  Kids, be sure to check with", -1, 8, 162, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "Mom and Dad before calling.", -1, 9, 172, 199, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "If you have any other questions about Crayola software,", -1, 8, 187, 210, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	LTEXT "please call 1-800-2CREATE.", -1, 8, 197, 203, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+
+	HBLACKLINE( 0, 210, 230 )
+	DUTTON( "OK", IDOK, 55, 214, 40, BDY )
+	BUTTON( "Cancel", IDCANCEL, 131, 214, 40, BDY )
+end
+#endif
+
+//************************************************************************
+IDD_COMBO DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 40, 40
+style Modeless
+font 8, "MS Sans Serif"
+begin
+	EDIT( IDOK, 0, 0, 10, EDY )
+end
+
+
+//************************************************************************
+// Used for the joke phone
+//************************************************************************
+IDD_STATUS DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 210, 100
+style WS_POPUP | WS_VISIBLE | WS_EX_TRANSPARENT
+font 8, "MS Sans Serif"
+begin
+	TOY( IDC_STATUSBITMAP, 0, 0 )
+	CTEXT( " ", IDC_STATUSTEXT, 20, 18, 125, 43 )
+end
+
+

@@ -1,0 +1,143 @@
+END-USER LICENSE AGREEMENT FOR MICROSOFT SOFTWARE
+
+IMPORTANT - READ CAREFULLY: This Microsoft End-User License Agreement ("EULA") 
+is a legal agreement between you (either an individual or a single entity) and 
+Microsoft Corporation for the Microsoft software product(s) accompanying this 
+EULA, which include(s) computer software and may include "online" or electronic
+documentation, associated media, and printed materials (''SOFTWARE PRODUCT''). 
+By installing, copying, or otherwise using the SOFTWARE PRODUCT or any UPDATES 
+(as defined below), you agree to be bound by the terms of this EULA. If you do 
+not agree to the terms of this EULA, do not install, copy, or otherwise use the
+SOFTWARE PRODUCT; you may, however, return it to your place of purchase for a 
+full refund. In addition, by installing, copying, or otherwise using any 
+updates or other components of the SOFTWARE PRODUCT that you receive separately
+as part of the SOFTWARE PRODUCT (''UPDATES''), you agree to be bound by any 
+additional license terms that accompany such UPDATES. If you do not agree to 
+the additional license terms that accompany such UPDATES, you may not install, 
+copy, or otherwise use such UPDATES.
+
+
+SOFTWARE PRODUCT LICENSE
+
+The SOFTWARE PRODUCT is protected by copyright laws and international copyright
+treaties, as well as other intellectual property laws and treaties. The 
+SOFTWARE PRODUCT is licensed, not sold. 
+
+1. LICENSE TO USE SOFTWARE PRODUCT. 
+        1.1 General License Grant.  Microsoft grants to you a personal, 
+nonexclusive license to make and use copies of the SOFTWARE PRODUCT and any 
+documentation supplied by Microsoft with the SOFTWARE PRODUCT for the purposes 
+of designing, developing, and testing your software product(s).  Under this 
+EULA, you are not allowed to modify any portion of the SOFTWARE PRODUCT.  In 
+addition, Microsoft grants you a nonexclusive, royalty-free right to reproduce 
+and distribute in object code form of any portion of the SOFTWARE PRODUCT 
+("Redistributable Code"), provided that you comply with the terms of Section 
+2.1.
+
+2. DISTRIBUTION REQUIREMENTS; LICENSE RESTRICTIONS. 
+        2.1 General.  If you are authorized and choose to redistribute 
+Redistributable Code as described in Section 1, you agree to: (a) distribute 
+the Redistributable Code in object code only in conjunction with and as a part 
+of a software application product developed by you that adds significant and 
+primary functionality to the Redistributable Code ("Licensed Product"); (b) the
+Redistributable Code only operate in conjunction with Microsoft Windows, 
+Windows NT, or Windows CE; (c) not use Microsoft's name, logo, or trademarks to
+market the Licensed Product; (d) include a valid copyright notice on the 
+Licensed Product; (e) indemnify, hold harmless, and defend Microsoft from and 
+against any claims or lawsuits, including attorney's fees, that arise or result
+from the use or distribution of the Licensed Product; (f) otherwise comply with
+the terms of this EULA; and (g) agree that Microsoft reserves all rights not 
+expressly granted.  You also agree not to permit further distribution of the 
+Redistributable Code by your end users except you may permit further 
+redistribution of the Redistributable Code by your distributors to your 
+end-user customers if your distributors only distribute the Redistributable 
+Code in conjunction with, and as part of, the Licensed Product and you and your
+distributors comply with all other terms of this EULA.
+
+3. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS
+        3.1 Limitations on Reverse Engineering, Decompilation, and Disassembly.
+You may not reverse engineer, decompile, or disassemble the SOFTWARE PRODUCT, 
+except and only to the extent that such activity is expressly permitted by 
+applicable law notwithstanding this limitation.
+        3.2 Rental. You may not rent, lease or lend the SOFTWARE PRODUCT.
+        3.3 Trademarks. This EULA does not grant you any rights in connection 
+with any trademarks or service marks of Microsoft.
+        3.4 Termination. Without prejudice to any other rights, Microsoft may 
+terminate this EULA if you fail to comply with the terms and conditions of this
+EULA. In such event, you must destroy all copies of the SOFTWARE PRODUCT and 
+all of its component parts.
+
+4. COPYRIGHT. All title and intellectual property rights in and to the SOFTWARE
+PRODUCT (including but not limited to any images, photographs, animations, 
+video, audio, music, text, and "applets" incorporated into the SOFTWARE 
+PRODUCT), the accompanying printed materials, and any copies of the SOFTWARE 
+PRODUCT are owned by Microsoft or its suppliers. All title and intellectual 
+property rights in and to the content which may be accessed through use of the 
+SOFTWARE PRODUCT is the property of the respective content owner and may be 
+protected by applicable copyright or other intellectual property laws and 
+treaties. This EULA grants you no rights to use such content. All rights not 
+expressly granted are reserved by Microsoft.
+
+5. DISCLAIMER OF WARRANTIES.  TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE 
+LAW, MICROSOFT AND ITS SUPPLIERS PROVIDE THE SOFTWARE PRODUCT AS IS AND WITH 
+ALL FAULTS, AND HEREBY DISCLAIM ALL OTHER WARRANTIES AND CONDITIONS, EITHER 
+EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, ANY (IF ANY) 
+IMPLIED WARRANTIES, DUTIES OR CONDITIONS OF MERCHANTABILITY, OF FITNESS FOR A 
+PARTICULAR PURPOSE, OF ACCURACY OR COMPLETENESS OF RESPONSES, OF RESULTS, OF 
+WORKMANLIKE EFFORT, OF LACK OF VIRUSES, AND OF LACK OF NEGLIGENCE, ALL WITH 
+REGARD TO THE SOFTWARE PRODUCT.  ALSO, THERE IS NO WARRANTY OR CONDITION OF 
+TITLE, QUIET ENJOYMENT, QUIET POSSESSION, CORRESPONDENCE TO DESCRIPTION OR NON 
+INFRINGEMENT WITH REGARD TO THE SOFTWARE PRODUCT.
+
+6. EXCLUSION OF INCIDENTAL, CONSEQUENTIAL AND CERTAIN OTHER DAMAGES.  TO THE 
+MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL MICROSOFT OR ITS 
+SUPPLIERS BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL 
+DAMAGES WHATSOEVER (INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFITS 
+OR CONFIDENTIAL OR OTHER INFORMATION, FOR BUSINESS INTERRUPTION, FOR PERSONAL 
+INJURY, FOR LOSS OF PRIVACY, FOR FAILURE TO MEET ANY DUTY INCLUDING OF GOOD 
+FAITH OR OF REASONABLE CARE, FOR NEGLIGENCE, AND FOR ANY OTHER PECUNIARY OR 
+OTHER LOSS WHATSOEVER) ARISING OUT OF OR IN ANY WAY RELATED TO THE USE OF OR 
+INABILITY TO USE THE SOFTWARE PRODUCT, OR OTHERWISE UNDER OR IN CONNECTION WITH
+ANY PROVISION OF THIS EULA, EVEN IN THE EVENT OF THE FAULT, TORT (INCLUDING 
+NEGLIGENCE), STRICT LIABILITY, BREACH OF CONTRACT OR BREACH OF WARRANTY OF 
+MICROSOFT OR ANY SUPPLIER, AND EVEN IF MICROSOFT OR ANY SUPPLIER HAS BEEN 
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+7. LIMITATION OF LIABILITY AND REMEDIES.  NOTWITHSTANDING ANY DAMAGES THAT YOU 
+MIGHT INCUR FOR ANY REASON WHATSOEVER (INCLUDING, WITHOUT LIMITATION, ALL 
+DAMAGES REFERENCED ABOVE AND ALL DIRECT OR GENERAL DAMAGES), THE ENTIRE 
+LIABILITY OF MICROSOFT AND ANY OF ITS SUPPLIERS UNDER ANY PROVISION OF THIS 
+EULA AND YOUR EXCLUSIVE REMEDY FOR ALL OF THE FOREGOING (EXCEPT FOR ANY REMEDY 
+OF REPAIR OR REPLACEMENT ELECTED BY MICROSOFT WITH RESPECT TO ANY BREACH OF THE
+LIMITED WARRANTY) SHALL BE LIMITED TO THE GREATER OF THE AMOUNT ACTUALLY PAID 
+BY YOU FOR THE SOFTWARE PRODUCT OR U.S.$5.00.  THE FOREGOING LIMITATIONS, 
+EXCLUSIONS AND DISCLAIMERS (INCLUDING SECTIONS 5 AND 6 ABOVE) SHALL APPLY TO 
+THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, EVEN IF ANY REMEDY FAILS ITS 
+ESSENTIAL PURPOSE.
+
+8. EXPORT RESTRICTIONS.  You acknowledge that the Software Product is subject 
+to U.S. export jurisdiction.  You agree to comply with all applicable 
+international and national laws that apply to the Software Product, including 
+the U.S. Export Administration Regulations, as well as end-user, end-use and 
+destination restrictions issued by U.S. and other governments.  For additional 
+information, see http://www.microsoft.com/exporting/.
+
+9. GOVERNING LAW.  This EULA is governed by the laws of the State of 
+Washington, and You consent to exclusive jurisdiction and venue in the federal 
+courts sitting in King County, Washington, unless no federal jurisdiction 
+exists, in which case You consent to exclusive jurisdiction and venue in the 
+Superior Court of King County, Washington.
+
+10. ENTIRE AGREEMENT.  This EULA (including any addendum or amendment to this 
+EULA which is included with the Software Product) is the entire agreement 
+between You and Microsoft relating to the Software Product and they supersede 
+all prior or contemporaneous oral or written communications, proposals and 
+representations with respect to the Software Product or any other subject 
+matter covered by this EULA.  To the extent the terms of any Microsoft policies
+or programs for support services conflict with the terms of this EULA, the 
+terms of this EULA shall control.
+
+Should You have any questions concerning this EULA, or if You desire to contact
+Microsoft for any reason, please contact the Microsoft subsidiary serving Your 
+country, or write: Microsoft Sales Information Center/One Microsoft Way/
+Redmond, WA 98052-6399.

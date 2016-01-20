@@ -1,0 +1,770 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "AG Craft"=".\AG_Craft.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name AgCrHub
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMW
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name CraftToolbar
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "AG Craft Deluxe"=".\AG_CraftDeluxe.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name AgCrDxHub
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMW
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name CraftToolbar
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "AG CreateaParty"=".\AG_CreateaParty.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name AgCpHub
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMW
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "AG Premium"=".\AG_Premium.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name AgPrHub
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMW
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMToolbar
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "AG Spiritual"=".\AG_Spiritual.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name AgSpHub
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMW
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMToolbar
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "AG Standard"=".\AG_Standard.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name AgPrHub
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMW
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMToolbar
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "AgCpHub"=".\Resource\AG\CreateAParty\AgCpHub\AgCpHub.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "AgCrDxHub"=".\Resource\AG\Craft\AgCrDxHub\AgCrDxHub.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "AgCrHub"=".\Resource\AG\Craft\AgCrHub\AgCrHub.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "AgPrHub"=".\Resource\AG\Print\AgPrHub\AgPrHub.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "AgSpHub"=".\Resource\AG\Spirit\AgSpHub\AgSpHub.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "CIndex"=".\CINDEX\cindexnt.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Card Server FTP DLL"=".\App\CARDFTP\Ftp32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ConnMgr"=".\ConnMgr\ConnMgr.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "CraftRes"=".\Resource\AG\Craft\CraftRes.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "CraftToolbar"=".\Toolbars\Craft\CraftToolbar.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Download"=".\Download\Download.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Framework"=".\Framework\Framework.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name TpsLibs
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PNG Library
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ZLIB Library
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Ftbld32"=".\App\ftbld\Ftbld32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GraphicComp"=".\GraphicComp\GraphicComp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "GroupComp"=".\GroupComp\GroupComp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "HeadlineComp"=".\HeadlineComp\HeadlineComp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ImageComp"=".\ImageComp\ImageComp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "License DLL"=".\App\LICDLL\Lic32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PM Platinum"=".\PM_Platinum.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name hubres32
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMW
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMToolbar
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "PM Publishing Suite"=".\PM_PubSuite.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name PMToolbar
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "PMToolbar"=".\Toolbars\Printmaster\PMToolbar.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PMW"=".\Pmw.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name pmwres32
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PNG32
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib32
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name cindexnt
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name CIndex
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name CraftRes
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PrintRes
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name SpiritRes
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name border
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GraphicComp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GroupComp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name HeadlineComp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ImageComp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name TrueType DLL
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Card Server FTP DLL
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name License DLL
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ConnMgr
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PathComp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Ftbld32
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "PMWCompress"=".\PMWCompress\PMWCompress.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PNG Library"=".\PNG\Png32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PSLaunchDLL"=".\PSLaunchDLL\PSLaunchDLL.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "PSToolbar"=".\Toolbars\PrintShop\PSToolbar.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PathComp"=".\PathComp\PathComp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Framework
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Pmwdeu32"=".\langdep\deu\Pmwdeu32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Pmweng32"=".\langdep\eng\Pmweng32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Pmwfra32"=".\langdep\fra\Pmwfra32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Print Shop"=".\PrintShop.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name hubres32
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PMW
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PSToolbar
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "PrintRes"=".\Resource\AG\Print\PrintRes.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "SpiritRes"=".\Resource\AG\Spirit\SpiritRes.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "TpsLibs"=".\TPSLibs\TpsLibs.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "TrueType DLL"=".\TT\Pmwtt32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Uninst32"=".\UNINST\Uninst32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Upgrade"=".\App\UPGRADE\Iupg32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ZLIB Library"=".\ZLIB\Zlib32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "artmhub"=".\artmhub\artmhub.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "artmore"=".\artmore.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name CIndex
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PNG Library
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ZLIB Library
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "border"=".\App\border\border.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "hubres32"=".\hubres32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "pmwres32"=".\pmwres32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

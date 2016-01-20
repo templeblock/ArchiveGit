@@ -1,0 +1,2 @@
+@echo off
+call "C:\My Projects\AgApplications\CodeSigning\Sign.bat" "CpAppGreetings\Express\SingleImage\DiskImages\DISK1\CreateAndPrintGreetingsSetup.exe" "Create & Print Greetings" "http://www.americangreetings.com"

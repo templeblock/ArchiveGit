@@ -1,0 +1,286 @@
+;
+; _DBG386.EQU
+;
+; The Greenleaf Comm++ Library
+;
+; Copyright (C) 1991-95 Greenleaf Software Inc.  All Rights Reserved.
+;
+; NOTES
+;
+; This file contains the macros used to provide debug output services
+; for the protected mode ISR.  Debug output services are fully
+; defined in DEBUG386.ASM.
+;
+; MODIFICATIONS
+;
+;
+;
+; Any routine that wants to use debug services can include this header
+; file.  Unfortunately, if it gets included by DEBUG386.ASM, we are
+; going to see a conflict between these EXTRN definitions and the
+; PUBLIC definitions in the source module.  We avoid this conflict by
+; simply defining _DEBUG32 in DEBUG386.ASM so that these guys won't get
+; pulled in by that module.
+;
+; Note also that these externs don't get defined if ISR_DEBUG is not turned
+; on.  This prevents this code from being linked in in a production release.
+;
+
+IFNDEF  _DEBUG32
+IFDEF ISR_DEBUG
+
+PISRCODE                     SEGMENT BYTE PUBLIC USE32 'CODE'
+                             EXTRN   C _VidGoto32:NEAR
+                             EXTRN   C _VidPutc32:NEAR
+                             EXTRN   C _VidDat32:NEAR
+PISRCODE                     ENDS
+
+ENDIF
+
+ENDIF
+
+;
+;  Macro: VIDGOTO row,col
+;
+;
+;  ARGUMENTS
+;
+;   row : The row to go to on the screen.  This can be any sort
+;         of identifier that will push 32 bits on the stack
+;         with a "push row" instruction.
+;
+;   col : The column to go to on the screen. This can be any sort
+;         of identifier that will push 32 bits on the stack
+;         with a "push col" instruction.
+;
+;  DESCRIPTION
+;
+;  This macro is used in the protected ISR to move the cursor, or current
+;  output location, to a specific location on the screen.
+;
+;  SIDE EFFECTS
+;
+;   None.
+;
+;  RETURNS
+;
+;  Nothing.
+;
+;  AUTHOR
+;
+;   SM          October 17, 1994
+;
+;  MODIFICATIONS
+;
+;
+
+VIDGOTO macro row, col  ; Tag: Debug private
+        push col
+        push row
+        call near ptr _VidGoto32
+        add sp,8
+        endm
+
+;
+;  Macro: VIDPUTS str
+;
+;
+;  ARGUMENTS
+;
+;   str : A string that needs to be displayed on the screen.  Note
+;         that this doesn't have to be a null terminated string.
+;
+;  DESCRIPTION
+;
+;  This macro is used in the protected ISR to display an entire string
+;  on the screen.  It operates a little differently from the same
+;  function in real mode.  This guy just wastefully uses an IRPC loop
+;  to expand out to a single call to _VidPutc32 for every single character
+;  in the string.
+;
+;  SIDE EFFECTS
+;
+;   None.
+;
+;  RETURNS
+;
+;   Nothing.
+;
+;  AUTHOR
+;
+;   SM          October 17, 1994
+;
+;  MODIFICATIONS
+;
+;
+
+VIDPUTS macro str  ; Tag: Debug private
+        irpc  char, <str>
+            push '&char'
+            call _VidPutc32
+            add  sp,4
+        endm
+        endm
+
+;
+;  Macro: VIDPUTC char
+;
+;
+;  ARGUMENTS
+;
+;   char : A single character that needs to be displayed on the screen.
+;
+;  DESCRIPTION
+;
+;  This macro is used in the protected ISR to display a single character
+;  at the current cursor position on the screen.  It does this with
+;  a single call to _VidPutc32.  Note that the argument can be anything
+;  that pushes a 32 byte value with assembly of "push char".
+;
+;  SIDE EFFECTS
+;
+;   None.
+;
+;  RETURNS
+;
+;   Nothing.
+;
+;  AUTHOR
+;
+;   SM          October 17, 1994
+;
+;  MODIFICATIONS
+;
+;
+
+VIDPUTC macro char  ; Tag: Debug private
+        push char
+        call _VidPutc32
+        add  sp,4
+        endm
+
+;
+;  Macro: VIDPUTBYTE data
+;
+;
+;  ARGUMENTS
+;
+;   data : Any eight bit value that can be moved into al with
+;          a mov al, data instruction.
+;
+;  DESCRIPTION
+;
+;  This macro is used in the protected ISR to display a single binary
+;  byte in hex.  The real work is done by VidDat32, the macro just
+;  takes care of setting things up to facilitate the call.
+;
+;  SIDE EFFECTS
+;
+;   None.
+;
+;  RETURNS
+;
+;   Nothing.
+;
+;  AUTHOR
+;
+;   SM          October 17, 1994
+;
+;  MODIFICATIONS
+;
+;
+
+VIDPUTBYTE macro dat  ; Tag: Debug private
+           push  eax
+           mov   al,dat
+           ror   eax,8
+           push  2
+           push  eax
+           call  _VidDat32
+           add   sp,8
+           pop eax
+           endm
+
+;
+;  Macro: VIDPUTWORD data
+;
+;
+;  ARGUMENTS
+;
+;   data : Any 16 bit value that can be moved into ax with
+;          a mov ax, data instruction.
+;
+;  DESCRIPTION
+;
+;  This macro is used in the protected ISR to display a single binary
+;  word in hex.  The real work is done by VidDat32, the macro just
+;  takes care of setting things up to facilitate the call.
+;
+;  SIDE EFFECTS
+;
+;   None.
+;
+;  RETURNS
+;
+;   Nothing.
+;
+;  AUTHOR
+;
+;   SM          October 17, 1994
+;
+;  MODIFICATIONS
+;
+;
+
+VIDPUTWORD macro dat  ; Tag: Debug private
+           push  eax
+           mov   ax,dat
+           ror   eax,16
+           push  4
+           push  eax
+           call  _VidDat32
+           add   sp,8
+           pop eax
+           endm
+
+;
+;  Macro: VIDPUTDWORD data
+;
+;
+;  ARGUMENTS
+;
+;   data : Any 32 bit value that can be moved into eax with
+;          a mov eax, data instruction.
+;
+;  DESCRIPTION
+;
+;  This macro is used in the protected ISR to display a single binary
+;  dword in hex.  The real work is done by VidDat32, the macro just
+;  takes care of setting things up to facilitate the call.
+;
+;  SIDE EFFECTS
+;
+;   None.
+;
+;  RETURNS
+;
+;   Nothing.
+;
+;  AUTHOR
+;
+;   SM          October 17, 1994
+;
+;  MODIFICATIONS
+;
+;
+
+VIDPUTDWORD macro dat  ; Tag: Debug private
+           push  eax
+           mov   eax,dat
+           push  8
+           push  eax
+           call  _VidDat32
+           add   sp,8
+           pop eax
+           endm
+

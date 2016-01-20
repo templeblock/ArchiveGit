@@ -1,0 +1,32 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                    rwrong.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  What's Wrong dialog functions.
+ Date Created:  02/03/94
+       Author:  Stephen M. Suggs
+
+*****************************************************************************/
+
+//#ifndef RWRONG_P
+//#define RWRONG_P
+
+/****************************** Public Functions ****************************/
+
+extern BOOL WINPROC EXPORT DlgRoomWrong (HWND hWnd,UINT wMsg,WPARAM wParam,LPARAM lParam);
+
+/****************************** Local Functions *****************************/
+
+static void SetInitialControls (HWND hWnd);
+static void HideAllControls (HWND hWnd);
+

@@ -1,0 +1,4 @@
+// Source file: tlines.c
+BOOL WINPROC EXPORT DlgLinesProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+int LinesProc( HWND hWindow, LPARAM lParam, UINT msg );
+

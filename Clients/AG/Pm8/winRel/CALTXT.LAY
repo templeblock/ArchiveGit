@@ -1,0 +1,41 @@
+# This is the CALENDAR layout file for PrintMaster III
+# A layout begins with a name on a line by itself.
+# On the next line, the first number is a "flags" number composed of the
+# sum of:
+#    1 - X Flipped              : Not implemented yet
+#    2 - Y Flipped              : Not implemented yet
+#    4 - Relative Size          : Use the actual size of the graphic
+#    8 - Repeated X             : Not implemented yet
+#   16 - Repeated Y             : Not implemented yet
+#   32 - Centered X             : Graphic is centered horizontally
+#   64 - Centered Y             : Graphic is centered vertically
+#  128 - Align Left             : Graphic is aligned to the left of the box
+#  256 - Align Right            : Graphic is aligned to the right of the box
+#  512 - Align Top              : Graphic is aligned to the top of the box
+# 1024 - Align Bottom           : Graphic is aligned to the bottom of the box
+#
+# The next four numbers are the element box with 0 being left or top and
+# 1000 being right or bottom. Numbers are left, top, right, bottom.
+# Flags like aligned are with respect to the edges of the element box.
+# Flags like centered are with respect to the page (and override align).
+# If no left or right align flags are given, the element is centered within
+# the box horizontally.
+# If no top or bottom align flags are given, the element is centered within
+# the box vertically.
+#............................CALENDAR LAYOUT FILE 
+
+Top Centered
+32 100 0 890 100.
+
+Top Left 1
+640 0 0 500 100.
+
+Top Left 2
+640 40 20 250 100.
+
+Top Right 1
+768 500 0 1000 100.
+
+Top Right 2
+768 750 20 960 100.
+

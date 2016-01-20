@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd"-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title></title>
+		<style type="text/css">
+			body
+				{ font-family:Verdana,sans-serif; font-size: 8pt; margin: 0px; background-color:#d4efff; background-image:url(images/bgtop.gif); background-repeat:repeat-x; }
+			img
+				{ border-width: 0px; }
+			div, span, a, td
+				{ white-space:nowrap; }
+			table
+				{ border:0px; padding:0px; margin:0px; font-size: 8pt; }
+			a
+				{ color:#1A4C8F; text-decoration:none; }
+			a:hover
+				{ color:#FF0000; text-decoration:underline; }
+		</style>
+		<script language="javascript">
+			function OnLoad()
+			{
+				RemoveFocus();
+			}
+		</script>
+		<script language="javascript" src="navigation.js"></script>
+	</head>
+	<body onload="OnLoad()">
+		<table width="100%" cellspacing="0" cellpadding="3">
+			<tr>
+				<td rowspan="2" width="226">
+					<a href="javascript:// Go online to Create &amp; Print"
+						onclick="window.open('http://www.americangreetings.com/cnp/hpdigital.pd?source=hpdigital');return false;">
+					<img name="hplogo" src="images/aglogo.gif" width="226" height="88" border="0" alt="Go online to Create &amp; Print"></a>
+				</td>
+				<td align="left" valign="bottom">
+					<!--a href="javascript:// Help" onclick="return Help();"><img name="help" src="images/help.gif" width="76" height="21" border="0" alt="Help"></a-->
+				</td>
+			</tr>
+			<tr>
+				<td align="left" valign="bottom">
+					<span id="categoryLabel">&nbsp;</span>
+					<a name="category" href="javascript://" onclick="return BreadCrumbs();"></a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

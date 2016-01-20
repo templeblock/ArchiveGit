@@ -1,0 +1,45 @@
+// Crusher.idl : IDL source for Crusher
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Crusher.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(10EBF8E5-B115-4D10-9805-FC1E9B1BCC26),
+	dual,
+	helpstring("IPlugin Interface"),
+	pointer_default(unique)
+]
+interface IPlugin : IDispatch
+{
+	[id(1)] HRESULT Version([out,retval]BSTR* pbstrVersion);
+	[id(2)] HRESULT SpellCheck([in]BSTR bstrText, [in]int iFlags, [out,retval]BSTR* pbstrChangedText);
+	[id(3)] HRESULT UploadImages([in]BSTR bstrURL, [in]BSTR bstrFilePath, [in]int iMaxWidth, [in]int iMaxHeight, [in]int nQuality, [in]int iFlags, [out,retval]BSTR* pbstrFilePathNew);
+	[id(4)] HRESULT ResizeJPG([in]BSTR bstrFilePath, [in]int iMaxWidth, [in]int iMaxHeight, [in]int nQuality, [in]int iFlags, [out,retval]BSTR* pbstrFilePathNew);
+	[id(5)] HRESULT ColorPicker([in]int iFormat, [out,retval]BSTR* pbstrColor);
+	[id(6)] HRESULT ColorPicker2([in]int iFormat, [out,retval]BSTR* pbstrColor);
+};
+
+[
+	uuid(2194547B-7361-42A3-874E-A6007734E1C5),
+	version(1.0),
+	helpstring("Crusher 1.0 Type Library")
+]
+library CrusherLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(BD8667B7-38D8-4C77-B580-18C3E146372C),
+		helpstring("Plugin Class")
+	]
+	coclass Plugin
+	{
+		[default] interface IPlugin;
+	};
+};

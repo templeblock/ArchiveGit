@@ -1,0 +1,29 @@
+// Source file: controls.c
+long WINPROC EXPORT IconControl( HWND hWindow, unsigned message, WPARAM wParam, LPARAM lParam );
+static void DrawIconControl(HDC hDC, HWND hWnd, LPRECT lpRect, BOOL bSelected, BOOL bTrackInRect );
+long WINPROC EXPORT ToyControl( HWND hWindow, unsigned message, WPARAM wParam, LPARAM lParam );
+static void ResizeDIBControl( HWND hControl );
+long WINPROC EXPORT Color2Control( HWND hWindow, UINT message, WPARAM wParam, LPARAM lParam );
+void DrawColorPatch( HDC hDC, LPRECT lpRect, LPRGB lpRGB, BOOL bSuperBlt );
+void SetControlValue( HWND hDlg, int nIDDlgItem, int nIndex, long lValue, BOOL fNotify );
+long GetControlValue( HWND hDlg, int nIDDlgItem, int nIndex );
+long WINPROC EXPORT TextBlockControl( HWND hWindow, UINT message, WPARAM wParam, LPARAM lParam );
+BOOL GetTextBlockData( int id, LPSTR lpData, int iSize );
+void DrawStaticBox( HDC hDC, LPRECT lpRect, BOOL bRaised, BOOL bDouble );
+static void DrawBoxFrame( HDC hDC, LPRECT lpRect );
+void DrawSculptedBox( HDC hDC, LPRECT lpRect, BOOL bFocus, BOOL bDown, BOOL bDouble );
+long WINPROC EXPORT ImageControl( HWND hWindow, unsigned message, WPARAM wParam, LPARAM lParam );
+void DrawImageControl( HDC hDC, HWND hWnd, LPFRAME lpFrame, LPRECT lpDestRect, int dx, int dy, BOOL bShadows );
+void DrawObjListControl( HDC hDC, HWND hWnd, HBITMAP hBitmapOut, LPOBJECT lpBase, LPRECT lpDestRect, int dx, int dy, BOOL bShadows );
+int DrawObjList( HDC hDC, HBITMAP hBitmapOut, LPOBJECT lpBase, LPRECT lpSrcRect, LPRECT lpDstRect);
+static void ComputeImageControlRect( HWND hWnd, int iImageWidth, int iImageHeight, LPRECT lpRect, BOOL bShadows );
+static LPFRAME GetImageFrame( HWND hWnd, LPINT lpbMustClose );
+void EraseControlBackground( HDC hDC, HWND hWnd, LPRECT lpRect, WORD wType );
+HBRUSH GetBackgroundBrush( HDC hDC, HWND hWnd, WORD wType);
+HBRUSH SelectBackgroundBrush( HDC hDC, HWND hWnd, WORD wType );
+static LRESULT HandleNonClientHit( HWND hWindow, UINT message, WPARAM wParam, LPARAM lParam );
+static void ConstrainRatio( LPINT w, LPINT h, int width, int height );
+static void MakeRatio( LPINT w, LPINT h, int width, int height );
+HBITMAP Image2Bitmap(HWND hWnd);
+
+

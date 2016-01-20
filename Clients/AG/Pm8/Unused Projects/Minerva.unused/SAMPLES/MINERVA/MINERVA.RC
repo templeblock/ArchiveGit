@@ -1,0 +1,2394 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#include "ctl3d.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 1,0,0,90
+ PRODUCTVERSION 2,0,0,50
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x10001L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Pegasus Imaging Corporation\0"
+            VALUE "FileDescription", "Minerva Sample Application\0"
+            VALUE "FileVersion", "1.0.0.90\0"
+            VALUE "InternalName", "MINERVA\0"
+            VALUE "LegalCopyright", "Copyright © 1996-1998 Pegasus Imaging Corporation\0"
+            VALUE "OriginalFilename", "MINERVA.EXE\0"
+            VALUE "ProductName", "PEGASUS\0"
+            VALUE "ProductVersion", "2.00.50\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#include ""ctl3d.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#ifdef SSM_RES\r\n"
+    "\r\n"
+    "PICN1820                SSM     DISCARDABLE     ""..\\\\..\\\\bin\\\\picn1820.ssm""\r\n"
+    "\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MINERVA_FRAME       ICON    DISCARDABLE     "RES\\MFRAME.ICO"
+IDI_MINERVA_CHILD       ICON    DISCARDABLE     "RES\\MCHILD.ICO"
+IDI_PEGASUS             ICON    DISCARDABLE     "RES\\PEGASUS.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+MINERVAMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open...\tCtrl-O",            IDM_FILE_OPEN
+        MENUITEM "&Close",                      IDM_FILE_CLOSE
+        MENUITEM "&Save\tCtrl-S",               IDM_FILE_SAVE
+        MENUITEM "Save &As...",                 IDM_FILE_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties\tAlt-Enter",      IDM_FILE_PROPERTIES
+        MENUITEM "&Image Options...",           IDM_FILE_IMAGEOPTIONS
+        POPUP "&Default Options"
+        BEGIN
+            POPUP "&Open"
+            BEGIN
+                MENUITEM SEPARATOR
+            END
+            POPUP "&Save"
+            BEGIN
+                MENUITEM SEPARATOR
+            END
+            POPUP "&Transform"
+            BEGIN
+                MENUITEM SEPARATOR
+            END
+            POPUP "Too&ls"
+            BEGIN
+                MENUITEM SEPARATOR
+            END
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_FILE_EXIT
+    END
+    POPUP "&Transform"
+    BEGIN
+        MENUITEM SEPARATOR
+    END
+    POPUP "Too&ls"
+    BEGIN
+        MENUITEM SEPARATOR
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New Window",                 IDM_WINDOW_NEWWINDOW
+        MENUITEM "&Cascade",                    IDM_WINDOW_CASCADE
+        MENUITEM "Tile &Horizontal",            IDM_WINDOW_TILEHORIZONTAL
+        MENUITEM "Tile &Vertical",              IDM_WINDOW_TILEVERTICAL
+        MENUITEM "Arrange &Icons",              IDM_WINDOW_ARRANGEICONS
+        MENUITEM "Close &All",                  IDM_WINDOW_CLOSEALL
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "Contents\tF1",                IDM_HELP_CONTENTS
+        MENUITEM "About...",                    IDM_HELP_ABOUT
+    END
+END
+
+MINERVAPOPUP MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "&New Window",                 IDM_WINDOW_NEWWINDOW
+        MENUITEM "&Close",                      IDM_FILE_CLOSE
+        MENUITEM "&Save",                       IDM_FILE_SAVE
+        MENUITEM "Save &As...",                 IDM_FILE_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties...",              IDM_FILE_PROPERTIES
+        MENUITEM "&Image Options...",           IDM_FILE_IMAGEOPTIONS
+        POPUP "&Transform"
+        BEGIN
+            MENUITEM SEPARATOR
+        END
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+MINERVAACCELERATORS ACCELERATORS DISCARDABLE 
+BEGIN
+    "O",            IDM_FILE_OPEN,          VIRTKEY, CONTROL, NOINVERT
+    "S",            IDM_FILE_SAVE,          VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          IDM_HELP_CONTENTS,      VIRTKEY, NOINVERT
+    VK_RETURN,      IDM_FILE_PROPERTIES,    VIRTKEY, ALT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_BMPPROP DIALOG DISCARDABLE  0, 0, 199, 149
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Bitmap Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "General",-1,10,5,180,120
+    LTEXT           "Filename:",-1,15,20,32,8
+    LTEXT           "",IDC_BMPPROP_FILENAME,50,20,119,8,WS_TABSTOP
+    LTEXT           "File Size:",-1,15,30,31,8
+    LTEXT           "",IDC_BMPPROP_FILESIZE,50,30,119,8
+    LTEXT           "Image Width:",-1,29,50,44,8
+    LTEXT           "Image Height:",-1,26,60,47,8
+    LTEXT           "Bits Per Pixel:",-1,26,70,47,8
+    LTEXT           "Image Size:",-1,34,80,39,8
+    LTEXT           "Color Table Size:",-1,16,90,57,8
+    LTEXT           "Colors Used:",-1,30,100,43,8
+    GROUPBOX        "",-1,75,40,50,75
+    LTEXT           "",IDC_BMPPROP_IMAGEWIDTH,80,50,40,8
+    LTEXT           "",IDC_BMPPROP_IMAGEHEIGHT,80,60,40,8
+    LTEXT           "",IDC_BMPPROP_BITSPERPIXEL,80,70,40,8
+    LTEXT           "",IDC_BMPPROP_IMAGESIZE,80,80,40,8
+    LTEXT           "",IDC_BMPPROP_COLORTABLESIZE,80,90,40,8
+    LTEXT           "",IDC_BMPPROP_NUMBERIMPORTANT,80,100,40,8
+    DEFPUSHBUTTON   "OK",IDOK,74,130,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,142,135,57,14,NOT WS_VISIBLE | 
+                    NOT WS_TABSTOP
+END
+
+IDD_ABOUT DIALOG DISCARDABLE  0, 0, 282, 191
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "About Minerva"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_PEGASUS,IDC_STATIC,8,11,18,20
+    LTEXT           "VersionInfo FileDescription",IDC_ABOUT_FILEDESCRIPTION,
+                    34,9,180,8
+    LTEXT           "Version %s for PIC Version %d.%.2d Libraries",
+                    IDC_ABOUT_VERSION,34,17,180,8
+    LTEXT           "VersionInfo LegalCopyright",IDC_ABOUT_LEGALCOPYRIGHT,34,
+                    33,238,8
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,8,45,264,1
+    LTEXT           "PIC Libraries found:",IDC_STATIC,8,50,66,8
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,225,177,57,14,NOT WS_VISIBLE
+    DEFPUSHBUTTON   "OK",IDOK,222,8,50,14
+    LISTBOX         IDC_ABOUT_LIBRARIES,8,63,264,119,LBS_SORT | WS_DISABLED | 
+                    WS_TABSTOP
+    LTEXT           "Memory model and compiler",IDC_ABOUT_COMPILERMODEL,34,
+                    25,238,8
+END
+
+IDD_OSEQJPGOPT DIALOG DISCARDABLE  0, 0, 334, 201
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Expand Sequential JPEG Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "32 (16M colors)",IDC_OSEQJPGOPT_RADIO_32BITS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,18,62,10
+    CONTROL         "24 (16M colors)",IDC_OSEQJPGOPT_RADIO_24BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,30,62,10
+    CONTROL         "16 (64K colors)",IDC_OSEQJPGOPT_RADIO_16BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,42,61,10
+    CONTROL         "8 (256 colors)",IDC_OSEQJPGOPT_RADIO_8BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,54,61,10
+    CONTROL         "4 (16 colors)",IDC_OSEQJPGOPT_RADIO_4BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,66,57,10
+    GROUPBOX        "&Bits/Pixel",IDC_STATIC,10,5,83,78,WS_GROUP
+    CHECKBOX        "Make &Gray Using",IDC_OSEQJPGOPT_CHECK_MAKEGRAY,100,18,
+                    67,10
+    EDITTEXT        IDC_OSEQJPGOPT_EDIT_GRAYSTOMAKE,170,17,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Grays",IDC_OSEQJPGOPT_STATIC_GRAYS,193,19,20,8,NOT 
+                    WS_GROUP
+    CONTROL         "&Dither Colors/Grays",IDC_OSEQJPGOPT_CHECK_DITHER,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,30,75,10
+    CONTROL         "&Enhanced Decompress",
+                    IDC_OSEQJPGOPT_CHECK_ENHANCEDDECOMPRESS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,100,42,86,10
+    LTEXT           "&Password:",IDC_STATIC,100,57,35,8,NOT WS_GROUP
+    EDITTEXT        IDC_OSEQJPGOPT_EDIT_PASSWORD,100,70,31,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Ti&ming...",IDC_BUTTON_TIMING,275,8,50,14
+    CONTROL         "100%",IDC_OSEQJPGOPT_RADIO_FULLSIZE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,198,48,29,10
+    CONTROL         "25%",IDC_OSEQJPGOPT_RADIO_FOURTH,"Button",
+                    BS_AUTORADIOBUTTON,229,48,25,10
+    CONTROL         "1/16",IDC_OSEQJPGOPT_RADIO_SIXTEENTH,"Button",
+                    BS_AUTORADIOBUTTON,261,48,27,10
+    CONTROL         "1/64",IDC_OSEQJPGOPT_RADIO_SIXTYFOURTH,"Button",
+                    BS_AUTORADIOBUTTON,293,48,27,10
+    GROUPBOX        "&Image Size",IDC_STATIC,190,35,135,30,WS_GROUP
+    CONTROL         "Use Embedded Palette",
+                    IDC_OSEQJPGOPT_RADIO_EMBEDDEDPALETTE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,106,85,10
+    CONTROL         "Make Optimal Palette Using",
+                    IDC_OSEQJPGOPT_RADIO_MAKEPALETTE,"Button",
+                    BS_AUTORADIOBUTTON,18,118,101,10
+    CONTROL         "Use External Palette",
+                    IDC_OSEQJPGOPT_RADIO_EXTERNALPALETTE,"Button",
+                    BS_AUTORADIOBUTTON,18,130,78,10
+    GROUPBOX        "&Color Palette",IDC_OSEQJPGOPT_STATIC_COLORPALETTE,10,
+                    93,165,82,WS_GROUP
+    EDITTEXT        IDC_OSEQJPGOPT_EDIT_COLORSTOMAKE,122,117,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Colors",IDC_OSEQJPGOPT_STATIC_COLORS,145,119,22,8,NOT 
+                    WS_GROUP
+    LTEXT           "External Palette File Name:",
+                    IDC_OSEQJPGOPT_STATIC_EXTERNALPALETTE,34,142,90,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_OSEQJPGOPT_EDIT_EXTERNALPALETTE,34,155,86,13,
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_OSEQJPGOPT_BUTTON_BROWSE,125,155,40,13
+    GROUPBOX        "&Rectangle in Image",IDC_STATIC,190,75,135,55
+    LTEXT           "Left:",IDC_STATIC,205,92,16,8,NOT WS_GROUP
+    EDITTEXT        IDC_OSEQJPGOPT_EDIT_IMAGELEFT,224,90,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Top:",IDC_STATIC,261,92,16,8,NOT WS_GROUP
+    EDITTEXT        IDC_OSEQJPGOPT_EDIT_IMAGETOP,280,90,20,13,ES_AUTOHSCROLL
+    LTEXT           "Width:",IDC_STATIC,198,111,23,8,NOT WS_GROUP
+    EDITTEXT        IDC_OSEQJPGOPT_EDIT_IMAGEWIDTH,224,109,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Height:",IDC_STATIC,252,111,25,8,NOT WS_GROUP
+    EDITTEXT        IDC_OSEQJPGOPT_EDIT_IMAGEHEIGHT,280,109,20,13,
+                    ES_AUTOHSCROLL
+    GROUPBOX        "&Offset in Window",IDC_STATIC,190,140,135,35,
+                    WS_DISABLED
+    LTEXT           "Left:",IDC_STATIC,205,156,16,8,WS_DISABLED | NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_OSEQJPGOPT_EDIT_WINDOWLEFT,225,155,20,13,
+                    ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Top:",IDC_STATIC,262,156,16,8,WS_DISABLED | NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_OSEQJPGOPT_EDIT_WINDOWTOP,280,155,20,13,
+                    ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "&Set Default Options",IDC_OSEQJPGOPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,182,75,10
+    DEFPUSHBUTTON   "OK",IDOK,95,180,50,14
+    PUSHBUTTON      "&Try Options",IDTEST,155,180,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,215,180,50,14
+    PUSHBUTTON      "&Help",IDHELP,275,180,50,14
+END
+
+IDD_GETPASSWORD DIALOG DISCARDABLE  0, 0, 187, 81
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Image Password"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "This image requires a password and no password was provided or the password is incorrect.",
+                    IDC_STATIC,13,10,160,16
+    LTEXT           "&Password:",IDC_STATIC,59,37,35,8,NOT WS_GROUP
+    EDITTEXT        IDC_PASSWORD_EDIT,96,35,31,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,38,60,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,98,60,50,14
+END
+
+IDD_SEQJPGPROP DIALOG DISCARDABLE  0, 0, 199, 268
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Sequential JPEG Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "General",IDC_STATIC,10,5,180,132
+    LTEXT           "Filename:",IDC_STATIC,15,16,32,8
+    LTEXT           "",IDC_SEQJPGPROP_FILENAME,50,16,134,8,WS_TABSTOP
+    LTEXT           "File Size:",IDC_STATIC,16,26,31,8
+    LTEXT           "",IDC_SEQJPGPROP_FILESIZE,50,26,134,8
+    LTEXT           "Image Width:",IDC_STATIC,29,46,44,8
+    LTEXT           "Image Height:",IDC_STATIC,26,56,47,8
+    LTEXT           "Bits Per Pixel:",IDC_STATIC,26,66,47,8
+    LTEXT           "Image Size:",IDC_STATIC,34,76,39,8
+    LTEXT           "Color Table Size:",IDC_STATIC,16,86,57,8
+    LTEXT           "Colors Used:",IDC_STATIC,30,96,43,8
+    GROUPBOX        "Source:",IDC_STATIC,75,36,50,75
+    LTEXT           "",IDC_SEQJPGPROP_IMAGEWIDTH_SOURCE,80,46,40,8
+    LTEXT           "",IDC_SEQJPGPROP_IMAGEHEIGHT_SOURCE,80,56,40,8
+    LTEXT           "",IDC_SEQJPGPROP_BITSPERPIXEL_SOURCE,80,66,40,8
+    LTEXT           "",IDC_SEQJPGPROP_IMAGESIZE_SOURCE,80,76,40,8
+    LTEXT           "",IDC_SEQJPGPROP_COLORTABLESIZE_SOURCE,80,86,40,8
+    LTEXT           "",IDC_SEQJPGPROP_NUMBERIMPORTANT_SOURCE,80,96,40,8
+    GROUPBOX        "Displayed:",IDC_STATIC,132,36,50,75
+    LTEXT           "",IDC_SEQJPGPROP_IMAGEWIDTH_DISPLAYED,136,46,40,8
+    LTEXT           "",IDC_SEQJPGPROP_IMAGEHEIGHT_DISPLAYED,136,56,40,8
+    LTEXT           "",IDC_SEQJPGPROP_BITSPERPIXEL_DISPLAYED,136,66,40,8
+    LTEXT           "",IDC_SEQJPGPROP_IMAGESIZE_DISPLAYED,136,76,40,8
+    LTEXT           "",IDC_SEQJPGPROP_COLORTABLESIZE_DISPLAYED,136,86,40,8
+    LTEXT           "",IDC_SEQJPGPROP_NUMBERIMPORTANT_DISPLAYED,136,96,40,8
+    LTEXT           "PIC Version:",IDC_STATIC,38,114,42,8
+    LTEXT           "",IDC_SEQJPGPROP_PICVERSION,83,114,101,8
+    LTEXT           "Visual Orientation:",IDC_STATIC,19,124,61,8
+    LTEXT           "",IDC_SEQJPGPROP_VISUALORIENTATION,83,124,95,8
+    GROUPBOX        "Sequential JPEG",IDC_STATIC,11,142,181,105
+    LTEXT           "Compression Ratio:",IDC_STATIC,16,153,64,8
+    LTEXT           "",IDC_SEQJPGPROP_COMPRESSIONRATIO,83,153,101,8
+    LTEXT           "Entropy Coding:",IDC_STATIC,27,165,53,8
+    LTEXT           "",IDC_SEQJPGPROP_ENTROPYCODING,83,165,101,8
+    LTEXT           "Luminance:",IDC_STATIC,23,177,39,8
+    LTEXT           "",IDC_SEQJPGPROP_LUMINANCE,65,177,119,8
+    LTEXT           "Chrominance:",IDC_STATIC,16,187,46,8
+    LTEXT           "",IDC_SEQJPGPROP_CHROMINANCE,65,187,119,8
+    LTEXT           "Subsampling:",IDC_STATIC,18,197,44,8
+    LTEXT           "",IDC_SEQJPGPROP_SUBSAMPLING,65,197,119,8
+    LTEXT           "Comment:",IDC_STATIC,29,207,33,8
+    EDITTEXT        IDC_SEQJPGPROP_COMMENT,65,207,119,16,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | 
+                    WS_VSCROLL
+    LTEXT           "App Field:",IDC_STATIC,28,227,34,8
+    EDITTEXT        IDC_SEQJPGPROP_APP2,65,227,119,16,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | 
+                    WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,75,251,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,142,253,57,14,NOT WS_VISIBLE | 
+                    NOT WS_TABSTOP
+END
+
+IDD_SSEQJPGOPT DIALOG DISCARDABLE  0, 0, 338, 271
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Sequential JPEG Save Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Compress from Image as Displayed",
+                    IDC_SSEQJPGOPT_CHECK_IMAGEASDISPLAYED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,8,124,10
+    CONTROL         "PIC2",IDC_SSEQJPGOPT_RADIO_PIC2,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,24,36,27,10
+    CONTROL         "JFIF",IDC_SSEQJPGOPT_RADIO_JFIF,"Button",
+                    BS_AUTORADIOBUTTON,24,46,25,10
+    CONTROL         "Exif",IDC_SSEQJPGOPT_RADIO_EXIF,"Button",
+                    BS_AUTORADIOBUTTON,24,56,27,10
+    GROUPBOX        "Output Format",IDC_SSEQJPGOPT_STATIC_OUTPUTFORMAT,8,23,
+                    57,51,WS_GROUP
+    CONTROL         "No Rotation",IDC_SSEQJPGOPT_RADIO_ROTATE0,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,79,36,50,10
+    CONTROL         "90° Clockwise",IDC_SSEQJPGOPT_RADIO_ROTATE90,"Button",
+                    BS_AUTORADIOBUTTON,79,46,57,10
+    CONTROL         "180°",IDC_SSEQJPGOPT_RADIO_ROTATE180,"Button",
+                    BS_AUTORADIOBUTTON,145,36,26,10
+    CONTROL         "270°",IDC_SSEQJPGOPT_RADIO_ROTATE270,"Button",
+                    BS_AUTORADIOBUTTON,145,46,26,10
+    GROUPBOX        "Visual Orientation",
+                    IDC_SSEQJPGOPT_STATIC_VISUALORIENTATION,70,23,105,51,
+                    WS_GROUP
+    CONTROL         "Then Inverted Vertically",IDC_SSEQJPGOPT_CHECK_REVERSED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,79,58,89,10
+    CONTROL         "No Palette",IDC_SSEQJPGOPT_RADIO_NOPALETTE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,94,85,10
+    CONTROL         "",IDC_SSEQJPGOPT_RADIO_EMBEDDEDPALETTE,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,16,106,154,10
+    CONTROL         "Make Optimal Palette(s)",
+                    IDC_SSEQJPGOPT_RADIO_MAKEPALETTE,"Button",
+                    BS_AUTORADIOBUTTON,16,118,89,10
+    CONTROL         "Use External Palette",
+                    IDC_SSEQJPGOPT_RADIO_EXTERNALPALETTE,"Button",
+                    BS_AUTORADIOBUTTON,16,167,78,10
+    GROUPBOX        "Output &Color Palette",
+                    IDC_SSEQJPGOPT_STATIC_COLORPALETTE,8,81,167,125,WS_GROUP
+    LTEXT           "Use Source Image Embedded Palette",
+                    IDC_SSEQJPGOPT_STATIC_SOURCEEMBEDDED,25,102,122,8,NOT 
+                    WS_VISIBLE
+    LTEXT           "Use Displayed Image Palette",
+                    IDC_SSEQJPGOPT_STATIC_IMAGEEMBEDDED,25,110,95,8,NOT 
+                    WS_VISIBLE
+    CONTROL         "Optimal RGB",IDC_SSEQJPGOPT_RADIO_OPTIMALRGB,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,33,128,53,10
+    CONTROL         "Optimal YCbCr",IDC_SSEQJPGOPT_RADIO_OPTIMALYCBCR,"Button",
+                    BS_AUTORADIOBUTTON,98,129,61,10
+    LTEXT           "Primary Palette:",IDC_SSEQJPGOPT_STATIC_PRIMARY,33,139,
+                    52,8
+    EDITTEXT        IDC_SSEQJPGOPT_EDIT_PRIMARY,32,150,20,13,ES_AUTOHSCROLL
+    LTEXT           "Colors",IDC_SSEQJPGOPT_STATIC_PRIMARYCOLORS,55,151,22,8,
+                    NOT WS_GROUP
+    LTEXT           "Secondary Palette:",IDC_SSEQJPGOPT_STATIC_SECONDARY,98,
+                    139,63,8,NOT WS_GROUP
+    EDITTEXT        IDC_SSEQJPGOPT_EDIT_SECONDARY,98,149,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Colors",IDC_SSEQJPGOPT_STATIC_SECONDARYCOLORS,121,151,
+                    22,8,NOT WS_GROUP
+    LTEXT           "External Palette File Name:",
+                    IDC_SSEQJPGOPT_STATIC_EXTERNALPALETTE,32,177,90,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_SSEQJPGOPT_EDIT_EXTERNALPALETTE,32,187,86,13,
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_SSEQJPGOPT_BUTTON_EXTERNALPALETTE,123,
+                    187,40,13
+    LTEXT           "&Password:",IDC_SSEQJPGOPT_STATIC_PASSWORD,188,8,35,8,
+                    NOT WS_GROUP
+    EDITTEXT        IDC_SSEQJPGOPT_EDIT_PASSWORD,224,7,31,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Timing...",IDC_BUTTON_TIMING,278,6,50,14
+    GROUPBOX        "JPEG",IDC_SSEQJPGOPT_STATIC_JPEG,181,23,147,183
+    CONTROL         "Els Arithmetic Entropy Codiing",
+                    IDC_SSEQJPGOPT_RADIO_ELS,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,197,51,113,10
+    CONTROL         "Optimum Huffman Coding",
+                    IDC_SSEQJPGOPT_RADIO_OPTIMUMHUFFMAN,"Button",
+                    BS_AUTORADIOBUTTON,197,65,93,10
+    GROUPBOX        "Entopy Coding",IDC_SSEQJPGOPT_STATIC_ENTROPYCODING,189,
+                    35,132,52,WS_GROUP
+    CONTROL         "2 to 1 Horiz.",IDC_SSEQJPGOPT_CHECK_HSUBSAMPLING,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,201,106,52,10
+    CONTROL         "2 to 1 Vert.",IDC_SSEQJPGOPT_CHECK_VSUBSAMPLING,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,261,106,52,10
+    GROUPBOX        "Chrominance Sub-sampling",
+                    IDC_SSEQJPGOPT_STATIC_SUBSAMPLING,189,94,132,30,WS_GROUP
+    LTEXT           "Luminance Factor:",IDC_SSEQJPGOPT_STATIC_LUMINANCE,195,
+                    135,62,8,NOT WS_GROUP
+    EDITTEXT        IDC_SSEQJPGOPT_EDIT_LUMINANCE,258,133,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Chrominance Factor:",IDC_SSEQJPGOPT_STATIC_CHROMINANCE,
+                    189,156,68,8,NOT WS_GROUP
+    EDITTEXT        IDC_SSEQJPGOPT_EDIT_CHROMINANCE,258,154,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Quantization Table File Name:",
+                    IDC_SSEQJPGOPT_STATIC_QUANTIZATION,189,175,99,8,
+                    WS_DISABLED | NOT WS_GROUP
+    EDITTEXT        IDC_SSEQJPGOPT_EDIT_QUANTIZATION,189,187,86,13,
+                    ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "Browse...",IDC_SSEQJPGOPT_BUTTON_QUANTIZATION,280,187,
+                    40,13,WS_DISABLED
+    LTEXT           "Comment:",IDC_SSEQJPGOPT_STATIC_COMMENT,8,210,33,8
+    EDITTEXT        IDC_SSEQJPGOPT_EDIT_COMMENT,8,223,156,20,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL
+    LTEXT           "App Field:",IDC_SSEQJPGOPT_STATIC_APPFIELD,172,210,34,8
+    EDITTEXT        IDC_SSEQJPGOPT_EDIT_APPFIELD,172,223,156,20,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL
+    CONTROL         "&Set Default Options",IDC_SSEQJPGOPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,254,75,10
+    DEFPUSHBUTTON   "OK",IDOK,158,252,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,218,252,50,14
+    PUSHBUTTON      "&Help",IDHELP,278,252,50,14
+END
+
+IDD_XZOOMOPT DIALOG DISCARDABLE  0, 0, 247, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Zoom/Halftone Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Zoom",IDC_STATIC,16,8,98,88
+    CONTROL         "&Preserve Aspect Ratio",
+                    IDC_XZOOMOPT_CHECK_PRESERVEASPECT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,24,22,84,10
+    LTEXT           "&Horizontal Pixels:",IDC_STATIC,24,41,58,8,NOT WS_GROUP
+    EDITTEXT        IDC_XZOOMOPT_EDIT_HORIZONTAL,82,39,20,13,ES_AUTOHSCROLL
+    LTEXT           "&Vertical Pixels:",IDC_STATIC,32,58,50,8,NOT WS_GROUP
+    EDITTEXT        IDC_XZOOMOPT_EDIT_VERTICAL,82,56,20,13,ES_AUTOHSCROLL
+    LTEXT           "&% Original Size:",IDC_STATIC,30,75,52,8,NOT WS_GROUP
+    EDITTEXT        IDC_XZOOMOPT_EDIT_PERCENT,82,73,20,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Ti&ming...",IDC_BUTTON_TIMING,179,8,50,14
+    CONTROL         "&No Change",IDC_XZOOMOPT_RADIO_NOCHANGE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,139,40,48,10
+    CONTROL         "Make &Gray Scale",IDC_XZOOMOPT_RADIO_MAKEGRAY,"Button",
+                    BS_AUTORADIOBUTTON,139,57,67,10
+    CONTROL         "M&ake Halftone",IDC_XZOOMOPT_RADIO_MAKEMONOCHROME,
+                    "Button",BS_AUTORADIOBUTTON,139,74,59,10
+    GROUPBOX        "Gray",IDC_STATIC,131,26,98,70,WS_GROUP
+    CONTROL         "&Set Default Options",IDC_XZOOMOPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,105,75,10
+    DEFPUSHBUTTON   "OK",IDOK,37,122,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,98,122,50,14
+    PUSHBUTTON      "&Help",IDHELP,158,122,50,14
+    CHECKBOX        "Invisible Use Percent",IDC_XZOOMOPT_CHECK_USEPERCENT,0,
+                    137,81,10,NOT WS_VISIBLE | WS_DISABLED | NOT WS_TABSTOP
+END
+
+IDD_TIMING DIALOG DISCARDABLE  0, 0, 187, 86
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Timing Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Display Operation Timing",
+                    IDC_TIMING_CHECK_DISPLAYTIMING,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,18,8,92,10
+    LTEXT           "Input Buffer (K):",IDC_TIMING_STATIC_INPUTK,23,25,54,8
+    EDITTEXT        IDC_TIMING_EDIT_INPUTK,80,24,28,13
+    LTEXT           "Output Buffer (K):",IDC_TIMING_STATIC_OUTPUTK,18,44,59,
+                    8
+    EDITTEXT        IDC_TIMING_EDIT_OUTPUTK,80,43,28,13
+    DEFPUSHBUTTON   "OK",IDOK,131,6,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,131,24,50,14
+    PUSHBUTTON      "Help",IDHELP,131,43,50,14
+    CONTROL         "Yield to Windows",IDC_TIMING_CHECK_YIELD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,18,64,68,10
+END
+
+IDD_OSEQJPGTIME DIALOG DISCARDABLE  0, 0, 201, 225
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Sequential JPEG Expand Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",IDC_STATIC,10,10,181,184
+    RTEXT           "Timer Resolution:",IDC_STATIC,14,24,75,8
+    CONTROL         "",IDC_OSEQJPGTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,24,70,8
+    GROUPBOX        "Expand",IDC_STATIC,20,39,159,82
+    RTEXT           "Initialization:",IDC_STATIC,24,53,65,8
+    CONTROL         "",IDC_OSEQJPGTIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,53,70,8
+    RTEXT           "Execution:",IDC_STATIC,24,63,65,8
+    CONTROL         "",IDC_OSEQJPGTIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,63,70,8
+    RTEXT           "Termination:",IDC_STATIC,24,73,65,8
+    CONTROL         "",IDC_OSEQJPGTIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,73,70,8
+    RTEXT           "Memory Alloc:",IDC_STATIC,24,83,65,8
+    CONTROL         "",IDC_OSEQJPGTIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,83,70,8
+    RTEXT           "Memory Copy:",IDC_STATIC,24,93,65,8
+    CONTROL         "",IDC_OSEQJPGTIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,93,70,8
+    RTEXT           "Yield:",IDC_STATIC,24,103,65,8
+    LTEXT           "",IDC_OSEQJPGTIME_YIELD,93,103,70,8
+    RTEXT           "Expand:",IDC_STATIC,14,131,75,8
+    CONTROL         "",IDC_OSEQJPGTIME_OPTOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,131,70,8
+    RTEXT           "Image Display:",IDC_STATIC,14,151,75,8
+    CONTROL         "",IDC_OSEQJPGTIME_PAINT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,152,70,8
+    RTEXT           "Total:",IDC_STATIC,14,171,75,8
+    CONTROL         "",IDC_OSEQJPGTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,171,70,8
+    DEFPUSHBUTTON   "OK",IDOK,75,203,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,143,210,57,14,NOT WS_VISIBLE
+    RTEXT           "Make Display Palette:",IDC_STATIC,14,141,75,8
+    CONTROL         "",IDC_OSEQJPGTIME_DISPLAYPALETTE,"Static",
+                    SS_LEFTNOWORDWRAP | WS_GROUP,94,141,70,8
+END
+
+IDD_XZOOMTIME DIALOG DISCARDABLE  0, 0, 187, 225
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Zoom/Halftoon Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",IDC_STATIC,10,10,167,184
+    LTEXT           "Timer Resolution:",IDC_STATIC,17,24,58,8
+    CONTROL         "",IDC_XZOOMTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,24,70,8
+    GROUPBOX        "Zoom/Halftone",IDC_STATIC,20,39,145,92
+    RTEXT           "Initialization:",IDC_STATIC,24,63,51,8
+    CONTROL         "",IDC_XZOOMTIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,63,70,8
+    RTEXT           "Execution:",IDC_STATIC,24,73,51,8
+    CONTROL         "",IDC_XZOOMTIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,73,70,8
+    RTEXT           "Termination:",IDC_STATIC,24,83,51,8
+    CONTROL         "",IDC_XZOOMTIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,83,70,8
+    RTEXT           "Memory Alloc:",IDC_STATIC,24,93,51,8
+    CONTROL         "",IDC_XZOOMTIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,93,70,8
+    RTEXT           "Memory Copy:",IDC_STATIC,24,103,51,8
+    CONTROL         "",IDC_XZOOMTIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,103,70,8
+    RTEXT           "Yield:",IDC_STATIC,24,113,51,8
+    CONTROL         "",IDC_XZOOMTIME_YIELD,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,113,70,8
+    RTEXT           "Zoom/Halftone:",IDC_STATIC,14,141,61,8
+    CONTROL         "",IDC_XZOOMTIME_OPTOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,141,70,8
+    RTEXT           "Image Display:",IDC_STATIC,14,151,61,8
+    CONTROL         "",IDC_XZOOMTIME_PAINT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,151,70,8
+    RTEXT           "Total:",IDC_STATIC,14,171,61,8
+    CONTROL         "",IDC_XZOOMTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,171,70,8
+    DEFPUSHBUTTON   "OK",IDOK,68,203,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,130,210,57,14,NOT WS_VISIBLE
+    RTEXT           "Adj. Bit Depth:",IDC_STATIC,24,53,51,8
+    CONTROL         "",IDC_XZOOMTIME_UPSAMPLE,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,53,70,8
+END
+
+IDD_SSEQJPGTIME DIALOG DISCARDABLE  0, 0, 187, 185
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Sequential JPEG Compress Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",IDC_STATIC,10,10,167,144
+    RTEXT           "Timer Resolution:",IDC_STATIC,14,24,61,8
+    CONTROL         "",IDC_SSEQJPGTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,24,70,8
+    GROUPBOX        "Compress",IDC_STATIC,20,39,145,82
+    RTEXT           "Initialization:",IDC_STATIC,24,53,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,53,70,8
+    RTEXT           "Execution:",IDC_STATIC,24,63,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,63,70,8
+    RTEXT           "Termination:",IDC_STATIC,24,73,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,73,70,8
+    RTEXT           "Memory Alloc:",IDC_STATIC,24,83,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,83,70,8
+    RTEXT           "Memory Copy:",IDC_STATIC,24,93,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,93,70,8
+    RTEXT           "Yield:",IDC_STATIC,24,103,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_YIELD,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,103,70,8
+    RTEXT           "Total:",IDC_STATIC,14,131,61,8
+    CONTROL         "",IDC_SSEQJPGTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,131,70,8
+    DEFPUSHBUTTON   "OK",IDOK,68,163,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,130,170,57,14,NOT WS_VISIBLE
+END
+
+IDD_TMKPAL DIALOG DISCARDABLE  0, 0, 283, 202
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Make Palette"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Image Files To Include:",IDC_TMKPAL_STATIC_IMAGEFILES,
+                    19,8,78,8
+    LISTBOX         IDC_TMKPAL_LIST_IMAGEFILES,19,20,180,73,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | 
+                    LBS_DISABLENOSCROLL | WS_VSCROLL | WS_HSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "&Add To List...",IDC_TMKPAL_BUTTON_ADD,208,35,50,14
+    PUSHBUTTON      "&Del From List",IDC_TMKPAL_BUTTON_DEL,208,56,50,14,
+                    WS_DISABLED
+    LTEXT           "&Number Of Colors In Palette:",IDC_STATIC,19,108,94,8
+    EDITTEXT        IDC_TMKPAL_EDIT_COLORS,115,106,20,13,ES_AUTOHSCROLL
+    LTEXT           "&Palette Filename:",IDC_SSEQJPGOPT_STATIC_QUANTIZATION,
+                    19,127,58,8,NOT WS_GROUP
+    EDITTEXT        IDC_TMKPAL_EDIT_FILENAME,19,139,180,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Browse...",IDC_TMKPAL_BUTTON_BROWSE,208,139,50,13
+    CONTROL         "Display Operation Timing",IDC_TMKPAL_CHECK_TIMING,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,163,92,10
+    CONTROL         "&Set Default Options",IDC_TMKPAL_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,181,75,10
+    DEFPUSHBUTTON   "OK",IDOK,99,179,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,159,179,50,14
+    PUSHBUTTON      "&Help",IDHELP,219,179,50,14
+END
+
+IDD_OF2DOPT DIALOG DISCARDABLE  0, 0, 251, 266
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Open Image Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Use Image's Bits/Pixel and Colors",
+                    IDC_OF2DOPT_CHECK_IMAGESETTINGS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,10,7,121,10
+    LTEXT           "Image Number:",IDC_STATIC,10,24,50,8
+    EDITTEXT        IDC_OF2DOPT_EDIT_IMAGENUMBER,63,22,20,13
+    CONTROL         "32 (16M colors)",IDC_OF2DOPT_RADIO_32BITS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,54,62,10
+    CONTROL         "24 (16M colors)",IDC_OF2DOPT_RADIO_24BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,66,62,10
+    CONTROL         "16 (64K colors)",IDC_OF2DOPT_RADIO_16BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,78,61,10
+    CONTROL         "8 (256 colors)",IDC_OF2DOPT_RADIO_8BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,90,61,10
+    CONTROL         "4 (16 colors)",IDC_OF2DOPT_RADIO_4BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,102,57,10
+    CONTROL         "1 (2 colors)",IDC_OF2DOPT_RADIO_1BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,114,48,10
+    GROUPBOX        "&Bits/Pixel",IDC_STATIC,10,41,83,90,WS_GROUP
+    CONTROL         "Show Transparency",IDC_OF2DOPT_CHECK_GIFTRANSPARENT,
+                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,111,53,
+                    76,10
+    CONTROL         "Progressive Interlaced Display",
+                    IDC_OF2DOPT_RADIO_GIFPROGRESSIVE,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP | WS_TABSTOP,
+                    111,70,110,10
+    CONTROL         "Final Image Only",IDC_OF2DOPT_RADIO_GIFFINAL,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,111,82,65,10
+    GROUPBOX        "GIF Options",IDC_OF2DOPT_STATIC_GIFOPTIONS,101,41,139,
+                    56,WS_GROUP
+    CHECKBOX        "Make &Gray Using",IDC_OF2DOPT_CHECK_MAKEGRAY,104,108,67,
+                    10
+    EDITTEXT        IDC_OF2DOPT_EDIT_GRAYSTOMAKE,174,107,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Grays",IDC_OF2DOPT_STATIC_GRAYS,197,109,20,8,NOT 
+                    WS_GROUP
+    CONTROL         "&Dither Colors/Grays",IDC_OF2DOPT_CHECK_DITHER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,104,120,75,10
+    CONTROL         "Use Embedded Palette",IDC_OF2DOPT_RADIO_EMBEDDEDPALETTE,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,
+                    154,85,10
+    CONTROL         "Make Optimal Palette Using",
+                    IDC_OF2DOPT_RADIO_MAKEPALETTE,"Button",
+                    BS_AUTORADIOBUTTON,18,166,101,10
+    CONTROL         "Use External Palette",IDC_OF2DOPT_RADIO_EXTERNALPALETTE,
+                    "Button",BS_AUTORADIOBUTTON,18,178,78,10
+    GROUPBOX        "&Color Palette",IDC_OF2DOPT_STATIC_COLORPALETTE,10,141,
+                    165,82,WS_GROUP
+    EDITTEXT        IDC_OF2DOPT_EDIT_COLORSTOMAKE,122,165,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Colors",IDC_OF2DOPT_STATIC_COLORS,145,167,22,8,NOT 
+                    WS_GROUP
+    LTEXT           "External Palette File Name:",
+                    IDC_OF2DOPT_STATIC_EXTERNALPALETTE,34,190,90,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_OF2DOPT_EDIT_EXTERNALPALETTE,34,203,86,13,
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_OF2DOPT_BUTTON_BROWSE,125,203,40,13
+    CONTROL         "&Set Default Options",IDC_OF2DOPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,230,75,10
+    DEFPUSHBUTTON   "OK",IDOK,10,245,50,14
+    PUSHBUTTON      "&Try Options",IDTEST,70,245,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,245,50,14
+    PUSHBUTTON      "&Help",IDHELP,190,245,50,14
+    PUSHBUTTON      "Timing...",IDC_BUTTON_TIMING,190,7,50,14
+END
+
+IDD_F2DPROP DIALOG DISCARDABLE  0, 0, 199, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Image File Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "General",-1,10,5,180,139
+    LTEXT           "Filename:",-1,15,16,32,8
+    LTEXT           "",IDC_F2DPROP_FILENAME,50,16,134,8,WS_TABSTOP
+    LTEXT           "File Size:",-1,16,26,31,8
+    LTEXT           "",IDC_F2DPROP_FILESIZE,50,26,134,8
+    LTEXT           "File Type:",-1,13,36,34,8
+    LTEXT           "",IDC_F2DPROP_FILETYPE,50,36,134,8
+    LTEXT           "# Images:",-1,13,46,34,8
+    LTEXT           "",IDC_F2DPROP_NUMIMAGES,50,46,134,8
+    LTEXT           "Image Width:",-1,29,69,44,8
+    LTEXT           "Image Height:",-1,26,79,47,8
+    LTEXT           "Bits Per Pixel:",-1,26,89,47,8
+    LTEXT           "Image Size:",-1,34,99,39,8
+    LTEXT           "Color Table Size:",-1,16,109,57,8
+    LTEXT           "Colors Used:",-1,30,119,43,8
+    GROUPBOX        "Source:",-1,75,59,50,75
+    LTEXT           "",IDC_F2DPROP_IMAGEWIDTH_SOURCE,80,69,40,8
+    LTEXT           "",IDC_F2DPROP_IMAGEHEIGHT_SOURCE,80,79,40,8
+    LTEXT           "",IDC_F2DPROP_BITSPERPIXEL_SOURCE,80,89,40,8
+    LTEXT           "",IDC_F2DPROP_IMAGESIZE_SOURCE,80,99,40,8
+    LTEXT           "",IDC_F2DPROP_COLORTABLESIZE_SOURCE,80,109,40,8
+    LTEXT           "",IDC_F2DPROP_NUMBERIMPORTANT_SOURCE,80,119,40,8
+    GROUPBOX        "Displayed:",-1,132,59,50,75
+    LTEXT           "",IDC_F2DPROP_IMAGEWIDTH_DISPLAYED,136,69,40,8
+    LTEXT           "",IDC_F2DPROP_IMAGEHEIGHT_DISPLAYED,136,79,40,8
+    LTEXT           "",IDC_F2DPROP_BITSPERPIXEL_DISPLAYED,136,89,40,8
+    LTEXT           "",IDC_F2DPROP_IMAGESIZE_DISPLAYED,136,99,40,8
+    LTEXT           "",IDC_F2DPROP_COLORTABLESIZE_DISPLAYED,136,109,40,8
+    LTEXT           "",IDC_F2DPROP_NUMBERIMPORTANT_DISPLAYED,136,119,40,8
+    DEFPUSHBUTTON   "OK",IDOK,75,150,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,142,158,57,14,NOT WS_VISIBLE | 
+                    NOT WS_TABSTOP
+END
+
+IDD_TMKPALTIME DIALOG DISCARDABLE  0, 0, 187, 167
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Make Palette Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",-1,10,10,167,124
+    RTEXT           "Timer Resolution:",-1,14,24,61,8
+    CONTROL         "",IDC_TMKPALTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,24,70,8
+    GROUPBOX        "Make Palette",-1,20,39,145,62
+    RTEXT           "Extract DIB:",-1,24,53,51,8
+    CONTROL         "",IDC_TMKPALTIME_EXTRACTDIB,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,53,70,8
+    RTEXT           "Histogram:",-1,24,63,51,8
+    CONTROL         "",IDC_TMKPALTIME_HISTOGRAM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,63,70,8
+    RTEXT           "Color Reduce:",-1,24,73,51,8
+    CONTROL         "",IDC_TMKPALTIME_COLORREDUCE,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,73,70,8
+    RTEXT           "File I/O:",-1,24,83,51,8
+    CONTROL         "",IDC_TMKPALTIME_FILEIO,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,83,70,8
+    RTEXT           "Total:",-1,14,111,61,8
+    CONTROL         "",IDC_TMKPALTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,111,70,8
+    DEFPUSHBUTTON   "OK",IDOK,68,143,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,130,151,57,14,NOT WS_VISIBLE
+END
+
+IDD_OF2DTIME DIALOG DISCARDABLE  0, 0, 203, 225
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Open Bitmap, Targa, PCX, or TIFF Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",IDC_STATIC,10,10,183,184
+    RTEXT           "Timer Resolution:",IDC_STATIC,14,24,77,8
+    CONTROL         "",IDC_OF2DTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,96,24,70,8
+    GROUPBOX        "Open Image",IDC_STATIC,20,39,161,92
+    RTEXT           "Extract DIB:",IDC_STATIC,24,53,67,8
+    CONTROL         "",IDC_OF2DTIME_EXTRACTDIB,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,96,53,70,8
+    RTEXT           "Adjust Bit Depth:",IDC_STATIC,24,63,67,8
+    CONTROL         "",IDC_OF2DTIME_BITDEPTH,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,96,63,70,8
+    RTEXT           "Make Gray Scale:",IDC_STATIC,24,73,67,8
+    CONTROL         "",IDC_OF2DTIME_GRAYSCALE,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,96,73,70,8
+    RTEXT           "Make Palette:",IDC_STATIC,24,83,67,8
+    CONTROL         "",IDC_OF2DTIME_MAKEPALETTE,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,96,83,70,8
+    RTEXT           "External Palette:",IDC_STATIC,24,93,67,8
+    CONTROL         "",IDC_OF2DTIME_EXTERNALPALETTE,"Static",
+                    SS_LEFTNOWORDWRAP | WS_GROUP,96,93,70,8
+    RTEXT           "Embedded Palette:",IDC_STATIC,24,103,67,8
+    LTEXT           "",IDC_OF2DTIME_EMBEDDEDPALETTE,96,103,70,8
+    RTEXT           "Open Image:",IDC_STATIC,14,141,77,8
+    CONTROL         "",IDC_OF2DTIME_OPTOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,96,141,70,8
+    RTEXT           "Image Display:",IDC_STATIC,14,151,77,8
+    CONTROL         "",IDC_OF2DTIME_PAINT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,96,151,70,8
+    RTEXT           "Total:",IDC_STATIC,14,171,77,8
+    CONTROL         "",IDC_OF2DTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,96,171,70,8
+    DEFPUSHBUTTON   "OK",IDOK,76,203,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,145,210,57,14,NOT WS_VISIBLE
+    RTEXT           "Yield:",IDC_STATIC,24,113,67,8
+    LTEXT           "",IDC_OF2DTIME_YIELD,96,113,70,8
+END
+
+IDD_SD2FOPTGIF DIALOG DISCARDABLE  0, 0, 189, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Save GIF Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "&Interlaced",IDC_SD2FOPTGIF_CHECK_INTERLACED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,11,44,10
+    CONTROL         "&Transparent",IDC_SD2FOPTGIF_CHECK_TRANSPARENT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,29,50,10
+    LTEXT           "Transparent Color &Index:",
+                    IDC_SD2FOPTGIF_STATIC_TRANSPARENTINDEX,22,44,82,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_SD2FOPTGIF_EDIT_TRANSPARENTINDEX,105,42,20,13,
+                    ES_AUTOHSCROLL
+    CONTROL         "&Set Default Options",IDC_SD2FOPTGIF_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,61,75,10
+    DEFPUSHBUTTON   "OK",IDOK,8,80,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,69,80,50,14
+    PUSHBUTTON      "&Help",IDHELP,129,80,50,14
+END
+
+IDD_XROROPT DIALOG DISCARDABLE  0, 0, 337, 271
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Rotate/Enhance JPEG Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "PIC2",IDC_XROROPT_RADIO_PIC2,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,24,36,27,10
+    CONTROL         "JFIF",IDC_XROROPT_RADIO_JFIF,"Button",
+                    BS_AUTORADIOBUTTON,24,47,25,10
+    CONTROL         "Exif",IDC_XROROPT_RADIO_EXIF,"Button",
+                    BS_AUTORADIOBUTTON,24,58,25,10
+    GROUPBOX        "Output &Format",IDC_STATIC,8,23,57,51,WS_GROUP
+    CONTROL         "No Rotation",IDC_XROROPT_RADIO_ROTATE0,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,79,36,50,10
+    CONTROL         "90° Clockwise",IDC_XROROPT_RADIO_ROTATE90,"Button",
+                    BS_AUTORADIOBUTTON,79,46,57,10
+    CONTROL         "Then Inverted Vertically",IDC_XROROPT_CHECK_REVERSED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,79,58,89,10
+    CONTROL         "180°",IDC_XROROPT_RADIO_ROTATE180,"Button",
+                    BS_AUTORADIOBUTTON,145,36,26,10
+    CONTROL         "270°",IDC_XROROPT_RADIO_ROTATE270,"Button",
+                    BS_AUTORADIOBUTTON,145,46,26,10
+    GROUPBOX        "Output &Rotation",IDC_STATIC,70,23,105,51,WS_GROUP
+    CONTROL         "Remove Comments",IDC_XROROPT_CHECK_REMOVECOMMENTS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,96,73,10
+    CONTROL         "Remove Application Data",
+                    IDC_XROROPT_CHECK_REMOVEAPPDATA,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,18,111,94,10
+    CONTROL         "Remove Color Palette",IDC_XROROPT_CHECK_REMOVEPALETTE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,126,82,10
+    CONTROL         "Pad Image Top/Left If Needed",IDC_XROROPT_RADIO_PADMCU,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,22,
+                    149,111,10
+    CONTROL         "Truncate Image Top/Left If Needed",
+                    IDC_XROROPT_RADIO_TRUNCATEMCU,"Button",
+                    BS_AUTORADIOBUTTON,22,161,128,10
+    GROUPBOX        "",IDC_STATIC,15,138,151,40,WS_GROUP
+    LTEXT           "Output Password:",IDC_XROROPT_STATIC_OUTPUTPASSWORD,18,
+                    186,59,8,NOT WS_GROUP
+    EDITTEXT        IDC_XROROPT_EDIT_OUTPUTPASSWORD,78,184,31,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "&Other Output Options",IDC_STATIC,8,81,167,125
+    PUSHBUTTON      "&Timing...",IDC_BUTTON_TIMING,278,6,50,14
+    CONTROL         "Els Arithmetic Entropy Codiing",IDC_XROROPT_RADIO_ELS,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,197,
+                    47,113,10
+    CONTROL         "Optimum Huffman Coding",
+                    IDC_XROROPT_RADIO_OPTIMUMHUFFMAN,"Button",
+                    BS_AUTORADIOBUTTON,197,59,93,10
+    GROUPBOX        "&Entopy Coding",IDC_XROROPT_STATIC_ENTROPYCODING,189,34,
+                    132,41,WS_GROUP
+    CONTROL         "&Compression Enhancement",IDC_XROROPT_RADIO_ENHANCE,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,197,
+                    83,98,10
+    CONTROL         "&Brightness/Contrast",IDC_XROROPT_RADIO_BRIGHTNESS,
+                    "Button",BS_AUTORADIOBUTTON,197,95,76,10
+    GROUPBOX        "JPEG Options",IDC_XROROPT_STATIC_JPEGOPTIONS,181,23,147,
+                    183,WS_GROUP
+    CONTROL         "No Enhancement",IDC_XROROPT_RADIO_NOREQUANT,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,197,124,67,10
+    CONTROL         "Graceful Enhancement",IDC_XROROPT_RADIO_NICEREQUANT,
+                    "Button",BS_AUTORADIOBUTTON,197,136,85,10
+    CONTROL         "Risky Enhancement",IDC_XROROPT_RADIO_RISKYREQUANT,
+                    "Button",BS_AUTORADIOBUTTON,197,148,76,10
+    GROUPBOX        "Compression Enhancement",IDC_XROROPT_STATIC_REQUANT,189,
+                    111,132,87,WS_GROUP
+    LTEXT           "Target Luminance Factor:",IDC_XROROPT_STATIC_LUMINANCE,
+                    205,163,85,8,NOT WS_GROUP
+    EDITTEXT        IDC_XROROPT_EDIT_LUMINANCE,291,161,20,13,ES_AUTOHSCROLL
+    LTEXT           "Target Chrominance Factor:",
+                    IDC_XROROPT_STATIC_CHROMINANCE,198,180,92,8,NOT WS_GROUP
+    EDITTEXT        IDC_XROROPT_EDIT_CHROMINANCE,291,178,20,13,
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Brightness/Contrast",
+                    IDC_XROROPT_STATIC_BRIGHTNESSCONTRAST,189,111,132,87,
+                    WS_GROUP
+    LTEXT           "Brightness",IDC_XROROPT_STATIC_BRIGHTNESS,241,124,35,8
+    LTEXT           "Contrast",IDC_XROROPT_STATIC_CONTRAST,281,124,28,8
+    LTEXT           "Y (grayscale):",IDC_XROROPT_STATIC_Y,199,139,48,8
+    EDITTEXT        IDC_XROROPT_EDIT_YSHIFT,251,137,20,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_XROROPT_EDIT_YSCALE,285,137,20,13,ES_AUTOHSCROLL
+    LTEXT           "Cb:",IDC_XROROPT_STATIC_CB,199,159,12,8
+    EDITTEXT        IDC_XROROPT_EDIT_CBSHIFT,251,157,20,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_XROROPT_EDIT_CBSCALE,285,157,20,13,ES_AUTOHSCROLL
+    LTEXT           "Cr:",IDC_XROROPT_STATIC_CR,199,179,11,8
+    EDITTEXT        IDC_XROROPT_EDIT_CRSHIFT,251,177,20,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_XROROPT_EDIT_CRSCALE,285,177,20,13,ES_AUTOHSCROLL
+    LTEXT           "Comment:",IDC_STATIC,8,210,33,8
+    EDITTEXT        IDC_XROROPT_EDIT_COMMENT,8,223,320,20,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL
+    CONTROL         "&Set Default Options",IDC_XROROPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,254,75,10
+    DEFPUSHBUTTON   "OK",IDOK,98,252,50,14
+    PUSHBUTTON      "&Try Options",IDTEST,158,252,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,218,252,50,14
+    PUSHBUTTON      "&Help",IDHELP,278,252,50,14
+    LTEXT           "Input File Size:",
+                    IDC_XROROPT_STATIC_INPUTFILESIZELEGEND,9,9,50,8
+    LTEXT           "",IDC_XROROPT_STATIC_INPUTFILESIZE,61,9,48,8
+    LTEXT           "Output File Size:",
+                    IDC_XROROPT_STATIC_OUTPUTFILESIZELEGEND,136,9,55,8
+    LTEXT           "",IDC_XROROPT_STATIC_OUTPUTFILESIZE,193,9,48,8
+END
+
+IDD_XRORETIME DIALOG DISCARDABLE  0, 0, 187, 215
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Rotate/Enhance Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",-1,10,10,167,174
+    LTEXT           "Timer Resolution:",-1,17,24,58,8
+    CONTROL         "",IDC_XRORTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,24,70,8
+    GROUPBOX        "Rotate/Enhance",-1,20,39,145,82
+    RTEXT           "Initialization:",-1,24,53,51,8
+    CONTROL         "",IDC_XRORTIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,53,70,8
+    RTEXT           "Execution:",-1,24,63,51,8
+    CONTROL         "",IDC_XRORTIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,63,70,8
+    RTEXT           "Termination:",-1,24,73,51,8
+    CONTROL         "",IDC_XRORTIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,73,70,8
+    RTEXT           "Memory Alloc:",-1,24,83,51,8
+    CONTROL         "",IDC_XRORTIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,83,70,8
+    RTEXT           "Memory Copy:",-1,24,93,51,8
+    CONTROL         "",IDC_XRORTIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,93,70,8
+    RTEXT           "Yield:",-1,24,103,51,8
+    CONTROL         "",IDC_XRORTIME_YIELD,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,103,70,8
+    RTEXT           "Rotate/Enhance",-1,14,131,61,8
+    CONTROL         "",IDC_XRORTIME_OPTOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,131,70,8
+    RTEXT           "Image Display:",-1,14,141,61,8
+    CONTROL         "",IDC_XRORTIME_PAINT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,141,70,8
+    RTEXT           "Total:",-1,14,161,61,8
+    CONTROL         "",IDC_XRORTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,161,70,8
+    DEFPUSHBUTTON   "OK",IDOK,68,193,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,130,201,57,14,NOT WS_VISIBLE
+END
+
+IDD_XRORTIME DIALOG DISCARDABLE  0, 0, 187, 215
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Rotate Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",-1,10,10,167,174
+    LTEXT           "Timer Resolution:",-1,17,24,58,8
+    CONTROL         "",IDC_XRORTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,24,70,8
+    GROUPBOX        "Rotate",-1,20,39,145,82
+    RTEXT           "Initialization:",-1,24,53,51,8
+    CONTROL         "",IDC_XRORTIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,53,70,8
+    RTEXT           "Execution:",-1,24,63,51,8
+    CONTROL         "",IDC_XRORTIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,63,70,8
+    RTEXT           "Termination:",-1,24,73,51,8
+    CONTROL         "",IDC_XRORTIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,73,70,8
+    RTEXT           "Memory Alloc:",-1,24,83,51,8
+    CONTROL         "",IDC_XRORTIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,83,70,8
+    RTEXT           "Memory Copy:",-1,24,93,51,8
+    CONTROL         "",IDC_XRORTIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,93,70,8
+    RTEXT           "Yield:",-1,24,103,51,8
+    CONTROL         "",IDC_XRORTIME_YIELD,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,103,70,8
+    RTEXT           "Rotate",-1,14,131,61,8
+    CONTROL         "",IDC_XRORTIME_OPTOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,131,70,8
+    RTEXT           "Image Display:",-1,14,141,61,8
+    CONTROL         "",IDC_XRORTIME_PAINT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,141,70,8
+    RTEXT           "Total:",-1,14,161,61,8
+    CONTROL         "",IDC_XRORTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,161,70,8
+    DEFPUSHBUTTON   "OK",IDOK,68,193,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,130,201,57,14,NOT WS_VISIBLE
+END
+
+IDD_OLLOPT DIALOG DISCARDABLE  0, 0, 247, 246
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Expand IMStar Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Use Image's Bits/Pixel and Colors",
+                    IDC_OLLOPT_CHECK_IMAGESETTINGS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,10,7,121,10
+    CONTROL         "32 (16M colors)",IDC_OLLOPT_RADIO_32BITS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,33,62,10
+    CONTROL         "24 (16M colors)",IDC_OLLOPT_RADIO_24BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,45,62,10
+    CONTROL         "16 (64K colors)",IDC_OLLOPT_RADIO_16BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,57,61,10
+    CONTROL         "8 (256 colors)",IDC_OLLOPT_RADIO_8BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,69,61,10
+    CONTROL         "4 (16 colors)",IDC_OLLOPT_RADIO_4BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,81,57,10
+    CONTROL         "1 (2 colors)",IDC_OLLOPT_RADIO_1BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,93,48,10
+    GROUPBOX        "&Bits/Pixel",IDC_OLLOPT_STATIC_BITSPERPIXEL,10,20,83,90,
+                    WS_GROUP
+    CHECKBOX        "Make &Gray Using",IDC_OLLOPT_CHECK_MAKEGRAY,100,56,67,
+                    10
+    EDITTEXT        IDC_OLLOPT_EDIT_GRAYSTOMAKE,170,55,20,13,ES_AUTOHSCROLL
+    LTEXT           "Grays",IDC_OLLOPT_STATIC_GRAYS,193,57,20,8,NOT WS_GROUP
+    CONTROL         "&Dither Colors/Grays",IDC_OLLOPT_CHECK_DITHER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,100,68,75,10
+    LTEXT           "&Password:",IDC_STATIC,100,83,35,8,NOT WS_GROUP
+    EDITTEXT        IDC_OLLOPT_EDIT_PASSWORD,100,96,31,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Ti&ming...",IDC_BUTTON_TIMING,188,8,50,14
+    CONTROL         "Use Embedded Palette",IDC_OLLOPT_RADIO_EMBEDDEDPALETTE,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,
+                    133,85,10
+    CONTROL         "Make Optimal Palette Using",
+                    IDC_OLLOPT_RADIO_MAKEPALETTE,"Button",BS_AUTORADIOBUTTON,
+                    18,145,101,10
+    CONTROL         "Use External Palette",IDC_OLLOPT_RADIO_EXTERNALPALETTE,
+                    "Button",BS_AUTORADIOBUTTON,18,157,78,10
+    GROUPBOX        "&Color Palette",IDC_OLLOPT_STATIC_COLORPALETTE,10,120,
+                    165,82,WS_GROUP
+    EDITTEXT        IDC_OLLOPT_EDIT_COLORSTOMAKE,122,144,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Colors",IDC_OLLOPT_STATIC_COLORS,145,146,22,8,NOT 
+                    WS_GROUP
+    LTEXT           "External Palette File Name:",
+                    IDC_OLLOPT_STATIC_EXTERNALPALETTE,34,169,90,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_OLLOPT_EDIT_EXTERNALPALETTE,34,182,86,13,
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_OLLOPT_BUTTON_BROWSE,125,182,40,13
+    CONTROL         "&Set Default Options",IDC_OLLOPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,206,75,10
+    DEFPUSHBUTTON   "OK",IDOK,8,224,50,14
+    PUSHBUTTON      "&Try Options",IDTEST,68,224,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,128,224,50,14
+    PUSHBUTTON      "&Help",IDHELP,188,224,50,14
+END
+
+IDD_OLLTIME DIALOG DISCARDABLE  0, 0, 203, 242
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "IMStar Expand Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",IDC_STATIC,10,10,181,204
+    RTEXT           "Timer Resolution:",IDC_STATIC,14,24,75,8
+    CONTROL         "",IDC_OLLTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,24,70,8
+    GROUPBOX        "Expand",IDC_STATIC,20,39,159,82
+    RTEXT           "Initialization:",IDC_STATIC,24,53,65,8
+    CONTROL         "",IDC_OLLTIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,53,70,8
+    RTEXT           "Execution:",IDC_STATIC,24,63,65,8
+    CONTROL         "",IDC_OLLTIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,63,70,8
+    RTEXT           "Termination:",IDC_STATIC,24,73,65,8
+    CONTROL         "",IDC_OLLTIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,73,70,8
+    RTEXT           "Memory Alloc:",IDC_STATIC,24,83,65,8
+    CONTROL         "",IDC_OLLTIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,83,70,8
+    RTEXT           "Memory Copy:",IDC_STATIC,24,93,65,8
+    CONTROL         "",IDC_OLLTIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,93,70,8
+    RTEXT           "Yield:",IDC_STATIC,24,103,65,8
+    LTEXT           "",IDC_OLLTIME_YIELD,94,103,70,8
+    RTEXT           "Expand:",IDC_STATIC,14,131,75,8
+    CONTROL         "",IDC_OLLTIME_OPTOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,131,70,8
+    RTEXT           "Adjust Bit Depth:",IDC_STATIC,14,141,75,8
+    CONTROL         "",IDC_OLLTIME_BITDEPTH,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,141,70,8
+    RTEXT           "Embedded Palette:",IDC_OLLTIME_STATIC_PALETTE,14,151,75,
+                    8
+    CONTROL         "",IDC_OLLTIME_PALETTE,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,151,70,8
+    RTEXT           "Make Display Palette:",IDC_STATIC,14,161,75,8
+    CONTROL         "",IDC_OLLTIME_DISPLAYPALETTE,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,161,70,8
+    RTEXT           "Image Display:",IDC_STATIC,14,171,75,8
+    CONTROL         "",IDC_OLLTIME_PAINT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,171,70,8
+    RTEXT           "Total:",IDC_STATIC,14,191,75,8
+    CONTROL         "",IDC_OLLTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,191,70,8
+    DEFPUSHBUTTON   "OK",IDOK,75,223,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,145,229,57,14,NOT WS_VISIBLE
+END
+
+IDD_LLPROP DIALOG DISCARDABLE  0, 0, 347, 254
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "IMStar Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "General",IDC_STATIC,10,5,180,132
+    LTEXT           "Filename:",IDC_STATIC,15,16,32,8
+    LTEXT           "",IDC_LLPROP_FILENAME,50,16,134,8,WS_TABSTOP
+    LTEXT           "File Size:",IDC_STATIC,16,26,31,8
+    LTEXT           "",IDC_LLPROP_FILESIZE,50,26,134,8
+    LTEXT           "Image Width:",IDC_STATIC,29,46,44,8
+    LTEXT           "Image Height:",IDC_STATIC,26,56,47,8
+    LTEXT           "Bits Per Pixel:",IDC_STATIC,26,66,47,8
+    LTEXT           "Image Size:",IDC_STATIC,34,76,39,8
+    LTEXT           "Color Table Size:",IDC_STATIC,16,86,57,8
+    LTEXT           "Colors Used:",IDC_STATIC,30,96,43,8
+    GROUPBOX        "Source:",IDC_STATIC,75,36,50,75
+    LTEXT           "",IDC_LLPROP_IMAGEWIDTH_SOURCE,80,46,40,8
+    LTEXT           "",IDC_LLPROP_IMAGEHEIGHT_SOURCE,80,56,40,8
+    LTEXT           "",IDC_LLPROP_BITSPERPIXEL_SOURCE,80,66,40,8
+    LTEXT           "",IDC_LLPROP_IMAGESIZE_SOURCE,80,76,40,8
+    LTEXT           "",IDC_LLPROP_COLORTABLESIZE_SOURCE,80,86,40,8
+    LTEXT           "",IDC_LLPROP_NUMBERIMPORTANT_SOURCE,80,96,40,8
+    GROUPBOX        "Displayed:",IDC_STATIC,132,36,50,75
+    LTEXT           "",IDC_LLPROP_IMAGEWIDTH_DISPLAYED,136,46,40,8
+    LTEXT           "",IDC_LLPROP_IMAGEHEIGHT_DISPLAYED,136,56,40,8
+    LTEXT           "",IDC_LLPROP_BITSPERPIXEL_DISPLAYED,136,66,40,8
+    LTEXT           "",IDC_LLPROP_IMAGESIZE_DISPLAYED,136,76,40,8
+    LTEXT           "",IDC_LLPROP_COLORTABLESIZE_DISPLAYED,136,86,40,8
+    LTEXT           "",IDC_LLPROP_NUMBERIMPORTANT_DISPLAYED,136,96,40,8
+    LTEXT           "PIC Version:",IDC_STATIC,38,114,42,8
+    LTEXT           "Visual Orientation:",IDC_STATIC,19,124,61,8
+    LTEXT           "",IDC_LLPROP_PICVERSION,83,114,101,8
+    LTEXT           "",IDC_LLPROP_VISUALORIENTATION,83,124,95,8
+    GROUPBOX        "Other Properties",IDC_STATIC,202,36,134,101
+    RTEXT           "Page Number:",IDC_STATIC,207,47,91,8,NOT WS_GROUP
+    RTEXT           "Total Pages:",IDC_STATIC,207,57,91,8,NOT WS_GROUP
+    RTEXT           "Transparent Color Index:",IDC_STATIC,207,68,91,8
+    LTEXT           "",IDC_LLPROP_PAGENUMBER,302,47,30,8
+    LTEXT           "",IDC_LLPROP_TOTALPAGES,302,57,30,8
+    LTEXT           "",IDC_LLPROP_TRANSPARENTCOLORINDEX,302,68,30,8
+    GROUPBOX        "Offset in Enclosing Image",IDC_STATIC,207,83,122,25
+    RTEXT           "Left:",IDC_STATIC,214,94,16,8,NOT WS_GROUP
+    LTEXT           "",IDC_LLPROP_LEFTOFFSET,233,94,30,8
+    RTEXT           "Top:",IDC_STATIC,269,94,16,8,NOT WS_GROUP
+    LTEXT           "",IDC_LLPROP_TOPOFFSET,287,94,30,8
+    RTEXT           "Delay After Display (sec):",IDC_STATIC,207,115,91,8,NOT 
+                    WS_GROUP
+    RTEXT           "Disposition After Display:",IDC_STATIC,207,124,91,8,NOT 
+                    WS_GROUP
+    LTEXT           "",IDC_LLPROP_DELAY,302,115,30,8
+    LTEXT           "",IDC_LLPROP_DISPOSITION,302,124,30,8
+    GROUPBOX        "IMStar",IDC_STATIC,11,142,325,87
+    LTEXT           "Compression Ratio:",IDC_STATIC,23,153,64,8
+    LTEXT           "Method:",IDC_STATIC,59,163,28,8
+    LTEXT           "Allowed Bit Error:",IDC_STATIC,29,173,58,8
+    LTEXT           "",IDC_LLPROP_COMPRESSIONRATIO,90,153,120,8
+    LTEXT           "",IDC_LLPROP_METHOD,90,163,120,8
+    LTEXT           "",IDC_LLPROP_ERRORLIMIT,90,173,94,8
+    RTEXT           "Watermark:",ID_STATIC,15,187,47,8
+    EDITTEXT        IDC_LLPROP_WATERMARK,65,187,103,16,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | 
+                    WS_VSCROLL
+    RTEXT           "Script:",IDC_STATIC,174,187,47,8
+    EDITTEXT        IDC_LLPROP_SCRIPT,224,187,103,16,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | 
+                    WS_VSCROLL
+    RTEXT           "Comment:",IDC_STATIC,15,207,47,8
+    EDITTEXT        IDC_LLPROP_COMMENT,65,207,103,16,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | 
+                    WS_VSCROLL
+    RTEXT           "App Field:",IDC_STATIC,174,207,47,8
+    EDITTEXT        IDC_LLPROP_APP,224,207,103,16,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | 
+                    WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,148,235,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,290,239,57,14,NOT WS_VISIBLE | 
+                    NOT WS_TABSTOP
+END
+
+IDD_SLLOPT DIALOG DISCARDABLE  0, 0, 338, 261
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "IMStar Save Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Compress from Image as Displayed",
+                    IDC_SLLOPT_CHECK_IMAGEASDISPLAYED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,8,124,10
+    CONTROL         "No Rotation",IDC_SLLOPT_RADIO_ROTATE0,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,41,50,10
+    CONTROL         "90° Clockwise",IDC_SLLOPT_RADIO_ROTATE90,"Button",
+                    BS_AUTORADIOBUTTON,16,51,57,10
+    CONTROL         "180°",IDC_SLLOPT_RADIO_ROTATE180,"Button",
+                    BS_AUTORADIOBUTTON,83,41,26,10
+    CONTROL         "270°",IDC_SLLOPT_RADIO_ROTATE270,"Button",
+                    BS_AUTORADIOBUTTON,83,51,26,10
+    GROUPBOX        "&Visual Orientation",
+                    IDC_SLLOPT_STATIC_VISUALORIENTATION,8,28,105,51,WS_GROUP
+    CONTROL         "Then Inverted Vertically",IDC_SLLOPT_CHECK_REVERSED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,63,89,10
+    LTEXT           "&Password:",IDC_SLLOPT_STATIC_PASSWORD,188,8,35,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_SLLOPT_EDIT_PASSWORD,224,7,31,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Timing...",IDC_BUTTON_TIMING,278,6,50,14
+    GROUPBOX        "&Other Options",IDC_SLLOPT_STATIC_OTHER,170,28,156,127
+    LTEXT           "Page Number:",IDC_SLLOPT_STATIC_PAGENUM,178,42,47,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_SLLOPT_EDIT_PAGENUM,226,40,23,13,ES_AUTOHSCROLL
+    LTEXT           "Total Pages:",IDC_SLLOPT_STATIC_TOTALPAGES,253,42,43,8,
+                    NOT WS_GROUP
+    EDITTEXT        IDC_SLLOPT_EDIT_TOTALPAGES,297,40,23,13,ES_AUTOHSCROLL
+    CONTROL         "Transparent Color Index:",IDC_SLLOPT_CHECK_TRANSPARENT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,62,89,10
+    EDITTEXT        IDC_SLLOPT_EDIT_TRANSPARENTINDEX,271,60,20,13,
+                    ES_AUTOHSCROLL
+    GROUPBOX        "&Offset in Enclosing Image",IDC_SLLOPT_STATIC_OFFSET,
+                    178,76,135,35
+    LTEXT           "Left:",IDC_SLLOPT_STATIC_LEFT,195,92,16,8,NOT WS_GROUP
+    EDITTEXT        IDC_SLLOPT_EDIT_LEFT,215,90,20,13,ES_AUTOHSCROLL
+    LTEXT           "Top:",IDC_SLLOPT_STATIC_TOP,253,92,16,8,NOT WS_GROUP
+    EDITTEXT        IDC_SLLOPT_EDIT_TOP,271,90,20,13,ES_AUTOHSCROLL
+    LTEXT           "Delay After Display:",IDC_SLLOPT_STATIC_DELAY,195,120,
+                    66,8,NOT WS_GROUP
+    EDITTEXT        IDC_SLLOPT_EDIT_DELAY,262,118,23,13,ES_AUTOHSCROLL
+    LTEXT           "(.01 sec)",IDC_SLLOPT_STATIC_DELAY2,287,120,30,8
+    LTEXT           "Disposition After Display:",IDC_SLLOPT_STATIC_DISP,178,
+                    135,83,8,NOT WS_GROUP
+    EDITTEXT        IDC_SLLOPT_EDIT_DISP,262,133,23,13,ES_AUTOHSCROLL
+    CONTROL         "Discrete",IDC_SLLOPT_RADIO_PPMD,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,28,104,38,10
+    CONTROL         "Continuous Tone",IDC_SLLOPT_RADIO_JPEG,"Button",
+                    BS_AUTORADIOBUTTON,74,104,66,10
+    GROUPBOX        "&IMStar",IDC_SLLOPT_STATIC_IMSTAR,8,93,147,62,WS_GROUP
+    RTEXT           "Gray Scale Allowed Bit Error:",
+                    IDC_SLLOPT_STATIC_ERRORLIMIT,15,118,98,8,NOT WS_GROUP
+    EDITTEXT        IDC_SLLOPT_EDIT_ERRORLIMIT,116,116,20,12,ES_AUTOHSCROLL
+    RTEXT           "Discrete Compression Order:",IDC_SLLOPT_STATIC_ORDER,18,
+                    135,94,8,NOT WS_GROUP
+    EDITTEXT        IDC_SLLOPT_EDIT_ORDER,116,133,20,13,ES_AUTOHSCROLL
+    LTEXT           "&Watermark:",IDC_SLLOPT_STATIC_WATERMARK,8,160,39,8
+    EDITTEXT        IDC_SLLOPT_EDIT_WATERMARK,8,173,156,20,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL | WS_GROUP
+    LTEXT           "&Script:",IDC_SLLOPT_STATIC_SCRIPT,172,162,23,8
+    EDITTEXT        IDC_SLLOPT_EDIT_SCRIPT,172,173,156,20,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL | WS_GROUP
+    LTEXT           "&Comment:",IDC_SLLOPT_STATIC_COMMENT,8,198,33,8
+    EDITTEXT        IDC_SLLOPT_EDIT_COMMENT,8,211,156,20,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL
+    LTEXT           "&App Field:",IDC_SLLOPT_STATIC_APPFIELD,172,198,34,8
+    EDITTEXT        IDC_SLLOPT_EDIT_APPFIELD,172,211,156,20,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL
+    CONTROL         "&Set Default Options",IDC_SLLOPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,242,75,10
+    DEFPUSHBUTTON   "OK",IDOK,158,240,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,218,240,50,14
+    PUSHBUTTON      "&Help",IDHELP,278,240,50,14
+END
+
+IDD_SLLTIME DIALOG DISCARDABLE  0, 0, 187, 185
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "IMStar Compress Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",IDC_STATIC,10,10,167,144
+    RTEXT           "Timer Resolution:",IDC_STATIC,14,24,61,8
+    CONTROL         "",IDC_SLLTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,24,70,8
+    GROUPBOX        "Compress",IDC_STATIC,20,39,145,82
+    RTEXT           "Initialization:",IDC_STATIC,24,53,51,8
+    CONTROL         "",IDC_SLLTIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,53,70,8
+    RTEXT           "Execution:",IDC_STATIC,24,63,51,8
+    CONTROL         "",IDC_SLLTIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,63,70,8
+    RTEXT           "Termination:",IDC_STATIC,24,73,51,8
+    CONTROL         "",IDC_SLLTIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,73,70,8
+    RTEXT           "Memory Alloc:",IDC_STATIC,24,83,51,8
+    CONTROL         "",IDC_SLLTIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,83,70,8
+    RTEXT           "Memory Copy:",IDC_STATIC,24,93,51,8
+    CONTROL         "",IDC_SLLTIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,93,70,8
+    RTEXT           "Yield:",IDC_STATIC,24,103,51,8
+    CONTROL         "",IDC_SLLTIME_YIELD,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,103,70,8
+    RTEXT           "Total:",IDC_STATIC,14,131,61,8
+    CONTROL         "",IDC_SLLTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,131,70,8
+    DEFPUSHBUTTON   "OK",IDOK,68,163,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,130,170,57,14,NOT WS_VISIBLE
+END
+
+IDD_OPRGJPGOPT DIALOG DISCARDABLE  0, 0, 335, 266
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Expand Progressive JPEG Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "32 (16M colors)",IDC_OPRGJPGOPT_RADIO_32BITS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,18,62,10
+    CONTROL         "24 (16M colors)",IDC_OPRGJPGOPT_RADIO_24BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,30,62,10
+    CONTROL         "16 (64K colors)",IDC_OPRGJPGOPT_RADIO_16BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,42,61,10
+    CONTROL         "8 (256 colors)",IDC_OPRGJPGOPT_RADIO_8BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,54,61,10
+    CONTROL         "4 (16 colors)",IDC_OPRGJPGOPT_RADIO_4BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,66,57,10
+    GROUPBOX        "&Bits/Pixel",IDC_STATIC,10,5,83,78,WS_GROUP
+    CHECKBOX        "Make &Gray Using",IDC_OPRGJPGOPT_CHECK_MAKEGRAY,100,15,
+                    67,10
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_GRAYSTOMAKE,170,14,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Grays",IDC_OPRGJPGOPT_STATIC_GRAYS,193,16,20,8,NOT 
+                    WS_GROUP
+    CONTROL         "&Dither Colors/Grays",IDC_OPRGJPGOPT_CHECK_DITHER,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,27,75,10
+    CONTROL         "&Enhanced Decompress",
+                    IDC_OPRGJPGOPT_CHECK_ENHANCEDDECOMPRESS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,100,39,86,10
+    LTEXT           "&Password:",IDC_STATIC,100,54,35,8,NOT WS_GROUP
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_PASSWORD,100,67,31,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Ti&ming...",IDC_BUTTON_TIMING,275,8,50,14
+    CONTROL         "Display Final Image Only",
+                    IDC_OPRGJPGOPT_RADIO_DISPLAYFINALONLY,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,17,102,91,10
+    CONTROL         "Progressive Display",
+                    IDC_OPRGJPGOPT_RADIO_PROGRESSIVEDISPLAY,"Button",
+                    BS_AUTORADIOBUTTON,17,114,75,10
+    LTEXT           "Scans to Decode:",IDC_STATIC,18,130,60,8
+    GROUPBOX        "Pro&gressive Options",IDC_STATIC,10,91,165,57,WS_GROUP
+    CONTROL         "Prompt After Scans",IDC_OPRGJPGOPT_CHECK_PROMPTSCAN,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,96,114,74,10
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_SCANSTODECODE,79,128,20,13,
+                    ES_AUTOHSCROLL
+    CONTROL         "100%",IDC_OPRGJPGOPT_RADIO_FULLSIZE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,198,111,29,10
+    CONTROL         "25%",IDC_OPRGJPGOPT_RADIO_FOURTH,"Button",
+                    BS_AUTORADIOBUTTON,229,111,25,10
+    CONTROL         "1/16",IDC_OPRGJPGOPT_RADIO_SIXTEENTH,"Button",
+                    BS_AUTORADIOBUTTON,261,111,27,10
+    CONTROL         "1/64",IDC_OPRGJPGOPT_RADIO_SIXTYFOURTH,"Button",
+                    BS_AUTORADIOBUTTON,293,111,27,10
+    GROUPBOX        "&Image Size",IDC_STATIC,190,98,135,30,WS_GROUP
+    CONTROL         "Use Embedded Palette",
+                    IDC_OPRGJPGOPT_RADIO_EMBEDDEDPALETTE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,168,85,10
+    CONTROL         "Make Optimal Palette Using",
+                    IDC_OPRGJPGOPT_RADIO_MAKEPALETTE,"Button",
+                    BS_AUTORADIOBUTTON,18,181,101,10
+    CONTROL         "Use External Palette",
+                    IDC_OPRGJPGOPT_RADIO_EXTERNALPALETTE,"Button",
+                    BS_AUTORADIOBUTTON,18,192,78,10
+    GROUPBOX        "&Color Palette",IDC_OPRGJPGOPT_STATIC_COLORPALETTE,10,
+                    156,165,82,WS_GROUP
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_COLORSTOMAKE,122,180,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Colors",IDC_OPRGJPGOPT_STATIC_COLORS,145,181,22,8,NOT 
+                    WS_GROUP
+    LTEXT           "External Palette File Name:",
+                    IDC_OPRGJPGOPT_STATIC_EXTERNALPALETTE,34,205,90,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_EXTERNALPALETTE,34,218,86,13,
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_OPRGJPGOPT_BUTTON_BROWSE,125,218,40,13
+    GROUPBOX        "&Rectangle in Image",IDC_STATIC,190,138,135,55
+    LTEXT           "Left:",IDC_STATIC,205,155,16,8,NOT WS_GROUP
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_IMAGELEFT,224,153,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Top:",IDC_STATIC,261,155,16,8,NOT WS_GROUP
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_IMAGETOP,280,153,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Width:",IDC_STATIC,198,174,23,8,NOT WS_GROUP
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_IMAGEWIDTH,224,172,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Height:",IDC_STATIC,252,174,25,8,NOT WS_GROUP
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_IMAGEHEIGHT,280,172,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Left:",IDC_STATIC,205,219,16,8,WS_DISABLED | NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_WINDOWLEFT,225,218,20,13,
+                    ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Top:",IDC_STATIC,262,219,16,8,WS_DISABLED | NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_OPRGJPGOPT_EDIT_WINDOWTOP,280,218,20,13,
+                    ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "&Offset in Window",IDC_STATIC,190,203,135,35,
+                    WS_DISABLED
+    CONTROL         "&Set Default Options",IDC_OPRGJPGOPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,246,75,10
+    DEFPUSHBUTTON   "OK",IDOK,94,244,50,14
+    PUSHBUTTON      "&Try Options",IDTEST,154,244,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,214,244,50,14
+    PUSHBUTTON      "&Help",IDHELP,274,244,50,14
+END
+
+IDD_OPRGJPGTIME DIALOG DISCARDABLE  0, 0, 201, 225
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Progressive JPEG Expand Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",IDC_STATIC,10,10,181,184
+    RTEXT           "Timer Resolution:",IDC_STATIC,14,24,75,8
+    CONTROL         "",IDC_OPRGJPGTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,24,70,8
+    GROUPBOX        "Expand",IDC_STATIC,20,39,159,82
+    RTEXT           "Initialization:",IDC_STATIC,24,53,65,8
+    CONTROL         "",IDC_OPRGJPGTIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,53,70,8
+    RTEXT           "Execution:",IDC_STATIC,24,63,65,8
+    CONTROL         "",IDC_OPRGJPGTIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,63,70,8
+    RTEXT           "Termination:",IDC_STATIC,24,73,65,8
+    CONTROL         "",IDC_OPRGJPGTIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,73,70,8
+    RTEXT           "Memory Alloc:",IDC_STATIC,24,83,65,8
+    CONTROL         "",IDC_OPRGJPGTIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,83,70,8
+    RTEXT           "Memory Copy:",IDC_STATIC,24,93,65,8
+    CONTROL         "",IDC_OPRGJPGTIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,93,70,8
+    RTEXT           "Yield:",IDC_STATIC,24,103,65,8
+    LTEXT           "",IDC_OPRGJPGTIME_YIELD,93,103,70,8
+    RTEXT           "Expand:",IDC_STATIC,14,131,75,8
+    CONTROL         "",IDC_OPRGJPGTIME_OPTOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,131,70,8
+    RTEXT           "Image Display:",IDC_STATIC,14,151,75,8
+    CONTROL         "",IDC_OPRGJPGTIME_PAINT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,152,70,8
+    RTEXT           "Total:",IDC_STATIC,14,171,75,8
+    CONTROL         "",IDC_OPRGJPGTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,171,70,8
+    DEFPUSHBUTTON   "OK",IDOK,75,203,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,143,210,57,14,NOT WS_VISIBLE
+    RTEXT           "Make Display Palette:",IDC_STATIC,14,141,75,8
+    CONTROL         "",IDC_OPRGJPGTIME_DISPLAYPALETTE,"Static",
+                    SS_LEFTNOWORDWRAP | WS_GROUP,94,141,70,8
+END
+
+IDD_PRGJPGPROP DIALOG DISCARDABLE  0, 0, 199, 279
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Progressive JPEG Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "General",IDC_STATIC,10,5,180,132
+    LTEXT           "Filename:",IDC_STATIC,15,16,32,8
+    LTEXT           "",IDC_PRGJPGPROP_FILENAME,50,16,134,8,WS_TABSTOP
+    LTEXT           "File Size:",IDC_STATIC,16,26,31,8
+    LTEXT           "",IDC_PRGJPGPROP_FILESIZE,50,26,134,8
+    LTEXT           "Image Width:",IDC_STATIC,29,46,44,8
+    LTEXT           "Image Height:",IDC_STATIC,26,56,47,8
+    LTEXT           "Bits Per Pixel:",IDC_STATIC,26,66,47,8
+    LTEXT           "Image Size:",IDC_STATIC,34,76,39,8
+    LTEXT           "Color Table Size:",IDC_STATIC,16,86,57,8
+    LTEXT           "Colors Used:",IDC_STATIC,30,96,43,8
+    GROUPBOX        "Source:",IDC_STATIC,75,36,50,75
+    LTEXT           "",IDC_PRGJPGPROP_IMAGEWIDTH_SOURCE,80,46,40,8
+    LTEXT           "",IDC_PRGJPGPROP_IMAGEHEIGHT_SOURCE,80,56,40,8
+    LTEXT           "",IDC_PRGJPGPROP_BITSPERPIXEL_SOURCE,80,66,40,8
+    LTEXT           "",IDC_PRGJPGPROP_IMAGESIZE_SOURCE,80,76,40,8
+    LTEXT           "",IDC_PRGJPGPROP_COLORTABLESIZE_SOURCE,80,86,40,8
+    LTEXT           "",IDC_PRGJPGPROP_NUMBERIMPORTANT_SOURCE,80,96,40,8
+    GROUPBOX        "Displayed:",IDC_STATIC,132,36,50,75
+    LTEXT           "",IDC_PRGJPGPROP_IMAGEWIDTH_DISPLAYED,136,46,40,8
+    LTEXT           "",IDC_PRGJPGPROP_IMAGEHEIGHT_DISPLAYED,136,56,40,8
+    LTEXT           "",IDC_PRGJPGPROP_BITSPERPIXEL_DISPLAYED,136,66,40,8
+    LTEXT           "",IDC_PRGJPGPROP_IMAGESIZE_DISPLAYED,136,76,40,8
+    LTEXT           "",IDC_PRGJPGPROP_COLORTABLESIZE_DISPLAYED,136,86,40,8
+    LTEXT           "",IDC_PRGJPGPROP_NUMBERIMPORTANT_DISPLAYED,136,96,40,8
+    LTEXT           "PIC Version:",IDC_STATIC,38,114,42,8
+    LTEXT           "",IDC_PRGJPGPROP_PICVERSION,83,114,101,8
+    LTEXT           "Visual Orientation:",IDC_STATIC,19,124,61,8
+    LTEXT           "",IDC_PRGJPGPROP_VISUALORIENTATION,83,124,95,8
+    GROUPBOX        "Progressive JPEG",IDC_STATIC,11,142,181,115
+    LTEXT           "Compression Ratio:",IDC_STATIC,16,153,64,8
+    LTEXT           "",IDC_PRGJPGPROP_COMPRESSIONRATIO,83,153,40,8
+    LTEXT           "Entropy Coding:",IDC_STATIC,27,164,53,8
+    LTEXT           "",IDC_PRGJPGPROP_ENTROPYCODING,83,164,101,8
+    LTEXT           "Luminance:",IDC_STATIC,23,187,39,8
+    LTEXT           "",IDC_PRGJPGPROP_LUMINANCE,65,187,119,8
+    LTEXT           "Chrominance:",IDC_STATIC,16,197,46,8
+    LTEXT           "",IDC_PRGJPGPROP_CHROMINANCE,65,197,119,8
+    LTEXT           "Subsampling:",IDC_STATIC,18,207,44,8
+    LTEXT           "",IDC_PRGJPGPROP_SUBSAMPLING,65,207,119,8
+    LTEXT           "Comment:",IDC_STATIC,29,217,33,8
+    EDITTEXT        IDC_PRGJPGPROP_COMMENT,65,217,119,16,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | 
+                    WS_VSCROLL
+    LTEXT           "App Field:",IDC_STATIC,28,237,34,8
+    EDITTEXT        IDC_PRGJPGPROP_APP2,65,237,119,16,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | 
+                    WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,75,261,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,142,263,57,14,NOT WS_VISIBLE | 
+                    NOT WS_TABSTOP
+    LTEXT           "Scans Displayed:",IDC_STATIC,22,175,58,8
+    LTEXT           "",IDC_PRGJPGPROP_SCANSDISPLAYED,83,175,101,8
+END
+
+IDD_PRGJPGNEXTSCAN DIALOG DISCARDABLE  0, 0, 150, 68
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Open Progressive JPEG Display"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Next Scan",IDC_PRGJPG_BUTTON_NEXTSCAN,20,48,50,14
+    PUSHBUTTON      "&Final Scan",IDC_PRGJPG_BUTTON_FINALSCAN,80,48,50,14
+    CTEXT           "%d scan%s displayed.",IDC_PRGJPG_STATIC_NUMSCANS,8,5,
+                    134,8
+    LTEXT           "Press Next Scan to continue progressive display.  Press Final Scan to skip display of remaining intermediate scans.",
+                    IDC_STATIC,8,18,133,24
+END
+
+IDD_SWAVEOPT DIALOG DISCARDABLE  0, 0, 339, 220
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Wavelet Save Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Compress from Image as Displayed",
+                    IDC_SWAVEOPT_CHECK_IMAGEASDISPLAYED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,8,124,10
+    CONTROL         "No Rotation",IDC_SWAVEOPT_RADIO_ROTATE0,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,41,50,10
+    CONTROL         "90° Clockwise",IDC_SWAVEOPT_RADIO_ROTATE90,"Button",
+                    BS_AUTORADIOBUTTON,16,51,57,10
+    CONTROL         "180°",IDC_SWAVEOPT_RADIO_ROTATE180,"Button",
+                    BS_AUTORADIOBUTTON,83,41,26,10
+    CONTROL         "270°",IDC_SWAVEOPT_RADIO_ROTATE270,"Button",
+                    BS_AUTORADIOBUTTON,83,51,26,10
+    GROUPBOX        "&Visual Orientation",
+                    IDC_SWAVEOPT_STATIC_VISUALORIENTATION,8,28,105,51,
+                    WS_GROUP
+    CONTROL         "Then Inverted Vertically",IDC_SWAVEOPT_CHECK_REVERSED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,63,89,10
+    COMBOBOX        IDC_SWAVEOPT_COMBO_COMPONENT,130,46,71,79,
+                    CBS_DROPDOWNLIST | WS_TABSTOP
+    RTEXT           "X Transform Filter:",IDC_SWAVEOPT_STATIC_XFILTER,209,47,
+                    62,8
+    RTEXT           "Y Transform Filter:",IDC_SWAVEOPT_STATIC_YFILTER,184,63,
+                    87,8
+    RTEXT           "Minimum Transform Level:",IDC_SWAVEOPT_STATIC_MINLEVEL,
+                    184,79,87,8
+    RTEXT           "Maximum Transform Level:",IDC_SWAVEOPT_STATIC_MAXLEVEL,
+                    184,95,87,8
+    RTEXT           "Quantization Threshold:",IDC_SWAVEOPT_STATIC_THRESHOLD,
+                    184,111,87,8
+    RTEXT           "Quantiization Table Name:",IDC_SWAVEOPT_STATIC_TABLE,
+                    184,127,87,8
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Y_XFILTER,276,46,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Y_YFILTER,276,62,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Y_MINLEVEL,276,78,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Y_MAXLEVEL,276,94,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Y_THRESHOLD,276,110,40,13,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Y_TABLE,276,126,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SWAVEOPT_EDIT_I_XFILTER,276,46,40,13,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_I_YFILTER,276,62,40,13,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_I_MINLEVEL,276,78,40,13,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_I_MAXLEVEL,276,94,40,13,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_I_THRESHOLD,276,110,40,13,
+                    ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_I_TABLE,276,126,40,13,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Q_XFILTER,276,46,40,13,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Q_YFILTER,276,62,40,13,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Q_MINLEVEL,276,78,40,13,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Q_MAXLEVEL,276,94,40,13,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Q_THRESHOLD,276,110,40,13,
+                    ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_SWAVEOPT_EDIT_Q_TABLE,276,126,40,13,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    CONTROL         "Invisible Expert Mode",IDC_SWAVEOPT_CHECK_EXPERTMODE,
+                    "Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_DISABLED | 
+                    WS_TABSTOP,122,139,81,10
+    GROUPBOX        "Wavelet",IDC_SWAVEOPT_STATIC_WAVELET,122,28,206,121,
+                    WS_GROUP
+    LTEXT           "&Comment:",IDC_SWAVEOPT_STATIC_COMMENT,8,155,33,8
+    EDITTEXT        IDC_SWAVEOPT_EDIT_COMMENT,8,168,156,20,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL
+    LTEXT           "&App Field:",IDC_SWAVEOPT_STATIC_APPFIELD,172,155,34,8
+    EDITTEXT        IDC_SWAVEOPT_EDIT_APPFIELD,172,168,156,20,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL
+    CONTROL         "&Set Default Options",IDC_SWAVEOPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,199,75,10
+    DEFPUSHBUTTON   "OK",IDOK,158,197,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,218,197,50,14
+    PUSHBUTTON      "&Help",IDHELP,278,197,50,14
+    LTEXT           "&Password:",IDC_SWAVEOPT_STATIC_PASSWORD,188,8,35,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_SWAVEOPT_EDIT_PASSWORD,224,7,31,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Timing...",IDC_BUTTON_TIMING,278,6,50,14
+    PUSHBUTTON      "Default",IDC_SWAVEOPT_BUTTON_DEFAULT,130,125,29,14
+END
+
+IDD_SWAVETIME DIALOG DISCARDABLE  0, 0, 187, 185
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Wavelet Compress Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",IDC_STATIC,10,10,167,144
+    RTEXT           "Timer Resolution:",IDC_STATIC,14,24,61,8
+    CONTROL         "",IDC_SWAVETIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,24,70,8
+    GROUPBOX        "Compress",IDC_STATIC,20,39,145,82
+    RTEXT           "Initialization:",IDC_STATIC,24,53,51,8
+    CONTROL         "",IDC_SWAVETIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,53,70,8
+    RTEXT           "Execution:",IDC_STATIC,24,63,51,8
+    CONTROL         "",IDC_SWAVETIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,63,70,8
+    RTEXT           "Termination:",IDC_STATIC,24,73,51,8
+    CONTROL         "",IDC_SWAVETIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,73,70,8
+    RTEXT           "Memory Alloc:",IDC_STATIC,24,83,51,8
+    CONTROL         "",IDC_SWAVETIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,83,70,8
+    RTEXT           "Memory Copy:",IDC_STATIC,24,93,51,8
+    CONTROL         "",IDC_SWAVETIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,93,70,8
+    RTEXT           "Yield:",IDC_STATIC,24,103,51,8
+    CONTROL         "",IDC_SWAVETIME_YIELD,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,103,70,8
+    RTEXT           "Total:",IDC_STATIC,14,131,61,8
+    CONTROL         "",IDC_SWAVETIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,131,70,8
+    DEFPUSHBUTTON   "OK",IDOK,68,163,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,130,170,57,14,NOT WS_VISIBLE
+END
+
+IDD_WAVEPROP DIALOG DISCARDABLE  0, 0, 202, 239
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Wavelet Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "General",IDC_STATIC,10,5,180,132
+    LTEXT           "Filename:",IDC_STATIC,15,16,32,8
+    LTEXT           "",IDC_WAVEPROP_FILENAME,50,16,134,8,WS_TABSTOP
+    LTEXT           "File Size:",IDC_STATIC,16,26,31,8
+    LTEXT           "",IDC_WAVEPROP_FILESIZE,50,26,134,8
+    LTEXT           "Image Width:",IDC_STATIC,29,46,44,8
+    LTEXT           "Image Height:",IDC_STATIC,26,56,47,8
+    LTEXT           "Bits Per Pixel:",IDC_STATIC,26,66,47,8
+    LTEXT           "Image Size:",IDC_STATIC,34,76,39,8
+    LTEXT           "Color Table Size:",IDC_STATIC,16,86,57,8
+    LTEXT           "Colors Used:",IDC_STATIC,30,96,43,8
+    GROUPBOX        "Source:",IDC_STATIC,75,36,50,75
+    LTEXT           "",IDC_WAVEPROP_IMAGEWIDTH_SOURCE,80,46,40,8
+    LTEXT           "",IDC_WAVEPROP_IMAGEHEIGHT_SOURCE,80,56,40,8
+    LTEXT           "",IDC_WAVEPROP_BITSPERPIXEL_SOURCE,80,66,40,8
+    LTEXT           "",IDC_WAVEPROP_IMAGESIZE_SOURCE,80,76,40,8
+    LTEXT           "",IDC_WAVEPROP_COLORTABLESIZE_SOURCE,80,86,40,8
+    LTEXT           "",IDC_WAVEPROP_NUMBERIMPORTANT_SOURCE,80,96,40,8
+    GROUPBOX        "Displayed:",IDC_STATIC,132,36,50,75
+    LTEXT           "",IDC_WAVEPROP_IMAGEWIDTH_DISPLAYED,136,46,40,8
+    LTEXT           "",IDC_WAVEPROP_IMAGEHEIGHT_DISPLAYED,136,56,40,8
+    LTEXT           "",IDC_WAVEPROP_BITSPERPIXEL_DISPLAYED,136,66,40,8
+    LTEXT           "",IDC_WAVEPROP_IMAGESIZE_DISPLAYED,136,76,40,8
+    LTEXT           "",IDC_WAVEPROP_COLORTABLESIZE_DISPLAYED,136,86,40,8
+    LTEXT           "",IDC_WAVEPROP_NUMBERIMPORTANT_DISPLAYED,136,96,40,8
+    LTEXT           "PIC Version:",IDC_STATIC,38,114,42,8
+    LTEXT           "Visual Orientation:",IDC_STATIC,19,124,61,8
+    LTEXT           "",IDC_WAVEPROP_PICVERSION,83,114,101,8
+    LTEXT           "",IDC_WAVEPROP_VISUALORIENTATION,83,124,95,8
+    GROUPBOX        "Wavelet",IDC_STATIC,11,142,180,72
+    LTEXT           "Compression Ratio:",IDC_STATIC,23,153,64,8
+    LTEXT           "",IDC_WAVEPROP_COMPRESSIONRATIO,90,153,95,8
+    RTEXT           "Comment:",IDC_STATIC,15,171,47,8
+    EDITTEXT        IDC_WAVEPROP_COMMENT,65,171,103,16,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | 
+                    WS_VSCROLL
+    RTEXT           "App Field:",IDC_STATIC,15,191,47,8
+    EDITTEXT        IDC_WAVEPROP_APP,65,191,103,16,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | 
+                    WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,76,219,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,145,225,57,14,NOT WS_VISIBLE | 
+                    NOT WS_TABSTOP
+END
+
+IDD_OWAVETIME DIALOG DISCARDABLE  0, 0, 203, 242
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Wavelet Expand Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",IDC_STATIC,10,10,181,204
+    RTEXT           "Timer Resolution:",IDC_STATIC,14,24,75,8
+    CONTROL         "",IDC_OWAVETIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,24,70,8
+    GROUPBOX        "Expand",IDC_STATIC,20,39,159,82
+    RTEXT           "Initialization:",IDC_STATIC,24,53,65,8
+    CONTROL         "",IDC_OWAVETIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,53,70,8
+    RTEXT           "Execution:",IDC_STATIC,24,63,65,8
+    CONTROL         "",IDC_OWAVETIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,63,70,8
+    RTEXT           "Termination:",IDC_STATIC,24,73,65,8
+    CONTROL         "",IDC_OWAVETIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,73,70,8
+    RTEXT           "Memory Alloc:",IDC_STATIC,24,83,65,8
+    CONTROL         "",IDC_OWAVETIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,83,70,8
+    RTEXT           "Memory Copy:",IDC_STATIC,24,93,65,8
+    CONTROL         "",IDC_OWAVETIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,93,70,8
+    RTEXT           "Yield:",IDC_STATIC,24,103,65,8
+    LTEXT           "",IDC_OWAVETIME_YIELD,94,103,70,8
+    RTEXT           "Expand:",IDC_STATIC,14,131,75,8
+    CONTROL         "",IDC_OWAVETIME_OPTOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,131,70,8
+    RTEXT           "Adjust Bit Depth:",IDC_STATIC,14,141,75,8
+    CONTROL         "",IDC_OWAVETIME_BITDEPTH,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,141,70,8
+    RTEXT           "Embedded Palette:",IDC_OWAVETIME_STATIC_PALETTE,14,151,
+                    75,8
+    CONTROL         "",IDC_OWAVETIME_PALETTE,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,151,70,8
+    RTEXT           "Make Display Palette:",IDC_STATIC,14,161,75,8
+    CONTROL         "",IDC_OWAVETIME_DISPLAYPALETTE,"Static",
+                    SS_LEFTNOWORDWRAP | WS_GROUP,94,161,70,8
+    RTEXT           "Image Display:",IDC_STATIC,14,171,75,8
+    CONTROL         "",IDC_OWAVETIME_PAINT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,171,70,8
+    RTEXT           "Total:",IDC_STATIC,14,191,75,8
+    CONTROL         "",IDC_OWAVETIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,191,70,8
+    DEFPUSHBUTTON   "OK",IDOK,75,223,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,145,229,57,14,NOT WS_VISIBLE
+END
+
+IDD_OWAVEOPT DIALOG DISCARDABLE  0, 0, 247, 246
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Expand Wavelet Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Use Image's Bits/Pixel and Colors",
+                    IDC_OWAVEOPT_CHECK_IMAGESETTINGS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,7,121,10
+    CONTROL         "32 (16M colors)",IDC_OWAVEOPT_RADIO_32BITS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,33,62,10
+    CONTROL         "24 (16M colors)",IDC_OWAVEOPT_RADIO_24BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,45,62,10
+    CONTROL         "16 (64K colors)",IDC_OWAVEOPT_RADIO_16BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,57,61,10
+    CONTROL         "8 (256 colors)",IDC_OWAVEOPT_RADIO_8BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,69,61,10
+    CONTROL         "4 (16 colors)",IDC_OWAVEOPT_RADIO_4BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,81,57,10
+    CONTROL         "1 (2 colors)",IDC_OWAVEOPT_RADIO_1BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,93,48,10
+    GROUPBOX        "&Bits/Pixel",IDC_OWAVEOPT_STATIC_BITSPERPIXEL,10,20,83,
+                    90,WS_GROUP
+    CHECKBOX        "Make &Gray Using",IDC_OWAVEOPT_CHECK_MAKEGRAY,100,56,67,
+                    10
+    EDITTEXT        IDC_OWAVEOPT_EDIT_GRAYSTOMAKE,170,55,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Grays",IDC_OWAVEOPT_STATIC_GRAYS,193,57,20,8,NOT 
+                    WS_GROUP
+    CONTROL         "&Dither Colors/Grays",IDC_OWAVEOPT_CHECK_DITHER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,100,68,75,10
+    LTEXT           "&Password:",IDC_STATIC,100,83,35,8,NOT WS_GROUP
+    EDITTEXT        IDC_OWAVEOPT_EDIT_PASSWORD,100,96,31,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Ti&ming...",IDC_BUTTON_TIMING,188,8,50,14
+    CONTROL         "Use Embedded Palette",
+                    IDC_OWAVEOPT_RADIO_EMBEDDEDPALETTE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,133,85,10
+    CONTROL         "Make Optimal Palette Using",
+                    IDC_OWAVEOPT_RADIO_MAKEPALETTE,"Button",
+                    BS_AUTORADIOBUTTON,18,145,101,10
+    CONTROL         "Use External Palette",
+                    IDC_OWAVEOPT_RADIO_EXTERNALPALETTE,"Button",
+                    BS_AUTORADIOBUTTON,18,157,78,10
+    GROUPBOX        "&Color Palette",IDC_OWAVEOPT_STATIC_COLORPALETTE,10,120,
+                    165,82,WS_GROUP
+    EDITTEXT        IDC_OWAVEOPT_EDIT_COLORSTOMAKE,122,144,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Colors",IDC_OWAVEOPT_STATIC_COLORS,145,146,22,8,NOT 
+                    WS_GROUP
+    LTEXT           "External Palette File Name:",
+                    IDC_OWAVEOPT_STATIC_EXTERNALPALETTE,34,169,90,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_OWAVEOPT_EDIT_EXTERNALPALETTE,34,182,86,13,
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_OWAVEOPT_BUTTON_BROWSE,125,182,40,13
+    CONTROL         "&Set Default Options",IDC_OWAVEOPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,206,75,10
+    DEFPUSHBUTTON   "OK",IDOK,8,224,50,14
+    PUSHBUTTON      "&Try Options",IDTEST,68,224,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,128,224,50,14
+    PUSHBUTTON      "&Help",IDHELP,188,224,50,14
+END
+
+IDD_SD2FOPTTIF DIALOG DISCARDABLE  0, 0, 191, 173
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Save TIF Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "None",IDC_SD2FOPTTIF_RADIO_UNCOMPRESSED,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,19,29,10
+    CONTROL         "Modified G3",IDC_SD2FOPTTIF_RADIO_MODIFIEDG3,"Button",
+                    BS_AUTORADIOBUTTON,18,33,54,10
+    CONTROL         "1-Dimensional G3",IDC_SD2FOPTTIF_RADIO_G31D,"Button",
+                    BS_AUTORADIOBUTTON,18,47,71,10
+    CONTROL         "2-Dimensional G3",IDC_SD2FOPTTIF_RADIO_G32D,"Button",
+                    BS_AUTORADIOBUTTON,18,61,71,10
+    CONTROL         "G4",IDC_SD2FOPTTIF_RADIO_G4,"Button",BS_AUTORADIOBUTTON,
+                    18,74,21,10
+    GROUPBOX        "&Compression",IDC_SD2FOPTTIF_STATIC_COMPRESSION,10,7,85,
+                    83,WS_GROUP
+    CONTROL         "Intel Order",IDC_SD2FOPTTIF_RADIO_INTEL,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,115,63,46,10
+    CONTROL         "Motorola Order",IDC_SD2FOPTTIF_RADIO_MOTOROLA,"Button",
+                    BS_AUTORADIOBUTTON,115,74,60,10
+    GROUPBOX        "Byte &Ordering",IDC_STATIC,107,49,75,41,WS_GROUP
+    CONTROL         "Save &Negative Image",IDC_SD2FOPTTIF_CHECK_NEGATIVE,
+                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,12,96,
+                    81,10
+    CONTROL         "&Append to File:",IDC_SD2FOPTTIF_CHECK_APPEND,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,112,61,10
+    EDITTEXT        IDC_SD2FOPTTIF_EDIT_FILENAME,74,110,63,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Browse...",IDC_SD2FOPTTIF_BUTTON_BROWSE,141,109,40,14
+    CONTROL         "&Set Default Options",IDC_SD2FOPTTIF_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,128,75,10
+    DEFPUSHBUTTON   "OK",IDOK,10,149,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,71,149,50,14
+    PUSHBUTTON      "&Help",IDHELP,131,149,50,14
+    PUSHBUTTON      "Timing...",IDC_BUTTON_TIMING,129,4,50,14
+END
+
+IDD_SD2FTIME DIALOG DISCARDABLE  0, 0, 187, 177
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "TIF Write Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",-1,10,10,167,134
+    RTEXT           "Timer Resolution:",-1,14,24,61,8
+    CONTROL         "",IDC_SSEQJPGTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,24,70,8
+    GROUPBOX        "TIF Write",-1,20,39,145,72
+    RTEXT           "Initialization:",-1,24,53,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,53,70,8
+    RTEXT           "Execution:",-1,24,63,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,63,70,8
+    RTEXT           "Termination:",-1,24,73,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,73,70,8
+    RTEXT           "Memory Alloc:",-1,24,83,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,83,70,8
+    RTEXT           "Total:",-1,14,121,61,8
+    CONTROL         "",IDC_SSEQJPGTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,121,70,8
+    DEFPUSHBUTTON   "OK",IDOK,68,153,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,130,160,57,14,NOT WS_VISIBLE
+    RTEXT           "Yield:",-1,24,93,51,8
+    CONTROL         "",IDC_SSEQJPGTIME_YIELD,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,80,93,70,8
+END
+
+IDD_OPNGOPT DIALOG DISCARDABLE  0, 0, 247, 246
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Expand PNG Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Use Image's Bits/Pixel and Colors",
+                    IDC_OPNGOPT_CHECK_IMAGESETTINGS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,10,7,121,10
+    CONTROL         "32 (16M colors)",IDC_OPNGOPT_RADIO_32BITS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,33,62,10
+    CONTROL         "24 (16M colors)",IDC_OPNGOPT_RADIO_24BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,45,62,10
+    CONTROL         "16 (64K colors)",IDC_OPNGOPT_RADIO_16BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,57,61,10
+    CONTROL         "8 (256 colors)",IDC_OPNGOPT_RADIO_8BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,69,61,10
+    CONTROL         "4 (16 colors)",IDC_OPNGOPT_RADIO_4BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,81,57,10
+    CONTROL         "1 (2 colors)",IDC_OPNGOPT_RADIO_1BITS,"Button",
+                    BS_AUTORADIOBUTTON,18,93,48,10
+    GROUPBOX        "&Bits/Pixel",IDC_OPNGOPT_STATIC_BITSPERPIXEL,10,20,83,
+                    90,WS_GROUP
+    CHECKBOX        "Make &Gray Using",IDC_OPNGOPT_CHECK_MAKEGRAY,100,56,67,
+                    10
+    EDITTEXT        IDC_OPNGOPT_EDIT_GRAYSTOMAKE,170,55,20,13,ES_AUTOHSCROLL
+    LTEXT           "Grays",IDC_OPNGOPT_STATIC_GRAYS,193,57,20,8,NOT 
+                    WS_GROUP
+    CONTROL         "&Dither Colors/Grays",IDC_OPNGOPT_CHECK_DITHER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,100,68,75,10
+    LTEXT           "&Password:",IDC_STATIC,100,83,35,8,NOT WS_GROUP
+    EDITTEXT        IDC_OPNGOPT_EDIT_PASSWORD,100,96,31,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Ti&ming...",IDC_BUTTON_TIMING,188,8,50,14
+    CONTROL         "Use Embedded Palette",IDC_OPNGOPT_RADIO_EMBEDDEDPALETTE,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,
+                    133,85,10
+    CONTROL         "Make Optimal Palette Using",
+                    IDC_OPNGOPT_RADIO_MAKEPALETTE,"Button",
+                    BS_AUTORADIOBUTTON,18,145,101,10
+    CONTROL         "Use External Palette",IDC_OPNGOPT_RADIO_EXTERNALPALETTE,
+                    "Button",BS_AUTORADIOBUTTON,18,157,78,10
+    GROUPBOX        "&Color Palette",IDC_OPNGOPT_STATIC_COLORPALETTE,10,120,
+                    165,82,WS_GROUP
+    EDITTEXT        IDC_OPNGOPT_EDIT_COLORSTOMAKE,122,144,20,13,
+                    ES_AUTOHSCROLL
+    LTEXT           "Colors",IDC_OPNGOPT_STATIC_COLORS,145,146,22,8,NOT 
+                    WS_GROUP
+    LTEXT           "External Palette File Name:",
+                    IDC_OPNGOPT_STATIC_EXTERNALPALETTE,34,169,90,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_OPNGOPT_EDIT_EXTERNALPALETTE,34,182,86,13,
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_OPNGOPT_BUTTON_BROWSE,125,182,40,13
+    CONTROL         "&Set Default Options",IDC_OPNGOPT_CHECK_SETDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,206,75,10
+    DEFPUSHBUTTON   "OK",IDOK,8,224,50,14
+    PUSHBUTTON      "&Try Options",IDTEST,68,224,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,128,224,50,14
+    PUSHBUTTON      "&Help",IDHELP,188,224,50,14
+END
+
+IDD_OPNGTIME DIALOG DISCARDABLE  0, 0, 203, 242
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "PNG Expand Timing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Timing in Seconds",IDC_STATIC,10,10,181,204
+    RTEXT           "Timer Resolution:",IDC_STATIC,14,24,75,8
+    CONTROL         "",IDC_OLLTIME_TIMERRES,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,24,70,8
+    GROUPBOX        "Expand",IDC_STATIC,20,39,159,82
+    RTEXT           "Initialization:",IDC_STATIC,24,53,65,8
+    CONTROL         "",IDC_OLLTIME_INIT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,53,70,8
+    RTEXT           "Execution:",IDC_STATIC,24,63,65,8
+    CONTROL         "",IDC_OLLTIME_EXEC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,63,70,8
+    RTEXT           "Termination:",IDC_STATIC,24,73,65,8
+    CONTROL         "",IDC_OLLTIME_TERM,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,73,70,8
+    RTEXT           "Memory Alloc:",IDC_STATIC,24,83,65,8
+    CONTROL         "",IDC_OLLTIME_ALLOC,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,83,70,8
+    RTEXT           "Memory Copy:",IDC_STATIC,24,93,65,8
+    CONTROL         "",IDC_OLLTIME_MEMCPY,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,93,70,8
+    RTEXT           "Yield:",IDC_STATIC,24,103,65,8
+    LTEXT           "",IDC_OLLTIME_YIELD,94,103,70,8
+    RTEXT           "Expand:",IDC_STATIC,14,131,75,8
+    CONTROL         "",IDC_OLLTIME_OPTOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,131,70,8
+    RTEXT           "Adjust Bit Depth:",IDC_STATIC,14,141,75,8
+    CONTROL         "",IDC_OLLTIME_BITDEPTH,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,141,70,8
+    RTEXT           "Embedded Palette:",IDC_OLLTIME_STATIC_PALETTE,14,151,75,
+                    8
+    CONTROL         "",IDC_OLLTIME_PALETTE,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,151,70,8
+    RTEXT           "Make Display Palette:",IDC_STATIC,14,161,75,8
+    CONTROL         "",IDC_OLLTIME_DISPLAYPALETTE,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,161,70,8
+    RTEXT           "Image Display:",IDC_STATIC,14,171,75,8
+    CONTROL         "",IDC_OLLTIME_PAINT,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,171,70,8
+    RTEXT           "Total:",IDC_STATIC,14,191,75,8
+    CONTROL         "",IDC_OLLTIME_TOTAL,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,94,191,70,8
+    DEFPUSHBUTTON   "OK",IDOK,75,223,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,145,229,57,14,NOT WS_VISIBLE
+END
+
+IDD_PNGPROP DIALOG DISCARDABLE  0, 0, 199, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "PNG Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "General",-1,10,5,180,139
+    LTEXT           "Filename:",-1,15,16,32,8
+    LTEXT           "",IDC_PNGPROP_FILENAME,50,16,134,8,WS_TABSTOP
+    LTEXT           "File Size:",-1,16,26,31,8
+    LTEXT           "",IDC_PNGPROP_FILESIZE,50,26,134,8
+    LTEXT           "File Type:",-1,13,36,34,8
+    LTEXT           "",IDC_PNGPROP_FILETYPE,50,36,134,8
+    LTEXT           "Image Width:",-1,29,69,44,8
+    LTEXT           "Image Height:",-1,26,79,47,8
+    LTEXT           "Bits Per Pixel:",-1,26,89,47,8
+    LTEXT           "Image Size:",-1,34,99,39,8
+    LTEXT           "Color Table Size:",-1,16,109,57,8
+    LTEXT           "Colors Used:",-1,30,119,43,8
+    GROUPBOX        "Source:",-1,75,59,50,75
+    LTEXT           "",IDC_PNGPROP_IMAGEWIDTH_SOURCE,80,69,40,8
+    LTEXT           "",IDC_PNGPROP_IMAGEHEIGHT_SOURCE,80,79,40,8
+    LTEXT           "",IDC_PNGPROP_BITSPERPIXEL_SOURCE,80,89,40,8
+    LTEXT           "",IDC_PNGPROP_IMAGESIZE_SOURCE,80,99,40,8
+    LTEXT           "",IDC_PNGPROP_COLORTABLESIZE_SOURCE,80,109,40,8
+    LTEXT           "",IDC_PNGPROP_NUMBERIMPORTANT_SOURCE,80,119,40,8
+    GROUPBOX        "Displayed:",-1,132,59,50,75
+    LTEXT           "",IDC_PNGPROP_IMAGEWIDTH_DISPLAYED,136,69,40,8
+    LTEXT           "",IDC_PNGPROP_IMAGEHEIGHT_DISPLAYED,136,79,40,8
+    LTEXT           "",IDC_PNGPROP_BITSPERPIXEL_DISPLAYED,136,89,40,8
+    LTEXT           "",IDC_PNGPROP_IMAGESIZE_DISPLAYED,136,99,40,8
+    LTEXT           "",IDC_PNGPROP_COLORTABLESIZE_DISPLAYED,136,109,40,8
+    LTEXT           "",IDC_PNGPROP_NUMBERIMPORTANT_DISPLAYED,136,119,40,8
+    DEFPUSHBUTTON   "OK",IDOK,75,150,50,14
+    PUSHBUTTON      "Invisible Cancel",IDCANCEL,142,158,57,14,NOT WS_VISIBLE | 
+                    NOT WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+26567                   BITMAP  DISCARDABLE     "RES\\3DCHECK.BMP"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_HAND                CURSOR  DISCARDABLE     "RES\\H_MOVE.CUR"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SD2FOPTTIF, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 164
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_REGISTERCLASS       "An unexpected RegisterClass error occurred. Minerva cannot continue."
+    IDS_LOADACCELERATORS    "An unexpected LoadAccelerators error occurred. Minerva cannot continue."
+    IDS_CREATEWINDOW_FRAME  "An unexpected CreateWindow error occurred. Minerva cannot continue."
+    IDS_IMAGERENAME         "An unexpected error occured renaming a temporary image file to %s."
+    IDS_IMAGEOPENFILE       "The file %s could not be opened."
+    IDS_IMAGEEMPTY          "The file %s is empty."
+    IDS_IMAGEMEMORY         "There was not enough memory to load the file %s."
+    IDS_IMAGEREAD           "An unexpected error occurred reading the file %s.  Another program may be accessing the file."
+    IDS_IMAGEQUERY          "The file %s is not an image file or it is not a supported type of image file."
+    IDS_IMAGECREATEWINDOW   "An unexpected error occurred creating a window to display the image."
+    IDS_IMAGEUNKNOWN        "The file %s is an image type which is unknown to this version of Minerva."
+    IDS_IMAGEOPCODENOTPRESENT 
+                            "The file %s requires the %s DLL (PICN%.2lu%.2u) which was not found. The image cannot be loaded.\n"
+    IDS_IMAGECREATE         "An error occured creating a temporary image file %s."
+    IDS_ALLIMAGES           "All Supported Images|"
+    IDS_ALLFILES            "All Files (*.*)|*.*|"
+    IDS_IMAGEWRITE          "An unexpected error occurred writing to a temporary image file."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FILEERROR           "A file error %u occurred."
+    IDS_FILEERROR2          "An invalid or nonexistent file was specified."
+    IDS_FILEERROR3          "An invalid or nonexistent drive or path was specified."
+    IDS_FILEERROR4          "Too many files are open."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FILEERROR32         "Another program may be accessing the file."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_IMAGEWRITE_DISKFULL "An error occurred writing to a temporary image file.  The disk appears to be full."
+    IDS_IMAGEREMOVE         "An unexpected error occurred renaming a temporary image file to %s.  The file %s may be a read-only file or it may be in use by another application."
+    IDS_INVALIDNUM          "The number is invalid or out of range.  Please enter a number from %d to %d."
+    IDS_PALETTEFILTERS      "All Palettes (*.pic,*.bmp)|*.PIC;*.BMP|All Files (*.*)|*.*|"
+    IDS_PROPERTIESDIALOG    "An unexpected error occurred opening the image properties dialog."
+    IDS_PALETTEFILEACCESS   "An unexpected file access error occurred evaluating the palette file %s.  Another program may be using this file."
+    IDS_INVALIDPALETTEFILE  "The file %s is an invalid palette file or it does not contain a suitable color palette."
+    IDS_CREATEOPTIONSDIALOG "An unexpected error occurred opening the options dialog."
+    IDS_LOADOPTIONSDIALOG   "An unexpected error occurred loading the options dialog."
+    IDS_IMAGEOUTOFMEMORY    "There was not enough memory to open the image."
+    IDS_OPTIONSOUTOFMEMORY  "There was not enough memory to open the options dialog."
+    IDS_IMAGECOLORPALETTE   "The image default Color Palette option is not suitable.  An optimal color palette will be made."
+    IDS_IMAGEOPEN           "The image could not be opened."
+    IDS_PASSWORDOUTOFMEMORY "This image requires a password, but there was not enough memory to open a dialog box to enter a password."
+    IDS_IMAGEMULTIPLECOMMENT 
+                            "The image has more than one comment.  Only the last will be displayed with the image properties."
+    IDS_IMAGEMULTIPLEAPPFIELD 
+                            "The image has more than one application-2 field.  Only the last will be displayed with the image properties."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PEGASUSERROR        "A PIC library error %ld occurred."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROPERTIESOUTOFMEMORY 
+                            "There was not enough memory to open the image properties dialog."
+    IDS_CREATEPROPERTIESDIALOG 
+                            "An unexpected error occurred opening the image properties dialog."
+    IDS_LOADPROPERTIESDIALOG 
+                            "An unexpected error occurred loading the image properties dialog."
+    IDS_IMAGEMODIFIED       "Save changes to image %s?"
+    IDS_NEWWINDOWOUTOFMEMORY 
+                            "There was not enough memory to create the new window."
+    IDS_NEWWINDOWCREATE     "An unexpected error occurred creating the new window."
+    IDS_SAVEOPTIONSOUTOFMEMORY 
+                            "There was not enough memory to open the save options dialog."
+    IDS_CREATESAVEOPTIONSDIALOG 
+                            "An unexpected error occurred opening the save options dialog."
+    IDS_PRIMARYCOLORS       "The number is invalid or out of range.  Please enter a number from 2 to 256."
+    IDS_SECONDARYCOLORS     "The number is invalid or out of range.  Please enter a number from 2 to %d."
+    IDS_NOSECONDARYCOLORS   "Secondary colors may only be specified when the number of primary colors is less than 254.  The number of primary colors plus the number of secondary colors must be no more than 256."
+    IDS_SAVEOUTOFMEMORY     "There was not enough memory to save the image."
+    IDS_NOTRANSFORMP2S      "The Pegasus Imaging Corp. DLL for loss-less conversion from progressive JPEG format to sequential JPEG format is not present.  Do you want to save in sequential JPEG format anyway?"
+    IDS_LUMINANCECHROMINANCE 
+                            "The number is invalid or out of range.  Please enter a number from 0 to 255."
+    IDS_SAVEIMAGE           "The image could not be saved."
+    IDS_ABOUTERROR          "An unexpected error occurred opening the about box."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ZOOMOPTIONSOUTOFMEMORY 
+                            "There was not enough memory to open the zoom options dialog."
+    IDS_CREATEZOOMOPTIONSDIALOG 
+                            "An unexpected error occurred opening the zoom options dialog."
+    IDS_ZOOMNUM             "The number is invalid or out of range.  Please enter a number greater than 0."
+    IDS_ZOOMOUTOFMEMORY     "There was not enough memory to zoom the image."
+    IDS_ZOOMIMAGE           "The image could not be zoomed."
+    IDS_ZOOMSRCBITCOUNT     "The image color depth must be 24-bits/pixel color or 8-bits/pixel gray scale in order to be zoomed."
+    IDS_WIN32               "Windows NT%s"
+    IDS_WIN16LARGE          "Windows 3.1, large memory model%s"
+    IDS_WIN16MEDIUM         "Windows 3.1, medium memory model%s"
+    IDS_MSC                 ", Microsoft C"
+    IDS_BORLANDC            ", Borland C"
+    IDS_WATCOMC             ", Watcom C"
+    IDS_UNKNOWNC            " "
+    IDS_ZOOMTIME            "Zoom/halftone time = %lu.%.3lu seconds.\rBuffer allocation time = %lu.%.3lu seconds."
+    IDS_PALETTEFILEOPENERROR 
+                            "An unexpected file open error occurred evaluating the palette file %s."
+    IDS_PALETTEFILENOTFOUND "The palette file %s was not found."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TIMINGOUTOFMEMORY   "There was not enough memory to open the timings dialog."
+    IDS_CREATETIMINGDIALOG  "An unexpected error occurred opening the timings dialog."
+    IDS_OPCODEBUSY          "Please wait until the current operation is finished before closing."
+    IDS_PALETTEMEMORY       "There was not enough memory to make the palette."
+    IDS_IMAGEHISTOGRAM      "A palette could not be made because a histogram could not be created for %s."
+    IDS_INVALIDFILENAME     "The name %s is not a valid file name or it is the name of an existing file which cannot be overwritten."
+    IDS_NOFILENAME          "No file name was specified for the palette file."
+    IDS_NOIMAGEFILES        "No image files were specified for the palette."
+    IDS_MAKEPALETTE         "The palette could not be created."
+    IDS_PALETTEWRITE        "An unexpected error occurred writing to the palette file."
+    IDS_PALETTEWRITE_DISKFULL 
+                            "An error occurred writing to a temporary image file.  The disk appears to be full."
+    IDS_PALETTECREATE       "An unexpected error occurred creating the palette file %s."
+    IDS_IMAGEBADDATA        "The image contains invalid data."
+    IDS_OPCODE82MISSINGOPEN "Default image options settings will not be used because the %s DLL was not found."
+    IDS_OPCODE82MISSINGOPTIONS 
+                            "Image options cannot be changed because the %s DLL was not found."
+    IDS_CREATEPALETTEERROR  "A color palette could not be created to correctly display the image."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PEGASUSBADDATA      "The image contains invalid data."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CREATEPALETTEOUTOFMEMORY 
+                            "There was insufficient memory to create a color palette to correctly display the image."
+    IDS_SAVEBMPBITDEPTH     "The input bit depth cannot be 16 or 32 bits per pixel to save in Bitmap format."
+    IDS_SAVEPCXBITDEPTH     "The input bit depth must be 8 or 24 bits per pixel to save i n PCX format."
+    IDS_SAVETGABITDEPTH     "The input bit depth must be 8 or 24 bits per pixel to save in Targa format."
+    IDS_SAVETIFBITDEPTH     "The input bit depth must be 8 or 24 bits per pixel to save in TIFF format."
+    IDS_SAVEGIFBITDEPTH     "The input depth must be 1, 4 or 8 bits per pixel to save in GIF format."
+    IDS_GIFTRANSPARENTINDEX "The Transparent Color Index must be from 0 to %u."
+    IDS_ROROPTIONSOUTOFMEMORY 
+                            "There was not enough memory to open the rotate options dialog."
+    IDS_CREATEROROPTIONSDIALOG 
+                            "An unexpected error occurred opening the rotate options dialog."
+    IDS_ROROUTOFMEMORY      "There was not enough memory to rotate the image."
+    IDS_RORIMAGE            "The image could not be rotated/enhanced."
+    IDS_RORNOTJPEG          "The Rotate/Enhance menu selection can only be applied to sequential JPEG images."
+    IDS_SAVEINTERNAL1       "Save As dialog file type change internal error 1."
+    IDS_SAVEINTERNAL2       "Save As dialog file type change internal error 2."
+    IDS_OUTOFRANGE          "The number is invalid or out of range.  Please enter a number from %d to %d."
+    IDS_SAVEIMSTARBITDEPTH  "The input bit depth must be 1, 4 or 8 bits per pixel to save in IMStar format."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SAVEWAVELETBITDEPTH "The input image must be 24 bit RGB or 8 bit gray scale to save in wavelet format."
+    IDS_THREADERROR         "An error occurred creating a thead to open %s."
+    IDS_TIFAPPENDFILENAME   "The file %s is not a TIFF file."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#ifdef SSM_RES
+
+PICN1820                SSM     DISCARDABLE     "..\\..\\bin\\picn1820.ssm"
+
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

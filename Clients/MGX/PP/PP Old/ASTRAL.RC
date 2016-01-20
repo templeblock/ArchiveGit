@@ -1,0 +1,2980 @@
+;®BT5¯®RFA®FC¯Page ®PN¯ of ®FP¯ -- pmtpp ®VA$FI¯ -- 2:50 PM , September 5, 1988¯®FD1¯®PL1¯®TP0¯®BT0¯®RM200¯
+; astral.rc     Picture Publisher application Resource file
+;----------------------------------------------------------
+; if the font is 10 point, the pixel factor is 2.0 (use icon preload size 17x17)
+; if the font is  8 point, the pixel factor is 1.7 (use icon preload size 20x20)
+rcinclude astral.h
+
+ID_LOGO         ICON PRELOAD ASTRAL.ico
+
+SPA_BITMAP      BITMAP LOADONCALL MOVEABLE DISCARDABLE SPA.bmp
+
+IDC_PICTPUB     ICON PRELOAD pictpub.ico
+IDC_DESIGNER    ICON PRELOAD designer.ico
+IDC_CHARISMA    ICON PRELOAD charisma.ico
+IDC_DRAWPLUS    ICON PRELOAD drawplus.ico
+IDC_CLIPART     ICON PRELOAD clipart.ico
+IDC_TECHSUPT    ICON PRELOAD techsupt.ico
+
+IDC_STATUSMASK ICON PRELOAD STATUSMA.ico
+IDC_STATUSSHIELD ICON PRELOAD STATUSSH.ico
+IDC_STATUSINFO ICON PRELOAD STATUSIN.ico
+
+IDC_EXTMANAGE   ICON PRELOAD MANAGE.ico
+IDC_MAPEXTMANAGE ICON PRELOAD MANAGE.ico
+IDC_CLIPEXTMANAGE ICON PRELOAD MANAGE.ico
+IDC_BGEXTMANAGE ICON PRELOAD MANAGE.ico
+IDC_CALEXTMANAGE ICON PRELOAD MANAGE.ico
+
+IDC_MASK        ICON PRELOAD MASK.ico
+IDC_RETOUCH     ICON PRELOAD RETOUCH.ico
+IDC_FILTER      ICON PRELOAD FILTER.ico
+IDC_FILL        ICON PRELOAD FILL.ico
+IDC_DRAW        ICON PRELOAD DRAW.ico
+IDC_CUSTOMVIEW  ICON PRELOAD CUSTOM.ico
+IDC_ERASER      ICON PRELOAD ERASER.ico
+IDC_TEXT        ICON PRELOAD TEXT.ico
+IDC_PROBE       ICON PRELOAD PROBE.ico
+
+IDC_SQUARE      ICON PRELOAD SQUARE.ico
+IDC_CIRCLE      ICON PRELOAD CIRCLE.ico
+IDC_FREE        ICON PRELOAD FREE.ico
+IDC_MAGICWAND   ICON PRELOAD MAGIC.ico
+IDC_SHIELD      ICON PRELOAD SHIELD.ico
+IDC_TRANSFORMER ICON PRELOAD TRANSFRM.ico
+IDC_POINTER     ICON PRELOAD POINTER.ico
+
+IDC_PAINT       ICON PRELOAD PAINT.ico
+IDC_SPRAY       ICON PRELOAD SPRAY.ico
+IDC_CLONE       ICON PRELOAD CLONE.ico
+IDC_TEXTURE     ICON PRELOAD TEXTURE.ico
+IDC_SMEAR       ICON PRELOAD SMEAR.ico
+
+IDC_SHARP       ICON PRELOAD SHARP.ico
+IDC_SMOOTH      ICON PRELOAD SMOOTH.ico
+IDC_LIGHTEN     ICON PRELOAD LIGHTEN.ico
+IDC_DARKEN      ICON PRELOAD DARKEN.ico
+
+IDC_VIGNETTE    ICON PRELOAD VIGNETTE.ico
+IDC_TEXTUREFILL ICON PRELOAD TEXTFILL.ico
+IDC_TINTFILL    ICON PRELOAD TINTFILL.ico
+IDC_FLOOD       ICON PRELOAD FLOOD.ico
+
+IDC_PENCIL      ICON PRELOAD PENCIL.ico
+IDC_DRAWSQUARE  ICON PRELOAD DSQUARE.ico
+IDC_DRAWCIRCLE  ICON PRELOAD DCIRCLE.ico
+IDC_DRAWFREE    ICON PRELOAD DFREE.ico
+
+IDC_VIEWLAST    ICON PRELOAD VIEWLAST.ico
+IDC_VIEW1TO1    ICON PRELOAD VIEW1TO1.ico
+IDC_VIEWFULL    ICON PRELOAD VIEWFULL.ico
+IDC_VIEWALL     ICON PRELOAD VIEWALL.ico
+IDC_GRABBER     ICON PRELOAD GRABBER.ico
+
+IDC_CWISE       ICON PRELOAD CWISE.ico
+IDC_CCWISE      ICON PRELOAD CCWISE.ico
+
+IDC_CIRCLEDOT   ICON PRELOAD CDOT.ico
+IDC_SQUAREDOT   ICON PRELOAD SDOT.ico
+IDC_ELLIPSEDOT  ICON PRELOAD EDOT.ico
+
+IDC_BRUSHSOLID  ICON PRELOAD SOLID.ico
+IDC_BRUSHSCATTER ICON PRELOAD SCATTER.ico
+
+IDC_BRUSHCIRCLE ICON PRELOAD BCIRCLE.ico
+IDC_BRUSHSQUARE ICON PRELOAD BSQUARE.ico
+IDC_BRUSHHORIZONTAL ICON PRELOAD BHORZ.ico
+IDC_BRUSHVERTICAL ICON PRELOAD BVERT.ico
+IDC_BRUSHSLASH  ICON PRELOAD BSLASH.ico
+IDC_BRUSHBACKSLASH ICON PRELOAD BBSLASH.ico
+IDC_BRUSHCUSTOM ICON PRELOAD BCUSTOM.ico
+
+IDC_PRESSLIGHT  ICON PRELOAD PLIGHT.ico
+IDC_PRESSMEDIUM ICON PRELOAD PMEDIUM.ico
+IDC_PRESSHEAVY  ICON PRELOAD PHEAVY.ico
+
+IDC_TEXTUREFLIPX ICON PRELOAD horz.ico
+IDC_TEXTUREFLIPY ICON PRELOAD vert.ico
+
+IDC_CIRDRAWEDGE         ICON PRELOAD drcirp.ico
+IDC_CIRFILLINTERIOR     ICON PRELOAD drcirf.ico
+IDC_CIRDRAWANDFILL      ICON PRELOAD drcirb.ico
+
+IDC_SQUDRAWEDGE         ICON PRELOAD drsqup.ico
+IDC_SQUFILLINTERIOR     ICON PRELOAD drsquf.ico
+IDC_SQUDRAWANDFILL      ICON PRELOAD drsqub.ico
+
+IDC_FREDRAWEDGE         ICON PRELOAD drfreep.ico
+IDC_FREFILLINTERIOR     ICON PRELOAD drfreef.ico
+IDC_FREDRAWANDFILL      ICON PRELOAD drfreeb.ico
+
+IDC_QUART1              ICON PRELOAD quart1.ico
+IDC_QUART2              ICON PRELOAD quart2.ico
+IDC_QUART3              ICON PRELOAD quart3.ico
+IDC_QUART4              ICON PRELOAD quart4.ico
+IDC_QUART5              ICON PRELOAD quart5.ico
+
+IDC_TEXT_ITALIC         ICON PRELOAD italic.ico
+IDC_TEXT_UNDERLINE      ICON PRELOAD underlne.ico
+IDC_TEXT_STRIKEOUT      ICON PRELOAD strikout.ico
+;IDC_TEXT_LIGHT         ICON PRELOAD light.ico
+;IDC_TEXT_NORMAL        ICON PRELOAD normal.ico
+IDC_TEXT_BOLD           ICON PRELOAD bold.ico
+
+ID_NULL         CURSOR PRELOAD null.cur
+ID_POPUP        CURSOR PRELOAD popup.cur
+ID_MODE         CURSOR PRELOAD mode.cur
+ID_DIALOG       CURSOR PRELOAD dialog.cur
+ID_FUNCTION     CURSOR PRELOAD function.cur
+ID_SELECTOR     CURSOR PRELOAD selector.cur
+ID_CLOCK01      CURSOR PRELOAD clock01.cur
+ID_CLOCK02      CURSOR PRELOAD clock02.cur
+ID_CLOCK03      CURSOR PRELOAD clock03.cur
+ID_CLOCK04      CURSOR PRELOAD clock04.cur
+ID_CLOCK05      CURSOR PRELOAD clock05.cur
+ID_CLOCK06      CURSOR PRELOAD clock06.cur
+ID_CLOCK07      CURSOR PRELOAD clock07.cur
+ID_CLOCK08      CURSOR PRELOAD clock08.cur
+ID_CLOCK09      CURSOR PRELOAD clock09.cur
+ID_CLOCK10      CURSOR PRELOAD clock10.cur
+ID_CLOCK11      CURSOR PRELOAD clock11.cur
+ID_CLOCK12      CURSOR PRELOAD clock12.cur
+ID_FREE         CURSOR PRELOAD FREE.cur
+ID_CUSTOMVIEW   CURSOR PRELOAD CUSTOM.cur
+ID_MAGICWAND    CURSOR PRELOAD MAGIC.cur
+ID_GRABBER      CURSOR PRELOAD GRABBER.cur
+ID_PROBE        CURSOR PRELOAD PROBE.cur
+ID_VIGNETTE     CURSOR PRELOAD VIGNETTE.cur
+ID_TEXT         CURSOR PRELOAD TEXT.cur
+ID_FLOOD        CURSOR PRELOAD FLOOD.cur
+ID_PENCIL       CURSOR PRELOAD PENCIL.cur
+ID_SHIELD       CURSOR PRELOAD SHIELD.cur
+ID_BALL1        CURSOR PRELOAD BBALL1.cur
+ID_BALL2        CURSOR PRELOAD BBALL2.cur
+ID_BALL3        CURSOR PRELOAD BBALL3.cur
+ID_BALL4        CURSOR PRELOAD BBALL4.cur
+ID_HELP         CURSOR PRELOAD HELP.cur
+
+rcinclude resource.h
+rcinclude about.rc
+
+IDC_EXTMANAGE MENU
+BEGIN
+    POPUP ""
+    BEGIN
+	MENUITEM "", IDC_FILENAME
+	MENUITEM        SEPARATOR
+	MENUITEM "Add...", IDC_ADDEXT
+	MENUITEM "Delete...", IDC_DELETEEXT
+	MENUITEM "Rename...", IDC_RENAMEEXT
+    END
+END
+
+IDC_MAPEXTMANAGE MENU
+BEGIN
+    POPUP ""
+    BEGIN
+	MENUITEM "", IDC_FILENAME
+	MENUITEM        SEPARATOR
+	MENUITEM "Add...", IDC_ADDEXT
+	MENUITEM "Delete...", IDC_DELETEEXT
+	MENUITEM "Rename...", IDC_RENAMEEXT
+    END
+END
+
+IDC_CLIPEXTMANAGE MENU
+BEGIN
+    POPUP ""
+    BEGIN
+	MENUITEM "", IDC_FILENAME
+	MENUITEM        SEPARATOR
+	MENUITEM "Delete...", IDC_DELETEEXT
+	MENUITEM "Rename...", IDC_RENAMEEXT
+    END
+END
+
+IDC_BGEXTMANAGE MENU
+BEGIN
+    POPUP ""
+    BEGIN
+	MENUITEM "", IDC_FILENAME
+	MENUITEM        SEPARATOR
+	MENUITEM "Add...", IDC_ADDEXT
+	MENUITEM "Delete...", IDC_DELETEEXT
+	MENUITEM "Rename...", IDC_RENAMEEXT
+    END
+END
+
+IDC_CALEXTMANAGE MENU
+BEGIN
+    POPUP ""
+    BEGIN
+	MENUITEM "", IDC_FILENAME
+	MENUITEM        SEPARATOR
+	MENUITEM "Add...", IDC_ADDEXT
+	MENUITEM "Delete...", IDC_DELETEEXT
+	MENUITEM "Rename...", IDC_RENAMEEXT
+    END
+END
+
+IDC_TRANSPARENT MENU
+BEGIN
+    POPUP ""
+    BEGIN
+	MENUITEM "0", IDC_00
+	MENUITEM "10", IDC_10
+	MENUITEM "20", IDC_20
+	MENUITEM "30", IDC_30
+	MENUITEM "40", IDC_40
+	MENUITEM "50", IDC_50
+	MENUITEM "60", IDC_60
+	MENUITEM "70", IDC_70
+	MENUITEM "80", IDC_80
+	MENUITEM "90", IDC_90
+    END
+END
+
+POPUPTOOLS MENU
+BEGIN
+    POPUP "Mask"
+    BEGIN
+	MENUITEM ".", IDC_SQUARE,       MENUBREAK
+	MENUITEM ".", IDC_CIRCLE,       MENUBREAK
+	MENUITEM ".", IDC_FREE,         MENUBREAK
+	MENUITEM ".", IDC_MAGICWAND,    MENUBREAK
+	MENUITEM ".", IDC_SHIELD,       MENUBREAK
+	MENUITEM ".", IDC_TRANSFORMER,  MENUBREAK
+	MENUITEM ".", IDC_POINTER,      MENUBREAK
+    END
+    POPUP "Retouch"
+    BEGIN
+	MENUITEM ".", IDC_PAINT,        MENUBREAK
+	MENUITEM ".", IDC_SPRAY,        MENUBREAK
+	MENUITEM ".", IDC_CLONE,        MENUBREAK
+	MENUITEM ".", IDC_TEXTURE,      MENUBREAK
+	MENUITEM ".", IDC_SMEAR,        MENUBREAK
+    END
+    POPUP "Filter"
+    BEGIN
+	MENUITEM ".", IDC_SHARP,        MENUBREAK
+	MENUITEM ".", IDC_SMOOTH,       MENUBREAK
+	MENUITEM ".", IDC_LIGHTEN,      MENUBREAK
+	MENUITEM ".", IDC_DARKEN,       MENUBREAK
+    END
+    POPUP "Fill"
+    BEGIN
+	MENUITEM ".", IDC_VIGNETTE,     MENUBREAK
+	MENUITEM ".", IDC_TEXTUREFILL,  MENUBREAK
+	MENUITEM ".", IDC_TINTFILL,     MENUBREAK
+	MENUITEM ".", IDC_FLOOD,        MENUBREAK
+    END
+    POPUP "Draw"
+    BEGIN
+	MENUITEM ".", IDC_PENCIL,       MENUBREAK
+	MENUITEM ".", IDC_DRAWSQUARE,   MENUBREAK
+	MENUITEM ".", IDC_DRAWCIRCLE,   MENUBREAK
+	MENUITEM ".", IDC_DRAWFREE,     MENUBREAK
+    END
+END
+
+PP MENU
+BEGIN
+    POPUP       "&File"
+    BEGIN
+	MENUITEM        "&New...\t^N",          IDM_NEW
+	MENUITEM        "&Open...\t^O",         IDM_OPEN
+	MENUITEM        "&Save\t^S",            IDM_SAVE
+	MENUITEM        "Save &as...\t^A",      IDM_SAVEAS
+	MENUITEM        "Re&vert to Saved\t^V", IDM_REVERT
+	MENUITEM        "Close",		IDM_CLOSE
+	POPUP           "Recall"
+	BEGIN
+		MENUITEM "",                    IDM_RECALLIMAGE0
+	END
+	MENUITEM        SEPARATOR
+	MENUITEM        "&Print...\t^P",        IDM_PRINT
+	MENUITEM        "Scan...",              IDM_SCAN
+	MENUITEM        "&Grab...\t^G",         IDM_GRAB
+;       MENUITEM        "HandScan...",          IDM_HANDSCAN
+	POPUP           "Setup",
+	BEGIN
+		MENUITEM "Printer...",          IDM_PRINTSETUP
+		MENUITEM "Scanner...",          IDM_SCANSETUP
+		MENUITEM "Grabber...",          IDM_GRABSETUP
+	END
+	MENUITEM        SEPARATOR
+	MENUITEM        "E&xit\t^X",            IDM_EXIT
+    END
+    POPUP       "&Edit"
+    BEGIN
+	MENUITEM        "Undo\tAlt+Bksp",       IDM_UNDO
+	MENUITEM        "Appl&y\t^Y",           IDM_APPLY
+	MENUITEM        SEPARATOR
+	MENUITEM        "Cut\tShift+Del",       IDM_CUT
+	MENUITEM        "Copy\tCtrl+Ins",       IDM_COPY
+	MENUITEM        "Copy to...",           IDM_COPYTOFILE
+	MENUITEM        "Paste\tShift+Ins",     IDM_PASTE
+	MENUITEM        "Paste from...",        IDM_PASTEFROMFILE
+	MENUITEM        "Delete\tDel",          IDM_DELETE
+	MENUITEM        SEPARATOR
+	MENUITEM        "Show Paste Options",   IDM_PASTEOPTIONS
+	MENUITEM        "Preferences...",       IDM_PREF
+    END
+    POPUP       "&Map"
+    BEGIN
+	MENUITEM        "Modify &Color Maps...\t^C",    IDM_MAP
+	MENUITEM        "Contrast/Brightness...\t^J", IDM_CONTBRIT
+	MENUITEM        "Posterize/&Threshold...\t^T", IDM_POSTERIZE
+	MENUITEM        "&Hue/Saturation...\t^U",       IDM_HUE
+	MENUITEM        "&Quartertones®...\t^Q",        IDM_QUARTERTONE
+	MENUITEM        "Calibration...",       IDM_CALIBRATE
+	MENUITEM        "Monitor gamma...",     IDM_MONITORMAP
+    END
+    POPUP       "M&ask"
+    BEGIN
+	MENUITEM        "&Remove Mask\t^R",     IDM_MASKREMOVE
+	MENUITEM        "Mask entire image",    IDM_MASKALL
+	MENUITEM        "Load Mask...",         IDM_MASKLOAD
+	MENUITEM        "Save Mask...",         IDM_MASKSAVE
+	MENUITEM        "Crop to Mask",         IDM_CROP
+	MENUITEM        "&Blend Mask\t^B",      IDM_BLEND
+    END
+    POPUP       "Effect&s"
+    BEGIN
+	MENUITEM        "Size...",              IDM_SIZE
+	POPUP           "Rotate",
+	BEGIN
+		MENUITEM "90° clockwise",       IDM_ROTATE90
+		MENUITEM "90° counter clockwise",IDM_ROTATE270
+		MENUITEM "180 degrees",         IDM_ROTATE180
+		MENUITEM "Arbitrary angle...",  IDM_ROTATEANY
+	END
+	POPUP           "Mirror",
+	BEGIN
+		MENUITEM "Horizontal",          IDM_MIRRORX
+		MENUITEM "Vertical",            IDM_MIRRORY
+		MENUITEM "Diagonal",            IDM_MIRRORXY
+	END
+	MENUITEM        "Invert",               IDM_INVERT
+	MENUITEM        "Split/Combine...",     IDM_SPLIT
+	MENUITEM        "Color Reduction...",   IDM_REDUCTION
+	MENUITEM        SEPARATOR
+	MENUITEM        "Smooth...",            IDM_SMOOTH
+	MENUITEM        "Sharpen...",           IDM_SHARPEN
+	MENUITEM        "Edge Detection...",    IDM_EDGEDETECT
+	MENUITEM        "Special...",           IDM_SPECIALFX
+    END
+    POPUP       "&Window"
+    BEGIN
+	MENUITEM        "Duplicate &Window\t^W",IDM_NEWWINDOW
+	MENUITEM	"Rulers", IDM_RULERS
+	POPUP           "Show/Hide",
+	BEGIN
+		MENUITEM "Show Scratchpad"      IDM_SCRATCHPAD
+		MENUITEM "Show Tools",          IDM_TOOLSHOW
+		MENUITEM "Show Status",         IDM_STATUSSHOW
+;               MENUITEM "Show Color Palette",  IDM_PALETTESHOW
+;               MENUITEM "Show Color Shields",  IDM_SHIELDSHOW
+;               MENUITEM "Show Clipboards",     IDM_CLIPBOARDSHOW
+	END
+	POPUP           "Arrange",
+	BEGIN
+		MENUITEM "Arrange icon windows", IDM_ARRANGEICONS
+		MENUITEM "Cascade windows",     IDM_CASCADE
+		MENUITEM "Tile windows",        IDM_TILE
+	END
+	MENUITEM        "Close All",            IDM_CLOSEALL
+    END
+    POPUP       "&Help"
+    BEGIN
+	MENUITEM        "&Index\tF1",           IDM_HELP_INDEX
+	MENUITEM        "Context &Sensitive\tShift+F1", IDM_HELP_PROCEDURES
+	MENUITEM        "&Toolbox",             IDM_HELP_TOOLBOX
+	MENUITEM        "&Keyboard",            IDM_HELP_KEYBOARD
+	MENUITEM        "&Commands",            IDM_HELP_COMMANDS
+	MENUITEM        "&Using Help",          IDM_HELP_INTRO
+;       MENUITEM        "&Tutorial...\t^T",     IDM_TUTORIAL
+	MENUITEM        SEPARATOR
+	MENUITEM        "About...",             IDM_ABOUT
+    END
+END
+
+ID_ACCEL ACCELERATORS
+BEGIN
+	"^A", IDM_SAVEAS, CONTROL
+	"^B", IDM_BLEND, CONTROL
+	"^C", IDM_MAP, CONTROL
+	"^G", IDM_GRAB, CONTROL
+	"^U", IDM_HUE, CONTROL
+	"^J", IDM_CONTBRIT, CONTROL
+	"^N", IDM_NEW, CONTROL
+	"^O", IDM_OPEN, CONTROL
+	"^P", IDM_PRINT, CONTROL
+	"^Q", IDM_QUARTERTONE, CONTROL
+	"^R", IDM_MASKREMOVE, CONTROL
+	"^S", IDM_SAVE, CONTROL
+	"^T", IDM_POSTERIZE,CONTROL
+	"^V", IDM_REVERT, CONTROL
+	"^W", IDM_NEWWINDOW, CONTROL
+	"^X", IDM_CLOSE, CONTROL
+	"^Y", IDM_APPLY, CONTROL
+	VK_BACK, IDM_UNDO, VIRTKEY, ALT
+	VK_F1, IDM_HELP_INDEX, VIRTKEY
+	VK_F1, IDM_HELP_PROCEDURES, VIRTKEY, SHIFT
+	VK_F2, IDM_FUNC2, VIRTKEY
+	VK_F3, IDM_FUNC3, VIRTKEY
+	VK_F4, IDM_FUNC4, VIRTKEY
+	VK_F5, IDM_FUNC5, VIRTKEY
+	VK_F6, IDM_FUNC6, VIRTKEY
+	VK_F7, IDM_FUNC7, VIRTKEY
+	VK_F8, IDM_FUNC8, VIRTKEY
+	VK_F9, IDM_FUNC9, VIRTKEY
+	VK_F10, IDM_FUNC10, VIRTKEY
+	VK_F11, IDM_FUNC11, VIRTKEY
+	VK_F12, IDM_FUNC12, VIRTKEY
+	VK_ADD, IDM_BRUSHPRESSUP, VIRTKEY, NOINVERT
+	VK_SUBTRACT, IDM_BRUSHPRESSDOWN, VIRTKEY, NOINVERT
+	VK_UP, IDM_BRUSHUP, VIRTKEY, NOINVERT
+	VK_DOWN, IDM_BRUSHDOWN, VIRTKEY, NOINVERT
+	VK_RIGHT, IDM_BRUSHSHAPE, VIRTKEY, NOINVERT
+	VK_LEFT, IDM_BRUSHSHAPE, VIRTKEY, NOINVERT
+	VK_BACK, IDM_BACKUP, VIRTKEY, NOINVERT
+	VK_DELETE, IDM_DELETEITEM, VIRTKEY, NOINVERT
+	VK_ESCAPE, IDM_ESCAPE, VIRTKEY, NOINVERT
+END
+
+STRINGTABLE LOADONCALL
+BEGIN
+IDS_APPNAME,    "Picture Publisher®"
+IDS_PREVIEW,    "%d%% %ls"
+IDS_UNTITLED,   "Untitled-"
+IDS_SHOW,       "Show"
+IDS_HIDE,       "Hide"
+IDS_UNDO,       "Undo %s\tAlt+Bksp"
+IDS_MANUALAPPLY,"Manual Appl&y\t^Y"
+IDS_AUTOAPPLY,  "Auto Apply"
+IDS_REDO,       "Redo %s\tAlt+Bksp"
+IDS_EDITS,      "Edits"
+IDS_PORT_SEPARATOR, " on "
+IDS_PRINTERR,   "Error occurred while printing; check your software and hardware print connections"
+IDS_PRINTMEM,   "Not enough memory to print"
+IDS_PRINTDISK,  "Not enough disk space to print"
+IDS_PRINTUSER,  "Printing has been cancelled by the user"
+IDS_WELCOME,    "Welcome to Micrografx %ls"
+IDS_INMEMORY,   "%d%% in"
+IDS_NOIMAGE,    "No image"
+IDS_INSIDE,     "In"
+IDS_OUTSIDE,    "Out"
+IDS_NONE,       "Off"
+IDS_APPLYORUNDO, "Apply or Undo your changes before continuing"
+IDS_AREYOUSURE, "Save '%ls' before closing?"
+IDS_OKTOOPEN,   "The file '%ls' is already opened.  Open as an Untitled image?"
+IDS_OKTOSAVEPREF, "Are you sure you want to save the preferences for the %ls?"
+IDS_EWININI,    "The program was not properly installed - no defaults can be found in WIN.INI.  Picture Publisher will complete the WIN.INI installation using directory %ls for all files.  WIN.INI may be edited later."
+IDS_EMEMALLOC, "Can't allocate enough memory to complete the operation"
+IDS_EWRITEFILE, "Error writing to file"
+IDS_EWRITE,     "Error writing to file '%ls'"
+IDS_EREAD,      "Error reading from file '%ls'"
+IDS_EOPEN,      "Error opening file '%ls'"
+IDS_ECREATE,    "Error creating the new file '%ls'"
+IDS_EIMGVERSION,"'%ls' is not TIFF version 4.2; will continue"
+IDS_EIMGCOMP,   "'%ls' is a CCITT or Packbits TIFF image; cannot be opened"
+IDS_EIMGPHOTO,  "'%ls' is a TIFF image with non-standard photo interpretation (like color); will continue"
+IDS_EIMGFILL,   "'%ls' is a TIFF image with non-standard fill order; will continue"
+IDS_EIMGORIENT, "'%ls' is an oriented TIFF image; will continue"
+IDS_EMAPASC,    "Input points must be in ascending order"
+IDS_EIMGBAD,    "'%ls' is not a valid TIFF image file"
+IDS_EBADMAP,    "'%ls' is not a valid map file"
+IDS_EBADMASK,   "'%ls' is not a valid mask file"
+IDS_EBADSTYLE,  "'%ls' is not a valid print style file"
+IDS_EBADCAL,    "'%ls' is not an 11 point calibration map; Cannot load"
+IDS_ESCROPEN,   "Could not open the image cache file in directory '%ls'"
+IDS_ESCRWRITE,  "Write failed on cache file in directory '%ls'"
+IDS_CRIPPLED,   "This version of Picture Publisher is for demonstration or educational use only.  If you wish to save image files, you must purchase Picture Publisher from your local distributor"
+IDS_EVIDEOREAD, "That image was not created by this complementary copy of Picture Publisher.  If you wish to read images created by scanners and other frame grabbers, you must purchase Picture Publisher from your local distributor."
+IDS_COPYPROTECTED, "Picture Publisher has detected a system change from the original program installation.  You must reinstall the program to run in this new environment.  This program will continue to run, however, you cannot save image files."
+
+IDS_COPYDRV, "Copying driver %ls to %ls"
+IDS_ETUTORIAL, "Could not run the tutorial"
+IDS_WARNDRV, "In order to have the %ls driver take effect, close down Picture Publisher and restart it.  You may install other drivers before you exit."
+IDS_CLIPEMPTY, "Clipboard doesn't contain a bitmap or is empty"
+IDS_CREATEUNDO "Creating undo buffer - Please wait"
+IDS_ECLIPOPEN, "Unable to open the clipboard"
+IDS_ECLIPWRITE, "Error writing to the clipboard"
+IDS_ENOMASK, "There is no active mask"
+IDS_EMAXIMAGEHEIGHT, "Can't allocate a picture longer than 32K lines"
+IDS_EIMAGEOVERHEAD, "Can't open an image that requires > 64K of overhead"
+IDS_ELINEPOOLALLOC, "Failed to allocate %ld bytes of %ls memory"
+IDS_ECOMPRESSINIT, "Can't init the compressed image"
+IDS_ECOMPRESSCLOSE, "Can't close out the compressed image"
+IDS_STRETCHREADINGS, "Your readings will be adjusted by stretching your minimum (%d%%) and maximum (%d%%) readings between 0 and 100%%"
+IDS_ETOOWIDE, "The width of the image you are creating exceeds your system's maximum - Please reduce the size before continuing"
+IDS_NOGRB, "Unable to get Video or Frame Grab hardware error"
+IDS_GRBABORT, "User aborted grab"
+IDS_EBADDEVICE, "No default printer; Use the Control Panel to select one"
+IDS_EBADDRIVER, "Windows printer driver %ls won't load"
+IDS_ESCANOPEN,  "Can't open the scanner driver: %ls"
+IDS_ESCANMEM,   "Not enough memory to continue scanning!"
+IDS_ESCANWRITE, "Write failed on cache file in directory '%ls'; Try closing any images before continuing"
+IDS_ESCANINIT, "Can't initialize the scanner: %ls"
+IDS_ESCANENV, "Can't get the scanner environment: %ls"
+IDS_ESCANGETATT, "Can't get the scanner attributes: %ls"
+IDS_ESCANSETATT, "Can't set the scanner attributes: %ls"
+IDS_ESCANCLOSE, "Can't close the scanner properly: %ls"
+IDS_ESCANSTART, "Can't start a scan: %ls"
+IDS_ESCANIMAGE, "Can't get data from the scanner: %ls"
+IDS_ESCANCROP, "Crop area is empty; cannot scan"
+IDS_SCANCHECK, "Number of gray levels found is %d; Maximum gray is %d; Minimum gray is %d"
+IDS_EDISKCACHE, "The new image requires %ldK bytes of unused disk space.  Your disk has only %ldK bytes of unused space.  Free up some space on the disk or change your preference for the image cache location to a larger disk."
+IDS_EDISKSPACE, "Cannot write file '%ls'.  The new file requires %ldK bytes of unused disk space.  Your disk has only %ldK bytes of unused space."
+IDS_EXTNAMEEXISTS "Extended name '%ls' already exists."
+IDS_DELETEEXTFILE "Are you sure want to delete\n'%ls'?\n(%ls)"
+IDS_OVERWRITEEXTFILE "Extended name '%ls' already exists.  Do you want to overwrite it?"
+IDS_NOUNDO "Undo will not work on some operations"
+IDS_NEEDUNDO "This function will not work without an undo buffer"
+IDS_MUSTUSEUNDO "You must use the undo menu function to undo the last operation"
+IDS_NEWBRUSH "Custom Brush '%ls' does not exist.  Do you want to create it?"
+IDS_COLORGRAYCOUNT "%ld pixels have average Gray value of %d"
+IDS_COLORGRAY "Gray value of %d"
+IDS_COLORRGBCOUNT "%ld pixels have average RGB value of (%d,%d,%d)"
+IDS_COLORRGB "RGB value of (%d,%d,%d)"
+;
+; ecrm error messages
+;
+IDS_RESETFAIL,  "Unable to reset scsi bus"
+IDS_TSTRDYFAIL, "Scsi bus failed to test ready"
+IDS_INQFAIL,    "Unable to inquire scsi buffer box"
+IDS_REWFAIL,    "Unable to rewind scsi buffer box"
+IDS_NOSEQ,      "Scsi buffer files out of sequence"
+IDS_SPCFAIL,    "Unable to space scsi buffer box"
+IDS_SPCFAIL1,   "Unable to space scsi buffer box to end of data"
+IDS_MDSELFAIL,  "Unable to mode select scsi buffer box"
+IDS_WFMFAIL,    "Unable to write file mark to scsi buffer box"
+IDS_WRTFAIL,    "Unable to write scsi data to scsi buffer box"
+IDS_FFFAIL,     "No files match scsi buffer box entry"
+;
+; unit description messages
+;
+IDC_PREF_UNITINCHES     "inches"
+IDC_PREF_UNITMM         "mm"
+IDC_PREF_UNITCM         "cm"
+IDC_PREF_UNITPICAS      "picas"
+;
+; printer labels
+;
+IDS_LABELPICNAME        "%ls printed on %ls"
+IDS_LABELSTYLE          "Print Style '%ls'"
+IDS_LABELPRINTER        "Print Device '%ls %ls'"
+IDS_LABELNOINKCORRECT   "No ink correction"
+IDS_LABELRINKCORRECT    "Ink correction: Recipe for Red is %d%% Magenta plus %d%% Yellow"
+IDS_LABELGINKCORRECT    "Ink correction: Recipe for Green is %d%% Yellow plus %d%% Cyan"
+IDS_LABELBINKCORRECT    "Ink correction: Recipe for Blue is %d%% Cyan plus %d%% Magenta"
+IDS_LABELNOHALFTONING   "No halftoning info sent"
+IDS_LABELCOLORFREQUENCY "Halftone frequency C %ls M %ls Y %ls K %ls lines/inch"
+IDS_LABELCOLORANGLE     "Halftone angle C %ls° M %ls° Y %ls° K %ls°"
+IDS_LABELSINGLEHALFTONE "Halftone frequency %ls lines/inch - angle %ls°"
+IDS_LABELMINMAXDOT,     "Halftone dot is %ls - Minimum dot %d%% - Maximum dot %d%%"
+IDS_LABELNOBLACKGEN     "No black generation or UCR"
+IDS_LABELBLACKGEN       "Black generation amount '%ls'"
+IDS_LABELUCR            "Black generated from %d%% UCR and %d%% additive boost"
+IDS_LABELNOCALIBRATION  "No device/dot gain correction"
+IDS_LABELCALIBRATION    "Device/dot gain correction '%ls'"
+IDS_LABELSEPC           "Cyan"
+IDS_LABELSEPM           "Magenta"
+IDS_LABELSEPY           "Yellow"
+IDS_LABELSEPK           "Black"
+IDC_PRINT_GRAY          "Gray"
+IDC_PRINT_COLOR         "Full color"
+IDC_PRINT_COLORGRAY     "Full color plus gray"
+IDC_PRINTER_IS_MONO     "Monochrome"
+IDC_PRINTER_IS_RGB      "RGB Color"
+IDC_PRINTER_IS_CMYK     "CMYK Color"
+IDC_ELLIPSEDOT          "Elliptical"
+IDC_SQUAREDOT           "Square"
+IDC_CIRCLEDOT           "Circular"
+;
+; Copy to dialog box name
+IDC_COPYTOCLIP          "Clipboard name:"
+IDC_COPYTOTEXTURE       "Texture name:"
+IDC_COPYTOBRUSH         "Brush name:"
+;
+; undo messages
+;
+IDS_UNDOERASER,         "Eraser Tool"
+IDS_UNDOTEXT,           "Text Tool"
+IDS_UNDODELETE          "Delete"
+;
+IDS_UNDOPAINT,          "Paint Brush"
+IDS_UNDOSPRAY,          "Airbrush"
+IDS_UNDOCLONE,          "Clone Tool"
+IDS_UNDOTEXTURE,        "Texture Tool"
+IDS_UNDOSMEAR,          "Smear Tool"
+;
+IDS_UNDOSHARP,          "Sharpen Tool"
+IDS_UNDOSMOOTH,         "Smooth Tool"
+IDS_UNDOLIGHTEN,        "Lighten Tool"
+IDS_UNDODARKEN,         "Darken Tool"
+;
+IDS_UNDOVIGNETTE,       "Gradient Fill"
+IDS_UNDOTEXTUREFILL,    "Texture Fill"
+IDS_UNDOTINTFILL,       "Color Tint Fill"
+IDS_UNDOFLOOD,          "Smart Fill"
+;
+IDS_UNDOPENCIL,         "Pencil Tool"
+IDS_UNDODRAWSQUARE,     "Draw Square Tool"
+IDS_UNDODRAWCIRCLE,     "Draw Circle Tool"
+IDS_UNDODRAWFREE,       "Draw Freehand Tool"
+;
+IDS_UNDOSIZE,           "Size Image"
+IDS_UNDOROTATE90,       "Rotate 90"
+IDS_UNDOROTATE180,      "Rotate 180"
+IDS_UNDOROTATE270,      "Rotate 270"
+IDS_UNDOROTATEANY,      "Rotate Arbitrary"
+IDS_UNDOMIRRORY,        "Mirror Vertical"
+IDS_UNDOMIRRORX,        "Mirror Horizontal"
+IDS_UNDOMIRRORXY,       "Mirror Diagonal"
+IDS_UNDOINVERT,         "Invert"
+IDS_UNDOSHARPENFILTER,  "Sharpen Filter"
+IDS_UNDOSMOOTHFILTER,   "Smooth Filter"
+IDS_UNDOEDGEFILTER,     "Edge Filter"
+IDS_UNDOSPECIALFILTER,  "Special Filter"
+IDS_UNDOPASTE,          "Paste"
+IDS_UNDOBLEND,          "Blend"
+IDS_UNDOCROP,           "Crop"
+;
+IDS_UNDOMAP,            "Map Changes"
+IDS_UNDOQUARTERTONE,    "Quartertones"
+IDS_UNDOCONTBRIT,       "Contrast/Brightness"
+IDS_UNDOPOSTERIZE,      "Posterize/Threshold"
+IDS_UNDOHUE,            "Hue/Saturation"
+;
+IDS_DEPTH0              "1-bit Line Art"
+IDS_DEPTH1              "8-bit Grayscale"
+IDS_DEPTH2              "16-bit Color"
+IDS_DEPTH3              "24-bit Color"
+;
+IDS_YES,                "Yes"
+IDS_NO,                 "No"
+;
+IDS_INFOSIZE            "%d pixels (%s %s)"
+;
+IDS_TIFF,               "Tagged Image File Format"
+IDS_EPS,                "Encapsulated PostScript"
+IDS_TARGA,              "Targa"
+IDS_GIF,                "GIF"
+IDS_BMP,                "Windows Bitmap"
+IDS_PCX,                "PC PaintBrush"
+;
+; extended name stuff
+;
+IDC_SAVETIFF,           "*.TIF"
+IDC_SAVEEPS,            "*.EPS"
+IDC_SAVETARGA,          "*.TGA"
+IDC_SAVEGIF,            "*.GIF"
+IDC_SAVEBMP,            "*.BMP"
+IDC_SAVEPCX,            "*.PCX"
+IDD_TUTORIAL,           "*.SHO"
+;
+IDN_MAP,                "*.MAP"
+IDN_BGMAP,              "*.MAP"
+IDN_CALMAP,             "*.MAP"
+IDN_SCANMAP,            "*.MAP"
+IDN_TEXTURE,            "*.BMP"
+IDN_SMOOTH,             "*.FLT"
+IDN_SHARP,              "*.FLT"
+IDN_EDGE,               "*.FLT"
+IDN_SPECIAL,            "*.FLT"
+IDN_SCANNER,            "*.DSC"
+IDN_GRABBER,            "*.DGR"
+IDN_STYLE,              "*.STY"
+IDN_CLIPBOARD,          "*.BMP"
+IDN_MASK,               "*.MSK"
+IDN_CUSTOM,             "*.BMP"
+
+IDN_MAP     +MAX_FILETYPES,     "Map Name"
+IDN_BGMAP   +MAX_FILETYPES,     "Black Generation Name"
+IDN_CALMAP  +MAX_FILETYPES,     "Printer Calibration Name"
+IDN_SCANMAP +MAX_FILETYPES,     "Scanner Calibration Name"
+IDN_TEXTURE +MAX_FILETYPES,     "Texture Name"
+IDN_SMOOTH  +MAX_FILETYPES,     "Smooth Filter Name"
+IDN_SHARP   +MAX_FILETYPES,     "Sharpen Filter Name"
+IDN_EDGE    +MAX_FILETYPES,     "Edge Filter Name"
+IDN_SPECIAL +MAX_FILETYPES,     "Special Filter Name"
+IDN_SCANNER +MAX_FILETYPES,     "Scanner Name"
+IDN_GRABBER +MAX_FILETYPES,     "Grabber Name"
+IDN_STYLE   +MAX_FILETYPES,     "Printer Style Name"
+IDN_CLIPBOARD +MAX_FILETYPES,   "Clipboard Name"
+IDN_MASK    +MAX_FILETYPES,     "Mask Name"
+IDN_CUSTOM  +MAX_FILETYPES,     "Brush Name"
+
+rcinclude hints.rc
+END
+
+#define VERSION_STRING  "Picture Publisher 3.0.A15"
+#define RELEASE_DATE    "August 21, 1991"
+#define MGX_COPYRIGHT   "Copyright 1991 Micrografx, Inc., All Rights Reserved."
+#define BUTTON_CLASS    "static"
+#define BCS_NOMOUSEFOCUS 0
+#define ID_SHDW         0
+
+IDD_HERALD DIALOG LOADONCALL MOVEABLE DISCARDABLE 100, 75, 160, 100
+CAPTION "Status"
+FONT 10, "Helv"
+STYLE (WS_MODAL | DS_MODALFRAME)
+BEGIN
+CTEXT( "This opening herald unintentionally left blank", -1, 10, 10, 80, TDY+TDY+TDY )
+END
+
+IDD_ABOUT DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 210, 110
+STYLE (WS_MODAL | DS_MODALFRAME)
+CLASS "mydialog"
+BEGIN
+CTEXT( VERSION_STRING, 0, 8, 8, 202, TDY )
+CTEXT( RELEASE_DATE, 0, 4, 16, 202, TDY )
+CTEXT( MGX_COPYRIGHT, 0, 4, 24, 202, TDY )
+DUTTON( "OK", IDOK, 90, 42, 32, BDY )
+PICON( IDC_PICTPUB, 4, 4, 20, 20 )
+CTEXTBOXL( "Authors", -1, 4, 58, 82, 48 )
+CTEXT( "Jim McCurdy\nTed Rogers\nPeter Tarca\n", ABOUT_CAST, 6, 68, 78, TDY+TDY+TDY )
+CTEXT( "Click on these icons!", READ_ME, 90, 98, 116, TDY )
+ICON3D( IDC_DESIGNER,  92, 76, 20, 20 )
+ICON3D( IDC_CHARISMA, 116, 76, 20, 20 )
+ICON3D( IDC_DRAWPLUS, 140, 76, 20, 20 )
+ICON3D( IDC_CLIPART,  164, 76, 20, 20 )
+ICON3D( IDC_TECHSUPT, 188, 76, 20, 20 )
+END
+
+IDD_WARNING DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 200, 178
+STYLE (WS_MODAL | DS_MODALFRAME)
+BEGIN
+TEXTBLOCK( TXTBLK_WARNING, 104, 16, 92, 96 )
+CTEXT( "Report copyright violations to:", -1, 0, 114, 200, TDY )
+CTEXT( "Software Publishers Association", -1, 0, 130, 200, TDY )
+CTEXT( "1101 Connecticut Ave, NW, Suite 901", -1, 0, 138, 200, TDY )
+CTEXT( "Washington, DC 20036", -1, 0, 146, 200, TDY )
+DUTTON( "Continue", IDOK, 80, 162, 40, BDY )
+PBITMAP( SPA_BITMAP, 4, 2, 96, 104 )
+END
+
+TXTBLK_WARNING RCDATA LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+"Federal copyright law permits you to make a backup copy of this software for",
+" archival purposes only.  Any other duplication, including copies offered for",
+" sale, loan, rental, or gift is a violation of law, and subject to both",
+" criminal and civil penalties."
+END
+
+IDD_TOOLS DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 34, 17, 197
+CAPTION ""
+FONT 10, "Helv"
+STYLE WS_MODELESS | WS_CAPTION
+BEGIN
+TOOL( IDC_MASK,         0, 17, 17, 17 )
+TOOL( IDC_RETOUCH,      0, 34, 17, 17 )
+TOOL( IDC_FILTER,       0, 51, 17, 17 )
+TOOL( IDC_FILL,         0, 85, 17, 17 )
+TOOL( IDC_DRAW,         0,102, 17, 17 )
+TOOL( IDC_CUSTOMVIEW,   0, 68, 17, 17 )
+TOOL( IDC_ERASER,       0,119, 17, 17 )
+TOOL( IDC_TEXT,         0,136, 17, 17 )
+TOOL( IDC_PROBE,        0,153, 17, 17 )
+COLOR2( IDC_ACTIVECOLOR, 0,170, 17, 20 )
+END
+
+IDD_ERASER DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Eraser Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_ERASER, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Size", -1, 72, 0, 27, 24)
+SPINEDIT( IDC_BRUSHSIZE, 76, 10, DX2, EDY )
+CTEXTBOXL( "Shape", -1, 25, 0, 47, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, 28, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Style", -1, 99, 0, 31, 24)
+ICON3DNF( IDC_BRUSHSOLID, 102, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, 115, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, 130, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, 133, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, 160, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, 163, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, 190, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, 199, 10, DX3, EDY)
+END
+
+IDD_TEXT DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Text Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_TEXT, 2, 2, 20, 20 )
+CTEXTBOXL( "Text", -1, 25, 0, 107, 24 )
+NAME( IDC_TEXT_STRING, 28, 10, 100, EDY)
+CTEXTBOXL( "Typeface", -1, 132, 0, 107, 24 )
+COMBO( IDC_TEXT_FACES, 135, 10, 100, 96 )
+CTEXTBOXL( "Points", -1, 239, 0, 30, 24)
+SPINEDIT( IDC_TEXT_SIZE, 242, 10, DX3, EDY)
+CTEXTBOXL( "Style", -1, 269, 0, 61, 24 )
+ICON3DNF( IDC_TEXT_BOLD, 272, 10, 11, 11 )
+ICON3DNF( IDC_TEXT_ITALIC, 286, 10, 11, 11 )
+ICON3DNF( IDC_TEXT_UNDERLINE, 300, 10, 11, 11 )
+ICON3DNF( IDC_TEXT_STRIKEOUT, 314, 10, 11, 11 )
+;RADIO( "&Light", IDC_TEXT_LIGHT, 72, 90, 55, RDY )
+;RADIO( "&Normal", IDC_TEXT_NORMAL, 72, 102, 55, RDY )
+END
+
+IDD_PROBE DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Color Probe Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_PROBE, 2, 2, 20, 20 )
+CTEXTBOXL( "Method", -1, 25, 0, 96, 24 )
+COMBO( IDC_PROBEMETHOD, 28, 10, 89, CBY+CBY+CBY )
+CBITEM( "Point sample", IDC_PROBEPOINT )
+CBITEM( "Rectangular average", IDC_PROBERECT )
+END
+
+IDD_FREE DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Freehand Mask Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_FREE, 2, 2, 20, 20 )
+CTEXTBOXL( "Method", -1, 25, 0, 76, 24 )
+COMBO( IDC_MASKMETHOD, 28, 10, 69, CBY+CBY+CBY )
+CBITEM( "Freehand", IDC_FREEHAND )
+CBITEM( "AutoMask", IDC_AUTOMASK )
+CTEXTBOXL( "Sensitivity", -1, 101, 0, 50, 24 )
+SPINEDITX( IDC_AUTOSEARCHDEPTH, 107, 10, DX2, EDY, "units", 20 )
+CTEXTBOXL( "Min. vector", -1, 151, 0, 52, 24 )
+SPINEDITX( IDC_AUTOMINEDGE, 157, 10, DX2, EDY, "pixels", 20 )
+END
+
+IDD_SQUARE DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Rectangular Mask Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_SQUARE, 2, 2, 20, 20 )
+CTEXTBOXL( "Aspect ratio", -1, 25, 0, 61, 24 )
+COMBO( IDC_ASPECTRATIO, 28, 10, 54, CBY+CBY+CBY )
+CBITEM( "Freeform", IDC_UNCONSTRAIN )
+CBITEM( "Constrained", IDC_CONSTRAIN )
+CTEXTBOXL( "Width", -1, 86, 0, 30, 24 )
+EDIT( IDC_WCONSTRAIN, 92, 10, DX3, EDY )
+CTEXTBOXL( "Height", -1, 116, 0, 30, 24 )
+EDIT( IDC_HCONSTRAIN, 122, 10, DX3, EDY )
+END
+
+IDD_CIRCLE DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Elliptical Mask Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_CIRCLE, 2, 2, 20, 20 )
+CTEXTBOXL( "Aspect ratio", -1, 25, 0, 61, 24 )
+COMBO( IDC_ASPECTRATIO, 28, 10, 54, CBY+CBY+CBY )
+CBITEM( "Freeform", IDC_UNCONSTRAIN )
+CBITEM( "Constrained", IDC_CONSTRAIN )
+CTEXTBOXL( "Width", -1, 86, 0, 30, 24 )
+EDIT( IDC_WCONSTRAIN, 92, 10, DX3, EDY )
+CTEXTBOXL( "Height", -1, 116, 0, 30, 24 )
+EDIT( IDC_HCONSTRAIN, 122, 10, DX3, EDY )
+END
+
+IDD_SHIELD DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Color Shields Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_SHIELD, 2, 2, 20, 20 )
+CTEXTBOXL( "Method", -1, 25, 0, 96, 24 )
+COMBO( IDC_PROBEMETHOD, 28, 10, 89, CBY+CBY+CBY )
+CBITEM( "Point sample", IDC_PROBEPOINT )
+CBITEM( "Rectangular average", IDC_PROBERECT )
+END
+
+IDD_SHIELDFLOAT DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 80, 164
+CAPTION "Color Shields"
+FONT 8, "Helv"
+STYLE WS_MODELESSFLOAT
+CLASS "mydialog"
+BEGIN
+TEXTL( "Base", IDC_SHIELDNUMLABEL1, 6, 21, 45, TDY )
+TEXTL( "Color", IDC_SHIELDNUMLABEL2, 6, 31, 45, TDY )
+TEXT( "1", IDC_SHIELDNUM1, 6, 45, 9, RDY )
+TEXT( "2", IDC_SHIELDNUM2, 6, 57, 9, RDY )
+TEXT( "3", IDC_SHIELDNUM3, 6, 69, 9, RDY )
+TEXT( "4", IDC_SHIELDNUM4, 6, 81, 9, RDY )
+TEXT( "5", IDC_SHIELDNUM5, 6, 93, 9, RDY )
+TEXT( "6", IDC_SHIELDNUM6, 6,105, 9, RDY )
+TEXT( "7", IDC_SHIELDNUM7, 6,117, 9, RDY )
+TEXT( "8", IDC_SHIELDNUM8, 6,129, 9, RDY )
+TEXTL( "Color", IDC_SHIELDLABEL1, 6, 21, 45, TDY )
+TEXTL( "to edit", IDC_SHIELDLABEL2, 6, 31, 45, TDY )
+RADIO( "", IDC_SHIELD1, 6, 45, 9, RDY )
+RADIO( "", IDC_SHIELD2, 6, 57, 9, RDY )
+RADIO( "", IDC_SHIELD3, 6, 69, 9, RDY )
+RADIO( "", IDC_SHIELD4, 6, 81, 9, RDY )
+RADIO( "", IDC_SHIELD5, 6, 93, 9, RDY )
+RADIO( "", IDC_SHIELD6, 6,105, 9, RDY )
+RADIO( "", IDC_SHIELD7, 6,117, 9, RDY )
+RADIO( "", IDC_SHIELD8, 6,129, 9, RDY )
+COLOR( IDC_MASKCOLOR1, 18, 45, 10, 10 )
+COLOR( IDC_MASKCOLOR2, 18, 57, 10, 10 )
+COLOR( IDC_MASKCOLOR3, 18, 69, 10, 10 )
+COLOR( IDC_MASKCOLOR4, 18, 81, 10, 10 )
+COLOR( IDC_MASKCOLOR5, 18, 93, 10, 10 )
+COLOR( IDC_MASKCOLOR6, 18,105, 10, 10 )
+COLOR( IDC_MASKCOLOR7, 18,117, 10, 10 )
+COLOR( IDC_MASKCOLOR8, 18,129, 10, 10 )
+TEXTL( "Range", -1, 34, 21, 29, TDY )
+TEXTL( "percent", -1, 34, 31, 29, TDY )
+SPINEDIT( IDC_MASKRANGE1, 34, 45, DX3, EDY )
+SPINEDIT( IDC_MASKRANGE2, 34, 57, DX3, EDY )
+SPINEDIT( IDC_MASKRANGE3, 34, 69, DX3, EDY )
+SPINEDIT( IDC_MASKRANGE4, 34, 81, DX3, EDY )
+SPINEDIT( IDC_MASKRANGE5, 34, 93, DX3, EDY )
+SPINEDIT( IDC_MASKRANGE6, 34,105, DX3, EDY )
+SPINEDIT( IDC_MASKRANGE7, 34,117, DX3, EDY )
+SPINEDIT( IDC_MASKRANGE8, 34,129, DX3, EDY )
+TEXTL( "On", -1, 64, 21, 15, TDY )
+TEXTL( "Off", -1, 64, 31, 15, TDY )
+CHECK( "", IDC_MASKACTIVE1, 64, 45, 10, CDY )
+CHECK( "", IDC_MASKACTIVE2, 64, 57, 10, CDY )
+CHECK( "", IDC_MASKACTIVE3, 64, 69, 10, CDY )
+CHECK( "", IDC_MASKACTIVE4, 64, 81, 10, CDY )
+CHECK( "", IDC_MASKACTIVE5, 64, 93, 10, CDY )
+CHECK( "", IDC_MASKACTIVE6, 64,105, 10, CDY )
+CHECK( "", IDC_MASKACTIVE7, 64,117, 10, CDY )
+CHECK( "", IDC_MASKACTIVE8, 64,129, 10, CDY )
+COMBO( IDC_SHIELDSELECT, 6, 6, 68, CBY+CBY+CBY )
+CBITEM( "Protect colors", IDC_MASKEXCLUDE )
+CBITEM( "Select colors", IDC_MASKINCLUDE )
+DUTTON( "Preview", IDC_PREVIEW, 6, 144, 32, BDY )
+BUTTON( "Reset", IDC_RESET, 42, 144, 32, BDY )
+END
+
+IDD_MAGICWAND DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Smart Mask Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_MAGICWAND, 2, 2, 20, 20 )
+CTEXTBOXL( "Wand range", -1, 25, 0, 42, 24 )
+SPINEDIT( IDC_FLOODRANGE, 34, 10, DX3, EDY )
+END
+
+IDD_TRANSFORMER DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Mask Transformer Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_TRANSFORMER, 2, 2, 20, 20 )
+CTEXTBOXL( "Modify", -1, 25, 0, 76, 24 )
+COMBO( IDC_TRANSFUNCTION, 28, 10, 69, CBY+CBY+CBY )
+CBITEM( "Mask only", IDC_MASKONLY )
+CBITEM( "Mask and image", IDC_MASKPLUSIMAGE )
+CTEXTBOXL( "Original", -1, 101, 0, 57, 24 )
+COMBO( IDC_ORIGINAL, 104, 10, 50, CBY+CBY+CBY )
+CBITEM( "Remove", IDC_REMOVEIMAGE )
+CBITEM( "Retain", IDC_RETAINIMAGE )
+CTEXTBOXL( "Mode", -1, 158, 0, 67, 24 )
+COMBO( IDC_TRANSMODE, 161, 10, 60, CBY+CBY+CBY )
+CBITEM( "Size/Scale", IDC_TRANSSCALE )
+CBITEM( "Rotate/Skew", IDC_TRANSROTATE )
+END
+
+IDD_POINTER DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Mask Point Editor Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_POINTER, 2, 2, 20, 20 )
+CTEXTBOXL( "Function", -1, 25, 0, 67, 24 )
+COMBO( IDC_POINTERFUNCTION, 28, 10, 60, CBY+CBY+CBY+CBY )
+CBITEM( "Move points", IDC_MOVEPOINTS )
+CBITEM( "Add points", IDC_ADDPOINTS )
+CBITEM( "Delete points", IDC_DELPOINTS )
+END
+
+IDD_PAINT DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Paint Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_PAINT, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+#undef X
+#define X 25
+CTEXTBOXL( "Brush", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_SPRAY DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Airbrush Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_SPRAY, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Pressure", -1, 25, 0, 38, 24 )
+ICONCOMBO( IDC_PRESSURE, 28, 10, 30, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Light",        IDC_PRESSLIGHT )
+CBITEM( "Medium",       IDC_PRESSMEDIUM )
+CBITEM( "Heavy",        IDC_PRESSHEAVY )
+#undef X
+#define X 63
+CTEXTBOXL( "Brush", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_CLONE DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Clone Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_CLONE, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+#undef X
+#define X 25
+CTEXTBOXL( "Brush", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_TEXTURE DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Texture Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_TEXTURE, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Texture name", -1, 25, 0, 93, 24 )
+COMBOSORT( IDC_EXTNAMES, 28, 10, 70, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3DNF( IDC_EXTMANAGE, 98, 10, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+CTEXTBOXL( "Flip", -1, 118, 0, 30, 24)
+ICON3DNF( IDC_TEXTUREFLIPX, 121, 10, 11, 11 )
+ICON3DNF( IDC_TEXTUREFLIPY, 133, 10, 11, 11 )
+#undef X
+#define X 148
+CTEXTBOXL( "Brush", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_SMEAR DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Smear Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_SMEAR, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Pressure", -1, 25, 0, 38, 24 )
+ICONCOMBO( IDC_PRESSURE, 28, 10, 30, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Light",        IDC_PRESSLIGHT )
+CBITEM( "Medium",       IDC_PRESSMEDIUM )
+CBITEM( "Heavy",        IDC_PRESSHEAVY )
+#undef X
+#define X 63
+CTEXTBOXL( "Brush", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_SHARP DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Sharpen Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_SHARP, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Pressure", -1, 25, 0, 38, 24 )
+ICONCOMBO( IDC_PRESSURE, 28, 10, 30, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Light",        IDC_PRESSLIGHT )
+CBITEM( "Medium",       IDC_PRESSMEDIUM )
+CBITEM( "Heavy",        IDC_PRESSHEAVY )
+#undef X
+#define X 63
+CTEXTBOXL( "Brush", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_SMOOTH DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Smooth Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_SMOOTH, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Pressure", -1, 25, 0, 38, 24 )
+ICONCOMBO( IDC_PRESSURE, 28, 10, 30, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Light",        IDC_PRESSLIGHT )
+CBITEM( "Medium",       IDC_PRESSMEDIUM )
+CBITEM( "Heavy",        IDC_PRESSHEAVY )
+#undef X
+#define X 63
+CTEXTBOXL( "Brush", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_LIGHTEN DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Lighten Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_LIGHTEN, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Pressure", -1, 25, 0, 38, 24 )
+ICONCOMBO( IDC_PRESSURE, 28, 10, 30, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Light",        IDC_PRESSLIGHT )
+CBITEM( "Medium",       IDC_PRESSMEDIUM )
+CBITEM( "Heavy",        IDC_PRESSHEAVY )
+#undef X
+#define X 63
+CTEXTBOXL( "Brush", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_DARKEN DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Darken Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_DARKEN, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Pressure", -1, 25, 0, 38, 24 )
+ICONCOMBO( IDC_PRESSURE, 28, 10, 30, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Light",        IDC_PRESSLIGHT )
+CBITEM( "Medium",       IDC_PRESSMEDIUM )
+CBITEM( "Heavy",        IDC_PRESSHEAVY )
+#undef X
+#define X 63
+CTEXTBOXL( "Brush", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_VIGNETTE DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Gradient Fill Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_VIGNETTE, 2, 2, 20, 20 )
+CTEXTBOXL( "Gradient type", -1, 25, 0, 67, 24 )
+COMBO( IDC_VIGNETTETYPE, 28, 10, 60, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Linear", IDC_VIGLINEAR )
+CBITEM( "Radial", IDC_VIGRADIAL )
+CBITEM( "Circular", IDC_VIGCIRCLE )
+CBITEM( "Elliptical", IDC_VIGELLIPSE )
+CBITEM( "Square", IDC_VIGSQUARE )
+CBITEM( "Rectangular", IDC_VIGRECTANGLE )
+CTEXTBOXL( "Color sweep", -1, 92, 0, 47, 24 )
+SPINEDITX( IDC_VIGREPEAT, 95, 10, DX2, EDY, "times", 24 )
+CTEXTBOXL( "Transition", -1, 139, 0, 47, 24 )
+COMBO( IDC_VIGTRANSITION, 142, 10, 40, CBY+CBY+CBY )
+CBITEM( "Soft", IDC_VIGSOFTTRANSITION )
+CBITEM( "Hard", IDC_VIGHARDTRANSITION )
+CTEXTBOXL( "Transparency", -1, 186, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, 195, 10, DX3, EDY)
+END
+
+IDD_TINTFILL DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Tint Fill Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_TINTFILL, 2, 2, 20, 20 )
+CTEXTBOXL( "Transparency", -1, 25, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, 34, 10, DX3, EDY)
+END
+
+IDD_TEXTUREFILL DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Texture Fill Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_TEXTUREFILL, 2, 2, 20, 20 )
+CTEXTBOXL( "Texture name", -1, 25, 0, 93, 24 )
+COMBOSORT( IDC_EXTNAMES, 28, 10, 70, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3DNF( IDC_EXTMANAGE, 98, 10, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+CTEXTBOXL( "Flip", -1, 118, 0, 30, 24)
+ICON3DNF( IDC_TEXTUREFLIPX, 121, 10, 11, 11 )
+ICON3DNF( IDC_TEXTUREFLIPY, 133, 10, 11, 11 )
+CTEXTBOXL( "Transparency", -1, 148, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, 159, 10, DX3, EDY)
+END
+
+IDD_FLOOD DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Smart Fill Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_FLOOD, 2, 2, 20, 20 )
+CTEXTBOXL( "Fill range", -1, 25, 0, 38, 24 )
+SPINEDIT( IDC_FLOODRANGE, 32, 10, DX3, EDY)
+END
+
+IDD_PENCIL DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Pencil Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_PENCIL, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+#undef X
+#define X 25
+CTEXTBOXL( "Tip", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_DRAWFREE DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Draw Freehand Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_DRAWFREE, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Fill Style", -1, 25, 0, 37, 24 )
+ICONCOMBO( IDC_FRESTYLE, 28, 10, 30, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "",     IDC_FREDRAWEDGE )
+CBITEM( "",     IDC_FREFILLINTERIOR )
+CBITEM( "",     IDC_FREDRAWANDFILL )
+#undef X
+#define X 63
+CTEXTBOXL( "Brush", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_DRAWCIRCLE DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Draw Ellipse Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_DRAWCIRCLE, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Fill Style", -1, 25, 0, 38, 24 )
+ICONCOMBO( IDC_CIRSTYLE, 28, 10, 30, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "",     IDC_CIRDRAWEDGE )
+CBITEM( "",     IDC_CIRFILLINTERIOR )
+CBITEM( "",     IDC_CIRDRAWANDFILL )
+#undef X
+#define X 63
+CTEXTBOXL( "Border", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_DRAWSQUARE DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Draw Rectangle Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_DRAWSQUARE, 2, 2, 20, 20 )
+BOX( IDC_RETOUCH, 999, 999, 1, 8 )
+CTEXTBOXL( "Fill Style", -1, 25, 0, 38, 24 )
+ICONCOMBO( IDC_SQUSTYLE, 28, 10, 30, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "",     IDC_SQUDRAWEDGE )
+CBITEM( "",     IDC_SQUFILLINTERIOR )
+CBITEM( "",     IDC_SQUDRAWANDFILL )
+#undef X
+#define X 63
+CTEXTBOXL( "Border", -1, X+0, 0, 48, 24)
+ICONCOMBO( IDC_BRUSHSHAPE, X+3, 10, 40, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Circle",     IDC_BRUSHCIRCLE )
+CBITEM( "Square",     IDC_BRUSHSQUARE )
+CBITEM( "Horizontal", IDC_BRUSHHORIZONTAL )
+CBITEM( "Vertical",   IDC_BRUSHVERTICAL )
+CBITEM( "Slash",      IDC_BRUSHSLASH )
+CBITEM( "Backslash",  IDC_BRUSHBACKSLASH )
+CBITEM( "Custom",     IDC_BRUSHCUSTOM )
+CTEXTBOXL( "Size", -1, X+48, 0, 28, 24)
+SPINEDIT( IDC_BRUSHSIZE, X+52, 10, DX2, EDY )
+CTEXTBOXL( "Style", -1, X+76, 0, 32, 24)
+ICON3DNF( IDC_BRUSHSOLID, X+79, 10, 11, 11 )
+ICON3DNF( IDC_BRUSHSCATTER, X+92, 10, 11, 11 )
+CTEXTBOXL( "Feather", -1, X+108, 0, 30, 24)
+SPINEDIT( IDC_FUZZY, X+111, 10, DX3, EDY);
+CTEXTBOXL( "Fade", -1, X+138, 0, 30, 24)
+SPINEDIT( IDC_FADEOUT, X+141, 10, DX3, EDY)
+CTEXTBOXL( "Transparency", -1, X+168, 0, 44, 24)
+SPINEDIT( IDC_TRANSPARENT, X+176, 10, DX3, EDY)
+END
+
+IDD_CUSTOMVIEW DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 24
+CAPTION "Custom View Options"
+FONT 8, "Helv"
+STYLE WS_MODELESS
+CLASS "mydialog"
+BEGIN
+ICON3DNF( IDC_CUSTOMVIEW, 2, 2, 20, 20 )
+CTEXTBOXL( "Function", -1, 25, 0, 57, 24 )
+COMBO( IDC_CUSTOMFUNCTION, 28, 10, 50, CBY+CBY+CBY )
+CBITEM( "Zoom in", IDC_ZOOMIN )
+CBITEM( "Zoom out", IDC_ZOOMOUT )
+SBOXS( -1, 82, 0, 67, 24 )
+CHECK( "Zoom window", IDC_ZOOMWINDOW, 85, 7, 60, CDY )
+;SBOXS( -1, 149, 0, 56, 24 )
+ICON3DNF( IDC_VIEWLAST, 165, 2, 20, 20 )
+ICON3DNF( IDC_VIEW1TO1, 186, 2, 20, 20 )
+ICON3DNF( IDC_VIEWALL, 207, 2, 20, 20 )
+ICON3DNF( IDC_VIEWFULL, 228, 2, 20, 20 )
+END
+
+IDD_ABORT DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 45, 125, 70
+CAPTION "Abort"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+;CLASS "mydialog"
+BEGIN
+CTEXT( "Sending image", -1, 0,  5, 125, TDY )
+CTEXT( "", ID_NAME, 0, 15, 125, TDY )
+CTEXT( "", ID_PRINTER, 0, 25, 125, TDY )
+CTEXT( "", ID_PORT, 0, 35, 125, TDY )
+BUTTON( "Cancel", IDCANCEL, 45, 45, 35, BDY )
+END
+
+IDD_PASTEOPTIONS DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 19, 157, 64
+CAPTION "Paste Options"
+FONT 8, "Helv"
+STYLE WS_MODELESSFLOAT
+CLASS "mydialog"
+BEGIN
+CHECK( "Use Blend after Paste", IDC_PASTEANDBLEND, 6, 6, 85, CDY )
+CHECK( "SmartPaste", IDC_SMARTPASTE, 6, 18, 85, CDY);
+TEXT( "Transparency %: ", -1, 6, 36, 80, TDY )
+TEXT( "0", IDC_TRANSPARENT, 86, 36, DX3, TDY )
+TEXT( "0", -1, 6, 48, DX2, TDY);
+HSCROLL( IDC_TRANSPARENT_SCROLL, 6+DX2, 48, 96, SDY )
+TEXT( "100", -1, 6+DX2+SP+96+SP, 48, DX3, TDY);
+;DUTTON( "OK", IDOK, 111, 6, 40, BDY )
+;BUTTON( "Cancel", IDCANCEL, 111, 22, 40, BDY )
+END
+
+IDD_SCANORPRINT DIALOG DISCARDABLE LOADONCALL PURE MOVEABLE 24, 36, 144, 64
+STYLE WS_MODAL
+FONT 8, "Helv"
+CLASS "mydialog"
+BEGIN
+CTEXT( "Which type of Calibration map do you wish to edit?", -1, 6, 6, 132, 30 )
+DUTTON( "Scanner", IDC_CALIBSCAN, 6, 44, 40, BDY )
+BUTTON( "Printer", IDC_CALIBPRINT, 52, 44, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 98, 44, 40, BDY )
+END
+
+IDD_CALIBRATESCAN DIALOG LOADONCALL MOVEABLE DISCARDABLE 11, 19, 128, 218
+CAPTION "Scan Calibration"
+FONT 8, "Helv"
+STYLE WS_MODELESSFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Load Calibration Map:", -1, 6, 6, 100, TDY )
+COMBOSORT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_EXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+COLORPATCH( "R255,000,000", -1, 20, 34, DX3, 12 )
+COLORPATCH( "R000,255,000", -1, 43, 34, DX3, 12 )
+COLORPATCH( "R000,000,255", -1, 66, 34, DX3, 12 )
+COLORPATCH( "R128,128,128", -1, 89, 34, DX3, 12 )
+TEXT( "1.", -1, 6, 50, 12, TDY )
+TEXT( "2.", -1, 6, 62, 12, TDY )
+TEXT( "3.", -1, 6, 74, 12, TDY )
+TEXT( "4.", -1, 6, 86, 12, TDY )
+TEXT( "5.", -1, 6, 98, 12, TDY )
+TEXT( "6.", -1, 6, 110, 12, TDY )
+TEXT( "7.", -1, 6, 122, 12, TDY )
+TEXT( "8.", -1, 6, 134, 12, TDY )
+TEXT( "9.", -1, 6, 146, 12, TDY )
+TEXT( "10.", -1, 6, 158, 12, TDY )
+TEXT( "11.", -1, 6, 170, 12, TDY )
+EDIT( IDC_RMEASURE1, 20, 48, DX3, EDY )
+EDIT( IDC_RMEASURE2, 20, 60, DX3, EDY )
+EDIT( IDC_RMEASURE3, 20, 72, DX3, EDY )
+EDIT( IDC_RMEASURE4, 20, 84, DX3, EDY )
+EDIT( IDC_RMEASURE5, 20, 96, DX3, EDY )
+EDIT( IDC_RMEASURE6, 20, 108, DX3, EDY )
+EDIT( IDC_RMEASURE7, 20, 120, DX3, EDY )
+EDIT( IDC_RMEASURE8, 20, 132, DX3, EDY )
+EDIT( IDC_RMEASURE9, 20, 144, DX3, EDY )
+EDIT( IDC_RMEASURE10, 20, 156, DX3, EDY )
+EDIT( IDC_RMEASURE11, 20, 168, DX3, EDY )
+EDIT( IDC_GMEASURE1, 43, 48, DX3, EDY )
+EDIT( IDC_GMEASURE2, 43, 60, DX3, EDY )
+EDIT( IDC_GMEASURE3, 43, 72, DX3, EDY )
+EDIT( IDC_GMEASURE4, 43, 84, DX3, EDY )
+EDIT( IDC_GMEASURE5, 43, 96, DX3, EDY )
+EDIT( IDC_GMEASURE6, 43, 108, DX3, EDY )
+EDIT( IDC_GMEASURE7, 43, 120, DX3, EDY )
+EDIT( IDC_GMEASURE8, 43, 132, DX3, EDY )
+EDIT( IDC_GMEASURE9, 43, 144, DX3, EDY )
+EDIT( IDC_GMEASURE10, 43, 156, DX3, EDY )
+EDIT( IDC_GMEASURE11, 43, 168, DX3, EDY )
+EDIT( IDC_BMEASURE1, 66, 48, DX3, EDY )
+EDIT( IDC_BMEASURE2, 66, 60, DX3, EDY )
+EDIT( IDC_BMEASURE3, 66, 72, DX3, EDY )
+EDIT( IDC_BMEASURE4, 66, 84, DX3, EDY )
+EDIT( IDC_BMEASURE5, 66, 96, DX3, EDY )
+EDIT( IDC_BMEASURE6, 66, 108, DX3, EDY )
+EDIT( IDC_BMEASURE7, 66, 120, DX3, EDY )
+EDIT( IDC_BMEASURE8, 66, 132, DX3, EDY )
+EDIT( IDC_BMEASURE9, 66, 144, DX3, EDY )
+EDIT( IDC_BMEASURE10, 66, 156, DX3, EDY )
+EDIT( IDC_BMEASURE11, 66, 168, DX3, EDY )
+EDIT( IDC_XMEASURE1, 89, 48, DX3, EDY )
+EDIT( IDC_XMEASURE2, 89, 60, DX3, EDY )
+EDIT( IDC_XMEASURE3, 89, 72, DX3, EDY )
+EDIT( IDC_XMEASURE4, 89, 84, DX3, EDY )
+EDIT( IDC_XMEASURE5, 89, 96, DX3, EDY )
+EDIT( IDC_XMEASURE6, 89, 108, DX3, EDY )
+EDIT( IDC_XMEASURE7, 89, 120, DX3, EDY )
+EDIT( IDC_XMEASURE8, 89, 132, DX3, EDY )
+EDIT( IDC_XMEASURE9, 89, 144, DX3, EDY )
+EDIT( IDC_XMEASURE10, 89, 156, DX3, EDY )
+EDIT( IDC_XMEASURE11, 89, 168, DX3, EDY )
+BUTTON( "Measure image", IDC_MEASURE, 20, 182, 86, BDY )
+BUTTON( "Reset", IDC_RESET, 20, 198, 40, BDY )
+BUTTON( "Save", IDC_SAVE, 66, 198, 40, BDY )
+END
+
+IDD_CALIBRATEPRINT DIALOG LOADONCALL MOVEABLE DISCARDABLE 11, 19, 128, 218
+CAPTION "Print Calibration"
+FONT 8, "Helv"
+STYLE WS_MODELESSFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Load Calibration Map:", -1, 6, 6, 100, TDY )
+COMBOSORT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_EXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+COLORPATCH( "R000,255,255", -1, 20, 34, DX3, 12 )
+COLORPATCH( "R255,000,255", -1, 43, 34, DX3, 12 )
+COLORPATCH( "R255,255,000", -1, 66, 34, DX3, 12 )
+COLORPATCH( "R000,000,000", -1, 89, 34, DX3, 12 )
+TEXT( "1.", -1, 6, 50, 12, TDY )
+TEXT( "2.", -1, 6, 62, 12, TDY )
+TEXT( "3.", -1, 6, 74, 12, TDY )
+TEXT( "4.", -1, 6, 86, 12, TDY )
+TEXT( "5.", -1, 6, 98, 12, TDY )
+TEXT( "6.", -1, 6, 110, 12, TDY )
+TEXT( "7.", -1, 6, 122, 12, TDY )
+TEXT( "8.", -1, 6, 134, 12, TDY )
+TEXT( "9.", -1, 6, 146, 12, TDY )
+TEXT( "10.", -1, 6, 158, 12, TDY )
+TEXT( "11.", -1, 6, 170, 12, TDY )
+EDIT( IDC_RMEASURE1, 20, 48, DX3, EDY )
+EDIT( IDC_RMEASURE2, 20, 60, DX3, EDY )
+EDIT( IDC_RMEASURE3, 20, 72, DX3, EDY )
+EDIT( IDC_RMEASURE4, 20, 84, DX3, EDY )
+EDIT( IDC_RMEASURE5, 20, 96, DX3, EDY )
+EDIT( IDC_RMEASURE6, 20, 108, DX3, EDY )
+EDIT( IDC_RMEASURE7, 20, 120, DX3, EDY )
+EDIT( IDC_RMEASURE8, 20, 132, DX3, EDY )
+EDIT( IDC_RMEASURE9, 20, 144, DX3, EDY )
+EDIT( IDC_RMEASURE10, 20, 156, DX3, EDY )
+EDIT( IDC_RMEASURE11, 20, 168, DX3, EDY )
+EDIT( IDC_GMEASURE1, 43, 48, DX3, EDY )
+EDIT( IDC_GMEASURE2, 43, 60, DX3, EDY )
+EDIT( IDC_GMEASURE3, 43, 72, DX3, EDY )
+EDIT( IDC_GMEASURE4, 43, 84, DX3, EDY )
+EDIT( IDC_GMEASURE5, 43, 96, DX3, EDY )
+EDIT( IDC_GMEASURE6, 43, 108, DX3, EDY )
+EDIT( IDC_GMEASURE7, 43, 120, DX3, EDY )
+EDIT( IDC_GMEASURE8, 43, 132, DX3, EDY )
+EDIT( IDC_GMEASURE9, 43, 144, DX3, EDY )
+EDIT( IDC_GMEASURE10, 43, 156, DX3, EDY )
+EDIT( IDC_GMEASURE11, 43, 168, DX3, EDY )
+EDIT( IDC_BMEASURE1, 66, 48, DX3, EDY )
+EDIT( IDC_BMEASURE2, 66, 60, DX3, EDY )
+EDIT( IDC_BMEASURE3, 66, 72, DX3, EDY )
+EDIT( IDC_BMEASURE4, 66, 84, DX3, EDY )
+EDIT( IDC_BMEASURE5, 66, 96, DX3, EDY )
+EDIT( IDC_BMEASURE6, 66, 108, DX3, EDY )
+EDIT( IDC_BMEASURE7, 66, 120, DX3, EDY )
+EDIT( IDC_BMEASURE8, 66, 132, DX3, EDY )
+EDIT( IDC_BMEASURE9, 66, 144, DX3, EDY )
+EDIT( IDC_BMEASURE10, 66, 156, DX3, EDY )
+EDIT( IDC_BMEASURE11, 66, 168, DX3, EDY )
+EDIT( IDC_XMEASURE1, 89, 48, DX3, EDY )
+EDIT( IDC_XMEASURE2, 89, 60, DX3, EDY )
+EDIT( IDC_XMEASURE3, 89, 72, DX3, EDY )
+EDIT( IDC_XMEASURE4, 89, 84, DX3, EDY )
+EDIT( IDC_XMEASURE5, 89, 96, DX3, EDY )
+EDIT( IDC_XMEASURE6, 89, 108, DX3, EDY )
+EDIT( IDC_XMEASURE7, 89, 120, DX3, EDY )
+EDIT( IDC_XMEASURE8, 89, 132, DX3, EDY )
+EDIT( IDC_XMEASURE9, 89, 144, DX3, EDY )
+EDIT( IDC_XMEASURE10, 89, 156, DX3, EDY )
+EDIT( IDC_XMEASURE11, 89, 168, DX3, EDY )
+BUTTON( "Measure image", IDC_MEASURE, 20, 182, 86, BDY )
+BUTTON( "Reset", IDC_RESET, 20, 198, 40, BDY )
+BUTTON( "Save", IDC_SAVE, 66, 198, 40, BDY )
+END
+
+IDD_MAP DIALOG LOADONCALL MOVEABLE DISCARDABLE 11, 19, 136, 216
+CAPTION "Modify Color Maps"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Channel:", -1, 6, 6, 60, TDY )
+COMBO( IDC_CHANNELS, 6, 16, 60, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Master",       IDC_DO_ALL )
+CBITEM( "Red",          IDC_DO_RED )
+CBITEM( "Green",        IDC_DO_GREEN )
+CBITEM( "Blue",         IDC_DO_BLUE )
+CBITEM( "Cyan",         IDC_DO_CYAN )
+CBITEM( "Magenta",      IDC_DO_MAGENTA )
+CBITEM( "Yellow",       IDC_DO_YELLOW )
+TEXT( "Editing:", -1, 70, 6, 60, TDY )
+COMBO( IDC_MAPTOOL, 70, 16, 60, CBY+CBY+CBY )
+CBITEM( "Points", IDC_MAPTOOL1 )
+CBITEM( "Values", IDC_MAPTOOL2 )
+;TEXT( "Load Color Map:", -1, 6, 30, 124, TDY )
+;COMBOSORT( IDC_EXTNAMES, 6, 40, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+;ICON3D( IDC_MAPEXTMANAGE, 106, 40, 16, 12 )
+;CBITEM( "", IDC_FILENAME )
+TEXT( "Input", -1,  20, 64, 25, TDY )
+TEXT( "Output", -1, 48, 64, 25, TDY )
+
+MAP( IDC_MAP, 6, 90, 78, 78 )
+TEXT( "", IDC_MAPSTEP, 6, 78, 12, TDY )
+TEXT( "", IDC_MAPIN, 20, 78, 25, TDY )
+TEXT( "", IDC_MAPOUT, 48, 78, 25, TDY )
+
+TEXT( "1.", IDC_MAPSTEP0, 6, 80, 12, TDY )
+EDIT( IDC_MAP0IN, 20, 78, DX3, EDY )
+EDIT( IDC_MAP0OUT, 48, 78, DX3, EDY )
+TEXT( "2.", IDC_MAPSTEP1, 6, 92, 12, TDY )
+EDIT( IDC_MAP1IN, 20, 90, DX3, EDY )
+EDIT( IDC_MAP1OUT, 48, 90, DX3, EDY )
+TEXT( "3.", IDC_MAPSTEP2, 6, 104, 12, TDY )
+EDIT( IDC_MAP2IN, 20, 102, DX3, EDY )
+EDIT( IDC_MAP2OUT, 48, 102, DX3, EDY )
+TEXT( "4.", IDC_MAPSTEP3, 6, 116, 12, TDY )
+EDIT( IDC_MAP3IN, 20, 114, DX3, EDY )
+EDIT( IDC_MAP3OUT, 48, 114, DX3, EDY )
+TEXT( "5.", IDC_MAPSTEP4, 6, 128, 12, TDY )
+EDIT( IDC_MAP4IN, 20, 126, DX3, EDY )
+EDIT( IDC_MAP4OUT, 48, 126, DX3, EDY )
+TEXT( "6.", IDC_MAPSTEP5, 6, 140, 12, TDY )
+EDIT( IDC_MAP5IN, 20, 138, DX3, EDY )
+EDIT( IDC_MAP5OUT, 48, 138, DX3, EDY )
+TEXT( "7.", IDC_MAPSTEP6, 6, 152, 12, TDY )
+EDIT( IDC_MAP6IN, 20, 150, DX3, EDY )
+EDIT( IDC_MAP6OUT, 48, 150, DX3, EDY )
+TEXT( "8.", IDC_MAPSTEP7, 6, 164, 12, TDY )
+EDIT( IDC_MAP7IN, 20, 162, DX3, EDY )
+EDIT( IDC_MAP7OUT, 48, 162, DX3, EDY )
+TEXT( "9.", IDC_MAPSTEP8, 6, 176, 12, TDY )
+EDIT( IDC_MAP8IN, 20, 174, DX3, EDY )
+EDIT( IDC_MAP8OUT, 48, 174, DX3, EDY )
+TEXT( "10.", IDC_MAPSTEP9, 6, 188, 12, TDY )
+EDIT( IDC_MAP9IN, 20, 186, DX3, EDY )
+EDIT( IDC_MAP9OUT, 48, 186, DX3, EDY )
+TEXT( "11.", IDC_MAPSTEP10, 6, 200, 12, TDY )
+EDIT( IDC_MAP10IN, 20, 198, DX3, EDY )
+EDIT( IDC_MAP10OUT, 48, 198, DX3, EDY )
+
+DUTTON( "OK", IDOK, 90, 66, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 90, 82, 40, BDY )
+BUTTON( "Preview", IDC_PREVIEW, 90, 98, 40, BDY )
+BUTTON( "Reset", IDC_RESET, 90, 114, 40, BDY )
+BUTTON( "Reset all", IDC_RESETALL, 90, 130, 40, BDY )
+BUTTON( "Save", IDC_MAPSAVE, 90, 146, 40, BDY )
+BUTTON( "Load", IDC_MAPLOAD, 90, 162, 40, BDY )
+END
+
+IDD_POSTERIZE DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 126, 111
+CAPTION "Posterize/Threshold"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Channel:", -1, 6, 6, 60, TDY )
+COMBO( IDC_CHANNELS, 6, 16, 60, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Master",       IDC_DO_ALL )
+CBITEM( "Red",          IDC_DO_RED )
+CBITEM( "Green",        IDC_DO_GREEN )
+CBITEM( "Blue",         IDC_DO_BLUE )
+CBITEM( "Cyan",         IDC_DO_CYAN )
+CBITEM( "Magenta",      IDC_DO_MAGENTA )
+CBITEM( "Yellow",       IDC_DO_YELLOW )
+HSCROLL( IDC_MAPLEVELS_SCROLL, 6, 40, 60, SDY )
+EDITX( IDC_MAPLEVELS, 13, 55, DX3, EDY, "Levels", 47 )
+HSCROLL( IDC_MAPTHRESH_SCROLL, 6, 75, 60, SDY )
+EDITX( IDC_MAPTHRESH, 13, 90, DX3, EDY, "% Threshold", 47 )
+DUTTON( "OK", IDOK, 80, 14, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 80, 30, 40, BDY )
+BUTTON( "Preview", IDC_PREVIEW, 80, 46, 40, BDY )
+BUTTON( "Reset", IDC_RESET, 80, 62, 40, BDY )
+BUTTON( "Reset All", IDC_RESETALL, 80, 78, 40, BDY )
+END
+
+IDD_HUE DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 180, 130
+CAPTION "Hue/Saturation"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+HUEBAR( IDC_HUE1,   6, 6, 10, 60 )
+HUEBAR( IDC_HUE2,  16, 6, 10, 60 )
+HUEBAR( IDC_HUE3,  26, 6, 10, 60 )
+HUEBAR( IDC_HUE4,  36, 6, 10, 60 )
+HUEBAR( IDC_HUE5,  46, 6, 10, 60 )
+HUEBAR( IDC_HUE6,  56, 6, 10, 60 )
+HUEBAR( IDC_HUE7,  66, 6, 10, 60 )
+HUEBAR( IDC_HUE8,  76, 6, 10, 60 )
+HUEBAR( IDC_HUE9,  86, 6, 10, 60 )
+HUEBAR( IDC_HUE10, 96, 6, 10, 60 )
+HUEBAR( IDC_HUE11,106, 6, 10, 60 )
+HUEBAR( IDC_HUE12,116, 6, 10, 60 )
+COLORPATCH( "h000,255,127", -1,  6, 70, 10, 10 )
+COLORPATCH( "h021,255,127", -1, 16, 70, 10, 10 )
+COLORPATCH( "h042,255,127", -1, 26, 70, 10, 10 )
+COLORPATCH( "h063,255,127", -1, 36, 70, 10, 10 )
+COLORPATCH( "h084,255,127", -1, 46, 70, 10, 10 )
+COLORPATCH( "h105,255,127", -1, 56, 70, 10, 10 )
+COLORPATCH( "h126,255,127", -1, 66, 70, 10, 10 )
+COLORPATCH( "h147,255,127", -1, 76, 70, 10, 10 )
+COLORPATCH( "h168,255,127", -1, 86, 70, 10, 10 )
+COLORPATCH( "h189,255,127", -1, 96, 70, 10, 10 )
+COLORPATCH( "h210,255,127", -1,106, 70, 10, 10 )
+COLORPATCH( "h231,255,127", -1,116, 70, 10, 10 )
+TEXT( "Hue shift", IDC_HUESHIFT, 6, 85, 120, TDY )
+TEXT( "Saturation shift", -1, 6, 100, 120, TDY )
+EDIT( IDC_SATURATION, 6, 112, DX4, EDY )
+HSCROLL( IDC_SATURATION_SCROLL, 6+DX4+SP, 112, 96, SDY )
+DUTTON( "OK", IDOK, 134, 6, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 134, 22, 40, BDY )
+BUTTON( "Preview", IDC_PREVIEW, 134, 38, 40, BDY )
+BUTTON( "Reset", IDC_RESET, 134, 54, 40, BDY )
+END
+
+IDD_CONTBRIT DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 126, 136
+CAPTION "Contrast/Brightness"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Channel:", -1, 13, 6, 60, TDY )
+COMBO( IDC_CHANNELS, 13, 16, 60, CBY+CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Master",       IDC_DO_ALL )
+CBITEM( "Red",          IDC_DO_RED )
+CBITEM( "Green",        IDC_DO_GREEN )
+CBITEM( "Blue",         IDC_DO_BLUE )
+CBITEM( "Cyan",         IDC_DO_CYAN )
+CBITEM( "Magenta",      IDC_DO_MAGENTA )
+CBITEM( "Yellow",       IDC_DO_YELLOW )
+TEXT( "+", -1,  6, 44, 5, TDY )
+TEXT( "C", -1,  6, 59, 5, TDY )
+TEXT( "-", -1,  6, 74, 5, TDY )
+TEXT( "-", -1, 26, 96, 5, TDY )
+TEXT( "B", -1, 41, 96, 5, TDY )
+TEXT( "+", -1, 56, 96, 5, TDY )
+STICK( IDC_CONTBRIT, 13, 32, 60, 60 )
+DUTTON( "OK", IDOK, 80, 14, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 80, 30, 40, BDY )
+BUTTON( "Preview", IDC_PREVIEW, 80, 46, 40, BDY )
+BUTTON( "Reset", IDC_RESET, 80, 62, 40, BDY )
+BUTTON( "Reset All", IDC_RESETALL, 80, 78, 40, BDY )
+SPINEDITX( IDC_CONTRAST, 13, 108, DX4, EDY, "% Contrast change", 85 )
+SPINEDITX( IDC_BRIGHTNESS, 13, 120, DX4, EDY, "% Brightness change", 85 )
+END
+
+IDD_QUARTERTONE DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 249, 129
+CAPTION "Quartertones"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Count:", -1, 139, 6, 25, TDY)
+TEXT( "", IDC_RCOUNT, 164, 6, 25, TDY)
+TEXT( "%", -1, 189, 6, 5, TDY)
+TEXT( "Left:", -1, 139, 18, 25, TDY)
+TEXT( "", IDC_RLEFT, 164, 18, 25, TDY)
+TEXT( "%", -1, 189, 18, 5, TDY)
+TEXT( "Right:", -1, 139, 30, 25, TDY)
+TEXT( "", IDC_RRIGHT, 164, 30, 25, TDY)
+TEXT( "%", -1, 189, 30, 5, TDY)
+TEXT( "Count:", -1, 139, 46, 25, TDY)
+TEXT( "", IDC_GCOUNT, 164, 46, 25, TDY)
+TEXT( "%", -1, 189, 46, 5, TDY)
+TEXT( "Left:", -1, 139, 58, 25, TDY)
+TEXT( "", IDC_GLEFT, 164, 58, 25, TDY)
+TEXT( "%", -1, 189, 58, 5, TDY)
+TEXT( "Right:", -1, 139, 70, 25, TDY)
+TEXT( "", IDC_GRIGHT, 164, 70, 25, TDY)
+TEXT( "%", -1, 189, 70, 5, TDY)
+TEXT( "Count:", -1, 139, 86, 25, TDY)
+TEXT( "", IDC_BCOUNT, 164, 86, 25, TDY)
+TEXT( "%", -1, 189, 86, 5, TDY)
+TEXT( "Left:", -1, 139, 98, 25, TDY)
+TEXT( "", IDC_BLEFT, 164, 98, 25, TDY)
+TEXT( "%", -1, 189, 98, 5, TDY)
+TEXT( "Right:", -1, 139, 110, 25, TDY)
+TEXT( "", IDC_BRIGHT, 164, 110, 25, TDY)
+TEXT( "%", -1, 189, 110, 5, TDY)
+TEXT( "Value:", -1, 203, 110, 25, TDY)
+TEXT( "", IDC_HISTOVALUE, 228, 110, 25, TDY)
+TEXT( "%", -1, 253, 110, 5, TDY)
+HISTO( "255,0,0", IDC_RHISTO, 6, 6, 129, 30)
+HISTO( "0,255,0", IDC_GHISTO, 6, 46, 129, 30)
+HISTO( "0,0,255", IDC_BHISTO, 6, 86, 129, 30)
+QUARTERS(IDC_QUARTERTONES, 2, 117, 137, 16)
+DUTTON( "OK", IDOK, 203, 6, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 203, 22, 40, BDY )
+BUTTON( "Preview", IDC_PREVIEW, 203, 38, 40, BDY )
+BUTTON( "Reset", IDC_RESET, 203, 54, 40, BDY )
+END
+
+IDD_GQUARTERTONE DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 249, 88
+CAPTION "Quartertones"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Count:", -1, 139, 6, 25, TDY)
+TEXT( "", IDC_RCOUNT, 164, 6, 25, TDY)
+TEXT( "%", -1, 189, 6, 5, TDY)
+TEXT( "Left:", -1, 139, 18, 25, TDY)
+TEXT( "", IDC_RLEFT, 164, 18, 25, TDY)
+TEXT( "%", -1, 189, 18, 5, TDY)
+TEXT( "Right:", -1, 139, 30, 25, TDY)
+TEXT( "", IDC_RRIGHT, 164, 30, 25, TDY)
+TEXT( "%", -1, 189, 30, 5, TDY)
+;TEXT( "Count:", -1, 1000, 46, 25, TDY)
+;TEXT( "", IDC_GCOUNT, 1000, 46, 25, TDY)
+;TEXT( "%", -1, 1000, 46, 5, TDY)
+;TEXT( "Left:", -1, 1000, 58, 25, TDY)
+;TEXT( "", IDC_GLEFT, 1000, 58, 25, TDY)
+;TEXT( "%", -1, 1000, 58, 5, TDY)
+;TEXT( "Right:", -1, 1000, 70, 25, TDY)
+;TEXT( "", IDC_GRIGHT, 1000, 70, 25, TDY)
+;TEXT( "%", -1, 1000, 70, 5, TDY)
+;TEXT( "Count:", -1, 1000, 86, 25, TDY)
+;TEXT( "", IDC_BCOUNT, 1000, 86, 25, TDY)
+;TEXT( "%", -1, 1000, 86, 5, TDY)
+;TEXT( "Left:", -1, 1000, 98, 25, TDY)
+;TEXT( "", IDC_BLEFT, 1000, 98, 25, TDY)
+;TEXT( "%", -1, 1000, 98, 5, TDY)
+;TEXT( "Right:", -1, 1000, 110, 25, TDY)
+;TEXT( "", IDC_BRIGHT, 1000, 110, 25, TDY)
+;TEXT( "%", -1, 1000, 110, 5, TDY)
+TEXT( "Value:", -1, 203, 72, 25, TDY)
+TEXT( "", IDC_HISTOVALUE, 228, 72, 25, TDY)
+TEXT( "%", -1, 253, 72, 5, TDY)
+;HISTO( "255,0,0", IDC_RHISTO, 1000, 6, 129, 30)
+;HISTO( "0,255,0", IDC_GHISTO, 1000, 46, 129, 30)
+HISTO( "255,0,0", IDC_BHISTO, 6, 6, 129, 69)
+QUARTERS(IDC_QUARTERTONES, 2, 76, 137, 16)
+DUTTON( "OK", IDOK, 203, 6, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 203, 22, 40, BDY )
+BUTTON( "Preview", IDC_PREVIEW, 203, 38, 40, BDY )
+BUTTON( "Reset", IDC_RESET, 203, 54, 40, BDY )
+END
+
+IDD_SIZE DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 157, 125
+CAPTION "Size Processor"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+CHECK( "Use SmartSizing", IDC_SMARTSIZE, 6, 6, 100, CDY )
+CHECK( "Allow Size Distortions", IDC_DISTORT, 6, 26, 100, CDY )
+TEXT( "Width", -1,  6, 45, 30, TDY )
+EDIT( IDC_WIDTH,   40, 45, 25, EDY )
+TEXT( "", IDC_WIDTHLABEL, 70, 45, 30, TDY )
+TEXT( "Height",  -1,  6, 60, 30, TDY )
+EDIT( IDC_HEIGHT,    40, 60, 25, EDY )
+TEXT( "", IDC_HEIGHTLABEL, 70, 60, 30, TDY )
+TEXT( "WScale", -1,  6, 75, 30, TDY )
+EDITX( IDC_SCALEX,   40, 75, 25, EDY, "percent", 35 )
+TEXT( "HScale", -1,  6, 90, 30, TDY )
+EDITX( IDC_SCALEY,   40, 90, 25, EDY, "percent", 32 )
+TEXT( "Res",    -1,  6,105, 30, TDY )
+EDITX( IDC_RES,      40,105, 25, EDY, "/ inch", 30 )
+DUTTON( "Process", IDOK, 111, 6, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 111, 22, 40, BDY )
+TEXT( "Requires:", -1, 111, 45, 40, TDY )
+RTEXT( "9999", IDC_MEMORY, 111, 55, 20, TDY )
+RTEXT( "K", -1, 131, 55, 5, TDY )
+END
+
+IDD_ROTATE DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 157, 56
+CAPTION "Rotate Image"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Angle and direction:", -1, 6, 6, 100, TDY )
+SPINEDITX( IDC_ANGLE, 6, 21, DX4, EDY, "degrees", 35 )
+ICON3D( IDC_CWISE,  71, 21, 12, 12 )
+ICON3D( IDC_CCWISE, 85, 21, 12, 12 )
+CHECK( "Use weighted averaging", IDC_SMARTSIZE, 6, 38, 100, CDY )
+DUTTON( "Rotate", IDOK, 111, 6, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 111, 22, 40, BDY )
+END
+
+IDD_PRINT DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 232, 141
+CAPTION "Print Image"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+CHECK( "Allow Size Distortions", IDC_DISTORT, 6, 6, 100, CDY )
+TEXT( "Width", -1,  6, 24, 30, TDY )
+EDIT( IDC_WIDTH,   40, 22, 25, EDY )
+TEXT( "", IDC_WIDTHLABEL, 70, 24, 35, TDY )
+TEXT( "Height",  -1,  6, 39, 30, TDY )
+EDIT( IDC_HEIGHT,    40, 37, 25, EDY )
+TEXT( "", IDC_HEIGHTLABEL, 70, 39, 35, TDY )
+TEXT( "WScale", -1,  6, 54, 30, TDY )
+EDITX( IDC_SCALEX,   40, 52, 25, EDY, "percent", 35 )
+TEXT( "HScale", -1,  6, 69, 30, TDY )
+EDITX( IDC_SCALEY,   40, 67, 25, EDY, "percent", 35 )
+CHECK( "Center on page", IDC_CENTERED, 6, 82, 100, CDY )
+TEXT( "Top",    -1,  6, 98, 30, TDY )
+EDIT( IDC_OFFSETY,  40, 96, 25, EDY )
+TEXT( "", IDC_TOPLABEL, 70, 98, 35, TDY )
+TEXT( "Left",   -1,  6, 112, 30, TDY )
+EDIT( IDC_OFFSETX,  40, 110, 25, EDY )
+TEXT( "", IDC_LEFTLABEL, 70, 112, 35, TDY )
+CHECK( "ScatterPrint®", IDC_SCATTER, 6, 125, 100, CDY )
+DUTTON( "Print", IDOK, 111, 6, 35, BDY )
+BUTTON( "Cancel", IDCANCEL, 152, 6, 35, BDY )
+BUTTON( "Setup",  IDM_PRINTSETUP, 193, 6, 35, BDY )
+CTEXTBOXL( "Selected Device", -1,  111, 22, 115, 34 )
+CTEXT( "", IDC_PRINTER,  117, 34, 105, TDY+TDY )
+CTEXTBOXL( "Selected Style", -1,  111, 56, 115, 34 )
+CTEXT( "", IDC_PRINTSTYLE, 117, 66, 107, TDY+TDY )
+CTEXTBOXL( "Type of Output", -1,  111, 90, 115, 42 )
+COMBO( IDC_PRINT_TYPE, 117, 102, 100, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Gray", IDC_PRINT_GRAY )
+CBITEM( "Full color", IDC_PRINT_COLOR )
+CBITEM( "Full color + gray", IDC_PRINT_COLORGRAY )
+CBITEM( "Black ink separation", IDC_PRINT_BLACKSEPS )
+CBITEM( "Color ink separation", IDC_PRINT_COLORSEPS )
+CHECK( "", IDC_DO_CYAN,    117, 117, 10, CDY )
+CHECK( "", IDC_DO_MAGENTA, 143, 117, 10, CDY )
+CHECK( "", IDC_DO_YELLOW,  169, 117, 10, CDY )
+CHECK( "", IDC_DO_BLACK,   195, 117, 10, CDY )
+COLORPATCH( "R000,255,255", IDC_DO_CPATCH, 128, 116, 11, 11 )
+COLORPATCH( "R255,000,255", IDC_DO_MPATCH, 154, 116, 11, 11 )
+COLORPATCH( "R255,255,000", IDC_DO_YPATCH, 180, 116, 11, 11 )
+COLORPATCH( "R000,000,000", IDC_DO_KPATCH, 206, 116, 11, 11 )
+END
+
+IDD_PRINTSETUP DIALOG LOADONCALL MOVEABLE DISCARDABLE 28, 42, 278, 160
+CAPTION "Printer Setup"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Select a Print Style:",  -1, 6, 8, 112, TDY )
+ICON3D( IDC_EXTMANAGE, 120, 6, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+LIST( IDC_EXTNAMES, 6, 20, 130, 105 )
+TEXT( "Select a Print Device:", -1, 142, 8, 130, TDY )
+LIST( IDC_PRINTSELECT, 142, 20, 130, 105 )
+DUTTON( "OK", IDOK, 90, 135, 45, BDY )
+BUTTON( "Cancel", IDCANCEL, 140, 135, 45, BDY )
+END
+
+IDD_PRINTSTYLE DIALOG LOADONCALL MOVEABLE DISCARDABLE 51, 37, 265, 192
+CAPTION "Printer Style Editor"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+DUTTON( "OK", IDOK, 150, 6, 50, BDY )
+BUTTON( "Cancel", IDCANCEL, 209, 6, 50, BDY )
+COMBO( IDC_PRINTERTYPES, 150, 31, 60, CBY+CBY+CBY+CBY )
+CBITEM( "Monochrome", IDC_PRINTER_IS_MONO )
+CBITEM( "CMYK Color", IDC_PRINTER_IS_CMYK )
+CBITEM( "RGB Color", IDC_PRINTER_IS_RGB )
+TEXT( "Printer type", -1, 150+60+SP, 33, 45, TDY )
+CHECK( "Halftone screening",            IDC_DO_HALFTONING,  150, 54, 110, CDY )
+CHECK( "Device/dot gain correction",    IDC_DO_CALIBRATION, 150, 66, 110, CDY )
+CHECK( "Ink correction",                IDC_DO_INKCORRECT,  150, 78, 110, CDY )
+CHECK( "Black generation and UCR",      IDC_DO_BLACKANDUCR, 150, 90, 110, CDY )
+CHECK( "Trim marks",                    IDC_TRIMMARKS,      150,102, 110, CDY )
+CHECK( "Registration marks",            IDC_REGMARKS,       150,114, 110, CDY )
+CHECK( "Separation labels",             IDC_LABELS,         150,126, 110, CDY )
+CHECK( "Step scale",                    IDC_STEPSCALE,      150,138, 110, CDY )
+CHECK( "Negative",                      IDC_NEGATIVE,       150,150, 110, CDY )
+CHECK( "Mirror for emulsion down",      IDC_EMULSIONDOWN,   150,162, 110, CDY )
+SBOX( -1, 2, 11, 138, 179 )
+COMBO( IDC_STYLEOPTIONS, 6, 6, 130, CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Halftone screen values",       IDC_SETUP_HALFTONING )
+CBITEM( "Device/dot gain correction values",IDC_SETUP_CALIBRATION )
+CBITEM( "Ink correction values",        IDC_SETUP_INKCORRECT )
+CBITEM( "Black generation and UCR",     IDC_SETUP_BLACKANDUCR )
+
+; Halftoning stuff
+
+CBITEM( "", IDC_FIRST_HALFTONING )
+TEXT( "Shape", -1, 11, 26, 45, TDY )
+ICON3D( IDC_CIRCLEDOT,  43, 22, 15, 17 )
+ICON3D( IDC_SQUAREDOT,  68, 22, 15, 17 )
+ICON3D( IDC_ELLIPSEDOT, 93, 22, 15, 17 )
+COLORPATCH( "R000,255,255", -1, 11,  72, 25, EDY )
+COLORPATCH( "R255,000,255", -1, 11,  84, 25, EDY )
+COLORPATCH( "R255,255,000", -1, 11,  96, 25, EDY )
+COLORPATCH( "R000,000,000", -1, 11, 108, 25, EDY )
+TEXT( "Frequency", -1, 43, 50, 40, TDY )
+TEXT( "lines/inch", -1, 43, 60, 40, TDY )
+EDIT( IDC_SCRULING0, 43,  72, DX8, EDY )
+EDIT( IDC_SCRULING1, 43,  84, DX8, EDY )
+EDIT( IDC_SCRULING2, 43,  96, DX8, EDY )
+EDIT( IDC_SCRULING3, 43, 108, DX8, EDY )
+TEXT( "Angle", -1, 84, 50, 40, TDY )
+TEXT( "degrees", -1, 84, 60, 40, TDY )
+EDIT( IDC_ANGLE0,  84,  72, DX5, EDY )
+EDIT( IDC_ANGLE1,  84,  84, DX5, EDY )
+EDIT( IDC_ANGLE2,  84,  96, DX5, EDY )
+EDIT( IDC_ANGLE3,  84, 108, DX5, EDY )
+SPINEDITX( IDC_HILIGHT, 11, 126, DX3, EDY, "% Minimum highlight dot", 100)
+SPINEDITX( IDC_SHADOW,  11, 138, DX3, EDY, "% Maximum shadow dot", 100 )
+CBITEM( "", IDC_LAST_HALFTONING )
+
+; Ink Correction Stuff
+
+CBITEM( "", IDC_FIRST_INKCORRECT )
+TEXT("Recipe for printing Red", -1, 6, 22, 130, TDY )
+LEVER( IDC_CORRECT_RED, 6, 32, 130, EDY )
+SPINEDITX( IDC_M_IN_R, 6, 47, DX3, EDY, "% Magenta", 45 )
+SPINEDITX( IDC_Y_IN_R, 71, 47, DX3, EDY, "% Yellow", 45 )
+TEXT("Recipe for printing Green", -1, 6, 68, 130, TDY )
+LEVER( IDC_CORRECT_GREEN, 6, 78, 130, EDY )
+SPINEDITX( IDC_Y_IN_G, 6, 93, DX3, EDY, "% Yellow", 45 )
+SPINEDITX( IDC_C_IN_G, 71, 93, DX3, EDY, "% Cyan", 45 )
+TEXT("Recipe for printing Blue", -1, 6, 114, 130, TDY )
+LEVER( IDC_CORRECT_BLUE, 6, 124, 130, EDY )
+SPINEDITX( IDC_C_IN_B, 6, 139, DX3, EDY, "% Cyan", 45 )
+SPINEDITX( IDC_M_IN_B, 71, 139, DX3, EDY, "% Magenta", 45 )
+CBITEM( "", IDC_LAST_INKCORRECT )
+
+; Calibration stuff
+
+CBITEM( "", IDC_FIRST_CALIBRATION )
+TEXT( "Calibration name:", -1, 11, 24, 124, TDY )
+COMBOEDIT( IDC_CALEXTNAMES, 11, 34, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_CALEXTMANAGE, 111, 34, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+; 52-40-SP=9
+RTEXT( "Ink/plate:", -1, 9, 56, 40, TDY )
+COMBO( IDC_CALCHANNELS, 52, 54, 70, CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Black",        IDC_CAL_BLACK )
+CBITEM( "Cyan",         IDC_CAL_CYAN )
+CBITEM( "Magenta",      IDC_CAL_MAGENTA )
+CBITEM( "Yellow",       IDC_CAL_YELLOW )
+
+DUTTON( "Edit", IDC_MAPEDITPRINTCAL, 16, 68, 30, BDY )
+PMAP( IDC_CALMAP, 52, 68, 70, 70 )
+RTEXT( "Device", -1, 6, 102, 40, TDY )
+RTEXT( "value", -1,  6, 112, 40, TDY )
+RTEXT( "", IDC_CALOUT, 6, 122, 40, TDY )
+TEXT( "Desired value", -1, 52, 145, 78, TDY )
+TEXT( "", IDC_CALIN, 52, 155, 78, TDY )
+CBITEM( "", IDC_LAST_CALIBRATION )
+
+; Black generation and UCR
+
+CBITEM( "", IDC_FIRST_BLACKANDUCR )
+TEXT( "Amount of black to generate:", -1, 11, 24, 124, TDY )
+COMBOEDIT( IDC_BGEXTNAMES, 11, 34, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_BGEXTMANAGE, 111, 34, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+DUTTON( "Edit", IDC_MAPEDITBG, 16, 56, 30, BDY )
+PMAP( IDC_BGMAP, 52, 56, 70, 70 )
+RTEXT( "Black to", -1, 6, 90, 40, TDY )
+RTEXT( "output", -1,  6, 100, 40, TDY )
+RTEXT( "", IDC_BGOUT, 6, 110, 40, TDY )
+TEXT( "Black in each pixel", -1, 52, 133, 78, TDY )
+TEXT( "", IDC_BGIN, 52, 143, 78, TDY )
+SPINEDITX( IDC_UCR, 16, 153, DX3, EDY, "% Black is removed (UCR)", 90 )
+SPINEDITX( IDC_BOOST, 16, 168, DX3, EDY, "% Black is boost", 90 )
+CBITEM( "", IDC_LAST_BLACKANDUCR )
+END
+
+IDD_MAPEDITBG DIALOG LOADONCALL MOVEABLE DISCARDABLE 11, 19, 160, 170
+CAPTION "Modify Black Generation"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+MAP( IDC_MAP, 6, 32, 78, 78 )
+DUTTON( "OK", IDOK,          6, 124, 35, BDY )
+BUTTON( "Cancel", IDCANCEL, 46, 124, 35, BDY )
+BUTTON( "Reset", IDC_RESET,  6, 140, 35, BDY )
+RTEXT( "Input", -1,     93,  6, 28, TDY )
+RTEXT( "Output", -1,   121,  6, 28, TDY )
+RTEXT( "", IDC_MAPIN,   93, 18, 28, TDY )
+RTEXT( "", IDC_MAPOUT, 121, 18, 28, TDY )
+TEXT( "1.", IDC_MAPSTEP0, 90, 34, 12, TDY )
+EDIT( IDC_MAP0IN,      104, 32, DX3, EDY )
+EDIT( IDC_MAP0OUT,     132, 32, DX3, EDY )
+TEXT( "2.", IDC_MAPSTEP1, 90, 46, 12, TDY )
+EDIT( IDC_MAP1IN,      104, 44, DX3, EDY )
+EDIT( IDC_MAP1OUT,     132, 44, DX3, EDY )
+TEXT( "3.", IDC_MAPSTEP2, 90, 58, 12, TDY )
+EDIT( IDC_MAP2IN,      104, 56, DX3, EDY )
+EDIT( IDC_MAP2OUT,     132, 56, DX3, EDY )
+TEXT( "4.", IDC_MAPSTEP3, 90, 70, 12, TDY )
+EDIT( IDC_MAP3IN,      104, 68, DX3, EDY )
+EDIT( IDC_MAP3OUT,     132, 68, DX3, EDY )
+TEXT( "5.", IDC_MAPSTEP4, 90, 82, 12, TDY )
+EDIT( IDC_MAP4IN,      104, 80, DX3, EDY )
+EDIT( IDC_MAP4OUT,     132, 80, DX3, EDY )
+TEXT( "6.", IDC_MAPSTEP5, 90, 94, 12, TDY )
+EDIT( IDC_MAP5IN,      104, 92, DX3, EDY )
+EDIT( IDC_MAP5OUT,     132, 92, DX3, EDY )
+TEXT( "7.", IDC_MAPSTEP6, 90,106, 12, TDY )
+EDIT( IDC_MAP6IN,      104,104, DX3, EDY )
+EDIT( IDC_MAP6OUT,     132,104, DX3, EDY )
+TEXT( "8.", IDC_MAPSTEP7, 90,118, 12, TDY )
+EDIT( IDC_MAP7IN,      104,116, DX3, EDY )
+EDIT( IDC_MAP7OUT,     132,116, DX3, EDY )
+TEXT( "9.", IDC_MAPSTEP8, 90,130, 12, TDY )
+EDIT( IDC_MAP8IN,      104,128, DX3, EDY )
+EDIT( IDC_MAP8OUT,     132,128, DX3, EDY )
+TEXT( "10.", IDC_MAPSTEP9,90,142, 12, TDY )
+EDIT( IDC_MAP9IN,      104,140, DX3, EDY )
+EDIT( IDC_MAP9OUT,     132,140, DX3, EDY )
+TEXT( "11.",IDC_MAPSTEP10,90,154, 12, TDY )
+EDIT( IDC_MAP10IN,     104,152, DX3, EDY )
+EDIT( IDC_MAP10OUT,    132,152, DX3, EDY )
+END
+
+IDD_MAPEDITPRINTCAL DIALOG LOADONCALL MOVEABLE DISCARDABLE 11, 19, 160, 170
+CAPTION "Modify Print Calibration"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Channel:", -1, 6, 6, 78, TDY )
+COMBO( IDC_CHANNELS, 6, 16, 78, CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Black",        IDC_DO_ALL )
+CBITEM( "Cyan",         IDC_DO_RED )
+CBITEM( "Magenta",      IDC_DO_GREEN )
+CBITEM( "Yellow",       IDC_DO_BLUE )
+MAP( IDC_MAP, 6, 32, 78, 78 )
+DUTTON( "OK", IDOK,          6, 124, 35, BDY )
+BUTTON( "Cancel", IDCANCEL, 46, 124, 35, BDY )
+BUTTON( "Reset", IDC_RESET,  6, 140, 35, BDY )
+BUTTON( "Reset all", IDC_RESETALL, 46, 140, 35, BDY )
+RTEXT( "Input", -1,     93,  6, 28, TDY )
+RTEXT( "Output", -1,   121,  6, 28, TDY )
+RTEXT( "", IDC_MAPIN,   93, 18, 28, TDY )
+RTEXT( "", IDC_MAPOUT, 121, 18, 28, TDY )
+TEXT( "1.", IDC_MAPSTEP0, 90, 34, 12, TDY )
+EDIT( IDC_MAP0IN,      104, 32, DX3, EDY )
+EDIT( IDC_MAP0OUT,     132, 32, DX3, EDY )
+TEXT( "2.", IDC_MAPSTEP1, 90, 46, 12, TDY )
+EDIT( IDC_MAP1IN,      104, 44, DX3, EDY )
+EDIT( IDC_MAP1OUT,     132, 44, DX3, EDY )
+TEXT( "3.", IDC_MAPSTEP2, 90, 58, 12, TDY )
+EDIT( IDC_MAP2IN,      104, 56, DX3, EDY )
+EDIT( IDC_MAP2OUT,     132, 56, DX3, EDY )
+TEXT( "4.", IDC_MAPSTEP3, 90, 70, 12, TDY )
+EDIT( IDC_MAP3IN,      104, 68, DX3, EDY )
+EDIT( IDC_MAP3OUT,     132, 68, DX3, EDY )
+TEXT( "5.", IDC_MAPSTEP4, 90, 82, 12, TDY )
+EDIT( IDC_MAP4IN,      104, 80, DX3, EDY )
+EDIT( IDC_MAP4OUT,     132, 80, DX3, EDY )
+TEXT( "6.", IDC_MAPSTEP5, 90, 94, 12, TDY )
+EDIT( IDC_MAP5IN,      104, 92, DX3, EDY )
+EDIT( IDC_MAP5OUT,     132, 92, DX3, EDY )
+TEXT( "7.", IDC_MAPSTEP6, 90,106, 12, TDY )
+EDIT( IDC_MAP6IN,      104,104, DX3, EDY )
+EDIT( IDC_MAP6OUT,     132,104, DX3, EDY )
+TEXT( "8.", IDC_MAPSTEP7, 90,118, 12, TDY )
+EDIT( IDC_MAP7IN,      104,116, DX3, EDY )
+EDIT( IDC_MAP7OUT,     132,116, DX3, EDY )
+TEXT( "9.", IDC_MAPSTEP8, 90,130, 12, TDY )
+EDIT( IDC_MAP8IN,      104,128, DX3, EDY )
+EDIT( IDC_MAP8OUT,     132,128, DX3, EDY )
+TEXT( "10.", IDC_MAPSTEP9,90,142, 12, TDY )
+EDIT( IDC_MAP9IN,      104,140, DX3, EDY )
+EDIT( IDC_MAP9OUT,     132,140, DX3, EDY )
+TEXT( "11.",IDC_MAPSTEP10,90,154, 12, TDY )
+EDIT( IDC_MAP10IN,     104,152, DX3, EDY )
+EDIT( IDC_MAP10OUT,    132,152, DX3, EDY )
+END
+
+IDD_NEW DIALOG LOADONCALL MOVEABLE DISCARDABLE 2, 15, 157, 71
+CAPTION "Create a New Image"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Width", -1,  6, 6, 30, TDY )
+EDIT( IDC_WIDTH,   40, 6, 25, EDY )
+TEXT( "", IDC_WIDTHLABEL, 70, 6, 35, TDY )
+TEXT( "Height",  -1,  6, 21, 30, TDY )
+EDIT( IDC_HEIGHT,    40, 21, 25, EDY )
+TEXT( "", IDC_HEIGHTLABEL, 70, 21, 35, TDY )
+TEXT( "Res",    -1,  6, 36, 30, TDY )
+EDITX( IDC_RES,     40, 36, 25, EDY, "/ inch", 35 )
+CHECK( "Create a color image?", IDC_NEWCOLOR, 6, 52, 100, CDY )
+DUTTON( "Create", IDOK, 111, 6, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 111, 22, 40, BDY )
+TEXT( "Requires:", -1, 111, 45, 40, TDY )
+RTEXT( "9999", IDC_MEMORY, 111, 55, 20, TDY )
+RTEXT( "K", -1, 131, 55, 5, TDY )
+EDIT( IDC_SCALEY, 999, 999, 25, EDY )
+EDIT( IDC_SCALEX, 999, 999, 25, EDY )
+END
+
+IDD_STATUS DIALOG LOADONCALL MOVEABLE DISCARDABLE -1, -1, 360, 20
+CAPTION "Status"
+FONT 10, "Helv"
+STYLE WS_MODELESS
+BEGIN
+PDUAL( "", IDC_STATUSTEXT, 0, -1, 160, TDY )
+DUAL( "Info", IDC_STATUSINFO, 160, -1, 40, TDY )
+DUAL(  "", IDC_STATUSMASK, 200, -1, 40, BDY )
+DUAL(  "", IDC_STATUSSHIELD, 240, -1, 15, 17 )
+END
+
+IDD_STATUSBOX DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 156, 46
+CAPTION "StatusBox"
+FONT 10, "Helv"
+STYLE (WS_MODAL | DS_MODALFRAME)
+BEGIN
+LTEXT( "", IDC_STATUSTEXT, 8, 8, 140, 30 )
+END
+
+IDD_GRAB DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 0, 0
+CAPTION "Grab"
+FONT 10, "Helv"
+STYLE WS_POPUP
+BEGIN
+END
+
+IDD_OPEN DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 246, 142
+CAPTION "Open Image File"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+PATH( "", IDC_FPATH, 6, 6, 170, TDY )
+TEXT( "", IDC_DISKSPACE, 6, 21, 80, TDY )
+COMBO( IDC_DRIVES, 6, 36, 80, 80 )
+LISTNOSORT( IDC_DIRS, 6, 56, 80, 80 )
+NAME( IDC_FNAME, 92, 36, 80, 12 )
+;COMBOEDIT( IDC_FNAME, 92, 36, 80, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+;CBITEM( "*.TIF", IDC_SAVETIFF )
+;CBITEM( "*.EPS", IDC_SAVEEPS )
+;CBITEM( "*.TGA", IDC_SAVETARGA )
+;CBITEM( "*.GIF", IDC_SAVEGIF )
+;CBITEM( "*.BMP", IDC_SAVEBMP )
+;CBITEM( "*.PCX", IDC_SAVEPCX )
+LIST( IDC_FLIST, 92, 56, 80, 80 )
+;TEXT( "File Type:", -1, 180, 55, 60, TDY )
+COMBO( IDC_FILETYPES, 92, 21, 80, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "TIFF", IDC_SAVETIFF )
+CBITEM( "EPSF", IDC_SAVEEPS )
+CBITEM( "Targa", IDC_SAVETARGA )
+CBITEM( "GIF", IDC_SAVEGIF )
+CBITEM( "BMP", IDC_SAVEBMP )
+CBITEM( "PCX", IDC_SAVEPCX )
+DUTTON( "Open", IDOK, 180, 21, 60, BDY )
+BUTTON( "Cancel", IDCANCEL, 180, 36, 60, BDY )
+END
+
+IDD_EXTOPEN DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 246, 142
+CAPTION "Select File"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+PATH( "", IDC_FPATH, 6, 6, 170, TDY )
+TEXT( "", IDC_DISKSPACE, 6, 21, 80, TDY )
+COMBO( IDC_DRIVES, 6, 36, 80, 80 )
+LISTNOSORT( IDC_DIRS, 6, 56, 80, 80 )
+NAME( IDC_FNAME, 92, 36, 80, 12 )
+LIST( IDC_FLIST, 92, 56, 80, 80 )
+DUTTON( "Select", IDOK, 180, 21, 60, BDY )
+BUTTON( "Cancel", IDCANCEL, 180, 36, 60, BDY )
+END
+
+IDD_SAVEAS DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 246, 142
+CAPTION "Save Image File"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+PATH( "", IDC_FPATH, 6, 6, 170, TDY )
+TEXT( "", IDC_DISKSPACE, 6, 21, 80, TDY )
+COMBO( IDC_DRIVES, 6, 36, 80, 80 )
+LISTNOSORT( IDC_DIRS, 6, 56, 80, 80 )
+NAME( IDC_FNAME, 92, 36, 80, 12 )
+;COMBOEDIT( IDC_FNAME, 92, 36, 80, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+;CBITEM( "*.TIF", IDC_SAVETIFF )
+;CBITEM( "*.EPS", IDC_SAVEEPS )
+;CBITEM( "*.TGA", IDC_SAVETARGA )
+;CBITEM( "*.GIF", IDC_SAVEGIF )
+;CBITEM( "*.BMP", IDC_SAVEBMP )
+;CBITEM( "*.PCX", IDC_SAVEPCX )
+LIST( IDC_FLIST, 92, 56, 80, 80 )
+;TEXT( "File Type:", -1, 180, 55, 60, TDY )
+COMBO( IDC_FILETYPES, 92, 21, 80, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "TIFF", IDC_SAVETIFF )
+CBITEM( "EPSF", IDC_SAVEEPS )
+CBITEM( "Targa", IDC_SAVETARGA )
+CBITEM( "GIF", IDC_SAVEGIF )
+CBITEM( "BMP", IDC_SAVEBMP )
+CBITEM( "PCX", IDC_SAVEPCX )
+DUTTON( "Save", IDOK, 180, 21, 60, BDY )
+BUTTON( "Cancel", IDCANCEL, 180, 36, 60, BDY )
+TEXT( "Image Type:", -1, 180, 80, 60, TDY )
+COMBO( IDC_DATATYPES, 180, 90, 60, CBY+CBY+CBY+CBY+CBY+CBY )
+CBITEM( "Grayscale", IDC_SAVECT )
+CBITEM( "Line art", IDC_SAVELA )
+CBITEM( "Scattered", IDC_SAVESP )
+CBITEM( "Full Color", IDC_SAVE24BITCOLOR )
+CBITEM( "Mini Color", IDC_SAVE8BITCOLOR )
+CHECK( "Compressed?", IDC_SAVECOMPRESS, 180, 110, 60, CDY )
+END
+
+IDD_HANDSCAN DIALOG LOADONCALL MOVEABLE DISCARDABLE 85, 42, 150, 155
+CAPTION "Hand Scan"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+DUTTON( "Scan", IDC_PRESCAN, 5, 5, 35, BDY )
+BUTTON( "Cancel", IDC_SCANCHECK, 5, 20, 35, BDY )
+RADIO( "Line art", IDC_SCAN1BIT, 50, 5, 50, RDY )
+RADIO( "Grayscale", IDC_SCAN8BIT, 50, 15, 50, RDY )
+RADIO( "Color", IDC_SCANCOLOR, 50, 25, 50, RDY )
+CHECK( "Invert", IDC_SCANINVERT, 100, 5, 40, CDY )
+CHECK( "Mirror", IDC_SCANMIRROR, 100, 15, 40, CDY )
+CHECK( "DMA", IDC_DMA, 100, 25, 40, CDY )
+TEXT( "Width", -1, 5, 45, 30, TDY )
+EDIT( IDC_WIDTH, 40, 45, 25, EDY )
+TEXT( "", IDC_WIDTHLABEL, 70, 45, 24, TDY )
+TEXT( "Height", -1, 5, 60, 30, TDY )
+EDIT( IDC_HEIGHT, 40, 60, 25, EDY )
+TEXT( "", IDC_HEIGHTLABEL, 70, 60, 24, TDY )
+TEXT( "Scale", -1, 5, 75, 30, TDY )
+EDITX( IDC_SCALEX, 40, 75, 25, EDY, "percent", 24 )
+EDIT( IDC_SCALEY, 999, 999, 25, EDY )
+TEXT( "Res", -1, 5, 90, 30, TDY )
+EDITX( IDC_RES, 40, 90, 25, EDY, "/ inch", 24 )
+TEXT( "Requires:", -1, 5, 105, 40, TDY )
+RTEXT( "9999", IDC_MEMORY, 45, 105, 20, TDY )
+RTEXT( "K", -1, 65, 105, 5, TDY )
+;STICK( IDC_CONTBRIT, 107, 45, 36, 36 )
+TEXT( "Contrast:", -1, 107, 88, 40, TDY )
+SPINEDIT( IDC_CONTRAST, 113, 100, DX4, EDY )
+TEXT( "Brightness:", -1, 107, 115, 40, TDY )
+SPINEDIT( IDC_BRIGHTNESS, 113, 127, DX4, EDY )
+CHECK( "Use a Calibration Map", IDC_SCANMAP, 5, 120, 125, CDY )
+COMBOSORT( IDC_EXTNAMES, 5, 135, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_EXTMANAGE, 105, 135, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+END
+
+IDD_SCAN DIALOG LOADONCALL MOVEABLE DISCARDABLE 16, 22, 279, 205
+CAPTION "Scan"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+SBOX( -1, 125, 5, 150, 90 )
+TEXT( "Speed:", 133, 135, 10, 25, TDY )
+RADIO( "5", IDC_VELOCITY5, 165, 10, 19, RDY )
+RADIO( "4", IDC_VELOCITY4, 185, 10, 19, RDY )
+RADIO( "3", IDC_VELOCITY3, 205, 10, 19, RDY )
+RADIO( "2", IDC_VELOCITY2, 225, 10, 19, RDY )
+RADIO( "1", IDC_VELOCITY1, 245, 10, 19, RDY )
+CHECK( "Use a Calibration Map", IDC_SCANMAP, 135, 25, 125, CDY )
+COMBOSORT( IDC_EXTNAMES, 135, 40, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_EXTMANAGE, 235, 40, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+RADIO( "Line art", IDC_SCAN1BIT, 180, 60, 50, RDY )
+RADIO( "Grayscale", IDC_SCAN8BIT, 180, 70, 50, RDY )
+RADIO( "Color", IDC_SCANCOLOR, 180, 80, 50, RDY )
+CHECK( "Invert", IDC_SCANINVERT, 230, 60, 40, CDY )
+CHECK( "Mirror", IDC_SCANMIRROR, 230, 70, 40, CDY )
+CHECK( "DMA", IDC_DMA, 230, 80, 40, CDY )
+DUTTON( "Prescan", IDC_PRESCAN, 135, 60, 35, BDY )
+BUTTON( "Check", IDC_SCANCHECK, 135, 75, 35, BDY )
+CTEXTBOXL( "Sizing", -1, 125, 100, 105, 95 )
+;TEXT( "Sizing:", -1, 135, 105, 35, TDY )
+TEXT( "Width", -1, 135, 120, 30, TDY )
+EDIT( IDC_WIDTH, 170, 120, 25, EDY )
+TEXT( "", IDC_WIDTHLABEL, 200, 120, 24, TDY )
+TEXT( "Height", -1, 135, 135, 30, TDY )
+EDIT( IDC_HEIGHT, 170, 135, 25, EDY )
+TEXT( "", IDC_HEIGHTLABEL, 200, 135, 24, TDY )
+TEXT( "Scale", -1, 135, 150, 30, TDY )
+EDITX( IDC_SCALEX, 170, 150, 25, EDY, "percent", 24 )
+EDIT( IDC_SCALEY, 999, 999, 25, EDY )
+TEXT( "Res", -1, 135, 165, 30, TDY )
+EDITX( IDC_RES, 170, 165, 25, EDY, "/ inch", 24 )
+TEXT( "Requires:", -1, 135, 180, 40, TDY )
+RTEXT( "9999", IDC_MEMORY, 175, 180, 20, TDY )
+RTEXT( "K", -1, 195, 180, 5, TDY )
+CONTROL "", IDC_SCANFRAME, "frame", SS_BLACKFRAME, 5, 5, 115, 175
+BUTTON( "Scan", IDOK, 20, 185, 35, BDY )
+BUTTON( "Cancel", IDCANCEL, 70, 185, 35, BDY )
+;STICK( IDC_CONTBRIT, 237, 102, 36, 36 )
+TEXT( "Contrast:", -1, 237, 145, 40, TDY )
+SPINEDIT( IDC_CONTRAST, 243, 155, DX4, EDY )
+TEXT( "Brightness:", -1, 237, 172, 40, TDY )
+SPINEDIT( IDC_BRIGHTNESS, 243, 182, DX4, EDY )
+END
+
+IDD_COLORPICKER DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 203, 166
+CAPTION "Color Picker"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+SPINEDITX( IDC_PICK_H, 112,  6, DX3, EDY, "° H", 17 )
+SPINEDITX( IDC_PICK_S, 112, 18, DX3, EDY, "% S", 17 )
+SPINEDITX( IDC_PICK_L, 112, 30, DX3, EDY, "% L", 17 )
+SPINEDITX( IDC_PICK_R, 112, 46, DX3, EDY, "% R", 17 )
+SPINEDITX( IDC_PICK_G, 112, 58, DX3, EDY, "% G", 17 )
+SPINEDITX( IDC_PICK_B, 112, 70, DX3, EDY, "% B", 15 )
+SPINEDITX( IDC_PICK_C, 112, 86, DX3, EDY, "% C", 17 )
+SPINEDITX( IDC_PICK_M, 112, 98, DX3, EDY, "% M", 17 )
+SPINEDITX( IDC_PICK_Y, 112,110, DX3, EDY, "% Y", 17 )
+SPINEDITX( IDC_PICK_K, 112,122, DX3, EDY, "% K", 17 )
+TEXT( "Change hue angle:", -1, 6, 112, 100, TDY )
+HSCROLL( IDC_PICK_HUELEVEL, 6, 124, 100, SDY )
+DUTTON( "OK", IDOK, 155, 6, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 155, 22, 40, BDY )
+COLORPATCH( "", IDC_PICK_PATCH1, 155, 41, 40, 30 )
+TEXT( "New color", -1, 155, 76, 40, TDY )
+COLORPATCH( "", IDC_PICK_PATCH2, 155, 92, 40, 30 )
+TEXT( "Original", -1, 155, 127, 40, TDY )
+PICKER( IDC_PICKER, 6, 6, 100, 100 )
+END
+
+IDD_PALETTE DIALOG LOADONCALL MOVEABLE DISCARDABLE 325, 34, 40, 168
+CAPTION ""
+FONT 10, "Helv"
+STYLE WS_MODELESSFLOAT
+BEGIN
+COLOR( IDC_PALETTE001,  0,  0, 8, 8 )
+COLOR( IDC_PALETTE002,  0,  8, 8, 8 )
+COLOR( IDC_PALETTE003,  0, 16, 8, 8 )
+COLOR( IDC_PALETTE004,  0, 24, 8, 8 )
+COLOR( IDC_PALETTE005,  0, 32, 8, 8 )
+COLOR( IDC_PALETTE006,  0, 40, 8, 8 )
+COLOR( IDC_PALETTE007,  0, 48, 8, 8 )
+COLOR( IDC_PALETTE008,  0, 56, 8, 8 )
+COLOR( IDC_PALETTE009,  0, 64, 8, 8 )
+COLOR( IDC_PALETTE010,  0, 72, 8, 8 )
+COLOR( IDC_PALETTE011,  0, 80, 8, 8 )
+COLOR( IDC_PALETTE012,  0, 88, 8, 8 )
+COLOR( IDC_PALETTE013,  0, 96, 8, 8 )
+COLOR( IDC_PALETTE014,  0,104, 8, 8 )
+COLOR( IDC_PALETTE015,  0,112, 8, 8 )
+COLOR( IDC_PALETTE016,  0,120, 8, 8 )
+COLOR( IDC_PALETTE017,  0,128, 8, 8 )
+COLOR( IDC_PALETTE018,  0,136, 8, 8 )
+COLOR( IDC_PALETTE019,  0,144, 8, 8 )
+COLOR( IDC_PALETTE020,  0,152, 8, 8 )
+COLOR( IDC_PALETTE021,  0,160, 8, 8 )
+COLOR( IDC_PALETTE022,  0,168, 8, 8 )
+COLOR( IDC_PALETTE023,  0,176, 8, 8 )
+COLOR( IDC_PALETTE024,  0,184, 8, 8 )
+
+COLOR( IDC_PALETTE025,  8,  0, 8, 8 )
+COLOR( IDC_PALETTE026,  8,  8, 8, 8 )
+COLOR( IDC_PALETTE027,  8, 16, 8, 8 )
+COLOR( IDC_PALETTE028,  8, 24, 8, 8 )
+COLOR( IDC_PALETTE029,  8, 32, 8, 8 )
+COLOR( IDC_PALETTE030,  8, 40, 8, 8 )
+COLOR( IDC_PALETTE031,  8, 48, 8, 8 )
+COLOR( IDC_PALETTE032,  8, 56, 8, 8 )
+COLOR( IDC_PALETTE033,  8, 64, 8, 8 )
+COLOR( IDC_PALETTE034,  8, 72, 8, 8 )
+COLOR( IDC_PALETTE035,  8, 80, 8, 8 )
+COLOR( IDC_PALETTE036,  8, 88, 8, 8 )
+COLOR( IDC_PALETTE037,  8, 96, 8, 8 )
+COLOR( IDC_PALETTE038,  8,104, 8, 8 )
+COLOR( IDC_PALETTE039,  8,112, 8, 8 )
+COLOR( IDC_PALETTE040,  8,120, 8, 8 )
+COLOR( IDC_PALETTE041,  8,128, 8, 8 )
+COLOR( IDC_PALETTE042,  8,136, 8, 8 )
+COLOR( IDC_PALETTE043,  8,144, 8, 8 )
+COLOR( IDC_PALETTE044,  8,152, 8, 8 )
+COLOR( IDC_PALETTE045,  8,160, 8, 8 )
+COLOR( IDC_PALETTE046,  8,168, 8, 8 )
+COLOR( IDC_PALETTE047,  8,176, 8, 8 )
+COLOR( IDC_PALETTE048,  8,184, 8, 8 )
+
+COLOR( IDC_PALETTE049, 16,  0, 8, 8 )
+COLOR( IDC_PALETTE050, 16,  8, 8, 8 )
+COLOR( IDC_PALETTE051, 16, 16, 8, 8 )
+COLOR( IDC_PALETTE052, 16, 24, 8, 8 )
+COLOR( IDC_PALETTE053, 16, 32, 8, 8 )
+COLOR( IDC_PALETTE054, 16, 40, 8, 8 )
+COLOR( IDC_PALETTE055, 16, 48, 8, 8 )
+COLOR( IDC_PALETTE056, 16, 56, 8, 8 )
+COLOR( IDC_PALETTE057, 16, 64, 8, 8 )
+COLOR( IDC_PALETTE058, 16, 72, 8, 8 )
+COLOR( IDC_PALETTE059, 16, 80, 8, 8 )
+COLOR( IDC_PALETTE060, 16, 88, 8, 8 )
+COLOR( IDC_PALETTE061, 16, 96, 8, 8 )
+COLOR( IDC_PALETTE062, 16,104, 8, 8 )
+COLOR( IDC_PALETTE063, 16,112, 8, 8 )
+COLOR( IDC_PALETTE064, 16,120, 8, 8 )
+COLOR( IDC_PALETTE065, 16,128, 8, 8 )
+COLOR( IDC_PALETTE066, 16,136, 8, 8 )
+COLOR( IDC_PALETTE067, 16,144, 8, 8 )
+COLOR( IDC_PALETTE068, 16,152, 8, 8 )
+COLOR( IDC_PALETTE069, 16,160, 8, 8 )
+COLOR( IDC_PALETTE070, 16,168, 8, 8 )
+COLOR( IDC_PALETTE071, 16,176, 8, 8 )
+COLOR( IDC_PALETTE072, 16,184, 8, 8 )
+
+COLOR( IDC_PALETTE073, 24,  0, 8, 8 )
+COLOR( IDC_PALETTE074, 24,  8, 8, 8 )
+COLOR( IDC_PALETTE075, 24, 16, 8, 8 )
+COLOR( IDC_PALETTE076, 24, 24, 8, 8 )
+COLOR( IDC_PALETTE077, 24, 32, 8, 8 )
+COLOR( IDC_PALETTE078, 24, 40, 8, 8 )
+COLOR( IDC_PALETTE079, 24, 48, 8, 8 )
+COLOR( IDC_PALETTE080, 24, 56, 8, 8 )
+COLOR( IDC_PALETTE081, 24, 64, 8, 8 )
+COLOR( IDC_PALETTE082, 24, 72, 8, 8 )
+COLOR( IDC_PALETTE083, 24, 80, 8, 8 )
+COLOR( IDC_PALETTE084, 24, 88, 8, 8 )
+COLOR( IDC_PALETTE085, 24, 96, 8, 8 )
+COLOR( IDC_PALETTE086, 24,104, 8, 8 )
+COLOR( IDC_PALETTE087, 24,112, 8, 8 )
+COLOR( IDC_PALETTE088, 24,120, 8, 8 )
+COLOR( IDC_PALETTE089, 24,128, 8, 8 )
+COLOR( IDC_PALETTE090, 24,136, 8, 8 )
+COLOR( IDC_PALETTE091, 24,144, 8, 8 )
+COLOR( IDC_PALETTE092, 24,152, 8, 8 )
+COLOR( IDC_PALETTE093, 24,160, 8, 8 )
+COLOR( IDC_PALETTE094, 24,168, 8, 8 )
+COLOR( IDC_PALETTE095, 24,176, 8, 8 )
+COLOR( IDC_PALETTE096, 24,184, 8, 8 )
+
+COLOR( IDC_PALETTE097, 32,  0, 8, 8 )
+COLOR( IDC_PALETTE098, 32,  8, 8, 8 )
+COLOR( IDC_PALETTE099, 32, 16, 8, 8 )
+COLOR( IDC_PALETTE100, 32, 24, 8, 8 )
+COLOR( IDC_PALETTE101, 32, 32, 8, 8 )
+COLOR( IDC_PALETTE102, 32, 40, 8, 8 )
+COLOR( IDC_PALETTE103, 32, 48, 8, 8 )
+COLOR( IDC_PALETTE104, 32, 56, 8, 8 )
+COLOR( IDC_PALETTE105, 32, 64, 8, 8 )
+COLOR( IDC_PALETTE106, 32, 72, 8, 8 )
+COLOR( IDC_PALETTE107, 32, 80, 8, 8 )
+COLOR( IDC_PALETTE108, 32, 88, 8, 8 )
+COLOR( IDC_PALETTE109, 32, 96, 8, 8 )
+COLOR( IDC_PALETTE110, 32,104, 8, 8 )
+COLOR( IDC_PALETTE111, 32,112, 8, 8 )
+COLOR( IDC_PALETTE112, 32,120, 8, 8 )
+COLOR( IDC_PALETTE113, 32,128, 8, 8 )
+COLOR( IDC_PALETTE114, 32,136, 8, 8 )
+COLOR( IDC_PALETTE115, 32,144, 8, 8 )
+COLOR( IDC_PALETTE116, 32,152, 8, 8 )
+COLOR( IDC_PALETTE117, 32,160, 8, 8 )
+COLOR( IDC_PALETTE118, 32,168, 8, 8 )
+COLOR( IDC_PALETTE119, 32,176, 8, 8 )
+COLOR( IDC_PALETTE120, 32,184, 8, 8 )
+END
+
+IDD_ADDEXTNAME DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 56
+CAPTION ""
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Enter the new name:", -1, 6, 6, 100, TDY )
+COMBOEDIT( IDC_EXTNAMES, 6, 16, 116, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+DUTTON( "OK", IDOK, 6, 36, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 36, 55, BDY)
+END
+
+IDD_COPYTOFILE DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 94
+CAPTION "Copy To"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "", IDC_COPYTONAME, 6, 6, 100, TDY )
+COMBOEDIT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_CLIPEXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+RADIO( "Named Clipboard", IDC_COPYTOCLIP, 6, 36, 100, RDY)
+RADIO( "Texture", IDC_COPYTOTEXTURE, 6, 36+RDY, 100, RDY)
+RADIO( "Custom Brush", IDC_COPYTOBRUSH, 6, 36+RDY+RDY, 100, RDY)
+DUTTON( "Copy to", IDOK, 6, 74, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 74, 55, BDY)
+END
+
+IDD_PASTEFROMFILE DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 56
+CAPTION "Paste From Named Clipboard"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Clipboard name:", -1, 6, 6, 100, TDY )
+COMBOSORT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_CLIPEXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+DUTTON( "Paste from", IDOK, 6, 36, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 36, 55, BDY)
+END
+
+IDD_SMOOTHFILT DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 56
+CAPTION "Smooth Filters"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Filter name:", -1, 6, 6, 100, TDY )
+COMBOSORT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_EXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+DUTTON( "Filter", IDOK, 6, 36, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 36, 55, BDY)
+END
+
+IDD_SHARPENFILT DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 56
+CAPTION "Sharpen Filters"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Filter name:", -1, 6, 6, 100, TDY )
+COMBOSORT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_EXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+DUTTON( "Filter", IDOK, 6, 36, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 36, 55, BDY)
+END
+
+IDD_EDGEDETECTFILT DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 56
+CAPTION "Edge Detection Filters"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Filter name:", -1, 6, 6, 100, TDY )
+COMBOSORT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_EXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+DUTTON( "Filter", IDOK, 6, 36, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 36, 55, BDY)
+END
+
+IDD_SPECIALFXFILT DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 56
+CAPTION "Special Filters"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Filter name:", -1, 6, 6, 100, TDY )
+COMBOSORT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_EXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+DUTTON( "Filter", IDOK, 6, 36, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 36, 55, BDY)
+END
+
+IDD_MASKSAVE DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 56
+CAPTION "Save the Mask"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Mask name:", -1, 6, 6, 100, TDY )
+COMBOEDIT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_CLIPEXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+DUTTON( "Save", IDOK, 6, 36, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 36, 55, BDY)
+END
+
+IDD_MASKLOAD DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 56
+CAPTION "Load a Mask"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Mask name:", -1, 6, 6, 100, TDY )
+COMBOSORT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_CLIPEXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+DUTTON( "Load", IDOK, 6, 36, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 36, 55, BDY)
+END
+
+IDD_SCANSETUP DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 72
+CAPTION "Scanner Setup"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Scanner driver name:", -1, 6, 6, 100, TDY )
+COMBOSORT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_EXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+EDITX( IDC_PORT, 6, 32, DX3, EDY, "I/O Address", 100 )
+DUTTON( "OK", IDOK, 6, 52, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 52, 55, BDY)
+END
+
+IDD_GRABSETUP DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 72
+CAPTION "Grabber Setup"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Grabber driver name:", -1, 6, 6, 100, TDY )
+COMBOSORT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_EXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+EDITX( IDC_PORT, 6, 32, DX3, EDY, "I/O Address", 100 )
+DUTTON( "OK", IDOK, 6, 52, 55, BDY)
+BUTTON( "Cancel", IDCANCEL, 67, 52, 55, BDY)
+END
+
+IDD_PREF DIALOG DISCARDABLE LOADONCALL PURE MOVEABLE 24, 36, 230, 158
+CAPTION "Edit Preferences"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+SPNAME( IDC_PREF_POUCH, 6, 6, 87, EDY, "Pouch Path", 48 )
+SPNAME( IDC_PREF_RAMDISK, 6, 22, 87, EDY, "Cache Path", 48 )
+EDITX( IDC_PREF_MEMMIN, 6, 38, DX4, EDY, "k Minimum free memory", 120 )
+EDITX( IDC_PREF_MEMFACTOR, 6, 54, DX4, EDY, "% Free memory per image", 120 )
+EDIT( IDC_PREF_SCREENWIDTH, 6, 70, DX4, EDY )
+TEXT( "", IDC_WIDTHLABEL, 6+DX4+SP, 72, 30, TDY )
+TEXT( "- Screen width", -1, 6+DX4+30, 72, 70, TDY )
+CHECK( "Use EMS memory", IDC_PREF_EMS, 6, 86, 72, CDY )
+CHECK( "Use Manual Apply", IDC_PREF_USEAPPLY, 6, 97, 72, CDY )
+;BUTTON( "Monitor correction", IDC_PREF_MONITORMAP, 6, 109, 80, BDY )
+CTEXTBOXL( "Units", -1, 151, 3, 72, 68 )
+RADIO( "inches", IDC_PREF_UNITINCHES, 154, 15, 58, RDY )
+RADIO( "millimeters", IDC_PREF_UNITMM, 154, 26, 58, RDY )
+RADIO( "centimeters", IDC_PREF_UNITCM, 154, 37, 58, RDY )
+RADIO( "picas", IDC_PREF_UNITPICAS, 154, 48, 58, RDY )
+CTEXTBOXL( "Scratchpad", -1, 151, 72, 72, 60 )
+SPINEDITX( IDC_PREF_SCRATCHX, 154, 84, DX3, EDY, "pixels wide", 40 )
+SPINEDITX( IDC_PREF_SCRATCHY, 154, 96, DX3, EDY, "pixels high", 40 )
+RADIO( "Color image", IDC_PREF_SCRATCHCOLOR, 154, 108, 60, RDY )
+RADIO( "Gray image", IDC_PREF_SCRATCHGRAY, 154, 119, 60, RDY )
+
+BUTTON( "OK", IDOK, 32, 138, 49, BDY )
+BUTTON( "Cancel", IDCANCEL, 89, 138, 49, BDY )
+BUTTON( "Save", IDC_PREF_SAVE, 145, 138, 49, BDY )
+END
+
+IDD_APPLYORUNDO DIALOG DISCARDABLE LOADONCALL PURE MOVEABLE 24, 36, 144, 64
+FONT 8, "Helv"
+STYLE WS_MODAL
+CLASS "mydialog"
+BEGIN
+PICON( 32513, 6, 6, 20, 20 )
+CTEXT( "You must apply or undo changes before doing this function", -1, 32, 6, 106, 30 )
+DUTTON( "Apply", IDC_APPLY, 6, 44, 40, BDY )
+BUTTON( "Undo", IDC_UNDO, 52, 44, 40, BDY )
+BUTTON( "Cancel", IDCANCEL, 98, 44, 40, BDY )
+END
+
+IDD_CUSTOMBRUSH DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 29, 128, 76
+CAPTION "Select Custom Brush"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+TEXT( "Custom Brush name:", -1, 6, 6, 100, TDY )
+COMBOEDIT( IDC_EXTNAMES, 6, 16, 100, CBY+CBY+CBY+CBY+CBY+CBY+CBY )
+ICON3D( IDC_CLIPEXTMANAGE, 106, 16, 16, 12 )
+CBITEM( "", IDC_FILENAME )
+CHECK( "Open editing window", IDC_EDIT_BRUSH, 6, 36, 85, CDY )
+DUTTON( "Select", IDOK, 6, 56, 55, BDY )
+BUTTON( "Cancel", IDCANCEL, 67, 56, 55, BDY )
+END
+
+IDD_IMAGEINFO DIALOG DISCARDABLE LOADONCALL MOVEABLE 24, 36, 188, 145
+CAPTION "Image Information"
+FONT 8, "Helv"
+STYLE WS_MODALFLOAT
+CLASS "mydialog"
+BEGIN
+RTEXT( "File Name:", -1, 6, 6, 50, TDY )
+TEXT( "", IDC_INFOFILENAME, 62, 6, 120, TDY )
+RTEXT( "File Type:", -1, 6, 18, 50, TDY )
+TEXT( "", IDC_INFOFILETYPE, 62, 18, 120, TDY )
+RTEXT( "Data Type:", -1, 6, 30, 50, TDY )
+TEXT( "", IDC_INFODATATYPE, 62, 30, 120, TDY )
+RTEXT( "Width:", -1, 6, 42, 50, TDY )
+TEXT( "", IDC_INFOWIDTH, 62, 42, 120, TDY )
+RTEXT( "Height:", -1, 6, 54, 50, TDY )
+TEXT( "", IDC_INFOHEIGHT, 62, 54, 120, TDY )
+RTEXT( "Resolution:", -1, 6, 66, 50, TDY )
+TEXT( "", IDC_INFORESOLUTION, 62, 66, 120, TDY )
+RTEXT( "Image Size:", -1, 6, 78, 50, TDY )
+TEXT( "", IDC_INFOIMAGEMEMORY, 62, 78, 120, TDY )
+RTEXT( "Modified:", -1, 6, 90, 50, TDY)
+TEXT( "", IDC_INFOMODIFIED, 62, 90, 120, TDY )
+RTEXT( "Memory Left:", -1, 6, 106, 50, TDY )
+TEXT( "", IDC_INFOMEMORY, 62, 106, 120, TDY )
+DUTTON( "OK", IDOK, 71, 122, 45, BDY )
+END
+

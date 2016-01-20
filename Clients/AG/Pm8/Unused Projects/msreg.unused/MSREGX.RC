@@ -1,0 +1,1254 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\MSREGDLL.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "\r\n"
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "#include ""afxres.rc""  // Standard components\r\n"
+    "#include ""afxprint.rc""         // Standard components\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "MSREGDLL DLL\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "MSREGDLL\0"
+            VALUE "LegalCopyright", "Copyright © 1995\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "MSREGDLL.DLL\0"
+            VALUE "ProductName", "MSREGDLL Dynamic Link Library\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_BAD_REGISTRATION_CODE DIALOG DISCARDABLE  0, 0, 206, 106
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Incorrect Registration Code"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,77,81,50,16,WS_GROUP
+    LTEXT           "The registration code you have entered is not correct.",
+                    IDC_STATIC,8,7,189,16
+    LTEXT           "Call us @FreePhone?toll-free:@ and provide the operator with your Product Code Number.",
+                    IDC_PRODUCT_CODE,8,27,189,24
+    LTEXT           "Then enter the code you received for registering @Application@.",
+                    IDC_STATIC,8,55,189,16
+END
+
+IDD_CALL_FAILED_EPM DIALOG DISCARDABLE  0, 0, 317, 186
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Call Not Completed"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,133,161,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,10,301,142
+    CONTROL         "IDB_WHAT_HAPPENED;CALLFAIL.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "The call to send your registration information could not be completed.|black|white",
+                    IDC_STATIC,116,17,184,24
+    LTEXT           "Some things to check...|black|white",IDC_STATIC,116,43,
+                    184,10
+    LTEXT           "Make sure your modem is turned on and ready to go, then try again.|black|white",
+                    IDC_STATIC,131,57,168,24
+    LTEXT           "If your phone system requires dialing a prefix number to reach an outside line, then verify that the Dial-Out Prefix is correct.|black|white",
+                    IDC_STATIC,131,82,168,36
+    LTEXT           "You may also register @FreePhone?toll-free:@ over the phone or by mail.|black|white",
+                    IDC_STATIC,24,120,275,30
+END
+
+IDD_CONGRATULATIONS_EPM DIALOG DISCARDABLE  0, 0, 277, 255
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Congratulations -- You're Registered!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,113,233,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,261,219
+    CONTROL         "IDB_CONGRATULATIONS;CONGRATS.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED,31,9,215,113
+    LTEXT           "Congratulations! You are now a registered owner of @Application@.|black|white",
+                    IDC_STATIC,18,128,241,17
+    LTEXT           "For an exciting look at the latest Mindscape products and demos, check out the Mindscape home page at @WebSite@|black|white",
+                    IDC_STATIC,18,151,241,24
+    LTEXT           "Reminder: If you registered by Modem or Phone, you don't need to send in your registration post-card.|navy|white",
+                    IDC_STATIC,18,180,241,16
+    CTEXT           "Click OK to install your @BonusShort@!|black|white",
+                    IDC_STATIC,18,208,241,10
+END
+
+IDD_DIALING_OPTIONS DIALOG DISCARDABLE  0, 0, 270, 189
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialing Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,73,164,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,147,164,50,16
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER3,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,14,18,7,7
+    LTEXT           "If you are using a phone system that requires dialing a prefix number to reach an outside line, enter the number into the box below.",
+                    IDC_STATIC,29,17,219,16
+    RTEXT           "&Prefix",IDC_STATIC,34,44,29,9
+    EDITTEXT        IDC_PREFIX,66,42,54,12,ES_AUTOHSCROLL
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER4,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,14,66,7,7
+    LTEXT           "Most U.S. and Canadian phone systems require you to dial a ""1"" before an 800 number. If your phone system does not require you to dial a ""1"", remove the checkmark below.",
+                    IDC_STATIC,29,65,218,24
+    CONTROL         " &Dial ""1"" before 800 numbers",IDC_DIAL1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,45,97,124,10
+    GROUPBOX        "",IDC_STATIC,8,4,253,151,WS_GROUP
+    LTEXT           "Number that will be dialed:",IDC_STATIC,19,122,236,8
+    LTEXT           "",IDC_DIALING_NUMBER,28,136,150,8
+END
+
+IDD_NO_MODEM_EPM DIALOG DISCARDABLE  0, 0, 317, 143
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "No Modem Found"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,132,118,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,301,101
+    CONTROL         "IDB_WHAT_HAPPENED;NOMODEM.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "A working modem could not be found on your computer.|black|white",
+                    IDC_STATIC,116,20,184,16
+    LTEXT           "Make sure your modem is turned on and ready to go, then try again.|black|white",
+                    IDC_STATIC,116,39,184,24
+    LTEXT           "You may also register @FreePhone?toll-free:@ over the phone or by mail.|black|white",
+                    IDC_STATIC,116,66,184,34
+END
+
+IDD_REGISTER_EPM DIALOG DISCARDABLE  0, 0, 342, 257
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "@Application@ Registration"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Register by &Modem",IDC_REGISTER_NOW,249,128,76,22,
+                    WS_GROUP
+    PUSHBUTTON      "Register by &Phone",IDC_REGISTER_BY_PHONE,249,158,76,22
+    PUSHBUTTON      "Register by M&ail",IDC_REGISTER_BY_MAIL,249,188,76,22
+    PUSHBUTTON      "Register &Later",IDC_REGISTER_LATER,249,218,76,22
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER3,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,18,132,7,7
+    LTEXT           "Click ""Register by Modem"" to electronically register with a single @FreeModem?Toll-Free:phone@ call!",
+                    IDC_STATIC,33,131,210,24
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER6,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,18,162,7,7
+    LTEXT           "If you don't own a modem, click ""Register by Phone"" and call our @FreePhone?Toll-Free:phone@ number to register.",
+                    IDC_STATIC,33,161,210,24
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER4,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,18,192,7,7
+    LTEXT           "If you prefer, click ""Register by Mail"" to register by mail.",
+                    IDC_STATIC,33,191,210,24
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER5,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,18,222,7,7
+    LTEXT           "Click ""Register Later"" if you do not want to register at this time.",
+                    IDC_STATIC,33,221,210,24
+    GROUPBOX        "",IDC_STATIC,8,116,326,133,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,326,103
+    CONTROL         "IDB_PLEASE_REGISTER;REGISTER.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED | WS_GROUP,13,10,109,99
+    LTEXT           "Register by Modem, Phone or Mail so that we may provide you with|black|white",
+                    IDC_STATIC,134,30,194,16
+    LTEXT           "   -  @Bonus@!|black|white",IDC_STATIC,150,53,178,8
+    LTEXT           "   -  Special Discount Offers!|black|white",IDC_STATIC,
+                    150,67,178,8
+    LTEXT           "   -  First Priority Customer Service!|black|white",
+                    IDC_STATIC,150,81,178,8
+END
+
+IDD_REGISTER_BY_PHONE DIALOG DISCARDABLE  0, 0, 342, 170
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Register by Phone"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,326,105
+    CONTROL         "IDB_REGISTER_BY_PHONE;BYPHONE.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED | WS_GROUP,10,9,120,102
+    LTEXT           "Call @PhoneNumber@ and provide the operator with your Product Code Number: %s|black|white",
+                    IDC_PRODUCT_CODE,135,30,193,24
+    LTEXT           "We'll provide you with @Bonus@ for FREE! Plus, you'll automatically receive special discount offers as well as first-priority customer service.|black|white",
+                    IDC_STATIC,135,59,193,32
+    DEFPUSHBUTTON   "OK",IDOK,110,146,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,182,146,50,16
+    RTEXT           "&Enter the Registration Code provided to you:",
+                    IDC_STATIC,7,124,220,11
+    EDITTEXT        IDC_REGISTRATION_CODE,232,123,65,13,ES_UPPERCASE | 
+                    ES_AUTOHSCROLL
+END
+
+IDD_REGISTER_FOR_BONUS_EPM DIALOG DISCARDABLE  0, 0, 304, 199
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Register for @BonusShort@!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,288,130
+    CONTROL         "IDB_REGISTER_FOR_BONUS;BONUS.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED,9,10,112,126
+    LTEXT           "Get @Bonus@ absolutely free for registering your copy of @Application@!|black|white",
+                    IDC_STATIC,130,23,162,26
+    PUSHBUTTON      "&Click here to Register now!",IDC_REGISTER_NOW,150,55,
+                    124,35,WS_GROUP
+    LTEXT           "Plus, you also get special discount offers on new products and first-priority customer service!|black|white",
+                    IDC_STATIC,130,104,162,26
+    RTEXT           "&Enter the Registration Code provided to you:",
+                    IDC_STATIC,6,152,194,11
+    EDITTEXT        IDC_REGISTRATION_CODE,205,150,65,13,ES_UPPERCASE | 
+                    ES_AUTOHSCROLL | WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,92,172,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,161,172,50,16
+END
+
+IDD_REGISTER_LATER DIALOG DISCARDABLE  0, 0, 324, 143
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Register Later"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,308,103
+    CONTROL         "IDB_REGISTER_LATER;LATER.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED | WS_GROUP,13,11,92,96
+    LTEXT           "See you later...|black|white",IDC_STATIC,119,20,184,16
+    LTEXT           "When it's convenient, come back and register your copy of @Application@ so that we can provide you with @Bonus@ for FREE!|black|white",
+                    IDC_STATIC,119,39,184,32
+    LTEXT           "Plus, you'll automatically receive special discount offers as well as first-priority customer service.|black|white",
+                    IDC_STATIC,119,73,184,28
+    DEFPUSHBUTTON   "OK",IDOK,101,119,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,173,119,50,16
+END
+
+IDD_REGISTRATION_INFORMATION DIALOG DISCARDABLE  0, 0, 345, 271
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Registration Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,64,246,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,140,246,50,16
+    PUSHBUTTON      "Dial Out Prefi&x",IDC_DIALOUTPREFIX,216,246,65,16
+    GROUPBOX        "",IDC_STATIC,8,112,329,125,WS_GROUP
+    RTEXT           "&First Name",IDC_STATIC,13,127,52,9
+    EDITTEXT        IDC_FIRSTNAME,70,125,89,12,ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
+    RTEXT           "&Last/Surname",IDC_STATIC,160,127,50,9
+    EDITTEXT        IDC_LASTNAME,214,125,111,12,ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
+    RTEXT           "C&ompany",IDC_STATIC,13,142,52,9
+    EDITTEXT        IDC_COMPANY,70,140,202,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    RTEXT           "&Address",IDC_STATIC,13,157,52,9
+    EDITTEXT        IDC_ADDRESS1,70,155,202,12,ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
+    RTEXT           "A&ddress",IDC_STATIC,13,172,52,9
+    EDITTEXT        IDC_ADDRESS2,70,170,202,12,ES_AUTOHSCROLL
+    RTEXT           "&City/Town",IDC_STATIC,13,187,52,9
+    EDITTEXT        IDC_CITY,70,185,112,12,ES_AUTOHSCROLL
+    RTEXT           "&State/Province",IDC_STATIC,184,187,53,9
+    EDITTEXT        IDC_STATE,242,185,83,12,ES_AUTOHSCROLL
+    RTEXT           "&Zip/Postal Code",IDC_STATIC,13,202,52,9
+    EDITTEXT        IDC_ZIP,70,200,85,12,ES_AUTOHSCROLL
+    RTEXT           "Co&untry",IDC_STATIC,157,202,28,9
+    COMBOBOX        IDC_COUNTRY_LIST,190,200,134,70,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "&Phone",IDC_STATIC,13,217,52,9
+    EDITTEXT        IDC_PHONE,70,215,85,12,ES_AUTOHSCROLL
+    RTEXT           "&E-Mail",IDC_STATIC,158,217,27,9
+    EDITTEXT        IDC_EMAIL,190,215,135,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,329,99
+    CONTROL         "IDB_INFORMATION;GETINFO.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED | WS_GROUP,13,11,102,93
+    LTEXT           "Enter the information requested below and click OK so that we may provide you with your @Bonus@ for FREE!|black|white",
+                    IDC_STATIC,126,31,202,24
+    LTEXT           "Plus, you'll automatically receive special discount offers as well as first-priority customer service.|black|white",
+                    IDC_STATIC,126,61,202,24
+END
+
+IDD_SEARCHING DIALOG DISCARDABLE  0, 0, 309, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Searching for Modem"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,293,104
+    CONTROL         "IDB_SEARCHING;SEARCH.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED | WS_GROUP,9,10,116,100
+    CTEXT           "Searching for a modem on your computer:|black|white",
+                    IDC_STATIC,131,22,164,23
+    CTEXT           "Searching...\n|blue|white",IDC_SEARCH_STATUS,131,52,164,
+                    28
+    CTEXT           "Click Cancel to stop searching|black|white",IDC_STATIC,
+                    131,91,164,16
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,129,122,50,16,WS_GROUP
+END
+
+IDD_SENDING DIALOG DISCARDABLE  0, 0, 299, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Sending Registration Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,284,102
+    CONTROL         "IDB_SENDING;SEND.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED | WS_GROUP,9,10,96,97
+    LTEXT           "Your registration information is being sent by modem directly to Mindscape:|black|white",
+                    IDC_STATIC,116,17,166,23
+    CTEXT           "Sending...\n|blue|white",IDC_SEND_STATUS,116,44,166,17
+    CONTROL         "",IDC_PROGRESS_BAR,"MlsProgressBar",WS_DISABLED | 
+                    WS_GROUP,116,62,166,12
+    CTEXT           "Click Cancel to stop sending|black|white",IDC_STATIC,
+                    116,88,166,17
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,124,120,50,16,WS_GROUP
+END
+
+IDD_REGISTER_EM DIALOG DISCARDABLE  0, 0, 342, 228
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "@Application@ Registration"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Register by &Modem",IDC_REGISTER_NOW,249,128,76,22,
+                    WS_GROUP
+    PUSHBUTTON      "Register by M&ail",IDC_REGISTER_BY_MAIL,249,158,76,22
+    PUSHBUTTON      "Register &Later",IDC_REGISTER_LATER,249,188,76,22
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER3,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,18,132,7,7
+    LTEXT           "Click ""Register by Modem"" to electronically register with a single @FreeModem?Toll-Free:phone@ call!",
+                    IDC_STATIC,33,131,210,24
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER4,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,18,162,7,7
+    LTEXT           "If you prefer, click ""Register by Mail"" to register by mail.",
+                    IDC_STATIC,33,161,210,24
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER5,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,18,192,7,7
+    LTEXT           "Click ""Register Later"" if you do not want to register at this time.",
+                    IDC_STATIC,33,191,210,24
+    GROUPBOX        "",IDC_STATIC,8,116,326,103,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,326,103
+    CONTROL         "IDB_PLEASE_REGISTER;REGISTER.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED | WS_GROUP,13,10,109,99
+    LTEXT           "Register by Modem or Mail so that we may provide you with|black|white",
+                    IDC_STATIC,134,30,194,16
+    LTEXT           "   -  @Bonus@!|black|white",IDC_STATIC,150,53,178,8
+    LTEXT           "   -  Special Discount Offers!|black|white",IDC_STATIC,
+                    150,67,178,8
+    LTEXT           "   -  First Priority Customer Service!|black|white",
+                    IDC_STATIC,150,81,178,8
+END
+
+IDD_NO_MODEM_EM DIALOG DISCARDABLE  0, 0, 317, 143
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "No Modem Found"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,132,118,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,301,101
+    CONTROL         "IDB_WHAT_HAPPENED;NOMODEM.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "A working modem could not be found on your computer.|black|white",
+                    IDC_STATIC,116,19,184,16
+    LTEXT           "Make sure your modem is turned on and ready to go, then try again.|black|white",
+                    IDC_STATIC,116,38,184,24
+    LTEXT           "You may also register by mail.|black|white",IDC_STATIC,
+                    116,65,184,34
+END
+
+IDD_CALL_FAILED_EM DIALOG DISCARDABLE  0, 0, 317, 186
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Call Not Completed"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,133,161,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,10,301,142
+    CONTROL         "IDB_WHAT_HAPPENED;CALLFAIL.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "The call to send your registration information could not be completed.|black|white",
+                    IDC_STATIC,116,17,184,24
+    LTEXT           "Some things to check...|black|white",IDC_STATIC,116,43,
+                    184,10
+    LTEXT           "Make sure your modem is turned on and ready to go, then try again.|black|white",
+                    IDC_STATIC,131,57,168,24
+    LTEXT           "If your phone system requires dialing a prefix number to reach an outside line, then verify that the Dial-Out Prefix is correct.|black|white",
+                    IDC_STATIC,131,82,168,36
+    LTEXT           "You may also register by mail.|black|white",IDC_STATIC,
+                    24,120,275,30
+END
+
+IDD_REGISTER_FOR_BONUS_E DIALOG DISCARDABLE  0, 0, 304, 181
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Register by Modem for @BonusShort@!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,288,130
+    CONTROL         "IDB_REGISTER_FOR_BONUS;BONUS.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED,9,10,112,126
+    LTEXT           "Get @Bonus@ absolutely free for registering your copy of @Application@ by modem!|black|white",
+                    -1,130,23,162,26
+    PUSHBUTTON      "&Click here to Register now!",IDC_REGISTER_NOW,150,55,
+                    124,35,WS_GROUP
+    LTEXT           "Plus, you also get special discount offers on new products and first-priority customer service!|black|white",
+                    -1,130,104,162,26
+    DEFPUSHBUTTON   "Register &Later",IDC_REGISTER_LATER,73,150,63,19,
+                    WS_GROUP
+    PUSHBUTTON      "&No Modem",IDC_CANT_REGISTER,167,150,63,19
+END
+
+IDD_CALL_FAILED_E DIALOG DISCARDABLE  0, 0, 317, 154
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Call Not Completed"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,133,129,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,10,301,111
+    CONTROL         "IDB_WHAT_HAPPENED;CALLFAIL.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "The call to send your registration information could not be completed.|black|white",
+                    -1,116,17,184,24
+    LTEXT           "Some things to check...|black|white",-1,116,43,184,10
+    LTEXT           "Make sure your modem is turned on and ready to go, then try again.|black|white",
+                    -1,131,57,168,24
+    LTEXT           "If your phone system requires dialing a prefix number to reach an outside line, then verify that the Dial-Out Prefix is correct.|black|white",
+                    -1,131,82,168,36
+END
+
+IDD_NO_MODEM_E DIALOG DISCARDABLE  0, 0, 317, 143
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "No Modem Found"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,132,118,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,301,101
+    CONTROL         "IDB_WHAT_HAPPENED;NOMODEM.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "A working modem could not be found on your computer.|black|white",
+                    IDC_STATIC,116,19,184,16
+    LTEXT           "Make sure your modem is turned on and ready to go, then try again.|black|white",
+                    IDC_STATIC,116,38,184,24
+    LTEXT           "If you do not have a modem, you cannot register at this time. When you add a modem to your computer, click @BonusIconTitle@ to register for your @BonusShort@.|black|white",
+                    IDC_STATIC,116,65,184,34
+END
+
+IDD_REQUIRED_INFORMATION DIALOG DISCARDABLE  0, 0, 250, 154
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Required Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,99,128,50,16,WS_GROUP
+    LTEXT           "Additional information is required to register your copy of @Application@. Please make sure the following fields are properly filled in and try again.",
+                    IDC_STATIC,21,18,206,25
+    GROUPBOX        "",IDC_STATIC,8,4,233,114,WS_GROUP
+    LTEXT           "First Name    Last Name\n\nAddress\n\nCity    State\n\nZip    Country",
+                    IDC_REQUIRED_FIELD_NAMES,46,51,170,56
+END
+
+IDD_CANT_REGISTER DIALOG DISCARDABLE  0, 0, 186, 68
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "No Modem Available"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,34,41,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,100,41,50,16
+    LTEXT           "When you add a modem to your computer, click the @BonusIconTitle@ icon to register for your @BonusShort@.",
+                    IDC_STATIC,8,8,170,24
+END
+
+IDD_CALL_FAILED_EP DIALOG DISCARDABLE  0, 0, 317, 186
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Call Not Completed"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,133,161,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,10,301,142
+    CONTROL         "IDB_WHAT_HAPPENED;CALLFAIL.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "The call to send your registration information could not be completed.|black|white",
+                    IDC_STATIC,116,17,184,24
+    LTEXT           "Some things to check...|black|white",IDC_STATIC,116,43,
+                    184,10
+    LTEXT           "Make sure your modem is turned on and ready to go, then try again.|black|white",
+                    IDC_STATIC,131,57,168,24
+    LTEXT           "If your phone system requires dialing a prefix number to reach an outside line, then verify that the Dial-Out Prefix is correct.|black|white",
+                    IDC_STATIC,131,82,168,36
+    LTEXT           "You may also register @FreePhone?toll-free:@ over the phone.|black|white",
+                    IDC_STATIC,24,120,275,30
+END
+
+IDD_NO_MODEM_EP DIALOG DISCARDABLE  0, 0, 317, 143
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "No Modem Found"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,132,118,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,301,101
+    CONTROL         "IDB_WHAT_HAPPENED;NOMODEM.BMP",IDC_USER1,"MsregBitmap",
+                    WS_DISABLED,13,11,91,94
+    LTEXT           "A working modem could not be found on your computer.|black|white",
+                    IDC_STATIC,116,19,184,16
+    LTEXT           "Make sure your modem is turned on and ready to go, then try again.|black|white",
+                    IDC_STATIC,116,38,184,24
+    LTEXT           "You may also register @FreePhone?toll-free:@ over the phone.|black|white",
+                    IDC_STATIC,116,65,184,34
+END
+
+IDD_REGISTER_EP DIALOG DISCARDABLE  0, 0, 342, 228
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "@Application@ Registration"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Register by &Modem",IDC_REGISTER_NOW,249,128,76,22,
+                    WS_GROUP
+    PUSHBUTTON      "Register by &Phone",IDC_REGISTER_BY_PHONE,249,158,76,22
+    PUSHBUTTON      "Register &Later",IDC_REGISTER_LATER,249,188,76,22
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER3,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,18,132,7,7
+    LTEXT           "Click ""Register by Modem"" to electronically register with a single @FreeModem?Toll-Free:phone@ call!",
+                    -1,33,131,210,24
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER4,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,18,162,7,7
+    LTEXT           "If you don't own a modem, click ""Register by Phone"" and call our @FreePhone?Toll-Free:phone@ number to register.",
+                    -1,33,161,210,24
+    CONTROL         "PCM|Shape|Circle|Teal|Black",IDC_USER5,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,18,192,7,7
+    LTEXT           "Click ""Register Later"" if you do not want to register at this time.",
+                    -1,33,191,210,24
+    GROUPBOX        "",-1,8,116,326,103,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,326,103
+    CONTROL         "IDB_PLEASE_REGISTER;REGISTER.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED | WS_GROUP,13,10,109,99
+    LTEXT           "Register by Modem or Phone so that we may provide you with|black|white",
+                    -1,134,30,194,16
+    LTEXT           "   -  @Bonus@!|black|white",-1,150,53,178,8
+    LTEXT           "   -  Special Discount Offers!|black|white",-1,150,67,
+                    178,8
+    LTEXT           "   -  First Priority Customer Service!|black|white",-1,
+                    150,81,178,8
+END
+
+IDD_CONGRATULATIONS_E_EP DIALOG DISCARDABLE  0, 0, 277, 234
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Congratulations -- You're Registered!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,113,210,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,261,192
+    CONTROL         "IDB_CONGRATULATIONS;CONGRATS.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED,31,9,215,113
+    LTEXT           "Congratulations! You are now a registered owner of @Application@.|black|white",
+                    -1,18,128,241,16
+    LTEXT           "For an exciting look at the latest Mindscape products and demos, check out the Mindscape home page at @WebSite@|black|white",
+                    -1,18,149,241,24
+    CTEXT           "Click OK to install your @BonusShort@!|black|white",-1,
+                    18,183,241,8
+END
+
+IDD_CONGRATULATIONS_EM DIALOG DISCARDABLE  0, 0, 277, 255
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Congratulations -- You're Registered!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,113,233,50,16,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,261,219
+    CONTROL         "IDB_CONGRATULATIONS;CONGRATS.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED,31,9,215,113
+    LTEXT           "Congratulations! You are now a registered owner of @Application@.|black|white",
+                    IDC_STATIC,18,128,241,17
+    LTEXT           "For an exciting look at the latest Mindscape products and demos, check out the Mindscape home page at @WebSite@|black|white",
+                    IDC_STATIC,18,151,241,24
+    LTEXT           "Reminder: If you registered by Modem, you don't need to send in your registration post-card.|navy|white",
+                    IDC_STATIC,18,180,241,16
+    CTEXT           "Click OK to install your @BonusShort@!|black|white",
+                    IDC_STATIC,18,208,241,10
+END
+
+IDD_PHONE_NUMBER DIALOG DISCARDABLE  0, 0, 250, 106
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Phone Number"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,99,80,50,16,WS_GROUP
+    LTEXT           "Please enter your phone number as the 3 digit area code followed by the 7 digit number.",
+                    -1,21,18,206,25
+    CTEXT           "Example:     123 555-6789",-1,21,47,206,9
+    GROUPBOX        "",-1,8,4,233,66,WS_GROUP
+END
+
+IDD_SEND_FORM DIALOG DISCARDABLE  0, 0, 216, 87
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Fax or Mail Registration Form"
+FONT 10, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,83,61,50,16,WS_GROUP
+    LTEXT           "Fax or mail your printed registration form to Mindscape.",
+                    IDC_STATIC,10,8,196,8
+    LTEXT           "When we receive your registration form, we'll mail you a Registration Code and instructions for enabling your @BonusShort@!",
+                    IDC_STATIC,10,24,196,24
+END
+
+IDD_WHERE_ARE_YOU DIALOG DISCARDABLE  0, 0, 186, 85
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Country"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,33,58,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,101,58,50,16
+    LTEXT           "Select the country you are in and click OK.",IDC_STATIC,
+                    9,10,167,8
+    COMBOBOX        IDC_COUNTRY_LIST,13,27,159,72,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+END
+
+IDD_REGISTER_BY_MAIL_EPM DIALOG DISCARDABLE  0, 0, 345, 266
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Register by Mail"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "P&rint Registration Form",IDC_PRINT_FORM,88,241,100,16,
+                    WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,207,241,50,16
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,7,8,328,93
+    CONTROL         "IDB_REGISTER_BY_MAIL;BYMAIL.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED | WS_GROUP,12,14,83,80
+    LTEXT           "Enter your registration information below and click the Print Registration Form button.|black|white",
+                    IDC_STATIC,111,20,212,16
+    LTEXT           "Mail or fax your registration form @FreeFax?toll-free:@ to Mindscape so we may provide you with @Bonus@ for FREE!|black|white",
+                    IDC_STATIC,111,43,212,24
+    LTEXT           "Plus, you'll automatically receive special discount offers as well as first-priority customer service.|black|white",
+                    IDC_STATIC,111,74,212,16
+    RTEXT           "&First Name",IDC_STATIC,13,121,52,9
+    EDITTEXT        IDC_FIRSTNAME,70,119,89,12,ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
+    RTEXT           "&Last/Surname",IDC_STATIC,160,121,50,9
+    EDITTEXT        IDC_LASTNAME,214,119,111,12,ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
+    RTEXT           "C&ompany",IDC_STATIC,13,136,52,9
+    EDITTEXT        IDC_COMPANY,70,134,202,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    RTEXT           "&Address",IDC_STATIC,13,151,52,9
+    EDITTEXT        IDC_ADDRESS1,70,149,202,12,ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
+    RTEXT           "A&ddress",IDC_STATIC,13,166,52,9
+    EDITTEXT        IDC_ADDRESS2,70,164,202,12,ES_AUTOHSCROLL
+    RTEXT           "&City/Town",IDC_STATIC,13,181,52,9
+    EDITTEXT        IDC_CITY,70,179,112,12,ES_AUTOHSCROLL
+    RTEXT           "&State/Province",IDC_STATIC,184,181,53,9
+    EDITTEXT        IDC_STATE,242,179,83,12,ES_AUTOHSCROLL
+    RTEXT           "&Zip/Postal Code",IDC_STATIC,13,196,52,9
+    EDITTEXT        IDC_ZIP,70,194,85,12,ES_AUTOHSCROLL
+    RTEXT           "Co&untry",IDC_STATIC,157,196,28,9
+    COMBOBOX        IDC_COUNTRY_LIST,190,194,134,70,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "&Phone",IDC_STATIC,13,211,52,9
+    EDITTEXT        IDC_PHONE,70,209,85,12,ES_AUTOHSCROLL
+    RTEXT           "&E-Mail",IDC_STATIC,158,211,27,9
+    EDITTEXT        IDC_EMAIL,190,209,135,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    GROUPBOX        "",IDC_STATIC,8,106,329,125,WS_GROUP
+END
+
+IDD_BAD_REGISTRATION_CODE_NO_PHONE DIALOG DISCARDABLE  0, 0, 206, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Incorrect Registration Code"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,77,32,50,16,WS_GROUP
+    LTEXT           "The registration code you have entered is not correct.",
+                    -1,8,7,189,16
+END
+
+IDD_SYSTEM_INFORMATION DIALOG DISCARDABLE  0, 0, 345, 257
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "System Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,109,231,50,16,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,185,231,50,16
+    RTEXT           "Operating System:",IDC_STATIC,15,126,60,8
+    EDITTEXT        IDC_OPERATING_SYSTEM,79,124,88,12,ES_AUTOHSCROLL | NOT 
+                    WS_TABSTOP
+    RTEXT           "Processor:",IDC_STATIC,15,142,60,8
+    EDITTEXT        IDC_PROCESSOR,79,140,88,12,ES_AUTOHSCROLL | NOT 
+                    WS_TABSTOP
+    RTEXT           "RAM Size:",IDC_STATIC,15,158,60,8
+    EDITTEXT        IDC_RAM_SPEED,79,156,88,12,ES_AUTOHSCROLL | NOT 
+                    WS_TABSTOP
+    RTEXT           " Hard Disk Size:",IDC_STATIC,15,174,60,8
+    EDITTEXT        IDC_HARD_DISK_SIZE,79,172,88,12,ES_AUTOHSCROLL | NOT 
+                    WS_TABSTOP
+    RTEXT           "Video Resolution:",IDC_STATIC,173,126,60,8
+    EDITTEXT        IDC_VIDEO_RESOLUTION,237,124,88,12,ES_AUTOHSCROLL | NOT 
+                    WS_TABSTOP
+    RTEXT           "Video Colors:",IDC_STATIC,173,142,60,8
+    EDITTEXT        IDC_VIDEO_COLORS,237,140,88,12,ES_AUTOHSCROLL | NOT 
+                    WS_TABSTOP
+    RTEXT           "CD-ROM:",IDC_STATIC,173,158,60,8
+    EDITTEXT        IDC_CDROM,237,156,88,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    RTEXT           "Sound Card:",IDC_STATIC,173,174,60,8
+    EDITTEXT        IDC_SOUND_CARD,237,172,88,12,ES_AUTOHSCROLL | NOT 
+                    WS_TABSTOP
+    CONTROL         "Yes!  Please include this system information with my registration.",
+                    IDC_INCLUDE_INFORMATION,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,18,198,293,10
+    GROUPBOX        "",IDC_STATIC,8,112,329,107,WS_GROUP
+    CONTROL         "SCM|Shape|Square|White|Black",IDC_USER2,
+                    "MsregWmfControl",WS_DISABLED | WS_GROUP,8,8,329,99
+    CONTROL         "IDB_SYSTEM_INFORMATION;SYSINFO.BMP",IDC_USER1,
+                    "MsregBitmap",WS_DISABLED | WS_GROUP,13,11,94,93
+    LTEXT           "The system information below will help us provide you with the best possible service should you ever have a question about using @Application@.|black|white",
+                    IDC_STATIC,121,25,207,32
+    LTEXT           "If you don't want this information sent with your registration, clear the checkbox at the bottom of this screen.|black|white",
+                    IDC_STATIC,121,66,207,24
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_PLEASE_REGISTER     BITMAP  DISCARDABLE     "res\\invite.bmp"
+IDB_WHAT_HAPPENED       BITMAP  DISCARDABLE     "res\\huh.bmp"
+IDB_REGISTER_LATER      BITMAP  DISCARDABLE     "res\\wavebye.bmp"
+IDB_CONGRATULATIONS     BITMAP  DISCARDABLE     "res\\thanks.bmp"
+IDB_SENDING             BITMAP  DISCARDABLE     "res\\delivery.bmp"
+IDB_SEARCHING           BITMAP  DISCARDABLE     "res\\sherlock.bmp"
+IDB_REGISTER_BY_MAIL    BITMAP  DISCARDABLE     "res\\dogwrite.bmp"
+IDB_INFORMATION         BITMAP  DISCARDABLE     "res\\womanclp.bmp"
+IDB_REGISTER_BY_PHONE   BITMAP  DISCARDABLE     "res\\phone.bmp"
+IDB_REGISTER_FOR_BONUS  BITMAP  DISCARDABLE     "res\\strike.bmp"
+IDB_SYSTEM_INFORMATION  BITMAP  DISCARDABLE     "res\\sysinfo.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// METAFILE
+//
+
+IDC_MAIL_FORM_TOP_WMF   METAFILE MOVEABLE PURE  "RES\\MAILTOP.WMF"
+IDC_MAIL_FORM_MIDDLE_WMF METAFILE MOVEABLE PURE  "RES\\MAILMID.WMF"
+IDC_MAIL_FORM_BOTTOM_WMF METAFILE MOVEABLE PURE  "RES\\MAILBOT.WMF"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// WAVE
+//
+
+BLANK8                  WAVE    MOVEABLE PURE   "RES\\BLANK8.WAV"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_WHERE_ARE_YOU, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 78
+    END
+
+    IDD_REGISTER_BY_MAIL_EPM, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 261
+    END
+
+    IDD_BAD_REGISTRATION_CODE_NO_PHONE, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 53
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FoldBackAndOutside  "Fold Back and Outside"
+    IDS_DoNotStaple         "Do Not Staple"
+    IDS_FoldBackAndInside   "Fold Back and Inside"
+    IDS_RegistrationForm    "Registration Form"
+    IDS_FaxIt               "or fax it @FreeFax?toll-free:@ to @FaxNumber@"
+    IDS_Printed             "Printed %s"
+    IDS_FirstName           "First Name"
+    IDS_LastName            "Last/Surname"
+    IDS_CancelOperation     "Cancel operation..."
+    IDS_UnableToCompleteOperation "Unable to complete operation."
+    IDS_Contacting          "Contacting Mindscape..."
+    IDS_Sending             "Sending information to Mindscape..."
+    IDS_Working             "Working..."
+    IDS_Address             "Address"
+    IDS_Receiving           "Receiving information from Mindscape..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_OperationComplete   "Operation complete."
+    IDS_HangingUp           "Hanging Up..."
+    IDS_City                "City/Town"
+    IDS_State               "State/Province"
+    IDS_Zip                 "Zip/Postal Code"
+    IDS_TryingComPort       "Trying communications port COM%d"
+    IDS_FoundModemOnComPort "Found modem on communications port COM%d"
+    IDS_CantFindModem       "Unable to locate a modem."
+    IDS_TestingComPort      "Testing COM%d at %ld baud"
+    IDS_CantFindModemSpeed  "Unable to find a speed for your modem."
+    IDS_TestedComPort       "Tested COM%d at %ld baud"
+    IDS_RegistrationNotAvailable 
+                            "Registration from %s is not currently available"
+    IDS_Windows95           "Windows 95"
+    IDS_PlatformFormat      "%s %d.%d"
+    IDS_PlatformUnknown     "Unknown"
+    IDS_PlatformWindows     "Windows"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PlatformWindowsNT   "Windows NT"
+    IDS_ProcessorUnknown    "Unknown"
+    IDS_Processor8086       "8086/88"
+    IDS_Processor80186      "80186/88"
+    IDS_Processor80286      "80286"
+    IDS_Processor80386      "80386"
+    IDS_Processor80486      "80486"
+    IDS_ProcessorPentium    "Pentium"
+    IDS_ProcessorPentiumPro "PentiumPro"
+    IDS_ProcessorP          "P%d"
+    IDS_ProcessorMHz        "MHz"
+    IDS_RamSizeMb           "%d Mb"
+    IDS_HardDiskSizeMb      "%d Mb"
+    IDS_VideoResolution     "%d by %d pixels"
+    IDS_VideoMonochrome     "Monochrome"
+    IDS_VideoTrueColor      "True Color"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_VideoColors         "%ld Colors"
+    IDS_CdromYes            "Yes"
+    IDS_CdromNo             "None"
+    IDS_SoundCardYes        "Yes"
+    IDS_SoundCardNo         "None"
+    IDS_DefaultWebSite      "http://www.mindscape.com"
+    IDS_CantGetRegistrationInformation 
+                            "Can't get registration parameters for selected country."
+    IDS_CantLoadInternationalInformationDll 
+                            "Can't load the international information library (INTLxx.DLL)"
+    IDS_DepartmentName      "Registration Dept. %s"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Afghanistan          "Afghanistan"
+    ID_Albania              "Albania"
+    ID_Algeria              "Algeria"
+    ID_AmericanSamoa        "American Samoa"
+    ID_Andorra              "Andorra"
+    ID_Angola               "Angola"
+    ID_Anguilla             "Anguilla"
+    ID_Antigua              "Antigua"
+    ID_Argentina            "Argentina"
+    ID_Armenia              "Armenia"
+    ID_Aruba                "Aruba"
+    ID_AscensionIsland      "Ascension Island"
+    ID_Australia            "Australia"
+    ID_AustralianAntarcticTerritory "Australian Antarctic Territory"
+    ID_Austria              "Austria"
+    ID_Azerbaijan           "Azerbaijan"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Bahamas              "Bahamas"
+    ID_Bahrain              "Bahrain"
+    ID_Bangladesh           "Bangladesh"
+    ID_Barbados             "Barbados"
+    ID_Barbuda              "Barbuda"
+    ID_Belarus              "Belarus"
+    ID_Belgium              "Belgium"
+    ID_Belize               "Belize"
+    ID_Benin                "Benin"
+    ID_Bermuda              "Bermuda"
+    ID_Bhutan               "Bhutan"
+    ID_Bolivia              "Bolivia"
+    ID_BosniaAndHerzegovina "Bosnia and Herzegovina"
+    ID_Botswana             "Botswana"
+    ID_Brazil               "Brazil"
+    ID_BritishVirginIslands "British Virgin Islands"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Brunei               "Brunei"
+    ID_Bulgaria             "Bulgaria"
+    ID_BurkinaFaso          "Burkina Faso"
+    ID_Burundi              "Burundi"
+    ID_Cambodia             "Cambodia"
+    ID_Cameroon             "Cameroon"
+    ID_Canada               "Canada"
+    ID_CapeVerdeIslands     "Cape Verde Islands"
+    ID_CaymanIslands        "Cayman Islands"
+    ID_CentralAfricanRepublic "Central African Republic"
+    ID_Chad                 "Chad"
+    ID_Chile                "Chile"
+    ID_China                "China"
+    ID_ChristmasIsland      "Christmas Island"
+    ID_CocosKeelingIslands  "Cocos-Keeling Islands"
+    ID_Colombia             "Colombia"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Comoros              "Comoros"
+    ID_Congo                "Congo"
+    ID_CookIslands          "Cook Islands"
+    ID_CostaRica            "Costa Rica"
+    ID_Croatia              "Croatia"
+    ID_Cuba                 "Cuba"
+    ID_Cyprus               "Cyprus"
+    ID_CzechRepublic        "Czech Republic"
+    ID_Denmark              "Denmark"
+    ID_DiegoGarcia          "Diego Garcia"
+    ID_Djibouti             "Djibouti"
+    ID_Dominica             "Dominica"
+    ID_DominicanRepublic    "Dominican Republic"
+    ID_Ecuador              "Ecuador"
+    ID_Egypt                "Egypt"
+    ID_ElSalvador           "El Salvador"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EquatorialGuinea     "Equatorial Guinea"
+    ID_Eritrea              "Eritrea"
+    ID_Estonia              "Estonia"
+    ID_Ethiopia             "Ethiopia"
+    ID_FYROM                "F.Y.R.O.M. (Former Yugoslav Republic of Macedonia)"
+    ID_FaeroeIslands        "Faeroe Islands"
+    ID_FalklandIslands      "Falkland Islands"
+    ID_FijiIslands          "Fiji Islands"
+    ID_Finland              "Finland"
+    ID_France               "France"
+    ID_FrenchAntilles       "French Antilles"
+    ID_FrenchGuiana         "French Guiana"
+    ID_FrenchPolynesia      "French Polynesia"
+    ID_Gabon                "Gabon"
+    ID_Gambia               "Gambia"
+    ID_Georgia              "Georgia"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Germany              "Germany"
+    ID_Ghana                "Ghana"
+    ID_Gibraltar            "Gibraltar"
+    ID_Greece               "Greece"
+    ID_Greenland            "Greenland"
+    ID_Grenada              "Grenada"
+    ID_Guadeloupe           "Guadeloupe"
+    ID_Guam                 "Guam"
+    ID_GuantanamoBay        "Guantanamo Bay"
+    ID_Guatemala            "Guatemala"
+    ID_Guinea               "Guinea"
+    ID_GuineaBissau         "Guinea-Bissau"
+    ID_Guyana               "Guyana"
+    ID_Haiti                "Haiti"
+    ID_Honduras             "Honduras"
+    ID_HongKong             "Hong Kong"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Hungary              "Hungary"
+    ID_Iceland              "Iceland"
+    ID_India                "India"
+    ID_Indonesia            "Indonesia"
+    ID_Iran                 "Iran"
+    ID_Iraq                 "Iraq"
+    ID_Ireland              "Ireland"
+    ID_Israel               "Israel"
+    ID_Italy                "Italy"
+    ID_IvoryCoast           "Ivory Coast"
+    ID_Jamaica              "Jamaica"
+    ID_Japan                "Japan"
+    ID_Jordan               "Jordan"
+    ID_Kazakhstan           "Kazakhstan"
+    ID_Kenya                "Kenya"
+    ID_KiribatiRepublic     "Kiribati Republic"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_KoreaNorth           "Korea (North)"
+    ID_KoreaSouth           "Korea (South)"
+    ID_Kuwait               "Kuwait"
+    ID_Kyrgyzstan           "Kyrgyzstan"
+    ID_Laos                 "Laos"
+    ID_Latvia               "Latvia"
+    ID_Lebanon              "Lebanon"
+    ID_Lesotho              "Lesotho"
+    ID_Liberia              "Liberia"
+    ID_Libya                "Libya"
+    ID_Liechtenstein        "Liechtenstein"
+    ID_Lithuania            "Lithuania"
+    ID_Luxembourg           "Luxembourg"
+    ID_Macao                "Macao"
+    ID_Madagascar           "Madagascar"
+    ID_Malawi               "Malawi"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Malaysia             "Malaysia"
+    ID_Maldives             "Maldives"
+    ID_Mali                 "Mali"
+    ID_Malta                "Malta"
+    ID_MarshallIslands      "Marshall Islands"
+    ID_Martinique           "Martinique"
+    ID_Mauritania           "Mauritania"
+    ID_Mauritius            "Mauritius"
+    ID_MayotteIsland        "Mayotte Island"
+    ID_Mexico               "Mexico"
+    ID_Micronesia           "Micronesia"
+    ID_Moldova              "Moldova"
+    ID_Monaco               "Monaco"
+    ID_Mongolia             "Mongolia"
+    ID_Montserrat           "Montserrat"
+    ID_Morocco              "Morocco"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Mozambique           "Mozambique"
+    ID_Myanmar              "Myanmar"
+    ID_Namibia              "Namibia"
+    ID_Nauru                "Nauru"
+    ID_Nepal                "Nepal"
+    ID_Netherlands          "Netherlands"
+    ID_NetherlandsAntilles  "Netherlands Antilles"
+    ID_Nevis                "Nevis"
+    ID_NewCaledonia         "New Caledonia"
+    ID_NewZealand           "New Zealand"
+    ID_Nicaragua            "Nicaragua"
+    ID_Niger                "Niger"
+    ID_Nigeria              "Nigeria"
+    ID_Niue                 "Niue"
+    ID_NorfolkIsland        "Norfolk Island"
+    ID_Norway               "Norway"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Oman                 "Oman"
+    ID_Pakistan             "Pakistan"
+    ID_Palau                "Palau"
+    ID_Panama               "Panama"
+    ID_PapuaNewGuinea       "Papua New Guinea"
+    ID_Paraguay             "Paraguay"
+    ID_Peru                 "Peru"
+    ID_Philippines          "Philippines"
+    ID_Poland               "Poland"
+    ID_Portugal             "Portugal"
+    ID_PuertoRico           "Puerto Rico"
+    ID_Qatar                "Qatar"
+    ID_ReunionIsland        "Reunion Island"
+    ID_Romania              "Romania"
+    ID_RotaIsland           "Rota Island"
+    ID_Russia               "Russia"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Rwanda               "Rwanda"
+    ID_SaintLucia           "Saint Lucia"
+    ID_SaipanIsland         "Saipan Island"
+    ID_SanMarino            "San Marino"
+    ID_SaoTomeAndPrincipe   "Sao Tome and Principe"
+    ID_SaudiArabia          "Saudi Arabia"
+    ID_SenegalRepublic      "Senegal Republic"
+    ID_SeychelleIslands     "Seychelle Islands"
+    ID_SierraLeone          "Sierra Leone"
+    ID_Singapore            "Singapore"
+    ID_SlovakRepublic       "Slovak Republic"
+    ID_Slovenia             "Slovenia"
+    ID_SolomonIslands       "Solomon Islands"
+    ID_Somalia              "Somalia"
+    ID_SouthAfrica          "South Africa"
+    ID_Spain                "Spain"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SriLanka             "Sri Lanka"
+    ID_StHelena             "St. Helena"
+    ID_StKitts              "St. Kitts"
+    ID_StPierreAndMiquelon  "St. Pierre and Miquelon"
+    ID_StVincentAndTheGrenadines "St. Vincent and the Grenadines"
+    ID_Sudan                "Sudan"
+    ID_Suriname             "Suriname"
+    ID_Swaziland            "Swaziland"
+    ID_Sweden               "Sweden"
+    ID_Switzerland          "Switzerland"
+    ID_Syria                "Syria"
+    ID_TaiwanRepublicOfChina "Taiwan, Republic of China"
+    ID_Tajikistan           "Tajikistan"
+    ID_Tanzania             "Tanzania"
+    ID_Thailand             "Thailand"
+    ID_TinianIsland         "Tinian Island"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Togo                 "Togo"
+    ID_Tokelau              "Tokelau"
+    ID_Tonga                "Tonga"
+    ID_TrinidadAndTobago    "Trinidad and Tobago"
+    ID_Tunisia              "Tunisia"
+    ID_Turkey               "Turkey"
+    ID_Turkmenistan         "Turkmenistan"
+    ID_TurksAndCaicosIslands "Turks and Caicos Islands"
+    ID_Tuvalu               "Tuvalu"
+    ID_Uganda               "Uganda"
+    ID_Ukraine              "Ukraine"
+    ID_UnitedArabEmirates   "United Arab Emirates"
+    ID_UnitedKingdom        "United Kingdom"
+    ID_UnitedStatesVirginIslands "United States Virgin Islands"
+    ID_UnitedStatesOfAmerica "United States of America"
+    ID_Uruguay              "Uruguay"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Uzbekistan           "Uzbekistan"
+    ID_Vanuatu              "Vanuatu"
+    ID_VaticanCity          "Vatican City"
+    ID_Venezuela            "Venezuela"
+    ID_Vietnam              "Vietnam"
+    ID_WallisAndFutunaIslands "Wallis and Futuna Islands"
+    ID_WesternSamoa         "Western Samoa"
+    ID_Yemen                "Yemen"
+    ID_Yugoslavia           "Yugoslavia"
+    ID_Zaire                "Zaire"
+    ID_Zambia               "Zambia"
+    ID_Zimbabwe             "Zimbabwe"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\MSREGDLL.rc2"  // non-Microsoft Visual C++ edited resources
+
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+#include "afxres.rc"  // Standard components
+#include "afxprint.rc"         // Standard components
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

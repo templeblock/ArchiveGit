@@ -1,0 +1,181 @@
+#
+#   Makefile for WAVECONV (wave file conversion app for Microsoft's ADPCM)
+#
+#     (C) Copyright Microsoft Corp. 1991, 1992.  All rights reserved.
+#
+#     You have a royalty-free right to use, modify, reproduce and 
+#     distribute the Sample Files (and/or any modified version) in 
+#     any way you find useful, provided that you agree that 
+#     Microsoft has no warranty obligations or liability for any 
+#     Sample Application Files which are modified. 
+#	 
+#     If you did not get this from Microsoft Sources, then it may not be the
+#     most current version.  This sample code in particular will be updated
+#     and include more documentation.  
+#
+#     Sources are:
+#     	The MM Sys File Transfer BBS: The phone number is 206 936-4082.
+#	CompuServe: WINSDK forum, MDK section.
+#	Anon FTP from ftp.uu.net in vendors/microsoft/multimedia
+#
+#   to make a NON-DEBUG build, type the following line:
+#       nmake DEBUG=NO
+#   just typing 'nmake' will build a DEBUG build
+#
+#   You can also set the environment variable DEBUG to NO
+#
+
+# set MASM6 to TRUE to use MASM 6
+#
+# let environment variable overide...
+# !IF "$(MASM6)" == ""
+# MASM6	= FALSE
+# !ENDIF
+
+NAME    = waveconv
+MISC    = makefile
+
+# add -Fc if you want to see assembler that is generated: 
+OPTZ    = -AM -G2sw -Oxwt   # -Fc
+
+INCS    = $(NAME).h  
+SRCS    = $(NAME).c  
+OBJ1    = $(NAME).obj waveio.obj riffsup.obj 
+OBJ2    = wavesup.obj muldiv32.obj 
+OBJ3    = msadpcm.obj pcm.obj
+OBJS    = $(OBJ1) $(OBJ2) $(OBJ3)
+LIBS    = libw mmsystem mlibcew commdlg shell
+
+
+!IF "$(DEBUG)" == "NO"
+
+DEF     =
+ASOPT   =
+CCOPT   =
+RCOPT   =
+LNOPT   =
+
+!ELSE
+
+DEF     = -DDEBUG
+ASOPT   = -Zi
+CCOPT   = -Zid
+RCOPT   =
+LNOPT   = /CO/LI
+
+!ENDIF
+
+!IF "$(MASM6)" == "TRUE"
+# masm 6.x
+AS  = mlx -DMASM6 -I. /Zm /c $(DEF) -Cx $(ASOPT)
+!ELSE
+AS  = masm $(DEF) -Mx $(ASOPT)
+!ENDIF
+
+CC  = cl $(DEF) -c $(OPTZ) -W3 -Zpe $(CCOPT)
+RC  = rc $(DEF) -v $(RCOPT)
+LN  = link /NOPACKC/NOE/NOD/A:16/MAP $(LNOPT)
+
+.asm.obj:
+            $(AS) $* ;
+
+.c.obj  :
+            $(CC) $*.c
+
+
+#
+#   RULES
+#
+
+all :  $(NAME).exe
+
+
+$(NAME).exe :   $(OBJS) $(NAME).res $(NAME).def
+    $(LN) @<<
+    $(OBJ1)+
+    $(OBJ2)+
+    $(OBJ3),
+    $(NAME).exe,
+    $(NAME).map,
+    $(LIBS),
+    $(NAME).def
+<<
+                $(RC) -t $(NAME).res
+!IF "$(DEBUG)" != "NO"
+                -cvpack -p $(NAME).exe
+!ENDIF
+                -mapsym $(NAME).map
+
+$(NAME).res :   $(NAME).rc $(NAME).h $(NAME).ico
+                $(RC) -r $(NAME).rc
+
+
+#
+#   SEGMENTATION
+#
+
+SEGC = $(CC) -NT TSEG $*.c
+
+!IF "$(MASM6)" == "TRUE"
+# masm 6.x
+SEGA = $(AS) -DSEGNAME=TSEG -Ta $*.asm
+!ELSE
+# masm 5.x
+SEGA = $(AS) -DSEGNAME=TSEG $* ;
+!ENDIF
+
+$(NAME).obj     : ; $(SEGC:TSEG=_TEXT)
+waveio.obj      : ; $(SEGC:TSEG=WAVEIO_TEXT)
+msadpcm.obj     : ; $(SEGC:TSEG=MSADPCM_TEXT)
+wavesup.obj     : ; $(SEGC:TSEG=WAVESUP_TEXT)
+muldiv32.obj    : ; $(SEGA:TSEG=WAVESUP_TEXT)
+riffsup.obj     : ; $(SEGC:TSEG=RIFFSUP_TEXT)
+pcm.obj		: ; $(SEGC:TSEG=PCM_TEXT)
+
+#
+#   DEPENDENCIES
+#
+
+$(NAME).obj :   $(NAME).c $(NAME).h msadpcm.h waveio.h riffsup.h pcm.h wavesup.h
+
+waveio.obj  :   waveio.c waveio.h wavesup.h
+
+msadpcm.obj :   msadpcm.c msadpcm.h  pcm.h
+
+wavesup.obj :   wavesup.c wavesup.h
+
+muldiv32.obj:   muldiv32.asm
+
+pcm.obj     :	pcm.h
+
+waveconv.res:	waveconv.rc waveconv.h waveconv.rcv wavever.h wavever.ver
+
+
+#
+#   MISC. STUFF
+#
+
+zip     :   clean
+            pkzip -a $(NAME).zip *.*
+
+ship    :   all
+            del *.err
+            del *.cod
+            del *.res
+            del *.obj
+            del *.map
+            del *.sym
+            del *.zip
+            touch *.*
+            pkzip -a $(NAME).zip *.*
+
+clean   :
+            del *.exe
+            del *.lib
+            del *.cod
+            del *.err
+            del *.res
+            del *.obj
+            del *.map
+            del *.sym
+            del *.zip

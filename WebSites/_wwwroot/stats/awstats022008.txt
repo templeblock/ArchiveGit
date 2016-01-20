@@ -1,0 +1,570 @@
+AWSTATS DATA FILE 6.5 (build 1.857)
+# If you remove this file, all statistics for date 200802 will be lost/reset.
+
+# Position (offset in bytes) in this file of beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1864                
+POS_TIME 2551                
+POS_VISITOR 10313               
+POS_DAY 13698               
+POS_DOMAIN 3294                
+POS_LOGIN 3524                
+POS_ROBOT 3679                
+POS_WORMS 4158                
+POS_EMAILSENDER 4289                
+POS_EMAILRECEIVER 4432                
+POS_SESSION 14301               
+POS_SIDER 14507               
+POS_FILETYPES 4567                
+POS_OS 4890                
+POS_BROWSER 5027                
+POS_SCREENSIZE 5301                
+POS_UNKNOWNREFERER 5375                
+POS_UNKNOWNREFERERBROWSER 5826                
+POS_ORIGIN 6130                
+POS_SEREFERRALS 6272                
+POS_PAGEREFS 6476                
+POS_SEARCHWORDS 7162                
+POS_KEYWORDS 7768                
+POS_MISC 2214                
+POS_ERRORS 8232                
+POS_CLUSTER 3380                
+POS_SIDER_404 8381                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20080301001307 1257 289860 33704106839
+FirstTime 20080205005813
+LastTime 20080229215339
+LastUpdate 20080426122146 1257 243 1001 0 12
+TotalVisits 114                 
+TotalUnique 80                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 91                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 35 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 50 97 375895 15 19 184301
+1 16 28 392070 9 12 130740
+2 35 49 314932 26 35 175395
+3 27 34 210493 12 16 99806
+4 20 25 180266 10 18 85437
+5 0 0 0 29 31 229031
+6 0 0 0 4 8 33513
+7 0 0 0 3 5 63282
+8 2 6 15653 8 8 15728
+9 3 9 23357 2 2 5085
+10 13 19 55841 11 11 65148
+11 0 0 0 7 7 53195
+12 6 6 93965 12 12 141140
+13 20 23 209723 12 13 94962
+14 5 13 34551 3 5 29786
+15 9 19 126454 5 6 86605
+16 21 53 475143 31 34 163550
+17 23 46 279011 10 13 107745
+18 33 61 484966 20 23 137552
+19 31 88 459434 21 27 67413
+20 15 53 400037 13 29 68080
+21 22 59 516324 17 22 119932
+22 19 36 138064 12 15 190320
+23 32 52 137710 10 23 158472
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 402 776 4923889
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 10
+slurp 47 1215920 20080229233708 0
+googlebot 30 530281 20080228170410 0
+surveybot 18 58428 20080225035317 0
+jeeves 10 81940 20080229213159 0
+python 1 3265 20080221000403 0
+mediapartners\-google 1 7167 20080205010856 0
+ia_archiver 1 32998 20080229012402 0
+psbot 1 22909 20080213030127 0
+msnbot 1 3236 20080226200752 0
+robot 1 3265 20080213070513 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 16
+css 6 9331 0 0
+asp 4 78626 0 0
+png 56 97342 0 0
+htm 50 1128088 0 0
+pl 1 283 0 0
+aspx 186 679365 0 0
+asmx 1 3316 0 0
+php 6 55520 0 0
+dll 8 344418 0 0
+html 25 107169 0 0
+jpg 140 300611 0 0
+js 8 78542 0 0
+axd 103 991695 0 0
+doc 16 885268 0 0
+xaml 2 5154 0 0
+gif 164 159161 0 0
+END_FILETYPES
+
+# OS ID - Hits
+BEGIN_OS 9
+linuxsuse 42
+winxp 168
+winlong 516
+win2000 10
+linux 1
+linuxfedora 6
+macosx 5
+win2003 5
+Unknown 23
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 16
+msie6.0 57
+firefox1.5.0.12 3
+libwww 9
+firefox2.0.0.12 21
+firefox1.5.0.1 2
+firefox2.0.0.7 3
+firefox2.0.0.11 3
+firefox1.0.7 6
+konqueror 1
+mozilla 2
+msie7.0 607
+netscape4.0 1
+firefox2.0.0.4 3
+firefox2.0 42
+Unknown 11
+safari 5
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 10
+MFC_Tear_Sample 20080216100028
+gnome-vfs/2.16.1_neon/0.25.4 20080208005755
+Java/1.5.0_11 20080227045046
+Microsoft_Office_Existence_Discovery 20080225160820
+Mozilla/5.0_(compatible) 20080219104344
+Mozilla/4.0 20080215141146
+- 20080227205944
+libwww-perl/5.805 20080219104343
+Mozilla/4.0_(compatible;) 20080215141146
+Microsoft_URL_Control_-_6.00.8862 20080219104833
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 6
+- 20080227205944
+MFC_Tear_Sample 20080216100028
+gnome-vfs/2.16.1_neon/0.25.4 20080208005755
+Java/1.5.0_11 20080227045046
+Microsoft_Office_Existence_Discovery 20080225160820
+Microsoft_URL_Control_-_6.00.8862 20080219104833
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 171 236
+From1 0 0
+From2 47 47
+From3 23 46
+From4 161 447
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 5
+google 37 37
+search 1 1
+arianna 1 1
+infospace 2 2
+yahoo 6 6
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 11
+http://members.ipower.com/webControl/upgrade/sites.html 10 22
+http://members.ipower.com/webControl/upgrade/flip.bml 6 6
+http://members.ipower.com/webControl/VisitorStats.bml 2 2
+http://merqury.t-t.com/Palantir/MultiEngineSearch.html 1 1
+http://suche.aolsvc.de/suche/web/search.jsp 1 1
+http://translate.google.com/translate 1 1
+http://members.ipower.com/member/filemanager.bml 1 5
+http://members.ipower.com/controlpanel/index.bml 1 1
+http://209.85.173.104/search 0 3
+http://64.233.179.104/translate_c 0 2
+http://64.233.169.104/search 0 2
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 18
+face+software 15
+face+to+face+software 10
+faces+face+creating+program 2
+people+oriented+credentials 2
+vibrint+aurora 2
+face+softwer 1
+ineractive+cd+the+sailor+dog 1
+jungle+book+graphics 1
+978-749-2775 1
+software+development 1
+james+dalles+mccurdy 1
+photo+reproduction+software+using+pictures+boston+graphics 1
+face%c2%b4software 1
+face+image+software 1
+face+software+inc 1
+crayola+art+consultants+position 1
+c+developer+ma+resume+game 1
+james+mccurdy 1
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 42
+face 40
+software 29
+to 10
+mccurdy 2
+credentials 2
+program 2
+james 2
+graphics 2
+people 2
+oriented 2
+the 1
+reproduction 1
+consultants 1
+photo 1
+ma 1
+sailor 1
+ineractive 1
+dalles 1
+c 1
+development 1
+creating 2
+boston 1
+inc 1
+position 1
+face%c2%b4software 1
+crayola 1
+developer 1
+resume 1
+softwer 1
+cd 1
+art 1
+faces 2
+978-749-2775 1
+using 1
+image 1
+vibrint 2
+game 1
+dog 1
+book 1
+aurora 2
+pictures 1
+jungle 1
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 6
+403 3 1201
+302 1 468
+206 1 53247
+500 50 200707
+404 214 285353
+301 14 5833
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 35
+/mobilize/images/sample.jpg 68 http://www.3guppies.com/ringtones/module/OpenLocker/action/Mobilize
+/App_dreamingit/f2flogo.jpg 5 http://www.dreamingit.com/
+/App_dreamingit/ClientBin/UIScreens.pdb 2 -
+/robots.txt 98 -
+/testwebapplication/UIScreens.dll 1 -
+/testwebapplication/ClientBin/Silverlight.Samples.Controls.pdb 1 -
+/dreamnit.us-redirect/bluedot.gif 1 http://www.dreamnit.us/
+/img/left_interview_ne.gif 1 http://facetofacesoftwa.ipower.com/interview/interview.aspx
+/App_dreamingit/ClientBin/Silverlight.Samples.Controls.pdb 1 -
+/imagelib/parking/free/images/125x90_hrw_bra_lilaq_.gif 1 -
+/not-there-2.txt 2 -
+/testwebapplication/ClientBin/UIScreens.pdb 2 -
+/resume.hdoc 1 -
+/myimagebmp.php 1 -
+/smil2mms.exe 2 -
+/App_dreamingit/bluedot.gif 4 http://www.dreamingit.com/
+/test.jpg 1 http://facetofacesoftwa.ipower.com/myimagebmp.php
+/f2flogo.jpg 4 http://facetofacesoftwa.ipower.com/
+/dreamnit.us-redirect/f2flogo.jpg 1 http://www.dreamnit.us/
+/cgi-bin/whois.cgi 1 -
+/resume.doc 1 -
+/App_dreamingit/ClientBin/SilverlightProject1.pdb 1 -
+/img/right_interview_ne.gif 1 http://facetofacesoftwa.ipower.com/interview/interview.aspx
+/cgi-bin/whois.pl 1 -
+/App_fm/f2flogo.jpg 1 http://fm.facetofacesoftware.com/
+/fm/bluedot.gif 1 http://www.dreamingit.com/
+/fm/f2flogo.jpg 1 http://www.dreamingit.com/
+/icodownl.gif 1 http://members.ipower.com/webControl/upgrade/sites.html
+/pw 1 -
+/App_dreamingit/JimMcCurdy.doc 1 -
+/testwebapplication/ClientBin/SilverlightProject1.pdb 1 -
+/test_cfm_1202173095.cfm 1 -
+/App_dreamingit/robots.txt 2 -
+/App_dreamingit/UIScreens.dll 1 -
+/App_fm/bluedot.gif 1 http://fm.facetofacesoftware.com/
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 91
+66.31.124.32 266 497 3113978 20080227214708
+203.82.38.122 16 43 137510 20080211151049
+193.238.230.109 5 5 16230 20080219104344
+74.208.68.53 4 4 52348 20080218184426
+10.1.22.5 4 4 55348 20080205005821
+74.208.71.187 4 4 52348 20080218133945
+208.80.193.40 4 4 12955 20080225023026
+69.36.158.38 3 3 84285 20080214125325
+118.71.67.1 3 5 14297 20080219104833
+24.91.233.195 3 6 86326 20080225160820
+151.38.207.133 1 3 7805 20080217192821
+219.93.152.2 1 3 7776 20080227142158
+81.215.133.143 1 3 7805 20080219091414
+66.24.114.16 1 3 7776 20080226194928
+66.65.167.123 1 4 27884 20080213022722
+58.68.83.154 0 1 3186 
+10.1.22.1 1 1 290 20080205005813
+81.88.49.22 1 1 22909 20080218213547
+195.93.60.65 0 1 1337 
+203.81.215.150 1 3 7877 20080216215334
+192.146.101.70 1 3 7862 20080215141146
+85.233.176.113 1 3 7805 20080216192114
+208.80.193.52 2 2 6434 20080211120429
+69.25.142.59 2 2 26174 20080218183955
+206.229.33.250 1 3 7776 20080226165731
+189.179.160.219 1 3 7776 20080227193956
+63.204.124.1 2 4 10993 20080226180613
+68.102.81.122 1 3 7805 20080220223723
+150.70.84.24 2 2 45818 20080211013743
+217.227.11.104 1 3 7805 20080217235303
+64.12.116.131 2 2 55869 20080227032011
+81.88.49.10 1 1 22909 20080218213540
+85.73.175.95 1 3 7805 20080227212103
+89.14.128.97 1 3 7776 20080224094659
+68.5.123.199 2 8 55768 20080211013627
+71.200.92.50 2 2 61395 20080217215039
+208.80.193.43 1 1 3246 20080215220616
+64.7.151.13 1 1 3246 20080212200005
+68.193.85.44 2 2 121422 20080229215339
+213.253.244.90 1 3 7877 20080220081943
+69.142.81.147 2 4 11051 20080217023447
+64.12.117.141 0 1 1337 
+66.195.91.65 2 2 6434 20080211220502
+200.60.153.2 0 2 4607 
+195.244.16.1 1 1 3270 20080216100028
+77.11.8.20 1 3 7805 20080217210109
+72.40.170.20 1 1 60711 20080229000753
+38.100.41.105 2 2 26136 20080212012843
+200.121.1.216 1 3 7805 20080216132059
+72.222.168.164 1 3 7805 20080218175642
+208.80.193.30 1 1 3246 20080220015910
+65.254.4.129 1 3 7805 20080226142719
+203.193.140.106 0 1 3222 
+12.45.248.1 1 3 7833 20080226173442
+204.246.129.196 1 1 3246 20080215141146
+189.47.193.17 0 2 4559 
+82.139.33.42 2 6 15581 20080224180149
+195.93.60.72 0 1 3222 
+88.5.83.221 1 3 7805 20080212193214
+207.126.232.152 1 1 3217 20080224105829
+85.75.201.184 1 3 7776 20080223190555
+75.63.150.47 1 3 7776 20080222042926
+205.178.191.39 1 1 3217 20080227045046
+216.52.184.250 2 2 26174 20080219011223
+92.82.166.132 1 3 7776 20080229081910
+208.80.193.48 2 2 6434 20080211034631
+74.208.71.119 2 2 26174 20080218131831
+81.88.231.25 1 3 7805 20080220171456
+64.12.116.202 0 2 6444 
+79.15.135.12 1 3 7805 20080212165716
+82.197.246.188 2 5 86033 20080217165455
+64.233.178.136 1 1 3241 20080222153851
+216.145.16.237 1 2 6439 20080224160305
+61.19.235.37 2 6 11051 20080215004650
+203.177.105.167 1 3 7877 20080228023823
+68.5.240.61 1 4 27884 20080223184957
+64.246.165.130 0 1 1337 
+64.12.117.77 0 2 870 
+70.60.29.66 1 3 7805 20080212174016
+59.94.103.120 1 3 7805 20080225101508
+71.1.56.10 1 4 27884 20080222174547
+59.182.36.81 1 3 7776 20080224105829
+81.88.49.9 1 1 22909 20080218213537
+69.36.158.64 3 3 84285 20080214155539
+99.144.220.62 1 3 7805 20080220004439
+15.235.153.104 1 1 58149 20080214181426
+63.201.122.162 0 3 4994 
+195.93.60.5 1 1 3246 20080217205303
+74.208.71.84 2 2 26174 20080219010905
+220.227.89.237 1 2 4554 20080205232123
+192.146.101.26 1 3 7862 20080215141142
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 24
+20080205 76 174 1190892 9
+20080206 7 13 44538 2
+20080207 71 88 626496 3
+20080208 53 83 416282 8
+20080209 3 3 1847 2
+20080210 12 18 30113 1
+20080211 36 76 250222 7
+20080212 6 15 57791 5
+20080213 14 25 166167 2
+20080214 7 7 226719 3
+20080215 7 15 36513 6
+20080216 4 10 26757 4
+20080217 10 25 194258 7
+20080218 17 22 261460 9
+20080219 13 17 90680 5
+20080220 6 14 37784 6
+20080222 4 14 71392 4
+20080223 3 10 43436 3
+20080224 6 14 37567 6
+20080225 15 29 369204 6
+20080226 6 16 42183 5
+20080227 22 80 564513 7
+20080228 1 3 7877 1
+20080229 3 5 129198 3
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+1h+ 3
+5mn-15mn 4
+30s-2mn 6
+0s-30s 90
+15mn-30mn 4
+2mn-5mn 3
+30mn-1h 4
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 52
+/index.aspx 138 443083 81 65
+/fm/WebResource.axd 89 804320 0 8
+/resume.htm 46 1077265 15 22
+/fm/Login.aspx 18 92051 3 0
+/JimMcCurdy.doc 15 827154 6 9
+/Crap/WebResource.axd 12 175936 0 0
+/fm/Register.aspx 10 91771 1 0
+/fm/default.aspx 9 5372 0 1
+/dreamnit.us-redirect/ 6 3216 0 0
+/myimagebmp.php 4 800 0 0
+/mysqlwebservice/service.asmx 1 3316 0 0
+/websitecreator/401.html 1 8567 0 1
+/test_asp_1202173096.asp 1 253 0 0
+/pathto/default.asp 1 859 0 0
+/fm/Logout.aspx 1 573 0 0
+/bmp2jpg.php 1 198 0 0
+/App_dreamingit/ClientBin/UIScreens.dll 2 84570 0 0
+/testwebapplication/default.aspx 1 824 0 0
+/postinfo.html 2 5444 0 1
+/MobilizeCrop/MobilizeCrop.html 1 22059 0 0
+/index.htm 1 3220 0 0
+/stats/ 2 1094 0 1
+/fm/Default.aspx 4 2444 2 2
+/App_dreamingit/resume.htm 1 1837 0 0
+/testwebapplication/Page.xaml 1 2577 0 0
+/test_php_1202173094.php 1 54522 0 0
+/testwebapplication/ClientBin/UIScreens.dll 2 84570 0 0
+/App_dreamingit/ClientBin/SilverlightProject1.dll 1 38700 0 0
+/MobilizeClip/MobilizeClip2.html 1 20439 0 0
+/interview/interview.aspx 1 7302 0 0
+/App_fm/default.aspx 1 597 0 0
+/testwebapplication/ClientBin/Silverlight.Samples.Controls.dll 1 48939 0 0
+/websitecreator/ 1 8567 0 0
+/panimage/default.html 1 23283 0 1
+/App_dreamingit/ClientBin/Silverlight.Samples.Controls.dll 1 48939 0 0
+/MobilizeClip/MobilizeClip.html 1 1802 0 0
+/dreamnit.us-redirect/blank.html 3 780 0 0
+/crap/default.aspx 2 34524 1 0
+/test_pl_1202173093.pl 1 283 1 0
+/test_1202173092.html 1 290 1 1
+/WebResource.axd 2 11439 0 0
+/stats/Home.html 1 559 0 0
+/ComponentCheck/Default.asp 2 77514 0 1
+/App_dreamingit/default.aspx 1 824 0 0
+/test_html_1202173097.html 1 290 0 1
+/fm/blank.html 1 1837 0 0
+/Home.html 1 1837 0 0
+/Resume.htm 2 45766 2 0
+/testwebapplication/ClientBin/SilverlightProject1.dll 1 38700 0 0
+/App_dreamingit/Page.xaml 1 2577 0 0
+/jimmccurdy.doc 1 58114 1 0
+/pws/welcome.html 1 7105 0 0
+END_SIDER

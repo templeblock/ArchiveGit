@@ -1,0 +1,32 @@
+This is not much of a FAQ, but if someone out there would take it and
+update it, then it will grow and evolve a lot faster.
+
+There is also a FAQ-World, which explains the composition of the .world
+files.
+
+The various ports for wt are coming along well.
+
+Various OSes supported include:
+Linux either svga console or X windows mode
+OSF/1 on DEC Alpha workstations
+HPUX on HP 7xx workstations
+AIX on RS/6000s
+Solaris on SparcStations
+MacOS
+OS/2
+MS-DOS
+
+Some of the above ports have been uploaded and are available for
+download from the archive site; magoo.uwsuper.edu.
+
+There are 80+ people on the mailing list
+
+Subscriptions to wtm-request@magoo.uwsuper.edu
+
+Mail to the group is wtm@magoo.uwsuper.edu
+
+If you have requested a subscription and been denied, I apologize. The
+mailer on my Linux box can't seem to get to everyone that gets to me.
+I am currently working on a listserv program to reorganize the list
+services.
+

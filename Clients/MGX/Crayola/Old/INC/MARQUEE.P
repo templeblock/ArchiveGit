@@ -1,0 +1,14 @@
+// Source file: MARQUEE.C
+BOOL ShowMarquee(LPIMAGE lpImage, BOOL fShow);
+BOOL IsMarqueeVisible(LPIMAGE lpImage);
+void Marquee(BOOL fDisplayAll);
+void UpdateMarquee(LPRECT lpRepairRect, BOOL fInvalidate );
+BOOL EnableMarquee(BOOL bEnable);
+void EnableMaskDisplay(LPIMAGE lpImage, BOOL fEnable);
+void EnableSlime( LPIMAGE lpImage, BOOL fEnable);
+void RemoveMarquee(void);
+void RemoveObjectMarquee(LPIMAGE lpImage);
+void RemoveObjectMarqueeEx(LPIMAGE lpImage, BOOL fUpdate);
+void RemoveMaskMarquee(LPIMAGE lpImage);
+BOOL PaintMarquee( LPIMAGE lpImage, HDC hDC, LPOBJECT lpObject, LPMASK lpMask, BOOL fDisplayAll, LPRECT lpUpdate, COLOR Color1, COLOR Color2, int xOffset, int yOffset );
+

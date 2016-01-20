@@ -1,0 +1,390 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Canada) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_AUTOCORRECT DIALOG DISCARDABLE  3, 1, 415, 225
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "AutoCorrectDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,21,94,374,70,ES_MULTILINE | ES_NOHIDESEL | 
+                    ES_WANTRETURN | WS_VSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "Start",IDC_START,181,172,54,20,NOT WS_TABSTOP
+    PUSHBUTTON      "Close",IDOK,357,202,49,15,NOT WS_TABSTOP
+    LTEXT           "Click the Start button to automatically correct the misspelled words in the text box below.",
+                    IDC_STATIC,26,64,363,20,NOT WS_GROUP
+    LTEXT           "Sentry can automatically correct frequently misspelled words. Sentry comes with a dictionary containing hundreds of common misspellings and their correct replacements. When one of these words is encountered, Sentry fixes the problem immediately.",
+                    IDC_STATIC,26,30,369,25,NOT WS_GROUP
+    LTEXT           "Auto-correct misspelled words",IDC_STATIC,26,5,336,14,
+                    NOT WS_GROUP
+END
+
+IDD_CAPITALIZATION DIALOG DISCARDABLE  3, 1, 414, 220
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "CapitalizationDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,16,74,379,65,ES_MULTILINE | ES_NOHIDESEL | 
+                    ES_WANTRETURN | WS_VSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "Start",IDC_START,180,143,54,20,NOT WS_TABSTOP
+    PUSHBUTTON      "Close",IDOK,352,197,49,15,NOT WS_TABSTOP
+    LTEXT           "Click the Start button to automatically correct the misspelled words in the text box below.",
+                    IDC_STATIC,5,44,395,20,NOT WS_GROUP
+    LTEXT           "Sentry is case-sensitive, which means it can detect words that aren't capitalized when they should be.",
+                    IDC_STATIC,5,20,395,25,NOT WS_GROUP
+    LTEXT           "Detect capitalization errors",IDC_STATIC,5,0,401,20,NOT 
+                    WS_GROUP
+END
+
+IDD_CHECKBACKGROUND DIALOG DISCARDABLE  11, 118, 407, 201
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "CheckBackgroundDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_RICHEDIT1,"RICHEDIT",ES_MULTILINE | ES_WANTRETURN | 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP,12,65,376,48
+    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_MULTILINE | ES_WANTRETURN | 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP,12,125,376,48
+    PUSHBUTTON      "Close",IDOK,345,179,44,16
+    LTEXT           "Check spelling in the background, as the user types",
+                    IDC_STATIC,11,6,376,10
+    LTEXT           "Sentry can check for misspelled words in a rich-text control as the user types. Misspelled words are shown in red, and the user can right-click over a misspelled word to see a pop-up menu of suggestions. Corrected words change back to black.",
+                    IDC_STATIC,11,20,380,23
+    LTEXT           "Enter some text, including misspelled words, in either of the rich-text boxes below. Sentry watches in the background for misspelled words typed in the rich-text control that has the focus.",
+                    IDC_STATIC,11,42,386,19
+END
+
+IDD_CHECK3RDPARTY DIALOG DISCARDABLE  5, 94, 413, 222
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "Check3rdPartyDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_RICHEDIT1,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_NOHIDESEL | ES_WANTRETURN | 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP,13,94,384,79
+    PUSHBUTTON      "Check Spelling",IDC_CHECKSPELLING,172,184,70,15,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Close",IDOK,357,202,49,15,NOT WS_TABSTOP
+    LTEXT           "Check third-party text controls",IDC_STATIC,10,5,385,11
+    LTEXT           "Sentry can check the text contained in standard text controls and rich-text controls. Some third-party products don't respond to the standard messages which Sentry uses to communicate with the text control.",
+                    IDC_STATIC,10,20,388,20
+    LTEXT           "This example shows how to check a 3rd-party control for spelling errors update its contents with corrections. The example uses the standard rich-edit control (CRichEdit), but the principle applies to most controls.",
+                    IDC_STATIC,10,39,384,28
+    LTEXT           "Click the Check Spelling button to start checking the text in the rich-edit control. You can also edit the control to add your own text.",
+                    IDC_STATIC,10,72,384,21
+END
+
+IDD_CHECKSTRING DIALOG DISCARDABLE  3, 1, 403, 188
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "CheckStringDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,11,89,385,55,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "Check Spelling",IDC_CHECKSPELLING,159,148,86,15,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Close",IDOK,341,162,54,15,NOT WS_TABSTOP
+    LTEXT           "Click the Check Spelling button to check the text entered below. You can also edit the text box to add your own text.",
+                    IDC_STATIC,16,64,374,20,NOT WS_GROUP
+    LTEXT           "Sentry can interactively check the spelling of words in a String. The contents of the string can be displayed in a context area in the spelling dialog box.",
+                    IDC_STATIC,15,34,374,25,NOT WS_GROUP
+    LTEXT           "Interactively check spelling of Strings",IDC_STATIC,5,5,
+                    390,20,NOT WS_GROUP
+END
+
+IDD_CHECKTEXTCONTROL DIALOG DISCARDABLE  11, 153, 416, 226
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "CheckTextControl.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,9,82,307,52,ES_MULTILINE | ES_NOHIDESEL | 
+                    ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "Check Spelling",IDC_CHECKTEXTCONTROL,329,103,70,15
+    CONTROL         "",IDC_RICHEDIT1,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_NOHIDESEL | ES_WANTRETURN | 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP,9,148,307,52
+    PUSHBUTTON      "Check Spelling",IDC_CHECKRICHTEXTCONTROL,329,168,70,15,
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "Close",IDOK,356,205,48,15
+    LTEXT           "Check spelling of text controls and rich-text controls interactively",
+                    IDC_STATIC,9,7,398,12
+    LTEXT           "Click the Check Spelling button next to each text control to check its spelling. You can check the provided text or enter your own text.",
+                    IDC_STATIC,9,50,398,17
+    LTEXT           "You won't believe how easy it is to use Sentry to check the spelling of text entered in text controls! One statement is all it takes. Make sure to select the text control's ""No Hide Selection"" style.",
+                    IDC_STATIC,9,23,398,19
+    LTEXT           "Text control",IDC_STATIC,9,71,78,9
+    LTEXT           "Rich-Text control",IDC_STATIC,9,139,78,8
+END
+
+IDD_CHECKTEXTINCODE DIALOG DISCARDABLE  3, 1, 409, 234
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "CheckTextInCodeDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,5,82,315,60,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "Check Spelling",IDC_CHECKSPELLING,325,126,70,15,NOT 
+                    WS_TABSTOP
+    EDITTEXT        IDC_EDIT2,5,162,395,40,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "Close",IDOK,357,212,49,15,NOT WS_TABSTOP
+    LTEXT           "Misspelled words:",IDC_STATIC,5,151,70,10,NOT WS_GROUP
+    LTEXT           "Click the Check Spelling button to check the spelling of the text entered in the text box. You can also edit the text box to add your own text. Misspelled words and suggested replacements will be listed in the ""Misspelled words"" area.",
+                    IDC_STATIC,5,52,395,25,NOT WS_GROUP
+    LTEXT           "In some applications it's necessary to check spelling and look up suggestions without interacting with the user. Sentry's Basic spell-checking API makes this easy.",
+                    IDC_STATIC,5,18,395,25,NOT WS_GROUP
+    LTEXT           "Check spelling of strings in code without user interaction",
+                    IDC_STATIC,5,0,401,14,NOT WS_GROUP
+END
+
+IDD_CUSTOMDIALOGBOX DIALOG DISCARDABLE  3, 1, 413, 212
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "CustomDialogBoxDlg.cpp, SpellingDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,11,94,395,60,ES_MULTILINE | ES_NOHIDESEL | 
+                    ES_WANTRETURN | WS_VSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "Check Spelling",IDC_CHECKSPELLING,172,158,70,15,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Close",IDOK,357,192,49,15,NOT WS_TABSTOP
+    LTEXT           "To run the example, enter some text in the text area and click the Check Spelling button.",
+                    IDC_STATIC,11,59,395,25,NOT WS_GROUP
+    LTEXT           "Sentry includes built-in dialog boxes, but there are times when a custom look or special behavior is needed. This example shows how to interact with the user with a spelling dialog written in C++.",
+                    IDC_STATIC,11,22,395,25,NOT WS_GROUP
+    LTEXT           "Check spelling using a custom dialog box",IDC_STATIC,11,
+                    2,391,14,NOT WS_GROUP
+END
+
+IDD_DOUBLEDWORDS DIALOG DISCARDABLE  3, 1, 413, 223
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "DoubledWordsDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,16,94,374,65,ES_MULTILINE | ES_NOHIDESEL | 
+                    ES_WANTRETURN | WS_VSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "Start",IDC_START,176,167,54,20,NOT WS_TABSTOP
+    PUSHBUTTON      "Close",IDOK,352,202,49,15,NOT WS_TABSTOP
+    LTEXT           "Click the Start button to detect and correct doubled words in the text appearing in the text box.",
+                    IDC_STATIC,11,59,395,25,NOT WS_GROUP
+    LTEXT           "Sentry can detect doubled words -- the same word appearing twice, with no intervening punctuation. Sentry also deletes the second word correctly when requested, even if the word contains trailing punctuation and the two words are separated by line breaks.",
+                    IDC_STATIC,11,30,395,25,NOT WS_GROUP
+    LTEXT           "Detect doubled words",IDC_STATIC,11,0,381,13,NOT 
+                    WS_GROUP
+END
+
+IDD_PERFORMANCETEST DIALOG DISCARDABLE  5, 79, 408, 220
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "HighPerformanceDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_RICHEDIT1,"RICHEDIT",ES_MULTILINE | ES_WANTRETURN | 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP,9,80,387,72
+    PUSHBUTTON      "Start",IDC_CHECKSPELLING,168,160,70,15,NOT WS_TABSTOP
+    PUSHBUTTON      "Close",IDOK,352,197,49,15,NOT WS_TABSTOP
+    LTEXT           "How fast is Sentry?",IDC_STATIC,6,7,386,9
+    LTEXT           "One feature you and your end-users will really appreciate is Sentry's amazing speed. Sentry can check over 10,000 words per second on modest systems. Try the performance test presented here to see how well Sentry performs on your system!",
+                    IDC_STATIC,6,22,389,24
+    LTEXT           "Click the Start button to check the spelling of words in the rich-text control. You can also edit the rich-text control to add your own text. Sentry will check the spelling of each word and display some statistics.",
+                    IDC_STATIC,6,49,394,24
+    CTEXT           "Results",IDC_RESULTS,21,179,364,12
+END
+
+IDD_LICENSEKEY DIALOG DISCARDABLE  3, 1, 167, 126
+STYLE WS_CAPTION | WS_SYSMENU
+CAPTION "Enter license key"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_LICENSEKEY,57,81,103,14,ES_AUTOHSCROLL | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "OK",IDOK,22,101,51,16,NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,93,101,51,16,NOT WS_TABSTOP
+    LTEXT           "To avoid seeing this message in future, set SentryLicenseKey in MainDlg.cpp to your license key and rebuild.",
+                    IDC_STATIC,5,44,155,30,NOT WS_GROUP
+    LTEXT           "Please enter your Sentry license key, provided by Wintertree Software. The examples will not run without the key.",
+                    IDC_STATIC,5,5,155,35,NOT WS_GROUP
+    LTEXT           "&License key:",IDC_STATIC,5,81,48,11,NOT WS_GROUP
+END
+
+IDD_MAIN DIALOG DISCARDABLE  3, 1, 425, 241
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "Sentry Spelling Checker Engine MFC Example"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Check text box",IDC_CHECKTEXTBOX,55,113,75,20,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Check background",IDC_CHECKBACKGROUND,135,113,75,20,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Check string",IDC_CHECKSTRING,215,113,75,20,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Check text in code",IDC_CHECKTEXTINCODE,295,113,75,20,
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "Performance test",IDC_PERFORMANCETEST,55,138,75,20,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Custom dialog box",IDC_CUSTOMDIALOGBOX,135,138,75,20,
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "Check 3rd Party",IDC_CHECK3RDPARTY,215,138,75,20,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Check HTML",IDC_CHECKHTML,295,138,75,20,NOT WS_TABSTOP
+    PUSHBUTTON      "Suggestions",IDC_SUGGESTIONS,55,162,75,20,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Doubled words",IDC_DOUBLEDWORDS,135,162,75,20,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Auto correct",IDC_AUTOCORRECT,215,162,75,20,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Capitalization",IDC_CAPITALIZATION,295,162,75,20,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Close",IDC_CLOSE,320,217,49,15,NOT WS_TABSTOP
+    LTEXT           "To see a feature in action, click one of the buttons below. To see how the feature works, examine the C++ source code which implements the feature.",
+                    IDC_STATIC,49,74,326,30,NOT WS_GROUP
+    LTEXT           "Welcome to the Sentry Spelling Checker Engine MFC Example! This example program demonstrates some of Sentry's most important features.",
+                    IDC_STATIC,49,31,326,25,NOT WS_GROUP
+    LTEXT           "Sentry Spelling Checker Engine",IDC_STATIC,11,5,125,11,
+                    NOT WS_GROUP
+    LTEXT           "Version x.y",IDC_VERSION,164,5,97,11
+END
+
+IDD_SPELLING DIALOG DISCARDABLE  3, 1, 267, 122
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "Check Spelling"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Ignore",IDC_IGNORE,208,5,54,15,NOT WS_TABSTOP
+    PUSHBUTTON      "I&gnore All",IDC_IGNOREALL,208,25,54,15,NOT WS_TABSTOP
+    PUSHBUTTON      "&Change",IDC_CHANGE,208,44,54,15,NOT WS_TABSTOP
+    PUSHBUTTON      "C&hange All",IDC_CHANGEALL,208,64,54,15,NOT WS_TABSTOP
+    PUSHBUTTON      "&Suggest",IDC_SUGGEST,208,84,54,15,NOT WS_TABSTOP
+    PUSHBUTTON      "&Add",IDC_ADD,208,103,54,15,NOT WS_TABSTOP
+    EDITTEXT        IDC_PROBLEMWORD,96,5,107,12,ES_AUTOHSCROLL | NOT 
+                    WS_TABSTOP
+    EDITTEXT        IDC_CHANGETO,96,20,107,12,ES_AUTOHSCROLL | NOT 
+                    WS_TABSTOP
+    LISTBOX         IDC_SUGGESTIONSLIST,96,34,107,82,WS_VSCROLL
+    PUSHBUTTON      "Cancel",IDCANCEL,5,103,54,15,NOT WS_TABSTOP
+    LTEXT           "Suggestions:",IDC_STATIC,5,34,86,12,NOT WS_GROUP
+    LTEXT           "Change To:",IDC_STATIC,5,20,86,12,NOT WS_GROUP
+    LTEXT           "Not in dictionary:",IDC_PROBLEMDESC,5,5,86,12,NOT 
+                    WS_GROUP
+END
+
+IDD_SUGGESTIONS DIALOG DISCARDABLE  3, 1, 415, 228
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "SuggestionsDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_WORD,80,113,102,15,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    CONTROL         "Use Phonetic matching",IDC_PHONETIC,"Button",
+                    BS_AUTOCHECKBOX,11,133,161,15
+    CONTROL         "Use Typographical matching",IDC_TYPOGRAPHICAL,"Button",
+                    BS_AUTOCHECKBOX,11,148,161,15
+    EDITTEXT        IDC_DEPTH,80,167,102,15,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "Suggest",IDC_SUGGEST,75,187,54,15,NOT WS_TABSTOP
+    LISTBOX         IDC_SUGGESTIONSLIST,203,103,150,90,NOT LBS_NOTIFY | 
+                    WS_VSCROLL
+    PUSHBUTTON      "Close",IDOK,352,207,54,15,NOT WS_TABSTOP
+    LTEXT           "Enter a word and click the Suggest button to look up suggestions. ",
+                    IDC_STATIC,11,89,395,10,NOT WS_GROUP
+    LTEXT           "Depth (1-100):",IDC_STATIC,11,167,65,10,NOT WS_GROUP
+    LTEXT           "Word:",IDC_STATIC,11,118,65,10,NOT WS_GROUP
+    LTEXT           "An important feature of any spelling checker is its ability to suggest alternative spellings for misspelled words. This can be difficult to do well, since misspelled words may contain several errors, including dropped, inserted, or transposed letters.",
+                    IDC_STATIC,11,12,395,24,NOT WS_GROUP
+    LTEXT           "Intelligent Suggestions for Misspelled Words",
+                    IDC_STATIC,11,0,394,11,NOT WS_GROUP
+    LTEXT           "The Depth value determines how much of the dictionary is searched when locating suggestions. A high depth value will increase the probability that the correct word will be found, but will also increase the search time.",
+                    IDC_STATIC,11,68,397,16
+    LTEXT           "Sentry supports two algorithms for suggestion matching: Typographical, which matches words based on how closely the letters match, and Phonetic, which matches words based on how they are pronounced.",
+                    IDC_STATIC,11,42,397,16
+END
+
+IDD_CHECKHTML DIALOG DISCARDABLE  3, 1, 401, 236
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "CheckHTMLDlg.cpp"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,16,79,369,104,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_NOHIDESEL | ES_WANTRETURN | WS_VSCROLL | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Check Spelling",IDC_CHECKSPELLING,158,187,86,15,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Close",IDOK,336,212,54,15,NOT WS_TABSTOP
+    LTEXT           "Click the Check Spelling button to check the HTML entered below. You can also edit the text box to add your own HTML text.",
+                    IDC_STATIC,16,54,374,20,NOT WS_GROUP
+    LTEXT           "Sentry can ignore HTML markups in text, an important feature in today's increasingly Internet-centric world. Sentry skips over the markups and checks the spelling of visible text only.",
+                    IDC_STATIC,16,25,374,25,NOT WS_GROUP
+    LTEXT           "Check spelling of text in HTML",IDC_STATIC,16,3,374,15,
+                    NOT WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "Appicon.ico"
+#endif    // English (Canada) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

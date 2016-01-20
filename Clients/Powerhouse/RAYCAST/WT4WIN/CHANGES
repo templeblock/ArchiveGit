@@ -1,0 +1,65 @@
+wt 0.04:
+
+- Stopped checking the return value of XStoreColors in x11graphics.c.  This
+    function does not return a value.
+- 'Sky walls' introduced
+- Wall struct changed--removed obsolete bands field, added sky field
+- static added to the definitions of functions that were declared static.
+- Added Thomas Hamren's (d0hampe@dtek.chalmers.se) GIF87 code
+- Cut in Sun Sparc compatibility fixes from Marinos Yannikos
+    (nino@vmars.tuwien.ac.at)
+- Another patch from Marinos Yannikos:  Fixed end_graphics in x11graphics.c
+     to release shared memory
+- Added a patch from Joseph Provine (provine@enel.ucalgary.ca) to support X
+     servers without the shared memory extension.
+- Changed the name of shminfo in x11graphics.c to xshminfo.  This avoids
+     a name conflict on Alphas running OSF/1.  This fix from Castor Fu
+     (castor@drizzle.stanford.edu)
+- #included wt.h in every .c file
+- X11 support for PseudoColor on TrueColor and DirectColor devices from
+    Joseph Provine (provine@enel.ucalgary.ca)
+- Removed obsolete TEST_ASM #define
+- Removed extra header files included in linux-console.c
+- Added Pekka Pietik{inen's (pp@lyseo.otol.fi) linux mouse support code.
+
+
+wt 0.03:
+
+- Changed texture file format to something that is more portable.  The texture
+    header is now ASCII.
+- Added acceleration/deceleration hack to wt.c to make the motion smoother.
+- Fixed up the Linux console code to use RAW mode.  Thanks to Pekka
+    Pietik{inen (pp@lyseo.otol.fi) for the patches.
+- Added page flipping with the svgalib version.  This patch is from
+    Harm Hanemaayer (hhanemaa@cs.ruu.nl)
+- Fixed bug in end_graphics in x11graphics.c.  Infinite recursion could
+    result if there was an error freeing up memory.
+- Got rid of input.c, linux-console.h, and x11input.h in one fell swoop.
+    The input module interface is now simpler, resembling the graphics
+    module interface.
+- Optimizations and cleanups in render.c.  I don't think that any of these
+    optimizations are significant enough to be noticeable.  One of them
+    made the code cleaner as well as faster.  The other will likely be
+    important once wt has to deal with larger world files.
+
+
+wt 0.02b:
+
+- *Really* added the endianness patches to texture.c
+
+
+wt 0.02a:
+
+- Fixed broken architecture non-specific code in slice.c and fixed.h
+- Added endianness patches to texture.c
+
+
+wt 0.02:  First source release
+
+- Added ceilings.
+- Fixed a floors bug which caused floors to be displayed incorrectly
+    when view from certain angles.
+- Makefile and #defines cleaned up to make it easy to port wt.
+
+
+wt 0.01:  Initial release--Linux binaries only

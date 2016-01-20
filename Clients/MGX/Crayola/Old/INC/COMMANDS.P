@@ -1,0 +1,5 @@
+// Source file: commands.c
+long DoCommand( HWND hWindow, WPARAM wParam, LPARAM lParam );
+BOOL HandleSaveCommand(HWND hWindow, WPARAM wParam, BOOL fCommand);
+BOOL HandleCommandLine( HWND hWindow, LPSTR lpszCmdLine, LPINT lpPrint );
+

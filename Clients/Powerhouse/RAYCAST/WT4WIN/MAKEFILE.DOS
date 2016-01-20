@@ -1,0 +1,105 @@
+#  wt -- a 3d game engine
+#
+#  Copyright (C) 1994 by Chris Laurel
+#  email:  claurel@mr.net
+#  snail mail:  Chris Laurel, 5700 W Lake St #208,  St. Louis Park, MN  55416
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+# Makefile for MS-DOS version. Since the compilation process for MS-DOS
+# differs greatly from other versions, I decided to build a separate
+# makefile for it.
+# Petteri Kangaslampi <pekanga@freeport.uwasa.fi>
+
+
+############ Graphics systems -- uncomment one of these ##########
+#### MS-DOS with VGA and direct hardware keyboard handling
+GRAPHOBJS=dos-vga.obj
+INPUTDEVOBJS=dos-keyb.obj
+GRAPHDEFS=-dDOSVGA
+
+### Architecture ###
+ARCH=ARCH_i86
+# ARCH= ARCH_SUN
+# ARCH=ARCH_OTHER
+ARCH_DEFS=-D$(ARCH)
+
+
+
+CC=wcc386
+
+#### Watcom C standard version - _FULL_ optimization for speed, line-number
+#### debug info
+CFLAGS=-w3 -d1 -oneatx -zp4 -5r
+
+
+OBJECTS=error.obj fixed.obj framebuf.obj gifload.obj list.obj render.obj \
+        table.obj texture.obj view.obj world.obj worldfil.obj wt.obj \
+        wtmem.obj $(INPUTDEVOBJS) $(GRAPHOBJS)
+
+LINK = wlink @wcwt.lnk
+
+
+wt.exe : $(OBJECTS)
+        $(LINK)
+
+error.obj: error.c framebuf.h graphics.h error.h
+        $(CC) $(CFLAGS) error.c
+
+fixed.obj: fixed.c error.h fixed.h
+        $(CC) $(CFLAGS) fixed.c
+
+framebuf.obj: framebuf.c wt.h error.h graphics.h wtmem.h framebuf.h
+        $(CC) $(CFLAGS) framebuf.c
+
+gifload.obj: gifload.c wt.h error.h texture.h
+        $(CC) $(CFLAGS) gifload.c
+
+dos-keyb.obj : dos-keyb.c wt.h error.h input.h dos-keyb.h
+        $(CC) $(CFLAGS) dos-keyb.c
+
+dos-vga.obj : dos-vga.c wt.h error.h framebuf.h graphics.h
+        $(CC) $(CFLAGS) dos-vga.c
+
+list.obj: list.c wt.h wtmem.h list.h
+        $(CC) $(CFLAGS) list.c
+
+render.obj: render.c wt.h error.h fixed.h wtmem.h table.h view.h texture.h \
+        framebuf.h graphics.h world.h slice.h render.h \
+        slice.c slice-wc.c
+        $(CC) $(CFLAGS) render.c
+
+table.obj: table.c wtmem.h table.h
+        $(CC) $(CFLAGS) table.c
+
+texture.obj: table.c wt.h wtmem.h error.h texture.h
+        $(CC) $(CFLAGS) texture.c
+
+view.obj: view.c fixed.h wtmem.h view.h
+        $(CC) $(CFLAGS) view.c
+
+world.obj: world.c wt.h fixed.h error.h wtmem.h texture.h table.h world.h
+        $(CC) $(CFLAGS) world.c
+
+worldfil.obj: worldfil.c wt.h error.h fixed.h wtmem.h list.h table.h \
+              texture.h world.h worldfil.h
+        $(CC) $(CFLAGS) worldfil.c
+
+wt.obj: wt.c wt.h fixed.h  view.h texture.h table.h world.h worldfil.h \
+        framebuf.h render.h graphics.h input.h
+        $(CC) $(CFLAGS) wt.c
+
+wtmem.obj: wtmem.c error.h wtmem.h
+        $(CC) $(CFLAGS) wtmem.c

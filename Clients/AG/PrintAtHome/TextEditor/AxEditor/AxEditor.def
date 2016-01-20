@@ -1,0 +1,9 @@
+; AxEditor.def : Declares the module parameters.
+
+LIBRARY      "AxEditor.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

@@ -1,0 +1,216 @@
+Parameters:
+
+>> Does the printer print on the top or bottom of a sheet fed into it?
+>> Do the pages come out of the printer stacked in the same order as fed in?
+   -or- Is the first sheet or the last sheet printed visible?
+
+Clues:
+
+In the stuff that follows:
+- A1/B1 means the page with A1 on one side and B1 on the other side.
+- A1B1 means the page with A1 and B1 on the same side.
+- (B1-A2-A1-B2) is a side sequence arranged from top to bottom. B1 is the top
+  page, A2 is the back of the top page, A1 is the top of the last page, and
+  B2 is the back of the last page.
+
+*** Sequence ***
+
+Screen #1 - Prepare to print.
+
+Print button ("Print Now")
+
+>>>> Result: printout with two distingishable pages. (e.g. A1, A2)
+
+Screen #2 - Results of first print.
+
+Which page is visible ("A1" or "A2")?
+
+Screen #3 - Feed pages *face up* back into the printer.
+
+Print button ("Print Now")
+
+>>>> Result: printout with original two pages merged with new output. (e.g. B1, B2)
+
+Which pages are visible?
+if A1 was originally visible: A1 & B1, A2 & B1, A1B1, A2B1
+if A2 was originally visible: A2 & B2, A1 & B2, A2B2, A1B2
+
+/////////////////////////////////////////////////////////////////////////////
+// Printer categorizations
+
+There are exactly four possible configurations:
+
+(1) Face up/face down (like laser printers)
+
+- General -
+Input:		face up (prints on top of sheet)
+Output:		face down
+Output order:	normal
+
+- Test output -
+#1:		A1/blank then A2/blank (A1 and blank visible)
+		(A1-blank-A2-blank)
+#2:		A1B1/blank then A2B2/blank (A1B1 and blank visible)
+		(A1B1-blank-A2B2-blank)
+
+- Key sheet -
+Portrait:	Arrow points UP
+Landscape:	Arrow points LEFT (90) or RIGHT (270)
+Stack:		"Insert stack FACE DOWN"
+
+- Document output -
+#1:		Print key sheet front, then document FORWARD
+		(User inserts stack FACE DOWN)
+#2:		Print document BACKWARD, then key sheet back
+
+(2) Face down/face up (like DeskJets)
+
+- General -
+Input:		face down (prints on bottom of sheet)
+Output:		face up
+Output order:	reversed
+
+- Test output -
+#1:		A1/blank then A2/blank (A2 and blank visible)
+		(A2-blank-A1-blank)
+#2:		A2/B1 then A1/B2 (A2 and B2 visible)
+		(A2-B1-A1-B2)
+
+- Key sheet -
+Portrait:	Arrow points UP
+Landscape:	Arrow points LEFT (90) or RIGHT (270)
+Stack:		"Insert stack FACE UP"
+
+- Document output - 
+#1:		Print document FORWARD, then key sheet front
+		(User inserts stack FACE UP)
+#2:		Print key sheet back, then document BACKWARD
+
+(3) Face up/face up ("Reverse Laser")
+
+- General -
+Input:		face up (prints on top of sheet)
+Output:		face up
+Output order:	reversed
+
+- Test Output -
+#1:		A1/blank then A2/blank (A2 visible)
+		(A2-blank-A1-blank)
+#2:		A2B1/blank then A1B2/blank (A1B2 and blank visible)
+		(A1B2-blank-A2B1-blank)
+
+- Key sheet -
+Portrait:	Arrow points UP
+Landscape:	Arrow points LEFT (90) or RIGHT (270)
+Stack:		"Insert stack FACE DOWN"
+
+- Document output -
+#1:		Print document FORWARD, then key sheet front
+		(User inserts stack FACE DOWN)
+#2:		Print document FORWARD, then key sheet back
+
+(4) Face down/face down ("Reverse Inkjet")
+
+- General -
+Input:		face down (prints on bottom of sheet)
+Output:		face down
+Output order:	normal
+
+- Test output -
+#1:		A1/blank then A2/blank (A1 visible)
+		(A1-blank-A2-blank)
+#2:		A1/B1 then A2/B2 (B1 and A2 visible)
+		(B1-A1-B2-A2)
+- Key sheet -
+Portrait:	Arrow points UP
+Landscape:	Arrow points LEFT (90) or RIGHT (270)
+Stack:		"Insert stack FACE UP"
+
+- Document output -
+#1:		Print key sheet front, then document FORWARD
+		(User inserts stack FACE UP)
+#2:		Print key sheet back, then document FORWARD
+
+/////////////////////////////////////////////////////////////////////////////
+// "Incorrect" printer configurations (what happens if user inserts the stack
+// upside down).
+
+(1) Face up/face down
+
+- Test output -
+#1:		A1/blank then A2/blank (A1 and blank visible)
+		(A1-blank-A2-blank)
+#2:		A2/B1 then A1/B2 (B1 and A1 visible)
+		(B1-A2-B2-A1)
+
+(2) Face down/face up
+
+- Test output -
+#1:		A1/blank then A2/blank (A2 and blank visible)
+		(A2-blank-A1-blank)
+#2:		A1B1/blank then A1/B2 (A2B2 and blank visible)
+		(A2B2-blank-A1B1-blank)
+
+(3) Face up/face up
+
+- Test output -
+#1:		A1/blank then A2/blank (A2 and blank visible)
+		(A2-blank-A1-blank)
+#2:		A1/B1 then A2/B2 (A1 and B2 visible)
+		(B2-A2-B1-A1)
+
+(4) Face down/face down
+
+- Test output -
+#1:		A1/blank then A2/blank (A1 and blank visible)
+		(A1-blank-A2-blank)
+#2:		A1/B1 then A2/B2 (A2B1 and blank visible)
+		(A2B1-blank-A1B2-blank)
+
+/////////////////////////////////////////////////////////////////////////////
+// Refined cases
+
+-	A1 visible,	A2 & B1 visible		down/down "correct"
+-	A1 visible,	A1 & B1 visible		up/down "incorrect"
+-	A1 visible, 	A1B1 visible		up/down "correct"
+-	A1 visible,	A2B1 visible		down/down "incorrect"
+-	A2 visible,	A2 & B2 visible		down/up "correct"
+-	A2 visible,	A1 & B2 visible		up/up "incorrect"
+-	A2 visible,	A1B2 visible		up/up "correct"
+-	A2 visible,	A2B2 visible		down/up "incorrect"
+
+/////////////////////////////////////////////////////////////////////////////
+// Refined cases (sorted differently)
+
+-	A1 visible, 	A1B1 visible		up/down "correct"
+-	A2 visible,	A2 & B2 visible		down/up "correct"
+-	A2 visible,	A1B2 visible		up/up "correct"
+-	A1 visible,	A2 & B1 visible		down/down "correct"
+
+-	A2 visible,	A2B2 visible		down/up "incorrect"
+-	A1 visible,	A1 & B1 visible		up/down "incorrect"
+-	A2 visible,	A1 & B2 visible		up/up "incorrect"
+-	A1 visible,	A2B1 visible		down/down "incorrect"
+
+/////////////////////////////////////////////////////////////////////////////
+// Additional cases (for reversed feed printers)
+
+-	A1 visible, 	A1B1 visible, B1 reversed		up/down "correct"
+-	A2 visible,	A2 & B2 visible, B2 reversed		down/up "correct"
+-	A2 visible,	A1B2 visible, B2 reversed		up/up "correct"
+-	A1 visible,	A2 & B1 visible, B1 reversed		down/down "correct"
+
+/////////////////////////////////////////////////////////////////////////////
+// Final refined cases (sorted differently)
+
+-	A1 visible, 	A1B1 visible			up/down
+-	A1 visible,	A2 & B1 visible			down/down
+-	A1 visible, 	A1B1 visible, B1 reversed	up/down, reversed
+-	A1 visible,	A2 & B1 visible, B1 reversed	down/down, reversed
+
+-	A2 visible,	A1B2 visible			up/up
+-	A2 visible,	A2 & B2 visible			down/up
+-	A2 visible,	A1B2 visible, B2 reversed	up/up, reversed
+-	A2 visible,	A2 & B2 visible, B2 reversed	down/up, reversed
+
+

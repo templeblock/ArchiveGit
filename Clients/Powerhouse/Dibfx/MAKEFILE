@@ -1,0 +1,5 @@
+all:
+	nmake -$(MAKEFLAGS) -nologo -f sdlldib.mak 
+	nmake -$(MAKEFLAGS) -nologo -f slibdib.mak 
+	nmake -$(MAKEFLAGS) -nologo -f ldlldib.mak 
+	nmake -$(MAKEFLAGS) -nologo -f llibdib.mak 

@@ -1,0 +1,138 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#                                                                            
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+PCHNAME=STDAFX
+BUILDDLL=1
+REFDIR=..\ref
+DSTDIR=..\dst
+MAKDIR=$(REFDIR)
+!IFDEF NODEBUG
+PROJ=mgxbm10
+!ELSE
+OBJDIR=dobj
+PROJ=mgxbmd
+!ENDIF
+DEFAULTBUILD = $(DSTDIR) $(OBJDIR) $(DSTDIR)\$(PROJ).dll $(DSTLIST)
+MGXLIBS=$(REFDIR)\mgxfrm10.lib $(REFDIR)\imgdll.lib $(REFDIR)\appdll.lib pcdlib32.lib lead45.lib
+WINLIBS=nafxdw$(AFXLIB).lib mfcans32.lib ole32.lib uuid.lib oleaut32.lib shell32.lib libcmt.lib $(winlibs)
+
+LIBS=$(MGXLIBS) $(WINLIBS)
+
+PCHDEPEND=\
+	compress.h\
+	gif.h\
+	intelio.h\
+	objio.h\
+	pp5io.h\
+	resource.h\
+	stdafx.h\
+	targa.h\
+	tiffio.h\
+	bitmapio.h\
+	mgxbm.h
+
+INSTALLLIST=\
+	$(REFDIR)\mgxbm.h\
+	$(REFDIR)\$(PROJ).lib\
+	$(REFDIR)\tiffio.h\
+	$(REFDIR)\pp5io.h\
+	$(REFDIR)\pcdlib.h\
+	$(REFDIR)\pcdlib32.lib
+
+
+PCHDST=$(OBJDIR)
+FLAGS=/MT -D_USRDLL
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+!include "$(MAKDIR)\win.mak"
+
+##############################################################################
+#
+#--- Interesting files
+#
+DSTLIST=\
+	$(DSTDIR)\PCDLIB32.DLL\
+	$(DSTDIR)\LEAD45.DLL
+
+$(DSTLIST) : $$(@F)
+ 	@copy $(@F) $@
+
+OBJS    =\
+	$(OBJDIR)\$(PCHNAME).obj\
+	$(OBJDIR)\bitmapio.obj\
+	$(OBJDIR)\bmprdr.obj\
+	$(OBJDIR)\bmpwrt.obj\
+	$(OBJDIR)\compress.obj\
+	$(OBJDIR)\dllmain.obj\
+	$(OBJDIR)\ctrdr.obj\
+	$(OBJDIR)\gifrdr.obj\
+	$(OBJDIR)\gifwrt.obj\
+	$(OBJDIR)\jpgrdr.obj\
+	$(OBJDIR)\jpgwrt.obj\
+	$(OBJDIR)\intelio.obj \
+	$(OBJDIR)\objio.obj\
+	$(OBJDIR)\pcdrdr.obj\
+	$(OBJDIR)\pp5io.obj\
+	$(OBJDIR)\pcxrdr.obj\
+	$(OBJDIR)\pcxwrt.obj\
+	$(OBJDIR)\tgardr.obj\
+	$(OBJDIR)\tgawrt.obj\
+	$(OBJDIR)\tifrdr.obj\
+	$(OBJDIR)\tifwrt.obj
+
+##############################################################################
+#
+#--- Targets
+default: $(DEFAULTBUILD)
+
+##############################################################################
+#
+#--- Implicit Rules
+#    make any you think you will need.  They can be identical in nature,
+#    but NMAKE wants have at least one for each possible virtual combination
+#
+.rc.res:
+	rc -r $(rcvars) $(RESINC) $<
+	
+#$(DSTDIR)\$(PROJ).lib: $(DSTDIR)\$(PROJ).dll
+
+$(DSTDIR)\$(PROJ).dll: $(OBJS) $(PROJ).def version.res
+	$(link) @<<
+	$(linkdebug)
+	$(dlllflags)
+	-map:$(PROJ).map
+	-def:$(PROJ).DEF
+	-implib:$(PROJ).lib
+   -out:$@
+	$(LIBS)
+	$(OBJS)
+	version.res
+<<
+ 
+#$(OBJDIR)\$(PCHNAME).obj : {$(VPATH)}$(PCHNAME).cpp $(PCHNAME).h
+#     @echo Compiling Precompiled Header ...
+#	$(cc) /nologo $(PROJFLAGS) $(INCLUDEFLAGS) $(PCHCOMPILEFLAGS) $(PCHCREATE) $(PCHFILE) -Fo$(OBJDIR)\$(@B).obj $(@B).cpp  > $(@B).err
+#    @type $(@B).err 
+     
+##############################################################################
+#
+#--- Dependencies
+#
+##############################################################################
+   
+$(OBJDIR)\bitmapio.obj: mgxbm.h
+

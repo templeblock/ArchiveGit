@@ -1,0 +1,4 @@
+LIBRARY   FTP32
+DESCRIPTION  'FTP32 Windows Dynamic Link Library'
+EXPORTS  
+           send_files

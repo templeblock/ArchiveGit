@@ -1,0 +1,18 @@
+LIBRARY     fddll
+
+DESCRIPTION 'Low-level callback for MIDI Output'
+
+EXETYPE     WINDOWS
+
+STUB        'WINSTUB.EXE'
+
+CODE MOVEABLE PRELOAD DISCARDABLE
+DATA MOVEABLE PRELOAD SINGLE SHARED
+
+HEAPSIZE    2048
+
+EXPORTS     
+            WEP                         @1    RESIDENTNAME
+            MidiOutputHandler           @2
+            MidiInitialize              @3
+            MidiEnable                  @4

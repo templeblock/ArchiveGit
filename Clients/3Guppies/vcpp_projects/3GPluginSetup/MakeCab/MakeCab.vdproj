@@ -1,0 +1,194 @@
+﻿"DeployProject"
+{
+"VSVersion" = "3:800"
+"ProjectType" = "8:{3EA9E505-35AC-4774-B492-AD1749C4943A}"
+"IsWebType" = "8:FALSE"
+"ProjectName" = "8:MakeCab"
+"LanguageId" = "3:1033"
+"CodePage" = "3:1252"
+"UILanguageId" = "3:1033"
+"SccProjectName" = "8:"
+"SccLocalPath" = "8:"
+"SccAuxPath" = "8:"
+"SccProvider" = "8:"
+    "Hierarchy"
+    {
+    }
+    "Configurations"
+    {
+        "Debug"
+        {
+        "DisplayName" = "8:Debug"
+        "IsDebugOnly" = "11:TRUE"
+        "IsReleaseOnly" = "11:FALSE"
+        "OutputFilename" = "8:Debug\\SetupMobilize.cab"
+        "PackageFilesAs" = "3:2"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "Compression" = "3:2"
+        "SignOutput" = "11:FALSE"
+        "CertificateFile" = "8:"
+        "PrivateKeyFile" = "8:"
+        "TimeStampServer" = "8:"
+        "InstallerBootstrapper" = "3:1"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:FALSE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                }
+            }
+        }
+        "Release"
+        {
+        "DisplayName" = "8:Release"
+        "IsDebugOnly" = "11:FALSE"
+        "IsReleaseOnly" = "11:TRUE"
+        "OutputFilename" = "8:.\\Mobilize.cab"
+        "PackageFilesAs" = "3:2"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "Compression" = "3:2"
+        "SignOutput" = "11:FALSE"
+        "CertificateFile" = "8:"
+        "PrivateKeyFile" = "8:"
+        "TimeStampServer" = "8:"
+        "InstallerBootstrapper" = "3:1"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:FALSE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                }
+            }
+        }
+    }
+    "Deployable"
+    {
+        "OSD"
+        {
+        "FriendlyName" = "8:Mobilize"
+        "Version" = "8:1.0.0.0"
+        "PreBuildEvent" = "8:"
+        "PostBuildEvent" = "8:echo Signing $(BuiltOuputPath)\r\ncall \"..\\CodeSigning\\Sign.bat\" \"$(BuiltOuputPath)\" \"The Mixxer Mobilizer\" \"http://www.mixxer.com\""
+        "RunPostBuildEvent" = "3:0"
+            "Dependencies"
+            {
+            }
+        }
+        "SimpleFile"
+        {
+            "{9243E9F4-90C0-4AA4-B246-D2DF4DAA49DC}:_000F9C9DA014423BB38BA755335BCF57"
+            {
+            "SourcePath" = "8:..\\Osd9a6.osd"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9243E9F4-90C0-4AA4-B246-D2DF4DAA49DC}:_06384884CBD74726B14C35A00DEC38B8"
+            {
+            "SourcePath" = "8:..\\Mobilize.inf"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9243E9F4-90C0-4AA4-B246-D2DF4DAA49DC}:_7814B43002494DA3A7E3A37647CA127E"
+            {
+            "SourcePath" = "8:..\\MobilizeButtonHot.ico"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9243E9F4-90C0-4AA4-B246-D2DF4DAA49DC}:_841F3DA1B4A9465984DDE3406FE6030A"
+            {
+            "SourcePath" = "8:..\\Mobilize.htm"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9243E9F4-90C0-4AA4-B246-D2DF4DAA49DC}:_CF4D1297CF9247C7A1349C4E60CDB78D"
+            {
+            "SourcePath" = "8:..\\MobilizeButton.ico"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+        }
+        "SimpleProjectOutput"
+        {
+        }
+    }
+}

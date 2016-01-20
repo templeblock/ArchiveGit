@@ -1,0 +1,35 @@
+;
+; COMPPLIB.EQU
+;
+; The Greenleaf Comm++ Library
+;
+; Copyright (C) 1991-95 Greenleaf Software Inc.  All Rights Reserved.
+;
+; NOTES
+;
+; This file contains the defines for the ISR data structures and other
+; common defines.
+;
+; MODIFICATIONS
+;
+
+IFDEF _DEBUG
+ISR_DEBUG                = 1
+ENDIF
+
+GCPP_OK           equ     0               ; Everythings ok
+GCPP_TIMEOUT      equ     -802            ; event timeout
+GCPP_BUFFER_FULL  equ     -805            ; the buffers full
+GCPP_NUMIRQS      equ     8               ; total irqs supported
+GCPP_NUMPORTS     equ     34+1            ; the C version + 1
+IOX               equ     255             ; value for xonxoff handshake
+NOHAND            equ     0               ; value for no handshaking
+XOFF              equ     19              ; XOFF character code
+XON               equ     17              ; XON character code
+TRUE              equ     1               ; logical TRUE
+FALSE             equ     0               ; logical FALSE
+
+IIR               equ     2               ; Interrupt Identity Register
+MCR               equ     4               ; Modem Comtrol Register
+LSR               equ     5               ; Line Status Register
+MSR               equ     6               ; Modem Status Register

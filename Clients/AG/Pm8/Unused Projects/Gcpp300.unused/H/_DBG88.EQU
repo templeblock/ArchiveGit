@@ -1,0 +1,226 @@
+;
+; _DBG88.EQU
+;
+; The Greenleaf Comm++ Library
+;
+; Copyright (C) 1991-95 Greenleaf Software Inc.  All Rights Reserved.
+;
+; NOTES
+;
+; This file contains the macros used to provide debug output services
+; for the standard DOS ISR.  Debug output services are fully
+; defined in DEBUG88.ASM.
+;
+; MODIFICATIONS
+;
+;
+
+;
+; The funny segment stuff is here so I can call this code from all
+; different memory models.  Segments are confusing.
+;
+ifndef _DEBUG88
+
+IFDEF ISR_DEBUG
+IF _LCODE NE 0
+                        .CODE DEBUG88_TEXT
+ELSE
+                        .CODE
+ENDIF
+                        EXTRN C _VidGoto:proc
+                        EXTRN C _VidPutc:proc
+                        EXTRN C _VidPutDat:proc
+                        EXTRN C _VidPuts:proc
+                        .CODE
+ENDIF
+
+endif
+
+;
+;  Macro: VIDPUTWORD data
+;
+;
+;  ARGUMENTS
+;
+;   data : Any 16 bit value that can be moved into ax with
+;          a mov ax, data instruction.
+;
+;  DESCRIPTION
+;
+;  This macro is used in the DOS ISR to display a single binary
+;  word in hex.  The real work is done by _VidPutDat, the macro just
+;  takes care of setting things up to facilitate the call.
+;
+;  SIDE EFFECTS
+;
+;   None.
+;
+;  RETURNS
+;
+;   Nothing.
+;
+;  AUTHOR
+;
+;   SM          October 17, 1994
+;
+;  MODIFICATIONS
+;
+;
+VIDPUTBYTE							MACRO dat
+												push	cx
+												xor 	cx,cx
+												mov 	cl,dat			;Get the word to display
+												push	cx					;Send the upper bits to _VidPutDat
+                        call  _VidPutDat
+                        add   sp,2
+												pop  cx
+                        ENDM
+
+
+VIDPUTWORD              MACRO dat  ; Tag: Debug private
+                        push  ax
+                        push  cx
+                        mov   cl,8
+                        mov   ax,dat      ;Get the word to display
+                        ror   ax,cl       ;Get the upper eight bits
+                        push  ax          ;Send the upper bits to _VidPutDat
+                        call  _VidPutDat
+                        add   sp,2
+                        mov   ax,dat
+                        push  ax          ;Now send the lower bits
+                        call  _VidPutDat
+                        add   sp,2
+                        pop  cx
+                        pop  ax
+                        ENDM
+
+;
+;  Macro: VIDGOTO row,col
+;
+;  ARGUMENTS
+;
+;   row : The row to go to on the screen.  This can be any sort
+;         of identifier that can be accessed with a mov ax,row
+;         instruction, loading 16 bits.
+;
+;   col : The column to go to on the screen. This can be any sort
+;         of identifier that can be accessed with a mov ax,col
+;         instruction, loading 16 bits.
+;
+;  DESCRIPTION
+;
+;  This macro is used in the DOS ISR to move the cursor, or current
+;  output location, to a specific location on the screen.
+;
+;  SIDE EFFECTS
+;
+;   None.
+;
+;  RETURNS
+;
+;  Nothing.
+;
+;  AUTHOR
+;
+;   SM          October 17, 1994
+;
+;  MODIFICATIONS
+;
+
+VIDGOTO                 MACRO   row,col  ; Tag: Debug private
+                        push    ax
+                        mov     ax,col
+                        push    ax
+                        mov     ax,row
+                        push    ax
+                        call    _VidGoto
+                        add     sp,4
+                        pop     ax
+                        ENDM
+
+;
+;  Macro: VIDPUTC char
+;
+;
+;  ARGUMENTS
+;
+;   char : A single character that needs to be displayed on the screen.
+;
+;  DESCRIPTION
+;
+;  This macro is used in the MS-DOS ISR to display a single character
+;  at the current cursor position on the screen.  It does this with
+;  a single call to _VidPutc.  Note that the argument can be anything
+;  that can load a 16 bit value with mov ax,value.
+;
+;  SIDE EFFECTS
+;
+;   None.
+;
+;  RETURNS
+;
+;   Nothing.
+;
+;  AUTHOR
+;
+;   SM          October 17, 1994
+;
+;  MODIFICATIONS
+;
+;
+
+VIDPUTC                 MACRO   Char  ; Tag: Debug private
+                        push    ax
+                        mov     ax,Char
+                        push    ax
+                        call    _VidPutc
+                        add     sp,2
+                        pop     ax
+                        ENDM
+
+;
+;  Macro: VIDPUTS str
+;
+;
+;  ARGUMENTS
+;
+;   str : A string that needs to be displayed on the screen.  Note
+;         that this doesn't have to be a null terminated string, we
+;         make a copy of it here and then null terminate the copy.
+;
+;  DESCRIPTION
+;
+;  This macro is used in the DOS ISR to display an entire string
+;  on the screen.  We make a local copy of the string in our code
+;  segment, and null terminate it.  Then we push a pointer to the copy
+;  on the stack and call _VidPuts.
+;
+;  SIDE EFFECTS
+;
+;   None.
+;
+;  RETURNS
+;
+;   Nothing.
+;
+;  AUTHOR
+;
+;   SM          October 17, 1994
+;
+;  MODIFICATIONS
+;
+
+VIDPUTS                 MACRO   s  ; Tag: Debug private
+                        LOCAL   skip, string
+                        jmp     short skip
+string                  db      s, 0
+skip:                   push    ax
+                        push    cs
+                        mov     ax, offset string
+                        push    ax
+                        call    _VidPuts
+                        add     sp,4
+                        pop     ax
+                        ENDM
+
+

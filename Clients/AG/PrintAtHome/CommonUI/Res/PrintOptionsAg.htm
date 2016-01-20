@@ -1,0 +1,210 @@
+<html id="main" style="width:600; height:300;">
+	<head>
+		<title>Print Options</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<meta content="MSHTML 6.00.2900.2180" name="GENERATOR">
+	</head>
+	<style>
+		body
+			{ cursor:hand; }
+		input
+			{ cursor:hand; }
+	</style>
+	<script language="javascript">
+		var strSelection = 'LOCAL';
+        var strPrnRemote;
+        var strMstatus;
+        var intPrice = 0;
+		getURLValues();
+		
+		function RemoveRemoteOption()
+		{
+			var Tbl = document.getElementById("Tbl");
+			do
+			{
+				var lastRow = Tbl.rows.length;
+				if (lastRow > 2) Tbl.deleteRow(lastRow - 1);
+			}
+			while (lastRow > 2);
+		}
+		
+		function InsertJoinInOption()
+		{
+			var HdrTbl = document.getElementById("HdrTbl");
+			HdrTbl.deleteRow(0);
+			var NewRow = HdrTbl.insertRow(0);
+			var Cell0 = NewRow.insertCell(0);
+			var Cell1 = NewRow.insertCell(1);
+			Cell0.width = '403';
+			Cell1.width = '197';
+			Cell1.vAlign = 'bottom';
+			
+			Cell0.innerHTML = "<img src='ag_logo.gif' width='403' height='43'>";
+			Cell1.innerHTML = "<span style='cursor:hand;' onclick='OnClickBtnSignIn()'><img src='sign_in.gif' width='191' height='21'></span>";
+			
+			var Tbl = document.getElementById("Tbl");
+			
+			// delete the radio buttons cell for 
+			// Printathome, RemotePrint
+			// Remove row for Continue button
+			Tbl.rows[0].deleteCell(0);
+			Tbl.rows[1].deleteCell(0);
+			Tbl.deleteRow(2);
+			
+			// set rowspan for cell 0&1
+			Tbl.rows[0].cells[0].rowspan = 2;
+			Tbl.rows[1].cells[0].rowspan = 2;
+			
+			// change the image to lighter version
+			// change the text, color to red for bold text
+			document.getElementById("ImgHome").src = "printer.gif";
+			document.getElementById("TxtHomeBold").innerHTML = "Join to Print at Home";
+			document.getElementById("TxtHomeBold").style.color = "#FF0000";
+			document.getElementById("TxtHome").innerHTML = "Join Create & Print and enjoy the comforts of printing your cards<br>and projects on your home computer.";
+			
+			// add a row for the Join Now button
+			var row1 = Tbl.insertRow(1);
+			var cell = row1.insertCell(0);
+			cell.innerHTML = ' ';
+			cell = row1.insertCell(1);
+			cell.vAlign = 'top';
+			cell.align = 'left';
+			cell.innerHTML = "<span style='cursor:hand' onclick='OnClickBtnJoin()'> <img type='image' alt='Join Now' src='join_btn.gif' border='0'> </span>";
+
+			// add a row for the RemotePrint button
+			var row3 = Tbl.insertRow(3);
+			cell = row3.insertCell(0);
+			cell.innerHTML = ' ';
+			cell = row3.insertCell(1);
+			cell.vAlign = 'top';
+			cell.align = 'left';
+			cell.innerHTML = "<span style='cursor:hand' onclick='OnClickBtnRemote()'> <img type='image' alt='Print for you' src='print_btn.gif' border='0'> </span>";
+		}
+		
+		function getURLValues()
+		{
+          var strQueryString = String(window.dialogArguments);
+          aryQueryValues = strQueryString.split(';');
+
+          // Walk the list to set the values for member status and price
+          for (aryIndex in aryQueryValues){
+              var strQueryValue = aryQueryValues[aryIndex];
+              aryQueryValue = strQueryValue.split('=');
+              if (aryQueryValue[0] == 'memstat'){strMstatus = aryQueryValue[1];}
+              if (aryQueryValue[0] == 'price'){intPrice = parseInt(aryQueryValue[1]);}
+              if (aryQueryValue[0] == 'remprint'){strPrnRemote = aryQueryValue[1];}
+          }
+          
+		}
+		
+		function setPrintHTML()
+		{
+            if (strMstatus != 'MCP' && strMstatus != 'MCS' && intPrice > 0)
+			{
+				InsertJoinInOption();
+			}
+			
+            if (strPrnRemote == '0')
+			{
+				RemoveRemoteOption();
+			}
+		}
+		
+		function OnClickPrintAtHome()
+		{
+			strSelection = 'LOCAL';
+		}
+		
+		function OnClickPrintRemote()
+		{
+			strSelection = 'REMOTE';
+		}
+		
+		function OnClickContinue()
+		{
+			window.returnValue = strSelection;
+			window.close();
+		}
+		
+		function OnClickBtnJoin()
+		{
+			strSelection = 'JOIN';
+			window.returnValue = strSelection;
+			window.close();
+		}
+		
+		function OnClickBtnRemote()
+		{
+			strSelection = 'REMOTE';
+			window.returnValue = strSelection;
+			window.close();
+		}
+		
+		function OnClickBtnSignIn()
+		{
+			strSelection = 'SIGNIN';
+			window.returnValue = strSelection;
+			window.close();
+		}
+		
+	</script>
+	<body onselectstart="return false;" onmouseover="this.style.cursor='default'" text="#000000"
+		vlink="#000066" alink="#000000" link="#000066" bgcolor="#ffffff" leftmargin="0" topmargin="0"
+		marginheight="0" marginwidth="0" onload="setPrintHTML()">
+		<table id="HdrTbl" cellspacing="0" cellpadding="0" width="600" bgcolor="#ffffff" border="0"
+			id="Table1">
+				<tr>
+					<td>
+						<img height="44" src="PrintMethodLogoAg.gif" width="600" border="0">
+					</td>
+				</tr>
+		</table>
+		<table id="Tbl" cellspacing="10" cellpadding="0" width="600" bgcolor="#ffffff" border="0"
+			id="Table2">
+			<tr>
+				<td rowspan="1" align="left" valign="top">
+					<input type="radio" checked value="#" name="#" onclick="OnClickPrintAtHome()">
+				</td>
+				<td rowspan="1" align="left" valign="top">
+					<img id="ImgHome" height="45" alt="Print at Home" src="PrintMethodLocal.gif" width="45"
+						border="0">
+				</td>
+				<td style="FONT-SIZE: 12px; COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif"
+					valign="top" align="left">
+					<span id="TxtHomeBold" style="FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif">
+							Print at Home
+						</span>
+					<br>
+					<span id="TxtHome">
+					Print your card on your home printer.
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td rowspan="1" align="left" valign="top">
+					<input type="radio" value="#" name="#" onclick="OnClickPrintRemote()">
+				</td>
+				<td rowspan="1" align="left" valign="top">
+					<img height="45" alt="Print For You" src="PrintMethodForYou.gif" width="45"
+						border="0">
+				</td>
+				<td align="left" valign="top" style="FONT-SIZE: 12px; COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif">
+					<span style="FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif">
+							Print For You 
+						</span>
+					<br>
+							We can now print your cards on high quality paper and mail them for you!<br>
+							It’s only $2.95 per card (includes&nbsp;postage)
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" align="left" valign="top">&nbsp;</td>
+				<td colspan="2" align="left" valign="top">
+					<span style="cursor:hand; " onclick="OnClickContinue()">
+						<img type="image" alt="Continue" src="PrintMethodContinue.gif" border="0" name="">
+					</span>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

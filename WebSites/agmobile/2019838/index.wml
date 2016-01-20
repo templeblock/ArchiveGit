@@ -1,0 +1,33 @@
+<!--?xml version="1.0"?--> 
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1_1.dtd">
+ 
+<wml>
+	<card id="card1" ontimer="#card2" title="Opening">
+		<timer value="3000"/>
+		<p>
+			AmericanGreetings.com has just forwarded you a wireless greeting card!<br/>
+			<br/>
+			Press <a href="#card2">next</a>&nbsp;to view your greeting<br/>
+		</p>
+		<do type="accept" label="Next"><go href="#card2"/></do>
+		<do type="accept" label="Prev"><prev/></do>
+	</card>
+	<card id="card2" ontimer="#card3" title="Sample">
+		<timer value="3000"/>
+		<p align="left"><small>
+		      <img src="graphic.gif" alt="Your image"></img><br/>
+			Merry Christmas!<br/>
+		</small></p>
+		<!--audio src="music.mid" loop="infinite"/-->
+		<do type="accept" label="Next"><go href="#card3"/></do>
+		<do type="accept" label="Prev"><prev/></do>
+	</card>
+	<card id="card3" title="Closing">
+		<timer value="3000"/>
+		<p>
+			Thank you for visiting AmericanGreetings.com<br/>
+		</p>	
+		<do type="accept" label="Prev"><prev/></do>
+		<do type="prev" label="Back"><prev/></do>
+	</card>
+</wml>

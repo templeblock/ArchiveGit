@@ -1,0 +1,22 @@
+[Options]
+OPTCDROM=0
+COMPRESS=HIGH
+COPYRIGHT=Copyright © 1998 Wintertree Software Inc.
+ERRORLOG=SSCE.ERR
+CONTENTS=HelpContents1
+ROOT=D:\WINTREE\PROJECTS\SSCE\DOC\DLGHELP\WINHLP3.1
+TITLE=Spelling Checker Dialog help
+REPORT=ON
+[WINDOWS]
+Main="Spelling Checker Dialog help",(50,60,580,640),0,(255,255,226),(192,192,192),0
+Proc="How to...",(653,102,360,600),0,(255,255,226),(192,192,192),1 ;Default window for displaying procedural information
+[FILES]
+SSCE.RTF
+[CONFIG]
+BrowseButtons()
+[MAP]
+HelpContents1	1	; Help Contents
+Check.SpellingDialog	100	; Check-Spelling Dialog
+DictionariesDialog	300	; Dictionaries Dialog
+OptionsDialog	200	; Options Dialog
+NewDictionaryDialog	400	; New Dictionary Dialog

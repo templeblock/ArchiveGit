@@ -1,0 +1,60 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XML", "XML\XML.vcproj", "{811C8096-5E75-4C23-A438-517AA97B3397}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NpCtp", "NpCtp\NpCtp.vcproj", "{AEB5CD92-667A-484A-A462-2CCD8F1FF611}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NpPopup", "NpPopup\NpPopup.vcproj", "{0BDFB495-5E8D-4B01-8877-E546AF2FCF0F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CTPUtil", "CTPUtil\CTPUtil.vcproj", "{0CC11512-90E1-4724-84A4-8DE5E00551B9}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccProjectName0 = \u0022$/AgApplications/CreateAndPrint\u0022,\u0020SBAAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = true
+		SccProjectUniqueName1 = XML\\XML.vcproj
+		SccLocalPath1 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection1 = XML\\
+		SccProjectUniqueName2 = NpCtp\\NpCtp.vcproj
+		SccLocalPath2 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection2 = NpCtp\\
+		SccProjectUniqueName3 = NpPopup\\NpPopup.vcproj
+		SccLocalPath3 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection3 = NpPopup\\
+		SccProjectUniqueName4 = CTPUtil\\CTPUtil.vcproj
+		SccProjectName4 = \u0022$/AgApplications/CreateAndPrint/CTPUtil\u0022,\u0020DCAAAAAA
+		SccLocalPath4 = CTPUtil
+		CanCheckoutShared = true
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{811C8096-5E75-4C23-A438-517AA97B3397}.Debug|Win32.ActiveCfg = Debug|Win32
+		{811C8096-5E75-4C23-A438-517AA97B3397}.Debug|Win32.Build.0 = Debug|Win32
+		{811C8096-5E75-4C23-A438-517AA97B3397}.Release|Win32.ActiveCfg = Release|Win32
+		{811C8096-5E75-4C23-A438-517AA97B3397}.Release|Win32.Build.0 = Release|Win32
+		{AEB5CD92-667A-484A-A462-2CCD8F1FF611}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AEB5CD92-667A-484A-A462-2CCD8F1FF611}.Debug|Win32.Build.0 = Debug|Win32
+		{AEB5CD92-667A-484A-A462-2CCD8F1FF611}.Release|Win32.ActiveCfg = Release|Win32
+		{AEB5CD92-667A-484A-A462-2CCD8F1FF611}.Release|Win32.Build.0 = Release|Win32
+		{0BDFB495-5E8D-4B01-8877-E546AF2FCF0F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0BDFB495-5E8D-4B01-8877-E546AF2FCF0F}.Debug|Win32.Build.0 = Debug|Win32
+		{0BDFB495-5E8D-4B01-8877-E546AF2FCF0F}.Release|Win32.ActiveCfg = Release|Win32
+		{0BDFB495-5E8D-4B01-8877-E546AF2FCF0F}.Release|Win32.Build.0 = Release|Win32
+		{0CC11512-90E1-4724-84A4-8DE5E00551B9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0CC11512-90E1-4724-84A4-8DE5E00551B9}.Debug|Win32.Build.0 = Debug|Win32
+		{0CC11512-90E1-4724-84A4-8DE5E00551B9}.Release|Win32.ActiveCfg = Release|Win32
+		{0CC11512-90E1-4724-84A4-8DE5E00551B9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

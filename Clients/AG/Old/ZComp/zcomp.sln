@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zcomp", "zcomp.vcproj", "{42773F36-1252-47B7-AA37-143CF506604F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Zlib", "..\..\ZLib\ZLib.vcproj", "{F4B3679B-948B-49C5-90C8-793B80A700D6}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccProjectUniqueName0 = zcomp.vcproj
+		SccProjectName0 = \u0022$/AgApplications/Old/ZComp\u0022,\u0020RCAAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectUniqueName1 = ..\\..\\ZLib\\ZLib.vcproj
+		SccProjectName1 = \u0022$/AgApplications/ZLib\u0022,\u0020SCAAAAAA
+		SccLocalPath1 = ..\\..\\ZLib
+		SccProvider1 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42773F36-1252-47B7-AA37-143CF506604F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{42773F36-1252-47B7-AA37-143CF506604F}.Debug|Win32.Build.0 = Debug|Win32
+		{42773F36-1252-47B7-AA37-143CF506604F}.Release|Win32.ActiveCfg = Release|Win32
+		{42773F36-1252-47B7-AA37-143CF506604F}.Release|Win32.Build.0 = Release|Win32
+		{F4B3679B-948B-49C5-90C8-793B80A700D6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F4B3679B-948B-49C5-90C8-793B80A700D6}.Debug|Win32.Build.0 = Debug|Win32
+		{F4B3679B-948B-49C5-90C8-793B80A700D6}.Release|Win32.ActiveCfg = Release|Win32
+		{F4B3679B-948B-49C5-90C8-793B80A700D6}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

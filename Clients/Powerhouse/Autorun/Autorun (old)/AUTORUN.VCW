@@ -1,0 +1,12 @@
+[MSVC Status File]
+Version=1.00
+ProjectType=10
+ArgsOrCaller=jungle     crap.exe    extra
+External=0
+BrkptCount=1
+BrkptType1=0
+BrkptActive1=1
+BrkptAmbig1=0
+BrkptIndex1=-1
+BrkptLoc1={,n:\dev\src\autorun\autorun.cpp,} .29
+WatchCount=0

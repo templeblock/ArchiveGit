@@ -1,0 +1,13 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.0
+
+[Add.Code]
+Crusher.dll=Crusher.dll
+
+[Crusher.dll]
+file-win32-x86=thiscab
+FileVersion=1,1,5012,0
+DestDir=11
+RegisterServer=yes
+clsid={BD8667B7-38D8-4C77-B580-18C3E146372C}

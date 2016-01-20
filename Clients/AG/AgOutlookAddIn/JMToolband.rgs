@@ -1,0 +1,26 @@
+HKCR
+{
+	AgOutlookAddIn.JMToolband.1 = s 'JMToolband Class'
+	{
+		CLSID = s '{08868B78-71CE-43AB-BB03-3851D57C9E93}'
+	}
+	AgOutlookAddIn.JMToolband = s 'JMToolband Class'
+	{
+		CLSID = s '{08868B78-71CE-43AB-BB03-3851D57C9E93}'
+		CurVer = s 'AgOutlookAddIn.JMToolband.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {08868B78-71CE-43AB-BB03-3851D57C9E93} = s 'JMToolband Class'
+		{
+			ProgID = s 'AgOutlookAddIn.JMToolband.1'
+			VersionIndependentProgID = s 'AgOutlookAddIn.JMToolband'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EDDBDEA4-5C07-453F-BE8C-81D738984381}'
+		}
+	}
+}

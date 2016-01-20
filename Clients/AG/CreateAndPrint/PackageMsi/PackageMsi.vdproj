@@ -1,0 +1,534 @@
+﻿"DeployProject"
+{
+"VSVersion" = "3:800"
+"ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
+"IsWebType" = "8:FALSE"
+"ProjectName" = "8:PackageMsi"
+"LanguageId" = "3:1033"
+"CodePage" = "3:1252"
+"UILanguageId" = "3:1033"
+"SccProjectName" = "8:"
+"SccLocalPath" = "8:"
+"SccAuxPath" = "8:"
+"SccProvider" = "8:"
+    "Hierarchy"
+    {
+        "Entry"
+        {
+        "MsmKey" = "8:_C5A1A7BAA46949D6A3AC31329F81BEDD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CDBE4C61CE494E469905492C053AAAF3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+    }
+    "Configurations"
+    {
+        "Debug"
+        {
+        "DisplayName" = "8:Debug"
+        "IsDebugOnly" = "11:TRUE"
+        "IsReleaseOnly" = "11:FALSE"
+        "OutputFilename" = "8:Debug\\CreateAndPrintPluginSetup.msi"
+        "PackageFilesAs" = "3:2"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "Compression" = "3:2"
+        "SignOutput" = "11:FALSE"
+        "CertificateFile" = "8:"
+        "PrivateKeyFile" = "8:"
+        "TimeStampServer" = "8:"
+        "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:FALSE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                }
+            }
+        }
+        "Release"
+        {
+        "DisplayName" = "8:Release"
+        "IsDebugOnly" = "11:FALSE"
+        "IsReleaseOnly" = "11:TRUE"
+        "OutputFilename" = "8:Release\\CreateAndPrintPluginSetup.msi"
+        "PackageFilesAs" = "3:2"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "Compression" = "3:2"
+        "SignOutput" = "11:FALSE"
+        "CertificateFile" = "8:"
+        "PrivateKeyFile" = "8:"
+        "TimeStampServer" = "8:"
+        "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:FALSE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                }
+            }
+        }
+    }
+    "Deployable"
+    {
+        "CustomAction"
+        {
+        }
+        "DefaultFeature"
+        {
+        "Name" = "8:DefaultFeature"
+        "Title" = "8:"
+        "Description" = "8:"
+        }
+        "ExternalPersistence"
+        {
+            "LaunchCondition"
+            {
+            }
+        }
+        "File"
+        {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C5A1A7BAA46949D6A3AC31329F81BEDD"
+            {
+            "SourcePath" = "8:..\\AxCtp2\\Release\\AxCtp2.dll"
+            "TargetName" = "8:AxCtp2.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_EBAA0DE7C04C47D0A1A32FFC4351CFEC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:TRUE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:4"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CDBE4C61CE494E469905492C053AAAF3"
+            {
+            "SourcePath" = "8:..\\..\\ImageControl\\release\\ImageControl.dll"
+            "TargetName" = "8:ImageControl.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_EBAA0DE7C04C47D0A1A32FFC4351CFEC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:TRUE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:4"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+        }
+        "FileType"
+        {
+        }
+        "Folder"
+        {
+            "{3C67513D-01DD-4637-8A68-80971EB9504F}:_2BB52787A3FB44B3A58324403CD0EC17"
+            {
+            "DefaultLocation" = "8:[SystemFolder]"
+            "Name" = "8:#1925"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:TARGETDIR"
+                "Folders"
+                {
+                }
+            }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_D123095AC1C642709F1684024A3EC039"
+            {
+            "Name" = "8:#1916"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:DesktopFolder"
+                "Folders"
+                {
+                }
+            }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_DFDDE59C00D7444487E9F374657046C4"
+            {
+            "Name" = "8:#1919"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:ProgramMenuFolder"
+                "Folders"
+                {
+                }
+            }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_EBAA0DE7C04C47D0A1A32FFC4351CFEC"
+            {
+            "Name" = "8:#1914"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:SystemFolder"
+                "Folders"
+                {
+                }
+            }
+        }
+        "LaunchCondition"
+        {
+        }
+        "Locator"
+        {
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_0EC1D31F02F04513BBAEF9EC63CE2746"
+            {
+            "Name" = "8:Set ARPNOMODIFY"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\Microsoft\\Internet Explorer"
+            "Value" = "8:Version"
+            "Property" = "8:ARPNOMODIFY"
+            }
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_3E782048F68B4FC8B2500E98D1C5F6FC"
+            {
+            "Name" = "8:Clear MSIRMSHUTDOWN"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\Microsoft\\Internet Explorer"
+            "Value" = "8:NotVersion"
+            "Property" = "8:MSIRMSHUTDOWN"
+            }
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_44782ED37C3D4776B7AAB26AB503791B"
+            {
+            "Name" = "8:Set DISABLEROLLBACK"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\Microsoft\\Internet Explorer"
+            "Value" = "8:Version"
+            "Property" = "8:DISABLEROLLBACK"
+            }
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_7A0426136FD241598BB723F666EBAF22"
+            {
+            "Name" = "8:Set MSIDISABLEEEUI"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\Microsoft\\Internet Explorer"
+            "Value" = "8:Version"
+            "Property" = "8:MSIDISABLEEEUI"
+            }
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_7D2A2D1F99954D40B34C1F83AE8E96D9"
+            {
+            "Name" = "8:Set MsiUIProgressOnly"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\Microsoft\\Internet Explorer"
+            "Value" = "8:Version"
+            "Property" = "8:MSIUIPROGRESSONLY"
+            }
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_87EF94149E1E4AE2BE538E7BBDF1C909"
+            {
+            "Name" = "8:Set LIMITUI"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\Microsoft\\Internet Explorer"
+            "Value" = "8:Version"
+            "Property" = "8:LIMITUI"
+            }
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_9CF3B0A2200A44F6A6D2A257AA0EB659"
+            {
+            "Name" = "8:Set MsiUIHideCancel"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\Microsoft\\Internet Explorer"
+            "Value" = "8:Version"
+            "Property" = "8:MSIUIHIDECANCEL"
+            }
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_D1158B5CD8584F24B6E67CC2EE257686"
+            {
+            "Name" = "8:Clear MSIDISABLERMRESTART"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\Microsoft\\Internet Explorer"
+            "Value" = "8:NotVersion"
+            "Property" = "8:MSIDISABLERMRESTART"
+            }
+        }
+        "MsiBootstrapper"
+        {
+        "LangId" = "3:1033"
+        }
+        "Product"
+        {
+        "Name" = "8:Microsoft Visual Studio"
+        "ProductName" = "8:Create and Print Plugin 4.0.8032"
+        "ProductCode" = "8:{6E22E97C-04C7-46DA-B826-E71C9A2A2DED}"
+        "PackageCode" = "8:{F5E96D7A-98BC-4F6C-ABC5-BBF92B13E041}"
+        "UpgradeCode" = "8:{FBDE99B0-5F58-460D-AB11-F829F11A4795}"
+        "RestartWWWService" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
+        "DetectNewerInstalledVersion" = "11:FALSE"
+        "InstallAllUsers" = "11:TRUE"
+        "ProductVersion" = "8:4.0.8032"
+        "Manufacturer" = "8:AG Interactive"
+        "ARPHELPTELEPHONE" = "8:"
+        "ARPHELPLINK" = "8:http://www.americangreetings.com/help"
+        "Title" = "8:"
+        "Subject" = "8:"
+        "ARPCONTACT" = "8:"
+        "Keywords" = "8:"
+        "ARPCOMMENTS" = "8:"
+        "ARPURLINFOABOUT" = "8:http://www.americangreetings.com/printables"
+        "ARPPRODUCTICON" = "8:_C5A1A7BAA46949D6A3AC31329F81BEDD"
+        "ARPIconIndex" = "3:405"
+        "SearchPath" = "8:"
+        "UseSystemSearchPath" = "11:TRUE"
+        "TargetPlatform" = "3:0"
+        "PreBuildEvent" = "8:"
+        "PostBuildEvent" = "8:set FILE=\"$(BuiltOuputPath)\"\r\nset NAME=\"Create and Print Plugin Installer\"\r\nset URL=\"http://www.americangreetings.com/printables\"\r\nset LICDIR=$(ProjectDir)..\\..\\CodeSigning\r\nset SIGNAPP=\"%LICDIR%\\SignTool.exe\"\r\nset CERT=\"%LICDIR%\\MyCredentials.pfx\"\r\nset PWD=\"parrothead\"\r\nset TSURL=\"http://timestamp.verisign.com/scripts/timstamp.dll\"\r\n\r\necho Signing as %NAME% at %URL% (%FILE%)\r\ncall %SIGNAPP% sign /d %NAME% /du %URL% /f %CERT% /p %PWD% /t %TSURL%  %FILE%\r\n"
+        "RunPostBuildEvent" = "3:0"
+        }
+        "Registry"
+        {
+            "HKLM"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKCU"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKCR"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKU"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKPU"
+            {
+                "Keys"
+                {
+                }
+            }
+        }
+        "Sequences"
+        {
+        }
+        "Shortcut"
+        {
+        }
+        "UserInterface"
+        {
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_3BCCDFF429904AE3995D905067764F0B"
+            {
+            "Name" = "8:#1901"
+            "Sequence" = "3:2"
+            "Attributes" = "3:2"
+                "Dialogs"
+                {
+                }
+            }
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_4CEDFE828D104881834EF6957BF250D7"
+            {
+            "Name" = "8:#1902"
+            "Sequence" = "3:1"
+            "Attributes" = "3:3"
+                "Dialogs"
+                {
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_902CE0167E334D5ABEC1EF57FC483F99"
+                    {
+                    "Sequence" = "3:100"
+                    "DisplayName" = "8:Finished"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdFinishedDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "UpdateText"
+                            {
+                            "Name" = "8:UpdateText"
+                            "DisplayName" = "8:#1058"
+                            "Description" = "8:#1158"
+                            "Type" = "3:15"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:"
+                            "DefaultValue" = "8:#1258"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
+                }
+            }
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_61174D0B2C0440AB9181429EF57E95B6"
+            {
+            "Name" = "8:#1902"
+            "Sequence" = "3:2"
+            "Attributes" = "3:3"
+                "Dialogs"
+                {
+                }
+            }
+            "{2479F3F5-0309-486D-8047-8187E2CE5BA0}:_71FCCAC29D34463E82ED6F2BEB40D3C1"
+            {
+            "UseDynamicProperties" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "SourcePath" = "8:<VsdDialogDir>\\VsdBasicDialogs.wim"
+            }
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_741C5FF3AB9745D49B6A6CF3346E86CB"
+            {
+            "Name" = "8:#1900"
+            "Sequence" = "3:1"
+            "Attributes" = "3:1"
+                "Dialogs"
+                {
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_BD11DC40C0454FC182CAD283E883D3A6"
+                    {
+                    "Sequence" = "3:100"
+                    "DisplayName" = "8:Welcome"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdWelcomeDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "CopyrightWarning"
+                            {
+                            "Name" = "8:CopyrightWarning"
+                            "DisplayName" = "8:#1002"
+                            "Description" = "8:#1102"
+                            "Type" = "3:3"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:Click \"Next\" to complete the installation."
+                            "DefaultValue" = "8:#1202"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Welcome"
+                            {
+                            "Name" = "8:Welcome"
+                            "DisplayName" = "8:#1003"
+                            "Description" = "8:#1103"
+                            "Type" = "3:3"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:This installer is ready to setup the [ProductName] on your computer."
+                            "DefaultValue" = "8:#1203"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
+                }
+            }
+            "{2479F3F5-0309-486D-8047-8187E2CE5BA0}:_8183FC21A09340CEB1EA2A2D048DB61F"
+            {
+            "UseDynamicProperties" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "SourcePath" = "8:<VsdDialogDir>\\VsdUserInterface.wim"
+            }
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_EA051C9512C840608A9B5FD573EA51DF"
+            {
+            "Name" = "8:#1901"
+            "Sequence" = "3:1"
+            "Attributes" = "3:2"
+                "Dialogs"
+                {
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_092FCD8994F648318DEAC96BD36096BC"
+                    {
+                    "Sequence" = "3:100"
+                    "DisplayName" = "8:Progress"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdProgressDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "ShowProgress"
+                            {
+                            "Name" = "8:ShowProgress"
+                            "DisplayName" = "8:#1009"
+                            "Description" = "8:#1109"
+                            "Type" = "3:5"
+                            "ContextData" = "8:1;True=1;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:1"
+                            "DefaultValue" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
+                }
+            }
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_F1064612163A4110B124CEB0AB950CA9"
+            {
+            "Name" = "8:#1900"
+            "Sequence" = "3:2"
+            "Attributes" = "3:1"
+                "Dialogs"
+                {
+                }
+            }
+        }
+        "MergeModule"
+        {
+        }
+        "ProjectOutput"
+        {
+        }
+    }
+}

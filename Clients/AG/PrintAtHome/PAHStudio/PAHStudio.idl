@@ -1,0 +1,31 @@
+// PAHStudio.idl : type library source for PAHStudio.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (PAHStudio.tlb).
+
+import "ocidl.idl";
+import "oaidl.idl";
+[ uuid(8B85EE30-7D0F-4337-8C24-71DFC1E9C850), version(1.0) ]
+library PAHStudio
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CPAHStudioDoc
+	
+	[ uuid(AFBB908F-6EDF-43DF-B640-9C127350088F) ]
+	dispinterface IPAHStudio
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  Class information for CPAHStudioDoc
+	
+	[ uuid(98036F45-00EC-4EC0-A5F2-1FBAC24C15D9) ]
+	coclass PAHStudio
+	{
+		[default] dispinterface IPAHStudio;
+	};
+};

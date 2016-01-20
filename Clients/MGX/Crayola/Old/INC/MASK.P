@@ -1,0 +1,21 @@
+// Source file: MASK.C
+LPMASK CALLBACK EXPORT MaskCreate( LPFRAME lpAlphaIn, int iMaxWidth, int iMaxHeight, BOOL fOn, BOOL fNoUndo);
+LPFRAME CALLBACK EXPORT MaskCreateAlphaFrame (LPFRAME lpFrame);
+BOOL MaskAddPoints( LPMASK lpMask, LPPOINT pnts, LPINT nPoints, int nShapes, int iModes, LPRECT lpRect);
+BOOL MaskAddShapes( LPMASK lpMask, LPSHAPE lpShape);
+void MaskAddEllipse( LPMASK lpMask, LPRECT lpRect, int iModes);
+LPFRAME StrokeEllipse(HMGXBRUSH hBrush, LPRECT lpEllipseRect, LPRECT lpOutRect);
+LPSHAPE MaskCreateShapes( LPPOINT pnts, LPINT nPoints, int nShapes, int iModes,BOOL bClosed,LPTFORM lpTForm );
+BOOL CALLBACK EXPORT MaskClose( LPMASK lpMask );
+BOOL MaskRect( LPMASK lpMask, LPRECT lpRect );
+BOOL MaskRectUpdate( LPMASK lpMask, LPRECT lpRect );
+BOOL MaskRectDwindle( LPMASK lpMask, LPRECT lpRect, LPFRAME lpAlphaFrame );
+int IsMasked( LPMASK lpMask, int x, int y );
+BOOL MaskLoad( LPMASK lpMask, int x, int y, int dx, LPTR lpM );
+BOOL MaskLoader( LPMASK lpMask, int x, int y, int iCount, LPTR lpM, BOOL bInvert, COMBINE_ROP ROP);
+int ShapeConvertPoints(LPSHAPE lpShape, LPPOINT lpOutputPoint);
+int ExpandPoints(LPPOINT lpPoint, LPPOINT lpOutputPoint, int count, LPTFORM lpTForm, LPPOINT lpFirst, LPPOINT lpLast);
+int GetBezierPoints(LPPOINT lpOutPoints, LPPOINT lpBezPoint, LPPOINT lpFirst, LPPOINT lpLast);
+int BezierToPoints( LPTFORM lpTForm, LPPOINT lpPoints, int nPoints, int type, LPPOINT lpOutputPoints );
+void FreeUpShapes( LPSHAPE lpShape );
+

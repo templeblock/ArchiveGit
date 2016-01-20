@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+	Note: As an alternative to hand editing this file you can use the 
+	web admin tool to configure settings for your application. Use
+	the Website->Asp.Net Configuration option in Visual Studio.
+	A full list of settings and comments can be found in 
+	machine.config.comments usually located in 
+	\Windows\Microsoft.Net\Framework\v2.x\Config 
+-->
+<configuration>
+	<appSettings>
+		<add key="MyConnectionString" value="provider=MSDASQL.1;driver={MySQL ODBC 3.51 Driver};server=facetofacesoftwa.ipowermysql.com;database=facetofa_mysql;uid=facetofa_jim;pwd=7202jimm;"/>
+		<add key="MailServer" value="mail.FaceToFaceSoftware.com"/>
+		<add key="MailFrom" value="customercare@facetofacesoftware.com="/>
+		<add key="MailFromName" value="Customer Service"/>
+		<add key="MailSubject" value="Your Face To Face Software Account"/>
+	</appSettings>
+	<connectionStrings/>
+	<system.web>
+		<!--
+			Set compilation debug="true" to insert debugging 
+			symbols into the compiled page. Because this 
+			affects performance, set this value to true only 
+			during development.
+		-->
+		<trace enabled="true" localOnly="false" pageOutput="true"/>
+		<compilation defaultLanguage="c#" debug="true" urlLinePragmas="true"/>
+		<customErrors mode="Off"/>
+		<!--
+			The <authentication> section enables configuration 
+			of the security authentication mode used by 
+			ASP.NET to identify an incoming user. 
+		-->
+		<authentication mode="Windows"/>
+	</system.web>
+	<system.codedom/>
+	<!--
+		The system.webServer section is required for running ASP.NET AJAX under Internet
+		Information Services 7.0.  It is not necessary for previous version of IIS.
+	-->
+	<system.webServer/>
+	<system.serviceModel/>
+</configuration>

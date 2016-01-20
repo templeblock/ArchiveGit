@@ -1,0 +1,289 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("MicroVision WebExpress","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c0ffc0","Wintertree","1") -->
+  <!-- $MVD$:color("19","c0ff","Or1","1") -->
+  <TITLE>Sentry Spelling Checker Engine Programmer's Guide -
+   Introduction</TITLE>
+ </HEAD>
+ <BODY BGCOLOR="WHITE">
+  <H1>
+   Sentry Spelling Checker Engine<BR>
+   Programmer's Guide<BR>
+   Introduction</H1>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE">Table of Contents</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <UL>
+   <LI>
+   <P>
+    <A HREF="#DocOverview">Document Overview</A></P>
+   <LI>
+   <P>
+    <A HREF="#SDKOverview">Sentry Software Development Kit Overview</A></P>
+   <LI>
+   <P>
+    <A HREF="#Capabilities">Sentry Spelling Checker Engine Capabilities</A></P>
+   <LI>
+   <P>
+    <A HREF="#Glossary">Glossary</A></P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="DocOverview"></A>Document Overview</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   This Programmer's Guide describes how to use the Sentry 
+   Spelling-Checker Engine (SSCE) with a software application. This 
+   document applies to the Sentry Spelling Checker Engine Windows SDK 
+   (Software Development Kit) and the Sentry Spelling Checker Engine 
+   Source SDK. Information that is specific to one SDK is clearly 
+   indicated as such; otherwise, information applies to both SDKs.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="SDKOverview"></A>Sentry Software 
+       Development Kit Overview</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The Sentry Spelling Checker Engine is a library you can use to add a 
+   spelling-checker capability to your applications. Sentry is intended 
+   for software developers and application builders. Sentry is not a 
+   stand-alone spelling checker; it must be used within an application. 
+   The Sentry engine is available as 16- and 32-bit SDKs (Software 
+   Development Kits) for Microsoft Windows, a portable C-language Source 
+   SDK, a Java class library, and Java source code. All SDK types 
+   include an API (Application Program Interface) you can use to check 
+   the spelling of words, add words to user dictionaries, get suggested 
+   replacements for misspelled words, etc. The Windows SDKs include 
+   built-in spelling checker dialog boxes, and have an augmented API 
+   that includes functions specific to the Windows environment.</P>
+  <P>
+   This programmer's guide applies to the Sentry Windows SDK and the C 
+   Source SDK. Each SDK includes:</P>
+  <UL>
+   <LI>
+   <P>
+    The Sentry Spelling-Checker Engine implemented as either 16/32 bit 
+    Windows DLLs (Windows SDK) or ANSI C source code (Source SDK)</P>
+   <LI>
+   <P>
+    An American English main lexicon containing about 100,000 words</P>
+   <LI>
+   <P>
+    A British English main lexicon containing about 100,000 words</P>
+   <LI>
+   <P>
+    An auto-correction lexicon containing hundreds of common English 
+    misspellings and their correct replacements</P>
+   <LI>
+   <P>
+    This programmer's guide</P>
+   <LI>
+   <P>
+    Source code for applications which demonstrate how to use the Sentry engine</P>
+   <LI>
+   <P>
+    A utility program used to create compressed lexicons from word lists.</P>
+   </UL>
+  <H1>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Capabilities"></A>Sentry Spelling 
+       Checker Engine Capabilities</FONT></TD>
+    </TR>
+   </TABLE></H1>
+  <P>
+   Sentry provides a general-purpose spelling-checker capability for 
+   software applications. You can use Sentry from your application to 
+   check the spelling of words (e.g., in a word-processor application) 
+   or to classify text strings as words (e.g., in an OCR or 
+   handwriting-recognition application).</P>
+  <P>
+   Using the Sentry spelling-checker engine is a co-operative venture 
+   between your application and Sentry's API.</P>
+  <P>
+   Sentry provides:</P>
+  <UL>
+   <LI>
+   <P>
+    Fast word lookups in any number of lexicons (dictionaries)</P>
+   <LI>
+   <P>
+    Highly compressed lexicons</P>
+   <LI>
+   <P>
+    Support for multi-lingual lexicons with words formed from the Latin 1 
+    (ISO-8859-1) character set. Through a special build option, the 
+    Source SDK can support the Unicode character set.</P>
+   <LI>
+   <P>
+    Checking for uncapitalized words, words with unusual case 
+    combinations, doubled words, and words containing embedded digits</P>
+   <LI>
+   <P>
+    Checking of individual words or blocks of text</P>
+   <LI>
+   <P>
+    Intelligent suggested replacements for misspelled words using 
+    phonetic and typographical matching</P>
+   <LI>
+   <P>
+    Support for ignore-all and replace-all word processing</P>
+   <LI>
+   <P>
+    Ability to automatically correct common misspellings</P>
+   <LI>
+   <P>
+    Ability to automatically suggest specific replacements for certain words</P>
+   <LI>
+   <P>
+    Ability to mark words as misspelled, even if they exist in other lexicons</P>
+   <LI>
+   <P>
+    Support for text-lexicon maintenance (adding and removing words)</P>
+   <LI>
+   <P>
+    Support for undoing corrections made to text</P>
+   <LI>
+   <P>
+    Ability to automatically expand abbreviations</P>
+   <LI>
+   <P>
+    Ability to create compressed lexicons from word lists.</P>
+   </UL>
+  <P>
+   Your application provides:</P>
+  <UL>
+   <LI>
+   <P>
+    All user interface components (however, a user interface for 
+    Microsoft Windows applications is provided with the Windows SDK)</P>
+   <LI>
+   <P>
+    Extraction of words from a document</P>
+   <LI>
+   <P>
+    Replacement of corrected words in a document</P>
+   <LI>
+   <P>
+    General co-ordination of the spell-checking process.</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Glossary"></A>Glossary</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <UL>
+   <LI>
+   <P>
+    <B>Block</B>: A block is a character array (string) containing one or 
+    more words. Sentry's Core API contains functions for checking the 
+    spelling of and modifying words in blocks.</P>
+   <LI>
+   <P>
+    <B>Character set</B>: A mechanism for mapping character shapes to 
+    numeric values. The Sentry engine supports the Latin 1 character set, 
+    and can support the Unicode character set through a special build 
+    option (Sentry Source SDK only).</P>
+   <LI>
+   <P>
+    <B><A NAME="CompressedLexicon"></A>Compressed lexicon</B>: A 
+    compressed lexicon is a set of words in compressed form. Like a text 
+    lexicon, a compressed lexicon contains words, but the words are 
+    stored in a special form that eliminates redundancies so the words 
+    occupy less space. On average, a compressed lexicon is slower to 
+    access than a text lexicon. Words cannot be added to or removed from 
+    a compressed lexicon. Compressed lexicons can hold hundreds of 
+    thousands of words. See also <A HREF="#Lexicon">Lexicon</A> and <A HREF="#TextLexicon">Text
+     lexicon</A>.</P>
+   <LI>
+   <P>
+    <B>Latin 1</B>: A standard method of mapping character shapes to 
+    single-byte numerical values. Characters with values ranging from 0 
+    to 127 are identical to the ASCII character set. Characters with 
+    codes above 127 are used to represent accented characters. Latin 1, 
+    also known as ISO-8859-1, is the same as the ANSI character set used 
+    in Microsoft Windows and other operating systems.</P>
+   <LI>
+   <P>
+    <B><A NAME="Lexicon"></A>Lexicon</B>: A lexicon is a set of words. 
+    Some spelling checkers use the term &quot;dictionary&quot; to 
+    describe the set of words they use.</P>
+   <LI>
+   <P>
+    <B>Lexicon format</B>: The organization and structure of a lexicon. 
+    Sentry supports two lexicon formats: text, which hold at most a few 
+    thousand words and are modifiable, and compressed, which can hold an 
+    unlimited number of words but are not modifiable.</P>
+   <LI>
+   <P>
+    <B>Main lexicon</B>: The main lexicon is a large collection of 
+    commonly used words in a specific language. The main lexicon is 
+    normally compressed and is not modifiable by users at run-time.</P>
+   <LI>
+   <P>
+    <B><A NAME="PermanentLexicon"></A>Permanent lexicon</B>: Words in a 
+    permanent lexicon are saved to disk when the lexicon is updated. When 
+    the lexicon is reopened, its words will be restored from its disk 
+    image. Compressed lexicons are always permanent; text lexicons may be 
+    permanent or temporary. See also <A HREF="#TemporaryLexicon">Temporary
+     lexicon</A>.</P>
+   <LI>
+   <P>
+    <B>Suggestion</B>: The Sentry engine can suggest alternative words 
+    which are likely replacements for a misspelled word. For example, if 
+    the misspelled word is <I>stopp</I>, Sentry might suggest <I>stop</I>,
+     <I>steppe</I>, <I>stopped</I>, etc. Sentry will locate the n best 
+    alternative replacements for a word; your application determines how 
+    large n is.</P>
+   <LI>
+   <P>
+    <B><A NAME="TemporaryLexicon"></A>Temporary lexicon</B>: Words in a 
+    temporary lexicon exist only while the lexicon is open. Once the 
+    lexicon is closed, the words are lost. Only text lexicons may be 
+    temporary. See also <A HREF="#PermanentLexicon">Permanent lexicon</A>.</P>
+   <LI>
+   <P>
+    <B><A NAME="TextLexicon"></A>Text lexicon</B>: A text lexicon is a 
+    set of words in text form. Words can be added to or removed from a 
+    text lexicon. Text lexicons are generally fast to access, but they 
+    take up more space per word than compressed lexicons. Text lexicons 
+    are sometimes called &quot;user lexicons&quot; or &quot;user 
+    dictionaries.&quot; See also <A HREF="#CompressedLexicon">Compressed lexicon</A>.</P>
+   <LI>
+   <P>
+    <B>Unicode</B>: A standard way of mapping character shapes to 
+    double-byte numerical values. Unicode can represent character shapes 
+    in virtually all human languages.</P>
+   <LI>
+   <P>
+    <B>User lexicon</B>: See <A HREF="#TextLexicon">Text lexicon</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <P>
+   Copyright &copy; 2000 <A HREF="http://www.wintertree-software.com">Wintertree
+    Software Inc</A>.<BR>
+   $Revision: 5.14 $
+ </BODY>
+</HTML>

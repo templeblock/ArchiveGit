@@ -1,0 +1,6 @@
+Si vous avez déjà créé des projets dans @@N, c'est ici que vous pouvez les voir et les sélectionner. 
+
+Si vous avez créé plusieurs projets, vous pouvez les trier par Type, Catégorie ou Ton. Vous pouvez également me charger de chercher un projet pour vous en tapant un mot-clé.
+
+Remarque: si vous voulez travailler sur un projet tout prêt, il vous suffit de sélectionner PrintMaster sous Type de projet et de choisir votre type de projet.
+ 

@@ -1,0 +1,855 @@
+// (c) Copyright 1994 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+
+#include "id.h"
+#include "afxres.h"
+#include "dlgfont.h"
+
+STRINGTABLE DISCARDABLE // OLE2.0 Strings
+BEGIN
+// Ole Doc Info Strings (used by CMultiDocTemplate GetDocString method)
+// _DESIGNERFIX -- change to PictPub.Image.5
+    IDR_PPSVRTYPE_PP    "\nPicture Publisher\nPicture Publisher Image\nPictPub Files (*.pp5)\n.pp5\nPictPub.Image.5\nMicrografx Picture Publisher 5.0 Image"
+// Ole Error Strings    
+    IDS_E_OLEINITFAILED "OLE 2.0 initialization failed.  Make sure that the OLE libraries are the correct version."
+END
+
+IDD_INSERTOLE DIALOG 72, 105, 124, 81
+STYLE DS_SYSMODAL | WS_POPUP | WS_VISIBLE | WS_DLGFRAME
+FONT PP_FONT
+BEGIN
+	LTEXT "Create Picture Publisher 5.0 Object", -1, 5, 5, 125, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CONTROL "&From an Existing Image", IDC_INSERTEXIST, RADIO_CLASS, RADIO_STYLE | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 17, 17, 90, 12
+	CONTROL "As a &New Image", IDC_INSERTNEW, RADIO_CLASS, RADIO_STYLE | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 17, 30, 90, 12
+	CONTROL "From a &Vector Import", IDC_INSERTIMPORT, RADIO_CLASS, RADIO_STYLE | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 17, 43, 90, 12
+	DEFPUSHBUTTON "OK", IDOK, 20, 64, 40, 14
+	PUSHBUTTON "Cancel", IDCANCEL, 63, 64, 40, 14
+	CONTROL "", -1, "panel", 0 | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CLIPSIBLINGS, 0, 0, 124, 60
+	CONTROL "", -1, "panel", 0x001 | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CLIPSIBLINGS, 0, 60, 124, 21
+END
+
+
+// -------------------------------------------------------------
+// MENU USED WHEN SERVER "EMBEDDED" IN OTHER APPLICATION
+// -------------------------------------------------------------
+IDR_PPSVRTYPE_SRVR_EMB MENU DISCARDABLE
+BEGIN
+	POPUP       "&File"
+	BEGIN
+		MENUITEM        "&New...	Ctrl+N",                    IDM_NEW
+		MENUITEM        "&Open...	Ctrl+O",                    IDM_OPEN
+		MENUITEM        "&Close	Ctrl+F4",                       IDM_CLOSE
+		MENUITEM        SEPARATOR
+ 		MENUITEM        "Update",                           ID_FILE_UPDATE
+		MENUITEM        "Save &As...	Ctrl+A",                IDM_SAVEAS
+		MENUITEM        "Re&vert To Saved	Ctrl+Home",         IDM_REVERT
+		MENUITEM        SEPARATOR
+#ifndef OEM
+		MENUITEM        "Import&Browser...	Ctrl+Shift+I",      IDM_IMPORT
+#endif
+#ifndef OEM_NOTWAIN
+		MENUITEM        "Ac&quire...	SHIFT+F3"               IDM_ACQUIRE
+#endif
+		POPUP   	"Import"
+		BEGIN
+			MENUITEM "",         IDM_IMPORT0
+		END
+		POPUP   	"Expor&t"
+		BEGIN
+			MENUITEM ""     IDM_EXPORT0
+		END
+			MENUITEM        SEPARATOR
+		POPUP           "S&etup",
+		BEGIN
+			MENUITEM        "&Printer...",                      IDM_PRINTSETUP
+			MENUITEM        "&Scanner...",                      IDM_SCANSETUP
+			MENUITEM        "&Monitor...",                      IDM_MONITORMAP
+#ifndef OEM
+//			MENUITEM        "C&olor Manager...",                IDM_CLRMGRSETUP
+			POPUP           "&Calibration"
+			BEGIN
+				MENUITEM        "For &Scanning...",             IDM_CALIBRATESCAN, GRAYED
+				MENUITEM        "For &Printing...",             IDM_CALIBRATEPRINT
+			END
+#endif
+		END
+		MENUITEM        "&Print...	Ctrl+P",                    IDM_PRINT
+#ifndef OEM
+		MENUITEM        "Print Previe&w	Ctrl+Shift+F2",         IDM_PRINTPREVIEW, GRAYED
+#endif
+		MENUITEM        SEPARATOR
+		MENUITEM        "Sen&d",                       	    IDM_SENDMAIL
+		MENUITEM        SEPARATOR
+		MENUITEM 	"Recent File",   ID_FILE_MRU_FILE1,GRAYED
+		MENUITEM        SEPARATOR
+// --------------------------------------------------------------------
+// !!! MUST USE ID_APP_EXIT define in the Foundation !!!!
+// --------------------------------------------------------------------
+        	MENUITEM        "Exit   Alt+F4",                ID_APP_EXIT 
+	END
+
+	POPUP       "&Edit"
+	BEGIN
+		MENUITEM		"&Undo	Ctrl+Z",									IDM_UNDO
+		MENUITEM		"&Apply	Ctrl+Shift+A",							    IDM_APPLY
+#ifndef OEM
+		POPUP			"Command &List"
+		BEGIN
+			MENUITEM	"&Undo...	Ctrl+F2",								IDM_CMDLIST_UNDO
+			MENUITEM	"&Redo...	Ctrl+F3",								IDM_CMDLIST_REDO
+			MENUITEM	"&Edit...	Ctrl+F5",								IDM_CMDLIST_EDIT
+		END
+#endif
+		MENUITEM		SEPARATOR
+		MENUITEM		"&Cut	Ctrl+X",						            IDM_CUT
+		MENUITEM		"C&opy	Ctrl+C",						            IDM_COPY
+		MENUITEM		"Copy &To...	Ctrl+Shift+C",			            IDM_COPYTOFILE
+		MENUITEM		"&Paste	Ctrl+V",						            IDM_PASTE
+		MENUITEM        	"Paste &Special",                                   IDM_PASTESPECIAL
+		MENUITEM		"Paste As &New Image	Ctrl+Shift+N",	            IDM_PASTEASNEW
+		MENUITEM        	"Cl&ear	Ctrl+Del",                                  IDM_DELETE
+		MENUITEM		SEPARATOR
+		MENUITEM		"Clipboard&Browser...	Ctrl+Shift+V",			    IDM_PASTEFROMFILE
+	END
+
+	POPUP		"&View"  
+	BEGIN
+		MENUITEM	"1:1 View",		IDC_VIEW1TO1
+		MENUITEM	"Fit in Window",	IDC_VIEWALL
+		MENUITEM	"Full Screen",		IDC_VIEWFULL
+		MENUITEM	"Show Quickzoom	F10", 					IDM_SHOWZOOMBOX
+		MENUITEM	SEPARATOR
+		MENUITEM	"Show &Color Palette	F7", 	 	    IDC_STATUSPALETTE
+		MENUITEM	"Show Info	F11",						IDM_SHOWINFO
+#ifndef OEM
+		MENUITEM	"Show Object List	F12",				IDM_OBJ_MANAGER
+#endif
+		MENUITEM	"Image Task Manager",				        IDM_TASKMANSHOW
+		MENUITEM	SEPARATOR
+		MENUITEM	"Toolbars...",		-1
+		MENUITEM	"Show Rulers	F9",			  	    IDM_RULERSHOW
+		MENUITEM	"Image I&nformation	Ctrl+Shift+F3", 	IDC_STATUSINFO
+	END
+
+	POPUP		"&Tools"  
+	BEGIN
+
+		MENUITEM	"Save &Positions	Ctrl+Shift+F5",				IDM_SAVEPOSITIONS
+		MENUITEM	"Create &Scratchpad	Ctrl+Shift+F10", 			IDM_SCRATCHPAD
+#ifndef OEM
+		POPUP               "&Macro"
+		BEGIN
+			MENUITEM        "&Play...	Ctrl+Shift+P",          IDM_MACROPLAY
+			MENUITEM        "Play &Batch...	Ctrl+Shift+W",      IDM_MACROPLAYBATCH
+			MENUITEM        "&Record...	Ctrl+Shift+R",          IDM_MACRORECORD
+			MENUITEM        "&Edit...	Ctrl+Shift+E",          IDM_MACRO_EDIT
+			MENUITEM        "&Stop	Pause",                     IDM_MACROSTOP
+		END
+#endif
+		MENUITEM    "&Customize...",		-1
+		MENUITEM    "&Options...",      IDM_PREF
+	END
+
+	POPUP       "M&ask"
+	BEGIN
+		MENUITEM		"&Undo	Ctrl+Shift+Z",					            IDM_MASKUNDO
+		MENUITEM		SEPARATOR
+		MENUITEM        "&Remove Mask	Ctrl+R",				            IDM_MASKREMOVE
+		MENUITEM        "&Load Mask...	Ctrl+Shift+L",			            IDM_MASKLOAD
+		MENUITEM        "&Save Mask...	Ctrl+Shift+S",			            IDM_MASKSAVE
+#ifndef OEM
+		MENUITEM		"Chr&oma Mask...	Ctrl+Shift+K",		            IDM_CHROMA_MASK
+		MENUITEM		"Create Mask From O&bject	Ctrl+Shift+X", 		    IDM_MASKFROMOBJECT
+#endif
+		MENUITEM		SEPARATOR
+		MENUITEM		"&Invert Mask	Ins",					            IDM_MASKINVERT
+		MENUITEM		"&Feather Mask...	Ctrl+Shift+B",		            IDM_FEATHER
+#ifndef OEM
+		MENUITEM		"Remove &Holes	Ctrl+D",				            IDM_REMOVE_HOLES
+		MENUITEM		"Mask Smoo&ther...	Ctrl+Shift+G",		            IDM_MASK_SMOOTH
+#endif
+		MENUITEM		SEPARATOR
+		MENUITEM		"&Crop To Mask	Ctrl+Y",				            IDM_CROP
+		MENUITEM		"Stro&ke Mask...	Ctrl+Shift+J",		            IDM_MASKSTROKE
+		MENUITEM		SEPARATOR
+		MENUITEM		"Hide &Mask	Shift+End",					            IDM_HIDEMARQUEE
+   END
+
+   POPUP       "&Map"
+   BEGIN
+		MENUITEM		"&Modify Color Maps...	Ctrl+M",		IDM_MAP
+		POPUP			"&Contrast/Brightness"
+		BEGIN
+			MENUITEM	"&Joystick...	Ctrl+J",		IDM_CONTBRIT_STICK
+			MENUITEM	"&Visual...	Ctrl+K",			IDM_CONTBRIT_VISUAL
+		END
+		POPUP			"Color &Balance"
+		BEGIN
+			MENUITEM	"&Joystick...	Ctrl+F",		IDM_COLORBAL_STICK
+			MENUITEM	"&Visual...	Ctrl+G",			IDM_COLORBAL_VISUAL
+		END
+		MENUITEM		"&Tone Balance...	Ctrl+Q",	IDM_QUARTERTONE
+		MENUITEM		"&Posterize...	Ctrl+L", 		IDM_POSTERIZE
+		MENUITEM		"Th&reshold...	Ctrl+Shift+T", 	IDM_THRESHOLD
+		MENUITEM		"Hue &Shift...	Ctrl+U",		IDM_HUE_SHIFT
+		MENUITEM		"&Hue Map...	Ctrl+H",		IDM_HUE
+		MENUITEM		"Hist&ogram...	Ctrl+Shift+H",	IDM_HISTOGRAM
+#ifndef OEM
+		MENUITEM		"Apply Ca&libration Map...",	IDM_CALIBRATEAPPLY
+#endif
+		MENUITEM        SEPARATOR
+		MENUITEM		"&Edit Palette...",				IDM_PALETTEEDIT
+    END
+
+    POPUP       "&Image"
+	BEGIN
+		MENUITEM 	"&Size...	Ctrl+Shift+Y",					IDM_SIZE
+		MENUITEM 	"E&xpand...	Shift+F9",						IDM_EXPAND
+		POPUP		"&Rotate",
+		BEGIN
+			MENUITEM	"90° &Clockwise	Ctrl+F10",				IDM_ROTATE90
+			MENUITEM	"90° C&ounterclockwise	Ctrl+F11",		IDM_ROTATE270
+			MENUITEM	"180 &Degrees	Ctrl+F12",				IDM_ROTATE180
+			MENUITEM	"&Arbitrary Angle...	Ctrl+F6",		IDM_ROTATEANY
+		END
+		POPUP		"&Flip"
+		BEGIN
+			MENUITEM 	"&Horizontal	Ctrl+F7",				IDM_MIRRORX
+			MENUITEM 	"&Vertical	Ctrl+F8",					IDM_MIRRORY
+			MENUITEM 	"&Diagonal	Ctrl+F9",					IDM_MIRRORXY
+		END
+		POPUP		"&Channels"
+		BEGIN
+			MENUITEM	"Split &RGB",					IDM_SPLITRGB
+			MENUITEM	"Split &HSL",					IDM_SPLITHSL
+#ifndef OEM
+			MENUITEM	"&Split CMYK",					IDM_SPLITCMYK
+#endif
+			MENUITEM	"Re&combine",	   				IDM_CHANNELCOMBINE
+		END
+		POPUP		"Con&vert To"
+		BEGIN
+			MENUITEM	"&Line Art",					IDM_CONVLA
+			MENUITEM	"&Scattered",					IDM_CONVSP
+			MENUITEM	"&Grayscale",					IDM_CONVCT
+			MENUITEM	"&Palette Color...",			IDM_CONVPALETTE
+			MENUITEM	"&RGB Color",					IDM_CONVRGBCOLOR
+#ifndef OEM
+			MENUITEM	"&CMYK Color",					IDM_CONVCMYKCOLOR
+			MENUITEM	"Color &Managed...", 			IDM_COLORMANAGED
+#endif
+		END
+		MENUITEM	"&Invert	Ctrl+I",				IDM_INVERT
+		MENUITEM	"S&titch...",						IDC_STITCH
+		MENUITEM	SEPARATOR
+		MENUITEM	"&Effects...	Ctrl+E",			IDM_SPECIALFX
+    END
+
+#ifndef OEM
+	POPUP			"&Object"
+	BEGIN
+		MENUITEM		"A&lign...	Ctrl+Shift+O",		IDM_OBJ_ALIGN	
+		MENUITEM		"&Position...	Ctrl+Shift+Q",	IDM_OBJ_POSITION	
+		POPUP		    "Arran&ge"
+		BEGIN
+			MENUITEM	"&Group	Ctrl+Shift+F6",			IDM_OBJ_GROUP
+			MENUITEM	"&Ungroup	Ctrl+Shift+F7",		IDM_OBJ_UNGROUP
+			MENUITEM	SEPARATOR
+			MENUITEM	"&Lock	Ctrl+Shift+F8",			IDM_OBJ_LOCK
+			MENUITEM	"U&nlock	Ctrl+Shift+F9",		IDM_OBJ_UNLOCK
+		END
+		POPUP			"&Order"
+		BEGIN
+			MENUITEM    "Move Dow&n",				    IDM_OBJ_DOWNLEVEL
+			MENUITEM    "Move &Up",				        IDM_OBJ_UPLEVEL
+			MENUITEM    "Move To &Back",			    IDM_OBJ_MOVETOBOTTOM
+			MENUITEM    "Move To F&ront",			    IDM_OBJ_MOVETOTOP
+		END
+		MENUITEM		SEPARATOR
+		POPUP			"&Combine"
+		BEGIN
+			MENUITEM	"&Objects Together	Ctrl+Shift+D",			    IDM_OBJ_COMBOBJS  
+			MENUITEM	"&All Objects With Base	Ctrl+Shift+F",			IDM_COMBINE
+			MENUITEM	"&Selected Objects With Base	Ctrl+Shift+U",	IDM_COMBINE_SEL		
+		END                      
+		MENUITEM		"&Feather Object...	Ctrl+B",			IDM_OBJ_FEATHER
+		MENUITEM		"M&erge Mask	Ctrl+Shift+M",			IDM_OBJ_APPLYMASK
+		MENUITEM		"Create Object From Mas&k	Ctrl+W",	IDM_OBJECTFROMMASK
+		MENUITEM		"&Delete Objects",						IDM_OBJ_DELETE
+		MENUITEM		SEPARATOR		
+		MENUITEM		"Select &All	F2",					IDM_OBJ_SELECTALL
+		MENUITEM		"Hide &Marquee	Ctrl+End",				IDM_OBJ_HIDEMARQUEE
+	END
+#endif
+
+	POPUP       "&Window"
+	BEGIN
+		MENUITEM	"&New Window",					ID_WINDOW_NEW   
+		MENUITEM	"&Cascade",						ID_WINDOW_CASCADE
+		MENUITEM	"&Tile",						ID_WINDOW_TILE_HORZ
+		MENUITEM	"Arrange &Icons",				ID_WINDOW_ARRANGE
+		MENUITEM	SEPARATOR
+		MENUITEM	"Close &All	Ctrl+Shift+F4",		IDM_CLOSEALL
+	END
+
+	POPUP       "&Help"
+	BEGIN
+		MENUITEM        "Context &Sensitive",           IDM_HELP_CONTEXT
+		MENUITEM        SEPARATOR
+		MENUITEM        "&Contents...",                 IDM_HELP_INDEX
+		MENUITEM        "&Using Picture Publisher...",  IDM_HELP_USING
+		MENUITEM        "&Read Me...",                  IDM_HELP_README
+		MENUITEM        "Using &Help...",               IDM_HELP_HELPONHELP
+		MENUITEM        SEPARATOR
+		MENUITEM        "&About Picture Publisher...",  IDM_ABOUT
+	END
+END
+
+// -------------------------------------------------------------
+// ACCELERATOR TABLE USED WHEN ACTIVATED "EMBEDDED"
+// -------------------------------------------------------------
+IDR_PPSVRTYPE_SRVR_EMB ACCELERATORS MOVEABLE DISCARDABLE PURE
+BEGIN
+	VK_F1, IDM_HELP, VIRTKEY
+	VK_F1, IDM_HELP, VIRTKEY, SHIFT
+#ifndef OEM
+	VK_F2, IDM_OBJ_SELECTINVERT, VIRTKEY, SHIFT
+	VK_F2, IDM_OBJ_SELECTALL, VIRTKEY
+//	VK_F2, IDM_CMDLIST_UNDO, VIRTKEY, CONTROL
+//	VK_F3, IDM_ACQUIRE, VIRTKEY, SHIFT
+//	VK_F3, IDM_CMDLIST_REDO, VIRTKEY, CONTROL
+#endif
+	VK_F3, IDC_STATUSINFO, VIRTKEY, CONTROL, SHIFT
+//	VK_F4, IDM_TOOLSHOW, VIRTKEY
+	VK_F4, IDM_FUNC4, VIRTKEY, SHIFT
+	VK_F4, IDM_CLOSEALL, VIRTKEY, CONTROL, SHIFT
+	VK_F5, IDM_FUNC5, VIRTKEY, SHIFT
+	VK_F5, IDM_LASTTOOL, VIRTKEY
+	VK_F5, IDM_SAVEPOSITIONS, VIRTKEY, SHIFT, CONTROL
+#ifndef OEM
+//	VK_F5, IDM_CMDLIST_EDIT, VIRTKEY, CONTROL
+#endif
+	VK_F6, IDM_FUNC3, VIRTKEY, SHIFT
+	VK_F6, IDM_ROTATEANY, VIRTKEY, CONTROL
+	VK_F6, IDM_FUNC6, VIRTKEY
+#ifndef OEM
+	VK_F6, IDM_OBJ_GROUP, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_F7, IDC_STATUSPALETTE, VIRTKEY
+	VK_F7, IDM_FUNC7, VIRTKEY,SHIFT
+	VK_F7, IDM_MIRRORX, VIRTKEY, CONTROL
+#ifndef OEM
+	VK_F7, IDM_OBJ_UNGROUP, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_F8, IDM_STATUSSHOW, VIRTKEY
+	VK_F8, IDM_FUNC8, VIRTKEY, SHIFT
+	VK_F8, IDM_MIRRORY, VIRTKEY, CONTROL
+#ifndef OEM
+	VK_F8, IDM_OBJ_LOCK, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_F9, IDM_RULERSHOW, VIRTKEY
+	VK_F9, IDM_FUNC9, VIRTKEY, SHIFT
+	VK_F9, IDM_MIRRORXY, VIRTKEY, CONTROL
+#ifndef OEM
+	VK_F9, IDM_OBJ_UNLOCK, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_F10, IDM_FUNC10, VIRTKEY, SHIFT
+	VK_F10, IDM_SHOWZOOMBOX, VIRTKEY
+	VK_F10, IDM_ROTATE90, VIRTKEY, CONTROL
+	VK_F10, IDM_SCRATCHPAD, VIRTKEY, CONTROL, SHIFT
+	VK_F11, IDC_VIEWSLIME, VIRTKEY, SHIFT
+//	VK_F11, IDM_SHOWINFO, VIRTKEY
+	VK_F11, IDM_ROTATE270, VIRTKEY, CONTROL
+#ifndef OEM
+	VK_F11, IDM_CUSTBOXLOAD, VIRTKEY, SHIFT, CONTROL
+	VK_F12, IDC_MASKEDITALPHA, VIRTKEY, SHIFT
+	VK_F12, IDM_OBJ_MANAGER, VIRTKEY
+#endif
+	VK_F12, IDM_ROTATE180, VIRTKEY, CONTROL
+#ifndef OEM
+//	VK_F12, IDM_CUSTBOXCREATE, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_BACK,IDM_UNDO, VIRTKEY, ALT
+	VK_DELETE, IDM_DELETE, VIRTKEY, CONTROL
+	VK_DELETE, IDM_CUT, VIRTKEY, SHIFT
+	VK_INSERT,IDM_COPY, VIRTKEY, CONTROL
+	VK_INSERT, IDM_PASTE, VIRTKEY, SHIFT
+	VK_INSERT, IDM_MASKINVERT, VIRTKEY
+#ifndef OEM
+	VK_PAUSE, IDM_MACROSTOP, VIRTKEY
+#endif
+	VK_UP, IDM_SIZEUP, VIRTKEY, CONTROL
+	VK_DOWN, IDM_SIZEDOWN, VIRTKEY, CONTROL
+	VK_RIGHT, IDM_SHAPEUP, VIRTKEY, CONTROL
+	VK_LEFT, IDM_SHAPEDOWN, VIRTKEY, CONTROL
+	VK_UP, IDM_MOVEUP, VIRTKEY, SHIFT
+	VK_DOWN, IDM_MOVEDOWN, VIRTKEY, SHIFT
+#ifndef OEM
+	VK_UP, IDM_OBJ_UPLEVEL, VIRTKEY, SHIFT, CONTROL
+	VK_DOWN, IDM_OBJ_DOWNLEVEL, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_RIGHT, IDM_MOVERIGHT, VIRTKEY, SHIFT
+	VK_LEFT, IDM_MOVELEFT, VIRTKEY, SHIFT
+#ifndef OEM
+	VK_RIGHT, IDM_OBJ_MOVETOBOTTOM, VIRTKEY, SHIFT, CONTROL
+	VK_LEFT, IDM_OBJ_MOVETOTOP, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_ESCAPE, IDM_ESCAPE, VIRTKEY
+	VK_NEXT, IDC_ZOOMOUT, VIRTKEY
+	VK_PRIOR, IDC_ZOOMIN, VIRTKEY
+	VK_HOME, IDC_VIEWALL, VIRTKEY
+	VK_END, IDC_VIEWLAST, VIRTKEY
+	VK_END, IDM_HIDEMARQUEE, VIRTKEY, SHIFT
+#ifndef OEM
+	VK_END, IDM_OBJ_HIDEMARQUEE, VIRTKEY, CONTROL
+#endif
+//	"A", IDM_SAVEAS, VIRTKEY, CONTROL
+#ifndef OEM
+	"B", IDM_OBJ_FEATHER, VIRTKEY, CONTROL
+#endif
+	"C", IDM_COPY, VIRTKEY, CONTROL
+#ifndef OEM
+	"D", IDM_REMOVE_HOLES, VIRTKEY, CONTROL
+#endif
+	"E", IDM_SPECIALFX, VIRTKEY, CONTROL
+	"F", IDM_COLORBAL_STICK, VIRTKEY, CONTROL
+	"G", IDM_COLORBAL_VISUAL, VIRTKEY, CONTROL
+	"H", IDM_HUE, VIRTKEY, CONTROL
+	"I", IDM_INVERT, VIRTKEY, CONTROL
+	"J", IDM_CONTBRIT_STICK, VIRTKEY, CONTROL
+	"K", IDM_CONTBRIT_VISUAL, VIRTKEY, CONTROL
+	"L", IDM_POSTERIZE, VIRTKEY, CONTROL
+	"M", IDM_MAP, VIRTKEY, CONTROL
+//	"N", IDM_NEW, VIRTKEY, CONTROL
+//	"O", IDM_OPEN, VIRTKEY, CONTROL
+//	"P", IDM_PRINT, VIRTKEY, CONTROL
+	"Q", IDM_QUARTERTONE, VIRTKEY, CONTROL
+	"R", IDM_MASKREMOVE, VIRTKEY, CONTROL
+//	"S", IDM_SAVE, VIRTKEY, CONTROL
+	"T", IDC_TEXT, VIRTKEY, CONTROL
+	"V", IDM_PASTE, VIRTKEY, CONTROL
+	"U", IDM_HUE_SHIFT, VIRTKEY, CONTROL
+#ifndef OEM
+	"W", IDM_OBJECTFROMMASK, VIRTKEY, CONTROL
+#endif
+	"X", IDM_CUT, VIRTKEY, CONTROL
+	"Y", IDM_CROP, VIRTKEY, CONTROL
+	"Z", IDM_UNDO, VIRTKEY, CONTROL 
+	"A", IDM_APPLY, VIRTKEY, CONTROL, SHIFT
+	"B", IDM_FEATHER, VIRTKEY, CONTROL, SHIFT	
+	"C", IDM_COPYTOFILE, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"D", IDM_OBJ_COMBOBJS, VIRTKEY, CONTROL, SHIFT
+	"E", IDM_MACRO_EDIT, VIRTKEY, CONTROL, SHIFT
+	"F", IDM_COMBINE, VIRTKEY, CONTROL, SHIFT
+	"G", IDM_MASK_SMOOTH, VIRTKEY, CONTROL, SHIFT
+#endif
+	"H", IDM_HISTOGRAM, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+//	"I", IDM_IMPORT, VIRTKEY, CONTROL, SHIFT
+#endif
+	"J", IDM_MASKSTROKE, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"K", IDM_CHROMA_MASK, VIRTKEY, CONTROL, SHIFT
+#endif
+	"L", IDM_MASKLOAD, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"M", IDM_OBJ_APPLYMASK, VIRTKEY, CONTROL, SHIFT
+#endif
+	"N", IDM_PASTEASNEW, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"O", IDM_OBJ_ALIGN, VIRTKEY, CONTROL, SHIFT
+	"P", IDM_MACROPLAY, VIRTKEY, CONTROL, SHIFT
+	"Q", IDM_OBJ_POSITION, VIRTKEY, CONTROL, SHIFT
+	"R", IDM_MACRORECORD, VIRTKEY, CONTROL, SHIFT	
+#endif
+	"S", IDM_MASKSAVE, VIRTKEY, CONTROL, SHIFT	
+	"T", IDM_THRESHOLD, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"U", IDM_COMBINE_SEL, VIRTKEY, CONTROL, SHIFT
+#endif
+	"V", IDM_PASTEFROMFILE, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"W", IDM_MACROPLAYBATCH, VIRTKEY, CONTROL, SHIFT
+	"X", IDM_MASKFROMOBJECT, VIRTKEY, CONTROL, SHIFT
+#endif
+	"Y", -1, VIRTKEY, CONTROL, SHIFT
+	"Z", IDM_MASKUNDO, VIRTKEY, CONTROL, SHIFT
+END
+
+
+// -------------------------------------------------------------
+// MENU USED WHEN SERVER ACTIVATED "IN_PLACE" IN OTHER APPLICATION
+// -------------------------------------------------------------
+IDR_PPSVRTYPE_SRVR_IP MENU DISCARDABLE 
+BEGIN
+	POPUP       "&Edit"
+	BEGIN
+		MENUITEM		"&Undo	Ctrl+Z",										IDM_UNDO
+		MENUITEM		"&Apply	Ctrl+Shift+A",										IDM_APPLY
+		MENUITEM		SEPARATOR
+		MENUITEM		"&Cut	Ctrl+X",						IDM_CUT
+		MENUITEM		"C&opy	Ctrl+C",						IDM_COPY
+		MENUITEM		"Copy &To...	Ctrl+Shift+C",			IDM_COPYTOFILE
+		MENUITEM		"&Paste	Ctrl+V",						IDM_PASTE
+		MENUITEM        "Paste &Special",                       IDM_PASTESPECIAL
+		MENUITEM        "Clea&r	Ctrl+Del",              		IDM_DELETE
+		MENUITEM		SEPARATOR
+		MENUITEM		"Clipboard&Browser...	Ctrl+Shift+V",	IDM_PASTEFROMFILE
+	END
+
+	POPUP		"&View"  
+	BEGIN
+		MENUITEM	"1:1 View",		IDC_VIEW1TO1
+		MENUITEM	"Fit in Window",	IDC_VIEWALL
+		MENUITEM	"Full Screen",		IDC_VIEWFULL
+		MENUITEM	"Show Quickzoom	F10", 					IDM_SHOWZOOMBOX
+		MENUITEM	SEPARATOR
+		MENUITEM	"Show &Color Palette	F7", 	 	    IDC_STATUSPALETTE
+//		MENUITEM	"Show Info	F11",						IDM_SHOWINFO
+#ifndef OEM
+//		MENUITEM	"Show Object List	F12",				IDM_OBJ_MANAGER
+#endif
+//		MENUITEM	"Image Task Manager",				        IDM_TASKMANSHOW
+		MENUITEM	SEPARATOR
+		MENUITEM	"Toolbars...",		-1
+		MENUITEM	"Show Rulers	F9",			  	    IDM_RULERSHOW
+		MENUITEM	"Image I&nformation	Ctrl+Shift+F3", 	IDC_STATUSINFO
+	END
+
+	POPUP		"&Tools"  
+	BEGIN
+
+//		MENUITEM	"Save &Positions	Ctrl+Shift+F5",				IDM_SAVEPOSITIONS
+//		MENUITEM	"Create &Scratchpad	Ctrl+Shift+F10", 			IDM_SCRATCHPAD
+#ifndef OEM
+//		POPUP               "&Macro"
+//		BEGIN
+//			MENUITEM        "&Play...	Ctrl+Shift+P",          IDM_MACROPLAY
+//			MENUITEM        "Play &Batch...	Ctrl+Shift+W",      IDM_MACROPLAYBATCH
+//			MENUITEM        "&Record...	Ctrl+Shift+R",          IDM_MACRORECORD
+//			MENUITEM        "&Edit...	Ctrl+Shift+E",          IDM_MACRO_EDIT
+//			MENUITEM        "&Stop	Pause",                     IDM_MACROSTOP
+//		END
+#endif
+		MENUITEM    "&Customize...",		-1
+		MENUITEM    "&Options...",      IDM_PREF
+	END
+
+	POPUP       "M&ask"
+	BEGIN
+		MENUITEM		"&Undo	Ctrl+Shift+Z",					IDM_MASKUNDO
+		MENUITEM		SEPARATOR
+		MENUITEM        "&Remove Mask	Ctrl+R",				IDM_MASKREMOVE
+		MENUITEM        "&Load Mask...	Ctrl+Shift+L",			IDM_MASKLOAD
+		MENUITEM        "&Save Mask...	Ctrl+Shift+S",			IDM_MASKSAVE
+#ifndef OEM
+		MENUITEM		"Chr&oma Mask...	Ctrl+Shift+K",		IDM_CHROMA_MASK
+		MENUITEM		"Create Mask From &Object	Ctrl+Shift+X", 		IDM_MASKFROMOBJECT
+#endif
+		MENUITEM		SEPARATOR
+		MENUITEM		"&Invert Mask	Ins",					IDM_MASKINVERT
+		MENUITEM		"&Feather Mask...	Ctrl+Shift+B",		IDM_FEATHER
+#ifndef OEM
+		MENUITEM		"Remove &Holes	Ctrl+D",				IDM_REMOVE_HOLES
+		MENUITEM		"Mask Smoo&ther...	Ctrl+Shift+G",		IDM_MASK_SMOOTH
+#endif
+		MENUITEM		SEPARATOR
+		MENUITEM		"&Crop To Mask	Ctrl+Y",				IDM_CROP
+		MENUITEM		"Stro&ke Mask...	Ctrl+Shift+J",		IDM_MASKSTROKE
+		MENUITEM		SEPARATOR
+		MENUITEM		"Hide &Mask	Shift+End",					IDM_HIDEMARQUEE
+   END
+
+   POPUP       "&Map"
+   BEGIN
+		MENUITEM		"&Modify Color Maps...	Ctrl+M",		IDM_MAP
+		POPUP			"&Contrast/Brightness"
+		BEGIN
+			MENUITEM	"&Joystick...	Ctrl+J",		IDM_CONTBRIT_STICK
+			MENUITEM	"&Visual...	Ctrl+K",			IDM_CONTBRIT_VISUAL
+		END
+		POPUP			"Color &Balance"
+		BEGIN
+			MENUITEM	"&Joystick...	Ctrl+F",		IDM_COLORBAL_STICK
+			MENUITEM	"&Visual...	Ctrl+G",			IDM_COLORBAL_VISUAL
+		END
+		MENUITEM		"&Tone Balance...	Ctrl+Q",	IDM_QUARTERTONE
+		MENUITEM		"&Posterize...	Ctrl+L", 			IDM_POSTERIZE
+		MENUITEM		"Threshold...	Ctrl+Shift+T", 	IDM_THRESHOLD
+		MENUITEM		"Hue &Shift...	Ctrl+U",		IDM_HUE_SHIFT
+		MENUITEM		"&Hue Map...	Ctrl+H",		IDM_HUE
+		MENUITEM		"Hist&ogram...	Ctrl+Shift+H",	IDM_HISTOGRAM
+#ifndef OEM
+		MENUITEM		"Apply Ca&libration Map...",	IDM_CALIBRATEAPPLY
+#endif
+		MENUITEM        SEPARATOR
+		MENUITEM		"&Edit Palette...",				IDM_PALETTEEDIT
+    END
+
+#ifndef OEM
+	POPUP       "&Image"
+	BEGIN
+		MENUITEM 	"&Size...",							IDM_SIZE
+		MENUITEM 	"&Expand...",						IDM_EXPAND
+		POPUP		"&Rotate",
+		BEGIN
+			MENUITEM	"90° &Clockwise	Ctrl+F10",				IDM_ROTATE90
+			MENUITEM	"90° C&ounterclockwise	Ctrl+F11",		IDM_ROTATE270
+			MENUITEM	"180 &Degrees	Ctrl+F12",					IDM_ROTATE180
+			MENUITEM	"&Arbitrary Angle...	Ctrl+F6",			IDM_ROTATEANY
+		END
+		POPUP		"&Mirror"
+		BEGIN
+			MENUITEM 	"&Horizontal	Ctrl+F7",			IDM_MIRRORX
+			MENUITEM 	"&Vertical	Ctrl+F8",				IDM_MIRRORY
+			MENUITEM 	"&Diagonal	Ctrl+F9",					IDM_MIRRORXY
+		END
+		POPUP		"Con&vert To"
+		BEGIN
+			MENUITEM	"&Line Art",					IDM_CONVLA
+			MENUITEM	"&Scattered",					IDM_CONVSP
+			MENUITEM	"&Grayscale",					IDM_CONVCT
+			MENUITEM	"&Palette Color...",			IDM_CONVPALETTE
+			MENUITEM	"&RGB Color",					IDM_CONVRGBCOLOR
+#ifndef OEM
+			MENUITEM	"&CMYK Color",					IDM_CONVCMYKCOLOR
+#endif
+		END
+		MENUITEM	"&Invert	Ctrl+I",				IDM_INVERT
+		MENUITEM	SEPARATOR
+		MENUITEM	"&Effects...	Ctrl+E",			IDM_SPECIALFX
+    	END
+
+	POPUP			"&Object"
+	BEGIN
+		POPUP		"Arran&ge"
+		BEGIN
+			MENUITEM	"&Group	Ctrl+Shift+F6",			IDM_OBJ_GROUP
+			MENUITEM	"&Ungroup	Ctrl+Shift+F7",		IDM_OBJ_UNGROUP
+			MENUITEM	SEPARATOR
+			MENUITEM	"&Lock	Ctrl+Shift+F8",			IDM_OBJ_LOCK
+			MENUITEM	"U&nlock	Ctrl+Shift+F9",		IDM_OBJ_UNLOCK
+		END
+		MENUITEM		"A&lign...	Ctrl+Shift+O",		IDM_OBJ_ALIGN	
+		MENUITEM		"&Position...	Ctrl+Shift+Q",	IDM_OBJ_POSITION	
+		POPUP			"&Order"
+		BEGIN
+			MENUITEM         "Move Dow&n",				IDM_OBJ_DOWNLEVEL
+			MENUITEM         "Move &Up",				IDM_OBJ_UPLEVEL
+			MENUITEM         "Move To &Back",			IDM_OBJ_MOVETOBOTTOM
+			MENUITEM         "Move To F&ront",			IDM_OBJ_MOVETOTOP
+		END
+		MENUITEM		SEPARATOR
+		POPUP			"&Combine"
+		BEGIN
+			MENUITEM	"&Objects Together	Ctrl+Shift+D",			IDM_OBJ_COMBOBJS  
+			MENUITEM	"&All Objects With Base	Ctrl+Shift+F",					IDM_COMBINE
+			MENUITEM	"&Selected Objects With Base	Ctrl+Shift+U",			IDM_COMBINE_SEL		
+		END                      
+		MENUITEM		"&Feather Object...	Ctrl+B",		IDM_OBJ_FEATHER
+		MENUITEM		"M&erge Mask	Ctrl+Shift+M",					IDM_OBJ_APPLYMASK
+		MENUITEM		"Create Object From Mas&k	Ctrl+W",		IDM_OBJECTFROMMASK
+		MENUITEM		"&Delete Objects",						IDM_OBJ_DELETE
+		MENUITEM		SEPARATOR		
+		MENUITEM		"Select &All	F2",			IDM_OBJ_SELECTALL
+		MENUITEM		"Hide &Marquee	Ctrl+End",		IDM_OBJ_HIDEMARQUEE
+	END
+#endif
+
+// -----------------------------------------------------------------------
+// THESE 2 SEPARATORS ARE WHERE THE CONTAINER APP CAN ADD ITS' ADDITIONAL 
+// MENU ITEMS THIS MUST BE FOLLOWED BY THE "Help" Menu Item
+// -----------------------------------------------------------------------
+	MENUITEM        SEPARATOR
+	MENUITEM        SEPARATOR
+
+	POPUP       "&Help"
+	BEGIN
+		MENUITEM        "&Context Sensitive",   		IDM_HELP_CONTEXT
+		MENUITEM        SEPARATOR
+		MENUITEM        "&Index...",            		IDM_HELP_INDEX
+		MENUITEM        "&Using Picture Publisher...",  IDM_HELP_USING
+		MENUITEM        "&Read Me...",          		IDM_HELP_README
+		MENUITEM        "Using &Help...",       		IDM_HELP_HELPONHELP
+		MENUITEM        SEPARATOR
+		MENUITEM        "&About Picture Publisher...",  IDM_ABOUT
+	END
+END
+
+// -------------------------------------------------------------
+// ACCELERATOR TABLE USED WHEN ACTIVATED "IN_PLACE"
+// -------------------------------------------------------------
+IDR_PPSVRTYPE_SRVR_IP ACCELERATORS MOVEABLE DISCARDABLE PURE
+BEGIN
+	VK_F1, IDM_HELP, VIRTKEY
+	VK_F1, IDM_HELP, VIRTKEY, SHIFT
+#ifndef OEM
+	VK_F2, IDM_OBJ_SELECTINVERT, VIRTKEY, SHIFT
+	VK_F2, IDM_OBJ_SELECTALL, VIRTKEY
+//	VK_F2, IDM_CMDLIST_UNDO, VIRTKEY, CONTROL
+//	VK_F3, IDM_ACQUIRE, VIRTKEY, SHIFT
+//	VK_F3, IDM_CMDLIST_REDO, VIRTKEY, CONTROL
+#endif
+	VK_F3, IDC_STATUSINFO, VIRTKEY, CONTROL, SHIFT
+//	VK_F4, IDM_TOOLSHOW, VIRTKEY
+	VK_F4, IDM_FUNC4, VIRTKEY, SHIFT
+	VK_F4, IDM_CLOSEALL, VIRTKEY, CONTROL, SHIFT
+	VK_F5, IDM_FUNC5, VIRTKEY, SHIFT
+	VK_F5, IDM_LASTTOOL, VIRTKEY
+//	VK_F5, IDM_SAVEPOSITIONS, VIRTKEY, SHIFT, CONTROL
+#ifndef OEM
+//	VK_F5, IDM_CMDLIST_EDIT, VIRTKEY, CONTROL
+#endif
+	VK_F6, IDM_FUNC3, VIRTKEY, SHIFT
+	VK_F6, IDM_ROTATEANY, VIRTKEY, CONTROL
+	VK_F6, IDM_FUNC6, VIRTKEY
+#ifndef OEM
+	VK_F6, IDM_OBJ_GROUP, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_F7, IDC_STATUSPALETTE, VIRTKEY
+	VK_F7, IDM_FUNC7, VIRTKEY,SHIFT
+	VK_F7, IDM_MIRRORX, VIRTKEY, CONTROL
+#ifndef OEM
+	VK_F7, IDM_OBJ_UNGROUP, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_F8, IDM_STATUSSHOW, VIRTKEY
+	VK_F8, IDM_FUNC8, VIRTKEY, SHIFT
+	VK_F8, IDM_MIRRORY, VIRTKEY, CONTROL
+#ifndef OEM
+	VK_F8, IDM_OBJ_LOCK, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_F9, IDM_RULERSHOW, VIRTKEY
+	VK_F9, IDM_FUNC9, VIRTKEY, SHIFT
+	VK_F9, IDM_MIRRORXY, VIRTKEY, CONTROL
+#ifndef OEM
+	VK_F9, IDM_OBJ_UNLOCK, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_F10, IDM_FUNC10, VIRTKEY, SHIFT
+	VK_F10, IDM_SHOWZOOMBOX, VIRTKEY
+	VK_F10, IDM_ROTATE90, VIRTKEY, CONTROL
+//	VK_F10, IDM_SCRATCHPAD, VIRTKEY, CONTROL, SHIFT
+	VK_F11, IDC_VIEWSLIME, VIRTKEY, SHIFT
+//	VK_F11, IDM_SHOWINFO, VIRTKEY
+	VK_F11, IDM_ROTATE270, VIRTKEY, CONTROL
+#ifndef OEM
+//	VK_F11, IDM_CUSTBOXLOAD, VIRTKEY, SHIFT, CONTROL
+	VK_F12, IDC_MASKEDITALPHA, VIRTKEY, SHIFT
+//	VK_F12, IDM_OBJ_MANAGER, VIRTKEY
+#endif
+	VK_F12, IDM_ROTATE180, VIRTKEY, CONTROL
+#ifndef OEM
+	VK_F12, IDM_CUSTBOXCREATE, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_BACK,IDM_UNDO, VIRTKEY, ALT
+	VK_DELETE, IDM_DELETE, VIRTKEY, CONTROL
+	VK_DELETE, IDM_CUT, VIRTKEY, SHIFT
+	VK_INSERT,IDM_COPY, VIRTKEY, CONTROL
+	VK_INSERT, IDM_PASTE, VIRTKEY, SHIFT
+	VK_INSERT, IDM_MASKINVERT, VIRTKEY
+#ifndef OEM
+//	VK_PAUSE, IDM_MACROSTOP, VIRTKEY
+#endif
+	VK_UP, IDM_SIZEUP, VIRTKEY, CONTROL
+	VK_DOWN, IDM_SIZEDOWN, VIRTKEY, CONTROL
+	VK_RIGHT, IDM_SHAPEUP, VIRTKEY, CONTROL
+	VK_LEFT, IDM_SHAPEDOWN, VIRTKEY, CONTROL
+	VK_UP, IDM_MOVEUP, VIRTKEY, SHIFT
+	VK_DOWN, IDM_MOVEDOWN, VIRTKEY, SHIFT
+#ifndef OEM
+	VK_UP, IDM_OBJ_UPLEVEL, VIRTKEY, SHIFT, CONTROL
+	VK_DOWN, IDM_OBJ_DOWNLEVEL, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_RIGHT, IDM_MOVERIGHT, VIRTKEY, SHIFT
+	VK_LEFT, IDM_MOVELEFT, VIRTKEY, SHIFT
+#ifndef OEM
+	VK_RIGHT, IDM_OBJ_MOVETOBOTTOM, VIRTKEY, SHIFT, CONTROL
+	VK_LEFT, IDM_OBJ_MOVETOTOP, VIRTKEY, SHIFT, CONTROL
+#endif
+	VK_ESCAPE, IDM_ESCAPE, VIRTKEY
+	VK_NEXT, IDC_ZOOMOUT, VIRTKEY
+	VK_PRIOR, IDC_ZOOMIN, VIRTKEY
+	VK_HOME, IDC_VIEWALL, VIRTKEY
+	VK_END, IDC_VIEWLAST, VIRTKEY
+	VK_END, IDM_HIDEMARQUEE, VIRTKEY, SHIFT
+#ifndef OEM
+	VK_END, IDM_OBJ_HIDEMARQUEE, VIRTKEY, CONTROL
+#endif
+//	"A", IDM_SAVEAS, VIRTKEY, CONTROL
+#ifndef OEM
+	"B", IDM_OBJ_FEATHER, VIRTKEY, CONTROL
+#endif
+	"C", IDM_COPY, VIRTKEY, CONTROL
+#ifndef OEM
+	"D", IDM_REMOVE_HOLES, VIRTKEY, CONTROL
+#endif
+	"E", IDM_SPECIALFX, VIRTKEY, CONTROL
+	"F", IDM_COLORBAL_STICK, VIRTKEY, CONTROL
+	"G", IDM_COLORBAL_VISUAL, VIRTKEY, CONTROL
+	"H", IDM_HUE, VIRTKEY, CONTROL
+	"I", IDM_INVERT, VIRTKEY, CONTROL
+	"J", IDM_CONTBRIT_STICK, VIRTKEY, CONTROL
+	"K", IDM_CONTBRIT_VISUAL, VIRTKEY, CONTROL
+	"L", IDM_POSTERIZE, VIRTKEY, CONTROL
+	"M", IDM_MAP, VIRTKEY, CONTROL
+//	"N", IDM_NEW, VIRTKEY, CONTROL
+//	"O", IDM_OPEN, VIRTKEY, CONTROL
+//	"P", IDM_PRINT, VIRTKEY, CONTROL
+	"Q", IDM_QUARTERTONE, VIRTKEY, CONTROL
+	"R", IDM_MASKREMOVE, VIRTKEY, CONTROL
+//	"S", IDM_SAVE, VIRTKEY, CONTROL
+	"T", IDC_TEXT, VIRTKEY, CONTROL
+	"V", IDM_PASTE, VIRTKEY, CONTROL
+	"U", IDM_HUE_SHIFT, VIRTKEY, CONTROL
+#ifndef OEM
+	"W", IDM_OBJECTFROMMASK, VIRTKEY, CONTROL
+#endif
+	"X", IDM_CUT, VIRTKEY, CONTROL
+	"Y", IDM_CROP, VIRTKEY, CONTROL
+	"Z", IDM_UNDO, VIRTKEY, CONTROL 
+	"A", IDM_APPLY, VIRTKEY, CONTROL, SHIFT
+	"B", IDM_FEATHER, VIRTKEY, CONTROL, SHIFT	
+	"C", IDM_COPYTOFILE, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"D", IDM_OBJ_COMBOBJS, VIRTKEY, CONTROL, SHIFT
+	"E", IDM_MACRO_EDIT, VIRTKEY, CONTROL, SHIFT
+	"F", IDM_COMBINE, VIRTKEY, CONTROL, SHIFT
+	"G", IDM_MASK_SMOOTH, VIRTKEY, CONTROL, SHIFT
+#endif
+	"H", IDM_HISTOGRAM, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+//	"I", IDM_IMPORT, VIRTKEY, CONTROL, SHIFT
+#endif
+	"J", IDM_MASKSTROKE, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"K", IDM_CHROMA_MASK, VIRTKEY, CONTROL, SHIFT
+#endif
+	"L", IDM_MASKLOAD, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"M", IDM_OBJ_APPLYMASK, VIRTKEY, CONTROL, SHIFT
+#endif
+	"N", IDM_PASTEASNEW, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"O", IDM_OBJ_ALIGN, VIRTKEY, CONTROL, SHIFT
+	"P", IDM_MACROPLAY, VIRTKEY, CONTROL, SHIFT
+	"Q", IDM_OBJ_POSITION, VIRTKEY, CONTROL, SHIFT
+	"R", IDM_MACRORECORD, VIRTKEY, CONTROL, SHIFT	
+#endif
+	"S", IDM_MASKSAVE, VIRTKEY, CONTROL, SHIFT	
+	"T", IDM_THRESHOLD, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"U", IDM_COMBINE_SEL, VIRTKEY, CONTROL, SHIFT
+#endif
+	"V", IDM_PASTEFROMFILE, VIRTKEY, CONTROL, SHIFT
+#ifndef OEM
+	"W", IDM_MACROPLAYBATCH, VIRTKEY, CONTROL, SHIFT
+	"X", IDM_MASKFROMOBJECT, VIRTKEY, CONTROL, SHIFT
+#endif
+	"Y", -1, VIRTKEY, CONTROL, SHIFT
+	"Z", IDM_MASKUNDO, VIRTKEY, CONTROL, SHIFT
+END
+
+
+

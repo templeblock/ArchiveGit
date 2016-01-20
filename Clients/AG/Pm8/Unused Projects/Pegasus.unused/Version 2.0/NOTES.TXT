@@ -1,0 +1,26 @@
+NOTES.TXT
+December 12, 1998
+PICTools version 2.00.51
+
+This file contains a list of known limitations in the PICTools
+Development Kits as of the current revision, with work-arounds
+where applicable and available.
+=====================================================================
+
+PICN1520.SSM, PICN1520.DLL
+1.  OP_D2J requres a Put queue large enough for the image header, 
+    including the color table, if any.  If the Put queue is too
+    small, it GP's.  A Put queue of at least 2K is always large
+    enough.
+
+PICN1020.DLL, PICN1220.DLL, PICN1120.DLL, PICN1820.DLL, PICN2220.DLL
+and PegasusQuery()
+1.  PIC2 file support doesn't yet include multiple-image PIC2 files.
+
+DOC:
+1.  Doesn't document some enhancements since 1.03.05 (see CHANGES.TXT).
+2.  Doesn't document OP_ROR, OP_RORE opcode (see SAMPLES\ROR\RORTEST.C sample
+    for information about using the OP_ROR, OP_RORE opcodes.
+
+=====================================================================
+<end of NOTES.TXT>

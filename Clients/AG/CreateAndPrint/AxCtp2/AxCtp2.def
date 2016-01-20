@@ -1,0 +1,10 @@
+LIBRARY "AxCtp2.dll"
+
+EXPORTS
+	DllCanUnloadNow 	PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer PRIVATE
+	
+	HandleUninstall     @1
+	InstallComplete     @2

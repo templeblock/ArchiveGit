@@ -1,0 +1,310 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\Uninstal.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "\r\n"
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "#include ""afxres.rc""  // Standard components\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_UNINSTALL_DIALOG DIALOG DISCARDABLE  0, 0, 224, 114
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Remove @@N"
+FONT 10, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Continue",IDC_CONTINUE,45,87,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,126,88,50,14
+    LTEXT           "This program uninstalls @@N from your computer.",
+                    IDC_STATIC,8,9,194,21
+    CTEXT           "Click Continue to remove @@N.",IDC_STATIC,8,62,200,19
+    LTEXT           "The entire @@N program including any saved projects will be removed from your hard disk.",
+                    IDC_STATIC,9,37,208,16
+END
+
+IDD_DELETE_SHARED_DLL DIALOG DISCARDABLE  0, 0, 187, 117
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Delete File?"
+FONT 10, "MS Sans Serif"
+BEGIN
+    LTEXT           "File:",IDC_STATIC,11,7,19,8
+    LTEXT           "",IDC_FILE_TO_DELETE,36,7,140,8
+    LTEXT           "This file may be used by other applications. Deleting it will cause those applications to stop working. It will cause no harm to leave this file on your system.",
+                    IDC_STATIC,11,23,165,33
+    LTEXT           "Click Do Not Delete to leave this file on your system.\nClick Delete to delete this file.",
+                    IDC_STATIC,11,62,173,22
+    DEFPUSHBUTTON   "Do &Not Delete",IDCANCEL,24,93,69,14
+    PUSHBUTTON      "Delete",IDOK,113,93,50,14,WS_GROUP
+END
+
+IDD_DELETE_IDAPI DIALOG DISCARDABLE  0, 0, 187, 153
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Delete IDAPI?"
+FONT 10, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDAPI Directory:",IDC_STATIC,11,7,58,8
+    LTEXT           "",IDC_IDAPI_DIRECTORY,74,7,105,8
+    LTEXT           "@@N uses IDAPI for its address books. Other applications may also be using IDAPI. Removing IDAPI will cause those other applications to stop working. ",
+                    IDC_STATIC,11,21,163,35
+    LTEXT           "IT IS STRONGLY RECOMMENDED that you do NOT delete IDAPI. There is no harm in leaving IDAPI on your system.",
+                    IDC_STATIC,11,61,163,26
+    LTEXT           "Click Do Not Delete to leave IDAPI on your system.\nClick Delete to delete IDAPI.",
+                    IDC_STATIC,11,98,172,19
+    DEFPUSHBUTTON   "Do &Not Delete",IDCANCEL,24,129,69,14
+    PUSHBUTTON      "Delete",IDOK,113,129,50,14,WS_GROUP
+END
+
+IDD_PROGRESS DIALOG DISCARDABLE  0, 0, 216, 60
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Removing @@N"
+FONT 10, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_ACTION,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,7,10,
+                    202,27
+    LTEXT           "",IDC_ITEM,12,27,164,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,0,24
+ PRODUCTVERSION 2,0,0,24
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "MicroLogic Software, Inc.\0"
+            VALUE "FileDescription", "PrintMaster Gold Uninstall\0"
+            VALUE "FileVersion", "2.00.24\0"
+            VALUE "InternalName", "UNINSTAL\0"
+            VALUE "LegalCopyright", "Copyright © 1995\0"
+            VALUE "OriginalFilename", "UNINSTAL.EXE\0"
+            VALUE "ProductName", "PrintMaster Gold Uninstall\0"
+            VALUE "ProductVersion", "2.00.24\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "RES\\UNINSTAL.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_UNINSTALL_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 217
+        BOTTOMMARGIN, 113
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 50
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Remove PrintMaster "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ErrBadRegistryInfo  "MSREG.INI does not contain correct registry information."
+    IDS_CONFIRM_UNINSTALL   "Are you sure you want to remove @@N?"
+    IDS_UNINSTALL_SUCCESS   "@@N has been successfully removed."
+    IDS_UNINSTALL_FAILURE   "@@N could not be completely removed."
+    IDS_PMG_GROUP_TRIAL_VERSION "@@N  - Trial Version"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PMG                 "PrintMaster"
+    IDS_PMGPS               "PrintMaster Publishing Suite"
+    IDS_PMGPSCD             "the PrintMaster Publishing Suite"
+    IDS_PMGBP               "PrintMaster Bonus Pack"
+    IDS_PMGBPCD             "the PrintMaster Bonus Pack"
+    IDS_PMGDX               "PrintMaster Deluxe"
+    IDS_PMGDXCD             "the PrintMaster Deluxe"
+    IDS_GROUP_PMG_TRIAL     "PrintMaster - Trial Version"
+    IDS_NAME_PMG_TRIAL1     "PrintMaster Trial"
+    IDS_NAME_PMG_TRIAL2     "PrintMaster Trial Version"
+    IDS_NAME_PMG_TRIAL3     "the Trial Version of the PrintMaster Publishing Suite"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PMGC                "PrintMaster Classic"
+    IDS_PMGCCD              "the PrintMaster Classic"
+    IDS_PMP                 "PrintMaster Platinum"
+    IDS_PMPCD               "the PrintMaster Platinum"
+    IDS_PM                  "PrintMaster"
+    IDS_PMGNGCD             "the PrintMaster Greeting Cards Edition"
+    IDS_PMPR                "PrintMaster Premier"
+    IDS_PMPRCD              "the PrintMaster Premier"
+    IDS_PMOS                "PrintMaster Office Suite"
+    IDS_PMOSCD              "the PrintMaster Offce Suite"
+    IDS_PMSU                "PrintMaster Supreme"
+    IDS_PMSUCD              "the PrintMaster Supreme"
+    IDS_AGFPST              "American Greetings Print!"
+    IDS_AGFPST_CD           "the American Greetings Print!"
+    IDS_AGFPPR              "American Greetings Print! Premium"
+    IDS_AGFPPR_CD           "the American Greetings Crafts!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_AGSPST              "American Greetings Spiritual Expressions"
+    IDS_AGSPST_CD           "the American Greetings Spiritual Expressions"
+    IDS_AGCRST              "American Greetings Crafts!"
+    IDS_AGCRST_CD           "the American Greetings Spiritual Expressions"
+    IDS_ASTORE              "American Greetings Print! Art & More Edition"
+    IDS_ASTORE_CD           "the American Greetings Print! Art & More Edition"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PMG_GROUP           "@@G"
+    IDS_UNINSTALLING        "Removing @@N Group"
+    IDS_CANT_INITIALIZE_DDE "Can't initialize DDE."
+    IDS_PRINTMASTER         "@@N"
+    IDS_STARTUP             "Startup"
+    IDS_UPDATING_REGISTRY   "Updating Registry"
+    IDS_UPDATING_SHARED_FILES "Updating Shared Files"
+    IDS_REMOVING_PRINTMASTER_DIRECTORIES "Removing @@N Directories"
+    IDS_REMOVING_UNINSTALL_FROM_REGISTRY "Removing Uninstall from Registry"
+    IDS_BAD_DIRECTORY       "ERROR: Bad directory passed to DeleteDirectory:\n%s"
+    IDS_CANT_REMOVE_FILE    "Could not remove the file\n%s.\n\nSome PrintMaster files may still be in use. Try restarting Windows and running the PrintMaster uninstall program again."
+    IDS_CANT_REMOVE_DIRECTORY "Could not remove the directory\n%s\n(Error %d)"
+    IDS_CONFIG_NO_SEE       "Cannot determine configuration."
+    IDS_NO_DIRECTORY_SPECIFIED "No directory specified."
+    IDS_INSTDAT_NAME        "PMINST.DAT"
+    IDS_INSTDAT_MISSING     "Installation file %s missing or bad."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MB_TITLE            "Remove @@N"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\Uninstal.rc2"  // non-Microsoft Visual C++ edited resources
+
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+#include "afxres.rc"  // Standard components
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

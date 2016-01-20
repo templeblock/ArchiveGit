@@ -1,0 +1,10 @@
+// Source file: teffects.c
+BOOL WINPROC EXPORT DlgEffectsProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+static void UpdateControls (HWND hDlg);
+int EffectsProc( HWND hWindow, LPARAM lParam, UINT msg );
+void RandomPaint (HWND hWnd, LPFRAME lpSrcFrame, int TotalPicts, int x, int y );
+static void BlitToFrame( int x, int y, int dh, int dv, LPTR lpData, LPRECT lpRect);
+static int GetSourceY( int iNumPicts );
+static void LoadDropoutMask( LPTR lpSrc, int dx, int dy, LPTR lpMask );
+static void BlitToDisplay(LPRECT lpRect);
+

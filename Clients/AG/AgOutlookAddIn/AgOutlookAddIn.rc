@@ -1,0 +1,567 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+#include "version.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+1                       RT_MANIFEST             "AgOutlookAddIn.dll.manifest"
+2                       RT_MANIFEST             "AgOutlookAddIn.dll.manifest"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "#include ""version.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""AgOutlookAddIn.tlb""\r\n"
+    "VS_VERSION_INFO VERSIONINFO\r\n"
+    " FILEVERSION VER_FILE_VERSION\r\n"
+    " PRODUCTVERSION VER_PRODUCT_VERSION\r\n"
+    " FILEFLAGSMASK 0x3fL\r\n"
+    "#ifdef _DEBUG\r\n"
+    " FILEFLAGS 0x1L\r\n"
+    "#else\r\n"
+    " FILEFLAGS 0x0L\r\n"
+    "#endif\r\n"
+    " FILEOS 0x4L\r\n"
+    " FILETYPE 0x2L\r\n"
+    " FILESUBTYPE 0x0L\r\n"
+    "BEGIN\r\n"
+    "    BLOCK ""StringFileInfo""\r\n"
+    "    BEGIN\r\n"
+    "        BLOCK ""040904b0""\r\n"
+    "        BEGIN\r\n"
+    "            VALUE ""CompanyName"", VER_COMPANYNAME\r\n"
+    "            VALUE ""FileDescription"", VER_PRODUCTNAME "" "" VER_COPYRIGHT ""\\0""\r\n"
+    "            VALUE ""FileVersion"", VER_FILE_VERSION_STR\r\n"
+    "            VALUE ""ProductName"", VER_PRODUCTNAME "" "" VER_PRODUCT_VERSION_STR ""\\0""\r\n"
+    "            VALUE ""ProductVersion"", VER_PRODUCT_VERSION_STR\r\n"
+    "            VALUE ""LegalCopyright"", VER_COPYRIGHT\r\n"
+    "            VALUE ""OriginalFilename"", ""AgOutlookAddIn.dll""\r\n"
+    "        END\r\n"
+    "    END\r\n"
+    "    BLOCK ""VarFileInfo""\r\n"
+    "    BEGIN\r\n"
+    "        VALUE ""Translation"", 0x409, 1200\r\n"
+    "    END\r\n"
+    "END\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_ADDIN               REGISTRY                "MsAddIn.rgs"
+IDR_OEADDIN             REGISTRY                "OEAddin.rgs"
+IDR_JMEXPLORERBAND      REGISTRY                "JMExplorerBand.rgs"
+IDR_JMTOOLBAND          REGISTRY                "JMToolband.rgs"
+IDR_BROWSERHELPEROBJ    REGISTRY                "BrowserHelperObj.rgs"
+IDR_UPDATEOBJ           REGISTRY                "UpdateObj.rgs"
+IDR_AOLADDIN            REGISTRY                "AOLAddin.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BTN1                BITMAP                  "res/stationery.bmp"
+IDB_BTN2                BITMAP                  "res/smileys.bmp"
+IDB_BTN3                BITMAP                  "res/clipart.bmp"
+IDB_BTN4                BITMAP                  "res/addaphoto.bmp"
+IDB_BTN5                BITMAP                  "res/invitations.bmp"
+IDB_BTN6                BITMAP                  "res/announcements.bmp"
+IDB_BTN7                BITMAP                  "res/sounds.bmp"
+IDB_BTN8                BITMAP                  "res/favorites.bmp"
+IDB_BTN10               BITMAP                  "res\\Games.bmp"
+IDB_BTN9                BITMAP                  "res\\ecards.bmp"
+IDB_BTN11               BITMAP                  "res\\options.bmp"
+IDB_AG_16               BITMAP                  "res\\AmericanGreetings.bmp"
+IDB_BLUE_16             BITMAP                  "res\\BlueMountain.bmp"
+IDB_BEATGREETS_16       BITMAP                  "res\\BeatGreets.bmp"
+IDB_EGREETS_16          BITMAP                  "res\\EGreetings.bmp"
+IDB_AOLADDIN            BITMAP                  "AOLAddin.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 280, 54
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About Creata Mail"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,222,7,50,16,WS_GROUP
+    ICON            IDI_LOGO,IDC_STATIC,11,10,20,20
+    LTEXT           "Copyright (C) 2004 BlueMountain",IDC_STATIC,40,25,202,8
+    LTEXT           "Creata Mail version ",IDHELP,40,10,151,8,SS_NOPREFIX
+END
+
+IDD_HTMLMENU DIALOGEX 0, 0, 227, 210
+STYLE DS_SETFONT | WS_POPUP | WS_THICKFRAME
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+END
+
+IDD_HTMLDIALOG DIALOGEX 0, 0, 78, 95
+STYLE DS_SETFONT | DS_NOIDLEMSG | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
+    WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+EXSTYLE WS_EX_NOPARENTNOTIFY | WS_EX_APPWINDOW
+CAPTION "Creata Mail"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+END
+
+IDD_PREVIEWDIALOG DIALOGEX 0, 0, 212, 195
+STYLE DS_SETFONT | DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "Creata Mail Preview"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    PUSHBUTTON      "&Insert",ID_CONTENT_SEND,12,174,48,14
+    PUSHBUTTON      "Add to &Favorites",ID_CONTENT_ADDTOFAVORITES,72,174,66,
+                    14
+    PUSHBUTTON      "&Upgrade Now...",ID_OPTIONS_UPGRADENOW,72,174,66,14,NOT 
+                    WS_VISIBLE
+    DEFPUSHBUTTON   "&Close",ID_PREV_CLOSE,150,174,48,14
+    CONTROL         "",IDC_EXPLORER,"{8856F961-340A-11D0-A96B-00C04FD705A2}",
+                    WS_TABSTOP,0,0,212,164
+END
+
+IDD_MESSAGE_DIALOG DIALOGEX 0, 0, 227, 94
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Creata Mail"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,54,73,50,14,NOT WS_VISIBLE
+    DEFPUSHBUTTON   "HELP",IDHELP,123,73,50,14
+    LTEXT           "Static",IDC_MSG_TEXT,39,7,174,58
+    ICON            IDI_LOGO,IDC_STATIC_LOGO,7,7,21,20
+    PUSHBUTTON      "CLOSE",IDCLOSE,88,73,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "YES",IDYES,47,73,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "NO",IDNO,124,73,50,14,NOT WS_VISIBLE
+END
+
+IDD_ECARD_DIALOG DIALOGEX 0, 0, 100, 27
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_ECARD_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | 
+                    LVS_ALIGNLEFT | LVS_NOSCROLL | WS_BORDER | WS_TABSTOP,0,
+                    1,99,26
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_HTMLMENU, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 220
+        VERTGUIDE, 208
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_HTMLDIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 70
+        BOTTOMMARGIN, 94
+    END
+
+    IDD_PREVIEWDIALOG, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 194
+    END
+
+    IDD_MESSAGE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 220
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_ECARD_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 99
+        TOPMARGIN, 1
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_DIALOGMENU MENU 
+BEGIN
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "Un&lock...",                  ID_OPTIONS_SIGNIN
+        MENUITEM "&Check for Updates...",       ID_OPTIONS_CHECKFORUPDATES
+        MENUITEM SEPARATOR
+        MENUITEM "&My Account...",              ID_OPTIONS_MYACCOUNT
+        MENUITEM "&Upgrade Now...",             ID_OPTIONS_UPGRADENOW
+        MENUITEM "&Help...",                    ID_OPTIONS_HELPCENTER
+        MENUITEM "Cr&eata Mail Home...",        ID_OPTIONS_JAZZYMAILHOME
+        MENUITEM SEPARATOR
+        MENUITEM "&Refer A Friend",             ID_OPTIONS_REFERAFRIEND
+        MENUITEM "&Feedback",                   ID_OPTIONS_GIVEFEEDBACK
+        MENUITEM SEPARATOR
+        MENUITEM "Clear Current &Background",   ID_OPTIONS_CLEARSTATIONERY
+        MENUITEM "Clear &Default Stationery",   ID_OPTIONS_CLEARDEFAULTSTATIONERY
+
+        MENUITEM "Show &Tray Icon",             ID_OPTIONS_SHOWTRAYICON
+        MENUITEM "&SmartCache",                 ID_FILE_SMARTCACHE
+        MENUITEM "Optimization &Wizard...",     ID_OPTIONS_OPTIMIZE
+        MENUITEM SEPARATOR
+        MENUITEM "&About Creata Mail...",       ID_OPTIONS_ABOUTJAZZYMAIL
+    END
+END
+
+IDR_OPTIONSMENU MENU 
+BEGIN
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "Un&lock...",                  ID_OPTIONS_SIGNIN
+        MENUITEM "&Check for Updates...",       ID_OPTIONS_CHECKFORUPDATES
+        MENUITEM SEPARATOR
+        MENUITEM "&My Account...",              ID_OPTIONS_MYACCOUNT
+        MENUITEM "&Upgrade Now...",             ID_OPTIONS_UPGRADENOW
+        MENUITEM "&Help...",                    ID_OPTIONS_HELPCENTER
+        MENUITEM "Cr&eata Mail Home...",        ID_OPTIONS_JAZZYMAILHOME
+        MENUITEM SEPARATOR
+        MENUITEM "&Refer A Friend",             ID_OPTIONS_REFERAFRIEND
+        MENUITEM "&Feedback",                   ID_OPTIONS_GIVEFEEDBACK
+        MENUITEM SEPARATOR
+        MENUITEM "Clear Current &Background",   ID_OPTIONS_CLEARSTATIONERY
+        MENUITEM "Clear &Default Stationery",   ID_OPTIONS_CLEARDEFAULTSTATIONERY
+
+        MENUITEM "Show &Tray Icon",             ID_OPTIONS_SHOWTRAYICON
+        MENUITEM SEPARATOR
+        MENUITEM "&About Creata Mail...",       ID_OPTIONS_ABOUTJAZZYMAIL
+    END
+END
+
+IDR_CONTENTMENU MENU 
+BEGIN
+    POPUP "&Content"
+    BEGIN
+        MENUITEM "&Insert",                     ID_CONTENT_SEND
+        MENUITEM "&New",                        ID_CONTENT_COMPOSENEW
+        MENUITEM "&Preview",                    ID_CONTENT_PREVIEW
+        MENUITEM "&Set As Default",             ID_CONTENT_SETDEFAULT
+        MENUITEM "&Upgrade Now",                ID_OPTIONS_UPGRADENOW
+    END
+END
+
+IDR_PREVIEW_MENU1 MENU 
+BEGIN
+    POPUP "&Preview"
+    BEGIN
+        MENUITEM "&Insert",                     ID_CONTENT_SEND
+        MENUITEM "&Close",                      ID_PREV_CLOSE
+    END
+END
+
+IDR_PREVIEW_MENU2 MENU 
+BEGIN
+    POPUP "&Preview"
+    BEGIN
+        MENUITEM "&Upgrade Now...",             ID_OPTIONS_UPGRADENOW
+        MENUITEM "&Close",                      ID_PREV_CLOSE
+    END
+END
+
+IDR_OPTIONS_MENU2 MENU 
+BEGIN
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "&Upgrade Now...",             ID_OPTIONS_UPGRADENOW
+        MENUITEM "&Refer A Friend...",          ID_OPTIONS_REFERAFRIEND
+        MENUITEM "&Feedback...",                ID_OPTIONS_GIVEFEEDBACK
+        MENUITEM "&Help...",                    ID_OPTIONS_HELPCENTER
+        MENUITEM SEPARATOR
+        MENUITEM "Clear Current &Background",   ID_OPTIONS_CLEARSTATIONERY
+        MENUITEM SEPARATOR
+        MENUITEM "&Settings...",                ID_OPTIONS_SETTINGS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PREVIEWDIALOG DLGINIT
+BEGIN
+    IDC_EXPLORER, 0x376, 160, 0
+0x0000, 0x0000, 0x004c, 0x0000, 0x20de, 0x0000, 0x1b98, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x004c, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 
+0x0000, 0xd0e0, 0x0057, 0x3573, 0x11cf, 0x69ae, 0x0008, 0x2e2b, 0x6212, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x004c, 0x0000, 0x1401, 0x0002, 0x0000, 
+0x0000, 0x00c0, 0x0000, 0x0000, 0x4600, 0x0080, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+
+IDH_TRAILER             HTML                    "res/trailer.htm"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_LOGO                ICON                    "res\\logo.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_MANIFEST_URL        "/mail/install/manifest.xml"
+    IDS_PROJNAME            "Creata Mail"
+    IDS_ECARD_SITE1         " BlueMountain.com"
+    IDS_ECARD_SITE2         " Egreetings.com"
+    IDS_ECARD_SITE3         " AmericanGreetings.com"
+    IDS_ECARD_SITE4         " BeatGreets.com"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SECURITY_ACTIVEX_FAIL 
+                            "Your current security settings prohibit the use of this type of content.\nFor assistance with changing your security settings visit the Creata Mail\nHelp Center by clicking the HELP button below.\n"
+    IDS_MANIFEST_ERROR      "Error while checking for product updates."
+    IDS_OPTIONS_ERROR       "Error while attempting to launch Options dialog."
+    IDS_ADDAPHOTO_ERROR     "Photo upload failed. Please try again later."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HOTMAIL_RTE_WARN    "You need to turn on Hotmail's ""Rich-Text Editor"" in order to use Creata Mail features. To do this click Tools (above the To: field, next to the Cancel button) and select ""Rich-Text Editor ON""."
+    IDS_YAHOO_CG_WARN       "You need to enable Yahoo! Mail's ""Color and Graphics"" in order to use Creata Mail features. To do this go to Yahoo's Mail Option Personalization Preferences."
+    IDS_MSN_RTE_WARN        "You need to use HTML for rich-text formatting in order to use Creata Mail features. Click the Help button below to learn how to change your E-mail settings."
+    IDS_GENERAL_WARN        "Sorry, Creata Mail cannot add content to this page.\n\nBe sure that you are:\n- Composing a new message with your webmail\n- Using webmail that is compatible with Creata Mail\n- Using webmail with ""Color and Graphics"" enabled\n"
+    IDS_REFERFRIEND_WARN    "Refer a Friend only works when you are composing a new message. Navigate to a compose screen and try again."
+    IDS_BROWSEREXT_WARN     "In order for Creata Mail to have full capabilities in Internet Explorer, you must enable browser extensions.\n\nIs it OK for us to make that change for you?"
+    IDS_AOL_COMPOSE_WARN    "You must first open an AOL compose window to insert Creata Mail content."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_YAHOO_FRAMEID_01    "editorComposition"
+    IDS_HOTMAIL_FRAMEID_01  "richedit"
+    IDS_HOTMAIL_FRAMEID_02  "EditBox"
+    IDS_YAHOO_COMPOSE_MARK  "use my signature"
+    IDS_YAHOO_SEND_MARK_01  "Message Sent"
+    IDS_YAHOO_SEND_MARK_02  "Are you sure you want to send it?"
+    IDS_HOTMAIL_SEND_MARK_01 "Your message has been sent"
+    IDS_YAHOO_FRAMEID_01_ver2 "ymailmain"
+    IDS_YAHOO_FRAMEID_02_ver2 "rteEditorComposition0"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_FAQ_GENERAL_URL     "/customer/cm.pd#generalplugin"
+    IDS_FAQ_HOTMAIL_URL     "/customer/cm.pd#hotmailplugin"
+    IDS_FAQ_YAHOO_URL       "/customer/cm.pd#yahooplugin"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_WORD_PROMPT         "Creata Mail requires that you use HTML as your default email format.\n\nIs it OK for us to make that change for you?"
+    IDS_ACTIVEX_PROMPT      "In order to access Creata Mail's Flash content, you must allow ActiveX controls to run.\n\nIs it OK for us to make that change for you?"
+    IDS_FLASH_PROMPT        "In order to access Creata Mail's Flash content, Outlook cannot be set to use the Restricted security zone.\n\nIs it OK for us to make that change for you?"
+    IDS_UPGRADE_PROMPT      "You must be a member in order to access paid content.\n\nWould you like to go online and become a member now?"
+    IDS_NEWVERSION_PROMPT   "A new version Creata Mail is available.\n\nClick Yes to download it now."
+    IDS_CURRENTVERSION_PROMPT 
+                            "You are already running the most current version of Creata Mail."
+    IDS_VERSIONUPDATED_PROMPT "Your Creata Mail product has been updated."
+    IDS_AUTOUPDATE_ONLINE_PROMPT 
+                            "We cannot check for Creata Mail updates at this time.  You are not online."
+    IDS_IMAGE_SERVER        "imgag.com"
+    IDS_TRAILER_NAME        "CreataMailTrailer"
+    IDS_SENDPICTURES_PROMPT "In order to send Creata Mail content, you must disable Send Pictures setting.\n\nIs it OK for us to make that change for you?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ADDAPHOTO_INFO_PROMPT 
+                            "Add a Photo support for webmail clients is coming soon!\n\nAdd a Photo is currently supported in Microsoft Outlook or Outlook Express."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_BTN1                "Stationery"
+    IDS_BTN2                "Smileys"
+    IDS_BTN3                "Clip Art"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_BTN4                "Add a Photo"
+    IDS_BTN5                "Invitations"
+    IDS_BTN6                "Announcements"
+    IDS_BTN7                "Sounds"
+    IDS_BTN8                "Favorites"
+    IDS_BTN9                "eCards"
+    IDS_BTN10               "Games"
+    IDS_BTN11               "Options"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_BTN1_TIP            "Stationery"
+    IDS_BTN2_TIP            "Smileys"
+    IDS_BTN3_TIP            "Clip Art"
+    IDS_BTN4_TIP            "Add a Photo"
+    IDS_BTN5_TIP            "Invitations"
+    IDS_BTN6_TIP            "Announcements"
+    IDS_BTN7_TIP            "Sounds"
+    IDS_BTN8_TIP            "Favorites"
+    IDS_BTN9_TIP            "eCards"
+    IDS_BTN10_TIP           "Games"
+    IDS_BTN11_TIP           "Options"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ECARD_URL1          "http://www.bluemountain.com/index.pd?source=bma310"
+    IDS_ECARD_URL2          "http://www.egreetings.com/index.pd?source=eg310"
+    IDS_ECARD_URL3          "http://www.americangreetings.com/index.pd?source=ag310"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ECARD_URL4          "http://www.beatgreets.com/index.pd?source=bg310"
+    IDS_GAMES_URL           "http://games.bluemountain.com/index.htm?refid=5000"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "AgOutlookAddIn.tlb"
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION VER_FILE_VERSION
+ PRODUCTVERSION VER_PRODUCT_VERSION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", VER_COMPANYNAME
+            VALUE "FileDescription", VER_PRODUCTNAME " " VER_COPYRIGHT "\0"
+            VALUE "FileVersion", VER_FILE_VERSION_STR
+            VALUE "ProductName", VER_PRODUCTNAME " " VER_PRODUCT_VERSION_STR "\0"
+            VALUE "ProductVersion", VER_PRODUCT_VERSION_STR
+            VALUE "LegalCopyright", VER_COPYRIGHT
+            VALUE "OriginalFilename", "AgOutlookAddIn.dll"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

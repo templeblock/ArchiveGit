@@ -1,0 +1,1076 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("MicroVision WebExpress","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c0ffc0","Wintertree","1") -->
+  <!-- $MVD$:color("19","c0ff","Or1","1") -->
+  <TITLE>Sentry Spelling Checker Engine - Using Sentry's Windows API</TITLE>
+ </HEAD>
+ <BODY BGCOLOR="WHITE">
+  <H1>
+   Sentry Spelling Checker Engine<BR>
+   Using the Sentry Windows API</H1>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE">Table of Contents</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <UL>
+   <LI>
+   <P>
+    <A HREF="#Overview">Overview</A><BR>
+    <LI><A HREF="#AboutLicenseKey">About the Sentry license key</A><BR>
+    <LI><A HREF="#How2CheckControl">How to check spelling in a text 
+    control or rich-text control</A>
+    <UL>
+     <LI><A HREF="#CheckCtrlInteractiv">Checking controls interactively</A><BR>
+     <LI><A HREF="#How2CheckBackground">Checking rich-text controls in the background</A></UL>
+    <LI><A HREF="#How2CheckString">How to check the spelling of a string</A><BR>
+    <LI><A HREF="#How2DisplayOptions">How to display the Options dialog box</A><BR>
+    <LI><A HREF="#How2DisplayDictDlg">How to display the Dictionaries 
+    dialog box</A><BR>
+    <LI><A HREF="#How2GetSetProps">How to get and set property values</A><BR>
+    <LI><A HREF="#How2ChangeDialogApp">How to change the appearance of 
+    Sentry's dialog boxes</A><BR>
+    <LI><A HREF="#How2Localize">How to localize Sentry's built-in dialog boxes</A><BR>
+    <LI><A HREF="#How2CallCoreAPI">How to call Sentry's Core API</A><BR>
+    <LI><A HREF="#How2AvoidConflicts">How to avoid conflicts with other applications</A></P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Overview"></A>Overview</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The Sentry DLL (Dynamic-Link Library) included with the Sentry 
+   Windows SDK include built-in spelling-checker dialog boxes you can 
+   easily invoke from your application. The DLL performs all 
+   initialization needed by most applications to access SSCE, including 
+   opening lexicons and setting options. Using the DLL, your application can</P>
+  <UL>
+   <LI>
+   <P>
+    Interact with the user to check the spelling of a string of text (see <A HREF="#How2CheckString">How
+     to check spelling of a string</A>)</P>
+   <LI>
+   <P>
+    Interact with the user to check the text in a Windows edit or 
+    rich-edit control (see <A HREF="#How2CheckControl">How to check 
+    spelling in a text control or rich-text control</A>)</P>
+   <LI>
+   <P>
+    Detect spelling errors typed into a standard rich-edit control (see <A HREF="#How2CheckBackground">Checking
+     rich-text controls in the background</A>)</P>
+   <LI>
+   <P>
+    Display the Options Dialog, which is used to set spelling-checker 
+    user preferences and remember the option settings persistently (see <A HREF="#How2DisplayOptions">How
+     to display the Options dialog box</A>)</P>
+   <LI>
+   <P>
+    Display the Dictionaries Dialog, which is used to configure and edit 
+    user lexicons (see <A HREF="#How2DisplayDictDlg">How to display the 
+    Dictionaries dialog box</A>).</P>
+   </UL>
+  <P>
+   You don't need to use the dialog boxes built-in to the Sentry DLL - 
+   you can write your own user interface. The Spelling-Checker dialog 
+   boxes are intended to provide a general-purpose spelling-checker 
+   capability to applications quickly. If your application has more 
+   sophisticated requirements, you may want to access the core Sentry 
+   API directly. The core Sentry API is described in <A HREF="coreapi.htm">Using
+    Sentry's Core API</A>; see <A HREF="#How2CallCoreAPI">How to call 
+   Sentry's Core API</A> for information on calling the Core API using 
+   the Sentry DLL. You can maintain the behavior of the built-in dialog 
+   boxes while changing their appearance. See <A HREF="#How2ChangeDialogApp">How
+    to change the appearance of Sentry dialog boxes</A> for more information.</P>
+  <P>
+   You can change the language of the text displayed by the dialogs; see <A HREF="#How2Localize">How
+    to localize Sentry's built-in dialog boxes</A> for more information.</P>
+  <P>
+   When you use the Sentry DLL, most of the &quot;housekeeping&quot; 
+   work associated with using the Sentry engine, such as opening 
+   sessions and lexicons and setting options, is done for you. See <A HREF="winsdk.htm#How2InstallRunTime">How
+    to install the Sentry run-time software with your applications</A> 
+   for information on how to configure the Sentry DLL to open the 
+   correct set of lexicons and set the correct options.</P>
+  <P>
+   Operation of the dialog boxes from a user's perspective is described 
+   in an on-line help file accessible via Help buttons in the dialog boxes.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="AboutLicenseKey"></A>About the Sentry 
+       license key</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P ALIGN=CENTER>
+   <B><FONT COLOR="RED">IMPORTANT</FONT></B></P>
+  <P>
+   Before your application can use the Sentry DLL, it must call the <A HREF="winref.htm#SSCE_SetKey">SSCE_SetKey</A> 
+   function and pass a valid license key. A license key is provided by 
+   Wintertree Software with the Sentry Software Development Kit. The 
+   license key is an eight-digit hexadecimal number.</P>
+  <P>
+   If the SSCE_SetKey function is not called, or the license key passed 
+   is not valid, the Sentry DLL will not work correctly.</P>
+  <P>
+   The SSCE_SetKey function needs to be called only once, but there is 
+   no harm in calling it more than once.</P>
+  <P>
+   <B><I>How to find your license key</I></B>:</P>
+  <UL>
+   <LI>
+   <P>
+    If you received the Sentry SDK on CD-ROM, your license key is 
+    provided on a paper sheet in the Sentry package.</P>
+   <LI>
+   <P>
+    If you received the Sentry SDK electronically, your license key is 
+    provided in the e-mail message which the Sentry software was attached 
+    to, or which described how to download the Sentry software.</P>
+   <LI>
+   <P>
+    If you purchased Sentry from <A HREF="http://www.netsales.com">Netsales</A>,
+     your license key is located in file key.txt, located in the ssce\sdk 
+    directory where you installed the Sentry SDK.</P>
+   </UL>
+  <P>
+   The license key is a hexadecimal number. You must pass your license 
+   key to the SSCE_SetKey function using whatever mechanism is required 
+   in your programming language to denote hexadecimal numbers. For 
+   example, if your license key was 1234ABCD,</P>
+  <UL>
+   <LI>
+   <P>
+    In C or C++ call SSCE_SetKey(0x1234ABCD);</P>
+   <LI>
+   <P>
+    In Visual Basic call SSCE_SetKey(&amp;H1234ABCD)</P>
+   <LI>
+   <P>
+    In Delphi (Pascal) call SSCE_SetKey($1234ABCD);</P>
+   </UL>
+  <P>
+   If your programming language does not support hexadecimal constants, 
+   you can convert the license key to decimal using a 
+   hexadecimal-capable calculator. If you don't have such a calculator, 
+   use the Windows calculator accessory in &quot;Scientific&quot; mode. 
+   For example, 1234ABCD converted to decimal is 305441741.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2CheckControl"></A>How to check 
+       spelling in a text control or rich-text control</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="WHITE" VALIGN=CENTER>
+      <H3>
+       <A NAME="CheckCtrlInteractiv"></A>Checking text controls interactively</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The <A HREF="winref.htm#SSCE_CheckCtrlDlg">SSCE_CheckCtrlDlg</A> 
+   function interactively checks the contents of a text or rich-text 
+   control. When you call SSCE_CheckCtrlDlg, words in the control are 
+   checked according to the current spelling-checker options. If 
+   SSCE_CheckCtrlDlg finds a problem, it displays a dialog box (the 
+   Spelling-Checker dialog box) which the user interacts with to correct 
+   or dispose of the problem. If no problems are detected, the dialog 
+   box closes immediately.</P>
+  <P>
+   If the control being checked is an edit control or rich-edit control, 
+   SSCE_CheckCtrlDlg can highlight the relevant word in the control when 
+   a problem is detected. To enable this behavior, set the ES_NOHIDESEL 
+   style in the control, or set the control's &quot;Hide Selection&quot; 
+   property to False. If the control is a multi-line edit control, the 
+   ES_AUTOVSCROLL style should be set to ensure the highlighted word can 
+   be scrolled into view.</P>
+  <P>
+   Normally, SSCE_CheckCtrlDlg checks all the text in the control. 
+   Optionally, it can check only the selected text.</P>
+  <P>
+   When SSCE_CheckCtrlDlg returns, all the text in the control (or just 
+   the selected portion) has been checked, or the user canceled the 
+   spelling check.</P>
+  <P>
+   A special form of the SSCE_CheckCtrlDlg function 
+   (SSCE_CheckCtrlDlgTmplt) allows your application to specify the 
+   dialog templates to be used in place of the templates built-in to the 
+   Sentry DLL. For more information, see <A HREF="#How2ChangeDialogApp">How
+    to change the appearance of Sentry's dialog boxes</A>.</P>
+  <H4>
+   <I><A NAME="ThirdPartyControls"></A>Checking third-party controls</I></H4>
+  <P>
+   SSCE_CheckCtrlDlg will work with standard Windows edit controls and 
+   rich-edit controls. It will also work with other controls that 
+   exhibit standard behavior in response to the following messages:</P>
+  <UL>
+   <LI>
+   <P>
+    EM_REPLACESEL<BR>
+    <LI>EM_SETSEL<BR>
+    <LI>WM_GETTEXT<BR>
+    <LI>WM_GETTEXTLENGTH<BR>
+    <LI>EM_SCROLLCARET<BR>
+    <LI>EM_GETSEL<BR>
+    <LI>EM_GETSELTEXT</P>
+   </UL>
+  <P>
+   Note that many third-party text controls don't support the standard 
+   messages, or behave in non-standard ways in response. Contact the 
+   control's publisher or developer to determine if the control supports 
+   these messages.</P>
+  <P>
+   The Sentry DLL determines how to communicate with a control from its 
+   class name. The DLL recognizes the following class names:</P>
+  <UL>
+   <LI>
+   <P>
+    <B>Edit</B>: Standard edit controls<BR>
+    <LI><B>RICHEDIT</B>: Standard version 1 rich-edit controls<BR>
+    <LI><B>RichEdit20A</B>: Standard version 2 and 3 rich-edit controls</P>
+   </UL>
+  <P>
+   Some controls subclass the standard controls but use different class 
+   names. For example, the TRichEdit control included with Delphi 2.0 
+   and later is a subclassed version of the &quot;RICHEDIT&quot; control 
+   that uses &quot;TRichEdit&quot; as the class name. If the control's 
+   class name is unknown, the Sentry DLL will look for a special 
+   class-name mapping entry in the SSCE.INI file or system registry. The 
+   mapping entries are defined in the [SSCE User] section of SSCE.INI or 
+   in the HKEY_CURRENT_USER\Software\Wintertree\SSCE tree of the system 
+   registry. The property name is the name of the subclassed control, 
+   and the value is a string containing the base class name. For 
+   example, to map the &quot;TRichEdit&quot; class to 
+   &quot;RICHEDIT&quot;, define a map entry similar to the following:</P><BLOCKQUOTE><PRE>TRichEdit=RICHEDIT</PRE></BLOCKQUOTE><P>
+   If the control's class name is not recognized by the Sentry DLL, and 
+   no mapping entry exists, the control is treated as an &quot;Edit&quot;
+    control.</P>
+  <P>
+   Example programs included with the Sentry Windows SDK demonstrate one 
+   technique for working with non-standard third-party controls.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="WHITE" VALIGN=CENTER>
+      <H3>
+       <A NAME="How2CheckBackground"></A>Checking rich-text controls in the background</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The Sentry DLL can check spelling of text in standard rich-text 
+   controls in the background, as the user types. The <A HREF="winref.htm#SSCE_CheckCtrlBackg">SSCE_CheckCtrlBackground</A> 
+   function is used to begin monitoring a rich-text control for 
+   misspelled words. When a misspelled word is detected, Sentry changes 
+   the word's color to red. When a misspelled word is later corrected, 
+   Sentry changes its color to black. If the user right-clicks the mouse 
+   over a misspelled word, Sentry pops up a context menu containing 
+   suggested replacements.</P>
+  <P>
+   Only one control can be monitored at a time. When 
+   SSCE_CheckCtrlBackground is called, Sentry stops monitoring the 
+   current control (if any) and begins monitoring the specified control. 
+   If you need to monitor several controls, catch the &quot;Set 
+   Focus&quot; event (EN_SETFOCUS) and monitor the control which has the 
+   input focus.</P>
+  <P>
+   Only standard rich-edit controls (RichTextBoxes in Visual Basic, 
+   TRichEdit controls in Delphi, and CRichEditCtrls in MFC) can be 
+   monitored. Controls which are derived or subclassed from the standard 
+   rich-text controls can also be monitored, as can third-party controls 
+   that exactly emulate the behavior of the standard controls at the 
+   message level (at the time of writing, no known third-party controls 
+   apply). If Sentry doesn't know how to deal with the control, 
+   SSCE_CheckCtrlBackground will return an <A HREF="coreref.htm#ErrorCodes">error
+    code</A>. See <A HREF="#ThirdPartyControls">Checking third-party controls</A> 
+   for more information on dealing with third-party and subclassed controls.</P>
+  <P>
+   There is currently no way to change the color used to mark misspelled 
+   words (red), nor is there any way to have a &quot;wavy red line&quot; 
+   drawn under misspelled words. Corrected words are always changed to 
+   black, regardless of their original color.</P>
+  <P>
+   Suggestions displayed in the pop-up context menu are obtained using 
+   the current settings of the PhoneticSuggestions, 
+   TypographicalSuggestions, and MinSuggestionDepth <A HREF="winref.htm#Properties">properties</A>.
+    The pop-up context menu also contains an Add item which, when 
+   selected, adds the word to the user lexicon indicated by the 
+   LastSelectedLex property. Please note that if a context menu is 
+   configured for the monitored control by your application, both 
+   context menus will be displayed.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2CheckString"></A>How to check 
+       spelling of a string</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Sentry can interactively check the spelling of words in a string 
+   using the <A HREF="winref.htm#SSCE_CheckBlockDlg">SSCE_CheckBlockDlg</A> 
+   function. The string can contain one or more words - a sentence, a 
+   paragraph, an entire document, or just a single word. The Sentry DLL 
+   identifies words contained within a string as follows: A word is an 
+   alphanumeric character followed by any sequence of alphanumerics or 
+   apostrophes. Periods surrounded by alphanumerics are considered part 
+   of the word, and trailing periods are considered part of the word if 
+   the word contains embedded periods interspersed among no more than 
+   two consecutive alphanumerics (e.g., the period at the end of <I>U.S.A.</I> 
+   is considered part of the word, but the periods at the end of <I>USA.</I> 
+   and <I>wintertreesoftware.com.</I> are not). Hyphens surrounded by 
+   alphanumerics are considered part of the word. Apostrophes at the end 
+   of a word are considered part of the word if they are preceded by the 
+   letter &quot;s&quot;. Any character not meeting these conditions 
+   marks the end of a word. If the IgnoreHTMLMarkups <A HREF="winref.htm#Properties">property</A> 
+   is set to 1, then any text surrounded by angle brackets (&lt;...&gt;) 
+   is ignored, and any text preceded by an ampersand and terminated by a 
+   semicolon (&amp;<I>xxx</I>;) is also ignored. Ideally, strings should 
+   contain words as described above, separated by punctuation or white 
+   space. However, strings may contain other information, such as binary 
+   formatting. Note that if formatting information contains valid word 
+   characters (as described above), the characters may be interpreted as 
+   words, with unexpected results. In this case, your application may 
+   need to extract words from the string and pass each word individually 
+   to SSCE_CheckBlockDlg.</P>
+  <P>
+   A string is a character array containing some text. A string's array 
+   should be larger than the text it contains to allow room for growth. 
+   When your application calls SSCE_CheckBlockDlg, you pass the size of 
+   the character array and the number of text characters it contains 
+   initially. The number of characters may change as a result of user 
+   actions (e.g., replacing a shorter word with a longer one, or 
+   deleting a doubled word). SSCE_CheckBlockDlg returns the new text 
+   length. SSCE_CheckBlockDlg will not allow the text to grow larger 
+   than the array size.</P>
+  <P>
+   When you call SSCE_CheckBlockDlg, words in the string are checked 
+   according to the current spelling-checker options. If 
+   SSCE_CheckBlockDlg finds a problem, it displays a dialog (the 
+   Spelling-Checker dialog) which your user interacts with to correct or 
+   dispose of the problem. If no problems are detected, the dialog 
+   closes immediately.</P>
+  <P>
+   When SSCE_CheckBlockDlg returns, the entire string has been checked. 
+   If the value returned by SSCE_CheckBlockDlg is positive, that value 
+   is the new length of the string. If the return value is negative, the 
+   user canceled the spelling check or some <A HREF="coreref.htm#ErrorCodes">error</A> 
+   occurred. The string is updated with any changes made by the user.</P>
+  <P>
+   When the Spelling-Checker dialog box opens to report a misspelled 
+   word, it can be difficult for users of your application to know where 
+   the word appears in the text being checked. A parameter passed to 
+   SSCE_CheckBlockDlg causes a special extended version of the 
+   Spelling-Checker dialog to be used in place of the standard version. 
+   The extended version has a context window that lets the user see the 
+   misspelled words in context.</P>
+  <P>
+   A special form of the SSCE_CheckBlockDlg function 
+   (SSCE_CheckBlockDlgTmplt) allows your application to specify the 
+   dialog templates to be used in place of the templates built-in to the 
+   Sentry DLL. For more information, see <A HREF="#How2ChangeDialogApp">How
+    to change the appearance of Sentry's dialog boxes</A>.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2DisplayOptions"></A>How to display 
+       the Options dialog box</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   To display the Options dialog box, call <A HREF="winref.htm#SSCE_OptionsDlg">SSCE_OptionsDlg</A>.</P>
+  <P>
+   The function returns when the user closes the dialog. Changes made by 
+   the user will be automatically saved in <A HREF="winref.htm#Properties">properties</A> 
+   in the system registry or SSCE.INI file unless the user closed the 
+   dialog by selecting the Cancel button.</P>
+  <P>
+   Note that the options dialog box is also displayed when the user 
+   selects the Options button in the Spelling-Checker dialog.</P>
+  <P>
+   A special form of the SSCE_OptionsDlg function (SSCE_OptionsDlgTmplt) 
+   allows your application to specify the dialog templates to be used in 
+   place of the templates built-in to the Sentry DLL. For more 
+   information, see <A HREF="#How2ChangeDialogApp">How to change the 
+   appearance of Sentry's dialog boxes</A>.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2DisplayDictDlg"></A>How to display 
+       the Dictionaries dialog box</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   To display the Dictionaries dialog box, call <A HREF="winref.htm#SSCE_EditLexDlg">SSCE_EditLexDlg</A>.</P>
+  <P>
+   The function returns when the user closes the dialog.</P>
+  <P>
+   Note that the user can also edit the user lexicons by selecting the 
+   Dictionaries button in the Spelling-Checker dialog.</P>
+  <P>
+   A special form of the SSCE_EditLexDlg function (SSCE_EditLexDlgTmplt) 
+   allows your application to specify the dialog templates to be used in 
+   place of the templates built-in to the Sentry DLL. For more 
+   information, see <A HREF="#How2ChangeDialogApp">How to change the 
+   appearance of Sentry's dialog boxes</A>.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2GetSetProps"></A>How to get and set 
+       property values</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Some <A HREF="winref.htm#Properties">property</A> values can be read 
+   and written through Sentry's Windows API. For example, the 
+   MainLexPath property can be read using the <A HREF="winref.htm#SSCE_GetMainLexPath">SSCE_GetMainLexPath</A> 
+   function and changed using the <A HREF="winref.htm#SSCE_SetMainLexPath">SSCE_SetMainLexPath</A> 
+   function. Some properties which apply to the Sentry's Core API are 
+   read using the <A HREF="coreref.htm#SSCE_GetOption">SSCE_GetOption</A> 
+   function and changed using the <A HREF="coreref.htm#SSCE_SetOption">SSCE_SetOption</A> 
+   function (see <A HREF="#How2CallCoreAPI">How to call Sentry's Core API</A> 
+   and <A HREF="coreapi.htm#How2SetOptions">How to set Sentry options</A> 
+   for more information). Properties which cannot be read or written 
+   using either of these methods (e.g., DebugFile, FontBold) must be 
+   read from or written to the system registry or SSCE.INI file directly.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2ChangeDialogApp"></A>How to change 
+       the appearance of Sentry's dialog boxes</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The Sentry DLL contains built-in Spelling, Dictionaries, and Options 
+   dialog boxes, the appearances of which are determined by dialog 
+   resources bound to the DLL. Your application can specify alternative 
+   dialog template resources to be used in place of the built-in 
+   resources. You could use this feature to make the dialog boxes 
+   displayed by the Sentry DLL match the appearance of other dialogs 
+   used by your application. You could also use this feature to make 
+   certain modifications to the built-in dialogs, such as disabling and 
+   hiding buttons you don't want your users to access or to change the 
+   language of the text displayed by the dialogs (see <A HREF="#How2Localize">How
+    to localize Sentry's built-in dialog boxes</A> for more information).</P>
+  <P>
+   To specify alternative dialog templates, your application calls 
+   &quot;Tmplt&quot; forms of the <A HREF="winref.htm#SSCE_CheckBlockDlg">SSCE_CheckBlockDlg</A>,
+    <A HREF="winref.htm#SSCE_CheckCtrlDlg">SSCE_CheckCtrlDlg</A>, <A HREF="winref.htm#SSCE_EditLexDlg">SSCE_EditLexDlg</A>,
+    and <A HREF="winref.htm#SSCE_OptionsDlg">SSCE_OptionsDlg</A> 
+   functions. The &quot;Tmplt&quot; forms of these functions accept 
+   parameters for the instance-handle of your application and the names 
+   of the alternative dialog template resources to be used in place of 
+   the built-in templates.</P>
+  <P>
+   The Spelling-Checker dialog box contains buttons which cause the 
+   Dictionaries dialog or Options dialog to appear. For this reason, 
+   templates for all three dialog types (Spelling-Checker, Dictionaries, 
+   and Options) can be supplied to the SSCE_CheckBlockDlgTmplt and 
+   SSCE_CheckCtrlDlgTmplt functions. In addition, a template can be 
+   specified for the New Lexicon dialog, which can be displayed by the 
+   Dictionaries dialog.</P>
+  <P>
+   The resource script used to create the built-in dialog boxes is 
+   provided in the \ssce\sdk\lib\ssce.rc file. The definitions of the 
+   resource ids used in this file are provided in 
+   \ssce\sdk\include\res.h. You can use a resource editor to modify the 
+   resource script; alternatively, you can modify it using a text editor 
+   such as Notepad. If your application supplies alternative dialog 
+   templates, the ids of controls on the alternative templates must 
+   match the ids of controls on the built-in templates. For example, the 
+   Ignore button on your alternative Check Spelling dialog template must 
+   use the value of id ID_IGNORE_BTN. The control ids are specified in 
+   the ssce.rc file.</P>
+  <P>
+   The alternative dialog template resources must be bound to your 
+   application's executable image (its .EXE file) or to a DLL loaded by 
+   your application. You will need the instance handle of the EXE or DLL 
+   that contains the template resources. In Delphi, the instance handle 
+   of the application is contained in the HInstance variable. In Visual 
+   Basic, the application instance handle can be obtained from the 
+   hInstance property of the App object.</P>
+  <P>
+   You will need a resource compiler to translate the resource script 
+   into a .res file that can be bound to your application. Resource 
+   compilers are typically included with C/C++ compilers.</P>
+  <H3>
+   How to use alternate dialog box template resources in Visual Basic</H3>
+  <P>
+   Before you can work with resource files in Visual Basic, you must 
+   first load the Resource Editor Add-In. To load the Resource Editor 
+   Add-In, select Add-In Manager from the Add-Ins menu. In the Add-In 
+   Manager dialog box, select VB6 Resource Editor and check the 
+   Loaded/Unloaded box.</P>
+  <P>
+   To create a resource file:</P>
+  <OL>
+   <LI>
+   <P>
+    Select Add New Resource File from the Project menu.</P>
+   <LI>
+   <P>
+    In the Open A Resource File dialog box, enter a name for the resource 
+    file. Be sure to give the file a .res extension. The resource file 
+    will be added to the Related Documents node in the Project Explorer.</P>
+   </OL>
+  <P>
+   To edit a resource file:</P>
+  <OL>
+   <LI>
+   <P>
+    Select Resource Editor from the Tools menu.</P>
+   <LI>
+   <P>
+    Select a button from the Resource Editor Toolbar to edit an existing 
+    resource or add a new one. To learn more about editing resources, see 
+    the Resource Editor Add-In documentation.</P>
+   </OL>
+  <P>
+   Alternatively, you can use a resource editor and resource compiler 
+   provided with a different product, such as VC++. After creating and 
+   editing the resource file, compile it using the resource compiler to 
+   create a .res file. The .res file can then be added to the Visual 
+   Basic project.</P>
+  <P>
+   Note that the dialog template resources will <B>not</B> be available 
+   if you run your project from the Visual Basic IDE. You <B>must</B> 
+   create a .exe file before your dialog template resources will be available.</P>
+  <P>
+   For more information on using resources in Visual Basic, see the 
+   following topics in the Visual Basic documentation:</P>
+  <UL>
+   <LI>
+   <P>
+    Visual Basic Concepts: Using Resource Files for Localization</P>
+   <LI>
+   <P>
+    Visual Basic Concepts: Working with Resource Files</P>
+   <LI>
+   <P>
+    Resource Editor Reference: Resource Editor Add-In</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2Localize"></A>How to localize 
+       Sentry's built-in dialog boxes</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   This section describes how to use the Sentry DLL in applications 
+   targeted at non-English-speaking users.</P>
+  <P>
+   The most important aspect of internationalizing a spelling checker is 
+   being able to check the spelling of text in the target language. 
+   Wintertree Software has lexicons available in various European 
+   languages; see <A HREF="http://www.wintertree-software.com/dev/dict">http://www.wintertree-software.com/dev/dict</A> 
+   for a complete list.</P>
+  <P>
+   The dialog boxes displayed by the Sentry DLL by default use English 
+   text for various labels, captions, and messages. Text for button 
+   labels and control captions is usually stored in the dialog 
+   templates. Text for error messages, changeable labels, and list-box 
+   items is stored in a string table contained in the SSCE.INI file or 
+   system registry. Note that the term &quot;string table&quot; as used 
+   here is <I>not</I> the same as a string table contained within a 
+   resource script. To make the Sentry DLL display text in a language 
+   other than English, text in both the dialog templates and in the 
+   string table must be changed. Specifically, your application must do 
+   the following:</P>
+  <OL>
+   <LI>
+   <P>
+    Define dialog templates which use text in the target language.</P>
+   <LI>
+   <P>
+    Create a string table containing strings in the target language, and 
+    add that string table to the SSCE.INI file or the system registry.</P>
+   <LI>
+   <P>
+    Create a help file which provides on-line help in the target language.</P>
+   <LI>
+   <P>
+    Call the <A HREF="winref.htm#SSCE_SetStringTable">SSCE_SetStringTableName</A> 
+    function to specify the name of the string table created in step 2.</P>
+   <LI>
+   <P>
+    Call the <A HREF="winref.htm#SSCE_SetHelpFile">SSCE_SetHelpFile</A> 
+    function to specify the name of the help file created in step 3.</P>
+   <LI>
+   <P>
+    Call the SSCE_xxxDlgTmplt form of the functions in the Sentry Windows 
+    API, passing the names of the alternate dialog templates created in 
+    step 1.</P>
+   </OL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       How to create alternate dialog box templates</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   Your will need to provide alternate dialog templates with captions 
+   and control labels in the target language. Note that translation of 
+   this text is your responsibility. See <A HREF="#How2ChangeDialogApp">How
+    to change the appearance of Sentry's dialog boxes</A> for 
+   instructions on creating alternate dialog box templates.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD WIDTH="100%" VALIGN=CENTER>
+      <H3>
+       How to create a string table</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   The Sentry DLL displays various text strings for error messages, 
+   items in list boxes, and changeable control labels. The text for 
+   these strings is obtained from a string table. The string table is 
+   stored in the SSCE.INI file or the system registry (see <A HREF="winref.htm#Properties">Sentry
+    Properties</A> for a discussion of how property values are obtained).</P>
+  <P>
+   The string table is named; the name of the table used by the Sentry 
+   DLL can be changed by your application at run time. The default 
+   string table name is &quot;English&quot;. Each string in the table 
+   has a default value in English; therefore, for applications which use 
+   an English user interface, no string table need by provided: The 
+   default strings are sufficient.</P>
+  <P>
+   To provide a string table for a language other than English, a 
+   complete set of strings must be included. Typically, the string table 
+   is named for the language of the strings it contains.</P>
+  <P>
+   When the string table is located in the SSCE.INI file, it is 
+   contained in a section of the file with the same name as the string 
+   table. For example, a string table named &quot;French&quot; would be 
+   located in the [French] section of SSCE.INI.</P>
+  <P>
+   When the string table is located in the system registry, it is 
+   located in a key below the current RegTreeName property. The key has 
+   the same name as the string table name. For example, if the 
+   RegTreeName property is Software\Wintertree\SSCE (the default) and 
+   the string table name is &quot;French&quot;, the string table will be 
+   located in HKEY_CURRENT_USER\Software\Wintertree\SSCE\French.</P>
+  <P>
+   The following list shows the strings that should be included in the 
+   string table.</P>
+  <UL>
+   <LI>
+   <P>
+    <B>AddStr</B>: Menu item appearing in context menu displayed by 
+    SSCE_CheckCtrlBackground. Default: &quot;&amp;Add&quot;.</P>
+   <LI>
+   <P>
+    <B>AmericanEnglishStr</B>: Language name. Default: &quot;American English&quot;.</P>
+   <LI>
+   <P>
+    <B>AmericanLegalStr</B>: Language name. Default: &quot;American 
+    English Legal&quot;.</P>
+   <LI>
+   <P>
+    <B>AmericanMedicalStr</B>: Language name. Default: &quot;American 
+    English Medical&quot;.</P>
+   <LI>
+   <P>
+    <B>AnyLangStr</B>: Unspecified language name. Default: &quot;Any&quot;.</P>
+   <LI>
+   <P>
+    <B>AutoChangeActionStr</B>: Action which can be assigned to word in 
+    Dictionaries dialog box. Default: &quot;Auto change (use case of 
+    other word).&quot;</P>
+   <LI>
+   <P>
+    <B>AutoChangePreserveCaseActionStr</B>: Action which can be assigned 
+    to word in Dictionaries dialog box. Default: &quot;Auto change (use 
+    case of checked word)&quot;.</P>
+   <LI>
+   <P>
+    <B>BadLexFormatStr</B>: Error message (%s is the name of the 
+    dictionary file). Default: &quot;%s is not a user dictionary&quot;</P>
+   <LI>
+   <P>
+    <B>BritishEnglishStr</B>: Language name. Default: &quot;British English&quot;.</P>
+   <LI>
+   <P>
+    <B>BritishLegalStr</B>: Language name. Default: &quot;British English Legal&quot;.</P>
+   <LI>
+   <P>
+    <B>BritishMedicalStr</B>: Language name. Default: &quot;British 
+    English Medical&quot;.</P>
+   <LI>
+   <P>
+    <B>CanadianEnglishStr</B>: Language name. Default: &quot;Canadian English&quot;.</P>
+   <LI>
+   <P>
+    <B>CapitalizationStr</B>: Problem description in Spelling Checker 
+    dialog box. Default: &quot;Capitalization&quot;.</P>
+   <LI>
+   <P>
+    <B>CatalanStr</B>: Language name. Default: &quot;Catalan&quot;.</P>
+   <LI>
+   <P>
+    <B>CheckSpellingStr</B>: Caption of the Spelling Checker dialog box. 
+    Default: &quot;Check Spelling&quot;.</P>
+   <LI>
+   <P>
+    <B>ConditionalChangeActionStr</B>: Action which can be assigned to 
+    word in Dictionaries dialog box. Default: &quot;Conditionally change 
+    (use case of other word)&quot;.</P>
+   <LI>
+   <P>
+    <B>ConditionalChangePreserveCaseActionStr</B>: Action which can be 
+    assigned to word in Dictionaries dialog box. Default: 
+    &quot;Conditionally change (use case of checked word)&quot;.</P>
+   <LI>
+   <P>
+    <B>ConsiderReplacingStr</B>: Problem description in Spelling Checker 
+    dialog box. Default: &quot;Consider changing&quot;.</P>
+   <LI>
+   <P>
+    <B>CzechStr</B>: Language name. Default: &quot;Czech&quot;.</P>
+   <LI>
+   <P>
+    <B>DanishStr</B>: Language name. Default: &quot;Danish&quot;.</P>
+   <LI>
+   <P>
+    <B>DeleteStr</B>: Button label in Spelling Checker dialog. Default: &quot;&amp;Delete&quot;.</P>
+   <LI>
+   <P>
+    <B>DoubledWordStr</B>: Problem description in Spelling Checker 
+    dialog. Default: &quot;Doubled word: &quot;.</P>
+   <LI>
+   <P>
+    <B>DutchStr</B>: Language name. Default: &quot;Dutch&quot;.</P>
+   <LI>
+   <P>
+    <B>EditLexiconStr</B>: Dialog caption. Default: &quot;Edit Dictionary&quot;.</P>
+   <LI>
+   <P>
+    <B>ErrorOpeningLexStr</B>: Error message (%s is the name of the file 
+    which couldn't be opened). Default: &quot;Error opening dictionary %s&quot;.</P>
+   <LI>
+   <P>
+    <B>ErrorReplacingWordStr</B>: Error message. Default: &quot;Error 
+    replacing word in text (probably out of space)&quot;.</P>
+   <LI>
+   <P>
+    <B>ExcludeActionStr</B>: Action which can be assigned to word in 
+    Dictionaries dialog box. Default: &quot;Exclude (treat as misspelled)&quot;.</P>
+   <LI>
+   <P>
+    <B>ExportFileStr</B>: Dialog box caption. Default: &quot;Export Dictionary&quot;.</P>
+   <LI>
+   <P>
+    <B>FinnishStr</B>: Language name. Default: &quot;Finnish&quot;.</P>
+   <LI>
+   <P>
+    <B>FrenchCanadianStr</B>: Language name. Default: &quot;French (Canadian)&quot;.</P>
+   <LI>
+   <P>
+    <B>FrenchStr</B>: Language name. Default: &quot;French (European)&quot;.</P>
+   <LI>
+   <P>
+    <B>GermanStr</B>: Language name. Default: &quot;German&quot;.</P>
+   <LI>
+   <P>
+    <B>HungarianStr</B>: Language name. Default: &quot;Hungarian&quot;.</P>
+   <LI>
+   <P>
+    <B>IgnoreAllStr</B>: Menu item appearing in context menu displayed by 
+    SSCE_CheckCtrlBackground. Default: &quot;I&amp;gnore All&quot;.</P>
+   <LI>
+   <P>
+    <B>IgnoreStr</B>: Button label in Spelling Checker dialog box. 
+    Default: &quot;&amp;Ignore&quot;.</P>
+   <LI>
+   <P>
+    <B>IgnoreActionStr</B>: : Action which can be assigned to word in 
+    Dictionaries dialog box. Default: &quot;Ignore (skip)&quot;.</P>
+   <LI>
+   <P>
+    <B>ImportFileFilterStr</B>: Common dialog file filter. Default: 
+    &quot;Text files (*.txt)|*.txt|All files (*.*)|*.*|&quot;.</P>
+   <LI>
+   <P>
+    <B>ImportFileStr</B>: Dialog box caption. Default: &quot;Import Dictionary&quot;.</P>
+   <LI>
+   <P>
+    <B>ItalianStr</B>: Language name. Default: &quot;Italian&quot;.</P>
+   <LI>
+   <P>
+    <B>LexFileFilterStr</B>: Common dialog file filter. Default: 
+    &quot;Dictionary files (*.tlx)|*.tlx|External dictionaries 
+    (*.dic)|*.dic|Text files (*.txt)|*.txt|All files (*.*)|*.*|&quot;.</P>
+   <LI>
+   <P>
+    <B>MisspelledWordStr</B>: Problem description in Spelling Checker 
+    dialog box. Default: &quot;Not in Dictionary&quot;.</P>
+   <LI>
+   <P>
+    <B>NewLexFileStr</B>: Dialog box caption. Default: &quot;Create 
+    Dictionary File&quot;.</P>
+   <LI>
+   <P>
+    <B>NorwegianBokmalStr</B>: Language name. Default: &quot;Norwegian (Bokmal)&quot;.</P>
+   <LI>
+   <P>
+    <B>NorwegianNynorskStr</B>: Language name. Default: &quot;Norwegian (Nynorsk)&quot;.</P>
+   <LI>
+   <P>
+    <B>OpenLexFileStr</B>: Dialog box caption. Default: &quot;Add 
+    Dictionary File&quot;.</P>
+   <LI>
+   <P>
+    <B>PolishStr</B>: Language name. Default: &quot;Polish&quot;.</P>
+   <LI>
+   <P>
+    <B>PortugueseBrazilStr</B>: Language name. Default: &quot;Brazilian Portuguese&quot;.</P>
+   <LI>
+   <P>
+    <B>PortugueseIberianStr</B>: Language name. Default: &quot;Portuguese (Iberian)&quot;.</P>
+   <LI>
+   <P>
+    <B>ReplaceStr</B>: Button label in Spelling Checker dialog box. 
+    Default: &quot;&amp;Change&quot;.</P>
+   <LI>
+   <P>
+    <B>RussianStr</B>: Language name. Default: &quot;Russian&quot;.</P>
+   <LI>
+   <P>
+    <B>SpanishStr</B>: Language name. Default: &quot;Spanish&quot;.</P>
+   <LI>
+   <P>
+    <B>SwedishStr</B>: Language name. Default: &quot;Swedish&quot;.</P>
+   <LI>
+   <P>
+    <B>UndoEditStr</B>: Button label in Spelling Checker dialog box. 
+    Default: &quot;Undo &amp;edit&quot;.</P>
+   </UL>
+  <P>
+   <B>How to specify the string table name</B>: At run time, your 
+   application can switch to a different string table by calling the <A HREF="winref.htm#SSCE_SetStringTable">SSCE_SetStringTableName</A> 
+   function. Once SSCE_SetStringTableName is called, the Sentry DLL will 
+   use the new string table name.</P>
+  <P>
+   <B>Using the alternate dialog templates</B>: The final step in having 
+   the Sentry dialog boxes display text in a language other than English 
+   is to call one of the SSCE_xxxDlgTmplt functions in the Sentry 
+   Windows API. These functions accept the names of dialog templates 
+   that will be used by the Sentry DLL in place of the built-in 
+   templates. For more information, see <A HREF="#How2ChangeDialogApp">How
+    to change the appearance of Sentry's dialog boxes</A>.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2CallCoreAPI"></A>How to call 
+       Sentry's Core API</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   If your application needs to call functions in the Sentry's Core API 
+   (e.g., to set Core API options or to check the spelling of text 
+   without interacting with the user) it can take advantage of the 
+   initialization steps performed by the Sentry DLL by calling the <A HREF="winref.htm#SSCE_GetSid">SSCE_GetSid</A> function.</P>
+  <P>
+   The Sentry DLL automatically opens a Sentry session by calling the <A HREF="coreref.htm#SSCE_OpenSession">SSCE_OpenSession</A> 
+   function. It also opens the lexicons listed in the MainLexFiles and 
+   UserLexFiles <A HREF="winref.htm#Properties">properties</A> and sets 
+   the options based on properties such as CaseSensitive and 
+   TypographicalSuggestions. Your application can obtain the session id 
+   containing these options and open lexicons via SSCE_GetSid. If your 
+   application calls SSCE_GetSid, it doesn't need to call 
+   SSCE_OpenSession, <A HREF="coreref.htm#SSCE_OpenLex">SSCE_OpenLex</A>,
+    or <A HREF="coreref.htm#SSCE_SetOption">SSCE_SetOption</A>, because 
+   these functions will already have been called.</P>
+  <P>
+   The session id returned by SSCE_GetSid is shared by all running 
+   applications on the system which use the Sentry DLL. If one 
+   application makes a change within the shared session, all other 
+   sharing applications may be affected. In desktop-based applications 
+   operated by a user this is not usually a problem, since changes such 
+   as option settings are made at the user's request and presumably the 
+   user's preferences apply to all applications.</P>
+  <P>
+   The session opened automatically by the Sentry DLL may be closed and 
+   re-opened at any time for a variety of reasons. An application that 
+   uses the session id returned by SSCE_GetSid should not rely on the 
+   session remaining open between calls to the Sentry API. For this 
+   reason, the session id should not be saved. Instead, your application 
+   should call SSCE_GetSid each time it needs the session id.</P>
+  <P>
+   Because the session may be closed and re-opened at any time, text 
+   blocks opened within the session may also be closed. Opening text 
+   blocks within the shared session is therefore not recommended. 
+   Instead, use <A HREF="coreref.htm#SSCE_CheckString">SSCE_CheckString</A> 
+   function and related functions (see <A HREF="coreapi.htm#How2CheckString">How
+    to check spelling of a string of words</A> for more information).</P>
+  <P>
+   Note that your application must not call <A HREF="coreref.htm#SSCE_CloseSession">SSCE_CloseSession</A> 
+   for the session id returned by SSCE_GetSid. The Sentry DLL closes the 
+   session (and its open lexicons) automatically when your application 
+   terminates or when certain property values change. If you want to 
+   ensure that the session is closed, your application can set a new 
+   property value from the current value like this:</P><BLOCKQUOTE><PRE>char path[512];<BR>SSCE_GetMainLexPath(path, sizeof(path));<BR>SSCE_SetMainLexPath(path);</PRE></BLOCKQUOTE><P>
+   At this point, the Sentry DLL will close its session and will reopen 
+   it the next time a function is called.</P>
+  <P>
+   The shared session id returned by SSCE_GetSid should not be used in 
+   non-interactive applications (e.g., applications that run in the 
+   background), nor should it be used in multi-threaded applications 
+   where there is a possibility that functions in Sentry's API may be 
+   called concurrently. See <A HREF="coreapi.htm#AboutThreadSafety">About
+    thread safety</A> for more information.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="How2AvoidConflicts"></A>How to avoid 
+       conflicts with other applications</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   If your application is installed on the same computer as another 
+   application which also uses SSCE, conflicts can result that may 
+   disable spell checking in either or both applications, or which may 
+   cause other problems. Fortunately, there are some steps your 
+   application can take to prevent this from occurring.</P>
+  <P>
+   The Sentry DLL is named to prevent incompatibilities caused by 
+   changes to the Sentry API. Each time the Sentry API is changed, the 
+   Sentry DLL name is changed. Thus, you can be assured that if you link 
+   your application with SSCE5332.DLL, for example, all instances of 
+   SSCE5332.DLL will contain the functions and parameters your 
+   application expects. Sentry DLLs with other names (e.g., 
+   SSCE5432.DLL) have a different API version, and may not work 
+   correctly with your application.</P>
+  <P>
+   Similarly, the compressed lexicons (dictionaries) used by the Sentry 
+   DLL have different names depending on the file-format version. (The 
+   naming convention used for compressed lexicons is documented in <A HREF="coreapi.htm#AboutLexicons">About
+    Sentry's lexicons</A>) Two or more applications can share the same 
+   compressed lexicon without conflict, provided each application uses a 
+   version of the Sentry engine which is compatible with the lexicon's 
+   file format. You can determine which lexicon version is right for 
+   your Sentry version by examining the names of the American or British 
+   English lexicons included with SSCE. If the American English lexicon 
+   in your version of Sentry is named SSCEAM2.CLX, then you should use 
+   only lexicons with that file-format version (2) and not other 
+   versions, such as SSCEAM1.CLX.</P>
+  <P>
+   The Sentry DLL provides built-in dialog boxes and other convenience 
+   functions to simplify operation in the Windows environment. To 
+   implement this, the DLL automatically opens lexicons and sets user 
+   options. All applications which share the same Sentry DLL and use the 
+   built-in dialog functions (e.g., <A HREF="winref.htm#SSCE_CheckCtrlDlg">SSCE_CheckCtrlDlg</A>,
+    <A HREF="winref.htm#SSCE_CheckBlockDlg">SSCE_CheckBlockDlg</A>) also 
+   share the open lexicons and options. If one application changes an 
+   option, all sharing applications will be affected. In practice, this 
+   is not as bad as it sounds, because option settings are usually made 
+   on behalf of the user, and the same user is operating all sharing 
+   applications, so the chances are good that the user wants the option 
+   setting to apply to all spelling checks he or she performs. 
+   Nevertheless, in some cases you may want to insulate your application 
+   from the effects of changes made by other applications, and 
+   techniques for doing so are described below.</P>
+  <P>
+   The Sentry DLL obtains information about which lexicons to open 
+   automatically and which options to set from either the system 
+   registry or an INI file. By default, the 32-bit Sentry DLL obtains 
+   its settings from the Software\Wintertree\SSCE tree under 
+   HKEY_CURRENT_USER. If two applications which use the 32-bit Sentry 
+   DLL are installed on the same machine, and both let the Sentry DLL 
+   use the default registry tree, and each have incompatible settings, 
+   then problems will arise. Typically, the last application installed 
+   will get the settings it needs, and the previously installed 
+   application will no longer work. To prevent this from happening to 
+   your application, configure Sentry settings under your application's 
+   registry tree when it is installed, and call the <A HREF="winref.htm#SSCE_SetRegTreeName">SSCE_SetRegTreeName</A> 
+   API function before you call other Sentry Windows API functions, such 
+   as SSCE_CheckCtrlDlg. This will cause the Sentry DLL to get its 
+   settings from your application's registry tree, which settings should 
+   be appropriate for your application. For better efficiency, your 
+   application can call <A HREF="winref.htm#SSCE_GetRegTreeName">SSCE_GetRegTreeName</A> 
+   first, and call SSCE_SetRegTreeName only if the current registry tree 
+   is not your application's tree. (A race condition exists, in that 
+   another application could call SSCE_SetRegTreeName after your 
+   application calls SSCE_GetRegTreeName or SSCE_SetRegTreeName, but the 
+   chances of this happening are very small.)</P>
+  <P>
+   By default, the 16-bit Sentry DLL obtains its settings from the 
+   SSCE.INI file. The SSCE.INI file is searched for in a specific way; 
+   see <A HREF="winsdk.htm#HowSSCEIniIsLocated">How the Sentry DLL 
+   locates the SSCE.INI file</A>. If two applications which use the 
+   16-bit Sentry DLL are installed on the same machine, and each have 
+   incompatible settings, then problems may arise. The Sentry DLL will 
+   use the settings in the first SSCE.INI file it finds, which will 
+   likely be associated with the first application to start. Also, if 
+   both applications install the SSCE.INI in a common directory such as 
+   the Windows directory, then the last application to be installed may 
+   overwrite the settings of a previously installed application. To 
+   protect your application from problems of this sort, call <A HREF="winref.htm#SSCE_SetIniFile">SSCE_SetIniFile</A> 
+   before you call other Sentry Windows API functions, such as 
+   SSCE_CheckCtrlDlg. This will cause the Sentry DLL to get its settings 
+   from your application's SSCE.INI file (or other INI file), which 
+   settings should be appropriate for your application.</P>
+  <P>
+   Other information related to incompatibility problems:</P>
+  <UL>
+   <LI>
+   <P>
+    Under Windows, DLLs are located by module name, not file name. 
+    Placing a private copy of the Sentry DLL in your application's 
+    directory does not guarantee your application won't share the DLL 
+    with other applications, because Windows will use the loaded copy of 
+    the DLL if the module names match.</P>
+   <LI>
+   <P>
+    If your application calls <A HREF="coreref.htm#SSCE_OpenSession">SSCE_OpenSession</A>,
+     then any settings made within that application will be private to 
+    your application, so there is no need to worry about incompatibility problems.</P>
+   <LI>
+   <P>
+    Sentry Windows API functions which begin with SSCE_Set usually save 
+    the settings in the current registry tree or INI file. Call 
+    SSCE_SetRegTreeName (32-bit DLL only) or SSCE_SetIniFile before 
+    calling a SSCE_Set function to ensure the settings are saved where 
+    you expect them to be saved.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <P>
+   Copyright &copy; 2000 <A HREF="http://www.wintertree-software.com">Wintertree
+    Software Inc</A>.<BR>
+   $Revision: 5.14.10 $
+ </BODY>
+</HTML>

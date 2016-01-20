@@ -1,0 +1,107 @@
+// PSLaunchDLL.idl : IDL source for PSLaunchDLL.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PSLaunchDLL.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	typedef enum
+	{
+		[helpstring("Error")] kAppError = -1,
+		[helpstring("Launcher")] kAppLauncher,
+		[helpstring("Print Shop")] kAppPrintShop,
+		[helpstring("Press Writer")] kAppPressWriter,
+		[helpstring("Web Site Designer")] kAppWebSiteDesigner
+
+	} EAppType;
+
+/*	typedef enum
+	{ 
+		[helpstring("US letter paper")] kUSLetter = 0,
+		[helpstring("US legal paper")] kUSLegal,
+		[helpstring("A4 letter paper")] kA4Letter,
+		[helpstring("B5 letter paper")] kB5Letter,
+		[helpstring("US tabloid paper")] kTabloid,
+		[helpstring("A3 tabloid paper")] kA3Tabloid,
+		[helpstring("User Specified paper")] kSpecialPaperSize,	
+		kNumberOfPaperSizes 
+
+	} EPaperSize;
+*/
+	typedef enum
+	{
+		[helpstring("OK")] kResultOK = 1,
+		[helpstring("Cancel")] kResultCancel = 2,
+		[helpstring("Open Document")] kResultOpen = 3,
+		[helpstring("Other Application")] kResultOtherApp = 4
+
+	} EResult;
+
+	[
+	
+		uuid(BE16BD60-4DA6-11d2-BD04-006008473DD0),
+	
+		helpstring("IPSPrintShopData Interface"),
+		pointer_default(unique)
+	]
+	interface IPSPrintShopData : IUnknown
+	{
+	};
+
+	[
+	
+		uuid(8DC39CD0-4D90-11D2-BD04-006008473DD0),
+	
+		helpstring("IPSLaunchData Interface"),
+		pointer_default(unique)
+	]
+	interface IPSLaunchData : IUnknown
+	{
+		[helpstring("method Initialize")] HRESULT Initialize( OLE_HANDLE hFile );
+		[helpstring("method GetProjectApp")] HRESULT GetProjectApp(EAppType* eAppType);
+		[helpstring("method GetProjectType")] HRESULT GetProjectType(short* pProjType);
+		[helpstring("method GetProjectFormat")] HRESULT GetProjectFormat(short* nResult);
+		[helpstring("method GetProjectPaperSize")] HRESULT GetProjectPaperSize(short* nResult);
+	};
+	[
+	
+		uuid(8DC39CD2-4D90-11D2-BD04-006008473DD0),
+	
+		helpstring("IPSLaunchCtrl Interface"),
+		pointer_default(unique)
+	]
+	interface IPSLaunchCtrl : IUnknown
+	{
+		[helpstring("method DoFileNew")] HRESULT DoFileNew(HWND hwndParent, EAppType eAppType, EResult* pResult);
+		[helpstring("method DoFileOpen")] HRESULT DoFileOpen(HWND hwndParent, EAppType eAppType, EResult* pResult);
+		[helpstring("method GetData")] HRESULT GetData(REFIID iid, LPUNKNOWN* ppvObj);
+	};
+[
+	uuid(8DC39CC0-4D90-11D2-BD04-006008473DD0),
+	version(1.0),
+	helpstring("PSLaunchDLL 1.0 Type Library")
+]
+library PSLAUNCHDLLLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(8DC39CD1-4D90-11D2-BD04-006008473DD0),
+		helpstring("PSLaunchData Class")
+	]
+	coclass PSLaunchData
+	{
+		[default] interface IPSLaunchData;
+	};
+	[
+		uuid(8DC39CD3-4D90-11D2-BD04-006008473DD0),
+		helpstring("PSLaunchCtrl Class")
+	]
+	coclass PSLaunchCtrl
+	{
+		[default] interface IPSLaunchCtrl;
+	};
+};

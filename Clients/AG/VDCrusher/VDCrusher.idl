@@ -1,0 +1,42 @@
+// VDCrusher.idl : IDL source for VDCrusher
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (VDCrusher.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(184AE879-1DB6-4ec6-86C7-6225DA6F4B44),
+	dual,
+	helpstring("IPlugin Interface"),
+	pointer_default(unique)
+]
+interface IPlugin : IDispatch
+{
+	[id(1)] HRESULT Version([out,retval]BSTR* pbstrVersion);
+	[id(2)] HRESULT UploadVideo([in]BSTR bstrURL, [in]BSTR bstrFilePath, [in]BSTR bstrOptions, [in]int iFlags, [out,retval]BSTR* pbstrFilePathNew);
+	[id(3)] HRESULT PrepareVideo([in]BSTR bstrFilePath, [in]BSTR bstrOptions, [in]int iFlags, [out,retval]BSTR* pbstrFilePathNew);
+};
+
+[
+	uuid(795D00E8-CD2D-41b8-A8B8-94E45AEE66A8),
+	version(1.0),
+	helpstring("VDCrusher 1.0 Type Library")
+]
+library VDCrusherLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(FC1D49D6-3C80-477a-A3C2-7254B3592945),
+		helpstring("Plugin Class")
+	]
+	coclass Plugin
+	{
+		[default] interface IPlugin;
+	};
+};

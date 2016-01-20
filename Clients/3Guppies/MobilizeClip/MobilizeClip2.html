@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Ringtones, Cell Phone Games, mp3 ringtones, Screen Graphics and more at mixxer.com</title>
+
+<meta name="keywords" content="Ringtones at mixxer.com. Your source for real music ring tones and mp3 ringtones, Tones from all the latest artists" />
+<meta name="description" content="Ringtones at mixxer.com. Your source for real music ring tones and mp3 ringtones, Tones from all the latest artists" />
+<meta name="robots" content="all" />
+<meta name="rating" content="GENERAL" />
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="expires" content="0" />
+
+<link rel="shortcut icon" href="http://www.mixxer.com/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="http://www.mixxer.com/css/mixxer.css" />
+<link rel="stylesheet" type="text/css" href="http://www.mixxer.com/css/global.css" />
+
+
+<script type='text/javascript' src='http://www.mixxer.com/javascript/yui/yahoo/yahoo-min.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/yui/dom/dom-min.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/yui/event/event-min.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/yui/mixxer/mixxer.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/yui/mixxer/dom.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/yui/mixxer/onload.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/firebug/firebugx.js'></script>
+<script type='text/javascript' src='MobilizeClip.js'></script>
+<script type='text/javascript' src='EmbedFlash.js'></script>
+<script type='text/javascript' src='EmbedWMPlayer.js'></script>
+<script type='text/javascript' src='PlayMP3Clip.js'></script>
+<script type='text/javascript' src='PlayWMPClip.js'></script>
+<script type='text/javascript' src='InitializeClip.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/yui/connection/connection.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/yui/container/container.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/yui/dragdrop/dragdrop.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/yui/mixxer/classes/carriers_devices.js'></script>
+<script type='text/javascript' src='http://www.mixxer.com/javascript/openlocker/mobilize_funcs.js'></script>
+
+<link rel='stylesheet' type='text/css' href='http://www.mixxer.com/css/MobilizeAudioCrop.css' media='screen' />
+<link rel='stylesheet' type='text/css' href='http://www.mixxer.com/javascript/yui/container/assets/container.css' media='screen' />
+<link rel='stylesheet' type='text/css' href='http://www.mixxer.com/css/openlocker/mobilize_editor.css' media='screen' />
+
+<script type="text/javascript" for="idPlayerObject" event="OpenStateChange(Item)">
+//j	PlayAudioClip.OnEventOpenStateChange(Item);
+</script>
+<script type="text/javascript" for="idPlayerObject" event="PlayStateChange(Item)">
+//j	PlayAudioClip.OnEventPlayStateChange(Item);
+</script>
+
+<script type="text/javascript" src="http://www.mixxer.com/javascript/yui/container/container.js"></script>
+<script type="text/javascript" src="http://www.mixxer.com/javascript/yui/animation/animation.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.mixxer.com/javascript/yui/container/assets/container.css" />
+<script type="text/javascript">
+/* GLOBAL VARS */
+var urlBase = 'http://www.mixxer.com/';
+
+/* teaser overlay */
+
+
+teasePanel = null;
+
+YUIEvent.addListener( window, 'load', function() {
+	
+		
+	var cfg = {
+		modal: true,
+		draggable: false,
+		visible: false,
+		underlay: 'none',
+		zIndex: 10000,
+		effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration:0.5}
+	};
+	
+	if( YUIDom.get( [ 'logo', 'head' ] ).length )
+	{
+		if( YUIDom.get( 'logo' ) && YUIDom.getXY( 'logo' ) )
+			cfg.context = [ 'logo', 'tl', 'bl' ];
+		else if( YUIDom.get( 'head' ) && YUIDom.getXY( 'head' ) )
+			cfg.context = [ 'head', 'tl', 'bl' ];
+	}
+	else
+	{
+		cfg.fixedcenter = true;
+		
+	}
+	
+	teasePanel = new YAHOO.widget.Panel( 'yui-teaser', cfg );
+	
+	YAHOO.widget.Overlay.windowResizeEvent.subscribe( function() {
+		this.cfg.refireEvent( 'context' );
+		
+	}, teasePanel, true );
+	
+	teasePanel.beforeShowEvent.subscribe( function( type, args ) {
+		this.cfg.refireEvent( 'context' );
+	}, teasePanel, true );
+	
+	teasePanel.renderEvent.subscribe( function() 
+	{
+		var mouseover = function() 
+		{
+			var img = 'http://svvscdn.mixxer.com/images/ui/close_xb_tease.gif';
+			this.style.backgroundImage = img;
+			// YUIDom.setStyle( this, 'background-image', img );
+		};
+		
+		var mouseout = function() 
+		{
+			var img = 'http://svvscdn.mixxer.com/images/ui/close_x_tease.gif';
+			this.style.backgroundImage = img;
+			// YUIDom.setStyle( this, 'background-image', img );
+		};
+			
+		var closeDiv = YUIDom.getElementsByClassName( 'close', 'div', this.element )[0];
+		
+		YUIEvent.addListener( closeDiv, 'mouseover', mouseover );
+		YUIEvent.addListener( closeDiv, 'mouseout', mouseout );
+	}, teasePanel, true );
+	
+	teasePanel.setBody( '<h1>Mixxer is now 3Guppies!</h1>' + 
+		'<p>Like Mixxer, you can still download ringtones, share<br />' +
+		'videos and send pictures to any cell phone - <strong>FREE!</strong></p>' +
+		'<ul class="generic">' + 
+		'<li>Same great features, different name</li>' + 
+		'<li>Your stuff&#8216;s already in a new 3Guppies locker</li>' + 
+		'<li>Look for NEW features only on <a href="http://www.mixxer.com">3Guppies</a></li>' + 
+		'</ul>' +
+		'<br />' +
+		'<div class="textCenter"><img src="http://svvscdn.mixxer.com/images/ui/main/3guppies_logo.gif" border="0" /></div>' );
+
+	teasePanel.setHeader( '' );
+
+	teasePanel.render( document.body );
+	
+	
+	if( teasePanel && false )
+	{
+		window.setTimeout( function() { teasePanel.show(); }, 5000 );
+	}
+} );
+
+
+
+
+</script>
+
+
+<style type="text/css">
+/* teaser overlay */
+
+
+.mask {
+	background-color: white;
+}
+
+#yui-teaser {
+	margin-top: 20px;
+	margin-left: 100px;
+	
+	border-color: #4db3d0;
+}
+
+#yui-teaser .hd {
+	background-color: #FFFFFF;
+	border-bottom: 0;
+}
+
+#yui-teaser .bd {
+	padding: 10px 40px;
+}
+
+#yui-teaser .close {
+	width: 20px;
+	height: 20px;
+	background-image: url( http://svvscdn.mixxer.com/images/ui/close_x_tease.gif );
+}
+
+
+</style>
+
+
+<script type="text/javascript" src="http://www.mixxer.com/javascript/popup.js"></script>
+<script type="text/javascript" src="http://www.mixxer.com/javascript/feather.js"></script>
+<script type="text/javascript" src="http://www.mixxer.com/javascript/ieupdate.js"></script>
+<script type="text/javascript" src="http://www.mixxer.com/javascript/swfobject.js"></script>
+<script type="text/javascript">
+
+/* pull out? */
+var s_pageName=""
+var s_server="";
+var s_channel="";
+var s_pageType="";
+var s_prop1="";
+var s_prop2="";
+var s_prop3="Mixxer";
+var s_prop4="";
+var s_prop5="";
+/* E-commerce Variables */
+var s_campaign="";
+var s_state="";
+var s_zip="";
+var s_events = "";
+var s_products = "";
+var s_purchaseID="";
+var s_eVar1="";
+var s_eVar2="";
+var s_eVar3="";
+var s_eVar4="";
+var s_eVar5="";
+
+// 128332 - snakes on a plane campaign
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+	var pair = vars[i].split("=");
+	if (pair[0] == variable) {
+	  return pair[1];
+	}
+  } 
+  return null;
+}
+parm = getQueryVariable( "extcmp");
+if( parm != null)
+{
+	s_campaign = parm;
+	s_eVar5 = parm;
+}
+parm = getQueryVariable( "intcmp");
+if( parm != null) s_eVar4 = parm;
+
+
+
+</script>
+</head>
+
+
+
+<body>
+<div align="center">
+	<table id="container" cellpadding="0" cellspacing="0" border="0">
+
+		<tr valign="top" id="frameworkNavRow">
+			<td colspan="2" class="navFrameWork">
+			<a name="top"><!-- For return to top links --></a>
+				<!-- ----------------------- NEW NAVIGATION ----------------------- -->
+				
+					<div id="logo"><a href="http://www.mixxer.com/home" name="top"><img src="http://svvscdn.mixxer.com/images/ui/main/mixxer_logo.gif" border="0" /></a></div>
+					<script type="text/javascript">
+						var so = new SWFObject("http://svvscdn.mixxer.com/images/flash/promos/mixxerLogo_teaser.swf", "logoMovie", "204", "70", "8", "#FFFFFF");
+						so.addVariable( 'URL_BASE', 'http%3A%2F%2Fwww.mixxer.com%2F' );
+						
+						so.addParam( 'loop', true );
+						so.addParam( 'menu', false );
+						
+						so.write("logo");
+					</script>
+					
+				<div id="navContainer">
+					<!-- Teaser -->
+					<div class="teaser">Get ready to be reeled in... just 10 more days</div>
+					<!-- /teaser -->
+					
+					<!-- Teaser -->
+					<!--
+					<div class="teaser">
+						Mixxer is becoming <a href="http://www.mixxer.com">3Guppies!</a>
+					</div>
+					-->
+					<!-- /teaser -->
+					
+					<div class="navTop">mobilize your media...</div>
+					<ul>
+						<li><a  href="http://www.mixxer.com/cell-phone-ringtones">Ringtones</a></li>
+						<li><a  href="http://www.mixxer.com/cell-phone-pictures">Pictures</a></li>
+						<li><a  href="http://www.mixxer.com/cell-phone-videos">Videos</a></li>
+						<li><a href="http://www.mixxer.com/widget">Widgets</a></li>
+						<li class="last"><a  href="http://www.mixxer.com/help">Help</a></li>
+					</ul>
+				</div>
+				<div class="clearAll"></div>
+
+			</td>
+		</tr>
+		<tr id="frameworkRow" valign="top">
+			<td id="frameworkContent" class="leftFrameWork">
+				<!-- ----------------------- MAIN CONTENT ----------------------- -->
+				<div id="contentSpace">
+					<!-- BEGIN AudioEditorView_index.html.tpl -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	
+	initArgs = {
+		contentType: 'mp3Audio',
+		imagesUrl: 'http://svvscdn.mixxer.com/images/',
+		previewUrl: 'http://www.mixxer.com/freshmeat/7edc62189e829c9abc7372905de3132b.mp3',
+		trackSeconds: 126,
+		swfPath: 'http://www.mixxer.com/'
+	};
+	
+	initArgs.isAnonymous = false;
+initArgs.carriers = null;
+initArgs.uploadFormId = 'uploadForm';
+
+
+	initArgs.deviceWidth = 128;
+	initArgs.deviceHeight = 160;
+	
+ 
+initMobilizeDisplay( initArgs );
+
+	s_pageName = "Mobilization:Format Media:Ringtone Cropper";
+	s_channel = "Mobilization";
+	s_prop2 = "";
+	s_hier1 = "Mobilization:Format Media:Ringtone Cropper";
+</script>
+
+<!-- START AudioEditorView_index_base.mp3.html.tpl -->
+
+
+<div class="moduleWide fileFormat">
+	<div class="moduleHead userPanel"><h2>Clip This Ringtone</h2></div>
+	<div class="moduleBody white" id="mobilizeContainer" style="padding:10px;">
+		<form action="http://www.mixxer.com/ringtones/module/OpenLocker/action/Mobilize" method="post" enctype="multipart/form-data" name="uploadForm">
+
+							<div id="sendNoticeWrapper">
+					<label for="SendNotice"><input type="checkbox" name="DontSendNotice" id="SendNotice" value="true" style="margin: 0 5px -1px 0;" />Just send it to my Mixxer locker (don't send me a message)</label>
+				</div>
+			
+			<br />
+
+			<input type="hidden" id="idClipStart" name="EditOptions[Ringtone.Start]" value="0" />
+			<input type="hidden" id="idClipEnd" name="EditOptions[Ringtone.End]" value="0" />
+			<input type="hidden" name="EditOptions[Ringtone.TimeFormat]" value="milliseconds" />
+
+							<div id="cropperInstructions" class="stepWrapper">
+					<h3 style="padding-left: 0;">Click and drag handles to clip.</h3>
+				</div>
+						
+			<br />
+			
+			
+			<!-- This content of this container will be replaced with the Flash object, hosting PlayMP3Clip.swf -->
+			<!-- Note: Javascript errors occur if the Flash object is inside a form, unless you add an extra/nested form tag -->
+			<!-- This extra/nested form tag allows the Flash player to callback and find the Flash object within a form -->
+			<div id="idPlayMP3ClipContainer" style="text-align:center;"></div>
+
+			<div id="idClipInfoFlashNotOK" style="display:none;">
+				<div style="text-align:center;">
+					<br />
+					<span id="idClipInfoOldFlash">
+						Your Adobe Flash Player is not up to date.<br />
+					</span>
+					<span id="idClipInfoNoFlash">
+						Adobe Flash Player is not installed on your system.<br />
+					</span>
+					You can clip your tone without Flash,<br />
+					but you need the latest version to preview it before you finish.<br />
+					<br />
+					<a href="http://www.adobe.com/go/getflash/" target="_blank">Click here to get the latest version of Flash!</a><br />
+					<br />
+				</div>
+				<b>File : </b> _Sample.mp3<br />
+				<br />
+			</div>
+			<div id="idClipInfoFlashOK" style="display:none;">
+				<b>File : </b> _Sample.mp3<br />
+				<b>Clip Length : </b><span id="idClipLength">Loading...</span><br />
+				<b>Play Position : </b><span id="idClipPlayPosition"></span><br />
+				<b>Meta Data : </b><span id="idClipMetaData"></span><br />
+				<br />
+				<table id="idControlsWrapper">
+					<tr>
+						<td valign="middle">
+							<a id="idClipPlayFromStart" href="javascript:// Play the clip from the beginning" onclick="OnClipPlayFromStart();">
+							<img src="http://svvscdn.mixxer.com/images/rt_clip/PlayFromStart.gif" border="0" alt="" /></a>
+						</td>
+						<td valign="middle">
+							<a id="idClipPlay" href="javascript:// Play the clip" onclick="OnClipPlay();"><img src="http://svvscdn.mixxer.com/images/rt_clip/Play.gif" border="0" alt="" /></a>
+						</td>
+						<td valign="middle">
+							<a id="idClipStop" href="javascript:// Stop the clip" onclick="OnClipStop();"><img src="http://svvscdn.mixxer.com/images/rt_clip/Stop.gif" border="0" alt="" /></a>
+						</td>
+						<td valign="middle">
+							<input type="checkbox" id="idClipLoop" checked="checked" onclick="OnClipLoop(this);"/>&nbsp;<label for="idClipLoop">Loop</label>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<table id="cropWrapper" cellpadding="5" cellspacing="0" style="line-height: 150%;">
+				<tr>
+					<td>
+						<div id="idClipDisplayContainer" style="width:530px; height:130px;" />
+					</td>
+				</tr>
+			</table>
+			
+			<div id='title'>
+				<p style="margin-left: 0;">Title (30 characters maximum)</p>
+				<input size="30" type="text" id="mobilizeTitle" name="mobilizeTitle" class="mobilizeTitle" value="Sample.mp3" onkeypress="return preventEnterKey(event)" onkeyup="charCount(30,'mobilizeTitle','mobilizeTitleMsg');" onblur="hideCharCount('mobilizeTitleMsg');"/>
+				<div id="mobilizeTitleMsg">&#160;</div>
+			</div>
+			
+			
+			<div id="finishCancel">
+				<button id="finishButton" style="padding:2px 5px;" class="globalBtn burg" type="submit">Finish</button>
+			</div>
+			
+			<input type="hidden" name="EditPassThru" value="true" />
+			<input type="hidden" name="Filename" value="_Sample.mp3" />
+			<input type="hidden" name="TempFile" value="PostedFile*7edc62189e829c9abc7372905de3132b.mp3" />
+			<input type="hidden" name="InputMethod" value="1" />
+			<input type="hidden" name="SourceUrl" value="" />
+			<input type="hidden" name="Affiliate" value="" />
+			<input type="hidden" name="Recipients" value="9789731734" />
+			<input type="hidden" name="agreeTC" value="" />
+			<input type="hidden" name="fromPhone" value="9789731734" />
+			<input type="hidden" name="toPhone" value="9789731734" />
+			<input type="hidden" name="fromName" value="9789731734" />
+		</form>
+	</div>
+</div>
+
+<!-- END AudioEditorView_index_base.mp3.html.tpl --><!-- END AudioEditorView_index.html.tpl -->				</div> 
+			</td>
+			<!-- /END Main Content -->
+			
+			
+			<!-- ----------------------- SIDEBAR CONTENT ----------------------- -->
+			<td style="width:164px" id="rightFrameWork" class="rightFrameWork">
+				<div id="sidebar">
+					<!-- Logged Out User Login | Getting Started -->
+											<!-- ----------------------- LOGGED OUT USER MODULE ----------------------- -->
+<div id="userModule" class="sideBox">
+	<div class="moduleHead"><span>jimmccurdy</span></div>
+	<div class="moduleBody">
+	
+		<p class="textCenter" style="margin:0;">
+			<a href="http://www.mixxer.com/ringtones/module/OpenLocker/action/IndexContainer" class="avatarImage"><img id="avatar" src="http://www.mixxer.com/download/personal/6affd764bdb3931f4a36aee4640203b6-128x128.jpg/.jpg" width="140" border="0"></a>
+		</p>
+		
+		<div id="myMixxerUser" class="textRight">
+			<a href="http://www.mixxer.com/ringtones/module/User/action/Logout">Log Out</a>
+		</div>
+		<div style="padding: 0 0 5px 5px;">
+			<a href="http://www.mixxer.com/ringtones/module/OpenLocker/action/Mobilize">Upload Files...</a>
+			<ul>
+				<h3><a href="http://www.mixxer.com/ringtones/module/OpenLocker/action/IndexContainer" style="font-weight:bold;">My Locker</a></h3>
+				<li><a href="http://www.mixxer.com/ringtones/module/OpenLocker/action/IndexContainer/ContentType/Audio">Ringtones</a></li>
+				<li><a href="http://www.mixxer.com/ringtones/module/Media/action/Gallery">Pictures</a></li>
+				<li><a href="http://www.mixxer.com/ringtones/module/OpenLocker/action/IndexContainer/ContentType/Video">Videos</a></li>
+				<li><a href="http://www.mixxer.com/ringtones/module/OpenLocker/action/IndexContainer">View All Files</a></li>
+			</ul>
+			<ul>
+				<h3><a href="http://www.mixxer.com/ringtones/module/User/action/Prefs" style="font-weight:bold;">My Settings</a></h3>
+			</ul>
+		
+		</div>
+	</div>
+</div>
+<!-- 
+To hide any part of this template while your own header is visible, use the following conditional :
+if !$media_heade_headerUserId && !$media_heade_loggedInUserId || $media_heade_headerUserId neq $media_heade_loggedInUserId
+-->
+
+<!-- Teaser -->
+<!--
+<div class="teaser sideBox">
+	<div class="moduleBody white textCenter">
+		<h4>Mixxer will soon be</h4>
+		<h3><a href="http://www.mixxer.com">3Guppies!</a></h3>
+		<br />
+	</div>
+</div>
+-->
+<!-- /teaser -->
+
+										
+					<!-- My Phone Module -->
+											<div id="myPhone" class="sideBox">
+	<div class="moduleHead"><span class="left">My Phone</span></div>
+	<div class="moduleBody" style="padding-top:0; font-weight:normal;">
+		<div class="deviceImage" onmouseover="mousePop('here',this,'mobilizeTooltip',50,30,'details','tip');" onmouseout="mousePop('hide',this,'mobilizeTooltip');" onclick="javascript:window.location='http://www.mixxer.com/cingular_cell_phones/sony_ericsson_z500/409';">
+			<h3>Sony Ericsson Z500</h3><br />
+			<img src="http://svvscdn.mixxer.com/images/gallery/devices/06b3046f64e1f69fe040b3a53cf36fbe"/>
+		</div>
+		<ul class="compatList">
+			<strong>Compatible with:</strong><br />
+			<li class="yes"><a href="http://www.mixxer.com/ringtones/module/Help/action/Default/#glossary" title="see definition">Polyphonic Ringtones</a></li>
+			<li class="yes"><a href="http://www.mixxer.com/ringtones/module/Help/action/Default/#glossary" title="see definition">MP3 Ringtones</a></li>
+			<li class="yes">Pictures</li>
+			<li class="yes">Videos</li>
+		</ul>
+		<p style="padding:0 5px 5px 5px; margin:0; font-size:11px;">
+			<a id="changePhone" href="http://www.mixxer.com/cingular_cell_phones/2">Change my phone setting...</a>
+		</p>
+	</div>
+</div>
+								</td>
+		</tr>
+		<!-- /END Sidebar Content -->
+		
+		
+		<!-- ----------------------- FOOTER CONTENT ----------------------- -->
+		<tr>
+			<td id="footerFramework" colspan="3">
+				<div id="footer">
+					<ul>
+						<li><a href="http://www.mixxer.com/intro">Intro</a></li>
+						<li><a href="http://www.mixxer.com/help#contact">Contact Us</a></li>
+						<li><a href="http://www.mixxer.com/ringtones/module/Misc/action/Tos">Terms of Use</a></li>
+						<li class="last"><a href="http://www.mixxer.com/ringtones/module/Misc/action/Privacy">Privacy Policy</a></li>
+					</ul>
+					<p>
+						&copy; 2002-2006 by Mixxer, Inc. All logos and trademarks in this
+						site are property of their respective owner.
+					</p>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<!-- /END Mixxer -->
+
+
+<script type="text/javascript">
+	ieupdate();
+	YUIEvent.addListener( window, 'unload', ieupdate_unload );
+</script>
+
+
+<!-- SiteCatalyst code version: G.7.Copyright 1997-2004 Omniture, Inc. More info available at http://www.omniture.com -->
+<script language="JavaScript">
+s_server="66.100.118.199";
+if (s_channel=="") s_channel="OpenLocker";
+if (s_pageType=="") s_pageType="";
+
+if (s_state=="") s_state="";
+if (s_zip=="") s_zip="";
+if (s_events == "") s_events = "";
+if (s_products == "") s_products = "";
+if (s_purchaseID=="") s_purchaseID="";
+if (s_eVar1=="") s_eVar1="Member";
+if (s_eVar2="") s_eVar2="";  //SmartyFilter.cla
+/********** DO NOT ALTER ANYTHING ELSE BELOW THIS LINE! *************/var s_code=' '//--></script><script language="JavaScript" src="http://www.mixxer.com/javascript/s_code.js"></script>
+<script language="JavaScript"><!--
+var s_wd=window,s_tm=new Date;if(s_code!=' '){s_code=s_dc(
+'3gupload');if(s_code)document.write(s_code)}else
+document.write('<im'+'g src="http://3gupload.112.2O7.net/b/ss/3gupload/1/G.7--FB/s'+s_tm.getTime()+'?[AQB]'
++'&j=1.0&[AQE]" height="1" width="1" border="0" alt="" />')
+//--></script><script language="JavaScript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script><noscript><img
+src="http://3gupload.112.2O7.net/b/ss/3gupload/1/G.7--NS/0"
+height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: G.7. -->
+
+
+</body>
+</html>

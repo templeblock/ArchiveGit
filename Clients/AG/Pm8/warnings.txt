@@ -1,0 +1,766 @@
+Deleting intermediate files and output files for project 'pmwres32 - Win32 Debug'.
+Deleting intermediate files and output files for project 'hubres32 - Win32 Debug'.
+Deleting intermediate files and output files for project 'CIndex - Win32 Debug'.
+Deleting intermediate files and output files for project 'PNG Library - Win32 Debug'.
+Deleting intermediate files and output files for project 'ZLIB Library - Win32 Debug'.
+Deleting intermediate files and output files for project 'CraftRes - Win32 Debug'.
+Deleting intermediate files and output files for project 'PrintRes - Win32 Debug'.
+Deleting intermediate files and output files for project 'SpiritRes - Win32 Debug'.
+Deleting intermediate files and output files for project 'AgCrHub - Win32 Debug'.
+Deleting intermediate files and output files for project 'AgPrHub - Win32 Debug'.
+Deleting intermediate files and output files for project 'AgSpHub - Win32 Debug'.
+Deleting intermediate files and output files for project 'border - Win32 Debug'.
+Deleting intermediate files and output files for project 'Install Program - Win32 Debug'.
+Deleting intermediate files and output files for project 'AgCpHub - Win32 Debug'.
+Deleting intermediate files and output files for project 'AgCrDxHub - Win32 Debug'.
+Deleting intermediate files and output files for project 'PMW - Win32 Debug'.
+--------------------Configuration: pmwres32 - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+PMWRES.C
+Linking...
+   Creating library .\winDebug/pmwres32.lib and object .\winDebug/pmwres32.exp
+--------------------Configuration: hubres32 - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+hubres.c
+Linking...
+   Creating library .\winDebug/hubres32.lib and object .\winDebug/hubres32.exp
+--------------------Configuration: CIndex - Win32 Debug--------------------
+Compiling...
+BUFFERS.C
+BYTEFLIP.C
+CCHECK.C
+CCONVERT.C
+CINDEXMU.C
+CINDEXS.C
+CNDXNT.C
+CURKEY.C
+DCHECK.C
+DELETE.C
+DFILE.C
+DFUNC.C
+DISKIO.C
+DREAD.C
+DWRITE.C
+ENTPROC.C
+READ.C
+RELKEY.C
+WRITE.C
+Creating library...
+--------------------Configuration: PNG Library - Win32 Debug--------------------
+Compiling...
+png.c
+pngerror.c
+pngget.c
+pngmem.c
+pngpread.c
+pngread.c
+pngrio.c
+pngrtran.c
+pngrutil.c
+pngset.c
+pngtrans.c
+pngwio.c
+pngwrite.c
+pngwtran.c
+D:\Pretzel\App\PNG\pngwtran.c(257) : warning C4018: '<' : signed/unsigned mismatch
+D:\Pretzel\App\PNG\pngwtran.c(283) : warning C4018: '<' : signed/unsigned mismatch
+pngwutil.c
+Creating library...
+--------------------Configuration: ZLIB Library - Win32 Debug--------------------
+Compiling...
+ADLER32.C
+COMPRESS.C
+CRC32.C
+DEFLATE.C
+GZIO.C
+INFBLOCK.C
+INFCODES.C
+INFFAST.C
+INFLATE.C
+INFTREES.C
+INFUTIL.C
+MINIGZIP.C
+TREES.C
+UNCOMPR.C
+ZUTIL.C
+Creating library...
+--------------------Configuration: CraftRes - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+hubres.c
+Linking...
+   Creating library Debug/CraftRes.lib and object Debug/CraftRes.exp
+--------------------Configuration: PrintRes - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+hubres.c
+Linking...
+   Creating library Debug/PrintRes.lib and object Debug/PrintRes.exp
+--------------------Configuration: SpiritRes - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+hubres.c
+Linking...
+   Creating library Debug/SpiritRe.lib and object Debug/SpiritRe.exp
+SpiritRe.exp : warning LNK4070: /OUT:SpiritRes.dll directive in .EXP differs from output filename "..\winDebug/SpiritRe.dll"; ignoring directive
+--------------------Configuration: AgCrHub - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+hubres.c
+Linking...
+   Creating library Debug/AgCrHub.lib and object Debug/AgCrHub.exp
+--------------------Configuration: AgPrHub - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+hubres.c
+Linking...
+   Creating library Debug/AgPrHub.lib and object Debug/AgPrHub.exp
+--------------------Configuration: AgSpHub - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+hubres.c
+Linking...
+   Creating library Debug/AgSpHub.lib and object Debug/AgSpHub.exp
+--------------------Configuration: border - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+beobjd.cpp
+Borddoc.cpp
+border.cpp
+Bordview.cpp
+D:\Pretzel\App\BORDER\Bordview.cpp(1350) : warning C4390: ';' : empty controlled statement found; is this the intent?
+command.cpp
+commands.cpp
+DIBBRUSH.CPP
+editrgn.cpp
+ifaced.cpp
+MainFrm.cpp
+POPUP.CPP
+SettingsDlg.cpp
+Generating Code...
+Linking...
+   Creating library Debug/border.lib and object Debug/border.exp
+--------------------Configuration: Install Program - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+Stdafx.cpp
+Compiling...
+cdeflate.CPP
+CHDIRDLG.CPP
+CPFL.CPP
+Cprogbar.cpp
+Ddb.cpp
+DDE.CPP
+Globatom.cpp
+GRADIENT.CPP
+IABOUT.CPP
+ICONGRAT.CPP
+IDEFAULT.CPP
+IDSKSPC.CPP
+iexplore.cpp
+iispDLG.CPP
+Inifile.cpp
+INSTALL.CPP
+Instdat.cpp
+IOPTIONS.CPP
+IPROGRES.CPP
+Maskedbm.cpp
+Generating Code...
+Compiling...
+Od.cpp
+Pmwcfg.cpp
+Pmwdlg.cpp
+Rfor.cpp
+sortarry.cpp
+SPARKLE.CPP
+D:\Pretzel\App\SPARKLE.CPP(328) : warning C4552: '!=' : operator has no effect; expected operator with side-effect
+Spinbutt.cpp
+strclass.cpp
+Util.cpp
+Generating Code...
+Linking...
+LINK : warning LNK4098: defaultlib "LIBCMT" conflicts with use of other libs; use /NODEFAULTLIB:library
+--------------------Configuration: AgCpHub - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+hubres.c
+Linking...
+   Creating library Debug/AgCpHub.lib and object Debug/AgCpHub.exp
+--------------------Configuration: AgCrDxHub - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+hubres.c
+Linking...
+   Creating library Debug/AgCrDxHub.lib and object Debug/AgCrDxHub.exp
+AgCrDxHub.exp : warning LNK4070: /OUT:AgCrHub.dll directive in .EXP differs from output filename "..\WinDebug/AgCrDxHub.dll"; ignoring directive
+--------------------Configuration: PMW - Win32 Debug--------------------
+Creating Type Library...
+Processing D:\Pretzel\App\PMWDISP.ODL
+PMWDISP.ODL
+Processing H:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\oaidl.idl
+oaidl.idl
+Processing H:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\objidl.idl
+objidl.idl
+Processing H:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\unknwn.idl
+unknwn.idl
+Processing H:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\wtypes.idl
+wtypes.idl
+Compiling...
+Stdafx.cpp
+Compiling...
+Aboutdlg.cpp
+ActAcDlg.cpp
+Addcalpg.cpp
+addprnvw.cpp
+addrbook.cpp
+ADDRDATA.CPP
+addredit.cpp
+addrimp.cpp
+AddrInfoPage.cpp
+addrlist.cpp
+D:\Pretzel\App\addrlist.cpp(4138) : warning C4390: ';' : empty controlled statement found; is this the intent?
+adoninst.cpp
+aprogres.CPP
+Array.cpp
+Arrayrec.cpp
+ArtCheck.cpp
+ArtExistsDlg.cpp
+artstore.cpp
+Autoexec.cpp
+automate.cpp
+Backobj.cpp
+Generating Code...
+Compiling...
+Banndoc.cpp
+Bannview.cpp
+Barcombo.cpp
+Barmenu.cpp
+bfinit.cpp
+BillingInfoPage.cpp
+D:\Pretzel\App\BillingInfoPage.cpp(806) : warning C4244: 'argument' : conversion from 'unsigned long' to 'short', possible loss of data
+BITBTN.CPP
+bkgobj.CPP
+blowfish.cpp
+Bmp.cpp
+bmparray.cpp
+Bmpfile.cpp
+BmpTiler.cpp
+BmStatic.cpp
+Borders.cpp
+BrdrDlg.cpp
+BrdrObj.cpp
+Breakup.cpp
+BRODOC.CPP
+broprint.CPP
+Generating Code...
+Compiling...
+BROVIEW.CPP
+BrowDrop.cpp
+BROWSER.CPP
+Browsupp.cpp
+BtnNRect.cpp
+BTNWND.CPP
+cache.cpp
+Calbuild.cpp
+Calcalc.cpp
+CalDateD.cpp
+Caldoc.cpp
+D:\Pretzel\App\Caldoc.cpp(131) : warning C4390: ';' : empty controlled statement found; is this the intent?
+D:\Pretzel\App\Caldoc.cpp(291) : warning C4101: 'dimensions' : unreferenced local variable
+D:\Pretzel\App\Caldoc.cpp(475) : warning C4101: 'Margins' : unreferenced local variable
+D:\Pretzel\App\Caldoc.cpp(606) : warning C4390: ';' : empty controlled statement found; is this the intent?
+Calendar.cpp
+Calobj.cpp
+CalPicD.cpp
+CalProgD.cpp
+calrec.cpp
+Calstyle.cpp
+CalTypeD.cpp
+Calview.cpp
+Carddoc.cpp
+Generating Code...
+Compiling...
+CardSrvr.cpp
+Cardview.cpp
+CARRAY.CPP
+Catalog.cpp
+CATDATA.CPP
+CatOrgnz.cpp
+Ccommand.cpp
+Cdcache.cpp
+cdeflate.CPP
+cdemodlg.cpp
+Cdibdc.cpp
+celctl.CPP
+celobj.cpp
+celoutd.cpp
+Cfixed.cpp
+Cgm.cpp
+CheckArtExists.cpp
+Cimplode.cpp
+CINDEX.CPP
+Clip.cpp
+Generating Code...
+Compiling...
+Cmfaddon.cpp
+CnfrmRm.cpp
+Cntritem.cpp
+COLLBLD.CPP
+D:\Pretzel\App\COLLBLD.CPP(1513) : warning C4554: '<<' : check operator precedence for possible error; use parentheses to clarify precedence
+D:\Pretzel\App\COLLBLD.CPP(1545) : warning C4554: '<<' : check operator precedence for possible error; use parentheses to clarify precedence
+COLLCTG.CPP
+colldrw.CPP
+COLLFILE.CPP
+COLLIMP.CPP
+COLLMGR.CPP
+CollSel.cpp
+Color.cpp
+ColorCbo.cpp
+Colorsel.cpp
+Command.cpp
+Commands.cpp
+Comp32.cpp
+Compfn.cpp
+connmgr.cpp
+ConnMgrW.cpp
+ContMgr.cpp
+Generating Code...
+Compiling...
+CONTSRV.CPP
+Convert.cpp
+Cprogbar.cpp
+CraftDlg.cpp
+Craster.cpp
+credit.cpp
+CrPGSAcc.cpp
+CTWAIN.CPP
+ctxp.cpp
+CustBar.cpp
+Cutpaste.cpp
+Cwmf.cpp
+Cwmfctl.cpp
+Database.cpp
+Dateobj.cpp
+Dbmap.cpp
+dbtabs.cpp
+D:\Pretzel\App\dbtabs.cpp(415) : warning C4390: ';' : empty controlled statement found; is this the intent?
+Ddb.cpp
+Delname.cpp
+Demodlg.cpp
+Generating Code...
+Compiling...
+Desktop.cpp
+dib2file.cpp
+Dibbrush.cpp
+Disptext.cpp
+Dither.cpp
+Dlgmgr.cpp
+DLGURL.CPP
+Dlist.cpp
+Doccmd.cpp
+docdib.CPP
+DocDump.cpp
+Docedit.cpp
+D:\Pretzel\App\Docedit.cpp(2782) : warning C4101: 'bound' : unreferenced local variable
+Docpict.cpp
+Docrec.cpp
+DownDlg.cpp
+downmgr.CPP
+Drawobj.cpp
+Drivemgr.cpp
+DsnCheck.cpp
+Dynarray.cpp
+Generating Code...
+Compiling...
+effects.cpp
+Efilerec.cpp
+Elliobj.cpp
+enumproc.cpp
+Envdoc.cpp
+D:\Pretzel\App\Envdoc.cpp(147) : warning C4553: '==' : operator has no effect; did you intend '='?
+Envprint.cpp
+Envprvw.cpp
+Envtype.cpp
+Envview.cpp
+Errdiff.cpp
+Error.cpp
+exgraf.cpp
+Fcache.cpp
+Fdirrec.cpp
+Ffldfile.cpp
+Fielddlg.cpp
+filcmprs.cpp
+File.cpp
+Filedb.cpp
+filemgr.CPP
+Generating Code...
+Compiling...
+fill.cpp
+findrep.cpp
+FindText.cpp
+flatdb.cpp
+D:\Pretzel\App\flatdb.cpp(3772) : warning C4553: '==' : operator has no effect; did you intend '='?
+Flexmath.cpp
+Flistrec.cpp
+Fontrec.cpp
+Framedit.cpp
+framedlg.cpp
+Frameobj.cpp
+Framerec.cpp
+FREELIST.CPP
+Gif.cpp
+Glicense.cpp
+Globatom.cpp
+gohtml.cpp
+GradDlg.cpp
+Grafobj.cpp
+Grafrec.cpp
+Grpobj.cpp
+Generating Code...
+Compiling...
+GUID.CPP
+Halo.cpp
+HelpHint.cpp
+hhctrl.cpp
+htmlconv.cpp
+D:\Pretzel\App\htmlconv.cpp(1316) : warning C4101: 'pboxGraphic' : unreferenced local variable
+Htmldoc.cpp
+hubmgr.cpp
+hyperrec.cpp
+hyplkdlg.cpp
+Image.cpp
+Imagebuf.cpp
+Imagedrv.cpp
+imagemap.cpp
+Imagesrc.cpp
+Inifile.cpp
+Instdat.cpp
+INTLDLL.CPP
+Ipframe.cpp
+jpeg.CPP
+JPEGIMPL.CPP
+Generating Code...
+Compiling...
+KEY.CPP
+Labeldlg.cpp
+Labels.cpp
+Layrec.cpp
+Lbldoc.cpp
+Lblprint.cpp
+Lblprvw.cpp
+D:\Pretzel\App\Lblprvw.cpp(250) : warning C4101: 'Dims' : unreferenced local variable
+Lblview.cpp
+licdll.cpp
+License.cpp
+product level hard-coded here.
+LINECROS.CPP
+Lineobj.cpp
+Linewid.cpp
+List.cpp
+Lzw.cpp
+Macro.cpp
+Macrodlg.cpp
+Macrorec.cpp
+Macrostd.cpp
+Mainfrm.cpp
+d:\pretzel\app\wndhub.h(239) : warning C4390: ';' : empty controlled statement found; is this the intent?
+Generating Code...
+Compiling...
+Marquee.cpp
+Maskedbm.cpp
+matchset.cpp
+Mciwnd.cpp
+Memdev.cpp
+Modecrop.cpp
+D:\Pretzel\App\Modecrop.cpp(488) : warning C4101: 'bound' : unreferenced local variable
+modecrt.cpp
+Modedraw.cpp
+MODELINK.CPP
+Modesize.cpp
+Modetext.cpp
+Modezoom.cpp
+MonthEdit.cpp
+Namerec.cpp
+Netcount.cpp
+Netid.cpp
+Netusers.cpp
+Network.cpp
+Newdlg.cpp
+newfont.CPP
+D:\Pretzel\App\newfont.CPP(2062) : warning C4553: '==' : operator has no effect; did you intend '='?
+D:\Pretzel\App\newfont.CPP(2063) : warning C4553: '==' : operator has no effect; did you intend '='?
+D:\Pretzel\App\newfont.CPP(2064) : warning C4553: '==' : operator has no effect; did you intend '='?
+Generating Code...
+D:\Pretzel\App\modecrt.cpp(175) : warning C4700: local variable 'p' used without having been initialized
+Compiling...
+newsdoc.CPP
+newsview.CPP
+nfx.CPP
+Nheap.cpp
+Nofillin.cpp
+NumberEdit.cpp
+NwsPrint.cpp
+Objdb.cpp
+Objimg.cpp
+Objlist.cpp
+Od.cpp
+Olddoc.cpp
+Oleobj.cpp
+OnAdDlg.cpp
+OpenDlgs.cpp
+ORIENDLG.CPP
+Outline.cpp
+Outpath.cpp
+D:\Pretzel\App\Outpath.cpp(796) : warning C4101: 'p1' : unreferenced local variable
+D:\Pretzel\App\Outpath.cpp(809) : warning C4101: 'p1' : unreferenced local variable
+D:\Pretzel\App\Outpath.cpp(810) : warning C4101: 'p2' : unreferenced local variable
+Ownercb.cpp
+Ownerlb.cpp
+Generating Code...
+Compiling...
+pagedlgs.cpp
+Pageprop.cpp
+Pagerec.cpp
+Paint.cpp
+PANEL.CPP
+Paper.cpp
+D:\Pretzel\App\Paper.cpp(1045) : warning C4390: ';' : empty controlled statement found; is this the intent?
+PARADLG.CPP
+Pararec.cpp
+Parse.cpp
+Pathmgr.cpp
+Pathrec.cpp
+Patobj.cpp
+Pcd.cpp
+pcrdprnt.cpp
+Pcx.cpp
+PDLGCLR.CPP
+PDPropSt.cpp
+PEGASUS.CPP
+PGSOrWiz.cpp
+PGSSess.cpp
+Generating Code...
+Compiling...
+Pictattr.cpp
+Pictprvw.cpp
+pmaodlg.CPP
+pmbmbut.cpp
+Pmcfile.cpp
+Pmdirdlg.cpp
+Pmgdb.cpp
+Pmgfont.cpp
+Pmgobj.cpp
+D:\Pretzel\App\Pmgobj.cpp(2380) : warning C4101: 'org_pos' : unreferenced local variable
+pmhelp.cpp
+Pmw.cpp
+Pmwcfg.cpp
+PMWCOLL.CPP
+Pmwcolor.cpp
+Pmwdlg.cpp
+Pmwdoc.cpp
+Pmwmdi.cpp
+Pmwprint.cpp
+Pmwprop.cpp
+PMWRFL.CPP
+Generating Code...
+Compiling...
+Pmwtempl.cpp
+PMWTOOL.CPP
+Pmwview.cpp
+D:\Pretzel\App\Pmwview.cpp(5304) : warning C4390: ';' : empty controlled statement found; is this the intent?
+D:\Pretzel\App\Pmwview.cpp(5318) : warning C4390: ';' : empty controlled statement found; is this the intent?
+PMWWIZ.CPP
+PNGIMPL.CPP
+Polypoly.cpp
+POPUP.CPP
+Posdlg.cpp
+Position.cpp
+poslist.cpp
+postcard.cpp
+PREFMISC.CPP
+Prefpsh.cpp
+Prefsnd.cpp
+Prefwrk.cpp
+Prevrec.cpp
+Printadv.cpp
+Printart.cpp
+D:\Pretzel\App\Printart.cpp(505) : warning C4101: 'dims' : unreferenced local variable
+Printer.cpp
+Printprj.cpp
+D:\Pretzel\App\Printprj.cpp(583) : warning C4101: 'dims' : unreferenced local variable
+Generating Code...
+Compiling...
+PRINTWIZ.CPP
+prnaddlg.cpp
+PrntCalD.cpp
+Prntrnge.cpp
+Prntsize.cpp
+procloc.cpp
+profile.cpp
+ProgBar.cpp
+progress.cpp
+ProgStat.cpp
+Project.cpp
+projgrph.CPP
+Projobj.cpp
+Projtext.cpp
+PromtDlg.cpp
+Proplist.cpp
+PROPSTR.CPP
+Prvwdlg.cpp
+PSD.CPP
+QSORT.CPP
+Generating Code...
+Compiling...
+Recarray.cpp
+Record.cpp
+Rectobj.cpp
+Redisp.cpp
+Refresh.cpp
+RegCtrl.cpp
+Register.cpp
+Rm.cpp
+RMAGCom.cpp
+RmCraft.cpp
+RmPrint.cpp
+RmSpirit.cpp
+Rotdlg.cpp
+Rotutils.cpp
+RTFPARSE.CPP
+Ruler.cpp
+Rwsem.cpp
+save2pic.cpp
+SAVEPROJ.CPP
+scrollga.cpp
+Generating Code...
+Compiling...
+Shapedlg.cpp
+Shapesel.cpp
+Shapfile.cpp
+Sharenot.cpp
+Signdoc.cpp
+Signview.cpp
+Simplecb.cpp
+Simplelb.cpp
+Smacker.cpp
+sortarry.cpp
+SOUNDFX.CPP
+SpaceDlg.cpp
+SPELLCHK.CPP
+SpellDlg.cpp
+SPELLENG.CPP
+Spinbutt.cpp
+splitter.cpp
+SplshTxt.cpp
+Spltarry.cpp
+Srchart.cpp
+Generating Code...
+Compiling...
+srvacdlg.cpp
+statbar.cpp
+STATICE.CPP
+StaticSpinCtrl.cpp
+stkdsktp.cpp
+stkrdoc.cpp
+StkrPrnD.cpp
+stkrview.cpp
+D:\Pretzel\App\stkrview.cpp(125) : warning C4101: 'PaperPhysicalMargins' : unreferenced local variable
+Storeman.cpp
+strclass.cpp
+STRMCACH.CPP
+Style.cpp
+Stylehlp.cpp
+Styleit.cpp
+stylerec.CPP
+SvBorder.cpp
+svpicdlg.cpp
+Tableman.cpp
+Tabsdlg.cpp
+tblcmd.cpp
+Generating Code...
+Compiling...
+tblctl.CPP
+tbledit.cpp
+TBLFMT.CPP
+TblObj.cpp
+D:\Pretzel\App\TblObj.cpp(4874) : warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+D:\Pretzel\App\TblObj.cpp(4950) : warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+TblPrpD.cpp
+TCOMBO.CPP
+Tcommand.cpp
+Testprnt.cpp
+Text.cpp
+Textarry.cpp
+Textflow.cpp
+Textline.cpp
+textrec.CPP
+Tfengine.cpp
+Tiff.cpp
+Tiffdrv.cpp
+Tilesbtn.cpp
+timestmp.cpp
+TIMPORT.CPP
+tinycash.cpp
+Generating Code...
+Compiling...
+Ttdll.cpp
+TutList.cpp
+TutorDlg.cpp
+TXPDEST.CPP
+TypeCmbo.cpp
+Typeface.cpp
+Upgdll.cpp
+Upgradlg.cpp
+urlproc.cpp
+USERSET.CPP
+UsrCtgry.cpp
+Util.cpp
+Utils.cpp
+UUENCODE.CPP
+Vfl.cpp
+Viewcmd.cpp
+D:\Pretzel\App\Viewcmd.cpp(4931) : warning C4101: 'dim' : unreferenced local variable
+Warpfile.cpp
+Warpfld.cpp
+Warpobj.cpp
+D:\Pretzel\App\Warpobj.cpp(429) : warning C4101: 'clip_pbox' : unreferenced local variable
+Warpsel.cpp
+Generating Code...
+Compiling...
+WebDlg.cpp
+webdoc.CPP
+WebPubQ.cpp
+webview.CPP
+WHCalend.cpp
+D:\Pretzel\App\WHCalend.cpp(862) : warning C4101: 'dim' : unreferenced local variable
+WHGreet.cpp
+WHLabel.cpp
+WHlpCmn.cpp
+D:\Pretzel\App\WHlpCmn.cpp(272) : warning C4390: ';' : empty controlled statement found; is this the intent?
+WHlpProj.cpp
+WHlpView.cpp
+WHlpWiz.cpp
+WHLtrhd.cpp
+WHNwsltr.cpp
+WHPoster.cpp
+WHWebPg.cpp
+Widthsel.cpp
+Wmf.cpp
+WndBig.cpp
+WndHub.cpp
+d:\pretzel\app\wndhub.h(239) : warning C4390: ';' : empty controlled statement found; is this the intent?
+WPG.CPP
+Turning JTRACE on
+Generating Code...
+Compiling...
+XERROR.CPP
+Yeardll.cpp
+YywbDlg.cpp
+Generating Code...
+Linking...
+
+Pmw.exe - 0 error(s), 44 warning(s)

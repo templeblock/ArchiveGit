@@ -1,0 +1,239 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stonehnd", "StoneHnd\StoneHnd.vcproj", "{7C06E0C0-680F-412E-BB63-2D69A0860B7B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "..\Shared\Shared.vcproj", "{68228D2F-1484-4E15-A0B6-9A48D9048B7C}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Package", "Package\Package.vcproj", "{CBF8E155-1C3F-456E-9F67-14340971F1B1}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JpegLib", "..\JpegLib\JpegLib.vcproj", "{9205B43E-F898-4D11-996C-AF712BAED1A9}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AxCtp2", "AxCtp2\AxCtp2.vcproj", "{D2CDD38F-46B1-44E1-A707-8FBCA7DFE8E2}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{08727121-C26E-4450-97E5-E9231E0EC2CD} = {08727121-C26E-4450-97E5-E9231E0EC2CD}
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C} = {68228D2F-1484-4E15-A0B6-9A48D9048B7C}
+		{9205B43E-F898-4D11-996C-AF712BAED1A9} = {9205B43E-F898-4D11-996C-AF712BAED1A9}
+		{F4B3679B-948B-49C5-90C8-793B80A700D6} = {F4B3679B-948B-49C5-90C8-793B80A700D6}
+		{7C06E0C0-680F-412E-BB63-2D69A0860B7B} = {7C06E0C0-680F-412E-BB63-2D69A0860B7B}
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1} = {ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}
+		{75309EF8-4A72-412A-BFF0-171EBF7F187A} = {75309EF8-4A72-412A-BFF0-171EBF7F187A}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WTL", "WTL", "{08475F6C-B465-4214-B6C3-C4BCA1008BBD}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		..\WTL\include\atlapp.h = ..\WTL\include\atlapp.h
+		..\WTL\include\atlcrack.h = ..\WTL\include\atlcrack.h
+		..\WTL\include\atlctrls.h = ..\WTL\include\atlctrls.h
+		..\WTL\include\atlctrlw.h = ..\WTL\include\atlctrlw.h
+		..\WTL\include\atlctrlx.h = ..\WTL\include\atlctrlx.h
+		..\WTL\include\atlddx.h = ..\WTL\include\atlddx.h
+		..\WTL\include\atldlgs.h = ..\WTL\include\atldlgs.h
+		..\WTL\include\atlframe.h = ..\WTL\include\atlframe.h
+		..\WTL\include\atlgdi.h = ..\WTL\include\atlgdi.h
+		..\WTL\include\atlmisc.h = ..\WTL\include\atlmisc.h
+		..\WTL\include\atlprint.h = ..\WTL\include\atlprint.h
+		..\WTL\include\atlres.h = ..\WTL\include\atlres.h
+		..\WTL\include\atlresce.h = ..\WTL\include\atlresce.h
+		..\WTL\include\atlscrl.h = ..\WTL\include\atlscrl.h
+		..\WTL\include\atlsplit.h = ..\WTL\include\atlsplit.h
+		..\WTL\include\atltheme.h = ..\WTL\include\atltheme.h
+		..\WTL\include\atluser.h = ..\WTL\include\atluser.h
+		..\WTL\include\atlwince.h = ..\WTL\include\atlwince.h
+		..\WTL\include\atlwinx.h = ..\WTL\include\atlwinx.h
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageEdit", "ImageEdit\ImageEdit.vcproj", "{08727121-C26E-4450-97E5-E9231E0EC2CD}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{D3458694-A6F9-4029-93AD-6A12FE845042} = {D3458694-A6F9-4029-93AD-6A12FE845042}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageControl", "..\ImageControl\ImageControl.vcproj", "{D3458694-A6F9-4029-93AD-6A12FE845042}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{75309EF8-4A72-412A-BFF0-171EBF7F187A} = {75309EF8-4A72-412A-BFF0-171EBF7F187A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Zlib", "..\ZLib\ZLib.vcproj", "{F4B3679B-948B-49C5-90C8-793B80A700D6}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pdf", "..\Pdf\pdflib.vcproj", "{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{F4B3679B-948B-49C5-90C8-793B80A700D6} = {F4B3679B-948B-49C5-90C8-793B80A700D6}
+		{75309EF8-4A72-412A-BFF0-171EBF7F187A} = {75309EF8-4A72-412A-BFF0-171EBF7F187A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Png", "..\Png\Png.vcproj", "{75309EF8-4A72-412A-BFF0-171EBF7F187A}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArtGallery", "ArtGallery\ArtGallery.vcproj", "{E5AA2870-949E-491B-A5AB-5C7DA20B3381}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "SetupVS\Setup.vdproj", "{0ECB8B30-9F59-4D3A-B6B1-B404D5103ED6}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 12
+		SccProjectName0 = \u0022$/AgApplications\u0022,\u0020KOBAAAAA
+		SccLocalPath0 = ..
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection0 = CreateAndPrint\\
+		SccProjectUniqueName1 = StoneHnd\\StoneHnd.vcproj
+		SccProjectName1 = \u0022$/AgApplications/CreateAndPrint\u0022,\u0020SBAAAAAA
+		SccLocalPath1 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection1 = StoneHnd\\
+		SccProjectUniqueName2 = ..\\Shared\\Shared.vcproj
+		SccProjectName2 = \u0022$/AgApplications/Shared\u0022,\u0020LOBAAAAA
+		SccLocalPath2 = ..\\Shared
+		CanCheckoutShared = true
+		SccProjectUniqueName3 = Package\\Package.vcproj
+		SccProjectName3 = \u0022$/AgApplications/CreateAndPrint\u0022,\u0020SBAAAAAA
+		SccLocalPath3 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection3 = Package\\
+		SccProjectUniqueName4 = ..\\JpegLib\\JpegLib.vcproj
+		SccProjectName4 = \u0022$/AgApplications/JpegLib\u0022,\u0020TDEAAAAA
+		SccLocalPath4 = ..\\JpegLib
+		CanCheckoutShared = true
+		SccProjectUniqueName5 = AxCtp2\\AxCtp2.vcproj
+		SccProjectName5 = \u0022$/AgApplications/CreateAndPrint\u0022,\u0020SBAAAAAA
+		SccLocalPath5 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection5 = AxCtp2\\
+		SccProjectUniqueName6 = ImageEdit\\ImageEdit.vcproj
+		SccProjectName6 = \u0022$/AgApplications/CreateAndPrint/ImageEdit\u0022,\u0020YQLAAAAA
+		SccLocalPath6 = ImageEdit
+		CanCheckoutShared = true
+		SccProjectUniqueName7 = ..\\ImageControl\\ImageControl.vcproj
+		SccProjectName7 = \u0022$/AgApplications/ImageControl\u0022,\u0020BNLAAAAA
+		SccLocalPath7 = ..\\ImageControl
+		CanCheckoutShared = true
+		SccProjectUniqueName8 = ..\\ZLib\\ZLib.vcproj
+		SccProjectName8 = \u0022$/AgApplications/ZLib\u0022,\u0020SCAAAAAA
+		SccLocalPath8 = ..\\ZLib
+		CanCheckoutShared = true
+		SccProjectUniqueName9 = ..\\Pdf\\pdflib.vcproj
+		SccProjectName9 = \u0022$/AgApplications/Pdf\u0022,\u0020LCAAAAAA
+		SccLocalPath9 = ..\\Pdf
+		CanCheckoutShared = true
+		SccProjectUniqueName10 = ..\\Png\\Png.vcproj
+		SccProjectName10 = \u0022$/AgApplications/Png\u0022,\u0020MCAAAAAA
+		SccLocalPath10 = ..\\Png
+		CanCheckoutShared = true
+		SccProjectUniqueName11 = ArtGallery\\ArtGallery.vcproj
+		SccProjectName11 = \u0022$/AgApplications/CreateAndPrint/ArtGallery\u0022,\u0020WAMAAAAA
+		SccLocalPath11 = ArtGallery
+		CanCheckoutShared = true
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C06E0C0-680F-412E-BB63-2D69A0860B7B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7C06E0C0-680F-412E-BB63-2D69A0860B7B}.Debug|Win32.Build.0 = Debug|Win32
+		{7C06E0C0-680F-412E-BB63-2D69A0860B7B}.Release|Win32.ActiveCfg = Release|Win32
+		{7C06E0C0-680F-412E-BB63-2D69A0860B7B}.Release|Win32.Build.0 = Release|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Debug|Win32.Build.0 = Debug|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Release|Win32.ActiveCfg = Release|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Release|Win32.Build.0 = Release|Win32
+		{CBF8E155-1C3F-456E-9F67-14340971F1B1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CBF8E155-1C3F-456E-9F67-14340971F1B1}.Debug|Win32.Build.0 = Debug|Win32
+		{CBF8E155-1C3F-456E-9F67-14340971F1B1}.Release|Win32.ActiveCfg = Release|Win32
+		{CBF8E155-1C3F-456E-9F67-14340971F1B1}.Release|Win32.Build.0 = Release|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Debug|Win32.Build.0 = Debug|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Release|Win32.ActiveCfg = Release|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Release|Win32.Build.0 = Release|Win32
+		{D2CDD38F-46B1-44E1-A707-8FBCA7DFE8E2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D2CDD38F-46B1-44E1-A707-8FBCA7DFE8E2}.Debug|Win32.Build.0 = Debug|Win32
+		{D2CDD38F-46B1-44E1-A707-8FBCA7DFE8E2}.Release|Win32.ActiveCfg = Release|Win32
+		{D2CDD38F-46B1-44E1-A707-8FBCA7DFE8E2}.Release|Win32.Build.0 = Release|Win32
+		{08727121-C26E-4450-97E5-E9231E0EC2CD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{08727121-C26E-4450-97E5-E9231E0EC2CD}.Debug|Win32.Build.0 = Debug|Win32
+		{08727121-C26E-4450-97E5-E9231E0EC2CD}.Release|Win32.ActiveCfg = Release|Win32
+		{08727121-C26E-4450-97E5-E9231E0EC2CD}.Release|Win32.Build.0 = Release|Win32
+		{D3458694-A6F9-4029-93AD-6A12FE845042}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D3458694-A6F9-4029-93AD-6A12FE845042}.Debug|Win32.Build.0 = Debug|Win32
+		{D3458694-A6F9-4029-93AD-6A12FE845042}.Release|Win32.ActiveCfg = Release|Win32
+		{D3458694-A6F9-4029-93AD-6A12FE845042}.Release|Win32.Build.0 = Release|Win32
+		{F4B3679B-948B-49C5-90C8-793B80A700D6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F4B3679B-948B-49C5-90C8-793B80A700D6}.Debug|Win32.Build.0 = Debug|Win32
+		{F4B3679B-948B-49C5-90C8-793B80A700D6}.Release|Win32.ActiveCfg = Release|Win32
+		{F4B3679B-948B-49C5-90C8-793B80A700D6}.Release|Win32.Build.0 = Release|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Debug|Win32.Build.0 = Debug|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Release|Win32.ActiveCfg = Release|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Release|Win32.Build.0 = Release|Win32
+		{75309EF8-4A72-412A-BFF0-171EBF7F187A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{75309EF8-4A72-412A-BFF0-171EBF7F187A}.Debug|Win32.Build.0 = Debug|Win32
+		{75309EF8-4A72-412A-BFF0-171EBF7F187A}.Release|Win32.ActiveCfg = Release|Win32
+		{75309EF8-4A72-412A-BFF0-171EBF7F187A}.Release|Win32.Build.0 = Release|Win32
+		{E5AA2870-949E-491B-A5AB-5C7DA20B3381}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E5AA2870-949E-491B-A5AB-5C7DA20B3381}.Debug|Win32.Build.0 = Debug|Win32
+		{E5AA2870-949E-491B-A5AB-5C7DA20B3381}.Release|Win32.ActiveCfg = Release|Win32
+		{E5AA2870-949E-491B-A5AB-5C7DA20B3381}.Release|Win32.Build.0 = Release|Win32
+		{0ECB8B30-9F59-4D3A-B6B1-B404D5103ED6}.Debug|Win32.ActiveCfg = Debug
+		{0ECB8B30-9F59-4D3A-B6B1-B404D5103ED6}.Debug|Win32.Build.0 = Debug
+		{0ECB8B30-9F59-4D3A-B6B1-B404D5103ED6}.Release|Win32.ActiveCfg = Release
+		{0ECB8B30-9F59-4D3A-B6B1-B404D5103ED6}.Release|Win32.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SZPath = C:\Documents and Settings\Administrator\Desktop\Create and Print.zip
+		SZOpenFolder = false
+		SZOpenFile = true
+	EndGlobalSection
+EndGlobal

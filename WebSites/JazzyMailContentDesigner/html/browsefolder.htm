@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+	<head>
+		<title></title>
+		<style>
+			body
+			{
+				font-family: Verdana, Arial, Helvetica, sans-serif;
+				font-size: 11px;
+				font-weight: normal;
+				color: #000000;
+				background-color: #ffffff;
+			}
+			input, textarea, select
+			{
+				font-family: Verdana, Arial, Helvetica, sans-serif;
+				font-size: 16px;
+				font-weight: normal;
+				color: #c04040;
+			}
+			table
+			{
+				background-color: #e6ecfb;
+			}
+		</style>
+		<script language="javascript">
+			function OK()
+			{
+				window.returnValue = document.all.filename.value;
+				window.close();
+			}
+			function Cancel()
+			{
+				window.returnValue = '';
+				window.close();
+			}
+			function KeyCheck(object)
+			{
+				var e = event;
+				if (!e)
+					return;
+
+				if (e.keyCode == 13/*enter*/)
+					OK();
+				else
+				if (e.keyCode == 27/*escape*/)
+					Cancel();
+			}
+		</script>
+	</head>
+	<body>
+		<form id="Form1" name="myform" action="<?=$REDIRECT_URL?>" method="post">
+			<table width="100%" height="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<td align="center" width="100%">
+						<script language="javascript">
+						var title = '';
+						var options = location.search;
+						if (options == '')
+							title = window.dialogArguments;
+						else
+						{
+							var array = options.split("?");
+							title = array[1];
+						}
+						document.write(title);
+						</script>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" width="100%">
+						<input id="filename" name="filename" type="text" maxlength="255" size="36" onkeydown="KeyCheck(this)">
+					</td>
+				</tr>
+				<tr>
+					<td align="center" width="100%">
+						<input id="ok" name="ok" type="button" value="OK" onclick="OK()"> <input id="cancel" name="cancel" type="button" value="Cancel" onclick="Cancel();">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+/*****************************************************************************
+
+          Copyright (c) Micrografx, Inc., 1991.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+             from Micrografx, 1303 Arapaho, Richardson, TX. 75081.
+
+******************************************************************************
+
+                                   mgxdde.h
+
+******************************************************************************
+
+   Definitions and declarations for data and procedures defined by mgxdde.c
+
+*****************************************************************************/
+
+/****************************** Public Functions ****************************/
+
+extern BOOL FAR PASCAL dde_exec (HWND,LPSTR);
+extern HWND FAR PASCAL dde_initiate (LPSTR,LPSTR);
+extern BOOL FAR PASCAL dde_request (HWND,LPSTR,LPSTR,int);
+extern BOOL FAR PASCAL dde_terminate (HWND);
+extern BOOL FAR PASCAL create_dde_window (HANDLE);
+extern VOID FAR PASCAL destroy_dde_window (HANDLE);
+extern LONG FAR PASCAL dde_window_proc (HWND,WORD,WORD,LONG);
+
+/****************************************************************************/
+

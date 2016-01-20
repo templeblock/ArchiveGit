@@ -1,0 +1,6 @@
+// Source file: POPUPS.C
+void PopupMenuEx( HWND hWnd, ITEMID idControl, ITEMID idMenu, ITEMID idMenuChange );
+void PopupMenu( HWND hWnd, ITEMID idControl, ITEMID idMenuChange );
+BOOL PopupWindow( HWND hParent, ITEMID idControl, ITEMID idDlg, DLGPROC lpDlgControl);
+
+

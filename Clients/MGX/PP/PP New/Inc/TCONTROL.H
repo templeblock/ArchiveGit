@@ -1,0 +1,9 @@
+// Source file: tcontrol.c
+void SetImageControlMapping( int iImageW, int iImageH, LPRECT lpControlRect );
+void Image2Control( LPINT lpx, LPINT lpy );
+void Control2Image( LPINT lpx, LPINT lpy );
+void DrawGrid( HWND hWindow, HDC hDC, LPRECT lpGridRect, int iType );
+void DrawFastbitsGrid( HWND hWindow, HDC hDC, LPRECT lpGridRect, int iType );
+void InvertGrid( HWND hWindow, HDC hDC, LPRECT lpGridRect, int x, int y );
+LPRECT GetGridBoundRect(LPRECT lpRect);
+

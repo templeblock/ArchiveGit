@@ -1,0 +1,150 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#                                                                            
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+!if "$(MAC)" == "1"
+MACINC = \msvc20\m68k\include
+!endif
+WIN32INC =  \msvc20\include
+
+DSTDIR = ..\dst
+!if "$(BUILD)" == "NT"
+DSTDIR = $(DSTDIR)\nt
+!endif
+!if "$(MAC)" == "1"
+DSTDIR = $(DSTDIR)\mac
+!endif
+
+NOPCH=
+REFDIR=..\ref
+MAKDIR=$(REFDIR)
+!IFNDEF PROJ
+PROJ=$(DSTDIR)\frame
+!ENDIF
+DEFAULTBUILD =$(OBJDIR) $(PROJ).lib
+INSTALLLIST=\
+	$(PROJ).lib\
+	$(REFDIR)\framelib.h\
+	$(REFDIR)\superlib.h\
+	$(REFDIR)\macros.h\
+!IF ("$(BUILD)" != "NT")
+	$(REFDIR)\winerror.h\
+!ENDIF
+	$(REFDIR)\fixed.h
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+!include "$(MAKDIR)\win.mak"
+
+##############################################################################
+#
+#--- Interesting files
+#
+OBJS    =\
+!IF ("$(BUILD)" != "NT")
+	$(OBJDIR)\frmhsla.obj \
+	$(OBJDIR)\frmsmpla.obj \
+	$(OBJDIR)\qmul.obj \
+	$(OBJDIR)\converta.obj \
+!ENDIF
+	$(OBJDIR)\frameold.obj \
+	$(OBJDIR)\frmfiles.obj \
+	$(OBJDIR)\frmmem.obj \
+	$(OBJDIR)\frmutil.obj \
+	$(OBJDIR)\frmdib.obj \
+	$(OBJDIR)\frmdtcon.obj \
+	$(OBJDIR)\frmmain.obj \
+	$(OBJDIR)\frmpixel.obj \
+	$(OBJDIR)\frmhsl.obj \
+	$(OBJDIR)\frmmap.obj \
+	$(OBJDIR)\frmmini.obj \
+	$(OBJDIR)\frmsmple.obj \
+	$(OBJDIR)\frmtform.obj \
+	$(OBJDIR)\palette.obj \
+	$(OBJDIR)\strings.obj \
+	$(OBJDIR)\fixed.obj \
+	$(OBJDIR)\convert.obj \
+	$(OBJDIR)\conv4.obj \
+	$(OBJDIR)\conv8.obj \
+	$(OBJDIR)\conv24.obj \
+	$(OBJDIR)\gamma.obj \
+	$(OBJDIR)\makemap.obj \
+	$(OBJDIR)\quick.obj \
+	$(OBJDIR)\superblt.obj
+
+##############################################################################
+#
+#--- Targets
+
+LIBEXE = lib
+LIBFLAGS = /NOLOGO /DEBUGTYPE:cv
+
+default: $(DEFAULTBUILD)
+
+!IF ("$(BUILD)" == "NT")
+$(PROJ).lib: $(OBJS)
+  @del $@ >nul
+  $(LIBEXE) $(LIBFLAGS) /out:$@ @<<
+$(OBJS)
+<<
+!ELSE
+$(PROJ).lib: $(OBJS)
+	@del $@ >nul
+	$(LIBEXE) $(LIBFLAGS) $@ @<<
+$(OBJS) $(ASMOBJS)
+$(LSTFILE)
+<<
+!ENDIF
+
+##############################################################################
+#
+#--- Implicit Rules
+#    make any you think you will need.  They can be identical in nature,
+#    but NMAKE wants have at least one for each possible virtual combination
+#
+
+##############################################################################
+#
+#--- Dependencies
+#
+$(OBJDIR)\frameold.obj : {$(VPATH)}frameold.c
+$(OBJDIR)\frmfiles.obj : {$(VPATH)}frmfiles.c
+$(OBJDIR)\frmmem.obj   : {$(VPATH)}frmmem.c
+$(OBJDIR)\frmutil.obj  : {$(VPATH)}frmutil.c
+$(OBJDIR)\frmdib.obj   : {$(VPATH)}frmdib.c
+$(OBJDIR)\frmdtcon.obj : {$(VPATH)}frmdtcon.c
+$(OBJDIR)\frmmain.obj  : {$(VPATH)}frmmain.c
+$(OBJDIR)\frmpixel.obj : {$(VPATH)}frmpixel.c
+$(OBJDIR)\frmhsl.obj   : {$(VPATH)}frmhsl.c
+$(OBJDIR)\frmhsla.obj  : {$(VPATH)}frmhsla.asm
+$(OBJDIR)\frmmap.obj   : {$(VPATH)}frmmap.c
+$(OBJDIR)\frmmini.obj  : {$(VPATH)}frmmini.c
+$(OBJDIR)\frmsmple.obj : {$(VPATH)}frmsmple.c
+$(OBJDIR)\frmsmpla.obj : {$(VPATH)}frmsmpla.asm
+$(OBJDIR)\frmtform.obj : {$(VPATH)}frmtform.c
+$(OBJDIR)\palette.obj : {$(VPATH)}palette.c
+$(OBJDIR)\strings.obj  : {$(VPATH)}strings.c
+$(OBJDIR)\fixed.obj    : {$(VPATH)}fixed.c
+$(OBJDIR)\qmul.obj     : {$(VPATH)}qmul.asm
+$(OBJDIR)\convert.obj  : {$(VPATH)}convert.c
+$(OBJDIR)\conv32.obj   : {$(VPATH)}conv32.c
+$(OBJDIR)\converta.obj : {$(VPATH)}converta.asm
+$(OBJDIR)\gamma.obj    : {$(VPATH)}gamma.c
+$(OBJDIR)\makemap.obj  : {$(VPATH)}makemap.c
+$(OBJDIR)\quick.obj  : {$(VPATH)}quick.c
+$(OBJDIR)\superblt.obj : {$(VPATH)}superblt.c
+
+##############################################################################
+

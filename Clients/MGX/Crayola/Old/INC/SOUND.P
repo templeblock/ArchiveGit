@@ -1,0 +1,19 @@
+// Source file: sound.c
+BOOL SoundIsOn( void );
+void SoundToggle( void );
+BOOL SoundOpen( LPSTR lpSoundLibName );
+void SoundClose( void );
+BOOL CALLBACK EXPORT SoundStartID( ITEMID idSound, BOOL bLoop, HINSTANCE hInstance );
+BOOL CALLBACK EXPORT SoundStartFile( LPSTR lpSound, BOOL bLoop, HINSTANCE hInstance );
+BOOL CALLBACK EXPORT SoundStartResource( LPSTR lpSound, BOOL bLoop, HINSTANCE hInstance );
+void CALLBACK EXPORT SoundStopAndFree( void );
+void CALLBACK EXPORT SoundStop( void );
+int	CALLBACK EXPORT mixSoundStartFile (LPSTR lpSound, BOOL bLoop, HINSTANCE hInstance,
+  int iChannel);
+int	CALLBACK EXPORT mixSoundStartResource (LPSTR lpSound, BOOL bLoop, HINSTANCE hInstance,
+  int iChannel);
+int	mixPlaySound (LPSTR szSound, UINT uFlags, BOOL bFile, int iChannel);
+void CALLBACK EXPORT mixSoundStopAll (void);
+void SetDeferedSound(BOOL bDefer);
+BOOL GetDeferedSound();
+

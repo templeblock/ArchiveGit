@@ -1,0 +1,254 @@
+//Microsoft App Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#ifdef APSTUDIO_INVOKED
+//////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\fd.rc2""  // non-App Studio edited resources\r\n"
+    "\r\n"
+    "#include ""afxres.rc""  // Standard components\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tAlt+N",                 ID_FILE_NEW
+        MENUITEM "&Load...\tAlt+L",             ID_FILE_OPEN
+        MENUITEM "&Save\tAlt+S",                ID_FILE_SAVE
+        MENUITEM "Save &As...\tAlt+A",          ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Recent file list",            ID_FILE_MRU_FILE1
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tAlt+F4",               ID_APP_EXIT
+        MENUITEM "&Quit\tShft+Alt+F4",          FD_FILE_QUIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "Forward Vie&w\tAlt-W",        FD_VIEW_FORWARD
+        MENUITEM SEPARATOR
+        MENUITEM "Low &Resolution\tAlt-R",      FD_VIEW_LOW_RES
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "Sound/F&X\tAlt-X",            FD_OPTIONS_SOUND
+        MENUITEM "&Music\tAlt-M",               FD_OPTIONS_MUSIC
+        MENUITEM "Volum&e...\tAlt-E",           FD_OPTIONS_VOLUME
+        MENUITEM SEPARATOR
+        MENUITEM "A&utomatic Weapon\tAlt-U",    FD_OPTIONS_AUTOMATIC
+        MENUITEM SEPARATOR
+        MENUITEM "S&tatus Window\tAlt-T",       FD_OPTIONS_STATUS
+        MENUITEM "Ma&p Window\tAlt-P",          FD_OPTIONS_MAP
+        MENUITEM "&Cross Hairs\tAlt-C",         FD_OPTIONS_CROSSHAIRS
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help\tF1",                   ID_APP_ABOUT
+    END
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "A",            ID_FILE_SAVE_AS,        VIRTKEY,ALT, NOINVERT
+    "C",            FD_OPTIONS_CROSSHAIRS,  VIRTKEY,ALT, NOINVERT
+    "E",            FD_OPTIONS_VOLUME,      VIRTKEY,ALT, NOINVERT
+    "L",            ID_FILE_OPEN,           VIRTKEY,ALT, NOINVERT
+    "M",            FD_OPTIONS_MUSIC,       VIRTKEY,ALT, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY,ALT, NOINVERT
+    "P",            FD_OPTIONS_MAP,         VIRTKEY,ALT, NOINVERT
+    "R",            FD_VIEW_LOW_RES,        VIRTKEY,ALT, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY,ALT, NOINVERT
+    "T",            FD_OPTIONS_STATUS,      VIRTKEY,ALT, NOINVERT
+    "U",            FD_OPTIONS_AUTOMATIC,   VIRTKEY,ALT, NOINVERT
+    VK_F1,          ID_APP_ABOUT,           VIRTKEY,NOINVERT
+    VK_F4,          FD_FILE_QUIT,           VIRTKEY,SHIFT, ALT, NOINVERT
+    "W",            FD_VIEW_FORWARD,        VIRTKEY,ALT, NOINVERT
+    "X",            FD_OPTIONS_SOUND,       VIRTKEY,ALT, NOINVERT
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 16, 222, 178
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "WinAdv Help"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,18,20
+    CTEXT           "Windows Adventure Version 1.4",IDC_STATIC,40,10,130,8
+    CTEXT           "Copyright \251 1995",IDC_STATIC,40,25,130,8
+    DEFPUSHBUTTON   "OK",IDOK,175,20,32,14,WS_GROUP
+    LTEXT           "Forward\tUp Arrow\tNew Game\tAlt+N",IDC_STATIC,5,45,210,
+                    8
+    LTEXT           "Backward\tDown Arrow\tLoad Game\tAlt+L",IDC_STATIC,5,55,
+                    210,8
+    LTEXT           "Left\t\tLeft Arrow\tSave Game\tAlt+S",IDC_STATIC,5,65,
+                    210,8
+    LTEXT           "Turbo\t\tShift\t\tSoung FX\tAlt-X",IDC_STATIC,5,115,210,
+                    8
+    LTEXT           "Right\t\tRight Arrow\tExit\t\tAlt+F4",IDC_STATIC,5,75,
+                    210,8
+    LTEXT           "Strafe Left\tA\t\tQuit\t\tShift+Alt+F4",IDC_STATIC,5,85,
+                    210,8
+    LTEXT           "Jump\t\tD\t\tLow/High Res\tAlt+R",IDC_STATIC,5,105,210,
+                    8
+    LTEXT           "Strafe Right\tS\t\tFwd/Rev View\tAlt+W",IDC_STATIC,5,95,
+                    210,8
+    LTEXT           "Fire\t\tControl\t\tMusic\t\tAlt-M",IDC_STATIC,5,125,210,
+                    8
+    LTEXT           "Weapons\tNumber Keys\tStatus Window\tAlt-T",IDC_STATIC,
+                    5,135,210,8
+    LTEXT           "Open Door\tSpace\t\tMap Window\tAlt-P",IDC_STATIC,5,145,
+                    210,8
+    LTEXT           "Update Map\tTab\t\tCrosshairs\tAlt-C",IDC_STATIC,5,155,
+                    210,8
+    LTEXT           "Pause Game\tP\t\t",IDC_STATIC,5,165,210,8
+END
+
+IDD_VOLUME_SET DIALOG DISCARDABLE  0, 16, 171, 88
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Set Volume Levels"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,110,15,50,14
+    SCROLLBAR       IDC_SOUNDFX_VOLUME,45,40,116,13,WS_TABSTOP
+    SCROLLBAR       IDC_MUSIC_VOLUME,45,65,116,13,WS_TABSTOP
+    CTEXT           "Sound FX",IDC_STATIC,5,40,35,9
+    CTEXT           "Music",IDC_STATIC,5,65,35,9
+    ICON            IDR_MAINFRAME,IDC_STATIC,12,12,18,20
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+IDR_MAINFRAME           ICON    DISCARDABLE     "RES\\FD.ICO"
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "Windows Adventure\nwinadv\nWinAdv Game\nWinAdv files (*.sgm)\n.sgm"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Windows Adventure"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Start a new game"
+    ID_FILE_OPEN            "Continue an existing game"
+    ID_FILE_SAVE            "Save the current game"
+    ID_FILE_SAVE_AS         "Save the current game with a new name"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright"
+    ID_APP_EXIT             "Quit the game"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane"
+    ID_PREV_PANE            "Switch back to the previous window pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next game window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous game window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the game"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Most recent selection"
+    ID_FILE_MRU_FILE2       "Second most recent selection"
+    ID_FILE_MRU_FILE3       "Third most recent selection"
+    ID_FILE_MRU_FILE4       "Fourth most recent selection"
+END
+
+
+#ifndef APSTUDIO_INVOKED
+////////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\fd.rc2"  // non-App Studio edited resources
+
+#include "afxres.rc"  // Standard components
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

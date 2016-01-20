@@ -1,0 +1,625 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>www.comtelcom.com - networking Comtel Communications</title>
+
+
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+  #g_title p, #g_footer p, #g_description p {
+    margin: 0;
+  }
+  /*
+
+  	-- -- -- -- -- -- --
+  	Browser Fixes
+  	-- -- -- -- -- -- --
+  	
+  	This file uses CSS filtering methods to fix various
+  	layout bugs.
+
+  	Each of the following three imported files is a 
+  	separate, browser-specific CSS file that keeps all 
+  	hacks out of the main style sheet.
+  	
+  	Over time, as supporting these browsers no longer
+  	remains a priority, cleaning up the hacks is as
+  	easy as deleting the @import statement below, or
+  	simply no longer linking this file from the HTML.
+  	
+  */
+
+  /* 
+    fix ie6 "peekaboo bug" using the "holly hack". 
+    Note, this style only gets applied to ie6
+  */
+  * html .wrapper {
+    height: 0.1%;
+  }
+
+  /* 
+   * IE5 mac - overrides the IE/Win hack 
+   */
+
+  /*\*//*/
+
+  * html #threecolumn div {
+  	height: auto;
+  }
+
+  /**/
+
+
+  /* 
+   * IE5/Win-specific CSS -ensures #container wraps all content on window resize
+   */
+
+  @media tty {
+   i{content:"\";/*" "*/}} * html #container { height: 1%; } /*";}
+  }/* */
+  /* Styling for editable elements. Eventually, this will be part of the style. */
+  .editable {
+    border: 1px dashed blue;
+  }
+  
+  #footer {
+    clear: both;
+  }
+  
+  /* Extra divs hidden by default. The custom CSS can override this though */
+  #extraDiv1, #extraDiv2, #extraDiv3, #extraDiv4, #extraDiv5, #extraDiv6 {
+    display: none;
+  }
+  
+  a img,:link img,:visited img {border: none;}
+
+  body {
+    text-align: center;
+  }
+  #container {
+    width: 718px;
+    text-align: left;
+    margin: 0 auto;
+  }
+  #main-content {
+    float: right;
+    width: 470px;
+  }
+  #sidebar {
+    float: right;
+    width: 230px;
+  }
+  #footer {
+    clear: both;
+  }
+  /** BEGIN CUSTOM SKIN **/
+  /*
+
+  	-- -- -- -- -- -- --
+  	Base CSS
+  	-- -- -- -- -- -- --
+  	
+  	This file simply removes default styling on most HTML elements in 
+  	order to reduce the need to later override them.
+  	
+  */
+
+  h1,h2,h3,h4,h5,h6,pre,code,p {font-size: 1em;}
+  dl,li,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input {margin: 0; padding: 0;}
+  a img,:link img,:visited img {border: none;}
+  address {font-style: normal;}/*
+
+  	-- -- -- -- -- -- --
+  	Type Scheme: Deco
+  	-- -- -- -- -- -- --
+  	
+  */
+
+  body {
+  	font: 76% Verdana, sans-serif;
+  }	
+
+  h1, h2, h3, h4, h5, h6, p.description {
+  	font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  }
+  h1 {
+  	font-size: 3em;
+  	font-weight: bold;
+  	letter-spacing: 2px;
+  }
+  h2 {
+  	font-size: 2em;
+  	font-weight: normal;
+  }
+  h3 {
+  	font-size: 1.5em;
+  }
+  h4 {
+  	font-size: 1.2em;
+  	letter-spacing: 0.2em;
+  }
+  h5 {
+  	font-size: 1.2em;
+  }
+  h6 {
+  	font-size: 1em;
+  	font-weight: bold;
+  }
+
+  p, td {
+  	line-height: 1.8em;
+  }
+  code, kbd {
+  	font-size: 1.25em;
+  }/*
+
+  	-- -- -- -- -- -- --
+  	STYLE: Micro
+  	-- -- -- -- -- -- --
+
+  */
+
+
+
+
+  /* ie6win */
+
+  /* IE/Win fixes for various layouts
+  ----------------------------------------------- */
+  * html #onecolumn #header {
+  	margin-right: -3px;
+  }
+  * html #onecolumn #header,
+  * html #twocolumn-left #header, * html #twocolumn-right #header,
+  * html #twocolumn-liquid-left #header, * html #twocolumn-liquid-right #header {
+  	padding-bottom: 1px;
+  }
+  * html #twocolumn-left #main-content, * html #twocolumn-right #main-content {
+  	width: 459px;
+  }
+  * html #threecolumn #main-content {
+  	width: 409px;
+  }
+
+  /* ie5mac */
+
+  /*\*//*/
+  /* Undoing IE/Win fixes
+  ----------------------------------------------- */
+  * html #onecolumn #header {
+  	margin-right: 0;
+  }
+  * html #twocolumn-left #header, * html #twocolumn-right #header,
+  * html #twocolumn-liquid-left #header, * html #twocolumn-liquid-right #header {
+  	padding-bottom: 0;
+  }
+  * html #twocolumn-left #main-content, * html #twocolumn-right #main-content {
+  	width: 479px;
+  }
+  * html #threecolumn #main-content {
+  	width: 429px;
+  }
+  /**/
+
+  @media tty {
+   i{content:"\";/*" "*/}} td { font-size: 0.8em; } /*";}
+  }/* */
+
+
+
+  /* Basic HTML style
+  ----------------------------------------------- */
+  body {
+  	font: 76% "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+  	color: #000;
+  	background: #fff;
+  	margin: 0;
+  	padding: 0;
+  }
+  blockquote {
+  	margin: 1em 2em;
+  	font-style: italic;
+  }
+  caption {
+  	font-weight: bold;
+  	color: #444;
+  	background: #ccc;
+  	border-bottom: 0;
+  	padding: 0.3em 1em;
+  }
+  dd {
+  	margin: 1em 2em;
+  }
+  dl {
+  	margin: 2em 0;
+  }
+  dt {
+  	font-weight: bold;
+  }
+  hr {
+  	margin: 2em 0;
+  	color: #C7C7C7;
+  	background: #C7C7C7;
+  	border-color: #C7C7C7;
+  	border-style: none;
+  	height: 1px;
+  }
+  li {
+  	margin: 1em 0;
+  }
+  table {
+  	border: solid 1px #ccc;
+  }
+  td {
+  	vertical-align: top;
+  	padding: 0.5em;
+  }
+  th {
+  	text-align: left;
+  	color: #fff;
+  	background: #777;
+  	padding: 0.5em;
+  }
+  ol, ul {
+  	margin: 2em 0;
+  	padding-left: 1em;
+  }
+
+
+
+  /* Nested HTML elements, and basic classes
+  ----------------------------------------------- */
+  ol li {
+  	list-style-type: decimal;
+  	margin-left: 2em;
+  }
+  ul li {
+  	margin-left: 2em;
+  	list-style-type: square;
+  }
+  td p {
+  	margin-top: 0;
+  }
+
+
+
+  /* Set the stage with main layout tweaks
+  ----------------------------------------------- */
+  #container {
+  	border: solid 7px #999;
+  	border-left: 0;
+  	border-right: 0;
+  	padding-top: 1px;
+  }
+  #header {
+  	color: #04172D;
+  	border-top: solid 3px #777;
+  	padding: 0;
+  	margin: 0 0 1.5em 0;
+  }
+  #main-content .wrapper {
+  	margin: 0;
+  }
+  .description {
+  	font: normal 1em "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+  	color: #444;
+  	background: #C7C7C7;
+  	padding: 3px 25px 2.2em 25px;
+  	margin: 0;
+  	line-height: 1;
+  }
+  #footer {
+  	clear: both;
+  	color: #999;
+  	padding: 0 1em 1em 1em;
+  	border-bottom: solid 3px #777;
+  	margin-bottom: 1px;
+  }
+
+
+  /* Content area offset
+  ----------------------------------------------- */
+  #main-content .wrapper {
+  	padding: 0 25px;
+  }
+
+  #main-content td p {
+  	margin: 0 0 1em 0;
+  }
+
+
+
+  /* Custom font definitions
+  ----------------------------------------------- */
+  p {
+  	margin: 1em 0;
+  	line-height: 1.5;
+  }
+  h1,h2,h3,h4,h5,h6 {
+  	font-family: "Trebuchet MS", arial, sans-serif;
+  }
+  h1 {
+  	color: #B2B2B2;
+  	font-size: 2.4em;
+  	letter-spacing: 0.2em;
+  	font-weight: normal;
+  	padding: 1em 25px 0 25px;
+  }
+  h2 {
+  	margin: 0 0 0.5em 0;
+  	color: #777;
+  	font-size: 1.4em;
+  	font-weight: normal;
+  	border-bottom: double 3px #C7C7C7;
+  	padding: 0 0 0.4em 0;
+  }
+  h3 {
+  	font-size: 1.2em;
+  	background: #eee;
+  	border: dotted 1px #C7C7C7;
+  	padding: 0.2em;
+  }
+  h4 {
+  	font-size: 1.2em;
+  	padding: 0 0 0.2em 0;
+  	margin: 0.6em 0 0 0.4em;
+  	color: #777;
+  }
+  h5 {
+  	border-bottom: dotted 1px #C7C7C7;
+  }
+  h6 {
+  	color: #777;
+  	border-left: solid 1.2em #777;
+  	padding-left: 0.6em;
+  }
+
+  a:link {
+  	color: #9db2df;
+  }
+  a:hover {
+    	text-decoration: none;
+  	border-bottom: 1px dotted #bb242d;
+  	background-color: #e0e0e0;
+   }
+
+
+  /* Sidebar
+  ----------------------------------------------- */
+  #sidebar h3, #sidebar-alternate h3 {
+  	margin: 0;
+  	color: #777;
+  	background: none;
+  	font-size: 1.4em;
+  	font-weight: normal;
+  	border: none;
+  	padding: 0;
+  }
+
+  #sidebar blockquote, #sidebar blockquote p,
+  #sidebar-alternate blockquote, #sidebar-alternate blockquote p {
+  	margin-left: 0;
+  	margin-right: 0;
+  }
+  #sidebar blockquote {
+  	margin: 1em 0;
+  	padding: 0;
+  }
+  #adsense {
+  	text-align: center;
+  }
+
+
+
+  .editable {
+  	border: dashed 1px #c33;
+  }
+
+
+
+
+  /* Tweaks for Two-column Right layout
+  ----------------------------------------------- */
+  #twocolumn-right #sidebar .wrapper {
+  	margin: 0 10px;
+  }
+
+
+
+  /* Tweaks for Two-column Left layout
+  ----------------------------------------------- */
+  #twocolumn-left #sidebar .wrapper {
+  	margin: 0 10px;
+  }
+
+
+  /* Tweaks for Three-column layout
+  ----------------------------------------------- */
+  #threecolumn #sidebar .wrapper {
+  	margin: 0 10px;
+  }
+  #threecolumn #sidebar-alternate .wrapper {
+  	margin: 0 10px;
+  }
+  /*
+
+  	-- -- -- -- -- -- --
+  	COLOR SCHEME: Blueprint
+  	-- -- -- -- -- -- --
+
+  */
+
+
+  /* Basic HTML style
+  ----------------------------------------------- */
+  a:link {
+  	color: #445AA9;
+  }
+  a:visited {
+  	color: #283D88;
+  }
+  body {
+  	color: #283769;
+  	background: #ECEEF6;
+  }
+  caption {
+  	color: inherit;
+  	background: #ECEEF6;
+  }
+  hr {
+  	color: #C7C7C7;
+  	background: #C7C7C7;
+  	border-color: #C7C7C7;
+  }
+  table {
+  	background: #fff;
+  	border-color: #B3BCDC;
+  }
+  th {
+  	color: #fff;
+  	background: #445AA9;
+  }
+
+
+
+  /* Set the stage with main layout tweaks
+  ----------------------------------------------- */
+  #container {
+  	background-color: #F6F7FB;
+  	border-color: #6678B8;
+  }
+  #header {
+  	color: #445AA9;
+  	border-top-color: #6678B8;
+  }
+  .description {
+  	color: #445AA9;
+  	background: #C9D0E6;
+  }
+  #footer {
+  	color: #5064AE;
+  	border-bottom-color: #6678B8;
+  }
+
+
+
+  /* Custom font definitions
+  ----------------------------------------------- */
+  h1 {
+  	color: #445AA9;
+  }
+  h2 {
+  	color: #5064AE;
+  	border-bottom-color: #B3BCDC;
+  }
+  h3 {
+  	background: #ECEEF6;
+  	border-color: #C9D0E6;
+  }
+  h4 {
+  	border-bottom-color: #B3BCDC;
+  	color: #1A4292;
+  }
+  h5 {
+  	border-bottom-color: #C7C7C7;
+  }
+  h6 {
+  	color: #5064AE;
+  	border-left-color: #B3BCDC;
+  }
+
+
+
+
+
+  /* Sidebar
+  ----------------------------------------------- */
+  #sidebar h3, #sidebar-alternate h3 {
+  	color: #5064AE;
+  	background: none;
+  }
+  /** END CUSTOM SKIN **/
+  </style><!-- Hack to avoid flash of unstyled content in IE -->
+
+  
+  <script> </script></head><body id="twocolumn-left">
+  <div id="container">
+    <div class="wrapper">
+      <div id="header">
+        <div class="wrapper">
+          <h1 id="page-title"><div id="g_title"><p class="separator" style="border: medium none ; clear: both; text-align: center;" closure="" hashcode=""><a style="border-width: 0px; clear: left; float: left; margin-bottom: 1em; margin-right: 1em; background-color: transparent; text-decoration: none;" href=".index_files/comtellogo-custom.jpg" closure="" hashcode="" imageanchor="1"><img style="border-width: 0px;" tabindex="0" src="networking_files/comtellogo-custom.jpg" closure="" hashcode="" galleryimg="no"></a></p>
+<p></p>
+<p><em><font size="1">networking</font></em></p>
+<p><em><font size="6">Comtel Communications</font></em></p></div></h1>
+          <div style="clear: both;"></div>
+          <p class="description"></p><div id="g_description">&nbsp;</div>
+          <div style="clear: both;"></div>
+        </div>
+      </div>
+      <!-- /wrapper --><!-- /header -->
+      <div id="main-content">
+        <div class="wrapper">
+          <div class="content-item"><div id="g_body"><p>&nbsp;&nbsp;&nbsp;
+Staying connected with customers and clients is key to keeping your
+operations running smoothly.&nbsp; Your network structure needs to be
+reliable and safe.&nbsp;</p>
+<p>&nbsp;&nbsp; Comtel can help you identify the network structure
+along with the supporting hardware that your business needs.&nbsp;
+Whether you are adding on to your existing structure or totally
+revamping, you need to understand what is available out there.&nbsp;
+With improved networking tools, advanced security settings, and
+recovery options available – what should you choose?&nbsp; We access
+your needs and recommend a communication structure that provides
+flexibility to handle your changing business needs.</p>
+<ul>
+<li>LAN/WAN Design, Implementation, Supporting Hardware, and&nbsp; Maintenance 
+</li><li>Network Servers&nbsp; (Microsoft and Novell) 
+</li><li>Firewall and Virtual Private Networking 
+</li><li>Wireless LAN 
+</li><li>Wireless Point-to-Point and Point-to-Multi Point 
+</li><li>Router Configuration and Installation (CISCO/AdTran – do you do the configuraion using CISCO and AdTran products?) 
+</li><li>Data Circuits 
+</li><li>Video Conferencing</li></ul>
+<p>&nbsp;&nbsp; In order to meet the changing needs of our customers,
+Comtel Communications, partners with companys to provide the highest
+level of products and services.&nbsp;Comtel also is a certified Mitel
+provider enabling us insight on the top of the line communication
+platforms available.</p></div></div>
+          <div style="clear: both;"></div>
+        </div>
+      </div>
+      <!-- /wrapper --><!-- /main-content -->
+      <div id="sidebar">
+        <div class="wrapper">
+          <div class="links">
+            <div class="wrapper"><div id="g_sidebar"><ul>
+<li><a href="./index.html">Home</a> 
+</li><li><a href="./service.htm">Service</a> 
+</li><li><a href="./voice.htm">Telephone and Voice Mail Systems</a> 
+</li><li>Networking Services 
+</li><li><a href="./products.htm">Products</a> 
+</li><li><a href="./testimonials.htm">Testimonials</a> 
+</li><li><a href="./contactus.htm">Contact Us</a></li></ul></div></div>
+            <div style="clear: both;"></div>
+          </div>
+    <!-- /wrapper --><!-- /links -->
+        </div>
+        
+      </div>
+      <!-- /wrapper --><!-- /sidebar -->
+      <div id="footer"><div class="wrapper">
+        <hr>
+        <p></p><div id="g_footer">&nbsp;</div>
+        <div style="clear: both;"></div>
+      </div></div>
+      <!-- /wrapper --><!-- /footer -->
+    </div>
+  </div>
+  <!-- /wrapper --><!-- /container -->
+
+<div id="extraDiv1"><span></span></div><div id="extraDiv2"><span></span></div>
+<div id="extraDiv3"><span></span></div><div id="extraDiv4"><span></span></div>
+<div id="extraDiv5"><span></span></div><div id="extraDiv6"><span></span></div>
+
+
+</body></html>

@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<script>
+		function Resize()
+		{
+			var iMaxWidth = 255;
+			var iMaxHeight = 191;
+
+			var InputObject = document.all.item('file1');
+			var strFileName = (InputObject ? InputObject.value : '');
+			if (strFileName == '')
+			{
+				alert('Please enter a valid image file name');
+				return;
+			}
+
+			var plugin = null;
+			try
+			{
+				plugin = new ActiveXObject('Crusher.Plugin');
+				if (!plugin)
+					throw '';
+			}
+			catch(error)
+			{
+				alert('The Crusher plugin does not exist');
+				return;
+			}
+
+			var strFileNameNew = '';
+			try
+			{
+				strFileNameNew = plugin.ResizeJPG(strFileName, iMaxWidth, iMaxHeight, 70/*nQuality*/, false/*bSilent*/);
+			}
+			catch(error)
+			{
+				alert('The Crusher plugin does not have a ResizeJPG function');
+				return;
+			}
+			if (strFileNameNew == '')
+			{
+				alert('Resize failed');
+				return;
+			}
+
+			alert('New JPG created: \n\n"' + strFileNameNew + '"');
+			try
+			{
+				window.showModalDialog(strFileNameNew, '', 'dialogWidth:' + (iMaxWidth+8) + 'px; dialogHeight:' + (iMaxHeight+34) + 'px; center:yes; resizable:no; status:no; scroll:no');
+			}
+			catch(error)
+			{
+				alert('Could not display the image due to Outlook security.\n\nSave this HTML attachment to disk before trying to open it.');
+				return;
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<form>
+			<p>
+				Select an image file (JPG, BMP, GIF, WMF, ICO, CUR):<br>
+				<br>
+				<input type="file" id="file1" name="file1" maxlength="255" size="50">
+				<br>
+				<br>
+				<input type="button" id="button2" name="button1" value="Resize it!" onclick="JavaScript:Resize()">
+			</p>
+		</form>
+		<object id="crusher" style="visibility: hidden;" hspace="0" vspace="0" border="0" width="100" height="100" classid="clsid:BD8667B7-38D8-4C77-B580-18C3E146372C" codebase="http://10.10.240.145/cnp/ol/Crusher.cab#version=1,0,0,1" viewastext>
+			<!--iframe width="100%" height="100%" frameborder=0 src="http://www.americangreetings.com/cnp/noactivex.htm">
+		</iframe-->
+		</object>
+	</body>
+</html>

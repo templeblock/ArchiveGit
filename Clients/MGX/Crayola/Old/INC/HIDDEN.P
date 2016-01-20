@@ -1,0 +1,9 @@
+// Source file: hidden.c
+int DotToDotToolProc( HWND hWindow, LPARAM lParam, UINT msg );
+static BOOL DotToDotEdit( HWND hWindow, LPOBJECT lpObject, int x, int y );
+void DotToDotPixelProc( LPTR lpSrc, LPTR lpDst, int dx, int iDepth );
+int PaintBallToolProc( HWND hWindow, LPARAM lParam, UINT msg );
+static BOOL PaintBallEdit( HWND hWindow, LPOBJECT lpObject, int x, int y );
+void PaintBallPixelProc( LPTR lpSrc, LPTR lpDst, int dx, int iDepth );
+
+

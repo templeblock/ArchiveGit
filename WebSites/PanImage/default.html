@@ -1,0 +1,844 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+	<head>
+		<title>Panimage Test</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<script type="text/javascript" src="DHTMLapi.js" />
+		<script type="text/javascript" src="xhr.js" />
+		<script type="text/javascript">
+			// Element layering:
+			// viewport - on bottom
+			// dragPoint
+			// tileLayers
+			// mouseLayer
+			// overlayLayer - on top, transparent
+
+			// Coordinate calculations:
+			// doc = (screen - drag) / zoom
+			// screen = (doc * zoom) + drag
+			// drag = screen - (doc * zoom)
+			
+			// global configuration variables
+			// if we new the "document" size, maybe we could set up the initial view to be centered
+			var m_docWidth = 1969;
+			var m_docHeight = 1585;
+			var m_tileWidth = 200;
+			var m_tileHeight = 200;
+			var m_tileURL = 'tile.aspx';
+			var m_ZoomLevels = new Array(1, 2, 4, 8, 16);
+			var m_nKeyStep = 16;
+			var m_nLayers = 1;
+			var m_nBuffer = 1;
+			var m_ErrorLimit = 1;
+			var m_SlideAccelerationFactor = 1;
+			var m_SlidePixelsPerStep = 30;
+			var m_SlideTimePerStep = 25;
+
+			// state tracking variables
+			var m_tileId = 0;
+			var m_bMouseDown = false;
+			var m_xLastMouse = 0;
+			var m_yLastMouse = 0;
+
+			var m_viewport = null;
+			var m_dragPoint = null;
+
+			var m_viewportWidth = 0;
+			var m_viewportHeight = 0;
+
+			var m_nWide = 0;
+			var m_nHigh = 0;
+
+			var m_Pixel = new Image(1,1);
+			m_Pixel.src = 'images/a_pixel.gif';
+
+			var m_ZoomIndex = 0;
+			var m_Zoom = m_ZoomLevels[m_ZoomIndex];
+
+			function at(x, y)
+			{
+				return x + (y * m_nWide);
+			}
+			
+			function bodyOnLoad()
+			{
+				m_bMouseDown = false;
+				initDHTMLAPI();
+				updateZoomButtons();
+
+				m_viewport = getRawObject('viewport');
+				m_viewport.onmouseover = mouseOver;
+				m_viewport.onmouseout = mouseOut;
+				m_viewport.onmousedown = cancelEvent;
+				m_viewport.onmousemove = cancelEvent;
+				m_viewport.onmouseup = cancelEvent;
+				setViewportSize();
+
+				createLayers();
+				resizeViewport();
+				window.onresize = resizeViewport;
+			}
+
+			function setViewportSize()
+			{
+				var browserWidth = getInsideWindowWidth();
+				var browserHeight = getInsideWindowHeight();
+				
+				var vPadding = 44 + 23;
+				var hPadding = 36;
+				
+				m_viewportWidth = browserWidth - hPadding;
+				m_viewportHeight = browserHeight - vPadding;
+
+				m_viewport.style.width = m_viewportWidth + 'px';
+				m_viewport.style.height = m_viewportHeight + 'px';
+			}
+
+			function createLayers()
+			{
+				m_dragPoint = document.createElement('div');
+				m_dragPoint.id = 'dragPoint';
+				m_dragPoint.style.position = 'absolute';
+				m_dragPoint.style.left = ((m_viewportWidth - m_docWidth) / 2) + 'px';
+				m_dragPoint.style.top = ((m_viewportHeight - m_docHeight) / 2) + 'px';
+				m_dragPoint.style.width = '0px';
+				m_dragPoint.style.height = '0px';
+				m_dragPoint.style.zIndex = '1';
+				m_dragPoint.style.border = "0px solid #000099";
+				m_viewport.appendChild(m_dragPoint);
+
+				for (var k = 0; k < m_nLayers; k++)
+				{
+					var tileLayer = document.createElement('div');
+					tileLayer.id = 'tileLayer' + k;
+					tileLayer.visibility = 'visible';
+					tileLayer.style.position = 'absolute';
+					tileLayer.style.left = '0px';
+					tileLayer.style.top = '0px';
+					tileLayer.style.width = '0px';
+					tileLayer.style.height = '0px';
+					tileLayer.style.zIndex = k;
+					tileLayer.style.border = "0px solid #009900";
+					m_dragPoint.appendChild(tileLayer);
+				}
+
+				var mouseLayer = document.createElement('div');
+				mouseLayer.id = 'mouseLayer';
+				mouseLayer.innerHTML = '&nbsp;';
+				mouseLayer.style.cursor = 'auto';
+				mouseLayer.style.position = 'absolute';
+				mouseLayer.style.top = '0px';
+				mouseLayer.style.left = '0px';
+				mouseLayer.style.width = '100%';
+				mouseLayer.style.height = '100%';
+				mouseLayer.style.zIndex = '100';
+				// add transparent layer except in Opera
+				if (!isOpera)
+				{
+					mouseLayer.style.backgroundColor = 'red';
+					mouseLayer.style.filter = 'Alpha(opacity=0)'; // transparent
+					mouseLayer.style.MozOpacity = 0;
+					mouseLayer.style.opacity = 0; // for CSS3
+				}
+				
+				mouseLayer.onmousemove = mouseMove;
+				mouseLayer.onmousedown = mouseDown;
+				mouseLayer.onmouseup = mouseUp;
+				mouseLayer.oncontextmenu = contextMenu;
+				mouseLayer.onmouseover = mouseOver;
+				mouseLayer.ondblclick = doubleClick;
+				document.onmouseout = mouseOut;
+				m_viewport.appendChild(mouseLayer);
+				
+				var overlayLayer = document.createElement('div');
+				overlayLayer.id = 'overlayLayer';
+				overlayLayer.style.position = 'absolute';
+				overlayLayer.style.left = '3px';
+				overlayLayer.style.bottom = '3px';
+				overlayLayer.style.zIndex = '101';
+				overlayLayer.style.filter = 'Alpha(opacity=75)';
+				overlayLayer.style.MozOpacity = .75;
+				overlayLayer.style.opacity = .75; // for CSS3
+				overlayLayer.innerHTML = '<span class="copyright">&copy;2005 <a href="http://www.facetofacesoftware.com/" target="_blank">Face To Face Software Inc.</a></span>';
+				m_viewport.appendChild(overlayLayer);
+			}
+
+			function resizeViewport()
+			{
+				var oldViewportWidth = m_viewportWidth;
+				var oldViewportHeight = m_viewportHeight;
+
+				setViewportSize();
+				
+				var cornerLeft = 0;
+				var cornerTop = 0;
+				var tileLayer = getRawObject('tileLayer0');
+				var tile = tileLayer.childNodes[at(0,0)];
+				if (tile && tile.style)
+				{
+					cornerLeft = safeParseInt(tile.style.left);
+					cornerTop = safeParseInt(tile.style.top);
+				}
+
+				var nHigh = Math.ceil((m_viewportHeight / m_tileHeight) + m_nBuffer*2);
+				while (m_nHigh < nHigh)
+					appendRow(cornerLeft, cornerTop);
+				while (m_nHigh > nHigh)
+					removeRow();
+
+				var nWide = Math.ceil((m_viewportWidth / m_tileWidth) + m_nBuffer*2);
+				while (m_nWide < nWide)
+					appendColumn(cornerLeft, cornerTop);
+				while (m_nWide > nWide)
+					removeColumn();
+
+				var dx = (m_viewportWidth - oldViewportWidth) / 2;
+				var dy = (m_viewportHeight - oldViewportHeight) / 2;
+				moveBy(dx, dy);
+			}
+
+			function xychange(xScreen, yScreen)
+			{
+				return; //j
+
+				// Coordinate calculations:
+				// doc = (screen - drag) / zoom
+				// screen = (doc * zoom) + drag
+				// drag = screen - (doc * zoom)
+				var xDrag = safeParseInt(m_dragPoint.style.left);
+				var yDrag = safeParseInt(m_dragPoint.style.top);
+				var xDoc  = (xScreen - xDrag) / m_Zoom;
+				var yDoc  = (yScreen - yDrag) / m_Zoom;
+
+				var s = getRawObject('log');
+				s.innerHTML = 
+					'screen=(' + xScreen + ',' + yScreen + '), ' + 
+					'doc=(' + xDoc + ',' + yDoc + '), ' + 
+					'drag=(' + xDrag + ',' + yDrag + ')';
+			}
+
+			function removeColumn()
+			{
+				if (m_nWide < 4)
+					return;
+
+				for (var k = 0; k < m_nLayers; k++)
+				{
+					var tileLayer = getRawObject('tileLayer' + k);
+					for (var y = m_nHigh - 1; y >= 0; y--)
+					{
+						var tile = tileLayer.childNodes[at(m_nWide-1,y)];
+						tileLayer.removeChild(tile);
+					}
+				}
+
+				m_nWide--;
+			}
+
+			function removeRow()
+			{
+				if (m_nHigh < 4)
+					return;
+
+				for (var k = 0; k < m_nLayers; k++)
+				{
+					var tileLayer = getRawObject('tileLayer' + k);
+					for (var x = m_nWide - 1; x >= 0; x--)
+					{
+						var tile = tileLayer.childNodes[at(x,m_nHigh-1)];
+						tileLayer.removeChild(tile);
+					}
+				}
+
+				m_nHigh--;
+			}
+
+			// append a row of tiles on the bottom
+			function appendRow(cornerLeft, cornerTop)
+			{
+				for (var k = 0; k < m_nLayers; k++)
+				{
+					tileLayer = getRawObject('tileLayer' + k);
+					for (var x = 0; x < m_nWide; x++)
+					{
+						var left = cornerLeft + (x * m_tileWidth);
+						var top = cornerTop + (m_nHigh * m_tileHeight);
+						tileLayer.appendChild(createTile(left, top));
+					}
+				}
+
+				m_nHigh++;
+			}
+
+			// append a column of tiles on the right
+			function appendColumn(cornerLeft, cornerTop)
+			{
+				for (var k = 0; k < m_nLayers; k++)
+				{
+					tileLayer = getRawObject('tileLayer' + k);
+					for (var y = m_nHigh-1; y >= 0; y--)
+					{
+						var left = cornerLeft + (m_nWide * m_tileWidth);
+						var top = cornerTop + (y * m_tileHeight);
+						var tile = createTile(left, top);
+						if (y < m_nHigh-1)
+							tileLayer.insertBefore(tile, tileLayer.childNodes[at(0,y+1)]);
+						else
+							tileLayer.appendChild(tile);
+					}
+				}
+
+				m_nWide++;
+			}
+
+			function createTile(left, top)
+			{
+				var tile = document.createElement('img');
+				tile.id = 'i' + m_tileId++;
+				tile.src = m_Pixel.src;
+				tile.width = m_tileWidth;
+				tile.height = m_tileHeight;
+				// first for firefox, rest for IE :(
+				tile.setAttribute('style', 'position:absolute; top:' + top + 'px; left:' + left + 'px;');
+				tile.style.position = 'absolute';
+				tile.style.left = left + 'px';
+				tile.style.top = top + 'px';
+				tile.style.border = "0px solid #990000";
+			//j	tile.style.filter = 'Alpha(opacity=75)';
+			//j	tile.style.MozOpacity = .75;
+			//j	tile.style.opacity = .75; // for CSS3
+				tile.onerror = tileOnError;
+				tile.errorCount = 0;
+//j				tile.setAttribute('errorCount', 0);
+				setTile(tile, false);
+				return tile;
+			}
+
+			function screenCoords(elem)
+			{
+				var rect = new Rect(0, 0, 0, 0);
+				var width = parseInt(elem.offsetWidth);
+				var height = parseInt(elem.offsetHeight);
+				
+				while (elem)
+				{
+					if (elem.id == 'viewport')
+						break;
+					rect.l += parseInt(elem.offsetLeft);
+					rect.t += parseInt(elem.offsetTop);
+					elem = elem.offsetParent;
+				}
+
+				rect.r = rect.l + width;
+				rect.b = rect.t + height;
+				return rect;
+			}
+
+			// handle wrapping the images to keep everything visible
+			function checkWrap(bSetTiles)
+			{
+				var tileLayer = getRawObject('tileLayer0');
+				var tileLT = tileLayer.childNodes[at(0,0)];
+				var tileRB = tileLayer.childNodes[at(m_nWide-1,m_nHigh-1)];
+				var xDrag = safeParseInt(m_dragPoint.style.left);
+				var yDrag = safeParseInt(m_dragPoint.style.top);
+				var left   = xDrag + safeParseInt(tileLT.style.left);
+				var top    = yDrag + safeParseInt(tileLT.style.top);
+				var right  = xDrag + safeParseInt(tileRB.style.left) + m_tileWidth;
+				var bottom = yDrag + safeParseInt(tileRB.style.top)  + m_tileHeight;
+
+				while (left > 0)
+				{
+					wrapR2L(bSetTiles);
+					left -= m_tileWidth;
+				}
+
+				while (top > 0)
+				{
+					wrapB2T(bSetTiles);
+					top -= m_tileHeight;
+				}
+
+				while (right < m_viewportWidth)
+				{
+					wrapL2R(bSetTiles);
+					right += m_tileWidth;
+				}
+
+				while (bottom < m_viewportHeight)
+				{
+					wrapT2B(bSetTiles);
+					bottom += m_tileHeight;
+				}
+			}
+
+			// take last image from each row and put it at the beginning
+			function wrapR2L(bSetTiles)
+			{
+				for (var k = 0; k < m_nLayers; k++)
+				{
+					var tileLayer = getRawObject('tileLayer' + k);
+					var refLeft = safeParseInt(tileLayer.childNodes[at(0,0)].style.left);
+					for (var y = 0; y < m_nHigh; y++)
+					{
+						var tileLast = tileLayer.childNodes[at(m_nWide-1,y)];
+						var tileNext = tileLayer.childNodes[at(0,y)];
+
+						tileLast.style.left = (refLeft - m_tileWidth) + 'px';
+						tileLast.src = m_Pixel.src;
+						tileLayer.removeChild(tileLast);
+						tileLayer.insertBefore(tileLast, tileNext);
+						if (bSetTiles)
+							setTile(tileLast, false);
+					}
+				}
+			}
+
+			// take first image from each row and put it at the end
+			function wrapL2R(bSetTiles)
+			{
+				for (var k = 0; k < m_nLayers; k++)
+				{
+					var tileLayer = getRawObject('tileLayer' + k);
+					var refLeft = safeParseInt(tileLayer.childNodes[m_nWide-1].style.left);
+					for (var y = 0; y < m_nHigh; y++)
+					{
+						var tileFirst = tileLayer.childNodes[at(0,y)];
+						var tileNext;
+						// need to use insertBefore to get a node at the end of a 'row'
+						// but this doesn't work for the very last row :(
+						if (y < m_nHigh-1)
+							tileNext = tileLayer.childNodes[at(0,y+1)];
+						else
+							tileNext = null;
+
+						tileFirst.style.left = (refLeft + m_tileWidth) + 'px';
+						tileFirst.src = m_Pixel.src;
+						tileLayer.removeChild(tileFirst);
+						if (tileNext)
+							tileLayer.insertBefore(tileFirst, tileNext);
+						else
+							tileLayer.appendChild(tileFirst);
+						if (bSetTiles)
+							setTile(tileFirst, false);
+					}
+				}
+			}
+
+			// take top image from each column and put it at the bottom
+			function wrapT2B(bSetTiles)
+			{
+				for (var k = 0; k < m_nLayers; k++)
+				{
+					var tileLayer = getRawObject('tileLayer' + k);
+					var refTop = safeParseInt(tileLayer.childNodes[at(m_nWide-1,m_nHigh-1)].style.top);
+					for (var x = 0; x < m_nWide; x++)
+					{
+						var tileTop = tileLayer.childNodes[at(0,0)];
+						tileTop.style.top = (refTop + m_tileHeight) + 'px';
+						tileTop.src = m_Pixel.src;
+						tileLayer.removeChild(tileTop);
+						tileLayer.appendChild(tileTop);
+						if (bSetTiles)
+							setTile(tileTop, false);
+					}
+				}
+			}
+
+			// take bottom image from each column and put it at the top
+			function wrapB2T(bSetTiles)
+			{
+				for (var k = 0; k < m_nLayers; k++)
+				{
+					var tileLayer = getRawObject('tileLayer' + k);
+					var refTop = safeParseInt(tileLayer.childNodes[at(0,0)].style.top);
+					for (var x = 0; x < m_nWide; x++)
+					{
+						var tileBottom = tileLayer.childNodes[at(m_nWide-1,m_nHigh-1)];
+						tileBottom.style.top = (refTop - m_tileHeight) + 'px';
+						tileBottom.src = m_Pixel.src;
+						tileLayer.removeChild(tileBottom);
+						tileLayer.insertBefore(tileBottom, tileLayer.childNodes[at(0,0)]);
+						if (bSetTiles)
+							setTile(tileBottom, false);
+					}
+				}
+			}
+
+			function setTile(tile, bShowUnavailable)
+			{
+				if (bShowUnavailable)
+					return;
+
+				var l = safeParseInt(tile.style.left) / m_Zoom;
+				var t = safeParseInt(tile.style.top) / m_Zoom;
+				tile.src = m_tileURL + '?t=' + t + '&l=' + l + '&w=' + m_tileWidth + '&h=' + m_tileHeight + '&z=' + m_Zoom;
+//j				tile.src = 'tile' + (m_ZoomIndex+1) + '.gif';
+			}
+
+			function tileOnError(e)
+			{
+				var tile = getRawObject(this.id);
+				tile.src = m_Pixel.src;
+				tile.onerror = null;
+				tile.errorCount++;
+//j				tile.setAttribute('errorCount', parseInt(tile.getAttribute('errorCount')) + 1);
+				window.setTimeout('resetTileAfterError("' + this.id + '")', 250);
+			}
+
+			function resetTileAfterError(id)
+			{
+				var tile = getRawObject(id);
+				tile.src = m_Pixel.src;
+				tile.onerror = tileOnError;
+				
+				var bShowUnavailable = (tile.errorCount >= m_ErrorLimit);
+//j				var bShowUnavailable = (parseInt(tile.getAttribute('errorCount')) >= m_ErrorLimit);
+				setTile(tile, bShowUnavailable);
+			}
+
+			function zoomIn()
+			{
+				if (m_ZoomIndex >= m_ZoomLevels.length - 1)
+					return;
+
+				m_ZoomIndex++;
+				zoomLayers();
+			}
+
+			function zoomOut()
+			{
+				if (m_ZoomIndex <= 0)
+					return;
+
+				m_ZoomIndex--;
+				zoomLayers();
+			}
+
+			// update the layer URLs based on their current positions
+			function zoomLayers()
+			{
+				var nOldZoom = m_Zoom;
+				m_Zoom = m_ZoomLevels[m_ZoomIndex];
+				updateZoomButtons();
+
+				// Coordinate calculations:
+				// doc = (screen - drag) / zoom
+				// screen = (doc * zoom) + drag
+				// drag = screen - (doc * zoom)
+				var xDrag = safeParseInt(m_dragPoint.style.left);
+				var yDrag = safeParseInt(m_dragPoint.style.top);
+				var xScreen = m_viewportWidth / 2; // screen center
+				var yScreen = m_viewportHeight / 2;
+				var xDoc = (xScreen - xDrag) / nOldZoom;
+				var yDoc = (yScreen - yDrag) / nOldZoom;
+				var xDragNew = xScreen - (xDoc * m_Zoom);
+				var yDragNew = yScreen - (yDoc * m_Zoom);
+				goTo(xDragNew, yDragNew, false/*bSetTiles*/);
+				initializeTiles();
+			}
+
+			function updateZoomButtons()
+			{
+				document.forms[0].zoomout.disabled = (m_ZoomIndex == 0);
+				document.forms[0].zoomin.disabled = (m_ZoomIndex == m_ZoomLevels.length - 1);
+
+				var s = getRawObject('zoom');
+				s.innerHTML = m_Zoom;
+			}
+
+			function initializeTiles()
+			{
+				for (var k = 0; k < m_nLayers; k++)
+				{
+					tileLayer = getRawObject('tileLayer' + k);
+					for (var y = 0; y < m_nHigh; y++)
+					{
+						for (var x = 0; x < m_nWide; x++)
+						{
+							tile = tileLayer.childNodes[at(x,y)];
+							tile.src = m_Pixel.src;
+							setTile(tile, false);
+						}
+					}
+				}
+			}
+
+			function moveBy(dx, dy)
+			{
+				m_dragPoint.style.left = (safeParseInt(m_dragPoint.style.left) + dx) + 'px';
+				m_dragPoint.style.top = (safeParseInt(m_dragPoint.style.top) + dy) + 'px';
+				checkWrap(true);
+			}
+
+			function goTo(x, y, bSetTiles)
+			{
+				m_dragPoint.style.left = x + 'px';
+				m_dragPoint.style.top = y + 'px';
+				checkWrap(bSetTiles);
+			}
+
+			var as = null;
+			var slideid = null;
+			function slideBy(x,y)
+			{
+				if (slideid)
+					window.clearTimeout(slideid);
+				
+				as = null;
+				as = new Array();
+				
+				var absX = Math.abs(x);
+				var absY = Math.abs(y);
+				
+				var signX = x/absX;
+				var signY = y/absY;
+				
+				var distance = absX>absY?absX:absY;
+				var steps = Math.floor(distance / m_SlidePixelsPerStep);
+				
+				var dx = dy = 0;
+				if (steps > 0)
+				{
+					dx = (x)/(steps * m_SlidePixelsPerStep);
+					dy = (y)/(steps * m_SlidePixelsPerStep);
+				}
+				
+				var remainderX = x - dx * steps * m_SlidePixelsPerStep;
+				var remainderY = y - dy * steps * m_SlidePixelsPerStep;
+				
+				var px = py = 0;
+				
+				var curspeed = m_SlideAccelerationFactor;
+				var i = 0;
+				while (i<steps)
+				{
+					if (i>0)
+					{
+						px += as[i-1][0];
+						py += as[i-1][1]
+					}
+
+					var cx = px + Math.round(dx * m_SlidePixelsPerStep);
+					var cy = py + Math.round(dy * m_SlidePixelsPerStep);
+					as[i] = new Array(cx-px,cy-py);
+					i++;
+				}
+
+				if (remainderX || remainderY)
+					as[i] = new Array(remainderX, remainderY);
+				
+				slideid = window.setTimeout('slide(0)', m_SlideTimePerStep);
+			}
+
+			function slide(pos)
+			{
+				if (pos >= as.length)
+				{
+					as = null;
+					slideid = null;
+					return;
+				}
+				
+				moveBy(as[pos][0], as[pos][1]);
+				pos++;
+				slideid = window.setTimeout('slide(' + pos + ')', m_SlideTimePerStep);
+			}
+
+			function mouseDown(e)
+			{
+				if (!e) e = event;
+				if (!e) return false;
+
+				if (isIE4)
+					document.onkeydown = keyPress;
+				document.onkeypress = keyPress;
+				
+				if (e.button == 2)
+				{
+					e.cancelBubble = true;
+					e.returnValue = false;
+					if (e.stopPropogation)
+						e.stopPropogation();
+					if (e.preventDefault)
+						e.preventDefault();
+					return false;
+				}
+				else
+				{
+					m_bMouseDown = true;
+					var mouseLayer = getRawObject('mouseLayer');
+					mouseLayer.style.cursor = 'move';
+
+					m_xLastMouse = sx = e.offsetX;
+					m_yLastMouse = sy = e.offsetY;
+				}
+			}
+
+			function mouseUp(e)
+			{
+				if (!e) e = event;
+				if (!e) return;
+
+				m_bMouseDown = false;
+				var mouseLayer = getRawObject('mouseLayer');
+				mouseLayer.style.cursor = 'auto';
+
+				m_xLastMouse = 0;
+				m_yLastMouse = 0;
+			}
+
+			function mouseMove(e)
+			{
+				if (!e) e = event;
+				if (!e) return false;
+
+				xychange(e.offsetX, e.offsetY);
+
+				if (!m_bMouseDown)
+					return false;
+
+				var dx = e.offsetX - m_xLastMouse;
+				var dy = e.offsetY - m_yLastMouse;
+				moveBy(dx, dy);
+
+				m_xLastMouse = e.offsetX;
+				m_yLastMouse = e.offsetY;
+
+				e.cancelBubble = true;
+				e.returnValue = false;
+				if (e.preventDefault)
+					e.preventDefault();
+				return false;
+			}
+
+			function doubleClick(e)
+			{
+				if (!e) e = event;
+				if (!e) return;
+
+				var x = (e.offsetX ? e.offsetX : e.layerX);
+				var y = (e.offsetY ? e.offsetY : e.layerY);
+				
+				var xViewCenter = m_viewportWidth / 2;
+				var yViewCenter = m_viewportHeight / 2;
+				
+				var dx = xViewCenter - x;
+				var dy = yViewCenter - y;
+				slideBy(dx, dy);
+			}
+
+			function cancelEvent(e)
+			{
+				if (!e) e = event;
+				if (!e) return false;
+
+				e.returnValue = false;
+				if (e.preventDefault)
+					e.preventDefault();
+				return false;
+			}
+
+			function mouseOver()
+			{
+			}
+
+			function mouseOut()
+			{
+				m_bMouseDown = false;
+				var mouseLayer = getRawObject('mouseLayer');
+				mouseLayer.style.cursor = 'auto';
+			}
+
+			function contextMenu(e)
+			{
+				return cancelEvent(e);
+			}
+
+			function keyPress(e)
+			{
+				if (!e) e = event;
+				if (!e) return false;
+
+				var charCode = (e.charCode ? e.charCode : e.keyCode);
+				switch(charCode)
+				{
+					case 38:// up
+						moveBy(0, -m_nKeyStep);
+						break;
+					case 40:
+						moveBy(0, m_nKeyStep);
+						break;
+					case 37:
+						moveBy(-m_nKeyStep, 0);
+						break;
+					case 39:
+						moveBy(m_nKeyStep, 0);
+						break;
+					case 33:
+						slideBy(0, -m_viewportHeight/2);
+						break;
+					case 34:
+						slideBy(0, m_viewportHeight/2);
+						break;
+					case 36:
+						slideBy(-m_viewportWidth / 2, 0);
+						break;
+					case 35:
+						slideBy(m_viewportWidth / 2, 0);
+						break;
+					default:
+						return true;
+				}
+
+				e.cancelBubble = true;
+				e.returnValue = false;
+				if (e.preventDefault)
+					e.preventDefault();
+				return false;
+			}
+
+			function safeParseInt(val)
+			{
+				return Math.round(parseFloat(val));
+			}
+		</script>
+
+		<style type="text/css">
+			body { margin: 0px; background-color: #d9d9d9; overflow: hidden; }
+
+			a { text-decoration: none; color: #333366; }
+
+			#viewport { position: relative; background-color: #f0f0f0; overflow: hidden; border: 1px solid #000000; }
+
+			.bevel { border-top: 1px solid #666666; border-left: 1px solid #666666; border-right: 1px solid #ffffff;
+			border-bottom: 1px solid #ffffff; }
+
+			.copyright { font-family: arial; font-size: 11px; font-weight: bold; color: #000000;
+			background-color: #ffffff; filter: alpha(opacity=75); opacity: 0.75; -moz-opacity: 0.75; }
+		</style>
+	</head>
+	<body onload="bodyOnLoad();">
+		<form>
+			<table border="0" width="100%" cellspacing="10" cellpadding="0">
+				<tr>
+					<td align="right">
+						<span id="log" class="label">&nbsp;</span>
+						<span class="label">current zoom level :&nbsp;</span>
+						<span id="zoom" class="value"></span>&nbsp;
+						<input type="button" name="zoomin" value="Zoom In" onclick="zoomIn()" />
+						<input type="button" name="zoomout" value="Zoom Out" onclick="zoomOut()" />
+					</td>
+				</tr>
+				<tr>
+					<td class="bevel" rowspan="2">
+						<div id="viewport">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

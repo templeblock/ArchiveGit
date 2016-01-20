@@ -1,0 +1,213 @@
+
+ /* $MVD$:color("18","6034cf","Custom #1","1") */
+ /* $MVD$:color("19","996699","Custom #2","0") */
+ /* $MVD$:color("20","999999","Custom #3","0") */
+ /* $MVD$:fontset("Untitled Font Set 1","Verdana","Arial","Helvetica","MS","Sans","Serif","sans-serif") */
+ /* $MVD$:fontset("Arial","Arial") */
+ BODY { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+        font-size : 10.0pt;
+        background-color : white;
+        padding : 0.5em;}
+ .mvd-BODY { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+             font-size : 10.0pt;
+             background-color : white;
+             padding : 0.5em;}
+ P { font-family : "Arial";
+     font-size : 9.0pt;
+     margin-bottom : -0.75em;}
+ .mvd-P { font-family : "Arial";
+          font-size : 9.0pt;
+          margin-bottom : -0.75em;}
+ A:link { background-color : transparent;
+          color : green;}
+ A:visited { color : gray;}
+ A:active { color : #999999;}
+ LI P { margin-top : 0.75em;
+        margin-bottom : 1.25em;}
+ LI { margin-left : -0.25in;}
+ .mvd-LI { margin-left : -0.25in;}
+ OL LI { margin-left : -0.15in;}
+ UL { list-style-type : disc;}
+ .mvd-UL { list-style-type : disc;}
+ UL.onestep { list-style-type : disc;}
+ .mvd-UL-onestep { list-style-type : disc;}
+ H1 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+      font-size : 14.0pt;
+      background-color : blue;
+      text-transform : uppercase;
+      color : white;
+      margin-top : -1.0em;}
+ .mvd-H1 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+           font-size : 14.0pt;
+           background-color : blue;
+           text-transform : uppercase;
+           color : white;
+           margin-top : -1.0em;}
+ H2 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+      font-weight : bold;
+      font-size : 14.0pt;
+      background-color : maroon;
+      text-transform : uppercase;
+      color : white;
+      margin-top : -1.0em;}
+ .mvd-H2 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+           font-weight : bold;
+           font-size : 14.0pt;
+           background-color : maroon;
+           text-transform : uppercase;
+           color : white;
+           margin-top : -1.0em;}
+ H3 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+      font-weight : bold;
+      font-size : 14.0pt;
+      background-color : purple;
+      text-transform : uppercase;
+      color : white;
+      margin-top : -1.0em;}
+ .mvd-H3 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+           font-weight : bold;
+           font-size : 14.0pt;
+           background-color : purple;
+           text-transform : uppercase;
+           color : white;
+           margin-top : -1.0em;}
+ H4 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+      font-weight : bold;
+      font-size : 14.0pt;
+      background-color : teal;
+      text-transform : uppercase;
+      color : white;
+      margin-top : -1.0em;}
+ .mvd-H4 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+           font-weight : bold;
+           font-size : 14.0pt;
+           background-color : teal;
+           text-transform : uppercase;
+           color : white;
+           margin-top : -1.0em;}
+ H5 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+      font-weight : bold;
+      font-size : 14.0pt;
+      background-color : #CF3460;
+      text-transform : uppercase;
+      color : white;
+      margin-top : -1.0em;}
+ .mvd-H5 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+           font-weight : bold;
+           font-size : 14.0pt;
+           background-color : #CF3460;
+           text-transform : uppercase;
+           color : white;
+           margin-top : -1.0em;}
+ H6 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+      font-weight : bold;
+      font-size : 14.0pt;
+      background-color : olive;
+      text-transform : uppercase;
+      color : white;
+      margin-top : -1.0em;}
+ .mvd-H6 { font-family : "Verdana", "Arial", "Helvetica", "MS", "Sans", "Serif", "sans-serif";
+           font-weight : bold;
+           font-size : 14.0pt;
+           background-color : olive;
+           text-transform : uppercase;
+           color : white;
+           margin-top : -1.0em;}
+ H1.Heading1a { font-weight : bold;
+                font-size : 12.0pt;
+                background-color : blue;
+                text-transform : none;
+                text-align : right;
+                color : white;
+                margin-top : -14.0pt;}
+ .mvd-H1-Heading1a { font-weight : bold;
+                     font-size : 12.0pt;
+                     background-color : blue;
+                     text-transform : none;
+                     text-align : right;
+                     color : white;
+                     margin-top : -14.0pt;}
+ H1.Heading0 { font-weight : bold;
+               font-size : 18.0pt;
+               background-color : silver;
+               text-transform : capitalize;
+               color : black;}
+ .mvd-H1-Heading0 { font-weight : bold;
+                    font-size : 18.0pt;
+                    background-color : silver;
+                    text-transform : capitalize;
+                    color : black;}
+ H2.Heading2a { font-size : 12.0pt;
+                background-color : maroon;
+                text-transform : none;
+                text-align : right;
+                color : white;
+                margin-top : -14.0pt;}
+ .mvd-H2-Heading2a { font-size : 12.0pt;
+                     background-color : maroon;
+                     text-transform : none;
+                     text-align : right;
+                     color : white;
+                     margin-top : -14.0pt;}
+ H3.Heading3a { font-size : 12.0pt;
+                background-color : purple;
+                text-transform : none;
+                text-align : right;
+                color : white;
+                margin-top : -14.0pt;}
+ .mvd-H3-Heading3a { font-size : 12.0pt;
+                     background-color : purple;
+                     text-transform : none;
+                     text-align : right;
+                     color : white;
+                     margin-top : -14.0pt;}
+ H4.Heading4a { font-size : 12.0pt;
+                background-color : teal;
+                text-transform : none;
+                text-align : right;
+                color : white;
+                margin-top : -14.0pt;}
+ .mvd-H4-Heading4a { font-size : 12.0pt;
+                     background-color : teal;
+                     text-transform : none;
+                     text-align : right;
+                     color : white;
+                     margin-top : -14.0pt;}
+ H5.Heading5a { font-size : 12.0pt;
+                text-transform : none;
+                text-align : right;
+                color : white;
+                margin-top : -14.0pt;}
+ .mvd-H5-Heading5a { font-size : 12.0pt;
+                     text-transform : none;
+                     text-align : right;
+                     color : white;
+                     margin-top : -14.0pt;}
+ H6.Heading6a { font-size : 12.0pt;
+                text-transform : none;
+                text-align : right;
+                color : white;
+                margin-top : -14.0pt;}
+ .mvd-H6-Heading6a { font-size : 12.0pt;
+                     text-transform : none;
+                     text-align : right;
+                     color : white;
+                     margin-top : -14.0pt;}
+ P.Note { font-family : "Arial";
+          font-style : italic;
+          font-size : 9.0pt;
+          background-color : yellow;
+          border : solid 0.5pt;
+          margin-bottom : 4.0pt;}
+ .mvd-P-Note { font-family : "Arial";
+               font-style : italic;
+               font-size : 9.0pt;
+               background-color : yellow;
+               margin-bottom : 4.0pt;}
+ P.Indent1 { margin-left : 6.0pt;
+             margin-bottom : 4.0pt;}
+ .mvd-P-Indent1 { margin-left : 6.0pt;
+                  margin-bottom : 4.0pt;}
+ P.Indent2 { margin-left : 12.0pt;}
+ .mvd-P-Indent2 { margin-left : 12.0pt;}
+ 

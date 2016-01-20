@@ -1,0 +1,8 @@
+* Have 'mobilize' be clickable and a menu item that has a 'send to friend'
+  component. The send to friend component should be a popup where you enter a
+  list of phone numbers and email addresses that the content should go to.
+  First the content goes in the locker, then is sent to your friends.
+* Add flash/etc overlays so that content can be mobilized that you can't right
+  click on
+* Update the mobilize extension icon with a mixxer logo
+* Ensure the mobilizer can update via the firefox update mechanism

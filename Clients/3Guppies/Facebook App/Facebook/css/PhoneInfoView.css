@@ -1,0 +1,5 @@
+/*** FACEBOOK APP : PHONE INFO STYLES ***/
+
+div#breadCrumb { display: none; }
+form#thg-phoneInfo { margin-top: 40px; }
+div#phonePreview { margin-left: 10px; }

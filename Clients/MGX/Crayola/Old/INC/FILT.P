@@ -1,0 +1,4 @@
+// Source file: FILT.C
+BOOL ConvolveData( LPFRAME lpFrame, LPINT lpValues );
+BOOL FindEdges( LPFRAME lpFrame, LPRECT lpRect, LPTR lpOutput);
+

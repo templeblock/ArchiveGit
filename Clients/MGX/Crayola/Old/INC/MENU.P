@@ -1,0 +1,5 @@
+// Source file: MENU.C
+void SetIconMenus( HMENU hMenu );
+void MeasureIconMenu( LPMEASUREITEMSTRUCT lpMeasure );
+void DrawIconMenu( LPDRAWITEMSTRUCT lpDraw );
+

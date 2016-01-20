@@ -1,0 +1,6 @@
+<!ENTITY mobilizer.label "Your localized menuitem">
+<!ENTITY mobilizerContext.label "Mobilize This!">
+<!ENTITY mobilizerContext.accesskey "M">
+
+<!ENTITY mobilizerContextAll.label "Mobilize All!">
+<!ENTITY mobilizerContextAll.accesskey "A">

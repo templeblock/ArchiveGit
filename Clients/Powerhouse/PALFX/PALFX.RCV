@@ -1,0 +1,9 @@
+#include <ver.h>
+#include "sampver.h"
+
+#define MMVERSIONNAME               "PALFX.exe\0"
+#define MMVERSIONDESCRIPTION        "Palette Effects Sample Code\0"
+#define MMVERSIONTYPE               VFT_APP
+#define MMVERSIONSUBTYPE            VFT2_UNKNOWN
+
+#include "sampver.ver"

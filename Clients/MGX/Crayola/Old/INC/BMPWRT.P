@@ -1,0 +1,4 @@
+// Source file: BMPWRT.C
+void Dither16( LPFRAME lpFrame, LPTR lpInBuf, LPTR lpOutBuf, int iPixelCount, int iRow);
+int bmpwrt (LPSTR ifile, LPOBJECT lpObject, LPFRAME lpFrame, LPRECT lpRect, int flag, BOOL fCompressed);
+

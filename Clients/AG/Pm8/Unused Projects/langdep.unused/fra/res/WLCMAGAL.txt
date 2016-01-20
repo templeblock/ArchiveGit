@@ -1,0 +1,5 @@
+La Galerie d'Art renferme une vaste collection d'images que vous pourrez passer en revue. Vous y trouverez également toutes les images provenant d'autres sources, que vous y aurez enregistrées.
+
+Si vous voulez trouver un article figurant dans la Galerie, cliquez sur Catégorie, Ton, Style, ou Outil, ou tapez un mot-clé et je chercherai toutes les images qui correspondent à l'objet de votre recherche.
+
+Pour sélectionner une image, double-cliquez dessus ou cliquez dessus une fois puis cliquez sur Sélectionner. 

@@ -1,0 +1,4 @@
+Name	Page Width	Page Height	Columns	Rows	Left Margin	Top Margin	Width	Height	Width plus gap	Height plus gap	Corner type	Radius X	Paper type	Orientation	Half page perf skip	Half page row count	Description	Units
+3262 Avery Post Card	8.5	11	2	2	0.25	0.25	3.75	5	4.25	5.5	0	0	0	2	0	0		1
+5389 Avery Post Card	8.5	11	1	2	1.25	1.5	6	4	6	4	0	0	0	1	0	0		1
+8387 Avery Post Card	8.5	11	2	2	0.25	0.25	3.75	5	4.25	5.5	0	0	0	2	0	0		1

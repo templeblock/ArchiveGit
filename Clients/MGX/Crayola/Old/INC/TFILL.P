@@ -1,0 +1,6 @@
+// Source file: tfill.c
+BOOL WINPROC EXPORT DlgFillProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+int FillProc( HWND hWindow, LPARAM lParam, UINT msg );
+static void DoFill( HWND hWindow, int x, int y );
+static BOOL IsSolidArea( LPOBJECT lpObject, int x, int y );
+

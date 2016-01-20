@@ -1,0 +1,82 @@
+# This is the CARD layout file for PrintMaster Gold
+# A layout begins with a name on a line by itself.
+# On the next line, the first number is a "flags" number composed of the
+# sum of:
+#    1 - X Flipped              : Not implemented yet
+#    2 - Y Flipped              : Not implemented yet
+#    4 - Relative Size          : Use the actual size of the graphic
+#    8 - Repeated X             : Not implemented yet
+#   16 - Repeated Y             : Not implemented yet
+#   32 - Centered X             : Graphic is centered horizontally
+#   64 - Centered Y             : Graphic is centered vertically
+#  128 - Align Left             : Graphic is aligned to the left of the box
+#  256 - Align Right            : Graphic is aligned to the right of the box
+#  512 - Align Top              : Graphic is aligned to the top of the box
+# 1024 - Align Bottom           : Graphic is aligned to the bottom of the box
+#
+# The next four numbers are the element box with 0 being left or top and
+# 1000 being right or bottom. Numbers are left, top, right, bottom.
+# Flags like aligned are with respect to the edges of the element box.
+# Flags like centered are with respect to the page (and override align).
+# If no left or right align flags are given, the element is centered within
+# the box horizontally.
+# If no top or bottom align flags are given, the element is centered within
+# the box vertically.
+#............................GREETING CARD GRAPHICS LAYOUT
+
+Big centered
+96 190 190 810 810.
+
+Bigger centered
+96 115 115 885 885.
+
+Biggest centered
+96 40 40 960 960.
+
+Full page 
+1920 0 0 1000 1000.
+
+Top Centered
+32 100 100 900 500.
+
+Middle Centered
+32 100 300 900 700.
+
+Bottom Centered
+32 100 500 900 900.
+
+Upper Left
+640 90 90 500 500.
+
+Upper Right
+768 500 90 910 500.
+
+Lower Left 
+1152 90 500 500 910.
+
+Lower Right
+1280 500 500 910 910.
+
+Wide Header
+1920 115 90 885 235.
+
+One Wide Column
+1920 115 240 885 885.
+
+Narrow Header
+1920 240 90 760 235.
+
+One Narrow Column
+1920 240 240 760 885.
+
+Footer
+1920 115 890 885 960.
+
+Top
+1920 150 150 850 400.
+
+Middle
+1920 150 400 850 625.
+
+Bottom 
+1920 150 625 850 850.

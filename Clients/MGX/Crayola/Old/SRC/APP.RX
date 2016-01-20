@@ -1,0 +1,424 @@
+//®FD1¯®PL1¯®TP0¯®BT0¯®RM255¯// (c) Copyright 1993 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+
+//************************************************************************
+// Dialog Macros
+//************************************************************************
+#undef ICONRX
+#define ICONRX(id) \
+	control /U "icon" IDX("",id) PWH(34,34) TAB /E+ WS_NOSHADOWS
+#define TOY(id) \
+	control /U "toy" IDX("",id) PWH(1,1) FLUSH
+#define ANIMATED_TOY(id,name) \
+	control /U "toy" IDX("",id) PWH(1,1) FLUSH /L name
+#define HOTSPOT TOY
+#define COLOR2(id) \
+	control /U "color2" IDX("",id) FLUSH NOTAB
+#define RIBBON MODELESS LEFT2RIGHT SPACEIN(0,0) PXY(0,380)
+#define FONT(id) BUTTONRX("a",id) PWH(45,45) TIGHT
+#define OPTION(id) BITMAPRX(id) PWH(45,45) TIGHT
+#define SWITCH(id) BITMAPRX(id) FLUSH /E+ WS_TWOFACED /E+ WS_NOSHADOWS PWH(97,48)
+#ifdef STUDIO
+#define SLIDERBASE(id) BITMAPRX(id) FLUSH /E+ WS_NOSHADOWS PWH(97,48) DISABLED
+#else
+#define SLIDERBASE(id) BITMAPRX(id) FLUSH /E+ WS_NOSHADOWS PWH(48,90) DISABLED
+#endif
+
+//************************************************************************
+// Defined values
+//************************************************************************
+//#define RELEASE_DATE	"March 25, 1994"
+//#define COPYRIGHT		"© Micrografx Inc. 1991-94"
+//#define RIGHTS			"All Rights Reserved."
+//#ifdef STUDIO
+//#define VERSION_STRING	"Crayola Art Studio 1.0"
+//#else
+//#define VERSION_STRING	"Crayola Amazing Art Adventure 1.0"
+//#endif
+
+//block /N 1 /U "STUBMSG" LOADONCALL MOVEABLE DISCARDABLE
+//	"This Micrografx program requires Microsoft Windows!"
+//end
+
+/******************************* Room Dialogs *******************************/
+
+//************************************************************************
+// Access: Automatic at startup if there is a LOGO.TIF file
+//************************************************************************
+//DIALOG( "", IDD_STATUS ) MODALFULL
+//    frame /Cs
+//        TOY( IDC_STATUSBITMAP ) PWH(292,133)
+//        TEXTRX( " ", IDC_STATUSTEXT ) DEFFONT PWH(210,100) CENTER MID /E+ TCS_BKTRANSPARENT /E+ TCS_CENTER /E+ TCS_MIDDLE /E+ TCS_MULTILINE
+//    end
+//end
+
+//************************************************************************
+//DIALOG( "", IDD_COMBO) CHILD
+//	COMBORX(IDOK) CHARS(1) // used to set ownerdraw combo height
+//end
+
+//************************************************************************
+// Access: View tool / Full Screen View Icon
+//************************************************************************
+//DIALOG( "", IDD_VIEWFULL ) MODALFULL
+//	OBJLISTRX("", IDC_VIEWFULL) WH(10,10) CLIPCHILDREN CLIPSIBLINGS \
+//		/E+ IS_MOVEABLE /E+ IS_STRETCHABLE
+//end
+//....this wasn't used...
+
+
+//************************************************************************
+// Access: Click on "Load From Floppy" in Gallery Tool
+//************************************************************************
+//DIALOG( "", IDD_LOADFLOPPY) MODALFLOAT SAMEWIDTH TOP2BOTTOM
+//	DLGPANE
+//		frame CENTER
+//			LISTRX(IDC_CHOOSEFILE) CHARS(20) HEIGHT(40) V_SCROLL
+//		end
+//	end
+//	DLGPANE
+//		frame
+//			CTEXTRX( " ", IDC_FLOPPY_TEXT) DEFFONT CHARS(40)
+//		end
+//	end
+//	BLACKLINE
+//	DLGPANE
+//		frame LEFT2RIGHT CENTER
+//			BUTTONRX("    ", IDC_FLOPPY1)
+//			BUTTONRX("    ", IDC_FLOPPY2)
+//			OK
+//			CANCEL
+//		end
+//	end
+//end
+
+
+//************************************************************************
+// Access: Click on "Save To Floppy" in Gallery Tool
+//************************************************************************
+//DIALOG( "", IDD_SAVEFLOPPY) MODALFLOAT SAMEWIDTH TOP2BOTTOM
+//	frame CENTER
+//		LISTRX(IDC_CHOOSEFILE) CHARS(20) HEIGHT(1) V_SCROLL
+//	end
+//	frame
+//		CTEXTRX( " ", IDC_FLOPPY_TEXT) DEFFONT CHARS(40)
+//	end
+//	BLACKLINE
+//	DLGPANE
+//		frame LEFT2RIGHT CENTER
+//			BUTTONRX("    ", IDC_FLOPPY1)
+//			BUTTONRX("    ", IDC_FLOPPY2)
+//			CANCEL
+//		end
+//	end
+//end
+
+
+//************************************************************************
+// Access: Select File menu, then Print, Press Print button
+//************************************************************************
+//DIALOG( "Abort", IDD_ABORT ) MODAL TOP2BOTTOM SAMEWIDTH
+//	DLGPANE
+//		SPACE(1)
+//		CTEXTRX ("- Printing -",-1)
+//		SPACE(1)
+//		frame LEFT2RIGHT SAMEHEIGHT
+//			frame TOP2BOTTOM
+//				TEXTRX("Image Name :",-1) CHARS(11)
+//				TEXTRX("Device Name :",-1) CHARS(11)
+//				TEXTRX("Device Port :",-1) CHARS(11)
+//			end
+//			frame TOP2BOTTOM
+//				TEXTRX( " ", ID_NAME ) THINFONT CHARS(25)
+//				TEXTRX( " ", ID_PRINTER ) THINFONT CHARS(25)
+//				TEXTRX( " ", ID_PORT ) THINFONT CHARS(25)
+//			end
+//		end
+//		SPACE(1)
+//	end
+//	BLACKLINE
+//	DLGPANE
+//		CANCEL CENTER
+//	end
+//end
+
+//************************************************************************
+// Access: Select File menu, then Setup, then Printer
+//************************************************************************
+//DIALOG( "Setup Printer", IDD_PRINTSETUP ) MODALFLOAT SAMEWIDTH TOP2BOTTOM
+//	DLGPANE
+//		frame TOP2BOTTOM
+//			TEXTRX( "Select Print De&vice", -1 ) CLOSEY
+//			LISTRX( IDC_PRINTSELECT ) CHARS(30) HEIGHT(100)
+//			BUTTONRX( "Setup Print &Device...", IDC_PRINTSETUP ) WIDE
+//		end
+//	end
+//	DLGPANE TOP2BOTTOM
+//		frame LEFT2RIGHT TIGHTY
+//			TEXTRX( "Printer &Type", -1)
+//			ODCOMBORX( IDC_PRINTERTYPES ) CHARS(15) ITEMS(2)
+//			CBITEM( "Monochrome", IDC_PRINTER_IS_MONO )
+//			CBITEM( "Color",      IDC_PRINTER_IS_RGB )
+//		end
+//		CHECKRX( "Send &Binary PostScript", IDC_BINARY_PS )
+//	end
+//	BLACKLINE
+//	DLGPANE
+//		frame LEFT2RIGHT CENTER
+//			OK
+//			CANCEL
+//		end
+//	end
+//end
+
+//************************************************************************
+// Access: Select Edit menu, then Preferences
+//************************************************************************
+//DIALOG( "Preferences", IDD_PREF ) MODALFLOAT SAMEWIDTH
+//#ifdef ADVENT
+//	DLGPANE LEFT2RIGHT CENTER
+//		TEXTRX("&Brush Size",-1) CHARS(10)
+//		RADIORX("Small",  IDC_PREF_SMALL)
+//		RADIORX("Medium", IDC_PREF_MEDIUM)
+//		RADIORX("Large",  IDC_PREF_LARGE)
+//	end
+//#endif
+//	DLGPANE TOP2BOTTOM
+//		CHECKRX("&Disable Bandage Undo", IDC_PREF_UNDO)
+//		CHECKRX("D&isable Opening Theme", IDC_PREF_NOTHEME)
+//		CHECKRX("Di&sable Mixing Animation Sounds", IDC_PREF_USEWAVEMIX)
+//	end
+//	frame LEFT2RIGHT
+//		TEXTRX( " S&creen saver animation time: (1 - 999 minutes):", -1) CLOSEX
+//		bevelin
+//    	EDITRX(IDC_PREF_SAVER) /Pw f: (4 * RXU_XSTANDARD) TIGHT THINFONT
+//		end
+//	end
+//	frame LEFT2RIGHT
+//		TEXTRX( " &Maximum animations running at a time: (1 - 30):", -1) CLOSEX
+//		bevelin
+//    	EDITRX(IDC_PREF_ANIMATIONS) /Pw f: (4 * RXU_XSTANDARD) TIGHT THINFONT
+//		end
+//	end
+//	BLACKLINE
+//	DLGPANE
+//		frame LEFT2RIGHT CENTER
+//			BUTTONRX( "Sa&ve", IDC_PREF_SAVE )
+//			OK
+//			CANCEL
+//		end
+//	end
+//end
+
+//************************************************************************
+// Access: Automatic at startup if there is a LOGO.TIF file
+//************************************************************************
+//DIALOG( "", IDD_HERALD ) MODAL BORDER THICK
+//	DLGPANE LEFT2RIGHT 
+//		frame THIN BEVELIN TALL FLUSH 
+//			IMAGERX("LOGO.TIF", -1) WH(128,128) DISABLED FLUSH CENTER MID
+//		end
+//		frame TOP2BOTTOM SAMEWIDTH
+//			PBITMAPRX( MGX_BITMAP, 140, 60 ) CENTER	CLOSEY
+//			CTEXTRX( VERSION_STRING, -1 ) THINFONT CLOSEY
+//			CTEXTRX( RELEASE_DATE, -1 ) THINFONT CLOSEY
+//			CTEXTRX( COPYRIGHT, -1 ) THINFONT CLOSEY
+//			CTEXTRX( RIGHTS, -1 ) THINFONT CLOSEY
+//		end
+//	end
+//end
+//......this isn't used.......
+
+//************************************************************************
+// Access: Help / About Picture Publisher command
+//************************************************************************
+//DIALOG( "", IDD_ABOUT ) MODAL
+//	DLGPANE LEFT2RIGHT
+//		frame TALL
+//			TICONRX( IDC_ABOUTAPP )
+//		end
+//		frame TOP2BOTTOM FLUSH MID
+//			CTEXTRX( VERSION_STRING, -1 ) CLOSEY
+//			CTEXTRX( RELEASE_DATE, -1 ) CLOSEY
+//			CTEXTRX( COPYRIGHT, -1 ) CLOSEY
+//			CTEXTRX( RIGHTS, -1 ) CLOSEY
+//			LABEL("") CLOSEY
+//			CTEXTRX(" ", IDC_CUSTOMER) THINFONT WIDE CLOSEY /E+ TCS_NOPREFIX 
+//			CTEXTRX(" ", IDC_COMPANY) THINFONT WIDE CLOSEY /E+ TCS_NOPREFIX 
+//			CTEXTRX(" ", IDC_SERIALNO ) THINFONT WIDE CLOSEY /E+ TCS_NOPREFIX 
+//		end
+//		frame TALL
+//			SPACE(1) PWH(32,32)
+//		end
+//		frame TOP2BOTTOM
+//			TEXTRX( "Thanks to:", -1 )
+//			frame THIN BEVELIN
+//				TEXTRX( " ", IDC_CAST ) HEIGHT(7*TDY) CHARS(20)
+//			end
+//			DUTTONRX( "Thank You!", IDOK ) WIDE
+//		end
+//	end
+//end
+//
+//RCDATA( IDC_CASTTEXT )
+//	"\n"
+//	"\n"
+//	"\n"
+//	"\n"
+//	"\n"
+//	"\n"
+//	"Product Development:\n"
+//	" Jim Kowalczyk\n"
+//	" Jim McCurdy\n"
+//	" Michael Dagate\n"
+//	" Stephen Suggs\n"
+//	" Ray White\n"
+//	" Dave Haber\n"
+//	" Dave Custalow\n"
+//	" Brian McGlasson\n"
+//	"\n"
+//	"Product Management:\n"
+//	" David Williams\n"
+//	" Fred Geyer\n"
+//	"\n"
+//	"Kid Tested by:\n"
+//	" Lana Bryan\n"
+//	" Allison Gutekunst\n"
+//	" Ambra Nealy\n"
+//	" Ami Tucker\n"
+//	" Britney Schaeffer\n"
+//	" Casey McCurdy\n"
+//	" Diana Wilkinson\n"
+//	" Forrest Tanner\n"
+//	" Freddie Geyer\n"
+//	" Jason Cohen\n"
+//	" Jed Dearborn\n"
+//	" Josh Halloran\n"
+//	" Joshua McGlasson\n"
+//	" Kelsey Indorf\n"
+//	" Kevin Tarca\n"
+//	" Laura Neal\n"
+//	" Lisa Brudener\n"
+//	" Luke White\n"
+//	" Pam Fritz\n"
+//	" Maura McCurdy\n"
+//	" Nicholas Geyer\n"
+//	" Rachel Williams\n"
+//	" Rebecca Emmons\n"
+//	" Tori Hite\n"
+//	"\n"
+//	"Grownup Tested by:\n"
+//	" Bob Swenson\n"
+//	" Lisa Farnsworth\n"
+//	" Mary Jo Pilch\n"
+//	" Scotty Gibson\n"
+//	" Susan Harrison\n"
+//	" Terrell Cantrell\n"
+//	" Winfield Harris\n"
+//	"\n"
+//	"Publications:\n"
+//	" Shannon Krakosky\n"
+//	"\n"
+//	"Artwork by:\n"
+//	" Linda Speake\n"
+//	" Michael Palan\n"
+//	" Dawn DeRosa\n"
+//	" Merry Cassino\n"
+//	" Debi Falkenham\n"
+//	" Kim Mulkey\n"
+//	" Joe Lacey\n"
+//	"\n"
+//	"Animations by:\n"
+//	" DNA Productions\n"
+//	" Dream Time Imagineering\n"
+// 	""0
+//end
+//
+//DIALOG( "", IDC_ABOUTAPP ) MODAL INVISIBLE TOP2BOTTOM
+//	DLGPANE TOP2BOTTOM WIDE
+//		TEXTRX( "Hello!", -1 )
+//	end
+//end
+
+/* ****************************** Text Blocks ******************************* */
+
+//************************************************************************
+// Access: When not properly installed in WIN.INI
+//************************************************************************
+//DIALOG( "", IDD_WARNING ) MODAL TOP2BOTTOM SAMEWIDTH
+//	DLGPANE TOP2BOTTOM
+//		frame LEFT2RIGHT
+//			BITMAPRX( SPA_BITMAP ) PWH(200,180) DISABLED /E+ WS_NOTACTIVE /E+ WS_NOSHADOWS
+//			TEXTBLOCK( TXTBLK_WARNING ) PWH(135,180) MID
+//		end
+//		frame TOP2BOTTOM WIDE
+//			CTEXTRX( "Report copyright violations to:", -1 )
+//			CTEXTRX( "Software Publishers Association", -1 )
+//			CTEXTRX( "1101 Connecticut Ave, NW, Suite 901", -1 )
+//			CTEXTRX( "Washington, DC 20036", -1 )
+//		end
+//	end
+//	BLACKLINE
+//	DLGPANE
+//		DUTTONRX( "Continue", IDOK ) CENTER
+//	end
+//end
+//
+//
+//RCDATA( TXTBLK_WARNING )
+//	"Federal copyright law permits you to make a backup copy of this "
+//	"software for archival purposes only. Any other duplication, "
+//	"including copies offered for sale, loan, rental, or gift, is a "
+//	"violation of law, and subject to both criminal and civil penalties." 0
+//end
+
+
+//************************************************************************
+// Access: Register software with Micrografx when accessing some features.
+//************************************************************************
+//DIALOG( " ", IDD_ASK_REGISTER ) MODAL BORDER THICK
+//	DLGPANE TOP2BOTTOM 
+//		frame LEFT2RIGHT CENTER
+//			frame TALL
+//				TICONRX( IDC_ABOUTAPP )
+//			end
+//			frame TOP2BOTTOM MID CENTER
+//				CTEXTRX("Free Bonus Activity!",-1)
+//			end
+//		end
+//		CTEXTRX("You have discovered the secret",-1)
+//		#ifdef STUDIO
+//			CTEXTRX("WORD PUZZLER!",-1)
+//		#else
+//			CTEXTRX("PLACE MAT MAKER!",-1)
+//		#endif
+//		CTEXTRX("To find out the secret password which unlocks",-1) CLOSEY
+//		#ifdef STUDIO
+//			CTEXTRX("this exciting game, call toll free:",-1) CLOSEY
+//		#else
+//			CTEXTRX("this exciting activity, call toll free:",-1) CLOSEY
+//		#endif
+//		CTEXTRX("1-800-2MGRAFX and give them your code.",-1) CLOSEY
+//        LINE
+//	    frame LEFT2RIGHT
+//            GAP /Pw 10
+//            TEXTRX( "Your Code:", -1 ) CHARS(12)
+//            CTEXTRX( "",  IDC_REG_CODE) CHARS(12)
+//        end
+//	    frame LEFT2RIGHT
+//            GAP /Pw 10
+//            TEXTRX( "Secret Code:", -1 ) CHARS(12)
+//            bevelin
+//            EDITRX( IDC_REG_KEY )  CHARS(12)
+//            end
+//        end
+//        LINE
+//		frame LEFT2RIGHT CENTER
+//			OK
+//			CANCEL
+//		end
+//	end
+//end
+

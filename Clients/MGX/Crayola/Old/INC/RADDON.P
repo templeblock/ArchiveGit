@@ -1,0 +1,48 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                    raddon.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Add-On Room dialog functions.
+ Date Created:  05/04/94
+       Author:  Stephen M. Suggs
+
+*****************************************************************************/
+
+#ifndef RADDON_P
+#define RADDON_P
+
+/****************************** Public Functions ****************************/
+
+extern BOOL WINPROC EXPORT DlgRoomAddOn (HWND hWnd, UINT wMsg, WPARAM wParam, LPARAM lParam);
+
+extern FARPROC CALLBACK EXPORT GetAppFunction (int FunctionID);
+extern LPRECT CALLBACK EXPORT DLLAstralToWindowsRect (LPRECT);
+extern int CALLBACK EXPORT DLLFrameDepth (LPFRAME);
+extern void CALLBACK EXPORT DLLFrameGetRGB (LPFRAME, LPTR, LPRGB, int);
+extern void CALLBACK EXPORT DLLFrameSetRGB (LPFRAME, LPRGB, LPTR, int);
+extern LPTR FAR CALLBACK EXPORT DLLFramePointer (LPFRAME, int, int, BOOL);
+extern int CALLBACK EXPORT DLLFrameXSize (LPFRAME);
+extern int CALLBACK EXPORT DLLFrameYSize (LPFRAME);
+extern void CALLBACK EXPORT DLLFrameClose (LPFRAME);
+extern int CALLBACK EXPORT DLLFrameResolution (LPFRAME);
+extern BYTE CALLBACK EXPORT DLLFrameGetBackground (LPFRAME);
+
+/****************************** Local Functions *****************************/
+
+extern void InitDLL (HINSTANCE);
+extern BOOL GetDLLPath  (int Index, char * szPath);
+
+/****************************************************************************/
+
+#endif
+

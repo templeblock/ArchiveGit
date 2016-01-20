@@ -1,0 +1,10 @@
+// Source file: track.c
+void TrackInit( LPRECT lpRect );
+void TrackGetForwardDistort( LPDISTORT lpDistort );
+void TrackGetRect( LPRECT lpRect );
+void TrackSetTForm( LPTFORM lpTForm, BOOL fDisplay );
+void TrackGetTForm( LPTFORM lpTForm );
+void TrackMapOriginalRect( LPDISTORT lpDistort, LPRECT lpSrcRect, LPRECT lpDstRect );
+static void TrackMapOriginalPoint( LPDISTORT lpDistort, LPPOINT lpSrc, LPPOINT lpDst );
+static void IntersectSegments( POINT A0, POINT A1, POINT B0, POINT B1, LPPOINT lpPt );
+

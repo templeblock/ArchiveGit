@@ -1,0 +1,8 @@
+; CraftToolbar.def : Declares the module parameters for the DLL.
+
+LIBRARY      "CraftToolbar"
+DESCRIPTION  'CraftToolbar Windows Dynamic Link Library'
+
+EXPORTS
+	LoadToolbar
+	GetToolbar

@@ -1,0 +1,20 @@
+// Microsoft Developer Studio generated Help ID include file.
+// Used by Ctp.rc
+//
+#define HIDC_BOLD                       0x812c00ca    // IDD_CTLPANEL1
+#define HIDC_BOTTOM                     0x812c00d2    // IDD_CTLPANEL1
+#define HIDC_CENTER                     0x812c00ce    // IDD_CTLPANEL1
+#define HIDC_COLOR                      0x812c00c9    // IDD_CTLPANEL1
+#define HIDC_DOC_PAGEADD                0x812c0bd8    // IDD_CTLPANEL1
+#define HIDC_DOC_PAGEDELETE             0x812c0bd9    // IDD_CTLPANEL1
+#define HIDC_FONT                       0x812c00c7    // IDD_CTLPANEL1
+#define HIDC_ITALIC                     0x812c00cb    // IDD_CTLPANEL1
+#define HIDC_LEFT                       0x812c00cd    // IDD_CTLPANEL1
+#define HIDC_MIDDLE                     0x812c00d1    // IDD_CTLPANEL1
+#define HIDC_PAGE                       0x812c00c6    // IDD_CTLPANEL1
+#define HIDC_PAGENEXT                   0x812c00c5    // IDD_CTLPANEL1
+#define HIDC_PAGEPREV                   0x812c00c4    // IDD_CTLPANEL1
+#define HIDC_PTSIZE                     0x812c00c8    // IDD_CTLPANEL1
+#define HIDC_RIGHT                      0x812c00cf    // IDD_CTLPANEL1
+#define HIDC_TOP                        0x812c00d0    // IDD_CTLPANEL1
+#define HIDC_UNDERLINE                  0x812c00cc    // IDD_CTLPANEL1

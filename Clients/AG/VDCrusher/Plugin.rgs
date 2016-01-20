@@ -1,0 +1,34 @@
+HKCR
+{
+	VDCrusher.Plugin.1 = s 'Plugin Class'
+	{
+		CLSID = s '{FC1D49D6-3C80-477a-A3C2-7254B3592945}'
+	}
+	VDCrusher.Plugin = s 'Plugin Class'
+	{
+		CLSID = s '{FC1D49D6-3C80-477a-A3C2-7254B3592945}'
+		CurVer = s 'VDCrusher.Plugin.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {FC1D49D6-3C80-477a-A3C2-7254B3592945} = s 'Creative Toolbox Plug-in'
+		{
+			ProgID = s 'VDCrusher.Plugin.1'
+			VersionIndependentProgID = s 'VDCrusher.Plugin'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			ForceRemove 'Control'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 1'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			'TypeLib' = s '{795D00E8-CD2D-41b8-A8B8-94E45AEE66A8}'
+			'Version' = s '1.0'
+		}
+	}
+}

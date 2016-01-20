@@ -1,0 +1,107 @@
+Microsoft Developer Studio Workspace File, Format Version 5.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "Cmm"=..\Common\Cmm\Cmm.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ColorGenie"=.\ColorGenie.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Pc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GammaView
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Sentinel
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Cmm
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PresstoProofCore
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PresstoProofFileMem
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Pc"=..\Common\Pc\Pc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PresstoProofCore"=..\Common\PresstoProofCore\PresstoProofCore.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PresstoProofFileMem"=..\Common\PresstoProofFileMem\PresstoProofFileMem.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Sentinel"=..\Common\Sentinel\Sentinel.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

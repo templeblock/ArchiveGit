@@ -1,0 +1,39 @@
+REGEDIT
+	; This .REG file may be used by your SETUP program. 
+	;    <syntax to Merge: REGEDIT /S PP50.REG>
+	; NOTE that the executable paths are fully qualified
+HKEY_CLASSES_ROOT\PictPub.Image.5 = Micrografx Picture Publisher 5.0 Image 
+HKEY_CLASSES_ROOT\PictPub.Image.5\shell\open\command = C:\WORK\PP\PP\PP.EXE %1
+HKEY_CLASSES_ROOT\PictPub.Image.5\shell\ddeexec = [open("%1")]
+
+	; OLE 1.0 Compatibility Entries in REG.DAT 
+HKEY_CLASSES_ROOT\PictPub.Image.5\protocol\StdFileEditing\server = C:\WORK\PP\PP\PP.EXE %1
+HKEY_CLASSES_ROOT\PictPub.Image.5\protocol\StdFileEditing\verb\0 = &Edit
+HKEY_CLASSES_ROOT\PictPub.Image.5\protocol\StdFileEditing\verb\1 = &Open
+; designer jtm
+HKEY_CLASSES_ROOT\PictPub.Image.5\protocol\StdFileEditing\RequestDataFormats = CF_DIB
+; designer jtm
+HKEY_CLASSES_ROOT\PictPub.Image.5\protocol\StdFileEditing\SetDataFormats = CF_DIB,CF_BITMAP
+HKEY_CLASSES_ROOT\PictPub.Image.5\Insertable =
+HKEY_CLASSES_ROOT\PictPub.Image.5\CLSID = {BC7A9620-3913-101B-9649-020080A38E74}
+
+	; OLE 2.0 Entries
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74} = Micrografx Picture Publisher 5.0 Image 
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\Conversion\Readwritable\Main = BitmapImage
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\Conversion\Readable\Main = BitmapImage
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\DefaultIcon = C:\WORK\PP\PP\PP.EXE,0
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\LocalServer = C:\WORK\PP\PP\PP.EXE
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\ProgId = PictPub.Image.5
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\MiscStatus = 0
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\AuxUserType\3 = Micrografx Picture Publisher 5.0 Image 
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\AuxUserType\2 = Picture Publisher Image
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\Insertable = 
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\verb\1 = &Open,0,2
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\verb\0 = &Edit,0,2
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\InprocHandler = ole2.dll
+; designer jtm
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\DataFormats\GetSet = 8,1,1,3
+; designer jtm
+HKEY_CLASSES_ROOT\CLSID\{BC7A9620-3913-101B-9649-020080A38E74}\DataFormats\GetSet = 2,1,16,2
+
+

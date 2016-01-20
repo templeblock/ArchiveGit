@@ -1,0 +1,5 @@
+LIBRARY      AgSpHub
+DESCRIPTION  'American Greetings Hub Resources'
+
+EXPORTS
+    ; Explicit exports can go here

@@ -1,0 +1,18 @@
+// CtlPanelGraphics.cpp: implementation of the CCtlPanelGraphics class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "CtlPanelGraphics.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CCtlPanelGraphics::CCtlPanelGraphics(CCtp* pMainWnd) : CCtlPanel(pMainWnd, IDD_PANEL_GRAPHIC)
+{
+}
+
+CCtlPanelGraphics::~CCtlPanelGraphics()
+{
+}

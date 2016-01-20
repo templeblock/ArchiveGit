@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd"-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>Preview</title>
+		<style type="text/css">
+			body
+				{ font-family:Verdana,sans-serif; font-size:8pt; margin:0; padding:5; }
+			table
+				{ font-family:Verdana,sans-serif; font-size:8pt; margin:0; padding:0; }
+			img
+				{ border-width:1; border-color:#000000; }
+			a
+				{ color:#0000FF; text-decoration:underline; padding:0px; cursor:hand; }
+			a:hover
+				{ color:#FF0000; text-decoration:underline; }
+			.preview
+				{ text-align:center; margin:12px; padding:0px; width:420px; }
+			.title
+				{ color:#3366CC; font-size:12pt; font-weight:bold; margin:0; padding:0; }
+		</style>
+		<script language="javascript" src="navigation.js"></script>
+		<script language="javascript">
+			var strContext = GetContext();
+			var product = GetOption(strContext, 'product');
+			var image = GetOption(strContext, 'image');
+			var pw = GetOption(strContext, 'pw');
+			var ph = GetOption(strContext, 'ph');
+			var name = GetOption(strContext, 'name');
+			var verse = GetOption(strContext, 'verse');
+			function OnLoad()
+			{
+				RemoveFocus();
+			}
+			function Launch()
+			{
+				var strURL = GetPath(window.location.href);
+				strURL += 'cporder.htm?product=' + product;
+
+				var bEvent = false;
+				if (bEvent)
+					return RaiseClickEvent('Launch', strURL);
+
+				var bPopup = true;
+				if (bPopup)
+				{
+					var iPopupWidth = 780;
+					var iPopupHeight = 601;
+					var strPopupOptions = 'location=0,menubar=0,toolbar=0,status=1,scrollbars=0,resizable=1,directories=0';
+					PopupIEWorkspace(strURL, iPopupWidth, iPopupHeight, strPopupOptions);
+				}
+				else
+				{
+					if (parent && parent.parent)
+						parent.parent.location.href = strURL;
+				}
+
+				return false;
+			}
+			function PopupIEWorkspace(strURL, iPopupWidth, iPopupHeight, strPopupOptions)
+			{
+				var l = (screen.width - iPopupWidth) / 2;
+				var t = (screen.height - iPopupHeight) / 2;
+				if (l < 0) l = 0;
+				if (t < 0) t = 0;
+				var w = iPopupWidth - 12; // the browser adds 12 for the left and right non-client areas
+				var h = iPopupHeight - 61; // the browser adds 61 for the top, caption, statusbar, and bottom non-client areas
+				var strPopupSize = 'width=' + w + ',height=' + h + ',left=' + l + ',top=' + t;
+				var pluginWindow = window.open(strURL, '_blank', strPopupSize + ',' + strPopupOptions);
+			}
+			function WritePreview()
+			{
+				document.write('<img src="' + image + '" width="' + pw + '" height="' + ph + '" alt="' + name + '" />');
+			}
+			function WriteVerse()
+			{
+				document.write(verse);
+			}
+		</script>
+	</head>
+	<body onload="OnLoad()">
+		<table cellpadding="0" cellspacing="0">
+			<tr colspan="2" align="center" width="100%"><td>
+				<span class="title"><script language="javascript">document.write('&quot;' + name + '&quot;');</script><br /></span>
+			</td></tr>
+			<tr>
+				<td class="preview">
+					<a href="javascript://" onclick="return Launch();" >
+						<script language="javascript">WritePreview();</script>
+						<br />Click here to Personalize and Print This Project!
+					</a>
+				</td>
+				<td valign="top">
+					<script language="javascript">WriteVerse();</script>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+
+//************************************************************************
+// Include files
+//************************************************************************
+#include <windows.h>
+#include "id.h"
+
+#include "PPSTRING.RC"
+#include "PP_PS.RC"
+#include "PPMACRO.RC"
+#include "BSRSTR.RC"
+#include "FONTINFO.RC"
+
+
+

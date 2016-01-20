@@ -1,0 +1,165 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JpegLib", "JpegLib\JpegLib.vcproj", "{9205B43E-F898-4D11-996C-AF712BAED1A9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pdf", "Pdf\pdflib.vcproj", "{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Png", "Png\Png.vcproj", "{91AA40B8-905C-4A51-8716-C61F72CDBDF0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "Shared\Shared.vcproj", "{68228D2F-1484-4E15-A0B6-9A48D9048B7C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stonehnd", "StoneHnd\Stonehnd.vcproj", "{CAFDBA54-EA97-4783-9062-99A80A31B7EF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "ZLib\zlib.vcproj", "{CE651B48-0D9F-4E98-AD63-6DD8BF78833B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PAHStudio", "PAHStudio\PAHStudio.vcproj", "{31C44BB9-55B3-45F9-B8C3-501FD2634158}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9DE12884-166A-4CCB-A235-4143BE22A801} = {9DE12884-166A-4CCB-A235-4143BE22A801}
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C} = {68228D2F-1484-4E15-A0B6-9A48D9048B7C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PAHContentMgr", "PAHContentMgr\PAHContentMgr.vcproj", "{802DDF2C-A467-4B65-BF0D-30A3001BA4EA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C} = {68228D2F-1484-4E15-A0B6-9A48D9048B7C}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WTL", "WTL", "{4BF24FCC-B2A5-4378-AA99-5B76429D0136}"
+	ProjectSection(SolutionItems) = preProject
+		..\WTL\include\atlapp.h = ..\WTL\include\atlapp.h
+		..\WTL\include\atlcrack.h = ..\WTL\include\atlcrack.h
+		..\WTL\include\atlctrls.h = ..\WTL\include\atlctrls.h
+		..\WTL\include\atlctrlw.h = ..\WTL\include\atlctrlw.h
+		..\WTL\include\atlctrlx.h = ..\WTL\include\atlctrlx.h
+		..\WTL\include\atlddx.h = ..\WTL\include\atlddx.h
+		..\WTL\include\atldlgs.h = ..\WTL\include\atldlgs.h
+		..\WTL\include\atlframe.h = ..\WTL\include\atlframe.h
+		..\WTL\include\atlgdi.h = ..\WTL\include\atlgdi.h
+		..\WTL\include\atlmisc.h = ..\WTL\include\atlmisc.h
+		..\WTL\include\atlprint.h = ..\WTL\include\atlprint.h
+		..\WTL\include\atlres.h = ..\WTL\include\atlres.h
+		..\WTL\include\atlresce.h = ..\WTL\include\atlresce.h
+		..\WTL\include\atlscrl.h = ..\WTL\include\atlscrl.h
+		..\WTL\include\atlsplit.h = ..\WTL\include\atlsplit.h
+		..\WTL\include\atltheme.h = ..\WTL\include\atltheme.h
+		..\WTL\include\atluser.h = ..\WTL\include\atluser.h
+		..\WTL\include\atlwince.h = ..\WTL\include\atlwince.h
+		..\WTL\include\atlwinx.h = ..\WTL\include\atlwinx.h
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AxCtp3", "AxCtp3\AxCtp3.vcproj", "{9DE12884-166A-4CCB-A235-4143BE22A801}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1} = {ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}
+		{CAFDBA54-EA97-4783-9062-99A80A31B7EF} = {CAFDBA54-EA97-4783-9062-99A80A31B7EF}
+		{9205B43E-F898-4D11-996C-AF712BAED1A9} = {9205B43E-F898-4D11-996C-AF712BAED1A9}
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C} = {68228D2F-1484-4E15-A0B6-9A48D9048B7C}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{87E011D3-4EBE-47D4-A6E2-599330BCC54F}"
+	ProjectSection(SolutionItems) = preProject
+		Common\PAH_Constants.h = Common\PAH_Constants.h
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PAHBrokerManager", "PAHBrokerManager\PAHBrokerManager.vcproj", "{24F73387-DCBC-453F-B395-3A21425B4638}"
+	ProjectSection(ProjectDependencies) = postProject
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C} = {68228D2F-1484-4E15-A0B6-9A48D9048B7C}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 11
+		SccProjectName0 = \u0022$/AgApplications/PrintAtHome\u0022,\u0020CPJAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = true
+		SccProjectUniqueName1 = JpegLib\\JpegLib.vcproj
+		SccLocalPath1 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection1 = JpegLib\\
+		SccProjectUniqueName2 = Pdf\\pdflib.vcproj
+		SccLocalPath2 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection2 = Pdf\\
+		SccProjectUniqueName3 = Png\\Png.vcproj
+		SccLocalPath3 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection3 = Png\\
+		SccProjectUniqueName4 = Shared\\Shared.vcproj
+		SccLocalPath4 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection4 = Shared\\
+		SccProjectUniqueName5 = StoneHnd\\Stonehnd.vcproj
+		SccLocalPath5 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection5 = StoneHnd\\
+		SccProjectUniqueName6 = ZLib\\zlib.vcproj
+		SccLocalPath6 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection6 = ZLib\\
+		SccProjectUniqueName7 = PAHStudio\\PAHStudio.vcproj
+		SccLocalPath7 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection7 = PAHStudio\\
+		SccProjectUniqueName8 = PAHContentMgr\\PAHContentMgr.vcproj
+		SccProjectName8 = \u0022$/AgApplications/PrintAtHome/PAHContentMgr\u0022,\u0020HBLAAAAA
+		SccLocalPath8 = PAHContentMgr
+		CanCheckoutShared = true
+		SccProjectUniqueName9 = AxCtp3\\AxCtp3.vcproj
+		SccLocalPath9 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection9 = AxCtp3\\
+		SccProjectUniqueName10 = PAHBrokerManager\\PAHBrokerManager.vcproj
+		SccLocalPath10 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection10 = PAHBrokerManager\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Debug|Win32.Build.0 = Debug|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Release|Win32.ActiveCfg = Release|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Release|Win32.Build.0 = Release|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Debug|Win32.Build.0 = Debug|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Release|Win32.ActiveCfg = Release|Win32
+		{ADFC9BC8-73E4-4DBC-9CBF-7581231DD7C1}.Release|Win32.Build.0 = Release|Win32
+		{91AA40B8-905C-4A51-8716-C61F72CDBDF0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{91AA40B8-905C-4A51-8716-C61F72CDBDF0}.Debug|Win32.Build.0 = Debug|Win32
+		{91AA40B8-905C-4A51-8716-C61F72CDBDF0}.Release|Win32.ActiveCfg = Release|Win32
+		{91AA40B8-905C-4A51-8716-C61F72CDBDF0}.Release|Win32.Build.0 = Release|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Debug|Win32.Build.0 = Debug|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Release|Win32.ActiveCfg = Release|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Release|Win32.Build.0 = Release|Win32
+		{CAFDBA54-EA97-4783-9062-99A80A31B7EF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CAFDBA54-EA97-4783-9062-99A80A31B7EF}.Debug|Win32.Build.0 = Debug|Win32
+		{CAFDBA54-EA97-4783-9062-99A80A31B7EF}.Release|Win32.ActiveCfg = Release|Win32
+		{CAFDBA54-EA97-4783-9062-99A80A31B7EF}.Release|Win32.Build.0 = Release|Win32
+		{CE651B48-0D9F-4E98-AD63-6DD8BF78833B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CE651B48-0D9F-4E98-AD63-6DD8BF78833B}.Debug|Win32.Build.0 = Debug|Win32
+		{CE651B48-0D9F-4E98-AD63-6DD8BF78833B}.Release|Win32.ActiveCfg = Release|Win32
+		{CE651B48-0D9F-4E98-AD63-6DD8BF78833B}.Release|Win32.Build.0 = Release|Win32
+		{31C44BB9-55B3-45F9-B8C3-501FD2634158}.Debug|Win32.ActiveCfg = Debug|Win32
+		{31C44BB9-55B3-45F9-B8C3-501FD2634158}.Debug|Win32.Build.0 = Debug|Win32
+		{31C44BB9-55B3-45F9-B8C3-501FD2634158}.Release|Win32.ActiveCfg = Release|Win32
+		{31C44BB9-55B3-45F9-B8C3-501FD2634158}.Release|Win32.Build.0 = Release|Win32
+		{802DDF2C-A467-4B65-BF0D-30A3001BA4EA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{802DDF2C-A467-4B65-BF0D-30A3001BA4EA}.Debug|Win32.Build.0 = Debug|Win32
+		{802DDF2C-A467-4B65-BF0D-30A3001BA4EA}.Release|Win32.ActiveCfg = Release|Win32
+		{802DDF2C-A467-4B65-BF0D-30A3001BA4EA}.Release|Win32.Build.0 = Release|Win32
+		{9DE12884-166A-4CCB-A235-4143BE22A801}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9DE12884-166A-4CCB-A235-4143BE22A801}.Debug|Win32.Build.0 = Debug|Win32
+		{9DE12884-166A-4CCB-A235-4143BE22A801}.Release|Win32.ActiveCfg = Release|Win32
+		{9DE12884-166A-4CCB-A235-4143BE22A801}.Release|Win32.Build.0 = Release|Win32
+		{24F73387-DCBC-453F-B395-3A21425B4638}.Debug|Win32.ActiveCfg = Debug|Win32
+		{24F73387-DCBC-453F-B395-3A21425B4638}.Debug|Win32.Build.0 = Debug|Win32
+		{24F73387-DCBC-453F-B395-3A21425B4638}.Release|Win32.ActiveCfg = Release|Win32
+		{24F73387-DCBC-453F-B395-3A21425B4638}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

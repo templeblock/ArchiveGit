@@ -1,0 +1,26 @@
+HKCR
+{
+	AgOutlookAddIn.UpdateObj.1 = s 'UpdateObj Class'
+	{
+		CLSID = s '{A0EEDAA4-A62B-4264-A16C-FF14782708C5}'
+	}
+	AgOutlookAddIn.UpdateObj = s 'UpdateObj Class'
+	{
+		CLSID = s '{A0EEDAA4-A62B-4264-A16C-FF14782708C5}'
+		CurVer = s 'AgOutlookAddIn.UpdateObj.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A0EEDAA4-A62B-4264-A16C-FF14782708C5} = s 'UpdateObj Class'
+		{
+			ProgID = s 'AgOutlookAddIn.UpdateObj.1'
+			VersionIndependentProgID = s 'AgOutlookAddIn.UpdateObj'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EDDBDEA4-5C07-453F-BE8C-81D738984381}'
+		}
+	}
+}

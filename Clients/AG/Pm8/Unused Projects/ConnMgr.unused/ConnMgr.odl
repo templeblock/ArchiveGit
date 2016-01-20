@@ -1,0 +1,75 @@
+// ConnMgr.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (ConnMgr.tlb) that will become a resource in
+// ConnMgr.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(94FB2C43-512E-11D2-8BEF-00A0C9B12C3D), version(1.0),
+  helpfile("ConnMgr.hlp"),
+  helpstring("ConnMgr ActiveX Control module"),
+  control ]
+library CONNMGRLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CConnMgrCtrl
+
+	[ uuid(94FB2C44-512E-11D2-8BEF-00A0C9B12C3D),
+	  helpstring("Dispatch interface for ConnMgr Control"), hidden ]
+	dispinterface _DConnMgr
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CConnMgrCtrl)
+			[id(DISPID_CAPTION), bindable, requestedit] BSTR Caption;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CConnMgrCtrl)
+			[id(1)] long Connect();
+			[id(2)] boolean IsConnected();
+			[id(3)] long EditPrefs();
+			[id(4)] boolean HangUp();
+			[id(5)] boolean EnableIsConnectedCheck(boolean bEnable);
+			[id(6)] boolean EnableHangUpPrompt(boolean bEnable);
+			[id(7)] void SetURL(BSTR szURL);
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CConnMgrCtrl
+
+	[ uuid(94FB2C45-512E-11D2-8BEF-00A0C9B12C3D),
+	  helpstring("Event interface for ConnMgr Control") ]
+	dispinterface _DConnMgrEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CConnMgrCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CConnMgrCtrl
+
+	[ uuid(94FB2C46-512E-11D2-8BEF-00A0C9B12C3D),
+	  helpstring("ConnMgr Control"), control ]
+	coclass ConnMgr
+	{
+		[default] dispinterface _DConnMgr;
+		[default, source] dispinterface _DConnMgrEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

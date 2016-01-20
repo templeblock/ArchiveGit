@@ -1,0 +1,93 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APP_ICON            ICON    DISCARDABLE     "AgCraft.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_CHARACTER_SMALL     BITMAP  DISCARDABLE     "character.BMP"
+IDB_TOOLBAR_BACKGROUND  BITMAP  DISCARDABLE     "Tooltile.BMP"
+IDB_ART_GALLERY_SIDEBAR BITMAP  DISCARDABLE     "Arttile.bmp"
+IDB_ART_GALLERY_TITLE   BITMAP  DISCARDABLE     "Arttitle.bmp"
+IDB_PROJECT_GALLERY_SIDEBAR_BORDER BITMAP  DISCARDABLE     "Probevel.bmp"
+IDB_PROJECT_GALLERY_SIDEBAR BITMAP  DISCARDABLE     "Protile.BMP"
+IDB_TOOLBAR_FILE        BITMAP  DISCARDABLE     "Tool1.BMP"
+IDB_TOOLBAR_FORMAT      BITMAP  DISCARDABLE     "Tool2.BMP"
+IDB_TOOLBAR_EDIT1       BITMAP  DISCARDABLE     "Tool3.BMP"
+IDB_TOOLBAR_EDIT2       BITMAP  DISCARDABLE     "Tool4.BMP"
+IDB_ART_GALLERY_SIDEBAR_BORDER BITMAP  DISCARDABLE     "Artbevel.bmp"
+IDB_PROJECT_GALLERY_TITLE BITMAP  DISCARDABLE     "protitle.bmp"
+IDB_DIALOG_CHARACTER    BITMAP  DISCARDABLE     "CraftDialogChar.BMP"
+IDB_CHARACTER_LARGE     BITMAP  DISCARDABLE     "CharacLg.bmp"
+IDB_CHARACTER_MED       BITMAP  DISCARDABLE     "CharacMd.bmp"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

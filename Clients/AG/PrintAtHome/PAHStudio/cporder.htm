@@ -1,0 +1,596 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+<head>
+<meta name="agmips" content="1.740631">
+ 
+<title>Create &amp; Print Workspace</title> 
+ 
+<link rel="shortcut icon" href="http://www.imgag.com/cp/favicon.ico"> 
+<meta http-equiv="MSThemeCompatible" content="Yes"> 
+ 
+<style>
+/* Layout Style Objects */
+body {margin:0;padding:0;background-image:url(http://www.imgag.com/cp/uir/left_back2.gif);background-repeat:repeat-y;}
+table {padding:0px;margin:0px;}
+.file_back {background-image:url(http://www.imgag.com/cp/uir/file_back.gif);background-repeat:repeat-x;background-position:middle left;margin:0;padding:0;clear: left}
+.upper_back {background-image:url(http://www.imgag.com/cp/uir/top_back.gif);background-repeat:repeat-x;background-position:top;margin:0;padding:0;}
+#left_back {background-image:url(http://www.imgag.com/cp/uir/left_back2.gif);background-repeat:repeat-y;background-attachment:fixed;}
+
+/* File Menu Styles */
+dl, dt, dd, ul, li {margin: 0;padding: 0;list-style-type: none;}
+#menu {
+position: absolute;top: 0;left: 0;z-index:100;width: 100%; /* precision for Opera */
+*width:400px;font-family:Arial, Helvetica, sans-serif;color:#333333;
+font-size:12px;}
+#menu dd{
+border-left: 1px solid #C8C8C9;border-bottom: 1px solid #C8C8C9;
+border-right: 1px solid #C8C8C9;width:100px;padding-left:5px;padding-right:5px;background-color:#333333;
+text-align:left;position:absolute;}
+#menu #header {
+font-weight:bold;color:#000;border-bottom:2px solid #aaaaaa;
+width:80px;*width:100px;padding-left:10px;}
+#menu dl {float: left;width: 50px;}
+#menu dt {cursor: pointer;text-align: center;margin: 1px;}
+#menu dt a:hover {cursor: pointer;text-align: center;
+margin: 1px;background-color:#cccccc;border-right: solid 1px #676767;border-bottom: solid 1px #676767;height:19px;}
+#menu dd {display: none;}
+#menu li {text-align: center;width:100px;padding-top:4px;text-align:left;}
+#menu li a, #menu dt a {color: #000;text-decoration: none;display: block;height: 100%;border: 0 none;}
+#menu li a:hover, #menu dt a:hover {background: #CBCDD8;} 
+
+/* Print Button Area */
+.print_button_back {
+background-image:url(http://www.imgag.com/cp/uir/print_box.gif);
+background-repeat:no-repeat;background-position:middle;
+margin:0;padding:0;width:224px;height:67px;
+}
+/* Add Menu Items */
+.add_menu {
+background-image:url(http://www.imgag.com/cp/uir/add_box.gif);
+background-repeat:no-repeat;background-position:middle;
+margin:0;padding:0;
+}
+.add_menu_title {
+background-image:url(http://www.imgag.com/cp/uir/add_title.gif);
+background-repeat:no-repeat;background-position:middle;
+margin:0px -4px -3px 9px;padding:0px;
+z-index:20;position:relative;
+}
+.add_menu_links {
+margin-left:10px;z-index:10;list-style-type:none;padding:0;margin:0;
+}
+.add_menu_links li{
+height:48px;width:167px;padding:0;margin:0px;
+}
+.add_menu_links a{
+display:block;
+}
+/* Zoom Menu Items */
+.zoom_menu {
+background-image:url(http://www.imgag.com/cp/uir/zoom_box.gif);
+background-repeat:no-repeat;background-position:middle;margin:0;padding:0;
+}
+.zoom_menu_links {
+margin-left:80px;
+}
+/* Edit Menu Items */
+.edit_menu {
+background-image:url(http://www.imgag.com/cp/uir/edit_box.gif);
+background-repeat:no-repeat;background-position:middle;margin:0;padding:0;
+}
+.edit_menu_links {
+margin-left:50px;
+}
+/* Related Products Menu Items */
+.related_menu {
+background-image:url(http://www.imgag.com/cp/uir/related_box.gif);
+background-repeat:no-repeat;background-position:middle;margin:0;padding:0;padding-top:20px;
+}
+.related_menu_links {
+margin-left:40px;margin-top:20px;
+}
+/* Dynamic Text Area Styles */
+.text_area {
+background-repeat:no-repeat;background-position:middle;margin:0;padding:0;
+}
+.text_insert {
+font:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#676767;
+padding:20px;
+height:243px;
+}
+/* Tooltip Area Styles */
+.tooltips {
+vertical-align:bottom;
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+padding:2px 0 0px 8px;
+background-color:#EEF8FD;
+border-top:2px solid #A2B9BC;
+border-left:2px solid #A2B9BC;
+margin-left:200px;
+width:100%;
+height:18px;
+}
+/* Print Button */
+.print_button a {
+background-image:url(http://www.imgag.com/cp/uir/buttons/print.gif);
+background-repeat:no-repeat;height:67px;width:224px;display:block;
+}
+.print_button {
+background-image:url(http://www.imgag.com/cp/uir/buttons/print.gif);
+background-repeat:no-repeat;height:67px;width:224px;display:block;
+}
+.print_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/print_hover.gif);
+background-repeat:no-repeat;height:67px;width:224px;display:block;
+}
+/* Add Buttons */
+.text_button {background-image:url(http://www.imgag.com/cp/uir/buttons/text.gif);background-repeat:no-repeat;height:48px;width:167px;}
+.shape_button {background-image:url(http://www.imgag.com/cp/uir/buttons/shape.gif);background-repeat:no-repeat;height:48px;width:167px;}
+.photo_button {background-image:url(http://www.imgag.com/cp/uir/buttons/photo.gif);background-repeat:no-repeat;height:48px;width:167px;}
+.text_button a {background-image:url(http://www.imgag.com/cp/uir/buttons/text.gif);background-repeat:no-repeat;height:48px;width:167px;}
+.shape_button a {background-image:url(http://www.imgag.com/cp/uir/buttons/shape.gif);background-repeat:no-repeat;height:48px;width:167px;}
+.photo_button a {background-image:url(http://www.imgag.com/cp/uir/buttons/photo.gif);background-repeat:no-repeat;height:48px;width:167px;}
+.text_button a:hover {background-image:url(http://www.imgag.com/cp/uir/buttons/text_hover.gif);
+background-repeat:no-repeat;height:48px;width:167px;
+}
+.shape_button a:hover {background-image:url(http://www.imgag.com/cp/uir/buttons/shape_hover.gif);
+background-repeat:no-repeat;height:48px;width:167px;
+}
+.photo_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/photo_hover.gif);background-repeat:no-repeat;height:48px;width:167px;
+}
+/* Zoom Buttons */
+.in_button {
+background-image:url(http://www.imgag.com/cp/uir/buttons/zoom_in.gif);background-repeat:no-repeat;height:59px;width:41px;display:block;
+}
+.in_button a {
+background-image:url(http://www.imgag.com/cp/uir/buttons/zoom_in.gif);background-repeat:no-repeat;height:59px;width:41px;display:block;
+}
+.in_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/zoom_in_hover.gif);background-repeat:no-repeat;height:59px;width:41px;display:block;
+}
+.out_button {
+background-image:url(http://www.imgag.com/cp/uir/buttons/zoom_out.gif);background-repeat:no-repeat;height:59px;width:41px;display:block;
+}
+.out_button a {
+background-image:url(http://www.imgag.com/cp/uir/buttons/zoom_out.gif);background-repeat:no-repeat;height:59px;width:41px;display:block;
+}
+.out_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/zoom_out_hover.gif);background-repeat:no-repeat;height:59px;width:41px;display:block;
+}
+/* Edit Buttons */
+.del_button {
+background-image:url(http://www.imgag.com/cp/uir/buttons/del.gif);background-repeat:no-repeat;height:50px;width:40px;padding-left:0px;display:block;
+}
+.del_button a {
+background-image:url(http://www.imgag.com/cp/uir/buttons/del.gif);background-repeat:no-repeat;height:50px;width:40px;padding-left:5px;display:block;
+}
+.del_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/del_hover.gif);background-repeat:no-repeat;height:50px;width:40px;padding-left:5px;display:block;
+}
+.undo_button {
+background-image:url(http://www.imgag.com/cp/uir/buttons/undo.gif);background-repeat:no-repeat;height:50px;width:40px;padding-left:0px;display:block;
+}
+.undo_button a {
+background-image:url(http://www.imgag.com/cp/uir/buttons/undo.gif);background-repeat:no-repeat;height:50px;width:40px;padding-left:5px;display:block;
+}
+.undo_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/undo_hover.gif);background-repeat:no-repeat;height:50px;width:40px;padding-left:5px;display:block;
+}
+.redo_button {
+background-image:url(http://www.imgag.com/cp/uir/buttons/redo.gif);background-repeat:no-repeat;height:50px;width:40px;padding-left:0px;display:block;
+}
+.redo_button a {
+background-image:url(http://www.imgag.com/cp/uir/buttons/redo.gif);background-repeat:no-repeat;height:50px;width:40;padding-left:5px;display:block;
+}
+.redo_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/redo_hover.gif);background-repeat:no-repeat;height:50px;width:40px;padding-left:5px;display:block;
+}
+.related_menu_links {
+margin-left:15px;margin-top:20px;
+}
+#advanced_menu {position:absolute;top:400px;float:left;}
+div#advanced {margin: 0px 0px 0px 12px;display: none;}
+.adv_menu {background-image:url(http://www.imgag.com/cp/uir/buttons/adv_back.gif);background-repeat:no-repeat;height:93px;width:147px;margin-left:0px;display:block;}
+.adv_button {
+background-image:url(http://www.imgag.com/cp/uir/buttons/adv.gif);background-repeat:no-repeat;height:28px;width:147px;margin-left:12px;display:block;}
+.adv_button a {
+background-image:url(http://www.imgag.com/cp/uir/buttons/adv.gif);background-repeat:no-repeat;height:28px;width:147;margin-left:0px;display:block;}
+.adv_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/adv_hover.gif);background-repeat:no-repeat;height:28px;width:147px;margin-left:0px;display:block;}
+.fh_button {height:25px;width:25px;margin-left:16px;margin-top:2px;display:block;}
+.fh_button a {height:25px;width:25;margin-left:0px;margin-top:0px;display:block;}
+.fh_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/fh.gif);background-repeat:no-repeat;height:25px;width:25px;margin-left:0px;margin-top:0px;display:block;}
+.fv_button {height:25px;width:25px;margin-left:106px;margin-top:-25px;display:block;}
+.fv_button a {height:25px;width:25;margin-left:0px;margin-top:0px;display:block;}
+.fv_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/fv.gif);background-repeat:no-repeat;height:25px;width:25px;margin-left:0px;margin-top:0px;display:block;}
+.rcw_button {height:25px;width:25px;margin-left:16px;margin-top:2px;display:block;}
+.rcw_button a {height:25px;width:25;margin-left:0px;margin-top:0px;display:block;}
+.rcw_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/rcw.gif);background-repeat:no-repeat;height:25px;width:25px;margin-left:0px;margin-top:0px;display:block;}
+.rccw_button {height:25px;width:25px;margin-left:106px;margin-top:-25px;display:block;}
+.rccw_button a {height:25px;width:25;margin-left:0px;margin-top:0px;display:block;}
+.rccw_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/rccw.gif);background-repeat:no-repeat;height:25px;width:25px;margin-left:0px;margin-top:0px;display:block;}
+.lf_button {height:25px;width:25px;margin-left:16px;margin-top:2px;display:block;}
+.lf_button a {height:25px;width:25;margin-left:0px;margin-top:0px;display:block;}
+.lf_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/lf.gif);background-repeat:no-repeat;height:25px;width:25px;margin-left:0px;margin-top:0px;display:block;}
+.lb_button {height:25px;width:25px;margin-left:106px;margin-top:-25px;display:block;}
+.lb_button a {height:25px;width:25;margin-left:0px;margin-top:0px;display:block;}
+.lb_button a:hover {
+background-image:url(http://www.imgag.com/cp/uir/buttons/lb.gif);background-repeat:no-repeat;height:25px;width:25px;margin-left:0px;margin-top:0px;display:block;}
+.mini {background-image:url(http://www.imgag.com/cp/uir/buttons/mini_logo.gif);background-repeat:no-repeat;height:27px;width:103px;position:absolute; top:2px; left:650px; display:block;}
+</style> 
+ 
+<script language="JavaScript" type="text/javascript"> 
+  g_strContext = 'imghost=http://www.imgag.com&memnum=35347760&user=Jim&memstat=MCP&cphost=http://www.bluemountain.com/cnp&license=0&iteminfo=3091320%257C31170%257Cbma%257C1%257C%257C&remote=1'; 
+</script> 
+<script language="JavaScript" type="text/javascript" src="http://www.imgag.com/cp/js/Sniffer.js"></script> 
+<script language="JavaScript" type="text/javascript" src="http://www.imgag.com/cp/js/cporder.js"></script> 
+<script language="JavaScript" type="text/javascript" for="ctp" event="FileSaved"> 
+  CtpFileSaved(); 
+</script> 
+ 
+<script type="text/javascript"> 
+function toggleLayer(whichLayer) 
+{ 
+if (document.getElementById) 
+{ 
+// standards 
+var style2 = document.getElementById(whichLayer).style; 
+style2.display = style2.display? "":"block"; 
+} 
+else if (document.all) 
+{ 
+// old msie versions 
+var style2 = document.all<!-- var whichLayer not found -->.style; 
+style2.display = style2.display? "":"block"; 
+} 
+else if (document.layers) 
+{ 
+// nn4 
+var style2 = document.layers<!-- var whichLayer not found -->.style; 
+style2.display = style2.display? "":"block"; 
+} 
+} 
+</script> 
+ 
+<script type="text/javascript">var cust_ck_name = 'customer';
+var useg_ck_name = 'useg';
+var mcs_ck_name = 'mc_s';
+var mcp_ck_name = 'mc_p';</script>
+<script src="http://www.imgag.com/js/webvar_util.js" type="text/javascript"></script>
+<script src="http://www.imgag.com/js/cookie_util.js" type="text/javascript"></script>
+<script src="http://www.imgag.com/js/cust_util.js" type="text/javascript"></script>
+<script src="http://www.imgag.com/js/usage_util.js" type="text/javascript"></script>
+</head> 
+<body onload="OnLoad()" onresize="OnResize()" onKeyDown="handleMenu(event)" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" scroll="auto"> 
+<div style="display:none;"> 
+<img src="http://www.imgag.com/cp/uir/buttons/redo_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/undo_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/zoom_out_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/zoom_in_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/photo_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/shape_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/text_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/del.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/del_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/fh.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/fh_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/fv.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/fv_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/rcw.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/rcw_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/rccw.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/rccw_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/lf.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/lf_hover.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/lb.gif"> 
+<img src="http://www.imgag.com/cp/uir/buttons/lb_hover.gif"> 
+</div> 
+<div id="left_back"> 
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"> 
+	<tr> 
+		<td colspan="2"> 
+			<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"> 
+			    <tr> 
+				    <td height="22" colspan="3" class="file_back"> 
+					<!--File Menu Structure --> 
+					<div id="menu"> 
+						<dl> 
+							<dt onClick="OnCommand('TB_FILE')"><a href="#"><u>F</u>ile</a></dt> 
+						</dl> 
+						<dl> 
+							<dt onClick="OnCommand('TB_EDIT')"><a href="#"><u>E</u>dit</a></dt> 
+						</dl> 
+						<dl> 
+							<dt onClick="OnCommand('TB_VIEW')"><a href="#"><u>V</u>iew</a></dt> 
+						</dl> 
+						<dl> 
+							<dt onClick="OnCommand('TB_FORMAT')"><a href="#">F<u>o</u>rmat</a></dt> 
+						</dl> 
+						<dl> 
+							<dt onClick="OnCommand('TB_TOOLS')"><a href="#"><u>T</u>ools</a></dt> 
+						</dl> 
+						<dl> 
+							<dt onClick="OnCommand('TB_HELP')"><a href="#"><u>H</u>elp</a></dt> 
+						</dl> 
+					</div> 
+					<br> 
+					<div style="width:100%; height:2px; background-color:#F1EEE9; border-top:1px solid #D1E0F0;"></div> 
+					</td> 
+  				</tr> 
+			</table> 
+		</td> 
+	</tr> 
+	<tr> 
+		<td> 
+			<table width="188"  height="100%" border="0" cellspacing="0" cellpadding="0"> 
+				<tr> 
+   				 	<td class="add_menu" width="188" height="180"> 
+						<div class="add_menu_title"><img src="http://www.imgag.com/cp/uir/add_title.gif"></div> 
+					    <ul class="add_menu_links"> 
+							<li class="text_button"><a href="#" title="Add a text box to your project" onClick="OnCommand('ADDTEXTBOX')"></a></li> 
+							<li class="shape_button"><a href="#" title="Add a shape to your project" onClick="OnCommand('ADDSHAPE')"></a></li> 
+							<li class="photo_button"><a href="#" title="Add a photo to your project"  onClick="OnCommand('ADDIMAGE')"></a></li> 
+						</ul> 
+					</td> 
+				</tr> 
+				<tr> 
+					<td class="zoom_menu" height="73" width="188"> 
+					    <table width="88" border="0" cellspacing="0" cellpadding="0" class="zoom_menu_links"> 
+						<tr> 
+							<td><div class="in_button"><a href="#"  title="Zoom in to view your project at a larger size" onClick="OnCommand('ZOOMIN')"></a></div></td> 
+							<td><div class="out_button"><a href="#"  title="Zoom out to view your project at a smaller size" onClick="OnCommand('ZOOMOUT')"></a></div></td> 
+						</tr> 
+						</table> 
+					</td> 
+				</tr> 
+				<tr> 
+					<td class="edit_menu" height="76" width="188"> 
+						<table width="120" border="0" cellspacing="0" cellpadding="0" class="edit_menu_links"> 
+						<tr> 
+							<td><div class="del_button"><a href="#"  title="Delete the selected object" onClick="OnCommand('DELETE')"></a></div></td> 
+							<td><div class="undo_button"><a href="#"  title="Undo last action" onClick="OnCommand('UNDO')"></a></div></td> 
+							<td><div class="redo_button"><a href="#"  title="Redo last action" onClick="OnCommand('REDO')"></a></div></td> 
+						</tr> 
+						</table> 
+					</td> 
+				</tr> 
+				<tr>  
+					<td class="related_menu" height="127" width="100%">  
+						<table width="100%" border="0" cellspacing="0" cellpadding="0" class="related_menu_links">  
+						<tr>  
+							<td> 
+							</td>  
+						</tr>  
+						</table>  
+					</td>  
+				</tr> 
+				<tr> 
+					<td class="text_area" height="100%" width="188"> 
+					</td> 
+				</tr> 
+			</table> 
+		</td> 
+		<td width="100%" height="100%" align="left" valign="top"> 
+          <script language="JavaScript" type="text/javascript"> 
+          EmbedPlugin('3,6,6013,0'/*strVersion*/); 
+          </script><div style="width:730px">&nbsp;</div> 
+		</td> 
+		</tr> 
+		
+		<!--master table-->
+        <table cellspacing="0" cellpadding="0" width="750" border="0">
+            <tbody>
+                <tr>
+                    <!--thumbs-->
+                    <td valign="top"  colspan="385">
+                        <form id="PassVars" action="http://www.americangreetings.com/greetingcard/pd/esearch.pd?L0=25&amp;L1=101&amp;L2=248&amp;L3=11482&amp;L4=0&amp;L5=0"
+                            method="post">
+                            <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table cellspacing="0" cellpadding="0" width="100%" 
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td >
+                                                            <img height="35" src="PAH_files/space.gif" width="285" alt=""/></td>
+                                                        <td valign="bottom" >
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td  colspan="2">
+                                                            <img height="3" src="PAH_files/space.gif" width="15" alt=""/></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table cellspacing="0" cellpadding="0" width="100%"                                                 border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="right" >
+                                                            <table cellspacing="0" cellpadding="0"  border="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="right" >
+                                                                            <img src="PAH_files/ecurve.gif"></td>
+                                                                        <td valign="center" align="left" background="PAH_files/white.gif">
+                                                                            <font face="arial,helvetica" size="2"><b>:Father's Day 6/17/01 :Top Picks &nbsp;&nbsp;&nbsp;</b></font></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table cellspacing="0" cellpadding="1" width="350" border="0">
+                            
+                            </table>
+                            <input type="hidden" value="AP%7cAlways%20There%7c100%7c54%7c0%2e00%7c2033965%7c0%3a%3aFP%7cCelebrate%21%7c100%7c54%7c0%2e00%7c3004296%7c53%3a%3aFP%7cJazz%20Fellow%7c100%7c54%7c0%2e00%7c3004295%7c53%3a%3aFP%7cBig%20Dreams%7c100%7c54%7c0%2e00%7c3004654%7c32%3a%3aFP%7cSinging%20E%2dmail%20Monkey%7c100%7c54%7c0%2e00%7c3004297%7c53%3a%3aFP%7cLike%20a%20Father%7c100%7c54%7c0%2e00%7c3004252%7c53%3a%3aFP%7cTake%20%20It%20Easy%2c%20Dad%7c100%7c54%7c0%2e00%7c3004655%7c49%3a%3aFP%7cGrandfather%27s%20Love%7c100%7c54%7c0%2e00%7c300427"
+                                name="prodlist1"/><input type="hidden" value="0%7c53%3a%3aAP%7cTee%20Time%20for%20Dad%7c100%7c54%7c0%2e00%7c3004195%7c57"
+                                    name="prodlist2"/>
+                            <input type="hidden" value="11482|310040|0" name="linelist"/>
+                            <input type="hidden" value="1" name="atotal"/>
+                            <input type="hidden" value="1" name="afrom"/>
+                            <input type="hidden" value="1" name="adisplay"/>
+                            <input type="hidden" value="Top%20Picks" name="carddesc"/>
+                            <table cellspacing="2" cellpadding="5" width="380" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td valign="top" align="center" colspan="120">
+                                            <a onclick="Javascript:HandleClickEvent(22)" target="_top">
+                                                <img height="54" src="PAH_files/2033965t.gif" width="100" border="0"/></a><br>
+                                            Always There</font></td>
+                                        <td valign="top" align="middle" width="120">
+                                            <font face="verdana,arial,helvetica" color="#ff0000" size="1"><b>*NEW*</b></font><br>
+                                            <a onclick="Javascript:HandleClickEvent(23)" target="_top">
+                                                <img height="54" src="PAH_files/3004296t.gif" width="100" border="0"></a><br>
+                                            <font face="verdana,arial,helvetica" size="1">Celebrate!</font></td>
+                                        <td valign="top" align="middle" width="120">
+                                            <font face="verdana,arial,helvetica" color="#ff0000" size="1"><b>*NEW*</b></font><br>
+                                            <a onclick="Javascript:HandleClickEvent(24)" target="_top">
+                                                <img height="54" src="PAH_files/3004295t.gif" width="100" border="0"></a><br>
+                                            <font face="verdana,arial,helvetica" size="1">Jazz Fellow</font></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top" align="middle" width="120">
+                                            <font face="verdana,arial,helvetica" color="#ff0000" size="1"><b>*NEW*</b></font><br>
+                                            <a onclick="Javascript:HandleClickEvent(25)" target="_top">
+                                                <img height="54" src="PAH_files/3004654t.gif" width="100" border="0"></a><br>
+                                            <font face="verdana,arial,helvetica" size="1">Big Dreams</font></td>
+                                        <td valign="top" align="middle" width="120">
+                                            <font face="verdana,arial,helvetica" color="#ff0000" size="1"><b>*NEW*</b></font><br>
+                                            <a onclick="Javascript:HandleClickEvent(26)" target="_top">
+                                                <img height="54" src="PAH_files/3004297t.gif" width="100" border="0"></a><br>
+                                            <font face="verdana,arial,helvetica" size="1">Singing E-mail Monkey</font></td>
+                                        <td valign="top" align="middle" width="120">
+                                            <font face="verdana,arial,helvetica" color="#ff0000" size="1"><b>*NEW*</b></font><br>
+                                            <a onclick="Javascript:HandleClickEvent(27)" target="_top">
+                                                <img height="54" src="PAH_files/3004252t.gif" width="100" border="0"></a><br>
+                                            <font face="verdana,arial,helvetica" size="1">Like a Father</font></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top" align="middle" width="120">
+                                            <font face="verdana,arial,helvetica" color="#ff0000" size="1"><b>*NEW*</b></font><br>
+                                            <a onclick="Javascript:HandleClickEvent(28)" target="_top">
+                                                <img height="54" src="PAH_files/3004655t.gif" width="100" border="0"></a><br>
+                                            <font face="verdana,arial,helvetica" size="1">Take It Easy, Dad</font></td>
+                                        <td valign="top" align="middle" width="120">
+                                            <font face="verdana,arial,helvetica" color="#ff0000" size="1"><b>*NEW*</b></font><br>
+                                            <a onclick="Javascript:HandleClickEvent(29)" target="_top">
+                                                <img height="54" src="PAH_files/3004270t.gif" width="100" border="0"></a><br>
+                                            <font face="verdana,arial,helvetica" size="1">Grandfather's Love</font></td>
+                                        <td valign="top" align="middle" width="120">
+                                            <font face="verdana,arial,helvetica" color="#ff0000" size="1"><b>*NEW*</b></font><br>
+                                            <a onclick="Javascript:HandleClickEvent(30)" target="_top">
+                                                <img height="54" src="PAH_files/3004195t.gif" width="100" border="0"></a><br>
+                                            <font face="verdana,arial,helvetica" size="1">Tee Time for Dad</font></td>
+                                    </tr>
+                                    
+                </tr>
+            </tbody>
+        </table>
+        </form>
+        </NOSCRIPT></TD></TR></TBODY></TABLE></TD><!--end thumbs-->
+        </TR></TABLE><!--end master table-->
+
+		
+</table> 
+ 
+<div id="advanced_menu"> 
+ 
+	<div class="adv_button"> 
+		<a href="javascript:toggleLayer('advanced');" title="Show and hide advanced features"></a> 
+	</div> 
+	 
+	<div id="advanced"> 
+		<div class="adv_menu"> 
+			<div class="fh_button"><a href="#"  title="Flip object horizontally" onClick="OnCommand('MIRROR')"></a></div> 
+			<div class="fv_button"><a href="#"  title="Flip object vertically" onClick="OnCommand('FLIP')"></a></div> 
+			<div class="rcw_button"><a href="#"  title="Rotate object clockwise" onClick="OnCommand('ROTATECW')"></a></div> 
+			<div class="rccw_button"><a href="#"  title="Rotate object counter clockwise" onClick="OnCommand('ROTATECCW')"></a></div> 
+			<div class="lf_button"><a href="#"  title="Bring the selected object to the front" onClick="OnCommand('BRINGTOFRONT')"></a></div> 
+			<div class="lb_button"><a href="#"  title="Send the selected object to the back" onClick="OnCommand('PUSHTOBACK')"></a></div> 
+		</div> 
+	</div> 
+	 
+</div> 
+ 
+<div class="mini"></div> 
+</div> 
+ 
+ 
+
+<!-- page generated: Thu Mar 16 14:46:43 2006 -->
+
+
+<script type="text/javascript" src="http://www.imgag.com/js/omniture/sample.js"></script>
+<!-- SiteCatalyst code version: G.7.
+Copyright 1997-2004 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="JavaScript">//<!--
+var ingroup=inTrackingSample();
+var s_pageName="/cnp/cporder.pd";
+var s_server="ag461";
+var s_channel="Create & Print";
+var s_pageType="";
+var s_prop1="mcp_cnp_cmail";
+var s_prop2="mcp";
+var s_prop3="W";
+var s_prop4="";
+var s_prop5="";
+var s_prop6="";
+var s_prop7="A|B";
+var s_prop8="";
+var s_prop9="";
+var s_prop10="bma";
+var s_campaign="";
+var s_events="";
+var s_products="";
+var s_eVar1="";
+var s_eVar2="";
+var s_eVar3="mcp_cnp_cmail";
+var s_eVar4="mcp";
+var s_eVar5="bma";
+var s_eVar6="";
+var s_eVar7="";
+var s_eVar8="A|B";
+var s_eVar9="";
+var s_eVar10="";
+try{s_prop5=getCustomerEntryStatus();}catch(er){s_prop5='afu';}
+s_eVar6=s_prop5;
+try{s_prop9=getCustomerNumber();s_eVar7=s_prop9;}catch(er){s_prop9='Unknown';s_eVar7=s_prop9;}
+try{s_eVar5=getSource();s_prop10=s_eVar5;}catch(er){}
+s_prop6=s_pageName+'|'+s_prop5;
+s_prop8=s_pageName+'|'+s_prop2;
+/********** DO NOT ALTER ANYTHING ELSE BELOW THIS LINE! *************/
+var s_code=' '//--></script>
+<script language="JavaScript"
+src="http://www.imgag.com/js/omniture/s_code-bma.js"></script>
+<script language="JavaScript"><!--
+if(ingroup) { var s_wd=window,s_tm=new Date;if(s_code!=' '){s_code=s_dc(
+'agbmcom');if(s_code)document.write(s_code)}else
+document.write('<im'+'g src="http://agbmcom.112.2O7.net/b/ss/agbmcom/1/G.7--FB/s'+s_tm.getTime()+'?[AQB]'
++'&j=1.0&[AQE]" height="1" width="1" border="0" alt="" />'); }
+//--></script><script language="JavaScript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script><noscript><img
+src="http://agbmcom.112.2O7.net/b/ss/agbmcom/1/G.7--NS/0"
+height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: G.7. -->
+
+</body> 
+</html> 
+ <!--this page was compressed by your friendly neighborhood pydriver-->

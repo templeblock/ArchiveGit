@@ -1,0 +1,77 @@
+// (c) Copyright 1991 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+
+//************************************************************************
+// astral.rc    Picture Publisher application Resource file
+// Notes:
+//	if 10 point font, pixel factor is 2.0 (use ICON PRELOAD 17x17)
+//	if  8 point font, pixel factor is 1.7 (use ICON PRELOAD 20x20)
+//	© 169 is copyright (alt+shift+169)
+//	ÿAE 174 is registered
+//************************************************************************
+
+//************************************************************************
+// Include files
+//************************************************************************
+#define OEMRESOURCE
+#include <windows.h>
+#include <tchar.h>
+#include "resource.h"
+#include "id.h"
+#include "commctrl.h"
+//************************************************************************
+// Defined values
+//************************************************************************
+#define RELEASE_DATE	"January 22, 1993"
+
+#ifdef OEM
+#define VERSION_STRING	"Picture Publisher® LE 3.1"
+#else
+#define VERSION_STRING	"Picture Publisher® 3.1"
+#endif
+
+#include "PPBITMAP.RC"
+#include "PPMENU.RC"
+#include "PPOLE.RC"
+#include "MAIN.RC"
+#include "FILE.RC"
+#include "EDIT.RC"
+#include "MAP.RC"
+#include "MASK.RC"
+#include "OBJECT.RC"
+#include "IMAGE.RC"
+#include "PPALETTE.rc"
+#include "PPRIBBON.rc"
+#include "BROWSER.RC"
+#include "BSRDLGS.RC"
+#include "BAND.RC"
+#include "version.rc"
+#include <afxres.rc>
+#include <afxolecl.rc>
+#include <afxolesv.rc>
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MGXIMAGE_FORMAT      "Micrografx 4.0 Image\na Bitmap"   // Loaded By MFCPasteSpecial processing
+    IDS_MGXIMAGE5_FORMAT     "Micrografx 5.0 Image\na Bitmap"   // Loaded By MFCPasteSpecial processing
+    IDS_MONITORSETUP	     "Monitor Setup"
+    IDS_EDITPRINTSTYLE	     "Setup Print Style - "
+    IDS_PREFERENCES	         "Options"
+    IDS_SUMMARYTABDLG	     "Image Information"
+END
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

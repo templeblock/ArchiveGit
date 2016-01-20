@@ -1,0 +1,378 @@
+//***********************************************************************
+IDD_CONNECTI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_CONNECTI GAMETABLE
+//***********************************************************************
+{
+"
+	colorindex=45,transitionclip=100 32 590 380,linethickness=2,closeness=15,startpt=48 317,endpt=487 317,starcells=6,","
+	trans1=18 1 1 3000,trans2=0 10 1 1000,delay=2,flags=uselast,","
+	gamearea=47 30 592 433,","
+	soundtrack=sndtrack.wav,","
+	click=click.wav,","
+	intros=intro1.wav,","
+	success=success3.wav;","
+
+	// level one constellations
+	bg1=airessi.dib,bg2=airesc.dib,guide=airesg.dib,wave=aires1.wav aires2.wav,level=1,","
+	pts=281 248  398 91  454 101  467 131  281 248;","
+	bg1=cancersi.dib,bg2=cancerc.dib,guide=cancerg.dib,noise=cancern.wav,wave=cancer1.wav cancer2.wav,level=1,","
+	pts=350 255  351 190  281 136  0 0  351 190  414 153  0 0;","
+	bg1=columbsi.dib,bg2=columbc.dib,guide=columbg.dib,noise=columbn.wav,wave=columb1.wav columb2.wav,level=1,","
+	pts=288 223  317 220  386 189  341 177  317 220;","
+	bg1=corvussi.dib,bg2=corvusc.dib,guide=corvusg.dib,noise=corvusn.wav,wave=corvus1.wav corvus2.wav,level=1,","
+	pts=290 221  322 160  411 154  385 270  290 221;","
+	bg1=librasi.dib,bg2=librac.dib,guide=librag.dib,noise=libran.wav,wave=libra1.wav libra2.wav,level=1,","
+	pts=397 116  375 209  287 226  288 143  397 116;","
+	bg1=lyrasi.dib,bg2=lyrac.dib,guide=lyrag.dib,noise=lyran.wav,wave=lyra1.wav lyra2.wav,level=1,","
+	pts=323 257  387 218  369 109  322 134  323 257;","
+	bg1=cephiusi.dib,bg2=cephiuc.dib,guide=cephiusg.dib,noise=cephiusn.wav,wave=cephius1.wav cephius2.wav,level=1,","
+	pts=331 192  308 139  348 106  381 159  390  239  331 192;","
+	bg1=delphisi.dib,bg2=delphic.dib,guide=delphig.dib,noise=delphin.wav,wave=delphi1.wav delphi2.wav,level=1,","
+	pts=385 190  340 149  314 123  288 140  312 158  340 149;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANCONNECTI GAMETABLE
+//***********************************************************************
+{
+"
+	colorindex=45,transitionclip=100 32 590 380,linethickness=2,closeness=15,startpt=48 317,endpt=487 317,starcells=6,","
+	trans1=18 1 1 3000,trans2=0 10 1 1000,delay=2,flags=uselast,","
+	gamearea=47 30 592 433,","
+	soundtrack=sndtrack.wav,","
+	click=click.wav,","
+	intros=spintro1.wav,","
+	success=spsucc1.wav;","
+
+	// level one constellations
+	bg1=airess.dib,bg2=airesc.dib,guide=airesg.dib,wave=02.wav 02.wav,level=1,","
+	pts=281 248  398 91  454 101  467 131  281 248;","
+	bg1=cancers.dib,bg2=cancerc.dib,guide=cancerg.dib,noise=cancern.wav,wave=04.wav 04.wav,level=1,","
+	pts=350 255  351 190  281 136  0 0  351 190  414 153  0 0;","
+	bg1=columbs.dib,bg2=columbc.dib,guide=columbg.dib,noise=columbn.wav,wave=10.wav 10.wav,level=1,","
+	pts=288 223  317 220  386 189  341 177  317 220;","
+	bg1=corvuss.dib,bg2=corvusc.dib,guide=corvusg.dib,noise=corvusn.wav,wave=11.wav 11.wav,level=1,","
+	pts=290 221  322 160  411 154  385 270  290 221;","
+	bg1=libras.dib,bg2=librac.dib,guide=librag.dib,noise=libran.wav,wave=20.wav 20.wav,level=1,","
+	pts=397 116  375 209  287 226  288 143  397 116;","
+	bg1=lyras.dib,bg2=lyrac.dib,guide=lyrag.dib,noise=lyran.wav,wave=21.wav 21.wav,level=1,","
+	pts=323 257  387 218  369 109  322 134  323 257;","
+	bg1=cephius.dib,bg2=cephiuc.dib,guide=cephiusg.dib,noise=cephiusn.wav,wave=08.wav 08.wav,level=1,","
+	pts=331 192  308 139  348 106  381 159  390  239  331 192;","
+	bg1=delphis.dib,bg2=delphic.dib,guide=delphig.dib,noise=delphin.wav,wave=13.wav 13.wav,level=1,","
+	pts=385 190  340 149  314 123  288 140  312 158  340 149;","
+
+",0
+}
+
+//***********************************************************************
+IDD_CONNECTI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene20\\airess.dib,clip=CL CT CR CB,","
+
+	prev=FADE CLIP TRANS_PREV STEP_SIZE TOTAL_TIME,","
+	next=FADE CLIP TRANS_NEXT STEP_SIZE TOTAL_TIME,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+	/BOAT=0 0,			pos=48 317,fg=boat.bmp;","              
+	
+//*** Page Icon ***//
+	
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","  
+
+//*** Action Strip Icons ***//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click notrans, cmd=IDC_PREVIOUS,   fg=prev.bmp, hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 446,	flags=noclip autobutton click notrans, cmd=IDC_SOUNDBOX,   fg=sound.bmp, hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 443,	flags=noclip autobutton click notrans, cmd=IDC_OPTIONS,    fg=options.bmp, hint=options.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click notrans, cmd=IDC_NEXT,       fg=next.bmp, hint=next.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANCONNECTI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene20\\airess.dib,clip=CL CT CR CB,","
+
+	prev=FADE CLIP TRANS_PREV STEP_SIZE TOTAL_TIME,","
+	next=FADE CLIP TRANS_NEXT STEP_SIZE TOTAL_TIME,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+	/BOAT=0 0,			pos=48 317,fg=boat.bmp;","              
+	
+//*** Page Icon ***//
+	
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","  
+
+//*** Action Strip Icons ***//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click notrans, cmd=IDC_PREVIOUS,   fg=prev.bmp, hint=spprev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=spmain.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 446,	flags=noclip autobutton click notrans, cmd=IDC_SOUNDBOX,   fg=sound.bmp, hint=spsounds.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 443,	flags=noclip autobutton click notrans, cmd=IDC_OPTIONS,    fg=options.bmp, hint=spoption.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click notrans, cmd=IDC_NEXT,       fg=next.bmp, hint=spnext.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_CONNECT SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_CONNECT GAMETABLE
+//***********************************************************************
+{
+"
+	colorindex=45,transitionclip=100 32 590 380,linethickness=2,closeness=15,startpt=48 317,endpt=487 317,starcells=6,","
+	trans1=18 1 1 3000,trans2=0 10 1 1000,delay=2,flags=uselast,","
+	gamearea=47 30 592 433,","
+	soundtrack=sndtrack.wav,","
+	click=click.wav,","
+	intros=intro1.wav intro2.wav intro3.wav,","
+	success=success1.wav success2.wav success3.wav;","
+
+	// level one constellations
+	bg1=airess.dib,bg2=airesc.dib,guide=airesg.dib,wave=aires1.wav aires2.wav,level=1,","
+	pts=281 248  398 91  454 101  467 131  281 248;","
+	bg1=cancers.dib,bg2=cancerc.dib,guide=cancerg.dib,noise=cancern.wav,wave=cancer1.wav cancer2.wav,level=1,","
+	pts=350 255  351 190  281 136  0 0  351 190  414 153  0 0;","
+	bg1=columbs.dib,bg2=columbc.dib,guide=columbg.dib,noise=columbn.wav,wave=columb1.wav columb2.wav,level=1,","
+	pts=288 223  317 220  386 189  341 177  317 220;","
+	bg1=corvuss.dib,bg2=corvusc.dib,guide=corvusg.dib,noise=corvusn.wav,wave=corvus1.wav corvus2.wav,level=1,","
+	pts=290 221  322 160  411 154  385 270  290 221;","
+	bg1=libras.dib,bg2=librac.dib,guide=librag.dib,noise=libran.wav,wave=libra1.wav libra2.wav,level=1,","
+	pts=397 116  375 209  287 226  288 143  397 116;","
+	bg1=lyras.dib,bg2=lyrac.dib,guide=lyrag.dib,noise=lyran.wav,wave=lyra1.wav lyra2.wav,level=1,","
+	pts=323 257  387 218  369 109  322 134  323 257;","
+	bg1=cephius.dib,bg2=cephiuc.dib,guide=cephiusg.dib,noise=cephiusn.wav,wave=cephius1.wav cephius2.wav,level=1,","
+	pts=331 192  308 139  348 106  381 159  390  239  331 192;","
+	bg1=delphis.dib,bg2=delphic.dib,guide=delphig.dib,noise=delphin.wav,wave=delphi1.wav delphi2.wav,level=1,","
+	pts=385 190  340 149  314 123  288 140  312 158  340 149;","
+
+	// level two constellations
+	bg1=aquilas.dib,bg2=aquilac.dib,guide=aquilag.dib,noise=aquilan.wav,wave=aquila1.wav aquila2.wav,level=2,","
+	pts=443 234  365 192  291 202  299 282  0 0  365 192  285 156  344 82  0 0;","
+	bg1=casiops.dib,bg2=casiopc.dib,guide=casiopg.dib,noise=casiopn.wav,wave=casiop1.wav casiop2.wav,level=2,","
+	pts=410 282  409 226  383 194  381 131  306 139  329 191  383 194;","
+	bg1=cygnuss.dib,bg2=cygnusc.dib,guide=cygnusg.dib,noise=cygnusn.wav,wave=cygnus1.wav cygnus2.wav,level=2,","
+	pts=303 204  348 222  426 257  0 0  303 204  271 258 0 0  303 204  266 165  0 0  303 204  349 153  0 0;","
+	bg1=aurigas.dib,bg2=aurigac.dib,guide=aurigag.dib,noise=aurigan.wav,wave=auriga1.wav auriga2.wav,level=2,","
+	pts=303 276  294 175  317 155  340 133  393 171  384 209  370 274  303 276;","
+	bg1=tauruss.dib,bg2=taurusc.dib,guide=taurusg.dib,noise=taurusn.wav,wave=taurus1.wav taurus2.wav,level=2,","
+	pts=268 78  310 155  319 169  327 181  331 169  331 157  310 60  0 0;","
+	bg1=canusms.dib,bg2=canusmc.dib,guide=canusmg.dib,wave=canusm1.wav canusm2.wav,level=2,","
+	pts=387 149  391 184  410 236  0 0  391 184 327 180  302 178  258 158  0 0  302 178  287 209  0 0  302 178  316 283  0 0;","
+	bg1=leos.dib,bg2=leoc.dib,guide=leog.dib,noise=leon.wav,wave=leo1.wav leo2.wav,level=2,","
+	pts=456 129  442 122  409 147  407 170  433 183  436 214  327 222  271 243  318 192  327 222;","
+	bg1=lepuss.dib,bg2=lepusc.dib,guide=lepusg.dib,noise=lepusn.wav,wave=lepus1.wav lepus2.wav,level=2,","
+	pts=272 196  294 181  318 182  361 201  377 228  348 255  322 240  361 200  409 172  0 0  377 228  439 232  0 0;","
+	bg1=sagitas.dib,bg2=sagitac.dib,guide=sagitag.dib,noise=sagitan.wav,wave=sagita1.wav sagita2.wav,level=2,","
+	pts=274 219  362 208  358 193  374 185  388 197  362 208  0 0  388 197  412 192  417 219  435 230  406 241  417 219;","
+	bg1=caprics.dib,bg2=capricc.dib,guide=capricg.dib,noise=capricn.wav,wave=capric1.wav capric2.wav,level=2,","
+	pts=404 64  413 77  429 191  425 216  308 276  273 283  246 281  259 267  301 248  347 199  404 64;","
+	bg1=geminis.dib,bg2=geminic.dib,guide=geminig.dib,wave=gemini1.wav gemini2.wav,level=2,","
+	pts=301 296  336 290  333 245  325 202  333 138  373 139  383 184  380 247  386 291  406 298  0 0;","
+	bg1=cetuss.dib,bg2=cetusc.dib,guide=cetusg.dib,noise=cetusn.wav,wave=cetus1.wav cetus2.wav,level=2,","
+	pts=196 207  233 200  232 217  0 0  233 200  293 215  356 217  393 174  429 165  399 243  356 217  0 0  429 165  446 135  490 110  493 150  446 135;","
+
+	// level three constellations
+	bg1=pegasuss.dib,bg2=pegasusc.dib,guide=pegasusg.dib,noise=pegasusn.wav,wave=pegasus1.wav pegasus2.wav,level=3,","
+	pts=189 142  219 124  255 145  265 152  283 167  365 164  360 228  288 225  283 167  0 0,","
+	pts=288 225  268 216  243 214  218 214  197 237  0 0  288 225  260 235  222 249  0 0;","
+	bg1=scorpios.dib,bg2=scorpioc.dib,guide=scorpiog.dib,noise=scorpion.wav,wave=scorpio1.wav scorpio2.wav,level=3,","
+	pts=220 287  209 281  195 298  193 312  211 329  254 329  292 288  297 258  320 208  332 190  349 182  387 158  394 186  0 0  387 158  375 135  0 0;","
+	bg1=virgos.dib,bg2=virgoc.dib,guide=virgog.dib,noise=virgon.wav,wave=virgo1.wav virgo2.wav,level=3,","
+	pts=391 63  404 71  396 107  389 130  385 164  399 192  350 231  332 257  302 243  320 211  329 199  352 179  0 0,","
+	pts=389 130  359 131  325 120  0 0;","
+	bg1=persiuss.dib,bg2=persiusc.dib,guide=persiusg.dib,noise=persiusn.wav,wave=persius1.wav persius2.wav,level=3,","
+	pts=280 151  297 164  319 191  329 214  320 244  312 252  297 249  305 236  0 0,","
+	pts=329 214  362 228  375 248  400 258  427 259  0 0  319 191  353 175  382 173  397 169  398 148  0 0;","
+	bg1=dracos.dib,bg2=dracoc.dib,guide=dracog.dib,noise=dracon.wav,wave=draco1.wav draco2.wav,level=3,","
+	pts=452 88  438 119  429 178  397 232  372 245  352 229  322 205  307 188  294 159  276 144  253 148  257 173  244 216  262 230  281 250  295 263  294 279  268 277  281 249;","
+	bg1=herculs.dib,bg2=herculc.dib,guide=herculg.dib,noise=herculn.wav,wave=hercul1.wav hercul2.wav,level=3,","
+	pts=283 157  299 167  309 178  324 234  324 271  316 289  299 307  0 0 324 271  369 260  397 309  0 0  369 260  348 232  324 234  0 0  348 232  366 196  389 205  410 212  424 218  437 216  437 227  426 226  424 218  0 0,","
+	pts=366 196  366 139  0 0;","
+	bg1=ursamas.dib,bg2=ursamac.dib,guide=ursamag.dib,noise=ursaman.wav,wave=ursama1.wav ursama2.wav,level=3,","
+	pts=211 74  257 95  271 121  294 150  285 187  336 210  359 180  294 150  0 0,","
+	pts=359 180  425 208  475 231  400 228  336 210  0 0,","
+	pts=400 228  408 284  429 324  0 0  408 284  441 315  0 0,","
+	pts=285 187  261 219  218 314  207 323  0 0  261 219  279 267  319 323  0 0  279 267  331 317  0 0;","
+	bg1=hydras.dib,bg2=hydrac.dib,guide=hydrag.dib,noise=hydran.wav,wave=hydra1.wav hydra2.wav,level=3,","
+	pts=127 166  148 186  164 199  212 222  329 271  361 271  402 258  409 251  428 222  446 218  468 213  478 195  492 194  512 190  523 179  532 155  531 135  532 125  535 109  544 101  553 97  562 104  552 109  544 101;","
+	bg1=piscess.dib,bg2=piscesc.dib,guide=piscesg.dib,noise=piscesn.wav,wave=pisces1.wav pisces2.wav,level=3,","
+	pts=220 181  252 168  278 148  290 125  272 109  251 120  234 143  220 181  197 206  177 221  158 234  120 249  148 253  188 254  217 255  244 256,","
+	pts=277 257  317 258  361 257  428 250  471 239  512 216  565 217  530 249  489 265  470 239;","
+	bg1=orions.dib,bg2=orionc.dib,guide=oriong.dib,noise=orionn.wav,wave=orion1.wav orion2.wav,level=3,","
+	pts=315 224  331 215  343 203  370 250  378 286  313 304  315 224  328 232  332 240  337 247  0 0  315 224  293 163  320 150  344 156  344 203  0 0  344 156  362 102  372 101  395 127  406 142  409 164  406 187  400 199  0 0,","
+    pts=293 163  265 125  261 95  263 87  310 50  0 0  265 125  273 95  328 49  0 0;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANCONNECT GAMETABLE
+//***********************************************************************
+{
+"
+	colorindex=45,transitionclip=100 32 590 380,linethickness=2,closeness=15,startpt=48 317,endpt=487 317,starcells=6,","
+	trans1=18 1 1 3000,trans2=0 10 1 1000,delay=2,flags=uselast,","
+	gamearea=47 30 592 433,","
+	soundtrack=sndtrack.wav,","
+	click=click.wav,","
+	intros=spintro1.wav spintro2.wav spintro3.wav,","
+	success=spsucc1.wav spsucc2.wav spsucc3.wav;","
+
+	// level one constellations
+	bg1=airess.dib,bg2=airesc.dib,guide=airesg.dib,wave=02.wav 02.wav,level=1,","
+	pts=281 248  398 91  454 101  467 131  281 248;","
+	bg1=cancers.dib,bg2=cancerc.dib,guide=cancerg.dib,noise=cancern.wav,wave=04.wav 04.wav,level=1,","
+	pts=350 255  351 190  281 136  0 0  351 190  414 153  0 0;","
+	bg1=columbs.dib,bg2=columbc.dib,guide=columbg.dib,noise=columbn.wav,wave=10.wav 10.wav,level=1,","
+	pts=288 223  317 220  386 189  341 177  317 220;","
+	bg1=corvuss.dib,bg2=corvusc.dib,guide=corvusg.dib,noise=corvusn.wav,wave=11.wav 11.wav,level=1,","
+	pts=290 221  322 160  411 154  385 270  290 221;","
+	bg1=libras.dib,bg2=librac.dib,guide=librag.dib,noise=libran.wav,wave=20.wav 20.wav,level=1,","
+	pts=397 116  375 209  287 226  288 143  397 116;","
+	bg1=lyras.dib,bg2=lyrac.dib,guide=lyrag.dib,noise=lyran.wav,wave=21.wav 21.wav,level=1,","
+	pts=323 257  387 218  369 109  322 134  323 257;","
+	bg1=cephius.dib,bg2=cephiuc.dib,guide=cephiusg.dib,noise=cephiusn.wav,wave=08.wav 08.wav,level=1,","
+	pts=331 192  308 139  348 106  381 159  390  239  331 192;","
+	bg1=delphis.dib,bg2=delphic.dib,guide=delphig.dib,noise=delphin.wav,wave=13.wav 13.wav,level=1,","
+	pts=385 190  340 149  314 123  288 140  312 158  340 149;","
+
+	// level two constellations
+	bg1=aquilas.dib,bg2=aquilac.dib,guide=aquilag.dib,noise=aquilan.wav,wave=01.wav 01.wav,level=2,","
+	pts=443 234  365 192  291 202  299 282  0 0  365 192  285 156  344 82  0 0;","
+	bg1=casiops.dib,bg2=casiopc.dib,guide=casiopg.dib,noise=casiopn.wav,wave=07.wav 07.wav,level=2,","
+	pts=410 282  409 226  383 194  381 131  306 139  329 191  383 194;","
+	bg1=cygnuss.dib,bg2=cygnusc.dib,guide=cygnusg.dib,noise=cygnusn.wav,wave=12.wav 12.wav,level=2,","
+	pts=303 204  348 222  426 257  0 0  303 204  271 258 0 0  303 204  266 165  0 0  303 204  349 153  0 0;","
+	bg1=aurigas.dib,bg2=aurigac.dib,guide=aurigag.dib,noise=aurigan.wav,wave=03.wav 03.wav,level=2,","
+	pts=303 276  294 175  317 155  340 133  393 171  384 209  370 274  303 276;","
+	bg1=tauruss.dib,bg2=taurusc.dib,guide=taurusg.dib,noise=taurusn.wav,wave=28.wav 28.wav,level=2,","
+	pts=268 78  310 155  319 169  327 181  331 169  331 157  310 60  0 0;","
+	bg1=canusms.dib,bg2=canusmc.dib,guide=canusmg.dib,wave=05.wav 05.wav,level=2,","
+	pts=387 149  391 184  410 236  0 0  391 184 327 180  302 178  258 158  0 0  302 178  287 209  0 0  302 178  316 283  0 0;","
+	bg1=leos.dib,bg2=leoc.dib,guide=leog.dib,noise=leon.wav,wave=18.wav 18.wav,level=2,","
+	pts=456 129  442 122  409 147  407 170  433 183  436 214  327 222  271 243  318 192  327 222;","
+	bg1=lepuss.dib,bg2=lepusc.dib,guide=lepusg.dib,noise=lepusn.wav,wave=19.wav 19.wav,level=2,","
+	pts=272 196  294 181  318 182  361 201  377 228  348 255  322 240  361 200  409 172  0 0  377 228  439 232  0 0;","
+	bg1=sagitas.dib,bg2=sagitac.dib,guide=sagitag.dib,noise=sagitan.wav,wave=26.wav 26.wav,level=2,","
+	pts=274 219  362 208  358 193  374 185  388 197  362 208  0 0  388 197  412 192  417 219  435 230  406 241  417 219;","
+	bg1=caprics.dib,bg2=capricc.dib,guide=capricg.dib,noise=capricn.wav,wave=06.wav 06.wav,level=2,","
+	pts=404 64  413 77  429 191  425 216  308 276  273 283  246 281  259 267  301 248  347 199  404 64;","
+	bg1=geminis.dib,bg2=geminic.dib,guide=geminig.dib,wave=15.wav 15.wav,level=2,","
+	pts=301 296  336 290  333 245  325 202  333 138  373 139  383 184  380 247  386 291  406 298  0 0;","
+	bg1=cetuss.dib,bg2=cetusc.dib,guide=cetusg.dib,noise=cetusn.wav,wave=09.wav 09.wav,level=2,","
+	pts=196 207  233 200  232 217  0 0  233 200  293 215  356 217  393 174  429 165  399 243  356 217  0 0  429 165  446 135  490 110  493 150  446 135;","
+
+	// level three constellations
+	bg1=pegasuss.dib,bg2=pegasusc.dib,guide=pegasusg.dib,noise=pegasusn.wav,wave=23.wav 23.wav,level=3,","
+	pts=189 142  219 124  255 145  265 152  283 167  365 164  360 228  288 225  283 167  0 0,","
+	pts=288 225  268 216  243 214  218 214  197 237  0 0  288 225  260 235  222 249  0 0;","
+	bg1=scorpios.dib,bg2=scorpioc.dib,guide=scorpiog.dib,noise=scorpion.wav,wave=27.wav 27.wav,level=3,","
+	pts=220 287  209 281  195 298  193 312  211 329  254 329  292 288  297 258  320 208  332 190  349 182  387 158  394 186  0 0  387 158  375 135  0 0;","
+	bg1=virgos.dib,bg2=virgoc.dib,guide=virgog.dib,noise=virgon.wav,wave=30.wav 30.wav,level=3,","
+	pts=391 63  404 71  396 107  389 130  385 164  399 192  350 231  332 257  302 243  320 211  329 199  352 179  0 0,","
+	pts=389 130  359 131  325 120  0 0;","
+	bg1=persiuss.dib,bg2=persiusc.dib,guide=persiusg.dib,noise=persiusn.wav,wave=24.wav 24.wav,level=3,","
+	pts=280 151  297 164  319 191  329 214  320 244  312 252  297 249  305 236  0 0,","
+	pts=329 214  362 228  375 248  400 258  427 259  0 0  319 191  353 175  382 173  397 169  398 148  0 0;","
+	bg1=dracos.dib,bg2=dracoc.dib,guide=dracog.dib,noise=dracon.wav,wave=14.wav 14.wav,level=3,","
+	pts=452 88  438 119  429 178  397 232  372 245  352 229  322 205  307 188  294 159  276 144  253 148  257 173  244 216  262 230  281 250  295 263  294 279  268 277  281 249;","
+	bg1=herculs.dib,bg2=herculc.dib,guide=herculg.dib,noise=herculn.wav,wave=16.wav 16.wav,level=3,","
+	pts=283 157  299 167  309 178  324 234  324 271  316 289  299 307  0 0 324 271  369 260  397 309  0 0  369 260  348 232  324 234  0 0  348 232  366 196  389 205  410 212  424 218  437 216  437 227  426 226  424 218  0 0,","
+	pts=366 196  366 139  0 0;","
+	bg1=ursamas.dib,bg2=ursamac.dib,guide=ursamag.dib,noise=ursaman.wav,wave=29.wav 29.wav,level=3,","
+	pts=211 74  257 95  271 121  294 150  285 187  336 210  359 180  294 150  0 0,","
+	pts=359 180  425 208  475 231  400 228  336 210  0 0,","
+	pts=400 228  408 284  429 324  0 0  408 284  441 315  0 0,","
+	pts=285 187  261 219  218 314  207 323  0 0  261 219  279 267  319 323  0 0  279 267  331 317  0 0;","
+	bg1=hydras.dib,bg2=hydrac.dib,guide=hydrag.dib,noise=hydran.wav,wave=17.wav 17.wav,level=3,","
+	pts=127 166  148 186  164 199  212 222  329 271  361 271  402 258  409 251  428 222  446 218  468 213  478 195  492 194  512 190  523 179  532 155  531 135  532 125  535 109  544 101  553 97  562 104  552 109  544 101;","
+	bg1=piscess.dib,bg2=piscesc.dib,guide=piscesg.dib,noise=piscesn.wav,wave=25.wav 25.wav,level=3,","
+	pts=220 181  252 168  278 148  290 125  272 109  251 120  234 143  220 181  197 206  177 221  158 234  120 249  148 253  188 254  217 255  244 256,","
+	pts=277 257  317 258  361 257  428 250  471 239  512 216  565 217  530 249  489 265  470 239;","
+	bg1=orions.dib,bg2=orionc.dib,guide=oriong.dib,noise=orionn.wav,wave=22.wav 22.wav,level=3,","
+	pts=315 224  331 215  343 203  370 250  378 286  313 304  315 224  328 232  332 240  337 247  0 0  315 224  293 163  320 150  344 156  344 203  0 0  344 156  362 102  372 101  395 127  406 142  409 164  406 187  400 199  0 0,","
+    pts=293 163  265 125  261 95  263 87  310 50  0 0  265 125  273 95  328 49  0 0;","
+",0
+}
+
+//***********************************************************************
+IDD_CONNECT JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene20\\airess.dib,clip=CL CT CR CB,","
+
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+	/BOAT=0 0,			pos=48 317,fg=boat.bmp;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 403,	flags=noclip notrans, cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 375,	flags=noclip notrans, cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 347,	flags=noclip notrans, cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 403,	flags=noclip notrans, fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 375,	flags=noclip invisible notrans,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 347,	flags=noclip invisible notrans,fg=lvl3on.bmp;","
+
+	/IDC_BACK=0 0,			hot=46 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=mainmenu.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANCONNECT JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene20\\airess.dib,clip=CL CT CR CB,","
+
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+	/BOAT=0 0,			pos=48 317,fg=boat.bmp;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 403,	flags=noclip notrans, cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 375,	flags=noclip notrans, cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 347,	flags=noclip notrans, cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 403,	flags=noclip notrans, fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 375,	flags=noclip invisible notrans,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 347,	flags=noclip invisible notrans,fg=lvl3on.bmp;","
+
+	/IDC_BACK=0 0,			hot=46 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=spmain.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp.wav;","
+",0
+}
+

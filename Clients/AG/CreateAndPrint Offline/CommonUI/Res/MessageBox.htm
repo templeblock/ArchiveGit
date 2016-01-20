@@ -1,0 +1,56 @@
+<html id="main" style="width:350; height:205;">
+	<head>
+		<script language="javascript" src="MessageBox.js"></script>
+	</head>
+	<body onload="Load()" onselectstart="return false;" onmouseover="this.style.cursor='default'"
+		marginheight="0" marginwidth="0" topmargin="0" leftmargin="0">
+		<table height="100%" width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0">
+			<tr height="50">
+				<td width="100%">
+					<table height="100%" width="100%" cellpadding="0" cellspacing="0" border="0" background="MsgTile.gif">
+						<tr>
+							<td width="14"></td>
+							<td width="*" id="title" style="{color:#ffffff;font-size:20px;font-family:arial;font-weight:700}"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr height="5">
+				<td></td>
+			</tr>
+			<tr height="*" bgcolor="ffffff">
+				<td width="100%" valign="middle">
+					<table height="100%" width="100%" cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<td width="14"></td>
+							<td width="32"><img id="icon" src="Space.gif" width="32" height="32" border="0"></td>
+							<td width="14"></td>
+							<td width="*" style="{color:#000000;font-size:12px;font-family:arial;font-weight:400}"
+								id="message"></td>
+							<td width="44"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr height="24" bgcolor="ffffff">
+				<td width="100%" align="center">
+					<table cellpadding="0" cellspacing="12" border="0">
+						<tr>
+							<script language="javascript">AddButtons();</script>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr height="12">
+				<td width="100%">
+					<table background="MsgTile2.gif" height="100%" width="100%" cellpadding="0" cellspacing="0"
+						border="0">
+						<tr>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

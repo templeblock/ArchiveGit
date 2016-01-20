@@ -1,0 +1,855 @@
+//***********************************************************************
+IDD_BALLOONI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_BALLOONI GAMETABLE
+//***********************************************************************
+{
+"
+	// target balloons
+	// need matchesneeded (6) of each color
+	item=a1.bmp,tcells=5,fcells=2,color=249,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=250,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=251,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=252,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=253,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=254,shape=0;","
+	item=b1.bmp,tcells=5,fcells=2,color=249,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=250,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=251,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=252,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=253,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=254,shape=1;","
+	item=c1.bmp,tcells=5,fcells=2,color=249,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=250,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=251,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=252,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=253,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=254,shape=2;","
+	item=d1.bmp,tcells=5,fcells=2,color=249,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=250,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=251,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=252,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=253,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=254,shape=3;","
+	item=e1.bmp,tcells=5,fcells=2,color=249,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=250,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=251,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=252,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=253,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=254,shape=4;","
+	item=f1.bmp,tcells=5,fcells=2,color=249,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=250,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=251,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=252,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=253,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=254,shape=5;","
+	droptimer=10;","/*tenths of a sec.*/
+
+	// target menu locations - need >= matchesneeded
+	itemloc=25 10;","
+	itemloc=75 75;","
+	itemloc=25 140;","
+	itemloc=75 205;","
+	itemloc=25 270;","
+	itemloc=75 335;","
+
+	// good popped balloon locations - need >= matchesneeded
+	caughtloc=455 10;","
+	caughtloc=505 75;","
+	caughtloc=455 140;","
+	caughtloc=505 205;","
+	caughtloc=455 270;","
+	caughtloc=505 335;","
+
+	matchesneeded=6;","
+	screenleftedge=161,screenrightedge=478,screenbottom=330;","
+	goatbmp=GOAT.BMP,jumpheight=0,goatspeed=500,goathand=4 4 28 28;","
+	gamearea=47 30 592 433,","
+	balloonspeed=100;","
+	introwave=intro1.wav,goodpickwave=pop.wav,badpickwave=badpick.wav;","
+	successlevel=succi.wav;","
+//	jumpwave=jumpwave.wav;","
+	keyboardmove=20;","
+	// RGB value of the balloon color to change
+	srcred=0,srcgreen=153,srcblue=255;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANBALLOONI GAMETABLE
+//***********************************************************************
+{
+"
+	// target balloons
+	// need matchesneeded (6) of each color
+	item=a1.bmp,tcells=5,fcells=2,color=249,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=250,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=251,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=252,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=253,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=254,shape=0;","
+	item=b1.bmp,tcells=5,fcells=2,color=249,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=250,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=251,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=252,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=253,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=254,shape=1;","
+	item=c1.bmp,tcells=5,fcells=2,color=249,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=250,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=251,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=252,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=253,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=254,shape=2;","
+	item=d1.bmp,tcells=5,fcells=2,color=249,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=250,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=251,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=252,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=253,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=254,shape=3;","
+	item=e1.bmp,tcells=5,fcells=2,color=249,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=250,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=251,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=252,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=253,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=254,shape=4;","
+	item=f1.bmp,tcells=5,fcells=2,color=249,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=250,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=251,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=252,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=253,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=254,shape=5;","
+	droptimer=10;","/*tenths of a sec.*/
+
+	// target menu locations - need >= matchesneeded
+	itemloc=25 10;","
+	itemloc=75 75;","
+	itemloc=25 140;","
+	itemloc=75 205;","
+	itemloc=25 270;","
+	itemloc=75 335;","
+
+	// good popped balloon locations - need >= matchesneeded
+	caughtloc=455 10;","
+	caughtloc=505 75;","
+	caughtloc=455 140;","
+	caughtloc=505 205;","
+	caughtloc=455 270;","
+	caughtloc=505 335;","
+
+	matchesneeded=6;","
+	screenleftedge=161,screenrightedge=478,screenbottom=330;","
+	goatbmp=GOAT.BMP,jumpheight=0,goatspeed=500,goathand=4 4 28 28;","
+	gamearea=47 30 592 433,","
+	balloonspeed=100;","
+	introwave=spintro1.wav,goodpickwave=pop.wav,badpickwave=badpick.wav;","
+	successlevel=spsucci.wav;","
+//	jumpwave=jumpwave.wav;","
+	keyboardmove=20;","
+	// RGB value of the balloon color to change
+	srcred=0,srcgreen=153,srcblue=255;","
+
+",0
+}
+
+//***********************************************************************
+IDD_BALLOONI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene30\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=291 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 446,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 442,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=options.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 443,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP, fg=help.bmp, hint=helphint.wav;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_SPANBALLOONI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene30\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=291 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=spprev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=spmain.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 446,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=spsounds.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 442,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=spoption.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 443,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=spactivy.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=spnext.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP, fg=help.bmp, hint=sphelp1.wav;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_BALLOON1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_BALLOON1 GAMETABLE
+//***********************************************************************
+{
+"
+	// target balloons
+	// need matchesneeded (6) of each color
+	item=a1.bmp,tcells=5,fcells=2,color=249,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=250,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=251,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=252,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=253,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=254,shape=0;","
+	item=b1.bmp,tcells=5,fcells=2,color=249,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=250,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=251,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=252,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=253,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=254,shape=1;","
+	item=c1.bmp,tcells=5,fcells=2,color=249,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=250,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=251,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=252,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=253,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=254,shape=2;","
+	item=d1.bmp,tcells=5,fcells=2,color=249,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=250,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=251,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=252,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=253,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=254,shape=3;","
+	item=e1.bmp,tcells=5,fcells=2,color=249,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=250,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=251,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=252,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=253,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=254,shape=4;","
+	item=f1.bmp,tcells=5,fcells=2,color=249,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=250,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=251,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=252,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=253,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=254,shape=5;","
+	droptimer=10;","/*tenths of a sec.*/
+
+	// target menu locations - need >= matchesneeded
+	itemloc=25 10;","
+	itemloc=75 75;","
+	itemloc=25 140;","
+	itemloc=75 205;","
+	itemloc=25 270;","
+	itemloc=75 335;","
+
+	// good popped balloon locations - need >= matchesneeded
+	caughtloc=455 10;","
+	caughtloc=505 75;","
+	caughtloc=455 140;","
+	caughtloc=505 205;","
+	caughtloc=455 270;","
+	caughtloc=505 335;","
+
+	matchesneeded=6;","
+	screenleftedge=161,screenrightedge=478,screenbottom=330;","
+	goatbmp=goat.bmp,jumpheight=0,goatspeed=500,goathand=4 4 28 28;","
+	gamearea=47 30 592 433,","
+	balloonspeed=100;","
+	introwave=intro1.wav,goodpickwave=pop.wav,badpickwave=badpick.wav;","
+	successlevel=succ1.wav;","
+//	jumpwave=jumpwave.wav;","
+	keyboardmove=20;","
+	// RGB value of the balloon color to change
+	srcred=0,srcgreen=153,srcblue=255;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANBALLOON1 GAMETABLE
+//***********************************************************************
+{
+"
+	// target balloons
+	// need matchesneeded (6) of each color
+	item=a1.bmp,tcells=5,fcells=2,color=249,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=250,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=251,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=252,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=253,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=254,shape=0;","
+	item=b1.bmp,tcells=5,fcells=2,color=249,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=250,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=251,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=252,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=253,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=254,shape=1;","
+	item=c1.bmp,tcells=5,fcells=2,color=249,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=250,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=251,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=252,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=253,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=254,shape=2;","
+	item=d1.bmp,tcells=5,fcells=2,color=249,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=250,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=251,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=252,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=253,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=254,shape=3;","
+	item=e1.bmp,tcells=5,fcells=2,color=249,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=250,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=251,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=252,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=253,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=254,shape=4;","
+	item=f1.bmp,tcells=5,fcells=2,color=249,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=250,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=251,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=252,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=253,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=254,shape=5;","
+	droptimer=10;","/*tenths of a sec.*/
+
+	// target menu locations - need >= matchesneeded
+	itemloc=25 10;","
+	itemloc=75 75;","
+	itemloc=25 140;","
+	itemloc=75 205;","
+	itemloc=25 270;","
+	itemloc=75 335;","
+
+	// good popped balloon locations - need >= matchesneeded
+	caughtloc=455 10;","
+	caughtloc=505 75;","
+	caughtloc=455 140;","
+	caughtloc=505 205;","
+	caughtloc=455 270;","
+	caughtloc=505 335;","
+
+	matchesneeded=6;","
+	screenleftedge=161,screenrightedge=478,screenbottom=330;","
+	goatbmp=goat.bmp,jumpheight=0,goatspeed=500,goathand=4 4 28 28;","
+	gamearea=47 30 592 433,","
+	balloonspeed=100;","
+	introwave=spintro1.wav,goodpickwave=pop.wav,badpickwave=badpick.wav;","
+	successlevel=spsucc1.wav;","
+//	jumpwave=jumpwave.wav;","
+	keyboardmove=20;","
+	// RGB value of the balloon color to change
+	srcred=0,srcgreen=153,srcblue=255;","
+
+",0
+}
+
+//***********************************************************************
+IDD_BALLOON1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene30\\backgrnd.dib,clip=CL CT CR CB,","
+	
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+",0
+}
+
+//***********************************************************************
+IDD_SPANBALLOON1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene30\\backgrnd.dib,clip=CL CT CR CB,","
+	
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+",0
+}
+
+//***********************************************************************
+IDD_BALLOON2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_BALLOON2 GAMETABLE
+//***********************************************************************
+{
+"
+	// target balloons
+	// need six of each shape
+	item=a1.bmp,tcells=5,fcells=2,color=249,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=250,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=251,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=252,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=253,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=254,shape=0;","
+	item=b1.bmp,tcells=5,fcells=2,color=249,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=250,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=251,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=252,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=253,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=254,shape=1;","
+	item=c1.bmp,tcells=5,fcells=2,color=249,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=250,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=251,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=252,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=253,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=254,shape=2;","
+	item=d1.bmp,tcells=5,fcells=2,color=249,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=250,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=251,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=252,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=253,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=254,shape=3;","
+	item=e1.bmp,tcells=5,fcells=2,color=249,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=250,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=251,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=252,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=253,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=254,shape=4;","
+	item=f1.bmp,tcells=5,fcells=2,color=249,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=250,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=251,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=252,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=253,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=254,shape=5;","
+	droptimer=10;","/*tenths of a sec.*/
+
+	// target menu locations - need >= matchesneeded
+	itemloc=25 10;","
+	itemloc=75 75;","
+	itemloc=25 140;","
+	itemloc=75 205;","
+	itemloc=25 270;","
+	itemloc=75 335;","
+
+	// good popped balloon locations - need >= matchesneeded
+	caughtloc=455 10;","
+	caughtloc=505 75;","
+	caughtloc=455 140;","
+	caughtloc=505 205;","
+	caughtloc=455 270;","
+	caughtloc=505 335;","
+
+	matchesneeded=6;","
+	screenleftedge=161,screenrightedge=478,screenbottom=330;","
+	goatbmp=goat.bmp,jumpheight=0,goatspeed=500,goathand=4 4 28 28;","
+	gamearea=47 30 592 433,","
+	balloonspeed=110;","
+	introwave=intro2.wav,goodpickwave=pop.wav,badpickwave=badpick.wav;","
+	successlevel=succ2.wav;","
+//	jumpwave=jumpwave.wav;","
+	keyboardmove=20;","
+	// RGB value of the balloon color to change
+	srcred=0,srcgreen=153,srcblue=255;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANBALLOON2 GAMETABLE
+//***********************************************************************
+{
+"
+	// target balloons
+	// need six of each shape
+	item=a1.bmp,tcells=5,fcells=2,color=249,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=250,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=251,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=252,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=253,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=254,shape=0;","
+	item=b1.bmp,tcells=5,fcells=2,color=249,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=250,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=251,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=252,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=253,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=254,shape=1;","
+	item=c1.bmp,tcells=5,fcells=2,color=249,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=250,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=251,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=252,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=253,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=254,shape=2;","
+	item=d1.bmp,tcells=5,fcells=2,color=249,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=250,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=251,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=252,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=253,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=254,shape=3;","
+	item=e1.bmp,tcells=5,fcells=2,color=249,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=250,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=251,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=252,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=253,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=254,shape=4;","
+	item=f1.bmp,tcells=5,fcells=2,color=249,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=250,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=251,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=252,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=253,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=254,shape=5;","
+	droptimer=10;","/*tenths of a sec.*/
+
+	// target menu locations - need >= matchesneeded
+	itemloc=25 10;","
+	itemloc=75 75;","
+	itemloc=25 140;","
+	itemloc=75 205;","
+	itemloc=25 270;","
+	itemloc=75 335;","
+
+	// good popped balloon locations - need >= matchesneeded
+	caughtloc=455 10;","
+	caughtloc=505 75;","
+	caughtloc=455 140;","
+	caughtloc=505 205;","
+	caughtloc=455 270;","
+	caughtloc=505 335;","
+
+	matchesneeded=6;","
+	screenleftedge=161,screenrightedge=478,screenbottom=330;","
+	goatbmp=goat.bmp,jumpheight=0,goatspeed=500,goathand=4 4 28 28;","
+	gamearea=47 30 592 433,","
+	balloonspeed=110;","
+	introwave=spintro2.wav,goodpickwave=pop.wav,badpickwave=badpick.wav;","
+	successlevel=spsucc2.wav;","
+//	jumpwave=jumpwave.wav;","
+	keyboardmove=20;","
+	// RGB value of the balloon color to change
+	srcred=0,srcgreen=153,srcblue=255;","
+
+",0
+}
+
+//***********************************************************************
+IDD_BALLOON2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene30\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANBALLOON2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene30\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_BALLOON3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_BALLOON3 GAMETABLE
+//***********************************************************************
+{
+"
+	// target balloons
+	// need more than the matchesneeded setting (default=6)
+	item=a1.bmp,tcells=5,fcells=2,color=249,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=250,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=251,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=252,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=253,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=254,shape=0;","
+	item=b1.bmp,tcells=5,fcells=2,color=249,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=250,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=251,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=252,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=253,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=254,shape=1;","
+	item=c1.bmp,tcells=5,fcells=2,color=249,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=250,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=251,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=252,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=253,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=254,shape=2;","
+	item=d1.bmp,tcells=5,fcells=2,color=249,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=250,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=251,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=252,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=253,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=254,shape=3;","
+	item=e1.bmp,tcells=5,fcells=2,color=249,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=250,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=251,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=252,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=253,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=254,shape=4;","
+	item=f1.bmp,tcells=5,fcells=2,color=249,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=250,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=251,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=252,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=253,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=254,shape=5;","
+	droptimer=10;","/*tenths of a sec.*/
+
+	// target menu locations - need >= matchesneeded
+	itemloc=25 10;","
+	itemloc=75 75;","
+	itemloc=25 140;","
+	itemloc=75 205;","
+	itemloc=25 270;","
+	itemloc=75 335;","
+
+	// good popped balloon locations - need >= matchesneeded
+	caughtloc=455 10;","
+	caughtloc=505 75;","
+	caughtloc=455 140;","
+	caughtloc=505 205;","
+	caughtloc=455 270;","
+	caughtloc=505 335;","
+
+	matchesneeded=6;","
+	screenleftedge=161,screenrightedge=478,screenbottom=330;","
+	goatbmp=goat.bmp,jumpheight=100,goatspeed=500,goathand=4 4 28 28;","
+	gamearea=47 30 592 433,","
+	balloonspeed=120;","
+	introwave=intro3.wav,goodpickwave=pop.wav,badpickwave=badpick.wav;","
+	successlevel=succ3.wav;","
+	jumpwave=jumpwave.wav;","
+	keyboardmove=20;","
+	// RGB value of the balloon color to change
+	srcred=0,srcgreen=153,srcblue=255;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANBALLOON3 GAMETABLE
+//***********************************************************************
+{
+"
+	// target balloons
+	// need more than the matchesneeded setting (default=6)
+	item=a1.bmp,tcells=5,fcells=2,color=249,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=250,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=251,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=252,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=253,shape=0;","
+	item=a1.bmp,tcells=5,fcells=2,color=254,shape=0;","
+	item=b1.bmp,tcells=5,fcells=2,color=249,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=250,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=251,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=252,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=253,shape=1;","
+	item=b1.bmp,tcells=5,fcells=2,color=254,shape=1;","
+	item=c1.bmp,tcells=5,fcells=2,color=249,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=250,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=251,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=252,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=253,shape=2;","
+	item=c1.bmp,tcells=5,fcells=2,color=254,shape=2;","
+	item=d1.bmp,tcells=5,fcells=2,color=249,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=250,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=251,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=252,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=253,shape=3;","
+	item=d1.bmp,tcells=5,fcells=2,color=254,shape=3;","
+	item=e1.bmp,tcells=5,fcells=2,color=249,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=250,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=251,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=252,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=253,shape=4;","
+	item=e1.bmp,tcells=5,fcells=2,color=254,shape=4;","
+	item=f1.bmp,tcells=5,fcells=2,color=249,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=250,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=251,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=252,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=253,shape=5;","
+	item=f1.bmp,tcells=5,fcells=2,color=254,shape=5;","
+	droptimer=10;","/*tenths of a sec.*/
+
+	// target menu locations - need >= matchesneeded
+	itemloc=25 10;","
+	itemloc=75 75;","
+	itemloc=25 140;","
+	itemloc=75 205;","
+	itemloc=25 270;","
+	itemloc=75 335;","
+
+	// good popped balloon locations - need >= matchesneeded
+	caughtloc=455 10;","
+	caughtloc=505 75;","
+	caughtloc=455 140;","
+	caughtloc=505 205;","
+	caughtloc=455 270;","
+	caughtloc=505 335;","
+
+	matchesneeded=6;","
+	screenleftedge=161,screenrightedge=478,screenbottom=330;","
+	goatbmp=goat.bmp,jumpheight=100,goatspeed=500,goathand=4 4 28 28;","
+	gamearea=47 30 592 433,","
+	balloonspeed=120;","
+	introwave=spintro3.wav,goodpickwave=pop.wav,badpickwave=badpick.wav;","
+	successlevel=spsucc3.wav;","
+	jumpwave=jumpwave.wav;","
+	keyboardmove=20;","
+	// RGB value of the balloon color to change
+	srcred=0,srcgreen=153,srcblue=255;","
+
+",0
+}
+
+//***********************************************************************
+IDD_BALLOON3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene30\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0	
+}
+
+//***********************************************************************
+IDD_SPANBALLOON3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene30\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0	
+}

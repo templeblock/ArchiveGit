@@ -1,0 +1,41 @@
+/*****************************************************************************
+
+          Copyright (c) Micrografx, Inc., 1991.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+             from Micrografx, 1303 Arapaho, Richardson, TX. 75081.
+
+******************************************************************************
+
+                                   progmgr.h
+
+******************************************************************************
+
+  Definitions and declarations for data and procedures defined by progmgr.c
+
+*****************************************************************************/
+
+/********************************* Constants ********************************/
+
+#define SG_SHOWNORMAL       1
+#define SG_SHOWMINIMIZED    2
+#define SG_MAXIMIZE         3
+#define SG_SHOWNOACTIVATE   4
+#define SG_SHOW             5
+#define SG_MINIMIZE         6
+#define SG_SHOWMINNOACTIVE  7
+#define SG_SHOWNA           8
+
+/****************************** Public Functions ****************************/
+
+BOOL FAR PASCAL add_progmgr_item (HWND,LPSTR,LPSTR,LPSTR,int);
+BOOL FAR PASCAL del_progmgr_item (HWND,LPSTR);
+
+BOOL FAR PASCAL add_progmgr_group (HWND,LPSTR);
+BOOL FAR PASCAL del_progmgr_group (HWND,LPSTR,BOOL);
+BOOL FAR PASCAL shw_progmgr_group (HWND,LPSTR,WORD);
+
+BOOL FAR PASCAL init_progmgr_session (HWND FAR *);
+BOOL FAR PASCAL term_progmgr_session (HWND,BOOL);
+
+/****************************************************************************/
+

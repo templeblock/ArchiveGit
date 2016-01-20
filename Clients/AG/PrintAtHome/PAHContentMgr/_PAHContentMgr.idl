@@ -1,0 +1,43 @@
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\prsht.idl";
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\mshtml.idl";
+import "d:\program files\microsoft visual studio 8\vc\platformsdk\include\dimm.idl";
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\mshtmhst.idl";
+import "d:\program files\microsoft visual studio 8\vc\platformsdk\include\docobj.idl";
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\exdisp.idl";
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\objsafe.idl";
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\shldisp.idl";
+import "d:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include\shobjidl.idl";
+import "d:\program files\microsoft visual studio 8\vc\platformsdk\include\prsht.idl";
+
+[
+	object,
+	uuid(300F4EEA-6570-481D-9DF1-E3F1B01ADB5E),
+	dual,
+	helpstring("IPack Interface"),
+	pointer_default(unique)
+] 
+#line 22 "c:\\my projects\\agapplications\\printathome\\pahcontentmgr\\pack.h"
+interface IPack : IDispatch {
+#line 24 "c:\\my projects\\agapplications\\printathome\\pahcontentmgr\\pack.h"
+	[id(1),helpstring("method ProcessPurchase"),helpcontext(1001)] HRESULT  ProcessPurchase([in] BSTR szPackUrl);
+};
+
+
+[ version(1.0), uuid(9F70FE6B-39ED-4D64-8951-2AA03DFB5E4C), helpstring("PAHContentMgr 1.0 Type Library") ]
+library PAHContentMgr
+{
+	importlib("stdole2.tlb");
+	importlib("olepro32.dll");
+
+	[
+		version(1.0),
+		uuid(372E2874-34CF-44E8-B55D-73AFCB07AE84),
+		helpstring("Pack Class")
+	] 
+#line 42 "c:\\my projects\\agapplications\\printathome\\pahcontentmgr\\pack.h"
+	coclass CPack {
+		[default]	interface IPack;
+	};
+
+}
+

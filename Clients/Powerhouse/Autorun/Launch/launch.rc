@@ -1,0 +1,13 @@
+#include <windows.h>
+#include "launchid.h"
+
+//***********************************************************************
+stringtable loadoncall moveable discardable
+//***********************************************************************
+	{
+    IDS_CLASS,	"launch1"
+    IDS_TITLE,	"Powerhouse Program Launcher"
+	}
+
+1 icon loadoncall moveable discardable launch.ico
+

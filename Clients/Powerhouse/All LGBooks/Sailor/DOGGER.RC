@@ -1,0 +1,174 @@
+//***********************************************************************
+IDD_FROGGERI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_FROGGERI GAMETABLE
+//***********************************************************************
+{
+"
+	intros=intro1.wav intro2.wav intro3.wav,","
+	success1=intend.wav intend.wav intend.wav intend.wav,","
+	success2=succ2a.wav succ2b.wav succ2c.wav succ2d.wav,","
+	success3=succ3a.wav succ3b.wav succ3c.wav succ3d.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANFROGGERI GAMETABLE
+//***********************************************************************
+{
+"
+	intros=spintro1.wav spintro2.wav spintro3.wav,","
+	success1=spsucc1.wav spsucc1.wav spsucc1.wav spsucc1.wav,","
+	success2=spsucc2.wav spsucc2.wav spsucc2.wav spsucc2.wav,","
+	success3=spsucc3.wav spsucc3.wav spsucc3.wav spsucc3.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_FROGGERI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene06\\bckgrndi.dib,clip=CL CT CR CB,","
+
+	prev=FADE CLIP TRANS_PREV STEP_SIZE TOTAL_TIME,","
+	next=FADE CLIP TRANS_NEXT STEP_SIZE TOTAL_TIME,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+    
+// *** Page Icon *** //
+
+	/PAGE=0 0,				pos=282 0,fg=page.bmp,flags=noclip;","
+
+// *** Action Strip Icons ***//    
+    
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click notrans, cmd=IDC_PREVIOUS,   fg=prev.bmp, hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 446,	flags=noclip autobutton click notrans, cmd=IDC_SOUNDBOX,   fg=sound.bmp, hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 443,	flags=noclip autobutton click notrans, cmd=IDC_OPTIONS,    fg=options.bmp, hint=options.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click notrans, cmd=IDC_NEXT,       fg=next.bmp, hint=next.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+",0
+}  
+
+//***********************************************************************
+IDD_SPANFROGGERI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene06\\bckgrndi.dib,clip=CL CT CR CB,","
+
+	prev=FADE CLIP TRANS_PREV STEP_SIZE TOTAL_TIME,","
+	next=FADE CLIP TRANS_NEXT STEP_SIZE TOTAL_TIME,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+    
+// *** Page Icon *** //
+
+	/PAGE=0 0,				pos=282 0,fg=page.bmp,flags=noclip;","
+
+// *** Action Strip Icons ***//    
+    
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click notrans, cmd=IDC_PREVIOUS,   fg=prev.bmp, hint=spprev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=spmain.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 446,	flags=noclip autobutton click notrans, cmd=IDC_SOUNDBOX,   fg=sound.bmp, hint=spsounds.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 443,	flags=noclip autobutton click notrans, cmd=IDC_OPTIONS,    fg=options.bmp, hint=spoption.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click notrans, cmd=IDC_NEXT,       fg=next.bmp, hint=spnext.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp.wav;","
+",0
+}  
+
+//***********************************************************************
+IDD_FROGGER SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_FROGGER GAMETABLE
+//***********************************************************************
+{
+"
+	intros=intro1.wav intro2.wav intro3.wav,","
+	success1=succ1a.wav succ1b.wav succ1c.wav succ1d.wav,","
+	success2=succ2a.wav succ2b.wav succ2c.wav succ2d.wav,","
+	success3=succ3a.wav succ3b.wav succ3c.wav succ3d.wav;","
+",0
+}
+  
+//***********************************************************************
+IDD_SPANFROGGER GAMETABLE
+//***********************************************************************
+{
+"
+	intros=spintro1.wav spintro2.wav spintro3.wav,","
+	success1=spsucc1.wav spsucc1.wav spsucc1.wav spsucc1.wav,","
+	success2=spsucc2.wav spsucc2.wav spsucc2.wav spsucc2.wav,","
+	success3=spsucc3.wav spsucc3.wav spsucc3.wav spsucc3.wav;","
+",0
+}
+
+  
+//***********************************************************************
+IDD_FROGGER JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene06\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+	/IDC_LEVEL1OFF=0 0,		hot=601 403,	flags=noclip notrans, cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,  	hot=601 375,	flags=noclip notrans, cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, 	hot=601 347,	flags=noclip notrans, cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 403,	flags=noclip notrans,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  	hot=601 375,	flags=noclip invisible notrans,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  	hot=601 347,	flags=noclip invisible notrans,fg=lvl3on.bmp;","
+
+//*** Action Strip Icons ***//
+
+	/IDC_BACK=0 0,			hot=46 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=mainmenu.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANFROGGER JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene06\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=NOFADE NOCLIP TRANS_NONE,","
+	next=NOFADE NOCLIP TRANS_NONE,","
+	jump=FADE NOCLIP TRANS_JUMP STEP_SIZE TOTAL_TIME;","
+
+	/IDC_LEVEL1OFF=0 0,		hot=601 403,	flags=noclip notrans, cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,  	hot=601 375,	flags=noclip notrans, cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, 	hot=601 347,	flags=noclip notrans, cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 403,	flags=noclip notrans,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  	hot=601 375,	flags=noclip invisible notrans,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  	hot=601 347,	flags=noclip invisible notrans,fg=lvl3on.bmp;","
+
+//*** Action Strip Icons ***//
+
+	/IDC_BACK=0 0,			hot=46 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=whistle.bmp, hint=spmain.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 444,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp.wav;","
+",0
+}

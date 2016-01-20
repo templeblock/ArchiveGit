@@ -1,0 +1,33 @@
+;*****************************************************************************
+;        (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.        *
+;   Permission to use this work for any purpose must by obtained in writing  *
+;        from Micrografx Inc., 1303 E. Arapaho, Richardson, TX. 75081.       *
+;----------------------------------------------------------------------------*
+; Subsystem: Bitmap I/O Library (DEBUG)                                             *
+;    Module: Module definitions                                              *
+;      Date: February 18, 1995                                               *
+;----------------------------------------------------------------------------*
+; Description:                                                               *
+;                                                                            *
+;   This is the module definition file for the bitmap filter DLL.            *
+;----------------------------------------------------------------------------*
+; Revision history:                                                          *
+;                                                                            *
+; Code    Rev      Date    Who  Description                                  *
+; ----  -------  --------  ---  -------------------------------------------- *
+;                                                                            *
+;****************************************************************************/
+
+LIBRARY MGXBMD
+
+DESCRIPTION 'MGXBMD -- Micrografx Bitmap I/O Library, copyright 1995, Micrografx'
+
+EXETYPE WINDOWS
+
+CODE MOVEABLE DISCARDABLE
+
+DATA MOVEABLE SINGLE
+
+HEAPSIZE 128
+
+EXPORTS

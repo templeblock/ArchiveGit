@@ -1,0 +1,6 @@
+// Source file: tcrayon.c
+BOOL WINPROC EXPORT DlgCrayonProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+static void SetBrushOptions( HMGXBRUSH hBrush, int iTool );
+int CrayonProc( HWND hWindow, LPARAM lParam, UINT msg );
+
+

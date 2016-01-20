@@ -1,0 +1,607 @@
+"Welcome to the With Help Designer. In the following screens, you will be asked a few easy questions about the type and style of project you want to create. If you change your mind at any point, just click Back to return to the previous screen."							
+UNUSED							
+Calendar!4					CompressedBitmap	WHCAL_BM	"With Calendar projects, you can create monthly, weekly, or yearly projects and add a picture page."
+	Choose the type of calendar you would like to create.						
+	UNUSED						
+	Monthly				CompressedBitmap	CALENDARMNP_BM	"Monthly Calendars show a full month on one page. Create a whole year at a time, or just one month."
+		"If you would like to include a picture on your Calendar project, select Yes below, then choose where you would like to place the picture."					
+		UNUSED					
+		No Picture			CompressedBitmap	CALENDARMNP_BM	
+		Picture Above			CompressedBitmap	CALENDARMTP_BM	Placing the picture above the calendar will add a blank page above your calendar.
+			Choose the Calendar Category.				
+			UNUSED				
+			Business		CompressedBitmap	CALENDARMTP_BM	"The Business calendars offer classical, contemporary, and whimsical looks you can personalize for your business."
+				Choose the style of Business calendar below.			
+				Choose style.			
+				Classical	WH5XXX30.CAL	"Symbol Calendar, pg. 1-2"	The Classical calendar prints out the famous zodiac sign for growth and creativity.
+				Contemporary	WH5XXX32.CAL	"Patterned Calendar, pg. 1-2"	"The Contemporary calendar makes a bold, bright statement on any wall."
+				!Whimsy	WH5XXX28.CAL	"Cafe Calendar, pg. 1-2"	The Whimsy calendar is a colorful and refreshing way to start any day.
+			Educational		CompressedBitmap	CALENDARMTP_BM	Educational calendars set a friendly tone. They can be easily personalized for your school or organization.
+				Choose the style of Educational & Community calendar below.			
+				Choose style.			
+				Classical	WH5XXX36.CAL	"Star of David Calendar, pg. 1-2"	The Classical calendar includes archetypal religious symbols with a subtle hand-painted background.
+				Contemporary	WH5XXX38.CAL	"Violin Calendar, pg. 1-2"	The Contemporary calendar is an upbeat eye-catcher with cartoon images.
+				!Whimsy	WH5XXX34.CAL	"Jungle Calendar, pg. 1-2"	The Whimsy calendar has a fun jungle theme with colorful hand-drawn images.
+			!Personal		CompressedBitmap	CALENDARMTP_BM	"Personal calendars are colorful and useful, leaving plenty of room for dates, notes, and reminders."
+				Choose the style of Personal calendar below.			
+				Choose style.			
+				Classical	WH5XXX42.CAL	"Ornaments Calendar, pg. 1-2"	The Classical calendar is a great addition to a study or personal library.
+				Contemporary	WH5XXX44.CAL	"Patio Calendar, pg. 1-2"	"The Contemporary calendar is a calm, relaxing look at life outdoors."
+				!Whimsy	WH5XXX40.CAL	"Dandelion in the Wind Calendar, pg.1-2"	The Whimsy calendar is a blazing work of art that kids will love.
+		Pic side			CompressedBitmap	CALENDARMLP_BM	Placing the picture to the side of the calendar will place a blank page to the left of your calendar.
+		!Pic same page			CompressedBitmap	CALENDARMSP_BM	Placing a picture on the same page as your calendar will make room for a picture above your calendar page.
+			Choose the Calendar Category.				
+			UNUSED				
+			Business		CompressedBitmap	CALENDARMSP_BM	"The Business calendars offer classical, contemporary, and whimsical looks you can personalize for your business."
+				Choose the style of Business calendar below.			
+				Choose style.			
+				Classical	WH5XXX31.CAL	Small Symbol Calendar	
+				Contemporary	WH5XXX33.CAL	Small Patterned Calendar	
+				!Whimsy	WH5XXX29.CAL	Small Cafe Calendar	
+			Educational		CompressedBitmap	CALENDARMSP_BM	Educational calendars set a friendly tone. They can be easily personalized for your school or organization.
+				Choose the style of Educational & Community calendar below.			
+				Choose style.			
+				Classical	WH5XXX37.CAL	Small Star of David Calendar	
+				Contemporary	WH5XXX39.CAL	Small Violin Calendar	
+				!Whimsy	WH5XXX35.CAL	Small Jungle Calendar	
+			!Personal		CompressedBitmap	CALENDARMSP_BM	"Personal calendars are colorful and useful, leaving plenty of room for dates, notes, and reminders."
+				Choose the style of Personal calendar below.			
+				Choose style.			
+				Classical	WH5XXX43.CAL	Small Ornaments Calendar	
+				Contemporary	WH5XXX45.CAL	Small Patio Calendar	
+				!Whimsy	WH5XXX41.CAL	Small Dandelion in the Wind Calendar	
+	Weekly				CompressedBitmap	CALENDARWNP_BM	Weekly calendars show a single week on one page. Personalize your weekly calendar with pictures and text.
+		"If you would like to include a picture on your Calendar project, select Yes below, then choose where you would like to place the picture."					
+		UNUSED					
+		No Picture			CompressedBitmap	CALENDARWNP_BM	
+		Picture Above			CompressedBitmap	CALENDARWTP_BM	Placing the picture above the calendar will add a blank page above your calendar.
+			Choose the Calendar Category.				
+			UNUSED				
+			Business		CompressedBitmap	CALENDARWTP_BM	"The Business calendars offer classical, contemporary, and whimsical looks you can personalize for your business."
+				Choose the style of Business calendar below.			
+				Choose style.			
+				Classical	WH5XXX12.CAL	Business Calendar	"The Classical calendar has a strong, industrial feel that is appropriate for both the warehouse and the office."
+				Contemporary	WH5XXX14.CAL	"Artistic Calendar, pg. 1-2"	"The Contemporary calendar reminds you that what goes up, could keep going!"
+				!Whimsy	WH5XXX10.CAL	"Office Calendar, pg. 1-2"	The Whimsy calendar reminds you that there’s lots of color both inside and outside that office window.
+			Educational		CompressedBitmap	CALENDARWTP_BM	Educational calendars set a friendly tone. They can be easily personalized for your school or organization.
+				Choose the style of Educational & Community calendar below.			
+				Choose style.			
+				Classical	WH5XXX18.CAL	"Runner Calendar, pg. 1-2"	"The Classical calendar encourages you to keep working, trying harder, and having fun."
+				Contemporary	WH5XXX20.CAL	"Candle Calendar, pg. 1-2"	The Contemporary calendar includes a beautiful hand-painted menorah.
+				!Whimsy	WH5XXX16.CAL	"Kid Calendar, pg. 1-2"	The Whimsy calendar is an upbeat explosion of color that will brighten any room.
+			!Personal		CompressedBitmap	CALENDARWTP_BM	"Personal calendars are colorful and useful, leaving plenty of room for dates, notes, and reminders."
+				Choose the style of Personal calendar below.			
+				Choose style.			
+				Classical	WH5XXX24.CAL	"Floral Calendar, pg. 1-2"	"The colorful Classical calendar leaves you lots of room to include dates, reminders, and notes."
+				Contemporary	WH5XXX26.CAL	"Halloween Calendar, pg. 1-2"	The Contemporary calendar is bold personal statement of color and movement. Show your style!
+				!Whimsy	WH5XXX22.CAL	"Tropical Calendar, pg. 1-2"	The Whimsy calendar is a good place to record your count-down to vacation!
+		Pic side			CompressedBitmap	CALENDARWLP_BM	Placing the picture to the side of the calendar will place a blank page to the left of your calendar.
+		!Pic same page			CompressedBitmap	CALENDARWSP_BM	Placing a picture on the same page as your calendar will make room for a picture above your calendar page.
+			Choose calendar category.				
+			UNUSED				
+			Business		CompressedBitmap	CALENDARWSP_BM	"The Business calendars offer classical, contemporary, and whimsical looks you can personalize for your business."
+				Choose the style of Business calendar below.			
+				Choose style.			
+				Classical	WH5XXX13.CAL	"News Calendar, pg. 1-2"	
+				Contemporary	WH5XXX15.CAL	Creative Calendar	
+				!Whimsy	WH5XXX11.CAL	Lovely Calendar	
+			Educational		CompressedBitmap	CALENDARWSP_BM	Educational calendars set a friendly tone. They can be easily personalized for your school or organization.
+				Choose the style of Educational & Community calendar below.			
+				Choose style.			
+				Classical	WH5XXX19.CAL	Runner Small Calendar	
+				Contemporary	WH5XXX21.CAL	Small Candle Calendar	
+				!Whimsy	WH5XXX17.CAL	Children Calendar	
+			!Personal		CompressedBitmap	CALENDARWSP_BM	"Personal calendars are colorful and useful, leaving plenty of room for dates, notes, and reminders."
+				Choose the style of Personal calendar below.			
+				Choose style.			
+				Classical	WH5XXX25.CAL	Small Floral Calendar	
+				Contemporary	WH5XXX27.CAL	Small Halloween Calendar	
+				!Whimsy	WH5XXX23.CAL	Small Tropical Calendar	
+	!Yearly				CompressedBitmap	CALENDARYNP_BM	Yearly Calendars show twelve small monthly calendars on one page.
+		"If you would like to include a picture on your Calendar project, select Yes below, then choose where you would like to place the picture."					
+		UNUSED					
+		No Picture			CompressedBitmap	CALENDARYNP_BM	
+		Picture Above			CompressedBitmap	CALENDARYTP_BM	Placing the picture above the calendar will add a blank page above your calendar.
+			Choose the Calendar Category.				
+			UNUSED				
+			Business		CompressedBitmap	CALENDARYTP_BM	"The Business calendars offer classical, contemporary, and whimsical looks you can personalize for your business."
+				Choose the style of Business calendar below.			
+				Choose style.			
+				Classical	WH5XXX48.CAL	"Windmill Calendar, pg. 1-2"	The Classical calendar has a fine-art feel that looks great enlarged.
+				Contemporary	WH5XXX50.CAL	"Fruit Calendar, pg. 1-2"	The Contemporary calendar includes a brilliant hand-painted image exclusive to PrintMaster.
+				!Whimsy	WH5XXX46.CAL	"Shopping Calendar, pg. 1-2"	The Whimsy calendar includes fun cartoon art from the exclusive PrintMaster archives.
+			Educational		CompressedBitmap	CALENDARYTP_BM	Educational calendars set a friendly tone. They can be easily personalized for your school or organization.
+				Choose the style of Educational & Community calendar below.			
+				Choose style.			
+				Classical	WH5XXX54.CAL	"Kid Calendar, pg. 1-2"	"The Classical calendar has a solid, business-like look that doesn't call attention to itself."
+				Contemporary	WH5XXX56.CAL	"Cubic Calendar, pg. 1-2"	The Contemporary calendar includes modern geometric shapes that are pleasing to the eye.
+				!Whimsy	WH5XXX52.CAL	"Child Calendar, pg. 1-2"	"The Whimsy calendar is a personal look at the year using bright, fun art from the PrintMaster collection."
+			!Personal		CompressedBitmap	CALENDARYTP_BM	"Personal calendars are colorful and useful, leaving plenty of room for dates, notes, and reminders."
+				Choose the style of Personal calendar below.			
+				Choose style.			
+				Classical	WH5XXX60.CAL	"Leaf Calendar, pg. 1-2"	The Classical calendar has a subtle background and uses pastel colors to create a soothing look.
+				Contemporary	WH5XXX62.CAL	"Peacock Calendar, pg. 1-2"	"The Contemporary calendar includes bright, hand-painted art from the PrintMaster collection."
+				!Whimsy	WH5XXX58.CAL	"Little Girl Calendar, pg. 1-2"	The Whimsy calendar's original cartoon art will give you a chuckle and brighten your day.
+		Pic side			CompressedBitmap	CALENDARYLP_BM	Placing the picture to the side of the calendar will place a blank page to the left of your calendar.
+		!Pic same page			CompressedBitmap	CALENDARYSP_BM	Placing a picture on the same page as your calendar will make room for a picture above your calendar page.
+			Choose the Calendar Category.				
+			UNUSED				
+			Business		CompressedBitmap	CALENDARYSP_BM	
+				Choose the style of Business calendar below.			
+				Choose style.			
+				Classical	WH5XXX49.CAL	Small Windmill Calendar	
+				Contemporary	WH5XXX51.CAL	Small Fruit Calendar	
+				!Whimsy	WH5XXX47.CAL	Small Shopping Calendar	
+			Educational		CompressedBitmap	CALENDARYSP_BM	Educational calendars set a friendly tone. They can be easily personalized for your school or organization.
+				Choose the style of Educational & Community calendar below.			
+				Choose style.			
+				Classical	WH5XXX55.CAL	Small Kid Calendar	
+				Contemporary	WH5XXX57.CAL	Small Cubic Calendar	
+				!Whimsy	WH5XXX53.CAL	Small Child Calendar	
+			!Personal		CompressedBitmap	CALENDARYSP_BM	"Personal calendars are colorful and useful, leaving plenty of room for dates, notes, and reminders."
+				Choose the style of Personal calendar below.			
+				Choose style.			
+				Classical	WH5XXX61.CAL	Small Leaf Calendar	
+				Contemporary	WH5XXX63.CAL	Small Peacock Calendar	
+				!Whimsy	WH5XXX59.CAL	Little Girl Calendar	
+Greeting Card!2					CompressedBitmap	WHCARD_BM	"Card projects include birthday, invitation, holiday, and romantic designs for you to customize."
+	Choose the type of Greeting Card you would like to create.						
+	UNUSED						
+	Anniversary				CompressedBitmap	WHCARD_BM	Anniversary Cards include gorgeous designs for your spouse or personalized cards for wives and husbands.
+		Choose a recipient for your Anniversary card.					
+		UNUSED					
+		Couples			CompressedBitmap	WHCARD_BM	Choose the Couples category to send a congratulatory message to your favorite couple.
+			Choose a design for the couple’s Anniversary card.||Click the buttons below to see both the front and inside of the card.				
+			UNUSED				
+			Heart Tree		WH1XX068.HCR	Heart Tree	Select a card that reflects the mood of your event or the colors of a gift that might accompany it.
+			Love Couple		WH1XX012.HCR	Love Couple	^
+			Champagne on Ice		WH1XX016.CAR	Champagne on Ice	^
+			!Photo Walk		WH1XX046.HCR	Photo Walk	^
+			<recipient>				
+			!<sender>				
+		Husband			CompressedBitmap	WHCARD_BM	The Anniversary cards for Husbands includes tender and fun cards for the man of your life.
+			Choose a design for your husband’s anniversary card.||Click the buttons below to see both the front and inside of the card.				
+			UNUSED				
+			Filet Mignon		WH1XX063.HCR	Filet Mignon	Select a card and message that fits your husband’s personality!
+			Daisies on a Hill		WH1XX053.CAR	Daisies on a Hill	^
+			Love Bug		WH1XX073.CAR	Love Bug	^
+			!Water Sunset		WH1XX033.CAR	Water Sunset	^
+			<recipient>				
+			!<sender>				
+		!Wife			CompressedBitmap	WHCARD_BM	The Anniversary cards for Wives include touching sayings and gorgeous hand-painted art.
+			Choose a design for your wife’s anniversary card.||Click the buttons below to see both the front and inside of the card.				
+			UNUSED				
+			Butterflies & Flowers		WH1XX002.HCR	Butterflies & Flowers	Select a card that mimics the style of your special Anniversary gift!
+			Canal Market		WH1XX081.HCR	Canal Market	^
+			Flower Vine		WH1XX078.HCR	Flower Vine	^
+			!Wine on Pier		WH1XX076.CAR	Wine on Pier	^
+			<recipient>				
+			!<sender>				
+	Birthday				CompressedBitmap	WHCARD_BM	"Birthday Cards include professional-looking designs for children, fathers, grandparents, and mothers."
+		Choose a recipient for your Birthday card.					
+		UNUSED					
+		Child			CompressedBitmap	WHCARD_BM	"Choose a Child birthday card to view a selection of bright, fun, and colorful cards with upbeat messages."
+			Choose a design for your child’s birthday card.||Click the buttons below to see both the front and inside of the card.				
+			UNUSED				
+			Cake Table		WH1XX226.CAR	Cake Table	Your birthday card can be easily customized in the Workspace.
+			Dino Disco		WH1XX196.CAR	Dino Disco	^
+			Goofy Dog		WH1XX186.CAR	Goofy Dog	^
+			!Birthday Star		WH1XX230.HCR	Birthday Star	^
+			<recipient>				
+			!<sender>				
+		Father			CompressedBitmap	WHCARD_BM	"The Father’s birthday cards can be used by children, wives, friends, and relatives."
+			Choose a design for your father’s birthday card.||Click the buttons below to see both the front and inside of the card.				
+			UNUSED				
+			Curious Kid		WH1XX191.HCR	Curious Kid	Pick a card that matches Dad’s personality.
+			Golfing Dad		WH1XX101.HCR	Golfing Dad	^
+			Rocky Mountain. High		WH1XX094.HCR	Rocky Mountain. High	^
+			!Playin' the Blues		WH1XX096.CAR	Playin' the Blues	^
+			<recipient>				
+			!<sender>				
+		General			CompressedBitmap	WHCARD_BM	The General birthday card includes several custom cards designed with enough room for you to personalize.
+			Choose a design for your birthday card.||Click the buttons below to see both the front and inside of the card.				
+			UNUSED				
+			Flower Stripes		WH1XX219.HCR	Flower Stripes	The General cards are basic designs that are great starting points for your creativity.
+			Flower Wallpaper		WH1XX169.HCR	Flower Wallpaper	^
+			Slugger		WH1XX239.HCR	Slugger	^
+			!Mouse-in-the-Box		WH1XX238.CAR	Mouse-in-the-Box	^
+			<recipient>				
+			!<sender>				
+		Grandparent			CompressedBitmap	WHCARD_BM	The Grandparent birthday cards include gorgeous hand-painted designs from the PrintMaster gallery.
+			Choose a design for your grandparent’s birthday card.||Click the buttons below to see both the front and inside of the card.				
+			UNUSED				
+			Birthday Mountain		WH1XX141.CAR	Birthday Mountain	"Pick the art that matches the tone of your card, then make final adjustments to your message in the Workspace."
+			Cat Nap		WH1XX136.CAR	Cat Nap	^
+			Purple Flower		WH1XX134.CAR	Purple Flower	^
+			!Breakfast in Bed		WH1XX142.HCR	Breakfast in Bed	^
+			<recipient>				
+			!<sender>				
+		!Mother			CompressedBitmap	WHCARD_BM	The Mother’s birthday cards include flowery and fun images that can be easily customized in the Workspace.
+			Choose a design for your mother’s birthday card.||Click the buttons below to see both the front and inside of the card.				
+			UNUSED				
+			Abstract Mom		WH1XX189.HCR	Abstract Mom	You can easily add art to your card in the Workspace. Just go to the Art Gallery button to see more.
+			Flowery Love		WH1XX280.HCR	Flowery Love	^
+			Patio Chat		WH1XX157.HCR	Patio Chat	^
+			!Tulip Dessert		WH1XX214.HCR	Tulip Dessert	^
+			<recipient>				
+			!<sender>				
+	Holiday				CompressedBitmap	WHCARD_BM	"Holiday Cards are festive cards for Christmas, Father’s Day, Hanukkah, Mother’s Day, and Valentine’s Day."
+		Choose a holiday for your card.					
+		UNUSED					
+		Christmas			CompressedBitmap	WHCARD_BM	Christmas cards include exciting designs that can be used by the whole family.
+			Choose a design for your Christmas card				
+			UNUSED				
+			Candles on Holly		WH1XX359.HCR	Candles on Holly	Customize your colorful Christmas cards with glue-on stars and glitter!
+			Green & Red Xmas		WH1XX344.HCR	Green & Red Xmas	^
+			Gingerbread Xmas		WH1XX380.CAR	Gingerbread Xmas	^
+			!Snowflake Christmas		WH1XX346.CAR	Snowflake Christmas	^
+			<recipient>				
+			!<sender>				
+		Father's Day			CompressedBitmap	WHCARD_BM	"The Father’s Day cards include funny, calm, and crossword-related art for the Dad in your life."
+			Choose a design for your Father’s Day card.				
+			UNUSED				
+			A Day by the Lake		WH1XX579.HCR	A Day by the Lake	You can easily change the message on your card by selecting a new one in the Sentiments Gallery.
+			Pool Hall Pappa		WH1XX587.HCR	Pool Hall Pappa	^
+			Stressing Pops		WH1XX599.HCR	Stressing Pops	^
+			!Crossword Gramps		WH1XX595.HCR	Crossword Gramps	^
+			<recipient>				
+			!<sender>				
+		Hanukkah			CompressedBitmap	WHCARD_BM	The Hanukkah Cards include beautiful Menorah images from our collection of hand-painted art.
+			Choose a design for your Hanukkah card below.				
+			UNUSED				
+			Dizzy Dreidel		WH1XX697.HCR	Dizzy Dreidel	Personalize your card by adding text and additional pictures in the Workspace.
+			Praying Jew		WH1XX695.HCR	Praying Jew	^
+			Hanukkah Light		WH1XX700.CAR	Hanukkah Light	^
+			!Menorah Alight		WH1XX691.CAR	Menorah Alight	^
+			<recipient>				
+			!<sender>				
+		Mother's Day			CompressedBitmap	WHCARD_BM	The Mother’s Day cards include funny and sentimental cards that will surprise any Mom.
+			Choose a design for your Mother’s Day card below.				
+			UNUSED				
+			Coffee Cake		WH1XX739.HCR	Coffee Cake	Really surprise your Mom by adding a scanned picture of you or your family on the card!
+			Red Flower		WH1XX732.HCR	Red Flower	^
+			Woodcut Mom		WH1XX719.HCR	Woodcut Mom	^
+			!Flower Collage		WH1XX720.CAR	Flower Collage	^
+			<recipient>				
+			!<sender>				
+		!Valentine's Day			CompressedBitmap	WHCARD_BM	The Valentine's Day cards include bright and bold designs that can be easily personalized in the Workspace.
+			Choose a design for your Valentine’s Day card below.				
+			UNUSED				
+			Be Mine Box		WH1XX974.HCR	Be Mine Box	Spice up your Valentine by gluing glitter and ribbons to your card.
+			Dog Heart		WH1XX882.HCR	Dog Heart	^
+			Hearts and Gifts		WH1XX879.HCR	Hearts and Gifts	^
+			!Puppy Love		WH1XX899.HCR	Puppy Love	^
+			<recipient>				
+			!<sender>				
+	Romantic				CompressedBitmap	WHCARD_BM	Romantic Cards include several general styles that you can personalize and adjust to your heart’s desire.
+		Select a category below.					
+		UNUSED					
+		!General			CompressedBitmap	WHCARD_BM	The General category includes pre-made designs ready for you to personalize.
+			Choose the style of your Romantic card below.				
+			UNUSED				
+			Message in the Sand		WH1XX813.HCR	Message in the Sand	You can easily change or edit the message in the Workspace by clicking on the text boxes and typing new text.
+			Muddy Pigs		WH1XX819.HCR	Muddy Pigs	^
+			Picketed Roses		WH1XX802.HCR	Picketed Roses	^
+			!Stars in her Hair		WH1XX821.CAR	Stars in her Hair	^
+			<recipient>				
+			!<sender>				
+	!Invitation				CompressedBitmap	WHCARD_BM	"Choose from Birthday, Christmas, Graduation, New Year’s, and Wedding invitations in several eye-catching styles."
+		Select a category of Invitations below.					
+		UNUSED					
+		Birthday			CompressedBitmap	WHCARD_BM	Birthday invitations include styles for both children and adults
+			Select a style of Birthday invitation below.				
+			UNUSED				
+			Clown Party		WH1XX296.CAR	Clown Party	PrintMaster can personalize your invitations with the information you placed in the Address Book.
+			Dinosaur Party		WH1XX290.CAR	Dinosaur Party	^
+			Flower Power		WH1XX289.HCR	Flower Power	^
+			!Party Animals		WH1XX294.HCR	Party Animals	^
+			!<recipient>				
+		Christmas			CompressedBitmap	WHCARD_BM	Christmas invitations are colorful holiday cards that can double as greetings.
+			Select a style of Christmas invitation below.				
+			UNUSED				
+			Holly Cow		WH1XX471.HCR	Holly Cow	Add pizzazz to your invitations by also designing matching envelopes!
+			Sledding Holidays		WH1XX467.HCR	Sledding Holidays	^
+			Trimming Party		WH1XX468.CAR	Trimming Party	^
+			!Wreath Lights		WH1XX469.CAR	Wreath Lights	^
+			<recipient>				
+			!<sender>				
+		Graduation			CompressedBitmap	WHCARD_BM	The Graduation invitations start a party with style. Select from the fun or serious styles and personalize them to your needs.
+			Select a style of Graduation invitation below.				
+			UNUSED				
+			Congrats Girl		WH1XX784.HCR	Congrats Girl	Personalize your invitation by adding the name of the school and degree earned!
+			Join Us		WH1XX492.CAR	Join Us	^
+			Pastel Diploma		WH1XX291.CAR	Pastel Diploma	^
+			!Woodcut Cap		WH1XX491.CAR	Woodcut Cap	^
+			!<name>				
+		New Year's			CompressedBitmap	WHCARD_BM	The New Year’s party invitations will catch everyone’s eyes. Pick from the festive designs and customize them in the Workspace.
+			Select the style of New Year’s invitation below.				
+			UNUSED				
+			Abstract Party 		WH1XX287.HCR	Abstract Party 	Liven up your invitation by sprinkling some glitter inside!
+			Happy New Year		WH1XX480.CAR	Happy New Year	^
+			Party Party Party		WH1XX297.HCR	Party Party Party	^
+			!Party Time		WH1XX288.HCR	Party Time	^
+			!<sender>				
+		!Wedding			CompressedBitmap	WHCARD_BM	The Wedding invitations include classic designs any bride will love. Print them out on heavyweight stock for the best effect.
+			Select the style of Wedding invitation below.				
+			UNUSED				
+			Ball 'n Chain		WH1XX994.HCR	Ball 'n Chain	The Wedding invitations include both wedding and wedding shower invitations.
+			Daffodil Bouquet		WH1XX997.HCR	Daffodil Bouquet	^
+			Hand Bouquet		WH1XX995.HCR	Hand Bouquet	^
+			!Ring Lock		WH1XX998.CAR	Ring Lock	^
+			<recipient>				
+			!<sender>				
+Label!5					CompressedBitmap	WHLABL_BM	The Label project makes it easy to create dozens of colorful labels at once.
+	Choose a type of label below.						
+	UNUSED						
+	Address				CompressedBitmap	WHLABL_BM	The Address Labels print on standard Avery labels.
+		Select the type of Avery label below.					
+		UNUSED					
+		5160 Address			LabelPreview	5160 Address	You can use other label types than those listed below but may need to adjust them in the Workspace.
+			Choose the style of label you would like.				
+			UNUSED				
+			Business		CompressedBitmap	WHLABL_BM	The Business style includes several professional looking designs.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	WH5XXX93.LBL	Ballooning Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	WH5XXX95.LBL	Party Planner Label	^
+				!Whimsy	WH5XXX91.LBL	Cake Label	^
+				!<label text>			
+			Educational		CompressedBitmap	WHLABL_BM	"The Educational styles included Classic, Contemporary, and Whimsical styles that can be used at home and at school."
+				Choose the style of label below.			
+				UNUSED			
+				Whimsy	WH5XXX97.LBL	Kida Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Classical	WH5XXX99.LBL	Temple Label	^
+				!Contemporary	WH5XX101.LBL	Film Label	^
+				!<label text>			
+			!Personal		CompressedBitmap	WHLABL_BM	The Personal styles are fun and colorful and easily customizable in the Workspace.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	WH5XX105.LBL	Floral Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx107.LBL	Georgia Label	^
+				!Whimsy	WH5XX103.LBL	Jack Label	^
+				!<label text>			
+		!5164 Address/Shipping			LabelPreview	5164 Address/Shipping	^
+			Choose the style of label you would like.				
+			UNUSED				
+			!Business		CompressedBitmap	WHLABL_BM	The Business style includes several professional looking designs.
+				Choose the style of label below.			
+				UNUSED			
+				!Classical	WH5XXX94.LBL	Classic Label	
+				!<label text>			
+	Diskette				CompressedBitmap	WHLABL_BM	The Diskette Labels print on standard Avery labels.
+		Select the type of Avery label below.					
+		UNUSED					
+		5196 3.5'' Diskette			LabelPreview	5196 3-1/2'' Diskette	You can use other label types than those listed below but may need to adjust them in the Workspace.
+			Choose the style of label you would like.				
+			UNUSED				
+			Business		CompressedBitmap	WHLABL_BM	The Business style includes several professional looking designs.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx111.LBL	Sushi Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx113.LBL	Cruise Label	^
+				!Whimsy	wh5xx109.LBL	Seaside Label	^
+				!<label text>			
+			Educational		CompressedBitmap	WHLABL_BM	"The Educational styles included Classic, Contemporary, and Whimsical styles that can be used at home and at school."
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx117.LBL	Wine Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx119.LBL	Fish Label	^
+				!Whimsy	wh5xx115.LBL	College Label	^
+				!<label text>			
+			!Personal		CompressedBitmap	WHLABL_BM	The Personal styles are fun and colorful and easily customizable in the Workspace.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx123.LBL	Autumn Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx125.LBL	Pen Label	^
+				!Whimsy	wh5xx121.LBL	Mandy Label	^
+				!<label text>			
+		!L7664 3.5'' Wraparound			LabelPreview	L7664 3.5'' Diskette - Wraparound	^
+			Choose the style of label you would like.				
+			UNUSED				
+			Business		CompressedBitmap	WHLABL_BM	The Business style includes several professional looking designs.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx112.LBL	Blackbird Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx114.LBL	Music Label	^
+				!Whimsy	wh5xx110.LBL	Cow Label	^
+				!<label text>			^
+			Educational		CompressedBitmap	WHLABL_BM	"The Educational styles included Classic, Contemporary, and Whimsical styles that can be used at home and at school."
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx118.LBL	Park Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx120.LBL	First Street	^
+				!Whimsy	wh5xx116.LBL	School Label	^
+				!<label text>			
+			!Personal		CompressedBitmap	WHLABL_BM	The Personal styles are fun and colorful and easily customizable in the Workspace.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx124.LBL	Penelope Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx126.LBL	Gecko Label	^
+				!Whimsy	wh5xx122.LBL	Billy Bob Label	^
+				!<label text>			
+	Name Badges				CompressedBitmap	WHLABL_BM	The Name Badge Labels print on standard label sheets and are easily customized.
+		Select the type of Avery label below.					
+		UNUSED					
+		5383 Name Tag			LabelPreview	5383 Name Tag	You can use other label types than those listed below but may need to adjust them in the Workspace.
+			Choose the style of label you would like.				
+			UNUSED				
+			Business		CompressedBitmap	WHLABL_BM	The Business style includes several professional looking designs.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx130.LBL	Jazz Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx132.LBL	Science Label	^
+				!Whimsy	wh5xx128.LBL	Strong Label	^
+				!<label text>			
+			Educational		CompressedBitmap	WHLABL_BM	"The Educational styles included Classic, Contemporary, and Whimsical styles that can be used at home and at school."
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx136.LBL	Softball Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx138.LBL	Digital Label	^
+				!Whimsy	wh5xx134.LBL	House Label	^
+				!<label text>			
+			!Personal		CompressedBitmap	WHLABL_BM	The Personal styles are fun and colorful and easily customizable in the Workspace.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx142.LBL	Top Hat Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx144.LBL	Gina Label	^
+				!Whimsy	wh5xx140.LBL	David Label	^
+				!<label text>			
+		!5395 Name Badge			LabelPreview	5395 Name Badge	^
+			Choose the style of label you would like.				
+			UNUSED				
+			Business		CompressedBitmap	WHLABL_BM	The Business style includes several professional looking designs.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx129.LBL	Skyscraper Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx131.LBL	Money Label	^
+				!Whimsy	wh5xx127.LBL	Career Label	^
+				!<label text>			
+			Educational		CompressedBitmap	WHLABL_BM	"The Educational styles included Classic, Contemporary, and Whimsical styles that can be used at home and at school."
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx135.LBL	Dance Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx137.LBL	Road Label	^
+				!Whimsy	wh5xx133.LBL	Doggie Label	^
+				!<label text>			
+			!Personal		CompressedBitmap	WHLABL_BM	The Personal styles are fun and colorful and easily customizable in the Workspace.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx141.LBL	Floral Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx143.LBL	Food Label	^
+				!Whimsy	wh5xx139.LBL	Picnic Label	^
+				!<label text>			
+	!Shipping				CompressedBitmap	WHLABL_BM	The Shipping Labels print on standard Avery Shipping labels (#5164).
+		Select the type of Avery label below.					
+		UNUSED					
+		!5164 Shipping			LabelPreview	5164 Address/Shipping	You can use other label types than those listed below but may need to adjust them in the Workspace.
+			Choose the style of label you would like.				
+			UNUSED				
+			Business		CompressedBitmap	WHLABL_BM	The Business style includes several professional looking designs.
+				Choose the style of label below.			
+				UNUSED			
+				Contemporary	WH5XXX96.LBL	Bakery Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				!Whimsy	WH5XXX92.LBL	Bunny Label	^
+				!<label text>			
+			Educational		CompressedBitmap	WHLABL_BM	"The Educational styles included Classic, Contemporary, and Whimsical styles that can be used at home and at school."
+				Choose the style of label below.			
+				UNUSED			
+				Contemporary	wh5xx102.LBL	Red Apple Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Whimsy	WH5XXX98.LBL	Library Label	^
+				!Classical	wh5xx100.LBL	Community Label	^
+				!<label text>			
+			!Personal		CompressedBitmap	WHLABL_BM	The Personal styles are fun and colorful and easily customizable in the Workspace.
+				Choose the style of label below.			
+				UNUSED			
+				Classical	wh5xx106.LBL	Shell Label	Use the Mail Merge feature to personalize and print numerous labels at a time.
+				Contemporary	wh5xx108.LBL	Bee Label	^
+				!Whimsy	wh5xx104.LBL	Animal Label	^
+				!<label text>			
+Letterhead!11					CompressedBitmap	WHSTAT_BM	The Letterhead project can add style and a professional flair to all your business letters and documents.
+	Choose a type of Letterhead below.						
+	UNUSED						
+	Business				CompressedBitmap	WHSTAT_BM	Business Letterhead includes technical and home designs that you can easily customize for your personal needs.
+		Choose a style of Business Letterhead below.					
+		UNUSED					
+		Building a Home			WH1XX583.LET	Building a Home	You can easily customize your letterhead in the Workspace after you select a style.
+		Cloudy Day			WH1XX519.LET	Cloudy Day	^
+		Planes in Space			WH1XX538.LET	Planes in Space	^
+		!Technotronic			WH1XX521.LET	Technotronic	^
+		<company>					
+		!<address>					
+	Floral				CompressedBitmap	WHSTAT_BM	The Floral Letterhead includes several layouts created specially by the PrintMaster designers.
+		Choose a style of Flora Letterhead below					
+		UNUSED					
+		Flower Crest			WH1XX570.LET	Flower Crest	You can easily format your name and address in the Workspace after you choose your design.
+		Long Stem Rose			WH1XX568.LET	Long Stem Rose	^
+		Pastel Picture			WH1XX565.LET	Pastel Picture	^
+		!Single Vase			WH1XX575.LET	Single Vase	^
+		<name>					
+		!<address>					
+	!Personal				CompressedBitmap	WHSTAT_BM	Personal Letterhead styles are appropriate for both home and the office. 
+		Choose a style of Personal Letterhead below.					
+		UNUSED					
+		Bottom Border			WH1XX585.LET	Bottom Border	Made your letterhead uniquely yours by adding a small scanned picture of you or your family!
+		Cooking Plates			WH1XX537.LET	Cooking Plates	^
+		Far out sun			WH1XX580.LET	Far out sun	^
+		!Sunshine Daydream			WH1XX555.LET	Sunshine Daydream	^
+		<name>					
+		!<address>					
+Newsletter!12					CompressedBitmap	WHNEWS_BM	"The Newsletter project can be used to create newsletters, bulletins, newspapers, and other multi-page documents."
+	Select a category of Newsletter below.						
+	UNUSED						
+	Business				CompressedBitmap	WHNEWS_BM	The Business Newsletter templates are easily customizable to your needs. Just add text and pictures in the provided frames and your off!
+		Choose the style of Business Newsletter below.					
+		UNUSED					
+		Classical			WH5XXX02.NWS	"Dude Ranch Newsletter, pg. 1-4"	Remember that you can create multi-page newsletters and connect text boxes throughout your document.
+		Contemporary			WH5XXX03.NWS	"Zoo Newsletter, pg. 1-4"	^
+		!Whimsy			WH5XXX01.NWS	"Fruit Newsletter, pg. 1-4"	^
+	Educational				CompressedBitmap	WHNEWS_BM	The Educational Newsletter templates are beautifully designed and will help you organize your information.
+		Choose the style of Educational Newsletter below.					
+		UNUSED					
+		Classical			WH5XXX05.NWS	"Wine Shop Newsletter, pg. 1-4"	Remember to place your most important information at the top and group related stories together!
+		Contemporary			WH5XXX06.NWS	"Travel Newsletter, pg. 1-4"	^
+		!Whimsy			WH5XXX04.NWS	"Seaside Nature Newsletter, pg. 1-4"	^
+	!Personal				CompressedBitmap	WHNEWS_BM	The Personal Newsletter templates work both as multi-page documents or as one-page newsletters.
+		Choose the style of Personal Newsletter below.					
+		UNUSED					
+		Classical			WH5XXX08.NWS	"Family Newsletter, pg. 1-4"	All Personal styles look good as one-page newsletters or as multiple-page documents.
+		Contemporary			WH5XXX09.NWS	"Horoscope Newsletter, pg. 1-4"	^
+		!Whimsy			WH5XXX07.NWS	"Flowers Newsletter, pg. 1-4"	^
+Poster!1					CompressedBitmap	WHPOST_BM	"The Poster project can be used to create page-sized posters, flyers, bulletins, and certificates."
+	Select a category of Poster below.						
+	UNUSED						
+	Event				CompressedBitmap	WHPOST_BM	"The Event Poster includes bold designs that announce parties, concerts, soccer games, conferences, and more."
+		Choose the type of Event Poster below.					
+		UNUSED					
+		Park Renovation			WH5XX780.SIG	Park Renovation	Remember that you can easily adjust your poster in the Workspace once you select a design.
+		Swingin' Jazz			WH5X0509.SIG	Swingin' Jazz	^
+		Budget Conscious			WH5XX787.SIG	Budget Conscious	^
+		!World Conference			WH5XX792.SIG	World Conference	^
+		<headline text>					
+		!<body text>					
+	For Sale				CompressedBitmap	WHPOST_BM	"The For Sale Posters include designs for yard, animal, and flower sales. "
+		Choose the type of For Sale Poster below.					
+		UNUSED					
+		Dog Sale			WH1XX033.SIG	Dog Sale	Really grab your customer’s eye with scanned photos of the items you are selling!
+		Flower Sale			WH1XX805.SIG	Flower Sale	^
+		House Sale			WH1XX001.SIG	House Sale	^
+		!Tulip Sale			WH1XX002.SIG	Tulip Sale	^
+		!<item>					
+	Home				CompressedBitmap	WHPOST_BM	"The Home Posters include designs that can be used throughout the home to say where you are, where things go, and what’s what."
+		Choose the type of Home Poster below.					
+		UNUSED					
+		Chef's Pantry			WH5XX803.SIG	Chef's Pantry	You can also use the Poster project to create book and folder covers. Just print them on heavyweight paper!
+		Funky Hat Collection			WH5XX800.SIG	Funky Hat Collection	^
+		Kitchen Gadgets			WH5XX802.SIG	Kitchen Gadgets	^
+		!Porcelain Teapots			WH5XX801.SIG	Porcelain Teapots	^
+		<headline text>					
+		!<body text>					
+	!Kid Stuff				CompressedBitmap	WHPOST_BM	The Kid’s Stuff Posters are fun for kids and the parents. Create bedroom door reminders or baby announcements!
+		Choose the type of Kid Stuff Poster below.					
+		UNUSED					
+		Dino Ride			WH1XX817.SIG	Dino Ride	"Add texture to your Kid Stuff poster by gluing stars, bits of paper, and confetti on its surface."
+		Fairy's Room			WH1XX809.SIG	Fairy's Room	^
+		Kid's Room			WH1XX807.SIG	Kid's Room	^
+		!Welcome Baby			WH1XX842.SIG	Welcome Baby	^
+		!<name>					
+!Web Page!15					CompressedBitmap	WHWEB_BM	"Choose from any of our Web templates, enter your information, then publish your project on the Web as an HTML file."
+	Select a category of Web Page project below.						
+	UNUSED						
+	Business				CompressedBitmap	WHWEB_BM	Business Web Page designs are professionally-designed pages that leave lots of room for your information.
+		Choose a style of Business Web Page below.					
+		UNUSED					
+		Classic			BCL.WEB	"Dude Ranch Newsletter, pg. 1-4"	"Create hyperlinks on your web page by selecting the buttons, then choose Hyperlink from the Web menu."
+		Contemporary			BCN.WEB	"Zoo Newsletter, pg. 1-4"	^
+		!Whimsy			BW.WEB	"Fruit Newsletter, pg. 1-4"	^
+	Community				CompressedBitmap	WHWEB_BM	The Community Web Page designs will help you organize your information and get the word out.
+		Choose a style of Community Web Page below.					
+		UNUSED					
+		Classic			CCL.WEB	"Wine Shop Newsletter, pg. 1-4"	Remember: It’s best not to use color body text on web pages. It can easily be mistaken for hyperlinked text.
+		Contemporary			CC.WEB	"Travel Newsletter, pg. 1-4"	^
+		!Whimsy			CW.WEB	"Seaside Nature Newsletter, pg. 1-4"	^
+	!Personal				CompressedBitmap	WHWEB_BM	"The Personal Web Page designs will catch your viewer’s eyes. Choose from the Classic, Contemporary, or Whimsical styles."
+		Choose a style of Personal Web Page below.					
+		UNUSED					
+		Classic			PCL.WEB	"Family Newsletter, pg. 1-4"	"Customize your personal web page with hyperlinks, animated GIF files, and scanned photos."
+		Contemporary			PCa.WEB	"Horoscope Newsletter, pg. 1-4"	^
+		!Whimsy			PW.WEB	"Flowers Newsletter, pg. 1-4"	^

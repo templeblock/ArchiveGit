@@ -1,0 +1,1755 @@
+#include "windows.h"
+#include "resource.h"
+#include "commonid.h"
+#include "jungleid.h"
+#include "control.h"
+
+//***********************************************************************
+stringtable LMD
+//***********************************************************************
+	{
+	IDS_CLASS,	"jungle"
+	IDS_TITLE,	"The Jungle Book"
+	IDS_INI,	"jungle.ini"
+	}
+
+//***********************************************************************
+// Imbedded icons, cursors, bitmaps, wave files, etc.
+//***********************************************************************
+-1						icon	LMD jungle.ico
+IDI_HOTSPOT				bitmap	LMD hotspot.bmp
+IDI_INSTINCT			bitmap	LMD instinct.bmp
+IDC_HAND_POINT_CURSOR	cursor	LMD hpoint.cur
+IDC_HAND_CLOSED_CURSOR	cursor	LMD no.cur
+
+// Save and resume game controls
+IDC_GAME0				bitmap	LMD buttout.bmp
+IDC_GAME0x				bitmap	LMD buttin.bmp
+IDC_GAME1				bitmap	LMD buttout.bmp
+IDC_GAME1x				bitmap	LMD buttin.bmp
+IDC_GAME2				bitmap	LMD buttout.bmp
+IDC_GAME2x				bitmap	LMD buttin.bmp
+IDC_GAME3				bitmap	LMD buttout.bmp
+IDC_GAME3x				bitmap	LMD buttin.bmp
+IDC_GAME4				bitmap	LMD buttout.bmp
+IDC_GAME4x				bitmap	LMD buttin.bmp
+IDC_GAME5				bitmap	LMD buttout.bmp
+IDC_GAME5x				bitmap	LMD buttin.bmp
+
+// Combination control bitmaps
+IDC_COMBO1				bitmap	LMD 00out.bmp
+IDC_COMBO2				bitmap	LMD 05out.bmp
+IDC_COMBO3				bitmap	LMD 10out.bmp
+IDC_COMBO4				bitmap	LMD 15out.bmp
+IDC_COMBO5				bitmap	LMD 20out.bmp
+IDC_COMBO6				bitmap	LMD 25out.bmp
+IDC_COMBO7				bitmap	LMD 30out.bmp
+IDC_COMBO8				bitmap	LMD 35out.bmp
+IDC_COMBO_DIGIT1		bitmap	LMD 00out.bmp
+IDC_COMBO_DIGIT2		bitmap	LMD 00out.bmp
+IDC_COMBO_DIGIT3		bitmap	LMD 00out.bmp
+//IDC_COMBO_TRYIT		bitmap	LMD tryitout.bmp
+//IDC_COMBO_TRYITx		bitmap	LMD tryitin.bmp
+//IDC_COMBO_GIVEUP		bitmap	LMD giveupot.bmp
+//IDC_COMBO_GIVEUPx		bitmap	LMD giveupin.bmp
+
+// Options screen resources
+IDC_SLIDER_MIDIVOL		bitmap	LMD thumb.bmp
+IDC_SLIDER_WAVVOL		bitmap	LMD thumb.bmp
+IDC_VOICE				bitmap	LMD voiceoff.bmp
+IDC_VOICEx				bitmap	LMD voiceon.bmp
+IDC_EXPERT				bitmap	LMD expertof.bmp
+IDC_EXPERTx				bitmap	LMD experton.bmp
+IDC_TALK_BUTTON			bitmap	LMD talkout.bmp
+IDC_TALK_BUTTONx		bitmap	LMD talkin.bmp
+IDC_INSTINCT_METER		bitmap	LMD instinc1.bmp
+IDC_INSTINCT_METER2		bitmap	LMD instinc2.bmp
+
+IDC_START				bitmap	LMD startout.bmp
+IDC_STARTx				bitmap	LMD startin.bmp
+IDC_RESUME				bitmap	LMD resumeot.bmp
+IDC_RESUMEx				bitmap	LMD resumein.bmp
+IDC_CREDITS				bitmap	LMD creditot.bmp
+IDC_CREDITSx			bitmap	LMD creditin.bmp
+IDC_OPTIONS				bitmap	LMD earout.bmp
+IDC_OPTIONSx			bitmap	LMD earin.bmp
+IDC_NOT					bitmap	LMD noout.bmp
+IDC_NOTx				bitmap	LMD noin.bmp
+IDC_YES					bitmap	LMD yesout.bmp
+IDC_YESx				bitmap	LMD yesin.bmp
+IDC_RETURN				bitmap	LMD rtrnout.bmp
+IDC_RETURNx				bitmap	LMD rtrnin.bmp
+IDC_EXIT				bitmap	LMD exitout.bmp
+IDC_EXITx				bitmap	LMD exitin.bmp
+IDC_ZOOM				bitmap	LMD zoomout.bmp
+IDC_ZOOMx				bitmap	LMD zoomin.bmp
+IDC_SAVE				bitmap	LMD saveout.bmp
+IDC_SAVEx				bitmap	LMD savein.bmp
+IDC_CANCEL				bitmap	LMD cancelot.bmp
+IDC_CANCELx				bitmap	LMD cancelin.bmp
+
+// Bitmaps for decisions
+IDC_LEFT				bitmap	LMD arrowlot.bmp
+IDC_LEFTx				bitmap	LMD arrowlin.bmp
+IDC_UP					bitmap	LMD arrowuot.bmp
+IDC_UPx					bitmap	LMD arrowuin.bmp
+IDC_RIGHT				bitmap	LMD arrowrot.bmp
+IDC_RIGHTx				bitmap	LMD arrowrin.bmp
+IDC_DOWN				bitmap	LMD arrowdot.bmp
+IDC_DOWNx				bitmap	LMD arrowdin.bmp
+IDC_HOME				bitmap	LMD arrowdot.bmp
+IDC_HOMEx				bitmap	LMD arrowdin.bmp
+
+IDC_DP5_L				bitmap	LMD arrowlot.bmp
+IDC_DP5_Lx				bitmap	LMD arrowlin.bmp
+IDC_DP5_U				bitmap	LMD arrowuot.bmp
+IDC_DP5_Ux				bitmap	LMD arrowuin.bmp
+IDC_DP5_R				bitmap	LMD arrowrot.bmp
+IDC_DP5_Rx				bitmap	LMD arrowrin.bmp
+
+IDC_DP7_L				bitmap	LMD wgn1out.bmp
+IDC_DP7_Lx				bitmap	LMD wgn1in.bmp
+IDC_DP7_R				bitmap	LMD wgn2out.bmp
+IDC_DP7_Rx				bitmap	LMD wgn2in.bmp
+
+IDC_DP8_L				bitmap	LMD arwbrgot.bmp
+IDC_DP8_Lx				bitmap	LMD arwbrgin.bmp
+IDC_DP8_R				bitmap	LMD arrowdot.bmp
+IDC_DP8_Rx				bitmap	LMD arrowdin.bmp
+
+IDC_DP10_L				bitmap	LMD jungleot.bmp
+IDC_DP10_Lx				bitmap	LMD junglein.bmp
+IDC_DP10_U				bitmap	LMD waterout.bmp
+IDC_DP10_Ux				bitmap	LMD waterin.bmp
+IDC_DP10_R				bitmap	LMD rwboatot.bmp
+IDC_DP10_Rx				bitmap	LMD rwboatin.bmp
+
+IDC_DP13_L				bitmap	LMD arch1ot.bmp
+IDC_DP13_Lx				bitmap	LMD arch1in.bmp
+IDC_DP13_U				bitmap	LMD arch2ot.bmp
+IDC_DP13_Ux				bitmap	LMD arch2in.bmp
+IDC_DP13_R				bitmap	LMD arch3ot.bmp
+IDC_DP13_Rx				bitmap	LMD arch3in.bmp
+IDC_DP13_D				bitmap	LMD arch4ot.bmp
+IDC_DP13_Dx				bitmap	LMD arch4in.bmp
+IDC_DP13_H				bitmap	LMD arch5ot.bmp
+IDC_DP13_Hx				bitmap	LMD arch5in.bmp
+
+IDC_DP25_L				bitmap	LMD arrowlot.bmp
+IDC_DP25_Lx				bitmap	LMD arrowlin.bmp
+IDC_DP25_U				bitmap	LMD arrowuot.bmp
+IDC_DP25_Ux				bitmap	LMD arrowuin.bmp
+IDC_DP25_R				bitmap	LMD arrowrot.bmp
+IDC_DP25_Rx				bitmap	LMD arrowrin.bmp
+
+IDC_DP27_L				bitmap	LMD arrowlot.bmp
+IDC_DP27_Lx				bitmap	LMD arrowlin.bmp
+
+IDC_DP32_L				bitmap	LMD arrowlot.bmp
+IDC_DP32_Lx				bitmap	LMD arrowlin.bmp
+IDC_DP32_U				bitmap	LMD arrowuot.bmp
+IDC_DP32_Ux				bitmap	LMD arrowuin.bmp
+IDC_DP32_R				bitmap	LMD arrowrot.bmp
+IDC_DP32_Rx				bitmap	LMD arrowrin.bmp
+
+IDC_DP43_L				bitmap	LMD aloneout.bmp
+IDC_DP43_Lx				bitmap	LMD alonein.bmp
+IDC_DP43_R				bitmap	LMD arwbrgot.bmp
+IDC_DP43_Rx				bitmap	LMD arwbrgin.bmp
+
+IDC_DP44_L				bitmap	LMD basketot.bmp
+IDC_DP44_Lx				bitmap	LMD basketin.bmp
+IDC_DP44_R				bitmap	LMD tntout.bmp
+IDC_DP44_Rx				bitmap	LMD tntin.bmp
+
+IDC_DP45_L				bitmap	LMD gunout.bmp
+IDC_DP45_Lx				bitmap	LMD gunin.bmp
+IDC_DP45_R				bitmap	LMD nogunot.bmp
+IDC_DP45_Rx				bitmap	LMD nogunin.bmp
+
+IDC_DP48_L				bitmap	LMD maletout.bmp
+IDC_DP48_Lx				bitmap	LMD maletin.bmp
+IDC_DP48_R				bitmap	LMD whipout.bmp
+IDC_DP48_Rx				bitmap	LMD whipin.bmp
+
+IDC_DP49_L				bitmap	LMD braceout.bmp
+IDC_DP49_Lx				bitmap	LMD bracein.bmp
+IDC_DP49_R				bitmap	LMD grbcrnot.bmp
+IDC_DP49_Rx				bitmap	LMD grbcrnin.bmp
+
+IDC_DP57_L				bitmap	LMD mouthot.bmp
+IDC_DP57_Lx				bitmap	LMD mouthin.bmp
+IDC_DP57_R				bitmap	LMD nomothot.bmp
+IDC_DP57_Rx				bitmap	LMD nomothin.bmp
+
+IDC_DP59_L				bitmap	LMD arrowlot.bmp
+IDC_DP59_Lx				bitmap	LMD arrowlin.bmp
+IDC_DP59_U				bitmap	LMD arrowuot.bmp
+IDC_DP59_Ux				bitmap	LMD arrowuin.bmp
+IDC_DP59_R				bitmap	LMD arrowrot.bmp
+IDC_DP59_Rx				bitmap	LMD arrowrin.bmp
+ 
+IDC_DP60_L				bitmap	LMD togethot.bmp
+IDC_DP60_Lx				bitmap	LMD togethin.bmp
+IDC_DP60_R				bitmap	LMD aloneout.bmp
+IDC_DP60_Rx				bitmap	LMD alonein.bmp
+
+IDC_DP69_L				bitmap	LMD door1out.bmp
+IDC_DP69_Lx				bitmap	LMD door1in.bmp
+IDC_DP69_U				bitmap	LMD door2out.bmp
+IDC_DP69_Ux				bitmap	LMD door2in.bmp
+IDC_DP69_R				bitmap	LMD door3out.bmp
+IDC_DP69_Rx				bitmap	LMD door3in.bmp
+IDC_DP69_D				bitmap	LMD door4out.bmp
+IDC_DP69_Dx				bitmap	LMD door4in.bmp
+
+IDC_DP71_L				bitmap	LMD nokeyout.bmp
+IDC_DP71_Lx				bitmap	LMD nokeyin.bmp
+IDC_DP71_R				bitmap	LMD keyout.bmp
+IDC_DP71_Rx				bitmap	LMD keyin.bmp
+
+IDC_DP76_L				bitmap	LMD plant2ot.bmp
+IDC_DP76_Lx				bitmap	LMD plant2in.bmp
+IDC_DP76_R				bitmap	LMD plant1ot.bmp
+IDC_DP76_Rx				bitmap	LMD plant1in.bmp
+
+IDC_DP77_L				bitmap	LMD aloneout.bmp
+IDC_DP77_Lx				bitmap	LMD alonein.bmp
+IDC_DP77_R				bitmap	LMD lockout.bmp
+IDC_DP77_Rx				bitmap	LMD lockin.bmp
+
+IDC_DP79_L				bitmap	LMD aloneout.bmp
+IDC_DP79_Lx				bitmap	LMD alonein.bmp
+IDC_DP79_R				bitmap	LMD brakeot.bmp
+IDC_DP79_Rx				bitmap	LMD brakein.bmp
+
+IDC_DP82_L				bitmap	LMD arrowlot.bmp
+IDC_DP82_Lx				bitmap	LMD arrowlin.bmp
+IDC_DP82_R				bitmap	LMD leverot.bmp
+IDC_DP82_Rx				bitmap	LMD leverin.bmp
+
+IDC_DP101_L				bitmap	LMD arch1ot.bmp
+IDC_DP101_Lx			bitmap	LMD arch1in.bmp
+IDC_DP101_U				bitmap	LMD arch2ot.bmp
+IDC_DP101_Ux			bitmap	LMD arch2in.bmp
+IDC_DP101_R				bitmap	LMD arch3ot.bmp
+IDC_DP101_Rx			bitmap	LMD arch3in.bmp
+IDC_DP101_D				bitmap	LMD arch4ot.bmp
+IDC_DP101_Dx			bitmap	LMD arch4in.bmp
+IDC_DP101_H				bitmap	LMD arch5ot.bmp
+IDC_DP101_Hx			bitmap	LMD arch5in.bmp
+
+// Bitmaps for puzzle progress icons
+IDC_PUZ_PROGRESS		bitmap	LMD key1.bmp
+IDC_PUZ_PROGRESSx		bitmap	LMD key2.bmp
+
+IDC_VP3					bitmap	LMD key1.bmp
+IDC_VP3x				bitmap	LMD key2.bmp
+
+IDC_VP18				bitmap	LMD bone1.bmp
+IDC_VP18x				bitmap	LMD bone2.bmp
+
+IDC_VP22				bitmap	LMD oar1.bmp
+IDC_VP22x				bitmap	LMD oar2.bmp
+
+IDC_VP28				bitmap	LMD waterf1.bmp
+IDC_VP28x				bitmap	LMD waterf2.bmp
+
+IDC_VP30				bitmap	LMD wolf1.bmp
+IDC_VP30x				bitmap	LMD wolf2.bmp
+
+IDC_VP46				bitmap	LMD key1.bmp
+IDC_VP46x				bitmap	LMD key2.bmp
+
+IDC_VP50				bitmap	LMD rope1.bmp
+IDC_VP50x				bitmap	LMD rope2.bmp
+
+IDC_VP52				bitmap	LMD fire1.bmp
+IDC_VP52x				bitmap	LMD fire2.bmp
+
+IDC_VP53				bitmap	LMD panther1.bmp
+IDC_VP53x				bitmap	LMD panther2.bmp
+
+IDC_VP55				bitmap	LMD crown1.bmp
+IDC_VP55x				bitmap	LMD crown2.bmp
+
+// Bitmaps for puzzle buttons
+IDC_PUZ_BTN1			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN1x			bitmap	LMD monk1in.bmp
+IDC_PUZ_BTN2			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN2x			bitmap	LMD monk2in.bmp
+IDC_PUZ_BTN3			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN3x			bitmap	LMD monk3in.bmp
+IDC_PUZ_BTN4			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN4x			bitmap	LMD monk4in.bmp
+IDC_PUZ_BTN5			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN5x			bitmap	LMD monk5in.bmp
+IDC_PUZ_BTN6			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN6x			bitmap	LMD monk6in.bmp
+IDC_PUZ_BTN7			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN7x			bitmap	LMD monk6in.bmp
+IDC_PUZ_BTN8			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN8x			bitmap	LMD monk5in.bmp
+IDC_PUZ_BTN9			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN9x			bitmap	LMD monk4in.bmp
+IDC_PUZ_BTN10			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN10x			bitmap	LMD monk3in.bmp
+IDC_PUZ_BTN11			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN11x			bitmap	LMD monk2in.bmp
+IDC_PUZ_BTN12			bitmap	LMD monk0out.bmp
+IDC_PUZ_BTN12x			bitmap	LMD monk1in.bmp
+
+IDC_CLOSE				wave	LMD goodbye.wav
+
+Right0					wave	LMD right0.wav
+Right1					wave	LMD right1.wav
+Right2					wave	LMD right2.wav
+Right3					wave	LMD right3.wav
+Right4					wave	LMD right4.wav
+Success0 				wave	LMD success0.wav
+Success1 				wave	LMD success1.wav
+Success2 				wave	LMD success2.wav
+Success3 				wave	LMD success3.wav
+Success4 				wave	LMD success4.wav
+Wrong0					wave	LMD wrong0.wav
+Wrong1					wave	LMD wrong1.wav
+Wrong2					wave	LMD wrong2.wav
+Wrong3					wave	LMD wrong3.wav
+Wrong4					wave	LMD wrong4.wav
+
+//***********************************************************************
+// Title specific scenes (dialogs)	stages, (backgrounds)  and props (controls)
+//
+// STAGE switches are as follows:
+//					/t# = transition #
+//					/s	= scaled to fit window
+//					/c	= centered
+//					/n	= do not use WinG
+//					/a	= animation will be used (requires 2 DIB's)
+// VIDEO switches are as follows:
+// Note: Two videos in one scene may cause a hang
+//					/a	= auto play (when scene begins)
+//					/f	= full screen playback
+//					/z	= zoom factor
+// GOTOSCENE switches are as follows:
+//					/t# = timed to go of in # seconds even if not clicked
+
+//***********************************************************************
+1 SCENE // The logo scene
+//***********************************************************************
+STAGE "ibm.bmp"
+PROPS
+	{
+	GOTOSCENE( "2/timer=5", -1, 0, 0, 640, 480 )
+	}
+
+//***********************************************************************
+2 SCENE // The main menu scene
+//***********************************************************************
+STAGE "main.bmp/transition=10,jungle.mid/l"
+PROPS
+	{
+	DDIB( IDC_START, 126, 404 )		// Start a New Game
+	DDIB( IDC_RESUME, 260, 404 )	// Resume the last Game
+	DDIB( IDC_CREDITS, 403, 404 )	// Credits
+	DDIB( IDC_OPTIONS, 8, 418 )		// Option
+	DDIB( IDC_EXIT, 556, 418 )		// Quit
+}
+
+//***********************************************************************
+20 SCENE // The game scene
+//***********************************************************************
+STAGE "play.bmp/a"
+PROPS
+	{
+	VIDEO( "jungle%d.avi/zoom=2/autoplay", IDC_VIDEO_GAME, 160, 78 )
+	DDIB( IDC_PUZ_BTN1,	0, 0 )			 // Puzzle buttons 53 x 44
+	DDIB( IDC_PUZ_BTN2,	0, 0 )
+	DDIB( IDC_PUZ_BTN3,	0, 0 )
+	DDIB( IDC_PUZ_BTN4,	0, 0 )
+	DDIB( IDC_PUZ_BTN5,	0, 0 )
+	DDIB( IDC_PUZ_BTN6,	0, 0 )
+	DDIB( IDC_PUZ_BTN7,	0, 0 )
+	DDIB( IDC_PUZ_BTN8,	0, 0 )
+	DDIB( IDC_PUZ_BTN9,	0, 0 )
+	DDIB( IDC_PUZ_BTN10,0, 0 )
+	DDIB( IDC_PUZ_BTN11,0, 0 )
+	DDIB( IDC_PUZ_BTN12,0, 0 )
+	METER( IDC_PUZ_PROGRESS, 104, 364 )
+	DDIB( IDC_TALK_BUTTON, 112, 410 )
+
+	DDIB( IDC_LEFT,	168, 363 )
+	DDIB( IDC_UP,	276, 363 )
+	DDIB( IDC_RIGHT,384, 363 )
+	DDIB( IDC_DOWN,	492, 363 )
+	DDIB( IDC_HOME,	492, 363 )
+
+	METERX( IDC_INSTINCT_METER, 169, 334 )
+
+	BMULTI( IDC_COMBO_DIGIT1, 220, 363 )
+	BMULTI( IDC_COMBO_DIGIT2, 288, 363 )
+	BMULTI( IDC_COMBO_DIGIT3, 356, 363 )
+//	DDIB( IDC_COMBO_TRYIT,	  335, 353 )
+//	DDIB( IDC_COMBO_GIVEUP,	  430, 353 )
+
+	DDIB( IDC_OPTIONS,	8, 418 )
+	DDIB( IDC_EXIT, 556, 418 )
+	DDIB( IDC_ZOOM, 110, 454 )
+	DDIB( IDC_SAVE, 480, 454 )
+
+	#ifdef _DEBUG
+	LTEXT( "", IDC_VIDEO_SHOTNAME, 4, 315, 100, 20 ) | WS_BORDER
+	LTEXT( "", IDC_VIDEO_SHOTFRAME, 4, 335, 100, 20 ) | WS_BORDER
+	EDIT( IDC_VIDEO_GOTO, 4, 355, 100, 30 )
+	#endif
+	}
+
+//***********************************************************************
+30 SCENE // The resume game scene
+//***********************************************************************
+STAGE "resume.bmp/transition=10,jungle.mid/l"
+PROPS
+	{
+	LTEXT( "", IDC_GAME1_NAME, 254,  85, 195, 18 )
+	LTEXT( "", IDC_GAME2_NAME, 254, 121, 195, 18 )
+	LTEXT( "", IDC_GAME3_NAME, 254, 157, 195, 18 )
+	LTEXT( "", IDC_GAME4_NAME, 254, 192, 195, 18 )
+	LTEXT( "", IDC_GAME5_NAME, 254, 229, 195, 18 )
+	DDIB( IDC_GAME1, 182,  79 )
+	DDIB( IDC_GAME2, 182, 115 )
+	DDIB( IDC_GAME3, 182, 151 )
+	DDIB( IDC_GAME4, 182, 186 )
+	DDIB( IDC_GAME5, 182, 223 )
+	DDIB( IDC_GAME0, 182, 259 )
+	DDIB( IDC_CANCEL, 265, 370 )
+	}
+
+//***********************************************************************
+40 SCENE // The options screen
+//***********************************************************************
+STAGE "options.bmp/a/transition=12"
+PROPS
+	{
+	HSLIDER( IDC_SLIDER_WAVVOL,	 170-8, 115-11, 301+16, 25+22 ) // thumb is 16x47 pixels
+	HSLIDER( IDC_SLIDER_MIDIVOL, 170-8, 190-11, 301+16, 25+22 )
+	DDIB( IDC_VOICE, 427, 224 )
+	DDIB( IDC_EXPERT, 427, 269 )
+	DDIB( IDC_RETURN, 265, 370 )
+	}
+
+//***********************************************************************
+50 SCENE // The credits scene
+//***********************************************************************
+STAGE "credits.bmp/a/transition=12,jungle.mid/l"
+PROPS
+	{
+	DDIB( IDC_RETURN, 265, 370 )
+	}
+
+//***********************************************************************
+50 RCDATA
+//***********************************************************************
+{
+"
+	name Producers,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Curt Marvis,					start 600 120, end 040 120, delay 100;","
+	name  Dean Mauro,					start 600 150, end 040 150, delay 002;","
+	name Creative Director/Writer,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Chris Painter,				start 600 120, end 040 120, delay 100;","
+	name Lead Developer,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Jim McCurdy,					start 600 120, end 040 120, delay 100;","
+	name Software Development,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Ted Rogers,					start 600 090, end 040 090, delay 100;","
+	name  Brian McGlasson,				start 600 120, end 040 120, delay 100;","
+	name  Peter Tarca,					start 600 150, end 040 150, delay 100;","
+	name  Steve Suggs,					start 600 180, end 040 180, delay 100;","
+	name Live-Action Director,			start 040 040, end 040 300, delay 000, speed 50;","
+	name Director of Photography,		start 040 040, end 040 300, delay 500, speed 50;","
+	name  Mackenzie Waggaman,			start 600 120, end 040 120, delay 100;","
+	name Editor,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Conrad Smart,					start 600 120, end 040 120, delay 100;","
+	name Production Designer,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Kirk Petrucelli,				start 600 120, end 040 120, delay 100;","
+	name Line Producer,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  J.P. Paster,					start 600 120, end 040 120, delay 100;","
+	name 1st Assistant Director,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Marc Oppenheimer,				start 600 120, end 040 120, delay 100;","
+	name Post-Production Supervisor,	start 040 040, end 040 300, delay 000, speed 50;","
+	name Additional Editing,			start 040 040, end 040 300, delay 500, speed 50;","
+	name  Rob Claridge,					start 600 120, end 040 120, delay 100;","
+	name Composer/Sound Design,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Chuck Barth,					start 600 120, end 040 120, delay 100;","
+	name Sound Design/FX editing,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Derek Sample,					start 600 090, end 040 090, delay 100;","
+	name  Tass Filipos,					start 600 120, end 040 120, delay 100;","
+	name  Marty Blasick,				start 600 150, end 040 150, delay 100;","
+	name  Justin Walden,				start 600 180, end 040 180, delay 100;","
+	name Interface Design,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Nick Newton,					start 600 120, end 040 120, delay 100;","
+	name Executive Producer,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Frank Mazza,					start 600 120, end 040 120, delay 100;","
+	name Cast,							start 040 040, end 040 300, delay 000, speed 50;","
+	name  Gary Schwartz as Illy,		start 600 120, end 040 120, delay 100;","
+	name  Nicholas Guest as Sargeant Polk,	start 600 150, end 040 150, delay 100;","
+	name  Amy Scholl as Young Woman,	start 600 180, end 040 180, delay 100;","
+	name  Eddie Ripley as La Tee,		start 600 210, end 040 210, delay 100;","
+	name Soldiers,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Michael Cervin,				start 600 090, end 040 090, delay 100;","
+	name  Simon Alexander,				start 600 120, end 040 120, delay 100;","
+	name  Anthony Crane,				start 600 150, end 040 150, delay 100;","
+	name  Frank Galandtha,				start 600 180, end 040 180, delay 100;","
+	name  Gary Applebaum,				start 600 210, end 040 210, delay 100;","
+	name  Paul O’Mahoney,				start 600 240, end 040 240, delay 100;","
+	name Program Executive - IBM,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Bernie Rice,					start 600 120, end 040 120, delay 100;","
+	name Executive Producer - IBM,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Paul Zuzelo,					start 600 120, end 040 120, delay 100;","
+	name Business Development - IBM,	start 040 040, end 040 300, delay 000, speed 50;","
+	name  Jim Mediate,					start 600 120, end 040 120, delay 100;","
+	name Producer - IBM,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Steffen Bartschat,			start 600 120, end 040 120, delay 100;","
+	name Assistant Producer - IBM,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Mike Cox,						start 600 120, end 040 120, delay 100;","
+	name Test Leads - IBM,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Irenie Poitras,				start 600 120, end 040 120, delay 100;","
+	name  Kim Wilkens,					start 600 150, end 040 150, delay 100;","
+	name Testing - IBM,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Patrick Veedock,				start 600 120, end 040 120, delay 100;","
+	name  Larry Hsieh,					start 600 150, end 040 150, delay 100;","
+	name  Russ Chapman,					start 600 180, end 040 180, delay 100;","
+	name Test Lead - Beacon Rock,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Aaron Prentice,				start 600 120, end 040 120, delay 100;","
+	name Testing - Beacon Rock,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Eric Basler,					start 600 120, end 040 120, delay 100;","
+	name  Bobby Bell,					start 600 150, end 040 150, delay 100;","
+	name  Bob Swenson,					start 600 180, end 040 180, delay 100;","
+	name Operations Manager,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Helene Forman,				start 600 120, end 040 120, delay 100;","
+	name Production Coordinator,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Joseph Boyle,					start 600 120, end 040 120, delay 100;","
+	name Script Supervisor,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Ethlie Ann Vare,				start 600 120, end 040 120, delay 100;","
+	name 2nd Script Supervisor,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Austen Povorotney,			start 600 120, end 040 120, delay 100;","
+	name 2nd Assistant Director,		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Tia Ardran,					start 600 120, end 040 120, delay 100;","
+	name Set Decorator,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Katie Lipsitt,				start 600 120, end 040 120, delay 100;","
+	name Art Director,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Robert Joseph,				start 600 120, end 040 120, delay 100;","
+	name Camera Operators,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Michael Miller,				start 600 120, end 040 120, delay 100;","
+	name  Peter Hutchinson,				start 600 150, end 040 150, delay 100;","
+	name Steadicam Operator,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Gerard O’Malley,				start 600 120, end 040 120, delay 100;","
+	name Video Technician,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Chris White,					start 600 120, end 040 120, delay 100;","
+	name Ultimatte Operator,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Aaron Wince,					start 600 120, end 040 120, delay 100;","
+	name Gaffer,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Mark Whitney,					start 600 120, end 040 120, delay 100;","
+	name  Doug Blagg,					start 600 150, end 040 150, delay 100;","
+	name Best Boy Electric,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Brian Roach,					start 600 120, end 040 120, delay 100;","
+	name  Chris Bothwell,				start 600 150, end 040 150, delay 100;","
+	name  James Davis,					start 600 180, end 040 180, delay 100;","
+	name  Skip McGraw,					start 600 210, end 040 210, delay 100;","
+	name  Dominique Sfreddo,			start 600 240, end 040 240, delay 100;","
+	name Electric,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Britt Daniel,					start 600 120, end 040 120, delay 100;","
+	name Key Grip,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Kurt Wolff,					start 600 120, end 040 120, delay 100;","
+	name  Todd Newton,					start 600 150, end 040 150, delay 100;","
+	name Best Boy Grip,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Steve Dornbush,				start 600 120, end 040 120, delay 100;","
+	name  Bill Petty,					start 600 150, end 040 150, delay 100;","
+	name Grip,							start 040 040, end 040 300, delay 000, speed 50;","
+	name  Cicero Demoraes,				start 600 120, end 040 120, delay 100;","
+	name  Jacqueline McLaughlin,		start 600 150, end 040 150, delay 100;","
+	name Swing/Driver,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Charlie Dalrymple,			start 600 120, end 040 120, delay 100;","
+	name Swing,							start 040 040, end 040 300, delay 000, speed 50;","
+	name  Shark Fralick,				start 600 120, end 040 120, delay 100;","
+	name Grip (Tenn),					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Peter Kimball,				start 600 120, end 040 120, delay 100;","
+	name Sound Mixer,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Don Summers,					start 600 120, end 040 120, delay 100;","
+	name Boom Operator,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Bryant Grizzell,				start 600 120, end 040 120, delay 100;","
+	name Animatronics,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Rod Matsui,					start 600 120, end 040 120, delay 100;","
+	name Key Hair/Makeup,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Valerie Tuohy-Shutt,			start 600 120, end 040 120, delay 100;","
+	name Asst. Makeup,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Yvonne Hawker,				start 600 120, end 040 120, delay 100;","
+	name Key Wardrobe Stylist,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Eric Berg,					start 600 120, end 040 120, delay 100;","
+	name Asst. Wardrobe,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Jamie Lauren,					start 600 120, end 040 120, delay 100;","
+	name Location Scout (LA),			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Errol Reichow,				start 600 120, end 040 120, delay 100;","
+	name Location Scout (Tenn),			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Mark Ragland,					start 600 120, end 040 120, delay 100;","
+	name Storyboards,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Georgia Bragg,				start 600 120, end 040 120, delay 100;","
+	name Graphic Artist,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Shamooi Torres,				start 600 120, end 040 120, delay 100;","
+	name Art Swing,						start 040 040, end 040 300, delay 000, speed 50;","
+	name  Drew Daywalt,					start 600 120, end 040 120, delay 100;","
+	name  Michael Baker,				start 600 150, end 040 150, delay 100;","
+	name  Andreas Gabor,				start 600 180, end 040 180, delay 100;","
+	name  James Collins,				start 600 210, end 040 210, delay 100;","
+	name  Bill Rosier,					start 600 240, end 040 240, delay 100;","
+	name Office Production Assistant,	start 040 040, end 040 300, delay 000, speed 50;","
+	name  David Scheinbaum,				start 600 120, end 040 120, delay 100;","
+	name Production Assistant/Driver,	start 040 040, end 040 300, delay 000, speed 50;","
+	name  Wade Whitley,					start 600 120, end 040 120, delay 100;","
+	name Production Assistant,			start 040 040, end 040 300, delay 000, speed 50;","
+	name  Edna Alonso,					start 600 120, end 040 120, delay 100;","
+	name  Chip Rothenberger,			start 600 150, end 040 150, delay 100;","
+	name  Marc George,					start 600 180, end 040 180, delay 100;","
+	name  Mike Jaques,					start 600 210, end 040 210, delay 100;","
+	name  Walter Flores,				start 600 120, end 040 120, delay 2500;","
+	name  Woody Johnson,				start 600 150, end 040 150, delay 100;","
+	name  Gary Sims,					start 600 180, end 040 180, delay 100;","
+	name  Aurelio Sanchez,				start 600 210, end 040 210, delay 100;","
+	name Art Intern,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Raquel Hieney,				start 600 120, end 040 120, delay 100;","
+	name Production Intern,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Evan Rice,					start 600 120, end 040 120, delay 100;","
+	name  Juana Martinez,				start 600 150, end 040 150, delay 100;","
+	name Production Asst. (Tenn),		start 040 040, end 040 300, delay 000, speed 50;","
+	name  Ronnie Burgess,				start 600 120, end 040 120, delay 100;","
+	name  Maxy Robertson,				start 600 150, end 040 150, delay 100;","
+	name  Aaron Loyd,					start 600 180, end 040 180, delay 100;","
+	name  Steve Myers,					start 600 210, end 040 210, delay 100;","
+	name Craft Service,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Laura Bagano,					start 600 120, end 040 120, delay 100;","
+	name  Tim Kloppenburg,				start 600 150, end 040 150, delay 100;","
+	name Asst. Editor,					start 040 040, end 040 300, delay 000, speed 50;","
+	name  Bronwyn Barkan,				start 600 120, end 040 120, delay 100;","
+	name Computer Graphics,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Radical 3D,					start 600 120, end 040 120, delay 100;","
+	name  Jason McKinley,				start 600 150, end 040 150, delay 100;","
+	name On-Line Services,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Bedlam,						start 600 120, end 040 120, delay 100;","
+	name  Tony Selzer,					start 600 150, end 040 150, delay 100;","
+	name On-Line Editor,				start 040 040, end 040 300, delay 000, speed 50;","
+	name  Tim Stepich,					start 600 120, end 040 120, delay 100;","
+",0
+}
+
+//***********************************************************************
+60 SCENE // The quit scene
+//***********************************************************************
+STAGE "quit.bmp/transition=13,jungle.mid/l"
+PROPS
+	{
+	DDIB( IDC_YES, 200, 380 )
+	DDIB( IDC_NOT, 331, 380 )
+	}
+
+//***********************************************************************
+70 SCENE // The save game scene
+//***********************************************************************
+STAGE "save.bmp/transition=10,jungle.mid/l"
+PROPS
+	{
+	EDITX( IDC_GAME1_NAME, 253, 102, 195, 18 )
+	EDITX( IDC_GAME2_NAME, 253, 138, 195, 18 )
+	EDITX( IDC_GAME3_NAME, 253, 174, 195, 18 )
+	EDITX( IDC_GAME4_NAME, 253, 209, 195, 18 )
+	EDITX( IDC_GAME5_NAME, 253, 246, 195, 18 )
+	DDIB( IDC_GAME1, 182,  96 )
+	DDIB( IDC_GAME2, 182, 132 )
+	DDIB( IDC_GAME3, 182, 168 )
+	DDIB( IDC_GAME4, 182, 203 )
+	DDIB( IDC_GAME5, 182, 240 )
+	DDIB( IDC_CANCEL, 265, 370 )
+	}
+
+#define alias 0 0 0, end
+
+//***********************************************************************
+IDC_VIDEO_GAME rcdata LMD
+//***********************************************************************
+{
+"
+//---------------------------------------------------------------------------------------------------
+// DISK 1
+//---------------------------------------------------------------------------------------------------
+
+/START		 4	 819 1, end /S3R;","
+/S3R	   824	2595 1, end /S3R3;","
+						//---------------------------------------------------------------------------
+						// S3 - puzzle at the iron gate
+						//---------------------------------------------------------------------------
+						// Road to point S3
+/S3R3	  4520	4738 1, end /S3D1;","
+						// Front portion of 3D
+/S3D1	  5196	5554 1, end /S3L;","
+						// Start loop at iron gate
+/S3L	  4716	4806 1, end /stop, up /S3L1, down /S3B, value A_PUZZLE 3;","
+						// Choice 3L1 (first improper voice response) - stay in loop
+/S3L1	  4716	4806 1, end /stop, up /S3L2, down /S3B, value A_PUZZLE 3;","
+						// Choice 3L2 (second improper voice response) - stay in loop
+/S3L2	  4716	4806 1, end /stop, up /S3D2, down /S3B, value A_PUZZLE 3 A_HELPER_CLIP_DONE;","
+						// Choice 3B (proper response)
+/S3B	  4812	5187 1, end /S3R1, value A_ADD_IQ2;","
+						// Choice 3D (3rd improper response)
+//S3D	  5620	6219 1, end /S3R1, value A_SUB_IQ2;","
+/S3D2	  5556	5823 1, end /S3D3, value A_SUB_IQ2;","
+/S3D3	  6004	6219 1, end /S3R1;","
+/S3R1	  2596	2869 1, end /Hot76, leftsub /Sub76;","
+/Sub76	  2709	2869 1, end /prev, left /Hot76 5556, value A_SPECIAL;"," // 7 seconds (of 20 recorded) of monkey city hotspot
+/Hot76	  3376	4513 1, end /S3MSN, leftsub /Sub28 count 2, value A_ADD_IQ;"," // starshape intro - montage
+/S3MSN	 44676 44839 1, end /S3R2;"," // help on your mission to find the crown
+/S3R2	  2992	3259 1, end /S5R count 2;"," // return from Hot76
+						// Hotspots 3
+/Hot28	  3264	3314 1, end /prev, value A_ADD_IQ;"," // multiple monkeys
+/Hot50	  3320	3369 1, end /prev, value A_ADD_IQ;"," // soldiers on horseback
+
+/Sub28	  4124	4214 1, end /prev, left /Hot28 0959, value A_SPECIAL;","
+/Sub50	  4230	4324 1, end /prev, left /Hot50 0905, value A_SPECIAL;","
+
+						//---------------------------------------------------------------------------
+						// S5 - on jungle trail, at triple crossroads
+						//---------------------------------------------------------------------------
+						// Road to S5 - Illy prompts player to click ons
+/S5R	  6224	6459 1, end /S5Hot85, leftsub /Sub85;","
+/S5ALTR	  7888	8110 1, end /S5AHot85, leftsub /Sub851;","
+/Sub85	  6365	6399 1, end /prev, left /S5Hot85 0909, value A_SPECIAL;","
+/Sub851	  8005	8033 1, end /prev, left /S5AHot85 0909, value A_SPECIAL;","
+						// The all important instinct hotspot 85
+/S5Hot85  7152	7883 1, end /S5RX, leftsub /Sub85a count 2, value A_ADD_IQ A_SPECIAL;"," // starshape explains instinct hotspots
+/S5AHot85 7152	7883 1, end /S5ALTRX, leftsub /Sub85a count 2, value A_ADD_IQ A_SPECIAL;"," // starshape explains instinct hotspots
+/Sub85a	  7542	7582 1, end /prev, left /Sub85a 4545, value A_SPECIAL A_IGNORE;"," // not real hotspots
+/Sub85b	  7680	7693 1, end /prev, left /Sub85b 4545, value A_SPECIAL A_IGNORE;"," // not real hotspots
+						// Continuations
+/S5RX	  6548	6919 1, end /S5L, leftsub /Sub09;","
+/S5ALTRX  8220	8647 1, end /S5ALTL, leftsub /Sub091;","
+/Sub09	  6548	6616 1, end /prev, left /Hot09 0109, value A_SPECIAL;","
+/Sub091	  8220	8303 1, end /prev, left /Hot09 0109, value A_SPECIAL;","
+						// Reentry points
+/S5R1	  6520	6919 1, end /S5L;","
+/S5ALTR1  8188	8647 1, end /S5ALTL;","
+						// Loop for S5
+/S5L	  6920	7147 1, end /S5E, leftsub /S5S1 count 2, upsub /S5S1 count 2, rightsub /S5S1 count 2;","
+/S5S1	  6992	7147 1, end /prev, left /S5D 0379, up /S5C 3436, right /S5B 6749;","
+/S5S2	     0 99999 1, end /prev, left /S5D, up /S5C, right /S5B;","
+						// Loop for S5
+/S5ALTL	  8648	8851 1, end /S5E,  left /S5D 0379, up /S5C 3436, right /S5B 6749;","
+						// Choice 5B (left path) - goto S7
+/S5B alias /S7R;","
+						// Choice 5C (center path) - goto S8
+/S5C alias /S8R;","
+						// Choice 5D (right path) - goto S76
+/S5D	 13352 13606 1, end /S76R, leftsub /Sub30 count 2;","
+/Sub30	 13463 13543 1, end /prev, left /Hot30 0204, value A_SPECIAL;","
+/Sub44	 13554 13606 1, end /prev, left /Hot44 0909, value A_SPECIAL;","
+						// Choice 5E (do nothing)
+/S5E	 13612 13739 1, end /S5E, leftsub /S5ES1 count 2, upsub /S5ES1 count 2, rightsub /S5ES1 count 2, value A_DECISION 5;","
+/S5ES1	 13650 13739 1, end /prev, left /S5D 0379, up /S5C 3436, right /S5B 6749;","
+/S5ES2	     0 99999 1, end /prev, left /S5D, up /S5C, right /S5B;","
+						// Hotspots 5
+/Hot85	  7152	7883 1, end /prev, leftsub /Sub85a1 count 2, value A_ADD_IQ A_SPECIAL;"," // starshape explains instinct hotspots
+/Sub85a1  7542	7582 1, end /prev, left /Sub85a1 4545, value A_SPECIAL A_IGNORE;"," // not real hotspots
+/Sub85b1  7680	7693 1, end /prev, left /Sub85b1 4545, value A_SPECIAL A_IGNORE;"," // not real hotspots
+/Hot09	  8856	8887 1, end /prev, value A_ADD_IQ;"," // bear waving
+/Hot58	  8892	9088 1, end /prev, value A_ADD_IQ;"," // panther, bear, wolf, Mogli "animals are our friends"
+
+						// Hotspots 5B
+/Hot04	 10556 10638 1, end /prev, value A_ADD_IQ;"," // panther running up a tree
+/Hot24	 10644 10671 1, end /prev, value A_ADD_IQ;"," // monkey
+/Hot47	 10676 10775 1, end /prev, value A_ADD_IQ;"," // tiger on cliff
+/Hot54	 10784 10794 1, end /prev, value A_ADD_IQ;"," // wolf
+/Hot78	 10800 11127 1, end /prev, value A_ADD_IQ;"," // starshape explains tiger Shere Khan
+
+						// Hotspots 5B
+/Hot25	 12620 12671 1, end /prev, value A_ADD_IQ;"," // monkey climbs tree
+/Hot30	 12676 12943 1, end /prev, value A_ADD_IQ;"," // bear with head stuck, young Mowgli
+/Hot44	 12948 13071 1, end /prev, value A_ADD_IQ;"," // Mowgli and panther in tree
+//Hot77	 13076 13344 1, end /prev, value A_ADD_IQ;"," // starshape explains deciding for you
+
+						//---------------------------------------------------------------------------
+						// S7 - on mountain trail at wagon
+						//---------------------------------------------------------------------------
+						// Loop for S7
+/S7R	  9096 10549 1, end /S7L, leftsub /Sub24 count 7, rightsub /Sub24 count 7;","
+/Sub24	  9160	9240 1, end /prev, left /Hot24 7904, value A_SPECIAL;","
+/Sub04	  9240	9275 1, end /prev, left /Hot04 0204, value A_SPECIAL;","
+/Sub78	  9378	9458 1, end /prev, left /Hot78 0204, value A_SPECIAL;","
+/Sub54	  9665	9715 1, end /prev, left /Hot54 0909, value A_SPECIAL;","
+/Sub47	  9715	9780 1, end /prev, left /Hot47 0909, value A_SPECIAL;","
+/Sub58	  9780	9854 1, end /prev, left /Hot58 0909, value A_SPECIAL;","
+/S7S1	 10332 10549 1, end /prev, left /S7B 1538, right /S7C 7908;","
+/S7S2	     0 99999 1, end /prev, left /S7B, right /S7C;","
+/S7L	 10332 10549 1, end /S7E, leftsub /S7S1 count 2, rightsub /S7S1 count 2, value A_DECISION 7;","
+						// Choice 7B (get into wagon) - goto S79
+/S7B	 13744 14111 1, end /S79R, leftsub /Sub42;","
+/Sub42	 13744 13834 1, end /prev, left /Hot42 0347, value A_SPECIAL;","
+						// Choice 7C (keep moving) - goto S5
+/S7C	 14652 15069 1, end /S5R1 count 2;","
+						// Choice 7E (do nothing)
+/S7E	 15076 15173 1, end /S7L, left /S7B 1538, right /S7C 7908, value A_DECISION 7;","
+
+						//---------------------------------------------------------------------------
+						// S79 - in the wagon
+						//---------------------------------------------------------------------------
+						// Loop for S79
+/S79R	 14112 14200 1, end /S79L, leftsub /S79S1 count 2, rightsub /S79S1 count 2;","
+/S79L	 14112 14200 1, end /S79L, leftsub /S79S1 count 2, rightsub /S79S1 count 2, value A_DECISION 79;","
+/S79S1	 14150 14200 1, end /prev, left /S79C 4609, right /S79B 8839;","
+/S79S2	     0 99999 1, end /prev, left /S79C, right /S79B;","
+						// Choice 79B (release wagon brake) - goto S80
+/S79B	 15908 16019 1, end /S80R;","
+						// Choice 79C (run for it) - goto S5
+/S79C	 16476 16691 1, end /S5R1 count 2;","
+
+						// Hotspot 42 - hint for wild wagon ride
+/Hot42	 14252 14647 1, end /prev, value A_ADD_IQ;"," // tiger invades village, wagon burns and explodes
+
+						//---------------------------------------------------------------------------
+						// S80 - in wagon going down hill
+						//---------------------------------------------------------------------------
+						// Road to S80
+/S80R	 16020 16471 1, end /S80C, leftsub /S80S1 count 4;","
+						// Subshots
+/S80S1	 16342 16357 1, end /prev, left /S80B 0309;","
+/S80S2	 16378 16403 1, end /prev, left /S80B 6909;","
+/S80S3	 16433 16446 1, end /prev, left /S80B 0309;","
+/S80S4	 16447 16471 1, end /prev, left /S80B 6909;","
+						// Choice 80B (player jumps) - goto S5
+/S80B	 16696 17123 1, end /S5R1 count 2;","
+						// Choice 80C - (player doesn't jump) random choice between 80CL and 80CR
+/S80C	 17128 17223 1, end /S80C1 count 2;","
+						// 80C Random choice - left path (hit tree and explode)
+/S80C1	 17228 17515 1, end /S80C.*1;","
+						// 80C Random choice - right path (fall off of cliff)
+/S80C2	 17520 17718 1, end /S80C.*1;","
+						 // Starshape - explaining about instinct
+/S80C.*1 17728 18137 1, end /S5R1 count 2;","
+
+						//---------------------------------------------------------------------------
+						// S76 - bear gets shot
+						//---------------------------------------------------------------------------
+						// Loop at S76
+/S76R	 34684 35707 1, end /S76L, leftsub /S76S1 count 4, rightsub /S76S1 count 4;","
+/S76L	 35400 35707 1, end /S76L, leftsub /S76S1 count 4, rightsub /S76S1 count 4, value A_DECISION 76;","
+/S76S1	 35443 35486 1, end /prev, left /S76C 2446, right /S76B 5746;","
+/S76S2	 35696 35707 1, end /prev, left /S76C 2446, right /S76B 5746;","
+/S76S3	     0 99999 1, end /prev, left /S76C, right /S76B;","
+/Sub73	 34684 34775 1, end /prev, left /Hot73 0209, value A_SPECIAL;","
+						// Choice 76B (choose pink plant) - goto S32
+/S76B	 35748 35795 1, end /S32R;","
+						// Choice 76C (choose white plant) - goto S5
+/S76C	 36256 36847 1, end /S5R1 count 2;","
+
+						// Hotspots 76
+/Hot73	 35712 35741 1, end /prev, value A_ADD_IQ;"," // toss pink flower on ground
+
+						//---------------------------------------------------------------------------
+						// S32 - trail to 3 vines
+						//---------------------------------------------------------------------------
+						// Loop for S32
+/S32R	 35796 36251 1, end /S32L, leftsub /S32S1 count 2, upsub /S32S1 count 2, rightsub /S32S1 count 2;","
+/S32L	 36180 36251 1, end /S32L, leftsub /S32S1 count 2, upsub /S32S1 count 2, rightsub /S32S1 count 2, value A_DECISION 32;","
+/S32S1	 36180 36251 1, end /prev, left /S32B 1209, up /S32C 4509, right /S32D 7809;","
+/S32S2	     0 99999 1, end /prev, left /S32B, up /S32C, right /S32D;","
+						// Choice 32B (choose left vine) - heal Baloo bear
+/S32B	 36852 37191 1, end /S35R;","
+						// Choice 32C (choose middle vine) - smash into trees
+/S32C	 37328 37623 1, end /S32R;","
+						// Choice 32D (choose right vine) - KAA eats us
+/S32D	 37628 37695 1, end /S32R;","
+//UNUSED
+//S32E1	 37700 38000 // good vine
+//S32E2	 38056 38227 // bad vine
+						// Hotspots 32B
+/Hot07	 37196 37211 1, end /prev, value A_ADD_IQ;"," // bear closeup
+/Hot40	 37216 37323 1, end /prev, value A_ADD_IQ;"," // young Mowgli and baby bear
+
+						//---------------------------------------------------------------------------
+						// S35 - heal Baloo
+						//---------------------------------------------------------------------------
+						// Road to S35 with Baloo and healing tree
+/S35R	 38432 39515 1, end /S82C1, leftsub /Sub07 count 14;"," // was going to /S25RX
+						// Subshots
+/Sub07	 39318 39368 1, end /prev, left /Hot07 0909, value A_SPECIAL;","
+/S35S1	 39414 39443 1, end /prev, left /S35A 6846, value A_SPECIAL;","
+/S35S2	 39444 39448 1, end /prev, left /S35A 5846, value A_SPECIAL;","
+/S35S3	 39449 39451 1, end /prev, left /S35A 4846, value A_SPECIAL;","
+/S35S4	 39452 39452 1, end /prev, left /S35A 3846, value A_SPECIAL;","
+/S35S5	 39453 39454 1, end /prev, left /S35A 2846, value A_SPECIAL;","
+/S35S6	 39455 39456 1, end /prev, left /S35A 1746, value A_SPECIAL;","
+/S35S7	 39457 39458 1, end /prev, left /S35A 0746, value A_SPECIAL;","
+/S35S8	 39459 39461 1, end /prev, left /S35A 0646, value A_SPECIAL;","
+/S35S9	 39462 39463 1, end /prev, left /S35A 0546, value A_SPECIAL;","
+/S35S10	 39464 39464 1, end /prev, left /S35A 0446, value A_SPECIAL;","
+/S35S11	 39465 39465 1, end /prev, left /S35A 0346, value A_SPECIAL;","
+/S35S12	 39466 39466 1, end /prev, left /S35A 0246, value A_SPECIAL;","
+/S35S13	 39467 39467 1, end /prev, left /S35A 0146, value A_SPECIAL;","
+						// S35A - (clicked on tree and see booby trap)
+/S35A	 38232 38427 1, end /S82C1, value A_ADD_IQ;","
+
+						//---------------------------------------------------------------------------
+						// S8 - at bridge
+						//---------------------------------------------------------------------------
+						// Loop for S8
+/S8R	 11136 12612 1, end /S8L, leftsub /Sub25 count 11, rightsub /Sub25 count 11, downsub /Sub25 count 11;","
+/S8L	 12392 12612 1, end /S8L, leftsub /S8S1 count 10, rightsub /S8S1 count 10, downsub /S8S1 count 10, value A_DECISION 8;","
+						// Subshots for S8
+/Sub25	 11454 11544 1, end /prev, left /Hot25 0909, value A_SPECIAL;","
+/S8S1	 12128 12156 1, end /prev, left /S8B 3508, right /S8C 8909;"," // Illy and the bridge
+/S8S2	 12157 12188 1, end /prev, down /S8E 3848;"," // Latee at cliff
+/S8S3	 12189 12240 1, end /prev, left /S8B 3508, right /S8C 8909;"," // Illy and the bridge
+/S8S4	 12241 12272 1, end /prev, down /S8E 3848;"," // Latee at cliff
+/S8S5	 12273 12356 1, end /prev, left /S8B 3508, right /S8C 8909;"," // Illy and the bridge
+/S8S6	 12357 12390 1, end /prev, down /S8E 3848;"," // Latee at cliff
+/S8S7	 12391 12503 1, end /prev, left /S8B 3508, right /S8C 8909;"," // Illy and the bridge
+/S8S8	 12504 12537 1, end /prev, down /S8E 3848;"," // Latee at cliff
+/S8S9	 12538 12612 1, end /prev, left /S8B 0909;"," // Closeup of bridge
+/S8S10	     0 99999 1, end /prev, left /S8B, right /S8C;","
+						// Choice 8B (walk onto bridge) - goto S82
+/S8B alias /S82R;","
+						// Choice 8C (go back the way we came) - goto S5
+/S8C	 18760 18899 1, end /S5R1 count 2;","
+						// Choice 8E (jump off cliff) - on end, goto S5(low) or S10(hi) based on IQ
+/S8E	 18904 19003 1, end /test count TV_INSTINCT_AT_8E, home /S8E.*2L, up /S8E.*2H;","
+						// Starshapes when you jump off cliff
+/S8E.*2L 19008 19159 1, end /S5R1 count 2;"," // low IQ - I won't even ask.. Not enough instict you're going down off the cliff
+/S8E.*2H 19164 19239 1, end /S10R count 2;"," // high IQ - when your instinct point are high, you can do almost anything
+
+						//---------------------------------------------------------------------------
+						// S82 - at lever
+						//---------------------------------------------------------------------------
+						// Loop for S82
+/S82R	 18144 18752 1, end /S82L, leftsub /S82S1 count 3, upsub /S82S1 count 3, rightsub /S82S1 count 3;","
+/S82L	 18676 18752 1, end /S82L, leftsub /S82S1 count 3, upsub /S82S1 count 3, rightsub /S82S1 count 3, value A_DECISION 82;","
+						// Subshots for S82
+/S82S1	 18635 18670 1, end /S82L, left /S82C 0609, right /S82B 8919;","
+/S82S2	 18671 18752 1, end /S82L, left /S82C 0209, up /S82C 7909, right /S82B 4619;","
+/S82S3	     0 99999 1, end /S82L, left /S82C, right /S82B;","
+						// Choice 82B (pull lever) - on end, goto S5(low) or S10(hi) based on IQ
+/S82B	 19244 19523 1, end /test count TV_INSTINCT_AT_82B, home /S82B.*2L, up /S82B.*2H;","
+						// Starshapes when you pull lever
+/S82B.*2L 19008 19159 1, end /S5R1 count 2;"," // low IQ - I won't even ask.. Not enough instict you're going down off the cliff
+/S82B.*2H 19164 19239 1, end /S10R count 2;"," // high IQ - when your instinct point are high, you can do almost anything
+						// Choice 82C (don't pull lever) - goto S10
+/S82C	 19528 19742 1, end /S82C1, leftsub /Sub29;","
+/Sub29	 19632 19742 1, end /prev, left /Hot29 0909, value A_SPECIAL;","
+/S82C1	 11472 11908 1, end /S10R count 2;"," // stolen from S5C for Latee continuity
+
+						// Hotspots 82C
+/Hot01	 19776 19823 1, end /prev, value A_ADD_IQ;"," // panther on rock
+/Hot29	 19828 19959 1, end /prev, value A_ADD_IQ;"," // Mowgli gets captured
+/Hot71	 19964 20107 1, end /prev, value A_ADD_IQ;"," // starshape, "sometimes river is wall, sometimes road"
+
+						//---------------------------------------------------------------------------
+						// S10 - at river's edge
+						//---------------------------------------------------------------------------
+						// Road to shot 10
+/S10R	 20112 20627 1, end /S10L, leftsub /Sub01 count 2;","
+/S10ALTR 26024 26555 1, end /S10ALTL, leftsub /Sub56 count 2;","
+						// Subshots
+/Sub01	 20135 20225 1, end /prev, left /Hot01 0302, value A_SPECIAL;","
+/Sub71	 20262 20352 1, end /prev, left /Hot71 8905, value A_SPECIAL;","
+/Sub56	 26032 26122 1, end /prev, left /Hot56 9902, value A_SPECIAL;","
+/Sub12	 26181 26271 1, end /prev, left /Hot12 0303, value A_SPECIAL;","
+						// Road to shot 10 - reentry from S13B
+/S10R1	 20394 20627 1, end /S10L;","
+						// Loop for S10
+/S10L	 20628 20789 1, end /S10L, left /S10D, up /S10C, right /S10B, value A_DECISION 10;","
+/S10ALTL 26556 26667 1, end /S10ALTL, left /S10D, up /S10C, right /S10B, value A_DECISION 10;","
+						// Choice 10B (take wooden boat) - goto S21
+/S10B alias /S21R;","
+						// Choice 10C (take river trail) - goto S13
+/S10C alias /S13R;","
+						// Choice 10D (trail into jungle) - goto S5
+/S10D	 25312 25811 1, end /S5R1 count 2, leftsub /Sub06 count 2;","
+/Sub06	 25522 25612 1, end /prev, left /Hot06 8901, value A_SPECIAL;","
+/Sub45	 25695 25785 1, end /prev, left /Hot45 0101, value A_SPECIAL;","
+
+						// Hotspots 10B
+/Hot35	 22920 23022 1, end /prev, value A_ADD_IQ;"," // Mowgli riding an elephant
+/Hot41	 23028 23367 1, end /prev, value A_ADD_IQ;"," // young Mowgli and wolf ride log down hill
+/Hot60	 23372 23446 1, end /prev, value A_ADD_IQ;"," // Mowgli and wolf running
+
+						// Hotspots 10C/13R
+/Hot05	 24780 24875 1, end /prev, value A_ADD_IQ;"," // panther running
+/Hot33	 24888 25226 1, end /prev, value A_ADD_IQ;"," // young Mowgli and panther
+/Hot45	 25232 25267 1, end /prev, value A_ADD_IQ;"," // monkeys in tree
+/Hot49	 25272 25307 1, end /prev, value A_ADD_IQ;"," // tiger running towards us
+
+						// Hotspots 10D
+/Hot06	 25816 25831 1, end /prev, value A_ADD_IQ;"," // bear closeup
+/Hot12	 25836 25882 1, end /prev, value A_ADD_IQ;"," // panther closeup
+/Hot56	 25888 26019 1, end /prev, value A_ADD_IQ;"," // wolves
+
+						//---------------------------------------------------------------------------
+						// S21 - on the river
+						//---------------------------------------------------------------------------
+						// slice out a little too much whirlpool
+/S21R	 20796 22476 1, end /S21R1, leftsub /Sub32x count 24;","
+/S21R1	 22824 22915 1, end /S22F2;","
+
+						// Subshots for S21
+/Sub32x	 21327 21386 1, end /prev, left /Hot32 0909, value A_SPECIAL;","
+/Sub17x	 21387 21444 1, end /prev, left /Hot17 0909, value A_SPECIAL;","
+/Sub47x	 21445 21504 1, end /prev, left /Hot47 0909, value A_SPECIAL;","
+/Sub07x	 21505 21587 1, end /prev, left /Hot07 0909, value A_SPECIAL;","
+/Sub35	 21768 21864 1, end /prev, left /Hot35 0909, value A_SPECIAL;","
+/S21S1	 22018 22044 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S2	 22062 22087 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S3	 22108 22118 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S4	 22131 22142 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S5	 22153 22164 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S6	 22195 22229 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S7	 22230 22255 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S8	 22255 22265 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S9	 22279 22288 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S10	 22304 22310 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S11	 22319 22324 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S13	 22354 22361 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S14	 22371 22377 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S15	 22386 22393 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S16	 22402 22408 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S17	 22417 22424 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S18	 22433 22439 1, end /prev, left /S21B 4919;"," // click on LaTee
+/S21S19	 22448 22455 1, end /prev, left /S21C 2909;"," // click on soldier
+/S21S20	 22469 22476 1, end /prev, left /S21B 4919;"," // click on LaTee
+						// Choice 21B (click on La-Tee)
+/S21B	 26672 27149 1, end /S22L;","
+						// Choice 21C (click on soldier)
+/S21C	 27268 27583 1, end /S21C.*4;","
+						// Starshape - get caught by soldier without getting the oar
+/S21C.*4 27588 27696 1, end /S10R count 2;"," // not your fault - not easy without an oar
+
+						//---------------------------------------------------------------------------
+						// S22 - puzzle while floating down river
+						//---------------------------------------------------------------------------
+						// Loop for point S22
+/S22L	 27152 27263 1, end /stop, up /S22C1, down /S22B, value A_PUZZLE 22;","
+						// Choice 22B (proper response) - goto S13
+/S22B	 27704 28043 1, end /S22Success, value A_ADD_IQ2;","
+/S22Success 44920 44991 1, end /S13RX;"," // good job, now let's go find...
+						// Choice 22C (first improper response) - goto loop for S22
+/S22C1	 28048 28127 1, end /stop, up /S22C2, down /S22B, value A_PUZZLE 22;","
+						// Choice 22C (second improper response) - goto loop for S22
+/S22C2	 28132 28235 1, end /S22C2X, up /S22C3, down /S22B, value A_PUZZLE 22;","
+/S22C2X	 28108 28127 1, end /stop, up /S22C3, down /S22B, value A_PUZZLE 22;","
+						// Choice 22C (third improper response) - goto loop for S22
+/S22C3	 28240 28387 1, end /S22C3X, up /S22F1, down /S22B, value A_PUZZLE 22 A_HELPER_CLIP_DONE;","
+/S22C3X	 28108 28127 1, end /stop, up /S22F1, down /S22B, value A_PUZZLE 22 A_HELPER_CLIP_DONE;","
+						// Choice 22F (you go over the rapids)
+/S22F1	 28392 28551 1, end /S22F2, value A_SUB_IQ2;","
+						// Illy wet on the trail
+/S22F2	 28556 28807 1, end /S22F.*5;","
+						// Starshape - listen to Latee - go back and try again
+/S22F.*5 28812 28963 1, end /S10L count 2;"," // latee was telling you what to do - you need to learn language - go try again
+						//---------------------------------------------------------------------------
+						// S13 - river trail to the arches
+						//---------------------------------------------------------------------------
+						// Loop for S13
+/S13R	 23452 24775 1, end /S13L, leftsub /S13S1 count 5, upsub /S13S1 count 5, rightsub /S13S1 count 5, downsub /S13S1 count 5, homesub /S13S1 count 5;","
+/S13RX	 24055 24775 1, end /S13L, leftsub /S13S1 count 5, upsub /S13S1 count 5, rightsub /S13S1 count 5, downsub /S13S1 count 5, homesub /S13S1 count 5;","
+/S13L	 24632 24775 1, end /S13L, leftsub /S13S1 count 5, upsub /S13S1 count 5, rightsub /S13S1 count 5, downsub /S13S1 count 5, homesub /S13S1 count 5, value A_DECISION 13;","
+						// Road to S13 - good return point
+/S13R1	 24144 24775 1, end /S13L, leftsub /S13S1 count 5, upsub /S13S1 count 5, rightsub /S13S1 count 5, downsub /S13S1 count 5, homesub /S13S1 count 5;","
+/S13S1	 24632 24775 1, end /prev, left /S13B 0109, up /S13C 2328, right /S13E 4537, down /S13F 6628, home /S13G 8909;","
+/Sub05	 23496 23565 1, end /prev, left /Hot05 8906, value A_SPECIAL;","
+/Sub41	 23565 23655 1, end /prev, left /Hot41 0105, value A_SPECIAL;","
+/Sub33	 23958 24030 1, end /prev, left /Hot33 6909, value A_SPECIAL;","
+/Sub60	 24055 24125 1, end /prev, left /Hot60 0909, value A_SPECIAL;","
+						// Choice 13B (arch 1) - goto S10
+/S13B	 28968 29263 1, end /S10R1, leftsub /Sub55;","
+/Sub55	 29000 29090 1, end /prev, left /Hot55 0102, value A_SPECIAL;","
+						// Choice 13C (arch 2) - goto S18
+/S13C	 29984 30131 1, end /S18R, leftsub /Sub59;","
+/Sub59	 30018 30088 1, end /prev, left /Hot59 0109, value A_SPECIAL;","
+						// Choice 13E (arch 3) - goto S25
+//S13E	 29268 29767 1, end /S25RX, leftsub /Sub02 count 3;","
+/S13E	 29268 29767 1, end /S13R1, leftsub /Sub02 count 3;","
+/Sub02	 29326 29416 1, end /prev, left /Hot02 0302, value A_SPECIAL;","
+/Sub08	 29617 29692 1, end /prev, left /Hot08 8904, value A_SPECIAL;","
+/Sub14	 29692 29767 1, end /prev, left /Hot14 0101, value A_SPECIAL;","
+						// Choice 13F (arch 4) - goto S13 - Shere Khan blocks trail
+/S13F	 30308 31403 1, end /S13R1, leftsub /Sub46 count 2;","
+/Sub46	 30491 30548 1, end /prev, left /Hot46 0259, value A_SPECIAL;","
+/Sub51	 31005 31095 1, end /prev, left /Hot51 9904, value A_SPECIAL;","
+						// Choice 13G (arch 5) - goto S27
+/S13G	 31556 31947 1, end /S27R, leftsub /Sub15 count 3;","
+/Sub15	 31586 31676 1, end /prev, left /Hot15 0201, value A_SPECIAL;","
+/Sub61	 31680 31770 1, end /prev, left /Hot61 8901, value A_SPECIAL;","
+/Sub11	 31776 31866 1, end /prev, left /Hot11 9989, value A_SPECIAL;","
+
+						// Hotspots 13C
+/Hot02	 29772 29826 1, end /prev, value A_ADD_IQ;"," // panther down from tree
+/Hot08	 29832 29867 1, end /prev, value A_ADD_IQ;"," // bear closeup
+/Hot14	 29872 29979 1, end /prev, value A_ADD_IQ;"," // tiger closeup
+
+						// Hotspots 13E
+/Hot55	 30136 30158 1, end /prev, value A_ADD_IQ;"," // lone wolf
+/Hot59	 30164 30199 1, end /prev, value A_ADD_IQ;"," // tiger running
+/Hot61	 30204 30299 1, end /prev, value A_ADD_IQ;"," // baby Baloo climbing a tree
+
+						// Hotspots 13F
+/Hot15	 31408 31454 1, end /prev, value A_ADD_IQ;"," // tiger
+/Hot46	 31460 31475 1, end /prev, value A_ADD_IQ;"," // tiger running
+/Hot51	 31480 31547 1, end /prev, value A_ADD_IQ;"," // monkey
+
+						//---------------------------------------------------------------------------
+						// S18 - in the graveyard
+						//---------------------------------------------------------------------------
+						// Road to S18
+/S18R	 31952 32467 1, end /S18L;","
+						// Loop for S18
+/S18L	 32512 32547 1, end /stop, up /S18C, down /S18Success, value A_PUZZLE 18;","
+						// Choice 18B (proper voice response) - goto S25
+/S18Success 44920 44991 1, end /S18B;"," // good job, now let's go find...
+/S18B	 32888 33731 1, end /S13R1, leftsub /Sub17 count 3, value A_ADD_IQ2;","
+/Sub17	 32940 33010 1, end /prev, left /Hot17 8904, value A_SPECIAL;","
+/Sub37	 33170 33250 1, end /prev, left /Hot37 4556, value A_SPECIAL;","
+/Sub83	 33617 33691 1, end /prev, left /Hot83 0959, value A_SPECIAL;","
+						// Choice 18C (first improper voice response) - stay in loop for S18
+/S18C	 33968 34071 1, end /S18L2, up /S18C2, down /S18B, value A_PUZZLE 18;","
+						// Loop for S18
+/S18L2	 32512 32547 1, end /stop, up /S18C2, down /S18B, value A_PUZZLE 18;","
+						// Choice 18C (second improper voice response) - stay in loop for S18
+/S18C2	 33968 34071 1, end /S18L3, up /S18G, down /S18B, value A_PUZZLE 18;","
+						// Loop for S18
+/S18L3	 32512 32547 1, end /stop, up /S18G, down /S18B, value A_PUZZLE 18 A_HELPER_CLIP_DONE;","
+						// Choice 18G (third improper response) - goto S27
+/S18G	 34076 34678 1, end /S13R1, value A_SUB_IQ2;","
+
+						// Hotspots 18
+/Hot11	 32552 32590 1, end /prev, value A_ADD_IQ;"," // panther closeup
+/Hot17	 32600 32703 1, end /prev, value A_ADD_IQ;"," // elephants
+/Hot37	 32708 32842 1, end /prev, value A_ADD_IQ;"," // Mowgli awakened and jumps from tree
+
+						// Hotspots 18B
+/Hot83	 33820 33887 1, end /prev, value A_ADD_IQ, leftsub /Sub84;"," // wide view of fort
+/Sub84	 33820 33887 1, end /prev, left /Hot84 3825, value A_SPECIAL;","
+/Hot84	 33892 33963 1, end /prev, value A_ADD_IQ, leftsub /Sub74;"," // closeup of fort
+/Sub74	 33892 33963 1, end /prev, left /Hot74 3827, value A_SPECIAL;","
+/Hot74	 33740 33814 1, end /S18X, value A_ADD_IQ;"," // rotating crown
+/S18X	 33676 33731 1, end /S25RX;","
+
+						//---------------------------------------------------------------------------
+						// S27 - on trail approaching river
+						//---------------------------------------------------------------------------
+						// Road to S27
+/S27R	 39520 39979 1, end /S28R, upsub /S27S1, leftsub /Sub32 count 2;","
+/Sub32	 39600 39680 1, end /prev, left /Hot32 7909, value A_SPECIAL;","
+/Sub81	 39720 39812 1, end /prev, left /Hot81 0289, value A_SPECIAL;","
+						// Subshots for S27 (a clickable river)
+/S27S1	 39893 39952 1, end /prev, up /S27B 0479, down /Hot50 4604;","
+						// Choice 27B (click on river) - goto S13 if low, else play /S27B1
+/S27B	 40964 41147 1, end /test count TV_INSTINCT_AT_27B, home /S27B.*2L, up /S27B1;","
+						// Starshapes when you jump off cliff
+/S27B.*2L 19008 19159 1, end /S13L;"," // low IQ - I won't even ask.. Not enough instict you're going down off the cliff
+/S27B1	 41152 41388 1, end /S25RX;"," // high IQ - when your instinct point are high, you can do almost anything
+
+						// Hotspots 27
+/Hot32	 40328 40579 1, end /prev, value A_ADD_IQ;"," // Mowgli jumps off waterfall
+/Hot81	 40584 40958 1, end /prev, value A_ADD_IQ;"," // Soldiers searching for Illy and Latee
+
+						//---------------------------------------------------------------------------
+						// S28 - at waterfall
+						//---------------------------------------------------------------------------
+						// Road to S28
+/S28R	 39980 40321 1, end /S28L;","
+						// Loop for S28
+/S28L	 40224 40321 1, end /stop, up /S28C, down /S28B, value A_PUZZLE 28;","
+						// Choice 28B (proper voice response) - goto S30
+/S28B	 41396 42076 1, end /S30L, leftsub /Sub34, value A_ADD_IQ2;","
+/Sub34	 41502 41592 1, end /prev, left /Hot34 4637, value A_SPECIAL;","
+						// Choice 28C (first improper voice response) - stay in loop for S28
+/S28C	 42084 42131 1, end /S28L2, up /S28C2, down /S28B, value A_PUZZLE 28;","
+						// Loop for S28
+/S28L2	 40224 40321 1, end /stop, up /S28C2, down /S28B, value A_PUZZLE 28;","
+						// Choice 28C (second improper voice response) - stay in loop for S28
+/S28C2	 42084 42131 1, end /S28L3, up /S28F, down /S28B, value A_PUZZLE 28;","
+						// Loop for S28
+/S28L3	 40224 40321 1, end /stop, up /S28F, down /S28B, value A_PUZZLE 28 A_HELPER_CLIP_DONE;","
+						// Choice 28F (third improper response) - goto S27
+/S28F	 42136 42271 1, end /S13R1, value A_SUB_IQ2;","
+
+						//---------------------------------------------------------------------------
+						// S30 - wolf puzzle
+						//---------------------------------------------------------------------------
+						// Loop for S30
+/S30L	 42000 42076 1, end /stop, up /S30C, down /S30B, value A_PUZZLE 30;","
+						// Choice 30B (proper response) - goto S25
+/S30B	 42276 42539 1, end /S25RX, value A_ADD_IQ2;","
+						// Choice 30C (first improper response)
+/S30C	 42768 42855 1, end /S30L2, up /S30F, down /S30B, value A_PUZZLE 30;","
+						// Loop for S30
+/S30L2	 42000 42076 1, end /stop, up /S30C2, down /S30B, value A_PUZZLE 30;","
+						// Choice 30C (second improper response)
+/S30C2	 42768 42855 1, end /S30L3, up /S30F, down /S30B, value A_PUZZLE 30;","
+						// Loop for S30
+/S30L3	 42000 42076 1, end /stop, up /S30F, down /S30B, value A_PUZZLE 30 A_HELPER_CLIP_DONE;","
+						// Choice 30F (second improper response) - goto S13
+/S30F	 42860 43034 1, end /S30GoBack, value A_SUB_IQ2;","
+/S30GoBack 44164 44271 1, end /S13R1;"," // help on going back in time
+
+						// Hotspots 30B
+/Hot34	 42544 42763 1, end /prev, value A_ADD_IQ;"," // young Mowgli and baby wolves
+
+						// Starshape
+/S25RX	 43040 43373 1, end /S25R;"," // *115 see the bracelet
+
+						// New starshapes
+/Hlp1Talk   43380 43547 1, end /prev;"," // help when idle; talk and puzzle buttons
+/Hlp1Idle   43552 43711 1, end /prev;"," // help when idle; talk and puzzle buttons
+/Hlp1Whak   43716 43811 1, end /prev;"," // help on whak-a-monk
+/Hlp1Simon  43816 43959 1, end /prev;"," // help on simon
+/Hlp1Blokr  43964 44051 1, end /prev;"," // help on blocker (7th guest)
+/Hlp1Match  44056 44159 1, end /prev;"," // help on matching
+/Hlp1GoBack 44164 44271 1, end /prev;"," // help on going back in time
+/Hlp1ShereK 44276 44671 1, end /prev;"," // help on getting eaten by shere khan
+/Hlp1MSN	44676 44839 1, end /prev;"," // help on your mission to find the crown
+/Hlp1NoTime 44844 44915 1, end /prev;"," // help when your wasting time
+/Hlp1Success 44920 44991 1, end /prev;"," // good job, now let's go find...
+/Hlp1Instinct 44996 45191 1, end /prev;"," // if you have enough instinct...
+
+//---------------------------------------------------------------------------------------------------
+// DISK 2
+//---------------------------------------------------------------------------------------------------
+
+						//---------------------------------------------------------------------------
+						// S25 - skull & crossbones sign
+						//---------------------------------------------------------------------------
+						// Road to S25
+/S25R		 4	 687 2, end /S25C, leftsub /S25S1, rightsub /S25S1, downsub /S25S1;","
+/S25R1	   512	 687 2, end /S25C, leftsub /S25S1, rightsub /S25S1, downsub /S25S1;"," // good reentry point from S43C
+						// Subshots for S25
+/S25S1	   589	 687 2, end /prev, left /S25B 2368, right /S25B 6868;","
+						// Choice 25C (do not click on skull & crossbones sign) - goto S43
+/S25C alias /S43L;","
+						// Choice 25B (click on skull & crossbones sign) - goto S69
+/S25B	  1176	2282 2, end /S25B1, leftsub /Sub16;","
+/Sub16	  2222	2282 2, end /prev, left /Hot16 0206, value A_SPECIAL;","
+						// Road to S69 - stolen from S44
+/S25B1	  3332	3815 2, end /S69R, leftsub /Sub36x count 2;","
+/Sub36x	  3550	3595 2, end /prev, left /Hot36 0909, value A_SPECIAL;","
+/Sub39x	  3636	3681 2, end /prev, left /Hot39 3903, value A_SPECIAL;","
+						
+						// Hotspots 25
+/Hot16	  1136	1171 2, end /prev, value A_ADD_IQ;"," // tiger
+
+						// Starshapes - about instinct
+//UNUSED 250 frames - 17 seconds
+//S25D.*6  2292	2383 2, end /prev;"," // high IQ - when your instinct point are high, you can do almost anything
+//S25D.*7  2392	2547 2, end /prev;"," // low IQ - I won't even ask.. Not enough instict you're going down off the cliff
+
+						//---------------------------------------------------------------------------
+						// S43 - set off alarm on bridge
+						//---------------------------------------------------------------------------
+						// Loop for S43
+/S43L	   692	1131 2, end /S43D, leftsub /S43S1, rightsub /S43S1;","
+/S43S1	   976  1131 2, end /prev, left /S43C 7909, right /S43B 5649, value A_DECISION 43;","
+						// Choice 43B (keep going) - goto S44
+/S43B	  2552	2651 2, end /S44;","
+						// Choice 43C (turn and run) - goto S25
+/S43C	  2656	2896 2, end /S43BACK;"," // chopped off end (was at 3135)
+/S43BACK 45564 45763 2, end /S25R1;"," // help on going back in time
+						// Choice 43D (do nothing - 5 seconds to decide) - goto S43C
+/S43D	  3140	3259 2, end /S43D1, left /S43C, right /S43B, value A_DECISION 43;","
+/S43D1	  3260	3273 2, end /S43C;","
+
+						//---------------------------------------------------------------------------
+						// S44 - at the fort's entrance
+						//---------------------------------------------------------------------------
+						// Road to S44
+/S44	  3332	4039 2, end /S44D, leftsub /Sub36 count 3;","
+/Sub36	  3550	3595 2, end /prev, left /Hot36 0909, value A_SPECIAL;","
+/Sub39	  3636	3681 2, end /prev, left /Hot39 0909, value A_SPECIAL;","
+/Sub67	  3384	3464 2, end /prev, left /Hot67 1449, value A_SPECIAL;","
+						// Do Nothing Loop
+/S44D	  7552	7683 2, end /S44D, leftsub /S44DS1 count 2, rightsub /S44DS1 count 2, value A_DECISION 44;","
+/S44DS1	  7576  7683 2, end /prev, left /S44B count 2 2439, right /S44C count 2 6839;","
+/S44DS2	     0 99999 2, end /prev, left /S44B count 2, right /S44C count 2;","
+						// Choice 44B (hide behind basket)
+/S44B	  4948	5699 2, end /S69R, leftsub /Sub63 count 1;","
+/S44ALTB  5704	6459 2, end /S44.*10;","
+/Sub63	  5657	5699 2, end /prev, left /Hot63 7901;","
+						// Choice 44C (hide behind dynamite)
+/S44C	  6468	6761 2, end /S44.*10;"," 
+/S44ALTC  7060	7547 2, end /S69R;","
+						// Starshape - keep spirits up and try again
+/S44.*10  6952	7052 2, end /S25R;"," // sometimes the best intentions are spoiled by bad luck; keep spirits up and try again
+						// Hotspots 44
+/Hot36	  4192	4455 2, end /prev, value A_ADD_IQ;"," // Mowgli sneaking into the fort
+/Hot39	  4460	4843 2, end /prev, value A_ADD_IQ;"," // Mowgli and elephants
+/Hot67	  4848	4942 2, end /prev, value A_ADD_IQ;"," // people walking down street
+
+						// Starshape - generic voice reco - do nothing
+//UNUSED 134 frames - 9 seconds
+//S44.*19  7952	8086 2, end /prev;"," // try to repeat what latee says - microphone and buttons
+
+						// Hotspots 44C
+/Hot63	  6768	6946 2, end /prev, value A_ADD_IQ;"," // sword swallower
+
+						//---------------------------------------------------------------------------
+						// S69 - moving down street inside fort
+						//---------------------------------------------------------------------------
+						// Road to S69
+/S69R	  8564	9203 2, end /S69D, leftsub /Sub65 count 4, rightsub /Sub65 count 4;","
+/Sub65	  8564	8644 2, end /prev, left /Hot65 0404, value A_SPECIAL;","
+/Sub66	  8564	8644 2, end /prev, right /Hot66 5959, value A_SPECIAL;","
+/Sub68	  8647	8757 2, end /prev, left /Hot68 5904, value A_SPECIAL;","
+/Sub69	  8647	8757 2, end /prev, right /Hot69 0459, value A_SPECIAL;","
+						// Loop 2 for S69
+/S69R2	  9208	9387 2, end /S69D, left /S70R, up /S69C, right /S45R, down /S71R, value A_DECISION 69;","
+						// Loop 3 for S69
+/S69R3	  9392	9555 2, end /S69D, left /S70R, up /S69C, right /S45R, down /S71R, value A_DECISION 69;","
+						// Loop 4 For S69 
+/S69R4	  9560	9683 2, end /S69D, left /S70R, up /S69C, right /S45R, down /S71R, value A_DECISION 69;","
+						// Loop 5 For S69 
+/S69R5	  9688	9891 2, end /S69D, left /S70R, up /S69C, right /S45R, down /S71R, value A_DECISION 69;","
+						// Common loop for S69 - Carpe diem!
+/S69D	  9896 10055 2, end /S69D, left /S70R, up /S69C, right /S45R, down /S71R, value A_DECISION 69;","
+						// Stub shot - if seen crown room, goto key test at S69C1, else goto S48
+/S69C		 0	   0 2, end /test count TV_SEEN_CROWN_ROOM, home /S48R, up /S69C1;","
+						// Stub shot - if have key, goto S50, else goto S49
+/S69C1		 0	   0 2, end /test count TV_GOT_KEY, home /S49ALT, up /S50R;","
+
+						// Hotspots 69
+/Hot65	  8120	8323 2, end /prev, value A_ADD_IQ, leftsub /Sub31;"," // Mowgli
+/Sub31	  8263	8323 2, end /prev, left /Hot31 4646, value A_SPECIAL;","
+/Hot31	  8092	8113 2, end /prev, value A_ADD_IQ;"," // Mowgli
+/Hot66	  8328	8392 2, end /prev, value A_ADD_IQ;"," // girl dancing
+/Hot68	  8400	8488 2, end /prev, value A_ADD_IQ;"," // walking on hot coals
+/Hot69	  8496	8559 2, end /prev, value A_ADD_IQ;"," // girl dancing
+
+						//---------------------------------------------------------------------------
+						// S70 - in Captain Manduke's office
+						//---------------------------------------------------------------------------
+						// Road to S70
+/S70R	 10096 10487 2, end /S70L, leftsub /S70S1;","
+						// Subshots
+/S70S1	 10174 10205 2, end /prev, left /S70B 2939;","
+						// Return point from S70B
+/S70R1	 10206 10487 2, end /S70L;","
+						// Choice 70B (click on chest)
+/S70B	 10680 10879 2, end /S70R1;","
+						// Choice 70C (try it button - success)
+/S70C	 11936 12107 2, end /S69R2 count 4, value A_TRYIT;","
+						// Loop for S70
+/S70L	 10488 10488 2, end /stop, left /S70C 3629, right /S70R2 7929, down /S70D, up /S70L1, value A_COMBINATION;","
+						// Choice 70D (try it button - failure)
+/S70D	 10304 10451 2, end /S70L1;","
+						// Loop for S70
+/S70L1	 10488 10488 2, end /stop, left /S70C 3629, right /S70R2 7929, down /S70D1, up /S70L2, value A_COMBINATION;","
+						// Choice 70D (try it button - failure)
+/S70D1	 10304 10451 2, end /S70L2;","
+						// Loop for S70
+/S70L2	 10488 10488 2, end /stop, left /S70C 3629, right /S70R2 7929, down /S70D2, up /S70R2, value A_COMBINATION A_HELPER_CLIP_DONE;","
+						// Choice 70D (try it button - failure)
+/S70D2	 10304 10451 2, end /S70R2;","
+						// Road to S70 (give up button)
+/S70R2	 10504 10675 2, end /S69R2 count 4, leftsub /S70S2;","
+						// Subshots
+/S70S2	 10583 10594 2, end /prev, left /S70B 3939;","
+
+/S70BL00 10884 10975 2, end /prev;","
+/S70BL05 10980 11027 2, end /prev;","
+/S70BL10 11032 11091 2, end /prev;","
+/S70BL15 11096 11155 2, end /prev;","
+/S70BL20 11160 11223 2, end /prev;","
+/S70BL25 11228 11303 2, end /prev;","
+/S70BL30 11308 11347 2, end /prev;","
+/S70BL35 11352 11383 2, end /prev;","
+/S70BR05 11388 11475 2, end /prev;","
+/S70BR10 11480 11563 2, end /prev;","
+/S70BR15 11568 11651 2, end /prev;","
+/S70BR20 11656 11739 2, end /prev;","
+/S70BR25 11744 11807 2, end /prev;","
+/S70BR30 11812 11871 2, end /prev;","
+/S70BR35 11876 11930 2, end /prev;","
+
+						//---------------------------------------------------------------------------
+						// S71 - in room with soldiers sleeping on cots
+						//---------------------------------------------------------------------------
+						// Loop for S71
+/S71R	 12112 12499 2, end /S71L, leftsub /S71S1 count 2, rightsub /S71S1 count 2;","
+/S71L	 12332 12499 2, end /S71L, leftsub /S71S1 count 2, rightsub /S71S1 count 2, value A_DECISION 71;","
+						// Subshots
+/S71S1	 12425 12499 2, end /prev, left /S71C 0309, right /S71B 5709;","
+/S71S2	     0 99999 2, end /prev, left /S71C, right /S71B;","
+						// Choice 71B (take keys) - goto S46
+/S71B	 12504 12705 2, end /S46R;","
+						// Choice 71C (do not take keys / do nothing) - goto S69
+/S71C	 12716 12948 2, end /S69R2 count 4;","
+
+						//---------------------------------------------------------------------------
+						// S45 - in room with animal heads and gun
+						//---------------------------------------------------------------------------
+						// Road to S45
+/S45R	 12956 13558 2, end /S45D, leftsub /Sub52 count 5, upsub /S45S1, rightsub /S45S1;","
+/Sub52	 13074 13104 2, end /prev, left /Hot52 0809, value A_SPECIAL;","
+/Sub48	 13165 13181 2, end /prev, left /Hot48 1907, value A_SPECIAL;","
+/Sub13	 13182 13245 2, end /prev, left /Hot13 0179, value A_SPECIAL;","
+/Sub82	 13274 13295 2, end /prev, left /Hot82 3737, value A_SPECIAL;","
+/S45S1	 13458 13558 2, end /prev, left /S45B 3509, up /S45C 0207, right /S45C 7907;","
+						// Choice 45B (take gun and get caught) - goto S42
+/S45B	 13728 13882 2, end /S42R;","
+						// Choice 45C (do not take gun) - goto S69
+/S45C	 13888 14151 2, end /S69R2 count 4;","
+						// Choice 45D (do nothing)
+/S45D	 14156 14297 2, end /S45D, leftsub /S45DS1 count 2, upsub /S45DS1 count 2, rightsub /S45DS1 count 2, value A_DECISION 45;","
+/S45DS1	 14198 14297 2, end /prev, left /S45B 3509, up /S45C 0205, right /S45C 7905;","
+/S45DS2	     0 99999 2, end /prev, left /S45B, right /S45C;","
+						// Hotspots 45
+/Hot48	 13564 13605 2, end /prev, value A_ADD_IQ;"," // tiger running
+/Hot52	 13612 13675 2, end /prev, value A_ADD_IQ;"," // baby tiger
+/Hot13	 10060 10089 2, end /prev, value A_ADD_IQ;"," // monkey
+/Hot82	 13684 13723 2, end /prev, value A_ADD_IQ;"," // Elephants drinking water
+
+						//---------------------------------------------------------------------------
+						// S48 - going down hallway
+						//---------------------------------------------------------------------------
+						// Loop for S48
+/S48R	 14304 14695 2, end /S48L, leftsub /S48S1, rightsub /S48S1;","
+/S48L	 14584 14695 2, end /S48L, leftsub /S48S1, rightsub /S48S1, value A_DECISION 48;","
+/S48S1	 14584 14695 2, end /prev, left /S48B 2409, right /S48C 7909;","
+						// Choice 48B (take the mallet) - if have key, goto S50, else goto S49
+/S48B	 14700 14983 2, end /test count TV_GOT_KEY, home /S49R, up /S50R;","
+						// Choice 48C (take the whip and get caught) - goto S42
+/S48C	 14988 15319 2, end /S42R;","
+
+						// Hotspots 49B
+/Hot70	 16612 16689 2, end /prev, value A_ADD_IQ;"," // snake charmers
+						//---------------------------------------------------------------------------
+						// S49 - meets girl in room
+						//---------------------------------------------------------------------------
+						// Loop for S49
+/S49R	 15324 15734 2, end /S49L, leftsub /S49S1, rightsub /S49S1;","
+/S49L	 15548 15734 2, end /S49L, leftsub /S49S1, rightsub /S49S1, value A_DECISION 49;","
+/S49S1	 15548 15734 2, end /prev, left /S49B 3449, right /S49C 5548;","
+						// 49 ALT to tell them they need the key.
+/S49ALT	 15740 15957 2, end /S69R2 count 4;","
+						// Choice 49B (give up the bracelet) - goto S69
+/S49B	 15964 16603 2, end /S69R2 count 4, value A_SEEN_CROWN_ROOM;","
+						// Choice 49C (take the crown and get caught) - goto S42
+/S49C	 16696 16904 2, end /S42R;","
+
+						//---------------------------------------------------------------------------
+						// S42 - captured by the soldiers
+						//---------------------------------------------------------------------------
+						// Road to S42
+/S42R	 16912 17403 2, end /S46R;","
+
+						//---------------------------------------------------------------------------
+						// S46 - puzzle inside jail
+						//---------------------------------------------------------------------------
+						// Road to S46
+/S46R	 17408 17763 2, end /S46L;","
+						// Loop for point S46
+/S46L	 17736 17763 2, end /stop, up /S46C, down /S46B1, value A_PUZZLE 46;","
+//S46Lx	 17408 17442 2, end /S46Lx, up /S46C, down /S46B1, value A_PUZZLE 46;","
+						// Choice 46B (proper response) - goto S69
+/S46B1	 17908 18447 2, end /S46B2, value A_ADD_IQ2;"," 
+/S46B2	 18452 18647 2, end /S69D;","
+						// Choice 46C (first improper response) - stay in loop for S46
+/S46C	 18652 18759 2, end /S46L2, up /S46C2, down /S46B1, value A_PUZZLE 46;","
+						// Loop for point S46
+/S46L2	 17736 17763 2, end /stop, up /S46C2, down /S46B1, value A_PUZZLE 46;","
+//S46Lx2	 17408 17442 2, end /S46L2, up /S46C2, down /S46B1, value A_PUZZLE 46;","
+						// Choice 46C (second improper response) - goto loop for S46
+/S46C2	 18652 18759 2, end /S46L3, up /S46F, down /S46B1, value A_PUZZLE 46;","
+						// Loop for point S46
+/S46L3	 17736 17763 2, end /stop, up /S46F, down /S46B1, value A_PUZZLE 46 A_HELPER_CLIP_DONE;","
+//S46Lx3	 17408 17442 2, end /S46L3, up /S46F, down /S46B1, value A_PUZZLE 46 A_HELPER_CLIP_DONE;","
+						// Choice 46F (third improper response) - stay in loop for S46
+/S46F	 18764 19019 2, end /S46R, value A_SUB_IQ2;","
+
+						// Hotspots 46
+/Hot62	 17768 17903 2, end /prev, value A_ADD_IQ;"," // Mowgli in jail
+
+						//---------------------------------------------------------------------------
+						// S50 - inside crown room
+						//---------------------------------------------------------------------------
+						// Road to S50
+/S50R	 19028 20023 2, end /S50L, leftsub /Sub70;","
+/Sub70	 19971 20022 2, end /prev, left /Hot70 3546, value A_SPECIAL;","
+						// Loop for point S50
+/S50L	 20024 20113 2, end /stop, up /S50C, down /S50B, value A_PUZZLE 50;","
+						// Choice 50B (proper response)
+/S50B	 20804 21703 2, end /S77R, leftsub /Sub38, value A_ADD_IQ2;","
+/Sub38	 21064 21103 2, end /prev, left /Hot38 8909, value A_SPECIAL;","
+						// Choice 50C (first improper response) - stay in loop for S50
+/S50C	 22376 22458 2, end /S50L2, up /S50C2, down /S50B, value A_PUZZLE 50;","
+						// Loop for point S50
+/S50L2	 20024 20113 2, end /stop, up /S50C2, down /S50B, value A_PUZZLE 50;","
+						// Choice 50C2 (second improper response) - stay in loop for S50
+/S50C2	 22376 22458 2, end /S50L3, up /S50F, down /S50B, value A_PUZZLE 50;","
+						// Loop for point S50
+/S50L3	 20024 20113 2, end /stop, up /S50F, down /S50B, value A_PUZZLE 50 A_HELPER_CLIP_DONE;","
+						// Choice 50F (third improper response) - goto road to S46
+/S50F	 22464 22757 2, end /S46L, value A_SUB_IQ2;","
+						// Click on basket
+/S666R	 20120 20799 2, end /S101R;","
+
+						// Hotspots 50B
+/Hot38	 21708 22365 2, end /prev, value A_ADD_IQ;"," // Mowgli chased by soldiers
+
+						//---------------------------------------------------------------------------
+						// S77 - Latee in jail
+						//---------------------------------------------------------------------------
+						// Loop for S77
+/S77R	 22764 23455 2, end /S77L, leftsub /S77S1 count 2, rightsub /S77S1 count 2;","
+/S77L	 23304 23455 2, end /S77L, leftsub /S77S1 count 2, rightsub /S77S1 count 2, value A_DECISION 77;","
+/S77S1	 23319 23455 2, end /prev, left /S77B 0309, right /S77C 4928;","
+/S77S2	     0 99999 2, end /prev, left /S77B, right /S77C;","
+						// Choice 77B (we run) - goto S77
+/S77B	 23460 23523 2, end /S69R2 count 4, value A_LATEE_IN_JAIL;","
+						// Choice 77C (continue smashing lock)
+/S77C	 23528 23951 2, end /S77C1;","
+						// Transition to 101R stolen from 46R(EV72)
+/S77C1	 17120 17217 2, end /S77C2;","
+						// Transition to 101R stolen from S666
+/S77C2	 20756 20786 2, end /S77C3;","
+						// Transition to 101R stolen from S101?
+/S77C3	 24468 24575 2, end /S101R;","
+
+						//---------------------------------------------------------------------------
+						// S101 - at the 5 arches
+						//---------------------------------------------------------------------------
+						// Loop for S101 - alternate S101B,C,E,F - S101G (arch 3) is good exit to S53
+/S101R	 23956 24292 2, end /S101L, leftsub /S101S1, upsub /S101S1, rightsub /S101S1, downsub /S101S1, homesub /S101S1;","
+/S101L	 24088 24292 2, end /S101L, leftsub /S101S1, upsub /S101S1, rightsub /S101S1, downsub /S101S1, homesub /S101S1, value A_DECISION 101;","
+/S101S1	 24088 24292 2, end /prev, left /S101B 0109, up /S101B 2328, right /S101G 4537, down /S101B 6628, home /S101B 8909;","
+						// Choice 101B
+/S101B	 24300 24819 2, end /S101B1, leftsub /S101BS1, upsub /S101BS1, rightsub /S101BS1, downsub /S101BS1, homesub /S101BS1;","
+/S101BR	 24580 24819 2, end /S101B1, leftsub /S101BS1, upsub /S101BS1, rightsub /S101BS1, downsub /S101BS1, homesub /S101BS1;","
+/S101B1	 24708 24819 2, end /S101B1, leftsub /S101BS1, upsub /S101BS1, rightsub /S101BS1, downsub /S101BS1, homesub /S101BS1, value A_DECISION 101;","
+/S101BS1 24708 24819 2, end /prev, left /S101C 0109, up /S101C 2328, right /S101G 4537, down /S101C 6628, home /S101C 8909;","
+						// Choice 101C
+/S101C	 24824 25171 2, end /S101C1, leftsub /S101CS1 count 2, upsub /S101CS1 count 2, rightsub /S101CS1 count 2, downsub /S101CS1 count 2, homesub /S101CS1 count 2;","
+/S101C1	 25052 25171 2, end /S101C1, leftsub /S101CS1 count 2, upsub /S101CS1 count 2, rightsub /S101CS1 count 2, downsub /S101CS1 count 2, homesub /S101CS1 count 2, value A_DECISION 101;","
+/S101CS1 25052 25171 2, end /prev, left /S101E 0109, up /S101E 2328, right /S101G 4537, down /S101E 6628, home /S101E 8909;","
+/Sub53	 24864 24954 2, end /prev, left /Hot53 8905, value A_SPECIAL;","
+						// Choice 101E
+/S101E	 25176 25511 2, end /S101E1, leftsub /S101ES1 count 2, upsub /S101ES1 count 2, rightsub /S101ES1 count 2, downsub /S101ES1 count 2, homesub /S101ES1 count 2;","
+/S101E1	 25416 25511 2, end /S101E1, leftsub /S101ES1 count 2, upsub /S101ES1 count 2, rightsub /S101ES1 count 2, downsub /S101ES1 count 2, homesub /S101ES1 count 2, value A_DECISION 101;","
+/S101ES1 25416 25511 2, end /prev, left /S101F 0109, up /S101F 2328, right /S101G 4537, down /S101F 6628, home /S101F 8909;","
+/Sub57	 25234 25324 2, end /prev, left /Hot57 0205, value A_SPECIAL;","
+
+						// Choice 101F
+/S101F	 25516 25883 2, end /S101F1, leftsub /S101FS1, upsub /S101FS1, rightsub /S101FS1, downsub /S101FS1, homesub /S101FS1;","
+/S101F1	 25752 25883 2, end /S101F1, leftsub /S101FS1, upsub /S101FS1, rightsub /S101FS1, downsub /S101FS1, homesub /S101FS1, value A_DECISION 101;","
+/S101FS1 25752 25883 2, end /prev, left /S101B 0109, up /S101B 2328, right /S101G 4537, down /S101B 6628, home /S101B 8909;","
+						// Choice 101G (arch 3) - goto S53
+/S101G	 25888 26215 2, end /S53R;"," // end point chopped off - was 26735
+
+						//---------------------------------------------------------------------------
+						// Point S53 - Illy tied to a tree
+						//---------------------------------------------------------------------------
+						// Road to S53
+/S53R	 27400 28179 2, end /S53L;","
+						// Reentry point
+/S53R1	 28076 28179 2, end /S53L;","
+						// Loop for point S53
+/S53L	 28180 28264 2, end /stop, up /S53C, down /S53B, value A_PUZZLE 53;","
+/S53LX	 27948 28264 2, end /stop, up /S53C, down /S53B, value A_PUZZLE 53;","
+						// Choice 53B (proper response) - goto road to S60
+/S53B	 28440 28824 2, end /S60R, value A_ADD_IQ2;","
+						// Choice 53C (first improper response) - stay in S53
+/S53C	 29460 29525 2, end /S53L2, up /S53C2, down /S53B, value A_PUZZLE 53;","
+						// Loop for point S53
+/S53L2	 28180 28264 2, end /stop, up /S53C2, down /S53B, value A_PUZZLE 53;","
+						// Choice 53C2 (second improper response) - stay in loop for S53
+/S53C2	 29460 29525 2, end /S53L3, up /S53F, down /S53B, value A_PUZZLE 53;","
+						// Loop for point S53
+/S53L3	 28180 28264 2, end /stop, up /S53F, down /S53B, value A_PUZZLE 53 A_HELPER_CLIP_DONE;","
+						// Choice 53F (third improper response) - stay in S53
+/S53F	 29532 29893 2, end /S53R1, leftsub /Sub03, value A_SUB_IQ2;","
+/Sub03	 29532 29625 2, end /prev, left /Hot03 8907, value A_SPECIAL;","
+
+						// Hotspots 53
+/Hot53	 27292 27357 2, end /prev, value A_ADD_IQ;"," // baby wolf running
+/Hot57	 27364 27393 2, end /prev, value A_ADD_IQ;"," // wolves running
+/Hot03	 28272 28430 2, end /prev, value A_ADD_IQ;"," // Mowgli tied to tree
+
+						//---------------------------------------------------------------------------
+						// S60 - in monkey city
+						//---------------------------------------------------------------------------
+						// Road to S60
+/S60R	 29900 30182 2, end /S60R1;","
+						// Road to S60 - comes from S53B
+/S60R1	 28828 29451 2, end /S60L, leftsub /S60S1, rightsub /S60S1;","
+/S60L	 29276 29451 2, end /S60L, leftsub /S60S1, rightsub /S60S1, value A_DECISION 60;","
+/S60S1	 29276 29451 2, end /S60L, left /S60C 2509, right /S60B 6909;","
+						// Choice 60B (sneak up on soldier - Alone) - goto S53
+/S60B	 30188 30755 2, end /S53LX;","
+						// Choice 60C (rush soldier - Together) - goto S59
+/S60C	 30760 31419 2, end /S59R count 3;","
+
+						//---------------------------------------------------------------------------
+						// S59 - at corridors
+						//---------------------------------------------------------------------------
+						// Road to S59
+/S59R	 31424 31699 2, end /S59L;","
+/S59ALTR1 32088 32356 2, end /S59L1;","
+/S59ALTR2 32604 32872 2, end /S59L2;","
+						// Loop for S59
+/S59L	 31700 31931 2, end /S59L1, leftsub /S59SL1 count 3, upsub /S59SL1 count 3, rightsub /S59SL1 count 3, value A_DECISION 59;","
+/S59SL1	 31700 31820 2, end /prev, left /S59B 0109, up /S59D 2409, right /S59E 8909;","
+/S59SL2	 31853 31931 2, end /prev, left /S59B 0109, up /S59D 2409, right /S59E 8909;","
+/S59SL3	     0 99999 2, end /prev, left /S59B, up /S59D, right /S59E;","
+						// Loop for S59
+/S59L1	 32360 32599 2, end /S59L2, leftsub /S59SL11 count 3, upsub /S59SL11 count 3, rightsub /S59SL11 count 3, value A_DECISION 59;","
+/S59SL11 32442 32475 2, end /prev, left /S59B 0109, up /S59D 2409, right /S59E 8909;","
+/S59SL12 32507 32599 2, end /prev, left /S59B 0109, up /S59D 2409, right /S59E 8909;","
+/S59SL13     0 99999 2, end /prev, left /S59B, up /S59D, right /S59E;","
+						// Loop for S59
+/S59L2	 32876 33059 2, end /S59L, leftsub /S59SL21 count 3, upsub /S59SL21 count 3, rightsub /S59SL21 count 3, value A_DECISION 59;","
+/S59SL21 32952 32992 2, end /prev, left /S59B 0109, up /S59D 2409, right /S59E 8909;","
+/S59SL22 33024 33059 2, end /prev, left /S59B 0109, up /S59D 2409, right /S59E 8909;","
+/S59SL23     0 99999 2, end /prev, left /S59B, up /S59D, right /S59E;","
+						// Choice 59B (left corridor) - goto S52
+/S59B	 33064 33437 2, end /S52L;","
+						// Choice 59D (center corridor) - goto S800
+/S59D alias /S800R;","
+						// Choice 59E (right corridor) - goto S75
+/S59E alias /S75R;","
+
+						//---------------------------------------------------------------------------
+						// S75 Fall into sandtrap and die - goto event S101
+						//---------------------------------------------------------------------------
+/S75R	 33892 34551 2, end /S75.*16;","
+						// Starshapes - die in the sandtrap
+/S75.*16 31936 32083 2, end /S101BR;"," // you didn't listen to latee; he told you which corridor - go try again
+
+						//---------------------------------------------------------------------------
+						// S800 fall into well and Kaa eats us - goto event S101
+						//---------------------------------------------------------------------------
+/S800R	 33444 33887 2, end /S800.*16;","
+						// Starshapes - die in the well
+/S800.*16 31936 32083 2, end /S101BR;"," // you didn't listen to latee; he told you which corridor - go try again
+
+						//---------------------------------------------------------------------------
+						// S52 in the dark room
+						//---------------------------------------------------------------------------
+						// Loop for point S52
+/S52L	 33376 33437 2, end /stop, up /S52C, down /S52B, value A_PUZZLE 52;","
+						// Choice 52B (proper response)
+/S52B	 34564 35191 2, end /S55R, value A_ADD_IQ2;","
+						// Choice 52C (first improper response) - stay in S52
+/S52C	 35196 35269 2, end /S52L2, up /S52C2, down /S52B, value A_PUZZLE 52;","
+						// Loop for point S52
+/S52L2	 33376 33437 2, end /stop, up /S52C2, down /S52B, value A_PUZZLE 52;","
+						// Choice 52C (second improper response) - stay in S52
+/S52C2	 35196 35269 2, end /S52L3, up /S52F, down /S52B, value A_PUZZLE 52;","
+						// Loop for point S52
+/S52L3	 33376 33437 2, end /stop, up /S52F, down /S52B, value A_PUZZLE 52 A_HELPER_CLIP_DONE;","
+						// Choice 52F (third improper response) - goto S58
+/S52F	 35276 35415 2, end /S58R, value A_SUB_IQ2;","
+
+						//---------------------------------------------------------------------------
+						// S58 - Kaa eats us in the dark room - goto event S101
+						//---------------------------------------------------------------------------
+/S58R	 35420 36013 2, end /S101BR;","
+//						// Starshape - die in the dark room
+// Starshape redundant with the end of S58R
+//UNUSED 160 frames - 11 seconds
+//S58.*13 36020 36187 2, end /S101BR;","
+
+						//---------------------------------------------------------------------------
+						// S55 - in the treasure room with approaching snake
+						//---------------------------------------------------------------------------
+						// Road to S55
+/S55R	 36192 36596 2, end /S55L, leftsub /Sub27 count 2;","
+/Sub27	 36192 36231 2, end /prev, left /Hot27 0508, value A_SPECIAL;","
+/Sub43	 36398 36417 2, end /prev, left /Hot43 0906, value A_SPECIAL;","
+						// Loop for point S55
+/S55L	 36488 36596 2, end /stop, up /S55C, down /S55B, value A_PUZZLE 55;","
+						// Choice 55B (proper response) - goto S57
+/S55B	 36680 37423 2, end /S57R, leftsub /Sub10, value A_ADD_IQ2;","
+/Sub10	 36793 36817 2, end /prev, left /Hot10 0909, value A_SPECIAL;","
+						// Choice 55C (first improper response) - stay in S55
+/S55C	 37608 37743 2, end /stop, up /S55C2, down /S55B, value A_PUZZLE 55;","
+						// Choice 55C2 (second improper response) - stay in S55
+/S55C2	 37608 37743 2, end /stop, up /S55F, down /S55B, value A_PUZZLE 55 A_HELPER_CLIP_DONE;","
+						// Choice 55F (third improper response) - goto S52
+/S55F	 37752 38027 2, end /S55F.*14, value A_SUB_IQ2;","
+						// Starshape
+/S55F.*14 38032 38175 2, end /S59R;"," // latee told you the answer but you could not understand him
+						// Hotspots 55
+/Hot10	 36604 36619 2, end /prev, value A_ADD_IQ;"," // monkey
+/Hot26	 36624 36651 2, end /prev, value A_ADD_IQ;"," // multiple monkeys
+/Hot27	 36656 36675 2, end /prev, value A_ADD_IQ;"," // two monkeys
+
+						//---------------------------------------------------------------------------
+						// S57 - do we warn soldier?
+						//---------------------------------------------------------------------------
+						// Loop for S57
+/S57R	 37424 37603 2, end /S57D, leftsub /S57S1 count 3, upsub /S57S1 count 3, rightsub /S57S1 count 3;","
+/S57L	 37424 37603 2, end /S57D, leftsub /S57S1 count 3, upsub /S57S1 count 3, rightsub /S57S1 count 3, value A_DECISION 57;","
+/S57S1	 37469 37527 2, end /prev, left /S57B 3609, up /S57C 0209, right /S57C 7909;","
+/S57S2	 37528 37603 2, end /prev, left /S57B 3609, up /S57C 0209, right /S57C 7909;","
+/S57S3	     0 99999 2, end /prev, left /S57B, right /S57C;","
+						// Choice 57B (warn soldier) - goto S90
+/S57B	 38180 39196 2, end /S90;","
+						// Choice 57C (don't warn soldier) - goto S60
+/S57C	 39248 39622 2, end /S57C.*15;","
+						// Starshape - after don't warn Poke
+/S57C.*15 39632 39787 2, end /S60R;"," // sometimes the best choice is the most difficult choice - not even Poke deserves to die
+						// Choice 57D (do nothing)
+/S57D	 39792 39929 2, end /S57L, leftsub /S57DS1 count 3, upsub /S57DS1 count 3, rightsub /S57DS1 count 3, value A_DECISION 57;","
+/S57DS1	 39817 39853 2, end /prev, left /S57B 3609, up /S57C 0209, right /S57C 7909;","
+/S57DS2	 39854 39929 2, end /prev, left /S57B 3609, up /S57C 0209, right /S57C 7909;","
+/S57DS3	     0 99999 2, end /prev, left /S57B, right /S57C;","
+
+						// Hotspots 57B
+/Hot43	 39204 39243 2, end /prev, value A_ADD_IQ;"," // multiple monkeys
+
+						// Hotspots Disk 2
+/Hot79B	 42376 43039 2, end /prev, value A_ADD_IQ;"," // Mowgli says to search for more instinct
+
+						// Starshape - generic voice reco do nothings
+//UNUSED 111 frames - 8 seconds
+//S.*18	 42260 42371 2, end /prev;"," // use buttons or microphone
+//UNUSED 200 frames - 14 seconds
+//S.*17B 43044 43151 2, end /prev;"," // use microphone
+//S.*21B 43156 43243 2, end /prev;"," // use buttons
+
+						// You win!!
+/S90	 39936 41955 2, end /test count TV_HIGHEST_SCORE, home /S90X, up /S91D;","
+/S90X	     0     0 2, end /test count TV_HIGH_SCORE, home /S91C, up /S91B;","
+
+/S91B	 41968 42063 2, end /stop, value A_GAME_OVER;"," // 1 of highest scores, served well
+/S91C	 42072 42118 2, end /stop, value A_GAME_OVER;"," // seved well
+/S91D	 42124 42253 2, end /stop, value A_GAME_OVER;"," // highest score, served well
+
+						// New starshapes
+/Hlp2Talk   44076 44243 2, end /prev;"," // help when idle; talk and puzzle buttons
+/Hlp2Idle   44248 44407 2, end /prev;"," // help when idle; talk and puzzle buttons
+/Hlp2Whak   44412 44507 2, end /prev;"," // help on whak-a-monk
+/Hlp2Simon  44632 44751 2, end /prev;"," // help on simon
+/Hlp2Blokr  44912 45063 2, end /prev;"," // help on blocker (7th guest)
+/Hlp2Match  45264 45431 2, end /prev;"," // help on matching
+/Hlp2GoBack 45564 45763 2, end /prev;"," // help on going back in time
+/Hlp2Safe   45768 45891 2, end /prev;"," // help at the safe
+/Hlp2NoTime 46484 46555 2, end /prev;"," // help when no more time
+",
+0
+}
+
+#ifdef UNUSED
+	// Hotsposts
+					 0123456789
+					0xxxxxxxxxx		   outside
+					1xxxxxxxxxx		0904 0059 8959
+		  1759		2xxxxxxxxxx
+					3xxxxxxxxxx
+					4xxxxxxxxxx
+					5xoooooooxx
+					6xoooooooxx
+					7xoooooooxx
+					8xoooooooxx
+					9xoooooooxx
+#endif

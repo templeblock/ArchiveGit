@@ -1,0 +1,34 @@
+/*** FACEBOOK APP MOBILIZATION PAGE ***/
+
+#preview {width: 236px; height: 250px; margin: 0 auto 1em auto;}
+#preview #mxr-previous, 
+#preview #mxr-next {float: left; width: 18px; padding-top: 95px;}
+#preview #mxr-previous a, 
+#preview #mxr-next a {display: block; height: 48px;}
+#preview #mxr-previous a:hover, 
+#preview #mxr-next a:hover {background-position: top center;}
+#preview #phoneBg {float: left; width: 200px; height: 250px; background-image: url(http://cdn.3guppies.com/images/widget/grphx-phone-blank-333.gif); background-repeat:no-repeat;}
+#preview #mxr-screen {width: 128px; height: 128px; margin: 52px 0 49px 35px; background-color: #333; border: 1px solid #000;}
+.screenCenter {width: 128px; height: 128px; text-align: center; vertical-align: middle; display: table-cell;}
+.screenCenter * {vertical-align: middle;}
+.screenCenter img {max-width: 128px; max-height: 128px; }
+/*\*//*/
+.screenCenter {display: block;}
+.screenCenter span {display: inline-block; height: 100%; width: 1px;}
+/**/
+
+#preview #title div {width: auto; padding: 0; margin-left: 50px; background-color: #7F7F7F; cursor: default; text-align: left; color: #FFF;}
+#preview #title input {border: 1px solid #4DB3D0; width: 130px; height: 16px; padding: 0; margin-left: 49px; margin-top: -2px; filter:alpha(opacity=50); opacity: 0.5; -moz-opacity:0.5;}
+#mxr-mobilize {cursor: pointer; cursor: hand;}
+
+.translucentPopup {filter: alpha(opacity=80); background-color: #eeeeee; display: none; left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; color: navy; border: 1 #f77d30 solid; }
+
+/* <!--[if IE]> */
+.screenCenter span {display: inline-block;height: 100%;}
+/* <![endif]--> */
+
+#mxr-image { cursor: pointer; }
+#mxr-thumb { cursor: pointer; background-color: #E2E7EE; margin: 3px 2px 3px 1px; padding: 0px; width: 67px; height: 67px; float: left; text-align: center; }
+.unselectedThumb { border: 1px solid #CE9C64; }
+.selectedThumb { border: 2px solid #F47C31; margin: 2px 1px 2px 0px !important; }
+.imgThumb { border:0; max-width:65px; max-height:65px; width:expression(this.offsetWidth >= this.offsetHeight && this.offsetWidth > 65 ? 65 : true); height:expression(this.offsetHeight >= this.offsetWidth && this.offsetHeight > 65 ? 65 : true); }

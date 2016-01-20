@@ -1,0 +1,10 @@
+// Source file: COMBO.C
+void CheckComboItem( HWND hWnd, int idComboBox, int idFirstItem, int idLastItem, int idSelectedItem );
+void TableCheckComboItem( HWND hWnd, int idComboBox, LPINT lpItemID, int nItems, int idSelectedItem );
+WORD HandleCombo( HWND hDlg, WPARAM wParam, LPARAM lParam );
+int TableHandleCombo( HWND hDlg, LPINT lpItemID, int nItems, WPARAM wParam, LPARAM lParam );
+BOOL OwnerDraw( HWND hDlg, UINT msg, LPARAM lParam, BOOL fIcon );
+BOOL OwnerDrawEx( HWND hDlg, UINT msg, LPARAM lParam, BOOL fIcon, int fFlags );
+void CombineStringID( LPSTR lpString, WORD wId );
+int ExtractStringID( LPSTR lpString );
+

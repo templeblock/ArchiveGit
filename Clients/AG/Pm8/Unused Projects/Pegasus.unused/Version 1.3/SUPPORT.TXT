@@ -1,0 +1,54 @@
+SUPPORT.TXT
+June 26, 1998
+PICTools version 1.03.110
+
+This file describes the Pegasus Imaging Corporation support policies
+for its PICTools Development Kits.
+=====================================================================
+
+As our success is directly related to your success in using our
+products, we are very committed to working with you to solve any
+problems you might have with our PICTools development kits.  Please
+do not hesitate to call us if you are having problems.
+
+
+We ask that you take the following steps before calling us:
+
+1.  If you are having problems compiling your application, we ask
+that you compile the sample application.  If this succeeds try to
+look at the differences between your project's make file and the
+sample's project make file.  Another cause for unresolved references
+is not having #define'ed the symbol 'WINDOWS', ('OS/2' if applicable)
+in your source files prior to including PIC.H.
+
+2.  If you cannot view a particular image using your application,
+please try to view the image with one of the provided viewers.  This
+will help us to determine if the image is corrupt, your application
+is incorrect, or our library can not handle the image.  Also please
+try using your application to view one of the images provided with
+the dev kit.
+
+3.  If your application will not run, make sure the PICTools DLLs are
+accessible.  Note that the PICTools API DLL (PICN13.DLL, PICW13.DLL
+or PICO13.DLL) look for the opcode DLL's in the same directory as the
+dispatcher (they must stay together).  If the opcode DLL cannot be
+found when Pegasus() is called, your application will receive a
+returned error -2101.  If the PICTools API DLL cannot be loaded,
+Windows will display an error message about a missing library when
+you attempt to run your application.
+
+
+Please call us while at your computer, we will try to work you through
+the problems.
+
+
+If you are still having problems, call us at (813) 875-7575 x302 or
+email us at support@jpg.com.
+
+
+Thank you,
+Pegasus Imaging Corporation Technical Support
+
+
+=====================================================================
+<end of SUPPORT.TXT>

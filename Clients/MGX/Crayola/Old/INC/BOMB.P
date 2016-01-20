@@ -1,0 +1,4 @@
+// Source file: BOMB.C
+BOOL Bomb( HINSTANCE hInstance );
+
+

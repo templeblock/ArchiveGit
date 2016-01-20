@@ -1,0 +1,10 @@
+// Source file: CURSORS.C
+void ProgressBegin(int nNumPassesParam, int idProgressMsgParam);
+void ProgressSetupPass(int nPassPercentParam, int idProgressMsgParam);
+void ProgressEnd( void );
+BOOL AstralCursorEnable(BOOL bEnable);
+VOID AstralCursor( LPCSTR lpCursor );
+BOOL AstralClockCursor( int part, int whole, BOOL bEscapable );
+VOID AstralBeachCursor(int idCurs);
+void SetWindowCursor(WORD idCursor);
+

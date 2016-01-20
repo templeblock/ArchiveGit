@@ -1,0 +1,92 @@
+File Directory
+---------------------------------------------
+
+Unused Files - Files from other ports.
+--------------------------------------
+
+bmload.c       
+collisio.c     
+dos-keyb.c     
+dos-vga.c      
+expand.c       
+object.c       
+slice-ga.c     
+slice-wc.c     
+slice.c        
+tclobjec.c     
+tclwt.c        
+object.h       
+tclobjec.h     
+tclworld.h     
+
+
+Unchanged Files
+--------------------------------------
+
+framebuf.c     
+list.c         
+texture.c      
+view.c         
+view.h         
+dos-keyb.h     
+wtmem.c        
+framebuf.h
+graphics.h     
+input.h        
+list.h         
+render.h       
+slice.h        
+texture.h      
+worldfil.h     
+wt.h           
+wtmem.h        
+
+
+Patched Files
+--------------------------------------
+
+error.c        new Windows error routines, to use GUI.
+fixed.c        __asm routines 
+gifload.c      use WT path when loading palette file.
+render.c       bug fix, resizing fixes, UpdateWT diagnostics.
+slicewin.c     asm routines, ifdef'd out, and the slice.c C routines.
+table.c        free_table routine, to support world binge&purge.
+world.c        free_world routine, to support world binge&purge.
+worldfil.c     use WT path when loading textures.
+wt.c           restructured, added some new helper routines.
+error.h        new Windows error routine prototypes.
+fixed.h        extern's for asm routines in fixed.c
+table.h        free_table proto.
+world.h        free_world proto.
+
+
+New Files
+--------------------------------------
+
+wininput.c     WT input routines.  Virtually identical to dos-keyb.c
+wingraph.c     WT graphics routines.  Gutted dos-vga.c.  See comments.
+wingdll.h      WinG interface class. Symantec had problems with implib.
+wingdll.cpp    WinG interface class.
+winpal.cpp     WinG utility routines, Microsoft's code.  All palette stuff.
+wtwin.h        Our Apps definitions, mostly RC stuff.
+wtwin.cpp      Our Apps message loop.  Calls WT and then uses WinG to display.
+
+
+Windows Support Files
+--------------------------------------
+
+wtwin.def      Windows DEF file for our App.
+wtwin.rc       Windows resource file for Our App.
+wtwinms.mak    makefile for Microsoft MSVC32s.  And NT, Chicago, I guess.	
+wtwinsc.lnk    link file for Symantec.
+wtwinsc.mak    makefile for Symantec.
+
+
+WT Support Files
+--------------------------------------
+
+wt.pal		WT's palette.  DON'T DELETE THIS!!!
+textures\*.* 	sample textures
+worlds\*.*	a few simple worlds to check out.
+
+

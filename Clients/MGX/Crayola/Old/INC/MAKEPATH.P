@@ -1,0 +1,9 @@
+// Source file: makepath.c
+LPSHAPE GetPath(LPRECT lpRect, LPFRAME lpFrame, BYTE cutoff, LPINT InOut);
+void ShapeApplyTransform(LPSHAPE lpHeadShape, LPTFORM lpTForm);
+static LPSHAPE VectorizeFrame(LPPOINT lpFirstPoint, LPTR lpFirstCode,int max_points, LPINT InOut);
+static BOOL AddShape(LPPOINT lpFirstPoint, int nPoints);
+static BOOL InMaskRegion(long v);
+static BOOL PutMaskPixel(int x, int y, long Pixel);
+static BOOL GetMaskPixel(int x, int y, LPLONG lpPixel);
+

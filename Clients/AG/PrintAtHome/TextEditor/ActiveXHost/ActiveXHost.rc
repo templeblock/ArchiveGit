@@ -1,0 +1,261 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\ActiveXHost.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\ActiveXHost.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About ActiveXHost"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "ActiveXHost Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_ACTIVEXHOST_DIALOG DIALOGEX 0, 0, 341, 307
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "ActiveXHost"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,118,287,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,173,287,50,16
+    EDITTEXT        IDC_EDITBOX,6,6,160,170,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
+    LTEXT           "Width:",IDC_STATIC,14,185,20,8
+    EDITTEXT        IDC_EDIT_WIDTH,36,184,27,12,ES_AUTOHSCROLL
+    LTEXT           "Height:",IDC_STATIC,13,199,22,8
+    EDITTEXT        IDC_EDIT_HEIGHT,36,198,27,12,ES_AUTOHSCROLL
+    LTEXT           "Font Size:",IDC_STATIC,70,185,32,8
+    EDITTEXT        IDC_EDIT_FONTSIZE,102,184,27,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Incr LS",IDC_BUTTON1,192,195,40,8,BS_FLAT
+    PUSHBUTTON      "Decr LS",IDC_BUTTON2,192,204,40,8,BS_FLAT
+    PUSHBUTTON      "Incr CS",IDC_BTN_INCRCS,236,195,40,8,BS_FLAT
+    PUSHBUTTON      "Decr CS",IDC_BTN_DECRCS,236,204,40,8,BS_FLAT
+    GROUPBOX        "",IDC_STATIC,6,247,330,32
+    CONTROL         "Bezier",IDC_RADIO_BEZIER,"Button",BS_AUTORADIOBUTTON,10,
+                    253,35,10
+    CONTROL         "Circle",IDC_RADIO_CIRCLE,"Button",BS_AUTORADIOBUTTON,10,
+                    267,35,10
+    CONTROL         "Ellipse",IDC_RADIO_ELLIPSE,"Button",BS_AUTORADIOBUTTON,
+                    49,253,47,10
+    CONTROL         "Semicircle",IDC_RADIO_SEMICIRCLE,"Button",
+                    BS_AUTORADIOBUTTON,49,267,47,10
+    CONTROL         "Spiral",IDC_RADIO_SPIRAL,"Button",BS_AUTORADIOBUTTON,98,
+                    253,39,10
+    CONTROL         "Vertical",IDC_RADIO_VERTICAL,"Button",
+                    BS_AUTORADIOBUTTON,98,267,39,10
+    CONTROL         "Horizontal",IDC_RADIO_HORIZONTAL,"Button",
+                    BS_AUTORADIOBUTTON,140,253,61,10
+    CONTROL         "Inverted Bezier",IDC_RADIO_INVBEZIER,"Button",
+                    BS_AUTORADIOBUTTON,140,267,61,10
+    CONTROL         "Inverted Semicircle",IDC_RADIO_INVSEMICIRCLE,"Button",
+                    BS_AUTORADIOBUTTON,206,253,77,10
+    PUSHBUTTON      "Save Image",IDC_BUTTON5,285,287,50,16
+    CONTROL         "",IDC_TEXTEDITOR1,
+                    "{4A443D96-6C35-48D2-9C3B-E185CF3D8B5A}",WS_TABSTOP,174,
+                    6,160,170
+    PUSHBUTTON      "Text Color 1",IDC_BTN_CLR1,12,222,43,10
+    PUSHBUTTON      "Text Color 2",IDC_BTN_CLR2,12,233,43,10
+    PUSHBUTTON      "Preview Bk Color",IDC_BTN_PRVBK,169,222,60,10
+    PUSHBUTTON      "Image Bk Color",IDC_BTN_IMGBK,169,233,60,10
+    COMBOBOX        IDC_COMBO_SWEEPMODE,58,222,88,65,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,102,198,81,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Fonts:",IDC_STATIC,70,199,22,8
+    GROUPBOX        "",IDC_STATIC,6,215,329,32
+    GROUPBOX        "",IDC_STATIC,6,177,329,38
+    CONTROL         "Make Image Background Transparent",
+                    IDC_CHECK_IMAGE_TRANS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,138,184,135,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "ActiveXHost.exe"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "ActiveXHost.exe"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_ACTIVEXHOST_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 337
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 303
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_ACTIVEXHOST_DIALOG DLGINIT
+BEGIN
+    IDC_TEXTEDITOR1, 0x376, 16, 0
+0x0000, 0x0000, 0x0710, 0x0000, 0x18ce, 0x0000, 0x1c87, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About ActiveXHost..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\ActiveXHost.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

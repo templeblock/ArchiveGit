@@ -1,0 +1,15 @@
+; AgOutlookAddIn.def : Declares the module parameters.
+
+LIBRARY      "AgOutlookAddIn.dll"
+
+EXPORTS
+	DllCanUnloadNow			PRIVATE
+	DllGetClassObject		PRIVATE
+	DllRegisterServer		PRIVATE
+	DllUnregisterServer		PRIVATE
+
+	PreventUninstall		@1
+	SetMaintenanceFlag		@2
+	OptimizationWizard		@3
+	EnableClients			@4
+	DisableClients			@5

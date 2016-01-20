@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'JMSrvr'
+		'JMSrvr.EXE'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

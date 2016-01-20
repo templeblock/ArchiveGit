@@ -1,0 +1,64 @@
+// ############################################################################
+// File Name:	TextComp.RC2
+// Author:		Mike Taber
+// Creation:	17 Apr 98
+//
+// Contains the WARP resources originally found in TextComp.rc
+// ############################################################################
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// WARP
+//
+
+TEXT_SHAPE_MORE_TEXT_INDICATOR WARP    DISCARDABLE     "TextShapes\\TextShapeMoreText.Warp"
+TEXT_SHAPE_9_2          WARP    DISCARDABLE     "TextShapes\\TextShape920.Warp"
+TEXT_SHAPE_9_1          WARP    DISCARDABLE     "TextShapes\\TextShape910.Warp"
+TEXT_SHAPE_8_2          WARP    DISCARDABLE     "TextShapes\\TextShape820.Warp"
+TEXT_SHAPE_8_1          WARP    DISCARDABLE     "TextShapes\\TextShape810.Warp"
+TEXT_SHAPE_7_2          WARP    DISCARDABLE     "TextShapes\\TextShape720.Warp"
+TEXT_SHAPE_7_1          WARP    DISCARDABLE     "TextShapes\\TextShape710.Warp"
+TEXT_SHAPE_6_2          WARP    DISCARDABLE     "TextShapes\\TextShape620.Warp"
+TEXT_SHAPE_6_1          WARP    DISCARDABLE     "TextShapes\\TextShape610.Warp"
+TEXT_SHAPE_5_2          WARP    DISCARDABLE     "TextShapes\\TextShape520.Warp"
+TEXT_SHAPE_5_1          WARP    DISCARDABLE     "TextShapes\\TextShape510.Warp"
+TEXT_SHAPE_4_2          WARP    DISCARDABLE     "TextShapes\\TextShape420.Warp"
+TEXT_SHAPE_4_1          WARP    DISCARDABLE     "TextShapes\\TextShape410.Warp"
+TEXT_SHAPE_3_2          WARP    DISCARDABLE     "TextShapes\\TextShape320.Warp"
+TEXT_SHAPE_3_1          WARP    DISCARDABLE     "TextShapes\\TextShape310.Warp"
+TEXT_SHAPE_2_2          WARP    DISCARDABLE     "TextShapes\\TextShape220.Warp"
+TEXT_SHAPE_2_1          WARP    DISCARDABLE     "TextShapes\\TextShape210.Warp"
+TEXT_SHAPE_1_2          WARP    DISCARDABLE     "TextShapes\\TextShape120.Warp"
+TEXT_SHAPE_1_1          WARP    DISCARDABLE     "TextShapes\\TextShape110.Warp"
+TEXT_SHAPE_17_1         WARP    DISCARDABLE     "TextShapes\\TextShape1710.Warp"
+TEXT_SHAPE_16_2         WARP    DISCARDABLE     "TextShapes\\TextShape1620.Warp"
+TEXT_SHAPE_16_1         WARP    DISCARDABLE     "TextShapes\\TextShape1610.Warp"
+TEXT_SHAPE_15_2         WARP    DISCARDABLE     "TextShapes\\TextShape1520.Warp"
+TEXT_SHAPE_15_1         WARP    DISCARDABLE     "TextShapes\\TextShape1510.Warp"
+TEXT_SHAPE_14_2         WARP    DISCARDABLE     "TextShapes\\TextShape1420.Warp"
+TEXT_SHAPE_14_1         WARP    DISCARDABLE     "TextShapes\\TextShape1410.Warp"
+TEXT_SHAPE_13_2         WARP    DISCARDABLE     "TextShapes\\TextShape1320.Warp"
+TEXT_SHAPE_13_1         WARP    DISCARDABLE     "TextShapes\\TextShape1310.Warp"
+TEXT_SHAPE_12_2         WARP    DISCARDABLE     "TextShapes\\TextShape1220.Warp"
+TEXT_SHAPE_12_1         WARP    DISCARDABLE     "TextShapes\\TextShape1210.Warp"
+TEXT_SHAPE_11_2         WARP    DISCARDABLE     "TextShapes\\TextShape1120.Warp"
+TEXT_SHAPE_11_1         WARP    DISCARDABLE     "TextShapes\\TextShape1110.Warp"
+TEXT_SHAPE_10_2         WARP    DISCARDABLE     "TextShapes\\TextShape1020.Warp"
+TEXT_SHAPE_10_1         WARP    DISCARDABLE     "TextShapes\\TextShape1010.Warp"
+TEXT_SHAPE_B_1_1        WARP    DISCARDABLE     "TextShapes\\TextShapeB110.WARP"
+TEXT_SHAPE_B_1_2        WARP    DISCARDABLE     "TextShapes\\TextShapeB120.WARP"
+TEXT_SHAPE_B_1_3        WARP    DISCARDABLE     "TextShapes\\TextShapeB130.WARP"
+TEXT_SHAPE_B_1_4        WARP    DISCARDABLE     "TextShapes\\TextShapeB140.WARP"
+TEXT_SHAPE_B_1_5        WARP    DISCARDABLE     "TextShapes\\TextShapeB150.WARP"
+TEXT_SHAPE_B_1_6        WARP    DISCARDABLE     "TextShapes\\TextShapeB160.WARP"
+TEXT_SHAPE_B_1_7        WARP    DISCARDABLE     "TextShapes\\TextShapeB170.WARP"
+TEXT_SHAPE_B_1_8        WARP    DISCARDABLE     "TextShapes\\TextShapeB180.WARP"
+TEXT_SHAPE_B_2_1        WARP    DISCARDABLE     "TextShapes\\TextShapeB210.WARP"
+TEXT_SHAPE_B_2_2        WARP    DISCARDABLE     "TextShapes\\TextShapeB220.WARP"
+TEXT_SHAPE_B_2_3        WARP    DISCARDABLE     "TextShapes\\TextShapeB230.WARP"
+TEXT_SHAPE_B_2_4        WARP    DISCARDABLE     "TextShapes\\TextShapeB240.WARP"
+TEXT_SHAPE_B_2_5        WARP    DISCARDABLE     "TextShapes\\TextShapeB250.WARP"
+TEXT_SHAPE_B_2_6        WARP    DISCARDABLE     "TextShapes\\TextShapeB260.WARP"
+TEXT_SHAPE_B_2_7        WARP    DISCARDABLE     "TextShapes\\TextShapeB270.WARP"
+TEXT_SHAPE_18_1         WARP    DISCARDABLE     "TextShapes\\TextShape1810.Warp"
+TEXT_SHAPE_18_2         WARP    DISCARDABLE     "TextShapes\\TextShape1820.Warp"

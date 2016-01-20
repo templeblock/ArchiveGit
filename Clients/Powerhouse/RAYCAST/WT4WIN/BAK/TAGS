@@ -1,0 +1,359 @@
+
+bmload.c,26
+Texture *LoadFile(14,183
+
+error.c,26
+void fatal_error(32,1033
+
+expand.c,15
+expand(11,163
+
+fixed.c,23
+fixed fix_sqrt(29,970
+
+flalfb.c,37
+alloc_fbm 47,1564
+free_fbm 68,2147
+
+flgifr.c,520
+#define MAXCOLORMAPSIZE 48,1874
+#define TRUE 50,1911
+#define FALSE 51,1929
+#define BAD 52,1947
+#define OK 53,1965
+#define MAX_LWZ_BITS 55,1984
+#define IMAGESEP 57,2020
+#define INTERLACEMASK 58,2047
+#define COLORMAPMASK 59,2074
+#define ReadOK(61,2102
+#define EasyFail(73,2579
+#define HardFail(74,2650
+#define LM_to_uint(76,2720
+int read_gif 93,3408
+int ReadColorMap 277,8402
+int DoExtention(298,8794
+int GetCode(331,9458
+int LWZReadByte(378,10428
+int ReadInterlaced(498,13065
+int ReadRaster 557,14217
+
+flread.c,400
+# define BM_MAGC	34,1088
+# define FBM_MAGC	35,1130
+# define SUN_MAGC	36,1179
+# define PBM_MAGC	37,1236
+# define ATK_MAGC	38,1278
+# define MP_MAGC	39,1344
+# define X11_MAGC	40,1402
+# define PCX_MAGC	41,1450
+# define IFF_MAGC	42,1503
+# define GIF_MAGC	43,1557
+# define GIF_MAGC	44,1609
+# define RLE_MAGC	45,1661
+# define COMPRESSED_CHAR 47,1717
+read_bitmap 55,1963
+write_bitmap 119,4119
+
+framebuf.c,102
+Framebuffer *new_framebuffer(32,1033
+void clear_framebuffer(46,1304
+void clear_framebuffer(68,1745
+
+gifload.c,351
+typedef int  boolean;boolean36,1053
+typedef unsigned char byte;byte37,1075
+#define NEXTBYTE 39,1104
+#define IMAGESEP 40,1135
+#define INTERLACEMASK 41,1162
+#define COLORMAPMASK 42,1189
+#define True 68,2434
+#define False 69,2453
+#define PALETTE_ENTRIES 92,2973
+LoadGIF(103,3152
+void remap(343,9585
+ReadCode(380,10620
+AddToPixel(397,10948
+
+jrdgif.c,678
+#define	MAXCOLORMAPSIZE	45,1806
+#define NUMCOLORS	46,1874
+#define CM_RED	47,1912
+#define CM_GREEN	48,1960
+#define CM_BLUE	49,1979
+#define	MAX_LZW_BITS	54,2125
+#define LZW_TABLE_SIZE	55,2177
+#define LM_to_uint(59,2331
+#define BitSet(61,2390
+#define INTERLACE	62,2433
+#define COLORMAPFLAG	63,2503
+#define	ReadOK(65,2578
+ReadByte 120,4970
+GetDataBlock 133,5216
+SkipDataBlocks 149,5598
+ReInitLZW 160,5799
+InitLZWCode 171,6100
+GetCode 189,6632
+LZWReadByte 243,8166
+ReadColorMap 334,11195
+DoExtension 348,11508
+input_init 368,11966
+get_input_row 499,16836
+load_interlaced_image 524,17431
+get_interlaced_row 562,18618
+input_term 608,19823
+jselrgif 623,20252
+
+linux-console.c,128
+void init_input_devices(39,1248
+void end_input_devices(46,1352
+Intent *read_input_devices(52,1410
+void add_special(119,3272
+
+linux-mouse.c,188
+#define MOUSE_XRANGE 34,1083
+#define MOUSE_YRANGE 35,1108
+void init_input_devices(50,1415
+void end_input_devices(60,1704
+Intent *read_input_devices(66,1759
+void add_special(120,3151
+
+linuxvga.c,152
+void init_graphics(56,1578
+void load_palette(79,2175
+void end_graphics(101,2584
+void update_screen(111,2750
+Pixel *get_framebuffer_memory(118,2875
+
+list.c,123
+List *new_list(29,968
+void add_node(41,1101
+void delete_node(52,1253
+void delete_list(64,1420
+List *scan_list(73,1509
+
+render.c,1255
+#define PROFILE 23,893
+#define VIEW_WIDTH 47,1289
+#define VIEW_HEIGHT 48,1324
+#define TO_FIX_2_30(54,1552
+#define FROM_FIX_2_30(55,1589
+#define TO_FIX_8_24(56,1627
+#define FROM_FIX_8_24(57,1663
+#define MAX_WALL_EVENTS 58,1700
+#define MAX_ERROR 60,1728
+} Wall_start;Wall_start67,1841
+typedef Wall *Wall_end;Wall_end69,1856
+} Wall_start_list;Wall_start_list74,1958
+} Wall_end_list;Wall_end_list79,2053
+} Active_wall;Active_wall89,2273
+} Wall_intersection;Wall_intersection98,2458
+} View_constants;View_constants105,2630
+void init_renderer(145,4088
+static double current_time(169,4664
+static void *memmove(183,4930
+void render(209,5550
+static void transform_vertices(236,6143
+static void clip_walls(260,6798
+static void add_wall_events(371,9963
+static void render_walls(431,11792
+static int add_events(514,14712
+static Boolean wall_obscured(595,17129
+static int remove_events(632,18309
+static Wall_intersection *calc_wall_heights(652,18785
+static void draw_walls(731,21150
+static void draw_floors(912,26784
+static void draw_floor_slices(1028,29626
+static void draw_ceiling_slices(1079,31072
+static fixed wall_ray_intersection(1134,32688
+static void init_buffers(1157,33338
+static void calc_view_constants(1171,33594
+
+slice-gas86.c,75
+inline void draw_wall_slice(24,894
+inline void draw_floor_slice(103,2878
+
+slice.c,74
+inline void draw_wall_slice(24,894
+inline void draw_floor_slice(38,1226
+
+table.c,117
+#define STARTING_TABLE_SIZE 29,973
+Table *new_table(32,1007
+void init_table(43,1152
+void add_table_entry(52,1312
+
+texture.c,138
+Texture *new_texture(38,1183
+Texture *read_texture_file(56,1526
+static TexFormat check_texture_file(103,2604
+static int log2(122,3140
+
+view.c,24
+View *new_view(32,1024
+
+world.c,283
+#define START_VERTICES 35,1084
+#define START_WALLS 36,1110
+#define START_TEXTURES 37,1136
+World *new_world(40,1164
+void add_texture(54,1440
+void add_wall(60,1528
+void add_vertex(66,1608
+void add_region(72,1689
+void update_wall_scale(78,1769
+void update_wall_phase(105,2587
+
+worldfile.c,628
+#define TEXTURE_NAME_MAX_LENGTH 41,1185
+#define STRING_TOKEN_MAX_LENGTH 42,1220
+#define IS_STRING_TOKEN_CHAR(44,1257
+#define COMMENT_CHAR 46,1371
+} Texture_node;Texture_node51,1475
+} Token_type;Token_type58,1578
+World *read_world_file(78,2226
+void parse_world(91,2408
+void parse_vertex(110,2907
+void parse_region(124,3161
+void parse_wall(161,4298
+void parse_texture(240,7122
+int get_texture_index(269,7955
+List_result find_list_name(281,8161
+Token_type get_string_token(293,8411
+Token_type get_real_token(319,8855
+Token_type get_integer_token(338,9163
+int skip_whitespace(354,9431
+void parse_error(373,9735
+
+wt.c,18
+int main(42,1202
+
+wtmem.c,69
+void *wtmalloc(30,995
+void *wtrealloc(42,1189
+void wtfree(53,1371
+
+x11graphics.c,390
+#define REAL_SCREEN_WIDTH 41,1190
+#define REAL_SCREEN_HEIGHT 42,1239
+void init_graphics(65,1697
+static void create_window(79,1931
+static void load_palette(111,2859
+void map_shared_mem(160,4180
+void update_screen(174,4597
+void end_graphics(182,4765
+static void map_shared_mem(187,4828
+void update_screen(227,6098
+void end_graphics(241,6431
+Pixel *get_framebuffer_memory(252,6625
+
+x11input.c,128
+void init_input_devices(43,1318
+void end_input_devices(51,1479
+Intent *read_input_devices(56,1514
+void add_special(188,3867
+
+error.h,0
+
+fixed.h,877
+#define FIXED_H_24,910
+#define INT_TO_FIXED(29,979
+#define FIXED_TO_INT(30,1015
+#define FIXED_TO_FLOAT(31,1051
+#define FLOAT_TO_FIXED(32,1104
+#define FIXED_ABS(35,1171
+#define FIXED_TRUNC(36,1215
+#define FIXED_SIGN(37,1257
+#define FIXED_PRODUCT_SIGN(38,1306
+#define FIXED_HALF(39,1374
+#define FIXED_DOUBLE(40,1406
+#define FIXED_SCALE(43,1496
+#define FIXED_ZERO 47,1564
+#define FIXED_ONE 48,1605
+#define FIXED_ONE_HALF 49,1646
+#define FIXED_PI 50,1693
+#define FIXED_2PI 51,1745
+#define FIXED_HALF_PI 52,1797
+#define FIXED_MIN 53,1849
+#define FIXED_MAX 54,1881
+#define FIXED_EPSILON 57,1984
+#define MIN(59,2024
+#define MAX(60,2066
+typedef long fixed;fixed62,2109
+static inline fixed fixmul(68,2205
+static inline fixed fixmul2_30(80,2421
+static inline fixed fixdiv(92,2641
+#define fixmul(111,3064
+#define fixmul2_30(112,3137
+#define fixdiv(114,3228
+
+framebuf.h,76
+typedef unsigned char Pixel;Pixel24,894
+} Framebuffer;Framebuffer29,991
+
+graphics.h,91
+#define SCREEN_WIDTH 23,893
+#define SCREEN_HEIGHT 24,919
+#define PALETTE_ENTRIES 26,946
+
+input.h,124
+#define INTENT_END_GAME 24,894
+#define INTENT_JUMP 25,920
+#define MAX_SPECIAL_INTENTIONS 28,948
+} Intent;Intent35,1128
+
+list.h,202
+typedef enum { List_success, List_failure } List_result;List_result23,893
+typedef struct List_s List_s25,951
+} List;List28,1018
+typedef List_result (*Scan_list_functionn)(void *node)node30,1027
+
+render.h,0
+
+slice.h,23
+#define TEST_ASM 7,91
+
+table.h,83
+} Table;Table28,1000
+#define TABLE_ELEMENTS(31,1011
+#define TABLE_SIZE(32,1067
+
+texture.h,190
+#define TEXTURE_H_26,977
+#define TEXTURE_MAGIC 28,997
+#define TEXTURE_MAGIC_LENGTH 29,1027
+} Texture;Texture35,1148
+typedef enum { WTTEX, GIF87a, Unknown } TexFormat;TexFormat37,1160
+
+view.h,19
+} View;View9,143
+
+world.h,237
+#define NO_WALL 23,893
+} Vertex;Vertex28,1007
+} Region;Region34,1102
+} Wall;Wall45,1314
+} World;World53,1425
+#define WORLD_VERTEX(56,1436
+#define WORLD_TEXTURE(57,1510
+#define WORLD_REGION(58,1587
+#define WORLD_WALL(59,1660
+
+worldfile.h,0
+
+wt.h,357
+#define TEXTURE_PATH 24,932
+#define DEFAULT_WORLD_FILE 25,964
+#define DEFAULT_PALETTE_FILE 26,1004
+#define MIN(29,1055
+#define MAX(32,1116
+typedef enum { False, True } Boolean;Boolean36,1180
+#define Boolean 39,1240
+#define inline44,1292
+#define PATH_MAX 55,1485
+#define PATH_MAX 57,1524
+#define EXIT_FAILURE 62,1582
+#define EXIT_SUCCES 65,1633
+
+wtmem.h,0
+
+x11graphics.h,0

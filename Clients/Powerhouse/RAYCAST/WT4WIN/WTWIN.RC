@@ -1,0 +1,74 @@
+#include "windows.h"
+#include "wtwin.h"
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+APPABOUT DIALOG DISCARDABLE  22, 17, 166, 95
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 8, "System"
+BEGIN
+    CTEXT           "WT 3D Engine Demo",-1,27,6,112,8
+    DEFPUSHBUTTON   "OK",IDOK,63,78,40,14,WS_GROUP
+    CTEXT           "Chris Thomas (csid 75410,2627).",-1,10,63,146,8
+    CTEXT           "This is a demo of Chris Laurel's 3D raycasting engine, WT version 4, ported to Microsoft Windows Win32 and WinG.",
+                    -1,4,24,159,28
+    CTEXT           "The Win32/WinG port was done by",-1,10,55,146,8
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+APPMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open World...",              ID_FILE_OPEN
+        MENUITEM "&About WTWIN...",             ID_FILE_ABOUT
+        MENUITEM "E&xit",                       ID_FILE_EXIT
+    END
+    POPUP "&Stuff"
+    BEGIN
+        POPUP "Str&etch"
+        BEGIN
+            MENUITEM "&1X Blit",                    ID_STUFF_1X
+            MENUITEM "&2X Blit",                    ID_STUFF_2X
+        END
+        POPUP "&Frame Rate"
+        BEGIN
+            MENUITEM "Win&G Only",                  ID_STUFF_FRAMERATE_RAW_WING
+
+            MENUITEM "W&T Only",                    ID_STUFF_FRAMERATE_RAW_WT
+
+            MENUITEM "&Static",                     ID_STUFF_FRAMERATE_STATIC
+
+            MENUITEM "&Dynamic",                    ID_STUFF_FRAMERATE_DYNAMIC
+
+        END
+        MENUITEM "S&tatistics...",              ID_STUFF_STATISTICS
+        MENUITEM "&Player Info...",             ID_STUFF_PLAYER_INFO
+        MENUITEM "&Reset",                      ID_STUFF_RESET
+        MENUITEM "Sho&w Rendering",             ID_STUFF_SHOW_RENDERING
+    END
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING1             "WTWIN, Windows Win32 WinG port of the WT 3D Engine."
+    IDS_STRING2             "Ported by Chris Thomas, CSID [75410,2627]"
+    IDS_STRING3             "WT Version 0.04"
+    IDS_STRING4             "Windows Win32 WinG port version 0.01"
+END
+
+

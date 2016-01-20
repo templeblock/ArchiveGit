@@ -1,0 +1,24 @@
+HKCR
+{
+	JMSrvr.JMBrkr.1 = s 'JMBrkr Class'
+	{
+		CLSID = s '{BF897EBA-7FBE-41B5-85A3-FBC9212DB1C5}'
+	}
+	JMSrvr.JMBrkr = s 'JMBrkr Class'
+	{
+		CLSID = s '{BF897EBA-7FBE-41B5-85A3-FBC9212DB1C5}'
+		CurVer = s 'JMSrvr.JMBrkr.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BF897EBA-7FBE-41B5-85A3-FBC9212DB1C5} = s 'JMBrkr Class'
+		{
+			ProgID = s 'JMSrvr.JMBrkr.1'
+			VersionIndependentProgID = s 'JMSrvr.JMBrkr'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{24B59332-C945-476F-B266-2170959CCE24}'
+		}
+	}
+}

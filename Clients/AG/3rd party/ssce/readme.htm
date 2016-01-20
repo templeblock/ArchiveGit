@@ -1,0 +1,591 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("MicroVision WebExpress","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c0ffc0","Wintertree","1") -->
+  <!-- $MVD$:color("19","c0ff","Or1","1") -->
+  <TITLE>Sentry Spelling Checker Engine Release Notes</TITLE>
+ </HEAD>
+ <BODY BGCOLOR="WHITE">
+  <H1>
+   Sentry Spelling Checker Engine<BR>
+   Version 5.14<BR>
+   Release Notes</H1>
+  <P>
+   Contents:</P>
+  <UL>
+   <LI>
+   <P>
+    What's New<BR>
+    <LI>Documentation changes<BR>
+    <LI>Known problems<BR>
+    <LI>Registering<BR>
+    <LI>Technical Support<BR>
+    <LI>Solutions to common problems<BR>
+    <LI>API changes</P>
+   </UL>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=TOP>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="WhatsNew"></A>What's New</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <CENTER>
+  <P ALIGN=CENTER>
+   <TABLE WIDTH="80%" CELLPADDING="2" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD WIDTH="100%" VALIGN=TOP>
+      <P ALIGN=CENTER>
+       <B>IMPORTANT</B></P>
+      <P>
+       The Sentry Windows DLL now requires that calling applications pass a 
+       license key to the SSCE_SetKey function before calling other 
+       functions in Sentry's API. If you are upgrading from a previous 
+       version of the Sentry Spelling Checker Engine Windows SDK, you must 
+       modify your application to call the SSCE_SetKey function. The license 
+       key is provided by Wintertree Software with the Sentry Windows SDK:</P>
+      <UL>
+       <LI>
+       <P>
+        If you received the Sentry Windows SDK on CD-ROM, your license key is 
+        provided on a paper sheet in the Sentry package.</P>
+       <LI>
+       <P>
+        If you received the Sentry SDK electronically, your license key is 
+        provided in the e-mail message which the Sentry software was attached 
+        to, or which described how to download the Sentry software.</P>
+       <LI>
+       <P>
+        If you purchased Sentry from <A HREF="http://www.netsales.com">Netsales</A>,
+         your license key is located in file key.txt, located in the ssce\sdk 
+        directory where you installed the Sentry SDK.</P>
+       </UL>
+      <P>
+       The Sentry DLL will not operate correctly if the SSCE_SetKey function 
+       is not called with a valid key.</TD>
+    </TR>
+   </TABLE></P>
+  </CENTER>
+  <P>
+   The following changes were made in this version:</P>
+  <UL>
+   <LI>
+   <P>
+    The SSCE_IGNORE_HTML_MARKUPS_OPT option was added. This option causes 
+    the Sentry engine to skip over text in HTML markups (e.g., &lt;B&gt;).
+     The option is reflected in the Sentry Windows DLL as the 
+    IgnoreHTMLMarkups property.</P>
+   <LI>
+   <P>
+    The SSCE_CHECK_SINGLE_WORD_OPT option was added. This option is 
+    intended to be used in the &quot;stateless&quot; API (available with 
+    the Sentry Source SDK only) to cause WS_CheckText to treat the text 
+    as a single word, rather than as a series of words.</P>
+   <LI>
+   <P>
+    When the SSCE_IGNORE_NON_ALPHA_WORDS_OPT option is set, the same 
+    numbers appearing twice in a row will no longer be reported as a 
+    doubled word.</P>
+   <LI>
+   <P>
+    The SSCE_CheckCtrlBackground function was added to the Sentry Windows 
+    API. This function monitors typing made in standard rich-edit 
+    controls (CRichEditCtrl, TRichEdit, RichTextBox) for spelling errors, 
+    and marks misspelled words by changing their color to red. Example 
+    programs that implemented this feature in previous versions have been 
+    replaced with examples that use SSCE_CheckCtrlBackground.</P>
+   <LI>
+   <P>
+    Several functions that support checking and editing of strings have 
+    been added to the Sentry Core API. These functions will eventually 
+    replace the block-related functions.</P>
+   <LI>
+   <P>
+    A new lexicon type, MFCLex, has been added to the 
+    &quot;stateless&quot; API (available with the Sentry Source SDK). 
+    MFCLex lexicons are memory-based compressed lexicons that are loaded 
+    from clx files when the lexicon is opened. The entire contents of the 
+    clx file is loaded into memory, so once opened, MFCLex lexicons can 
+    be treated as read-only, meaning they can be safely shared by threads 
+    without need for synchronization.</P>
+   <LI>
+   <P>
+    New example applications written in C++/MFC, Visual Basic, and Delphi 
+    are included with the Sentry Windows SDK. The new examples 
+    demonstrate how to use the Sentry engine to perform various common 
+    spelling-checker tasks.</P>
+   <LI>
+   <P>
+    The Active Server Pages example program included with the Sentry 
+    Windows SDK has been modified to improve its robustness.</P>
+   <LI>
+   <P>
+    The Sentry Programmer's Guide has been reformatted as a set of HTML 
+    pages. The programmer's guide was reformatted so customers who 
+    receive the Sentry SDK electronically can easily print their own documentation.</P>
+   <LI>
+   <P>
+    The C code generated by the Lex2C utility program (included with the 
+    Sentry Source SDK) caused run-time problems on some systems. The code 
+    has been corrected.</P>
+   <LI>
+   <P>
+    A problem where misspelled sub-words in a compound word would not be 
+    reported if the first sub-word was misspelled and ignored has been corrected.</P>
+   <LI>
+   <P>
+    A problem where sub-words consisting entirely of digits would not be 
+    ignored when the SSCE_IGNORE_NON_ALPHA_WORDS_OPT option was set has 
+    been corrected.</P>
+   <LI>
+   <P>
+    A problem where the block cursor would be positioned incorrectly by 
+    SSCE_DelBlockWord has been corrected.</P>
+   <LI>
+   <P>
+    A problem where the &quot;Get&quot; functions in the Sentry Windows 
+    API (e.g., SSCE_GetMainLexFiles) would return garbage if they were 
+    the first functions called has been corrected.</P>
+   <LI>
+   <P>
+    A problem where SSCE_CheckWord would break the text at word 
+    separators and check each word individually, rather than checking the 
+    text as a single word, has been corrected.</P>
+   <LI>
+   <P>
+    A problem where the Sentry engine would take a long time to check 
+    text (and may appear to be hung) when the 
+    SSCE_ALLOW_ACCENTED_CAPS_OPT option was disabled has been corrected.</P>
+   <LI>
+   <P>
+    A problem where SSCE_InsertBlockText and SSCE_ReplaceBlockWord would 
+    return large negative numbers when making changes to blocks 
+    containing more than 32K of text has been corrected.</P>
+   <LI>
+   <P>
+    A problem with the suggestions produced for plural possessives (e.g., 
+    girls') has been corrected.</P>
+   <LI>
+   <P>
+    A problem with the Sentry DLL where a new language selection that was 
+    made through the Options dialog while a spelling check was in 
+    progress has been corrected.</P>
+   <LI>
+   <P>
+    A problem where the case pattern of the first replacement was 
+    different that the case pattern of subsequent replacements in a 
+    &quot;change all&quot; operation has been corrected.</P>
+   <LI>
+   <P>
+    A problem where the spelling dialog in the Sentry DLL would move 
+    after being initially displayed, even after SSCE_SetDialogOrigin had 
+    been called, has been corrected.</P>
+   <LI>
+   <P>
+    Synchronization problems that occurred when the Sentry DLL was called 
+    by many threads simultaneously has been corrected.</P>
+   <LI>
+   <P>
+    Various compilation warnings raised when the Sentry source code was 
+    compiled with the gcc compiler have been corrected.</P>
+   <LI>
+   <P>
+    Functional makefiles are now included with the Sentry Source SDK.</P>
+   <LI>
+   <P>
+    A problem where the SSCEVB_GetLex function always returned a lexicon 
+    of size 1 has been corrected.</P>
+   <LI>
+   <P>
+    Under certain circumstances, the temporary file created when text 
+    lexicons are updated was not deleted. This problem has been corrected.</P>
+   <LI>
+   <P>
+    A problem where misspelled words were not highlighted correctly after 
+    deleting a doubled word has been corrected.</P>
+   </UL>
+  <P>
+   For a list of changes in recent previous versions of Sentry Spelling 
+   Checker Engine, see <A HREF="http://www.wintertree-software.com/support/ssce/revisionhistory.html">http://www.wintertree-software.com/support/ssce/revisionhistory.html</A>.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="DocChanges"></A>Documentation changes</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   None.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="KnownProblems"></A>Known problems</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <H3>
+   File Handles in the Sentry Windows DLL</H3>
+  <P>
+   If your application opens many files (17 or more) and you are having 
+   problems with Sentry (e.g., Sentry DLL displays &quot;Can't open 
+   lexicon&quot; messages), you can solve the problem by calling the 
+   SetHandleCount function in the Windows API before you call any Sentry 
+   functions. The parameter passed to SetHandleCount is the number of 
+   file handles which should be made available to your application and 
+   its DLLs, including the Sentry DLL. The Sentry DLL needs at most two 
+   file handles.</P>
+  <P>
+   The Sentry DLL opens files only temporarily, so it will not take file 
+   handles away from your application.</P>
+  <H3>
+   Application crashes on exit (Sentry DLL)</H3>
+  <P>
+   Under some circumstances, a 16-bit Windows application which uses the 
+   Sentry DLL will crash on exiting. This appears to happen with Visual 
+   Basic and Access applications, especially when run under Win 3.1.</P>
+  <P>
+   The cause of the crash is under investigation. Until the problem is 
+   solved, the following steps will prevent it. Before your application 
+   exits, force a dummy call to SSCE_SetMainLexPath. This will force the 
+   Sentry DLL to close the Sentry session and un-register various 
+   Windows callback functions. You can call SSCE_SetMainLexPath 
+   harmlessly bypassing it the current main lexicon path:</P><BLOCKQUOTE><PRE>Dim path As String * 256<BR>Call SSCE_GetMainLexPath(path, Len(path))<BR>Call SSCE_SetMainLexPath(path)</PRE></BLOCKQUOTE><H3>
+   Stack usage (Sentry DLL)</H3>
+  <P>
+   Like other Windows DLLs, the Sentry DLL shares the stack space of the 
+   application which calls it. If your application uses most of the 
+   available stack space then calls a function in the Sentry DLL, a 
+   stack overflow may result. A stack overflow may cause an error 
+   message to be displayed, or it may result in a GPF or program 
+   hang-up. The solution is to increase your application's stack allocation.</P>
+  <H3>
+   &quot;$Revision&quot; string (Sentry DLL)</H3>
+  <P>
+   The Sentry DLL contains a &quot;$Revision $&quot; string. This may 
+   cause problems if the DLL is checked into a revision control system 
+   (such as Source-Safe) which automatically replaces &quot;$Revision&quot;.</P>
+  <H3>
+   Temporary file directory (Sentry source code)</H3>
+  <P>
+   Source file dftlex.c calls the getenv C library function to obtain 
+   the value of the &quot;TMP&quot; environment variable, which is the 
+   path to a directory where temporary files should be created. On some 
+   systems (e.g., Macintosh) environment variables are not used. On 
+   these systems, the problem may be corrected by replacing the call to 
+   getenv(&quot;TMP&quot;) with a hard-coded path to a directory where 
+   temporary files may be written, or a call to a function that returns 
+   the name of a temporary directory, etc.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="Registering"></A>Registering</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   We frequently send out notices regarding recent changes and new 
+   features to registered Sentry customers. <A HREF="regform.html">Click here</A> 
+   to register on-line.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="TechnicalSupport"></A>Technical Support</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <A HREF="techsupport.html">Click here</A> for technical support 
+   information regarding Sentry Spelling Checker Engine.</P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD WIDTH="100%" BGCOLOR="#007F00" VALIGN=CENTER>
+      <H2>
+       <FONT COLOR="WHITE"><A NAME="APIChanges"></A>API changes</FONT></TD>
+    </TR>
+   </TABLE></P>
+  <H3>
+   Version 5.14</H3>
+  <UL>
+   <LI>
+   <P>
+    Added SSCE_IGNORE_HTML_MARKUPS_OPT.</P>
+   <LI>
+   <P>
+    Added SSCE_CheckString, SSCE_CountStringWords, SSCE_DelStringText, 
+    SSCE_DelStringWord, SSCE_InsertStringText, and SSCE_ReplaceStringWord 
+    to the Core Sentry API.</P>
+   <LI>
+   <P>
+    Add the SSCE_SetKey function to the Sentry Windows API.</P>
+   <LI>
+   <P>
+    Added the SSCE_CheckCtrlBackground function to the Sentry Windows API.</P>
+   <LI>
+   <P>
+    Added an option parameter to WS_GetTextWord and WS_NextTextWord.</P>
+   </UL>
+  <H3>
+   Version 5.12</H3>
+  <UL>
+   <LI>
+   <P>
+    Removed SSCE_MAX_SESSIONS, SSCE_MAX_BLOCKS_PER_SESSION, and 
+    SSCE_MAX_LEX_PER_SESSION. The number of sessions, blocks, and 
+    lexicons that can be opened is now limited only by available memory.</P>
+   </UL>
+  <H3>
+   Version 5.11</H3>
+  <UL>
+   <LI>
+   <P>
+    Added SSCE_ALLOW_ACCENTED_CAPS_OPT</P>
+   </UL>
+  <H3>
+   Version 5.7</H3>
+  <UL>
+   <LI>
+   <P>
+    Added SSCE_IGNORE_NON_ALPHA_WORD_OPT</P>
+   <LI>
+   <P>
+    SSCE_GetLexId: If the file name is empty or null, the id of the 
+    temporary lexicon used to record ignore-all and change-all words is returned.</P>
+   <LI>
+   <P>
+    Added SSCE_GetSelUserLex and SSCE_SetSelUserLex.</P>
+   <LI>
+   <P>
+    Added SSCE_IGNORE_DOMAIN_NAMES_OPT</P>
+   </UL>
+  <H3>
+   Version 5.1</H3>
+  <UL>
+   <LI>
+   <P>
+    General: The S16, U32, etc. data types used in the SSCE API have been 
+    replaced with SSCE_S16, SSCE_U32, etc. to avoid name conflicts.</P>
+   <LI>
+   <P>
+    General: If SSCE_UNICODE has been defined, the SSCE_CHAR type now 
+    refers to type wchar_t.</P>
+   <LI>
+   <P>
+    SSCE_ISO_8859_*_CHARSET values have been replaced with 
+    SSCE_LATIN1_CHARSET and SSCE_UNICODE_CHARSET.</P>
+   <LI>
+   <P>
+    SSCE_xxx_LEX_TYPE values have been removed.</P>
+   <LI>
+   <P>
+    SSCE_MATCH_CASE_ON_REPLACE_OPT has been removed.</P>
+   <LI>
+   <P>
+    SSCE_CHARSET_OPT has been removed.</P>
+   <LI>
+   <P>
+    SSCE_AUTO_CHANGE_ACTION, SSCE_AUTO_CHANGE_PRESERVE_CASE_ACTION, 
+    SSCE_CONDITIONAL_CHANGE_ACTION, 
+    SSCE_CONDITIONAL_CHANGE_PRESERVE_CASE_ACTION, SSCE_EXCLUDE_ACTION, 
+    and SSCE_IGNORE_ACTION were added.</P>
+   <LI>
+   <P>
+    SSCE_AUTO_SEARCH_DEPTH has been removed.</P>
+   <LI>
+   <P>
+    SSCE_AddLexWord: Added the action parameter.</P>
+   <LI>
+   <P>
+    SSCE_CheckBlock: Removed the options parameter.</P>
+   <LI>
+   <P>
+    SSCE_CheckWord: Removed the options parameter.</P>
+   <LI>
+   <P>
+    SSCE_CompressLexInit: Removed the charSet parameter.</P>
+   <LI>
+   <P>
+    SSCE_CreateLex: Removed the lexType parameter.</P>
+   <LI>
+   <P>
+    SSCE_DelBlockText: New function.</P>
+   <LI>
+   <P>
+    SSCE_DelBlockWord: Added the delText and delTextSz parameters. The 
+    return type was changed to SSCE_S32. The return value is now the 
+    offset of the first deleted character from the start of the block.</P>
+   <LI>
+   <P>
+    SSCE_FindLexWord: New function.</P>
+   <LI>
+   <P>
+    SSCE_GetLexInfo: Removed lexType parameter.</P>
+   <LI>
+   <P>
+    SSCE_InsertBlockText: New function.</P>
+   <LI>
+   <P>
+    SSCE_Suggest: The depth parameter now ranges from 0 to 100.</P>
+   <LI>
+   <P>
+    SSCE_Version: The version is now returned as a string.</P>
+   <LI>
+   <P>
+    SSCE_CheckBlockDlgTmplt: Added the newLexDlgTmplt parameter.</P>
+   <LI>
+   <P>
+    SSCE_CheckCtrlDlgTmplt: Added the newLexDlgTmplt parameter.</P>
+   <LI>
+   <P>
+    SSCE_EditLexDlgTmplt: Added the newLexDlgTmplt parameter.</P>
+   <LI>
+   <P>
+    SSCE_GetStringTableName: New function.</P>
+   <LI>
+   <P>
+    SSCE_SetStringTableName: New function.</P>
+   </UL>
+  <H3>
+   Version 4.22</H3>
+  <UL>
+   <LI>
+   <P>
+    Added the showContext parameter to SSCE_CheckBlockDlg.</P>
+   <LI>
+   <P>
+    Deleted SSCE_GetAlwaysSuggest and SSCE_SetAlwaysSuggest.</P>
+   <LI>
+   <P>
+    Added SSCE_GetMinSuggestDepth and SSCE_SetMinSuggestDepth</P>
+   <LI>
+   <P>
+    Added SSCE_GetAutoCorrect and SSCE_SetAutoCorrect</P>
+   <LI>
+   <P>
+    Added &quot;Tmplt&quot; forms of functions which display dialogs: 
+    SSCE_CheckBlockDlgTmplt, SSCE_CheckCtrlDlgTmp, SSCE_EditLexDlgTmplt, SSCE_OptionsDlgTmplt.</P>
+   </UL>
+  <H3>
+   Version 4.21</H3>
+  <UL>
+   <LI>
+   <P>
+    Added SSCE_MATCH_CASE_ON_REPLACE_OPT.</P>
+   <LI>
+   <P>
+    Added SSCE_SetBlockCursor function.</P>
+   <LI>
+   <P>
+    Added SSCE_GetHelpFile function.</P>
+   <LI>
+   <P>
+    Added SSCE_GetRegTreeName function.</P>
+   <LI>
+   <P>
+    Added errorsDetected parameter to SSCE_GetStatistics function.</P>
+   <LI>
+   <P>
+    Added SSCE_SetHelpFile function.</P>
+   <LI>
+   <P>
+    Added SSCE_SetRegTreeName function.</P>
+   </UL>
+  <H3>
+   Version 4.11</H3>
+  <UL>
+   <LI>
+   <P>
+    All SSCED_* functions renamed to SSCE_*.</P>
+   <LI>
+   <P>
+    SSCE_GetOption and SSCE_SetOption added.</P>
+   <LI>
+   <P>
+    Option mask passed to SSCE_CheckBlock and SSCE_CheckWord is now ORed 
+    with the session options set via SSCE_SetOption.</P>
+   <LI>
+   <P>
+    Added the following options:</P>
+   <UL>
+    <LI>
+    <P>
+     SSCE_CASE_SENSITIVE_OPT</P>
+    <LI>
+    <P>
+     SSCE_SPLIT_HYPHENATED_WORDS_OPT</P>
+    <LI>
+    <P>
+     SSCE_SPLIT_CONTRACTED_WORDS_OPT</P>
+    <LI>
+    <P>
+     SSCE_SPLIT_WORDS_OPT</P>
+    <LI>
+    <P>
+     SSCE_SUGGEST_SPLIT_WORDS_OPT</P>
+    <LI>
+    <P>
+     SSCE_SUGGEST_PHONETIC_OPT</P>
+    <LI>
+    <P>
+     SSCE_SUGGEST_TYPOGRAPHICAL_OPT</P>
+    <LI>
+    <P>
+     SSCE_STRIP_POSSESSIVES_OPT</P>
+    <LI>
+    <P>
+     SSCE_CHAR_SET_OPT</P>
+    <LI>
+    <P>
+     SSCE_LANGUAGE_OPT</P>
+    </UL>
+   <LI>
+   <P>
+    Removed SSCE_PhonSearch (use SSCE_Suggest and SSCE_SUGGEST_PHONETIC_OPT).</P>
+   <LI>
+   <P>
+    Added SSCE_CompressLexInit, SSCE_CompressLexFile, 
+    SSCE_CompressLexEnd, and SSCE_CompressLexAbort.</P>
+   <LI>
+   <P>
+    Unlimited memory budget value in SSCE_OpenLex is now 0, not -1.</P>
+   <LI>
+   <P>
+    Renamed SSCED_GetLexPath to SSCE_GetMainLexPath</P>
+   <LI>
+   <P>
+    Renamed SSCED_SetLexPath to SSCE_SetMainLexPath</P>
+   <LI>
+   <P>
+    Removed SSCED_GetOptionMask and SSCED_SetOptionMask (use SSCE_GetSid, 
+    SSCE_GetOption, and SSCE_SetOption)</P>
+   <LI>
+   <P>
+    Added SSCE_GetStatistics</P>
+   <LI>
+   <P>
+    Added SSCE_SetDialogOrigin</P>
+   </UL>
+  <H3>
+   Version 3.5</H3>
+  <UL>
+   <LI>
+   <P>
+    SSCED_SetIniFile added to SSCE Dialogs.</P>
+   <LI>
+   <P>
+    Return value of SSCED_CheckBlockDlg changed from DWORD to long.</P>
+   <LI>
+   <P>
+    Return values of SSCED_CheckCtrlDlg, SSCED_EditLexDlg,SSCED_GetLexId,</P>
+   <LI>
+   <P>
+    SSCED_GetSid, SSCED_OptionsDlg, SSCED_SetMainLexFiles, and 
+    SSCED_SetUserLexFiles changed from WORD to short.
+ </BODY>
+</HTML>

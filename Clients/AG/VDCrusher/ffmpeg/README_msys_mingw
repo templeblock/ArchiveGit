@@ -1,0 +1,45 @@
+To compile ffmpeg for windows, I had to install msys and mingw on my PC.
+
+http://www.mingw.org
+
+I remembered it wasn't the easiest thing in the world. 
+You have to install the packages in the correct order. 
+I found the following mingw's Wiki page to be helpful.
+
+http://www.mingw.org/MinGWiki/index.php/GettingStarted?PHPSESSID=d9c03d1d911a252f6e3055d4a46275ee
+
+1. Downloaded SDL-1.2.8-mingwPORT.tar.bz2, 
+              zlib-1.2.3-mingwPORT.tar.bz2
+   from http://www.mingw.org/download.shtml
+   and installed.
+
+2. Also downloaded "lame-3.96.1" from
+http://www.mp3dev.org
+
+Used:
+make -fMakefile.unix UNAME=MSDOS NOUNIXCMD=NO 
+to compile and install it. lame is necessary
+for generating audio portion of the .flv.
+
+3. Download the latest ffmpeg
+
+cvs -z9 -d:pserver:anonymous@mplayerhq.hu:/cvsroot/ffmpeg co ffmpeg
+
+4. Configure ffmpeg with:
+
+./configure --enable-memalign-hack --enable-shared --enable-mp3lame --enable-mingw32 --prefix=/c/ffmpeg
+
+run make and make install.
+
+5. Other changes:
+
+Added the following line in the beginning of the msys.bat
+
+call "C:\Program Files\Microsoft Visual Studio .NET 2003\Common7\Tools\vsvars32.bat"
+
+msys.bat is in msys\1.0 directory.
+
+6. To generate the necessary .lib using .def, run the following:
+lib /def:avcodec.def /machine:i386 /out:avcodec.lib
+etc..
+~      

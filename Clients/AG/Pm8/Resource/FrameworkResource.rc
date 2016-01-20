@@ -1,0 +1,1342 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "AppStudio.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "FrameworkResourceIDs.h"
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "AppStudio.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""FrameworkResourceIDs.h""\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DIALOG_EDIT_COMPONENT_ATTRIBUTES DIALOG DISCARDABLE  0, 0, 137, 87
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Component Attributes"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Resizable",CONTROL_RESIZABLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,7,47,10
+    CONTROL         "Rotatable",CONTROL_ROTATABLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,24,47,10
+    LTEXT           "Z-Layer",IDC_STATIC,7,44,28,8
+    CONTROL         "Selectable",CONTROL_SELECTABLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,77,7,49,10
+    CONTROL         "Movable",CONTROL_MOVABLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,77,24,43,10
+    EDITTEXT        CONTROL_ZLAYER,77,42,54,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,66,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,81,66,50,14
+END
+
+DIALOG_FRAMES DIALOGEX 0, 0, 311, 134
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Apply Box"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "&F Thin Frame",CONTROL_BUTTON_THIN_FRAME,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | WS_GROUP | 
+                    WS_TABSTOP,19,18,26,22
+    CONTROL         "Medium Frame",CONTROL_BUTTON_MEDIUM_FRAME,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | 
+                    WS_TABSTOP,45,18,26,22
+    CONTROL         "Thick Frame",CONTROL_BUTTON_THICK_FRAME,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | 
+                    WS_TABSTOP,71,18,26,22
+    CONTROL         "Double Thin Frame",CONTROL_BUTTON_DBL_THIN_FRAME,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | 
+                    WS_TABSTOP,19,40,26,22
+    CONTROL         "Double Medium Frame",CONTROL_BUTTON_DBL_MEDIUM_FRAME,
+                    "Button",BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | 
+                    WS_TABSTOP,45,40,26,22
+    CONTROL         "Double Thick Frame",CONTROL_BUTTON_DBL_THICK_FRAME,
+                    "Button",BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | 
+                    WS_TABSTOP,71,40,26,22
+    CONTROL         "Round Corner Frame",CONTROL_BUTTON_ROUND_CORNER_FRAME,
+                    "Button",BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | 
+                    WS_TABSTOP,19,62,26,22
+    CONTROL         "Picture Frame",CONTROL_BUTTON_PICTURE_FRAME,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | 
+                    WS_TABSTOP,45,62,26,22
+    CONTROL         "Drop Shadow",CONTROL_BUTTON_DROP_SHADOW_FRAME,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | 
+                    WS_TABSTOP,71,62,26,22
+    CONTROL         "&Remove Box",CONTROL_BUTTON_REMOVE_FRAME,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_TABSTOP,19,85,78,
+                    14
+    LTEXT           "&Color:",IDC_STATIC,22,108,19,8
+    PUSHBUTTON      "&C",CONTROL_BUTTON_COLOR_FRAME,47,105,45,14,BS_BITMAP | 
+                    WS_GROUP
+    CONTROL         "",CONTROL_STATIC_FRAME_DISPLAY,"Static",SS_BITMAP | 
+                    SS_CENTERIMAGE | WS_BORDER | WS_GROUP,119,16,122,106,
+                    WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "OK",IDOK,254,7,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,254,24,50,14,WS_GROUP
+    PUSHBUTTON      "&Help",ID_HELP,254,42,50,14,WS_GROUP
+    GROUPBOX        "Preview",IDC_STATIC,113,7,133,120
+    GROUPBOX        "Box",IDC_STATIC,7,7,101,120
+END
+
+DIALOG_SCALE DIALOGEX 0, 0, 275, 157
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scale"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "&Percentage:",IDC_STATIC,17,21,45,8
+    EDITTEXT        CONTROL_EDIT_SCALE,63,18,52,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_GROUP
+    CONTROL         "Spin1",CONTROL_SCALE_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,114,17,11,14
+    CONTROL         1001,CONTROL_STATIC_SCALE_DOTS,"Static",SS_BITMAP | 
+                    SS_CENTERIMAGE,18,36,96,16
+    CONTROL         "Slider1",CONTROL_SLIDER_SCALE,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,15,52,100,16
+    CONTROL         "&All directions",CONTROL_RADIO_SCALE_ALL_DIRECTIONS,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,
+                    87,61,10
+    CONTROL         "H&orizontal only",CONTROL_RADIO_SCALE_HORIZONTAL_ONLY,
+                    "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,16,100,66,10
+    CONTROL         "&Vertical only",CONTROL_RADIO_SCALE_VERTICAL_ONLY,
+                    "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,16,113,58,10
+    CONTROL         "",CONTROL_STATIC_SCALE,"Static",SS_BITMAP | 
+                    SS_CENTERIMAGE | WS_BORDER | WS_GROUP,140,17,127,111,
+                    WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "OK",IDOK,101,138,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,159,137,50,14,WS_GROUP
+    PUSHBUTTON      "&Help",ID_HELP,217,137,50,14,WS_GROUP
+    GROUPBOX        "Direction",IDC_STATIC,7,75,118,53
+    GROUPBOX        "Scale",IDC_STATIC,7,7,118,66
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,8,132,259,1
+    LTEXT           "Preview",IDC_STATIC,141,7,26,8
+END
+
+DIALOG_ALIGN DIALOGEX 0, 0, 272, 135
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Align"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "&None",CONTROL_RADIO_ALIGN_HORZ_NONE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,11,18,39,10
+    CONTROL         "&Left",CONTROL_RADIO_ALIGN_HORZ_LEFT,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,11,29,32,10
+    CONTROL         "&Center",CONTROL_RADIO_ALIGN_HORZ_CENTER,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,11,40,44,10
+    CONTROL         "&Right",CONTROL_RADIO_ALIGN_HORZ_RIGHT,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,11,51,39,10
+    CONTROL         "N&one",CONTROL_RADIO_ALIGN_VERT_NONE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,11,79,43,10
+    CONTROL         "&Top",CONTROL_RADIO_ALIGN_VERT_TOP,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,11,90,44,10
+    CONTROL         "C&enter",CONTROL_RADIO_ALIGN_VERT_CENTER,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,11,101,42,10
+    CONTROL         "&Bottom",CONTROL_RADIO_ALIGN_VERT_BOTTOM,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,11,112,43,10
+    DEFPUSHBUTTON   "OK",IDOK,215,7,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,215,24,50,14,WS_GROUP
+    PUSHBUTTON      "&Help",ID_HELP,215,42,50,14,WS_GROUP
+    CONTROL         "",CONTROL_STATIC_ALIGN,"Static",SS_BITMAP | 
+                    SS_CENTERIMAGE,71,16,131,107,WS_EX_DLGMODALFRAME
+    GROUPBOX        "Preview",IDC_STATIC,65,7,142,121
+    GROUPBOX        "Horizontal",IDC_STATIC,7,7,53,59
+    GROUPBOX        "Vertical",IDC_STATIC,7,67,53,61
+END
+
+DIALOG_ROTATE DIALOGEX 0, 0, 258, 157
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Rotate"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "&Degrees:",IDC_STATIC,16,26,31,8
+    EDITTEXT        CONTROL_EDIT_ROTATE,54,23,48,14,ES_AUTOHSCROLL | 
+                    WS_GROUP
+    CONTROL         "Spin1",CONTROL_SPIN_ROTATE,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | UDS_NOTHOUSANDS,91,28,11,14
+    DEFPUSHBUTTON   "OK",IDOK,87,137,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,143,137,50,14,WS_GROUP
+    PUSHBUTTON      "&Help",ID_HELP,199,137,50,14,WS_GROUP
+    CONTROL         "",CONTROL_STATIC_ROTATE,"Static",SS_BITMAP | 
+                    SS_CENTERIMAGE | WS_BORDER,121,17,128,109,
+                    WS_EX_STATICEDGE
+    LTEXT           "Placeholder",CONTROL_STATIC_ROTATE_PLACEHOLDER,34,59,48,
+                    48,SS_SUNKEN | NOT WS_VISIBLE | WS_BORDER
+    GROUPBOX        "Rotate",IDC_STATIC,7,8,103,118
+    LTEXT           "90",IDC_STATIC,54,48,9,8
+    LTEXT           "0",IDC_STATIC,86,79,8,8
+    LTEXT           "270",IDC_STATIC,52,111,14,9
+    LTEXT           "180",IDC_STATIC,17,79,13,8
+    LTEXT           "Preview",IDC_STATIC,123,7,26,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,8,131,242,1
+END
+
+DIALOG_SPELL_CHECK DIALOGEX 0, 0, 348, 114
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Spell Check"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        CONTROL_EDIT_SPELL_NOT_FOUND,56,7,90,14,ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        CONTROL_EDIT_SPELL_REPLACE_WITH,56,28,90,14,
+                    ES_AUTOHSCROLL
+    LISTBOX         CONTROL_LISTBOX_SPELL_ALTERNATIVES,56,42,90,65,
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        CONTROL_EDIT_SPELL_CONTEXT,152,9,122,60,ES_MULTILINE | 
+                    ES_READONLY,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "&Add to Dictionary",
+                    CONTROL_BUTTON_SPELL_ADD_TO_DICTIONARY,171,80,83,14
+    DEFPUSHBUTTON   "&Ignore",CONTROL_EDIT_SPELL_IGNORE,291,7,50,14
+    PUSHBUTTON      "&Done",IDOK,291,24,50,14
+    PUSHBUTTON      "&Replace",CONTROL_EDIT_SPELL_REPLACE,291,41,50,14
+    PUSHBUTTON      "&Help",ID_HELP,291,58,50,14
+    LTEXT           "Replace with:",CONTROL_STATIC_SPELL_REPLACE_WITH,7,28,
+                    45,10
+    LTEXT           "Not found:",CONTROL_STATIC_SPELL_NOT_FOUND,7,7,35,8
+    LTEXT           "Alternatives:",CONTROL_STATIC_SPELL_ALTERNATIVES,7,42,
+                    40,10
+    GROUPBOX        "",IDC_STATIC,149,3,128,70
+END
+
+DIALOG_MEM_FAIL DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Memory Failure Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,33,74,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,102,74,50,14
+    CONTROL         "Never Fail",IDC_RD_NEVER_FAIL,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,33,19,48,10
+    CONTROL         "Fail After",IDC_RD_FAIL_AFTER,"Button",
+                    BS_AUTORADIOBUTTON,33,37,42,10
+    EDITTEXT        IDC_E_FAIL_TIME,78,35,32,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Allocations",IDC_S_ALLOCATIONS,114,38,40,8
+    LTEXT           "Times",IDC_S_NUM_FAILS,114,55,40,8
+    EDITTEXT        IDC_E_NUM_FAILURES,78,52,32,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "Fail",IDC_S_FAIL,60,55,15,8
+END
+
+DIALOG_FILE_FAIL DIALOG DISCARDABLE  0, 0, 159, 86
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "File Failure Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,33,65,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,102,65,50,14
+    CONTROL         "Never Fail",IDC_RD_NEVER_FAIL,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,7,6,48,10
+    CONTROL         "Fail after",IDC_RD_FAIL_AFTER,"Button",
+                    BS_AUTORADIOBUTTON,7,25,43,10
+    EDITTEXT        IDC_E_FAIL_TIME,53,23,32,14,ES_AUTOHSCROLL
+    LTEXT           "then fail",IDC_STATIC,20,47,26,8
+    EDITTEXT        IDC_E_NUM_FAILURES,53,43,32,14,ES_AUTOHSCROLL
+    LTEXT           "times in a row",IDC_STATIC,90,48,48,8
+    LTEXT           "file operations",IDC_STATIC,90,26,44,8
+END
+
+DIALOG_THESAURUS DIALOG DISCARDABLE  0, 0, 362, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Thesaurus"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        CONTROL_EDIT_THESAURUS_SELECTED_WORD,58,7,90,15,
+                    ES_AUTOHSCROLL
+    LISTBOX         CONTROL_LISTBOX_THESAURUS_SYNONYMS,58,22,90,66,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | 
+                    WS_TABSTOP
+    LISTBOX         CONTROL_LISTBOX_THESAURUS_DEFINITIONS,154,17,143,71,
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "&Look Up",CONTROL_EDIT_THESAURUS_DEFINE,305,7,50,14
+    PUSHBUTTON      "&Replace",CONTROL_EDIT_THESAURUS_REPLACE,305,24,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,305,42,50,14
+    PUSHBUTTON      "&Help",ID_HELP,305,60,50,14
+    LTEXT           "Selected word:",CONTROL_STATIC_THESAURUS_SELECTED_WORD,
+                    7,7,50,8
+    LTEXT           "Synonyms:",CONTROL_STATIC_THESAURUS_SYNONYMS,7,22,34,8
+    LTEXT           "Definitions:",CONTROL_STATIC_THESAURUS_SELECTED_WORD2,
+                    155,7,39,8
+END
+
+DIALOG_COLOR_DIALOG DIALOG DISCARDABLE  0, 0, 106, 158
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Color Palette"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "",CONTROL_COLOR_MRU1,2,2,12,11,SS_NOTIFY | SS_SUNKEN | 
+                    WS_TABSTOP
+    LTEXT           "",CONTROL_COLOR_MRU2,14,2,12,11,SS_NOTIFY | SS_SUNKEN
+    LTEXT           "",CONTROL_COLOR_MRU3,26,2,12,11,SS_NOTIFY | SS_SUNKEN
+    LTEXT           "",CONTROL_COLOR_MRU4,38,2,12,11,SS_NOTIFY | SS_SUNKEN
+    LTEXT           "",CONTROL_COLOR_MRU5,50,2,12,11,SS_NOTIFY | SS_SUNKEN
+    LTEXT           "",CONTROL_COLOR_MRU6,62,2,12,11,SS_NOTIFY | SS_SUNKEN
+    CTEXT           "None",CONTROL_COLOR_NONE,77,2,26,11,SS_NOTIFY | 
+                    SS_SUNKEN
+    CONTROL         10003,CONTROL_COLOR_PALETTE,"Static",SS_BITMAP | 
+                    SS_NOTIFY | WS_TABSTOP,2,15,102,118
+    PUSHBUTTON      "More...",CONTROL_COLOR_MORE,2,145,102,12
+END
+
+DIALOG_COLOR_DIALOG_EX DIALOG DISCARDABLE  0, 0, 234, 170
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CLIPSIBLINGS | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Color Palette"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "",CONTROL_COLOR_MRU1,1,3,12,11,SS_NOTIFY | SS_SUNKEN | 
+                    WS_TABSTOP
+    LTEXT           "",CONTROL_COLOR_MRU2,13,3,12,11,SS_NOTIFY | SS_SUNKEN
+    LTEXT           "",CONTROL_COLOR_MRU3,25,3,12,11,SS_NOTIFY | SS_SUNKEN
+    LTEXT           "",CONTROL_COLOR_MRU4,37,3,12,11,SS_NOTIFY | SS_SUNKEN
+    LTEXT           "",CONTROL_COLOR_MRU5,49,3,12,11,SS_NOTIFY | SS_SUNKEN
+    LTEXT           "",CONTROL_COLOR_MRU6,61,3,12,11,SS_NOTIFY | SS_SUNKEN
+    CTEXT           "None",CONTROL_COLOR_NONE,76,3,27,11,SS_NOTIFY | 
+                    SS_SUNKEN
+    CONTROL         10003,CONTROL_COLOR_PALETTE,"Static",SS_BITMAP | 
+                    SS_NOTIFY,1,17,102,129
+    LTEXT           "Blend Style",IDC_STATIC,115,3,36,8
+    CONTROL         "Radio1",CONTROL_RADIO_COLOR_LINEAR,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | WS_GROUP,
+                    110,13,21,19
+    CONTROL         "Radio1",CONTROL_RADIO_COLOR_INVERSE_LINEAR,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,134,13,21,
+                    19
+    CONTROL         "Radio2",CONTROL_RADIO_COLOR_LINEAR2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,110,34,21,
+                    19
+    CONTROL         "Radio2",CONTROL_RADIO_COLOR_INVERSE_LINEAR2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,134,34,21,
+                    19
+    CONTROL         "Radio3",CONTROL_RADIO_COLOR_CIRCLEBURST,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,110,55,21,
+                    19
+    CONTROL         "Radio3",CONTROL_RADIO_COLOR_INVERSE_CIRCLEBURST,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,134,55,21,
+                    19
+    CONTROL         "Radio4",CONTROL_RADIO_COLOR_SQAUREBURST,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,110,76,21,
+                    19
+    CONTROL         "Radio4",CONTROL_RADIO_COLOR_INVERSE_SQAUREBURST,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,134,76,21,
+                    19
+    LTEXT           "Blend Angle",IDC_STATIC,113,100,39,8
+    CONTROL         "",CONTROL_STATIC_COLOR_ANGLE,"Static",SS_BLACKFRAME,113,
+                    108,39,36
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT1,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | WS_GROUP,
+                    163,13,66,12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,163,27,32,
+                    22
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT3,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,197,27,32,
+                    22
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT4,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,163,51,32,
+                    22
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT5,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,197,51,32,
+                    22
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT6,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,163,75,32,
+                    22
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT7,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,197,75,32,
+                    22
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT8,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,163,99,32,
+                    22
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT9,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,197,99,32,
+                    22
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT10,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,163,123,32,
+                    22
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT11,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,197,123,32,
+                    22
+    CTEXT           "Select Blend",IDC_STATIC,162,3,67,8
+    PUSHBUTTON      "OK",IDOK,48,152,55,14
+    PUSHBUTTON      "Cancel",IDCANCEL,112,152,54,14
+    PUSHBUTTON      "&Help",ID_HELP,174,152,55,14
+END
+
+IDD_COLOR_DIALOG DIALOG DISCARDABLE  0, 0, 265, 189
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Color Palette"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "",CONTROL_STATIC_COLOR_EX,141,10,117,148,NOT WS_VISIBLE | 
+                    WS_BORDER
+    PUSHBUTTON      "OK",IDOK,92,168,50,14,NOT WS_VISIBLE | WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,150,168,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Help",ID_HELP,208,168,50,14
+    CONTROL         "",CONTROL_STATIC_PRINTSHOP_SPLASH,"Static",SS_BITMAP,7,
+                    164,15,13
+    LTEXT           "",CONTROL_GROUPBOX_PALETTE_AREA,1,10,133,148,NOT 
+                    WS_VISIBLE | WS_BORDER
+END
+
+IDD_COLOR_DIALOG_EX DIALOG DISCARDABLE  0, 0, 117, 148
+STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Blend Style",IDC_STATIC,4,0,36,8
+    CONTROL         "Radio1",CONTROL_RADIO_COLOR_LINEAR,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | WS_GROUP,
+                    0,12,21,19
+    CONTROL         "Radio1",CONTROL_RADIO_COLOR_INVERSE_LINEAR,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,24,12,21,19
+    CONTROL         "Radio2",CONTROL_RADIO_COLOR_LINEAR2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,0,33,21,19
+    CONTROL         "Radio2",CONTROL_RADIO_COLOR_INVERSE_LINEAR2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,24,33,21,19
+    CONTROL         "Radio3",CONTROL_RADIO_COLOR_CIRCLEBURST,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,0,54,21,19
+    CONTROL         "Radio3",CONTROL_RADIO_COLOR_INVERSE_CIRCLEBURST,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,24,54,21,19
+    CONTROL         "Radio4",CONTROL_RADIO_COLOR_SQAUREBURST,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,0,75,21,19
+    CONTROL         "Radio4",CONTROL_RADIO_COLOR_INVERSE_SQAUREBURST,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,24,75,21,19
+    LTEXT           "Blend Angle",IDC_STATIC,3,98,39,8
+    CONTROL         "",CONTROL_STATIC_COLOR_ANGLE,"Static",SS_BLACKFRAME,0,
+                    109,45,39
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT1,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | WS_GROUP,
+                    52,2,65,12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT2,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,52,15,65,12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT3,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,52,28,65,12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT4,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,52,41,65,12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT5,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,52,54,65,12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT6,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,52,67,65,12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT7,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,52,80,65,12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT8,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,52,93,65,12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT9,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,52,106,65,
+                    12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT10,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,52,119,65,
+                    12
+    CONTROL         "Radio5",CONTROL_RADIO_COLOR_GRADIENT11,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE,52,132,65,
+                    12
+END
+
+IDD_COLOR_PALETTE DIALOG DISCARDABLE  0, 0, 130, 148
+STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+DIALOG_PRINT_STATUS DIALOGEX 0, 0, 235, 87
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Print Status"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,174,68,54,14
+    LTEXT           "Printer:",CONTROL_STATIC_STATUS_PRINTER,8,5,25,10
+    LTEXT           "Printing:",CONTROL_STATIC_STATUS_PRINTING,8,20,25,10
+    LTEXT           "Page: ",CONTROL_STATIC_STATUS_PAGE,8,35,20,10
+    EDITTEXT        CONTROL_EDIT_STATUS_CURRENTPAGE,34,35,20,12,
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_RIGHT
+    CONTROL         "Progress1",CONTROL_PROGRESS_STATUS_INDICATOR,
+                    "msctls_progress32",WS_BORDER,42,49,186,14
+    EDITTEXT        CONTROL_EDIT_STATUS_PRINTING,42,20,186,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    EDITTEXT        CONTROL_EDIT_STATUS_PRINTER,42,5,186,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    LTEXT           "of",CONTROL_STATIC_STATUS_OF,56,35,10,10
+    EDITTEXT        CONTROL_EDIT_STATUS_TOTALPAGE,66,35,20,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+END
+
+DIALOG_DEBUG_TESTPAGERESULTS DIALOG DISCARDABLE  0, 0, 179, 250
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Calibration Results"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_LEFT_CALIBRATION,93,19,54,
+                    14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_TOP_CALIBRATION,93,32,54,14,
+                    ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_BOTTOM_CALIBRATION,93,45,54,
+                    14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_RIGHT_CALIBRATION,93,58,54,
+                    14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_VERTICAL_CALIBRATION,93,87,
+                    54,14,ES_AUTOHSCROLL
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_HORIZONTAL_CALIBRATION,93,
+                    120,54,14,ES_AUTOHSCROLL
+    CONTROL         "A B C",DIALOG_DEBUG_TESTPAGERESULTS_TRUNCATION_TEST_ABC,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,93,155,36,10
+    CONTROL         "A B C D",
+                    DIALOG_DEBUG_TESTPAGERESULTS_TRUNCATION_TEST_ABCD,"Button",
+                    BS_AUTORADIOBUTTON,93,169,44,10
+    CONTROL         "CARD",
+                    DIALOG_DEBUG_TESTPAGERESULTS_TRANSPARENCY_TEST_CARD,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,93,198,45,10
+    CONTROL         "CARDS",
+                    DIALOG_DEBUG_TESTPAGERESULTS_TRANSPARENCY_TEST_CARDS,
+                    "Button",BS_AUTORADIOBUTTON,93,212,45,10
+    DEFPUSHBUTTON   "OK",IDOK,7,229,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,93,229,54,14
+    LTEXT           "Left Calibration:",
+                    DIALOG_DEBUG_TESTPAGERESULTS_LEFT_CALIBRATION_LABEL,29,
+                    22,50,8
+    LTEXT           "Top Calibration:",
+                    DIALOG_DEBUG_TESTPAGERESULTS_TOP_CALIBRATION_LABEL,29,35,
+                    50,8
+    LTEXT           "Bottom Calibration:",
+                    DIALOG_DEBUG_TESTPAGERESULTS_BOTTOM_CALIBRATION_LABEL,19,
+                    48,60,8
+    LTEXT           "Right Calibration:",
+                    DIALOG_DEBUG_TESTPAGERESULTS_RIGHT_CALIBRATION_LABEL,24,
+                    60,56,8
+    LTEXT           "Vertical Calibration:",
+                    DIALOG_DEBUG_TESTPAGERESULTS_VERTICAL_CALIBRATION_LABEL,
+                    14,90,65,8
+    LTEXT           "Horizontal Calibration:",
+                    DIALOG_DEBUG_TESTPAGERESULTS_HORIZONTAL_CALIBRATION_LABEL,
+                    7,123,72,8
+    LTEXT           "Enter side calibration values (from 1 to 32):",
+                    DIALOG_DEBUG_TESTPAGERESULTS_SIDE_CALIBRATION_LABEL,7,7,
+                    133,8
+    LTEXT           "Enter vertical calibration values (from AA to PP):",
+                    DIALOG_DEBUG_TESTPAGERESULTS_CENTER_CALIBRATION_LABEL_1,
+                    7,75,152,8
+    LTEXT           "Enter horizotal calibration values (from A to P):",
+                    DIALOG_DEBUG_TESTPAGERESULTS_CENTER_CALIBRATION_LABEL_2,
+                    7,108,147,8
+    LTEXT           "What do you see?",
+                    DIALOG_DEBUG_TESTPAGERESULTS_TEST1_LABEL,18,155,61,10
+    LTEXT           "What do you see?",
+                    DIALOG_DEBUG_TESTPAGERESULTS_TEST2_LABEL,15,198,66,10
+    LTEXT           "Test 1",DIALOG_DEBUG_TESTPAGERESULTS_TEST1_GROUPBOX,7,
+                    141,21,8
+    LTEXT           "Test 2",DIALOG_DEBUG_TESTPAGERESULTS_TEST2_GROUPBOX,7,
+                    186,21,8
+END
+
+DIALOG_TESTPAGERESULTS DIALOG DISCARDABLE  0, 0, 248, 207
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Test Print"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_LEFT_CALIBRATION,33,49,30,
+                    14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",
+                    DIALOG_DEBUG_TESTPAGERESULTS_LEFT_CALIBRATION_SPIN,
+                    "msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,63,49,11,14
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_TOP_CALIBRATION,89,35,30,14,
+                    ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",
+                    DIALOG_DEBUG_TESTPAGERESULTS_TOP_CALIBRATION_SPIN,
+                    "msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,119,35,11,14
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_BOTTOM_CALIBRATION,89,63,30,
+                    14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",
+                    DIALOG_DEBUG_TESTPAGERESULTS_BOTTOM_CALIBRATION_SPIN,
+                    "msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,119,63,11,14
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_RIGHT_CALIBRATION,140,49,30,
+                    14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",
+                    DIALOG_DEBUG_TESTPAGERESULTS_RIGHT_CALIBRATION_SPIN,
+                    "msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,172,49,11,14
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_HORIZONTAL_CALIBRATION,55,
+                    129,30,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",
+                    DIALOG_DEBUG_TESTPAGERESULTS_HORIZONTAL_CALIBRATION_SPIN,
+                    "msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS | NOT WS_VISIBLE | WS_DISABLED,85,129,11,
+                    14
+    EDITTEXT        DIALOG_DEBUG_TESTPAGERESULTS_VERTICAL_CALIBRATION,140,
+                    129,30,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",
+                    DIALOG_DEBUG_TESTPAGERESULTS_VERTICAL_CALIBRATION_SPIN,
+                    "msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS | NOT WS_VISIBLE | WS_DISABLED,169,130,
+                    11,14
+    CONTROL         "A B C",DIALOG_DEBUG_TESTPAGERESULTS_TRUNCATION_TEST_ABC,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,20,
+                    182,36,10
+    CONTROL         "A B C D",
+                    DIALOG_DEBUG_TESTPAGERESULTS_TRUNCATION_TEST_ABCD,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,66,182,44,10
+    DEFPUSHBUTTON   "OK",IDOK,191,7,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,191,24,50,14,WS_GROUP
+    PUSHBUTTON      "&Help",ID_HELP,191,41,50,14,WS_GROUP
+    LTEXT           "Left:",
+                    DIALOG_DEBUG_TESTPAGERESULTS_LEFT_CALIBRATION_LABEL,14,
+                    52,18,8
+    LTEXT           "Top:",
+                    DIALOG_DEBUG_TESTPAGERESULTS_TOP_CALIBRATION_LABEL,63,38,
+                    22,8
+    LTEXT           "Bottom:",
+                    DIALOG_DEBUG_TESTPAGERESULTS_BOTTOM_CALIBRATION_LABEL,63,
+                    66,26,8
+    LTEXT           "Right:",
+                    DIALOG_DEBUG_TESTPAGERESULTS_RIGHT_CALIBRATION_LABEL,119,
+                    52,21,8
+    LTEXT           "Vertical",
+                    DIALOG_DEBUG_TESTPAGERESULTS_VERTICAL_CALIBRATION_LABEL,
+                    109,132,29,8
+    LTEXT           "Horizontal",
+                    DIALOG_DEBUG_TESTPAGERESULTS_HORIZONTAL_CALIBRATION_LABEL,
+                    18,132,35,8
+    LTEXT           "Enter the number of the last complete square that can be seen on your Printer Test Sheet.",
+                    DIALOG_DEBUG_TESTPAGERESULTS_SIDE_CALIBRATION_LABEL,14,
+                    13,163,18
+    LTEXT           "Fold the Printer Test Sheet into quarters. Enter the letters that line up best with the horizontal and vertical creases.",
+                    DIALOG_DEBUG_TESTPAGERESULTS_CENTER_CALIBRATION_LABEL_2,
+                    14,96,159,31,NOT WS_GROUP
+    LTEXT           "What do you see on the Printer Test Sheet?",
+                    DIALOG_DEBUG_TESTPAGERESULTS_TEST1_LABEL,14,167,160,10
+    GROUPBOX        "",IDC_STATIC,7,3,176,79
+    GROUPBOX        "",IDC_STATIC,7,87,176,65
+    GROUPBOX        "",IDC_STATIC,7,157,176,42
+END
+
+DIALOG_CD_SWAP DIALOG DISCARDABLE  0, 0, 211, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Insert CD"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,61,37,32,14
+    PUSHBUTTON      "Cancel",IDCANCEL,116,37,32,14
+    CTEXT           "Please insert the Product CD.",IDC_STATIC,48,15,116,13
+END
+
+DIALOG_CD_SWAP_INSTALL DIALOG DISCARDABLE  0, 0, 211, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Insert CD"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,61,37,32,14
+    PUSHBUTTON      "Cancel",IDCANCEL,116,37,32,14
+    CTEXT           "Please insert the Install CD.",IDC_STATIC,47,12,116,13
+END
+
+DIALOG_CD_SWAP_GB DIALOG DISCARDABLE  0, 0, 211, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Insert CD"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,23,37,32,14
+    PUSHBUTTON      "Cancel",IDCANCEL,79,37,32,14
+    PUSHBUTTON      "Other Graphics",IDABORT,133,36,60,15
+    CTEXT           "Please insert the Product CD for Print Shop graphics,\nor click Other Graphics.",
+                    IDC_STATIC,19,7,175,21
+END
+
+IDD_FLYOUT DIALOG DISCARDABLE  0, 0, 92, 26
+STYLE WS_POPUP
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_FOLDER_DIALOG DIALOG DISCARDABLE  0, 0, 333, 128
+STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "",1119,3,3,268,109,NOT WS_VISIBLE | WS_BORDER
+    CONTROL         ".html",IDC_FD_HTML,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,70,116,31,10
+    CONTROL         ".htm",IDC_FD_HTM,"Button",BS_AUTORADIOBUTTON,104,116,29,
+                    10
+    DEFPUSHBUTTON   "OK",IDC_FD_FOLDER,276,7,50,14
+    PUSHBUTTON      "Cancel",IDC_FD_CANCEL,276,26,50,14
+    PUSHBUTTON      "&Help",ID_HELP,276,45,50,14
+    LTEXT           "Publish Extension:",IDC_STATIC,3,116,58,8
+    LTEXT           "Page Size:",IDC_STATIC,163,116,35,8
+    COMBOBOX        IDC_FD_PAGE_SIZE,201,114,48,64,CBS_DROPDOWNLIST | 
+                    WS_GROUP | WS_TABSTOP
+END
+
+IDD_ADDEDIT_HYPERLINK DIALOG DISCARDABLE  0, 0, 256, 143
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create/Modify a Link"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "&External web site or URL",IDC_AH_WEB_LINK,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,15,28,160,10
+    CONTROL         "E&mail address",IDC_AH_EMAIL_LINK,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,15,43,160,10
+    CONTROL         "A &File",IDC_AH_FILE_LINK,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,15,58,160,10
+    CONTROL         "A &Sound File",IDC_AH_SOUNDFILE_LINK,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,15,73,160,10
+    LTEXT           "Static",IDC_AH_LINK_STATIC_TEXT,15,87,170,8
+    EDITTEXT        IDC_AH_FILE_NAME,15,98,169,14,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_AH_URL,15,98,169,30,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    PUSHBUTTON      "&Browse...",IDC_AH_BROWSE,134,115,50,14,NOT WS_VISIBLE
+    DEFPUSHBUTTON   "OK",IDOK,199,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,199,26,50,14
+    PUSHBUTTON      "&Help",ID_HELP,199,45,50,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,7,7,185,129
+    LTEXT           "Create a link to:",IDC_STATIC,15,15,160,8
+    PUSHBUTTON      "&Remove",IDC_AH_REMOVE_LINK,199,64,50,14
+END
+
+DIALOG_ADDPAGE_TYPE DIALOG DISCARDABLE  0, 0, 253, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Page"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Page Layout",CONTROL_ADDPAGE_TYPE_STRING1,28,7,150,9
+    LTEXT           "Choose the type of layout you would like for the new page:",
+                    CONTROL_ADDPAGE_TYPE_STRING2,28,23,203,13
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,25,17,194,1
+    CONTROL         "&Blank Page",IDC_BLANK_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,53,74,82,12
+    CONTROL         "&Duplicate Layout of Document Page",IDC_DUPEDOC_RADIO,
+                    "Button",BS_AUTORADIOBUTTON,53,87,149,14
+    CONTROL         "Select a &Quick Start Layout",IDC_QSL_RADIO,"Button",
+                    BS_AUTORADIOBUTTON,53,103,145,15
+END
+
+DIALOG_ADDPAGE_CONFIRM DIALOG DISCARDABLE  0, 0, 253, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Page"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Confirm Page Layout",CONTROL_ADDPAGE_CONF_STRING1,26,7,
+                    150,9
+    LTEXT           "The following layout will be applied to the new page:",
+                    CONTROL_ADDPAGE_CONF_STRING2,23,23,203,13
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,23,17,202,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,88,38,76,91
+    EDITTEXT        IDC_CONF_EDIT_PAGE,109,148,34,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER | NOT WS_VISIBLE
+    CONTROL         "Spin1",IDC_CONF_SPIN_PAGE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | NOT WS_VISIBLE,133,148,11,13
+    LTEXT           "Number of Pages to Add:",CONTROL_ADDPAGE_CONF_STRING3,
+                    85,135,82,10,NOT WS_VISIBLE | NOT WS_GROUP
+    LTEXT           "Name of New Page:",CONTROL_ADDPAGE_CONF_STRING4,71,134,
+                    103,10,NOT WS_VISIBLE | NOT WS_GROUP
+    EDITTEXT        IDC_CONFPAGENAME_EDIT,64,148,119,14,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+END
+
+DIALOG_ADDPAGE_DUPEDOC DIALOG DISCARDABLE  0, 0, 253, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Page"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Select Page Layout",CONTROL_ADDPAGE_DUPE_STRING1,26,7,
+                    150,9
+    LTEXT           "Choose the page layout you would like to duplicate:",
+                    CONTROL_ADDPAGE_DUPE_STRING2,23,23,203,13
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,23,17,202,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,88,38,76,91
+    LTEXT           "Page Name:",CONTROL_ADDPAGE_DUPE_STRING3,71,132,41,10,
+                    NOT WS_VISIBLE | NOT WS_GROUP
+    COMBOBOX        IDC_PAGENAME_COMBO,71,146,121,12,CBS_DROPDOWN | CBS_SORT | 
+                    NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_PAGENUM,61,145,30,13,ES_AUTOHSCROLL | ES_NUMBER | 
+                    NOT WS_VISIBLE
+    CONTROL         "Spin1",IDC_SPIN_PAGENUM,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | NOT WS_VISIBLE,91,148,11,13
+    LTEXT           "Number of Pages to Add:",CONTROL_ADDPAGE_DUPE_STRING4,
+                    35,134,81,10,NOT WS_VISIBLE | NOT WS_GROUP
+    EDITTEXT        IDC_DUPEDOC_EDIT_NUMPAGES,153,145,30,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER | NOT WS_VISIBLE
+    CONTROL         "Spin1",IDC_DUPEDOC_SPIN_NUMPAGES,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | NOT WS_VISIBLE,183,148,11,13
+    LTEXT           "Number of Pages to Add:",CONTROL_ADDPAGE_DUPE_STRING5,
+                    131,134,90,10,NOT WS_VISIBLE | NOT WS_GROUP
+END
+
+DIALOG_ADDPAGE_QSL DIALOG DISCARDABLE  0, 0, 253, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Page"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Select a QuickStart Layout",CONTROL_ADDPAGE_QSL_STRING1,
+                    28,7,150,9
+    LTEXT           "Choose the page layout you would like to duplicate:",
+                    CONTROL_ADDPAGE_QSL_STRING2,28,23,203,13
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,25,17,194,1
+    CONTROL         "",IDC_QSL_GRID,"Static",SS_BLACKFRAME,27,33,206,132
+END
+
+DIALOG_ADDPAGE_PAGENAME DIALOG DISCARDABLE  0, 0, 253, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Page"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Page Name",CONTROL_ADDPAGE_NAME_STRING1,26,7,150,9
+    LTEXT           "Please specify a name for the new page:",
+                    CONTROL_ADDPAGE_NAME_STRING2,23,23,203,13
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,23,17,202,1
+    EDITTEXT        IDC_PAGENAME_EDIT,64,69,119,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+CURSOR_RESOURCE_COPY    CURSOR  DISCARDABLE     "Shared\\cursors\\CopyCursor.cur"
+CURSOR_RESOURCE_MOVE    CURSOR  DISCARDABLE     "Shared\\Cursors\\HandCursor.cur"
+CURSOR_RESOURCE_ROTATE  CURSOR  DISCARDABLE     "Shared\\Cursors\\RotateCursor.cur"
+CURSOR_RESOURCE_SLASH   CURSOR  DISCARDABLE     "Shared\\cursors\\SlashCursor.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+BITMAP_COLOR_PALETTE    BITMAP  DISCARDABLE     "Shared\\Bitmaps\\Palette.BMP"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    DIALOG_COLOR_DIALOG, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 155
+    END
+
+    DIALOG_CD_SWAP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+
+    DIALOG_CD_SWAP_GB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+
+    IDD_FOLDER_DIALOG, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 116
+    END
+
+    DIALOG_ADDPAGE_TYPE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 247
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 171
+    END
+
+    DIALOG_ADDPAGE_CONFIRM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 247
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 171
+    END
+
+    DIALOG_ADDPAGE_DUPEDOC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 247
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 171
+    END
+
+    DIALOG_ADDPAGE_QSL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 247
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 171
+    END
+
+    DIALOG_ADDPAGE_PAGENAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 247
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 171
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_LOCAL_UNIT_TO_INCHES_CONVERSION "1.0 Inches / Inch"
+    STRING_FIRST_DAY_IN_CALENDAR_GRID "1 - kSunday"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_ALERT_REVERT     "Your current work will be lost. Revert to saved anyway?"
+    STRING_ALERT_FILE_OVERRIGHT 
+                            "This file already exists. Replace exisiting file?"
+    STRING_ALERT_PRINT_JOBS_REMAINING 
+                            "The Print Shop is currently printing. Quitting The Print Shop will cancel any remaining print jobs. Do you wish to quit The Print Shop?"
+    STRING_ALERT_OBJECT_CONVERTED 
+                            "At least one object could not be copied in its native format, and has been converted into an image."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_CANT_UNDO        "Can't &Undo\tCtrl+Z"
+    STRING_CANT_REDO        "Can't &Redo\tCtrl+Y"
+    STRING_UNDO_MOVE_COMPONENT "&Undo Move Component\tCtrl+Z"
+    STRING_REDO_MOVE_COMPONENT "&Redo Move Component\tCtrl+Y"
+    STRING_UNDO_DELETE      "&Undo Delete Selection\tCtrl+Z"
+    STRING_REDO_DELETE      "&Redo Delete Selection\tCtrl+Y"
+    STRING_UNDO_ROTATE_SELECTION "&Undo Rotation\tCtrl+Z"
+    STRING_REDO_ROTATE_SELECTION "&Redo Rotation\tCtrl+Y"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_UNDO_NEW_COMPONENT "&Undo New Component\tCtrl+Z"
+    STRING_REDO_NEW_COMPONENT "&Redo New Component\tCtrl+Y"
+    STRING_UNDO_GROUP_SELECTION "&Undo Group\tCtrl+Z"
+    STRING_REDO_GROUP_SELECTION "&Redo Group\tCtrl+Y"
+    STRING_UNDO_BREAKGROUP  "&Undo Ungroup\tCtrl+Z"
+    STRING_REDO_BREAKGROUP  "&Redo Ungroup\tCtrl+Y"
+    STRING_UNDO_RESIZE_SELECTION "&Undo Resize\tCtrl+Z"
+    STRING_REDO_RESIZE_SELECTION "&Redo Resize\tCtrl+Y"
+    STRING_UNDO_EDIT_COMPONENT_ATTRIBUTES 
+                            "&Undo Edit Component Attributes\tCtrl+Z"
+    STRING_REDO_EDIT_COMPONENT_ATTRIBUTES 
+                            "&Redo Edit Component Attributes\tCtrl+Y"
+    STRING_UNDO_PASTE       "&Undo Paste\tCtrl+Z"
+    STRING_REDO_PASTE       "&Redo Paste\tCtrl+Y"
+    STRING_UNDO_CHANGE_FRAME "&Undo Change Frame\tCtrl+Z"
+    STRING_REDO_CHANGE_FRAME "&Redo Change Frame\tCtrl+Y"
+    STRING_UNDO_LOCK        "&Undo Lock\tCtrl+Z"
+    STRING_REDO_LOCK        "&Redo Lock\tCtrl+Y"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_UNDO_UNLOCK      "&Undo Unlock\tCtrl+Z"
+    STRING_REDO_UNLOCK      "&Redo Unlock\tCtrl+Y"
+    STRING_UNDO_CHANGE_TINT "&Undo Change Tint\tCtrl+Z"
+    STRING_REDO_CHANGE_TINT "&Redo Change Tint\tCtrl+Y"
+    STRING_UNDO_CHANGE_COLOR "&Undo Change Color\tCtrl+Z"
+    STRING_REDO_CHANGE_COLOR "&Redo Change Color\tCtrl+Y"
+    STRING_UNDO_ALIGN       "&Undo Align\tCtrl+Z"
+    STRING_REDO_ALIGN       "&Redo Align\tCtrl+Y"
+    STRING_UNDO_FLIP_HORIZONTAL "&Undo Flip Horizontal\tCtrl+Z"
+    STRING_REDO_FLIP_HORIZONTAL "&Redo Flip Horizontal\tCtrl+Y"
+    STRING_UNDO_FLIP_VERTICAL "&Undo Flip Vertical\tCtrl+Z"
+    STRING_REDO_FLIP_VERTICAL "&Redo Flip Vertical\tCtrl+Y"
+    STRING_UNDO_FLIP_BOTH   "&Undo Flip Both\tCtrl+Z"
+    STRING_REDO_FLIP_BOTH   "&Redo Flip Both\tCtrl+Y"
+    STRING_UNDO_CHANGE_GRADIENT "&Undo Change Gradient\tCtrl+Z"
+    STRING_REDO_CHANGE_GRADIENT "&Redo Change Gradient\tCtrl+Y"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_UNDO_CHANGE_FRAME_COLOR "&Undo Change Frame Color\tCtrl+Z"
+    STRING_REDO_CHANGE_FRAME_COLOR "&Redo Change Frame Color\tCtrl+Y"
+    STRING_UNDO_ADD_SHADOW  "&Undo Change Shadow\tCtrl+Z"
+    STRING_REDO_ADD_SHADOW  "&Redo Change Shadow\tCtrl+Y"
+    STRING_UNDO_ADD_GLOW_ON_OFF "&Undo Change Glow\tCtrl+Z"
+    STRING_REDO_ADD_GLOW_ON_OFF "&Redo Change Glow\tCtrl+Y"
+    STRING_UNDO_ADD_VIGNETTE_ON_OFF "&Undo Soft Edge\tCtrl+Z"
+    STRING_REDO_ADD_VIGNETTE_ON_OFF "&Redo Soft Edge\tCtrl+Y"
+    STRING_UNDO_BRING_FORWARD "&Undo Bring Forward\tCtrl+Z"
+    STRING_REDO_BRING_FORWARD "&Redo Bring Forward\tCtrl+Y"
+    STRING_UNDO_SEND_BACKWARD "&Undo Send Backward\tCtrl+Z"
+    STRING_REDO_SEND_BACKWARD "&Redo Send Backward\tCtrl+Y"
+    STRING_UNDO_BRING_TOFRONT "&Undo Bring To Front\tCtrl+Z"
+    STRING_REDO_BRING_TOFRONT "&Redo Bring To Front\tCtrl+Y"
+    STRING_UNDO_SEND_TOBACK "&Undo Send To Back\tCtrl+Z"
+    STRING_REDO_SEND_TOBACK "&Redo Send To Back\tCtrl+Y"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_UNDO_AQUIRE_IMAGE "&Undo Aquire Image\tCtrl+Z"
+    STRING_REDO_AQUIRE_IMAGE "&Redo Aquire Image\tCtrl+Y"
+    STRING_UNDO_REPLACETEXT "&Undo Replace Text\tCtrl+Z"
+    STRING_REDO_REPLACETEXT "&Redo Replace Text\tCtrl+Y"
+    STRING_UNDO_ADD_EDGEOUTLINE_ON_OFF "&Undo Edge Outline\tCtrl+Z"
+    STRING_REDO_ADD_EDGEOUTLINE_ON_OFF "&Redo Edge Outline\tCtrl+Y"
+    STRING_UNDO_TRANSPARENT_EFFECT "&Undo Transparent Effect\tCtrl+Z"
+    STRING_REDO_TRANSPARENT_EFFECT "&Redo Transparent Effect\tCtrl+Y"
+    STRING_UNDO_CHANGE_SPECIAL_EFFECT "&Undo Change Special Effect\tCtrl+Z"
+    STRING_REDO_CHANGE_SPECIAL_EFFECT "&Redo Change Special Effect\tCtrl+Y"
+    STRING_UNDO_REMOVE_SPECIAL_EFFECT "&Undo Remove Special Effect\tCtrl+Z"
+    STRING_REDO_REMOVE_SPECIAL_EFFECT "&Redo Remove Special Effect\tCtrl+Y"
+    STRING_UNDO_ADD_URL     "&Undo Add Hyperlink"
+    STRING_REDO_ADD_URL     "&Redo Add Hyperlink"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_UNDO_CHANGE_URL  "&Undo Edit Hyperlink"
+    STRING_REDO_CHANGE_URL  "&Redo Edit Hyperlink"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_ERROR_NO_ERROR   "A general error has occurred. Please try restarting your computer. If the problem continues, please try re-installing The Print Shop or contacting Broderbund technical support."
+    STRING_ERROR_FILE_NOT_FOUND "The file you requested could not be found."
+    STRING_ERROR_INVALID_PATH "The selected path is not valid."
+    STRING_ERROR_END_OF_FILE 
+                            "The file you have selected is unreadable or corrupt."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_ERROR_TOO_MANY_OPEN_FILES 
+                            "There are too many files open. Please close some files."
+    STRING_ERROR_ACCESS_DENIED 
+                            "Cannot read or write the file. It is read only or already open."
+    STRING_ERROR_DIRECTORY_FULL 
+                            "The directory is full. Please delete some files."
+    STRING_ERROR_BAD_SEEK   "The file you have selected is unreadable or corrupt."
+    STRING_ERROR_DISK_HARDWARE 
+                            "There is a problem with your disk drive. Please check your disk."
+    STRING_ERROR_SHARE_VIOLATION "You are not able to share this file."
+    STRING_ERROR_LOCK_VIOLATION "The file is locked. Please unlock it."
+    STRING_ERROR_RESOURCE   "There is a problem with a resource. Please reinstall The Print Shop."
+    STRING_ERROR_UNKNOWN_ERROR 
+                            "A general error has occurred. Please try restarting your computer. If the problem continues, please try re-installing The Print Shop or contacting Broderbund technical support."
+    STRING_ERROR_DATA_FORMAT_INVALID "This is not a valid Print Shop file."
+    STRING_ERROR_DATA_FORMAT_TOO_OLD 
+                            "This Print Shop file cannot be read by this version of The Print Shop."
+    STRING_ERROR_ACCUSOFT_ERROR "Accusoft Library Error"
+    STRING_ERROR_MEMORY     "You are running low on memory. Please save your work and restart your computer."
+    STRING_ERROR_DISK_FULL  "Your disk is full. Please remove some files to create more space."
+    STRING_ERROR_GENERIC_ERROR 
+                            "A general error has occurred. Please try restarting your computer. If the problem continues, please try re-installing The Print Shop or contacting Broderbund technical support."
+    STRING_ERROR_GETTING_CLIPBOARD_DATA 
+                            "The requested clipboard data is not available."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_FILE_IN_USE_ERROR 
+                            "This file is being used by another application. Please choose another file or provide a new name."
+    STRING_FILE_MOVED_ERROR "The file containing this document has been renamed or moved. Please choose another file or provide a new name."
+    STRING_ERROR_INVALID_FILE "%s is not a valid file for The Print Shop."
+    STRING_ERROR_STRETCHBLT "The sample image cannot be displayed with your video driver at %1\\%."
+    STRING_ERROR_FILE_NOT_OPENED " was not found and so could not be opened."
+    STRING_FILE_OPEN_FAILED_ERROR 
+                            "The Print Shop cannot open the document %s."
+    STRING_ERROR_ATMVERSION_INVALID 
+                            "You must have version 2.0 or above of the Adobe Type Manager in order to use ATM Fonts."
+    STRING_ERROR_CANNOT_PASTE_DATA 
+                            "The requested clipboard data is not available."
+    STRING_ERROR_WRITE_PROTECT 
+                            "Cannot save to a write protected disk. Please unprotect the disk and try again."
+    STRING_ERROR_PRINTER_UNAVAILABLE "Printer Unavailable"
+    STRING_ERROR_PRINTER_COULD_NOT_MODIFY_PROPERTIES 
+                            "Could not modify the printers' properties."
+    STRING_ERROR_SWAPFILE_FULL 
+                            "A file operation failed because there is not enough disk space to grow the Windows swapfile. Please free some disk space."
+    STRING_ERROR_DRIVE_NOT_READY 
+                            "The requested disk drive is no longer available. Please try again."
+    STRING_ERROR_ACC_OUT_OF_MEMORY 
+                            "You are running low on memory. Please save your work and restart your computer."
+    STRING_ERROR_ACC_FILE_NOT_FOUND 
+                            "The file you requested could not be found."
+    STRING_ERROR_ACC_FILE_CORRUPT 
+                            "The file you have selected is unreadable or corrupt."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_ERROR_ACC_FILE_SAVE "An error occurred while saving the file."
+    STRING_ERROR_ACC_FILE_DISK_FULL 
+                            "Your disk is full. Please remove some files to create more space."
+    STRING_ERROR_ACC_FILE_DISK_READ 
+                            "The file you have selected could not be read because a disk error occurred."
+    STRING_ERROR_ACC_DLL_NOT_LOADED 
+                            "The operation could not be performed because the Accusoft DLL has not been loaded."
+    STRING_ERROR_ACC_UNKNOWN 
+                            "A general error has occurred. Please try restarting your computer. If the problem continues, please try re-installing The Print Shop or contacting Broderbund technical support."
+    STRING_ERROR_DOCS_TESTPAGE_HOR_CALIBRATION_INVALID 
+                            "The vertical calibration value must be between AA and PP."
+    STRING_ERROR_DOCS_TESTPAGE_VERT_CALIBRATION_INVALID 
+                            "The horizontal calibration value must be between A and P."
+    STRING_ERROR_GENERAL_STARTUP 
+                            "The Print Shop could not start up. Please restart your computer and try again. If the error persists, please uninstall and then reinstall The Print Shop."
+    STRING_ERROR_LOAD_COMPONENT_MISSING 
+                            "Not all data could be loaded because required Print Shop files are missing. Please reinstall The Print Shop."
+    STRING_ERROR_FILE_ALREADY_OPEN 
+                            "Someone else is using this file. If you want to use this file, please save it under a different name."
+    STRING_ERROR_FILE_ALREADY_OPEN_REVERT 
+                            "The project could not be reverted because the file is locked or has been modified by another user."
+    STRING_ERROR_OPENIMGERR_FILENOTFOUND 
+                            "The image file you requested could not be found."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_ERROR_SAVE_AS_READYMADE_NO_PARTIAL_PATH 
+                            "Save As Readymade could not be completed because an image in the project does not have a path to its original file. Replace the image by double-clicking it then try again."
+    STRING_ERROR_FILENAME_CHARS_INVALID 
+                            "A filename cannot contain any of the following characters.\n                     *?""<>|"
+    STRING_ERROR_EMAIL_ADDRESS_INVALID 
+                            "This email address does not have an @ symbol in it.  If you\nwould like to have email sent to this address through the\ninternet, it must have an @ symbol.  An example of an\ninternet email address is anyone@nowhere.com\n\nWould you like to change your entry?"
+    STRING_ERROR_FILE_SPECIFIED_NOT_FOUND 
+                            "This file does not exist.  Please enter the correct file name."
+    STRING_ERROR_FILENAME_CHARS_INVALID_URL 
+                            "A web link cannot contain any of the following characters.\n                     *""<>|"
+    STRING_ERROR_FILENAME_CHARS_INVALID_EMAIL 
+                            "An email address cannot contain any of the following characters.\n                     \\/:*?""<>|"
+    STRING_URL_FILE_NOT_FOUND 
+                            "File %s cannot be found. Please check your link for accuracy. \nDo you wish to continue?"
+    STRING_URL_FILE_COPY_PROBLEM 
+                            "File %s cannot be copied. \nDo you wish to continue?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_FILETYPE_ALL_DESCRIPTION "All Files"
+    STRING_FILETYPE_ALL_EXTENSION "*"
+    STRING_MENU_LOCK        "&Lock"
+    STRING_MENU_LOCKALL     "&Lock All"
+    STRING_MENU_UNLOCK      "&Unlock"
+    STRING_MENU_UNLOCKALL   "&Unlock All"
+    STRING_MENU_GROUP       "&Group"
+    STRING_MENU_UNGROUP     "Un&group"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_ERROR_CS_ICALLOCERR "Correct Spell: Memory allocation error"
+    STRING_ERROR_CS_ICHEADERR "Correct Spell: Database header error"
+    STRING_ERROR_CS_ICOPENERR "Correct Spell: Error opening database"
+    STRING_ERROR_CS_ICREADERR "Correct Spell: Disk read error"
+    STRING_ERROR_CS_ICSEEKERR "Correct Spell: Disk seek error"
+    STRING_ERROR_CS_UNKNOWNERR "Correct Spell: Unknown error encountered"
+    STRING_ERROR_CS_CONVERTERR "Correct Spell: Unable to format word"
+    STRING_NAME_CS_SPELLDB  "iens9522.dat"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_NAME_CS_HYPHENDB "henis321.dat"
+    STRING_NAME_CS_PERSONALDB "userdict"
+    STRING_EFFECTS_FRAME    "Choose a frame to place around a selected object\nFrame"
+    STRING_ERROR_CS_PD_AUTOEXP_WRN 
+                            "Additional memory was allocated for the personal dictionary. Word successfully added."
+    STRING_ERROR_CS_PD_AUTODEL_WRN 
+                            "One or more words deleted from personal dictionary. Word successfully added."
+    STRING_ERROR_CS_PD_FULL_WRN 
+                            "Personal dictionary almost full. Word successfully added."
+    STRING_ERROR_CS_PD_NOALT_WRN 
+                            "The alternate word was not added to the personal dictionary."
+    STRING_ERROR_CS_PD_DUP_WRN 
+                            "Input word already found in personal dictionary."
+    STRING_ERROR_CS_SLALLOC_ERR "Memory allocation error. Word NOT added."
+    STRING_ERROR_CS_SLLOCK_ERR 
+                            "Personal dictionary is locked; therefore words connot be added. Word NOT added."
+    STRING_ERROR_CS_SLTMPFNAME_ERR "Temporary file error. Word NOT added."
+    STRING_ERROR_CS_PD_FULL_ERR 
+                            "Personal dictionary full.  Use text editor to edit dictionary. Word NOT added."
+    STRING_ERROR_CS_PD_OKRET "Word successfully added."
+    STRING_ERROR_CS_PD_ERRET 
+                            "CorrectSpell: Unknown error encountered while trying to add to dictionary."
+    STRING_ERROR_CS_PD_SDINIT_ERR 
+                            "ICpd() could not initialize a supplemental personal dictionary.  Initialization of personal dictionary failed."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_ERROR_CS_SLOPEN_ERR "Error opening a personal dictionary."
+    STRING_ERROR_CS_SLREAD_ERR "Disk read error."
+    STRING_ERROR_CS_SLWRITE_ERR "Disk write error or disk full."
+    STRING_ERROR_CS_PD_MAXDID_ERR 
+                            "Maximum number of personal dictionaries have been initialized."
+    STRING_ERROR_CS_ICCLOSEERR 
+                            "CorrecSpell: Error Closing CorrectSpell database"
+    STRING_ERROR_CS_PDCLOSEERR "CorrecSpell: Error Closing Personal database"
+    STRING_NAME_IF_THESAURUSDB "reutr300.dat"
+    STRING_ERROR_IF_LOOKUPERR 
+                            "Intellifinder: Error encountered while looking up word."
+    STRING_ERROR_IF_MEMERR  "Error allocating memory for IO structures.  Word cannot be researched."
+    STRING_ERROR_IF_FINDERR "Unable to find word in our dictionary."
+    STRING_ERROR_IF_ERRACCESSDB 
+                            "IntelliFinder: Error accessing Thesaurus database."
+    STRING_PROMPT_CONVERT_METAFILE_TO_BITMAP 
+                            "This image is a vector image.  It may have been imported as a\nvector image or pasted as a vector image from the clipboard.\nIn order to edit this image, it must be converted to a bitmap.\nDo you want to do this?"
+    STRING_WARN_CONVERT_METAFILE_TO_BITMAP 
+                            "Converting this vector image to a bitmap image will require a \nlarge amount of memory.  Are you sure you want to continue?"
+    STRING_PROMPT_DOC_CHANGED 
+                            "Document, %s, has changed. Would you like to save it?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_COMPANY_NAME     "Brøderbund Software, Inc."
+    STRING_PRINTER_VENDOR_DB_NAME "PrintShopPrinterInfo.db"
+    STRING_PRINTER_USER_DB_NAME "UserPrinterInfo.db"
+    STRING_PRINT_TEST_TITLE "The Print Shop - Precision Print Alignment"
+    STRING_PRINT_TEST_PRINT_DOC_NAME "Print Shop Test Page"
+    STRING_PRINT_TEST_PRINT_LEFT_CALIBRATION "Left Calibration"
+    STRING_PRINT_TEST_PRINT_TOP_CALIBRATION "Top Calibration"
+    STRING_PRINT_TEST_PRINT_RIGHT_CALIBRATION "Right Calibration"
+    STRING_PRINT_TEST_PRINT_BOTTOM_CALIBRATION "Bottom Calibration"
+    STRING_PRINT_TEST_PRINT_STRING_1 "What do you see?  ABCD"
+    STRING_PRINT_TEST_PRINT_STRING_2 "Test #4: CARDS"
+    STRING_TEST_PAGE_DOC_TITLE "Printer Test Page"
+    STRING_ERROR_CS_PDSAVEERR 
+                            "CorrectSpell: Error saving personal dictionary."
+    STRING_ERROR_IF_INITERR "The thesaurus database was not successfully initialized.  The file may be corrupt or missing.  Please reinstall the application and restart."
+    STRING_CS_DIALECT_FLAG  "128 - American"
+    STRING_IF_DIALECT_FLAG  "128 - American"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_SOUND_FILE_FILTERS 
+                            "Wave files (*.wav)|*.wav|Audio Files (*.au)|*.au|MIDI Files (*.mid)|*.mid|Real Audio Files (*.ra, *.ram)|*.ra;*.ram|All Files (*.*)|*.*||"
+    STRING_FILE_LINK        "Please enter the pa&th name:"
+    STRING_EMAIL_LINK       "&Type in the Internet email address:"
+    STRING_WEB_LINK         "&Type the Web site address here:"
+    STRING_EDIT_HYPERLINK   "Edit Hyperlink"
+    STRING_ADD_HYPERLINK    "Add Hyperlink"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_COLOR_TRANSPARENT "None"
+    STRING_PRINT_TEST_CONFIRMATION_TEXT1 
+                            "\nCongratulations, you've completed the Precision Print Alignment Process.\n\n\nTo make sure your printer is properly aligned fold this paper in half lengthwise then again widthwise; like a quarter fold greeting card. Unfold the paper - you should see the folds follow the centerlines printed on the paper. You should also see all four sides of a box around the outside of the paper. This box may not be centered on the paper, depending on your printer, but all four sides should be printed. If not, then repeat the Precision Print Alignment process.\n\n"
+    STRING_PRINT_TEST_CONFIRMATION_TEXT2 
+                            "\nThe Print Shop 6.0\nPrecision Print Alignment\nConfirmation Page\n\n"
+    STRING_PRINT_PAPER_SIZE_USLETTER_TALL "Tall US Letter"
+    STRING_PRINT_PAPER_SIZE_USLETTER_WIDE "Wide US Letter"
+    STRING_PRINT_PAPER_SIZE_USLEGAL_TALL "Tall US Legal"
+    STRING_PRINT_PAPER_SIZE_USLEGAL_WIDE "Wide US Legal"
+    STRING_PRINT_PAPER_SIZE_USTABLOID_TALL "Tall US Tabloid"
+    STRING_PRINT_PAPER_SIZE_USTABLOID_WIDE "Wide US Tabloid"
+    STRING_PRINT_PAPER_SIZE_A4LETTER_TALL "Tall A4 Letter"
+    STRING_PRINT_PAPER_SIZE_A4LETTER_WIDE "Wide A4 Letter"
+    STRING_PRINT_PAPER_SIZE_B5LETTER_TALL "Tall B5 Letter"
+    STRING_PRINT_PAPER_SIZE_B5LETTER_WIDE "Wide B5 Letter"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_MISC_NOSUGGESTIONS "No Suggestions"
+    STRING_MISC_SPELLREPLACEWORDNOTFOUND 
+                            "Warning: The word ""%s"" was not found in our dictionary. Continue?"
+    STRING_TEST_PAGE_DONE   "Thank you for conducting the Test Print. The results will be used to better calibrate your printer output."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_PRINT_PAPER_SIZE_A3TABLOID_TALL "Tall A3 Tabloid"
+    STRING_PRINT_PAPER_SIZE_A3TABLOID_WIDE "Wide A3 Tabloid"
+    STRING_PRINT_PAPER_SIZE_USLETTER "US Letter"
+    STRING_PRINT_PAPER_SIZE_USLEGAL "US Legal"
+    STRING_PRINT_PAPER_SIZE_USTABLOID "US Tabloid"
+    STRING_PRINT_PAPER_SIZE_A4LETTER "A4 Letter"
+    STRING_PRINT_PAPER_SIZE_B5LETTER "B5 Letter"
+    STRING_PRINT_PAPER_SIZE_A3TABLOID "A3 Tabloid"
+    STRING_SELECT_DIRECTORY "Select Directory"
+    STRING_ADDPAGEWIZ       "Add Page"
+    STRING_DONE             "Done"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_OPEN_DEFAULT_PATH "Projects\\"
+    STRING_TEXT_COMPONENT_DEFAULT_FONT "NewZurica"
+    STRING_HTML_DIRECTORY_NAME "HTML\\"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

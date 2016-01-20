@@ -1,0 +1,2277 @@
+#include "windows.h"
+#include "resource.h"
+#include "commonid.h"
+#include "lgbookid.h"
+#include "houseid.h"
+#include "control.h"
+#include "transit.h"
+#include "lgbres.h"
+
+#define TOONHOLDER() control "", IDC_TOON, "toonholder", WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_TABSTOP, 0, 0, 1, 1
+#define JUMPTABLE RCDATA LMD
+#define GAMETABLE gametbl LMD
+
+//***********************************************************************
+stringtable LMD	 
+//***********************************************************************
+{
+    IDS_CLASS,		"lgbdemo"
+    IDS_TITLE,		"The Little Golden Books Demo by Powerhouse Entertainment"
+	IDS_INI,		"lgbook.ini"
+	IDS_SECTION,	"LGBdemo"
+	IDS_CDNAME,		"The Little Golden Books Demo"
+}
+
+//***********************************************************************
+// Imbedded icons, cursors, bitmaps, wave files, etc.
+//***********************************************************************
+1			icon	LMD house.ico
+IDB_TITLE_BACKGROUND bitmap  LMD tile.bmp
+IDC_TITLE_CURSOR cursor  LMD title.cur
+IDC_CLOSE	wave	LMD goodbye.wav
+//IDW_THEMESONG wave LMD theme.wav
+ID_POINTER cursor  LMD hpoint.cur
+ID_NULLCURSOR cursor LMD null.cur 
+
+// Transition sounds
+
+1002					wave	LMD SC01.wav // for scene01
+1003					wave 	LMD	SC02.wav // for scene02
+1004					wave	LMD SC03.wav // for scene03
+1057					wave	LMD SC04.wav // for scene04
+1005					wave	LMD SC04a.wav // for scene07
+1041					wave	LMD SC05.wav // for scene01
+//1052					wave	LMD SC05a.wav // for scene01
+1048					wave	LMD SC05a.wav // for scene01
+1006					wave	LMD SC05b.wav // for scene01
+//1007					wave	LMD SC06.wav // for scene01
+1008					wave	LMD SCBAFI.wav // for scene01
+//1058					wave	LMD SC.wav // for scene01
+1009					wave	LMD SCBAFE.wav // for scene01
+//1053					wave	LMD SC.wav // for scene01
+1042					wave	LMD SCBAFE.wav // for scene01
+1010					wave	LMD SC09a.wav // for scene01
+1054					wave	LMD SC10.wav // for scene01
+1011					wave	LMD SC11a.wav // for scene01
+1012					wave	LMD SC11.wav // for scene01
+1013					wave	LMD SC12.wav // for scene01
+1014					wave	LMD SC13.wav // for scene01
+1043					wave	LMD SC14.wav // for scene01
+//1056					wave	LMD SC14b.wav // for scene01
+1044					wave	LMD SC14a.wav // for scene01
+1015					wave	LMD SC14b.wav // for scene01
+1016					wave	LMD SC15.wav // for scene01
+1017					wave	LMD SC16.wav // for scene01
+1045					wave	LMD SC17.wav // for scene01
+1018					wave	LMD SC17a.wav // for scene01
+1019					wave	LMD SC18.wav // for scene01
+//1020					wave	LMD SC19.wav // for scene01
+1021					wave	LMD SC20.wav // for scene01
+1049					wave	LMD SC21.wav // for scene01
+//1050					wave	LMD SC20.wav // for scene01
+1046					wave	LMD SC21a.wav // for scene01
+1022					wave	LMD SC21b.wav // for scene01
+1047					wave	LMD SC22.wav // for scene01
+1023					wave	LMD SC23.wav // for scene01
+1024					wave	LMD SC23a.wav // for scene01
+//1025					wave	LMD SC24.wav // for scene01
+1026					wave	LMD SCIWBMI.wav // for scene01
+1027					wave	LMD SCIWBME.wav // for scene01
+1028					wave	LMD SC27.wav // for scene01
+
+//***********************************************************************
+// Scene Table
+//***********************************************************************
+IDR_SCENETABLE GAMETABLE
+{			 
+"              
+	scene=IDD_BELONGS;","
+	scene=IDD_POWERSCREEN;","
+	scene=182;","
+	scene=191;","
+	scene=192;","
+	scene=IDD_CONNECTI,type=ST_NOREADTOME;","
+	scene=IDD_ORDERSD;","
+	scene=181;","
+	scene=141;","
+	scene=142;","
+	scene=IDD_MIXUPI,type=ST_NOREADTOME;","
+	scene=IDD_ORDERFR;","
+	scene=180;","
+	scene=5;"," 
+	scene=26;","
+	scene=IDD_CHASEI,type=ST_NOREADTOME;","
+	scene=IDD_MAINMENU;","
+	scene=IDD_EXITSTORY;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_EXITSTORY SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}    
+
+//***********************************************************************
+IDD_EXITSTORY JUMPTABLE                                                                                       	
+//***********************************************************************
+{
+"             
+	bg=exit\\backgrnd.dib,clip=CL CT CR CB,","  
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+	/NARRATOR=0 0,		flags=auto,wave=leave.wav;","
+    
+//*** Action Strip Icons ***//
+	
+	/NO=0 0,			hot=344 351,	flags=autobutton noclip click,cmd=IDC_MAINMENU,fg=butt2.bmp, wave=letsgo.wav;","
+	/YES=0 0,			hot=126 351,	flags=autobutton noclip click,cmd=IDC_QUIT,fg=butt1.bmp, wave=bye.wav;","
+		
+",0
+}  
+
+//***********************************************************************
+IDD_POWERSCREEN SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_POWERSCREEN JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=open01\\backgrnd.dib,delay=1,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=TRANS_NONE;","
+
+	/MAIN=0 2140, 	flags=auto,wave=main.wav,cmd=IDC_NEXT;","
+
+",0
+}  
+
+//***********************************************************************
+180 SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+180 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=house_o\\backgrnd.dib,toon=toon.avi,delay=1,clip=CL CT CR CB,"," 
+	
+	prev=NOFADE NOCLIP TRANS_COVER_LEFT  50 1000,","
+	next=NOFADE NOCLIP TRANS_COVER_RIGHT 50 1000,","
+	jump=NOFADE NOCLIP TRANS_BOX_OUT     50 1000;","
+
+	/OPEN=0 64,		event=39 /HOLDPOKEY 49 /DOCD,prehide=/OPEN,show=/OPEN,pos=70 248,fg=endpokey.bmp,flags=auto invisible,cmd=IDC_NEXT;","
+	/HOLDPOKEY=0 0,	hide=/BOOK, show=/POKEY,flags=updatenow;","
+	/DOCD=0 0,		hide=/POKEY, show=/CD;","
+	/POKEY=0 0,		pos=95 203, flags=invisible,fg=pokey.bmp;","
+	/CD=0 0,		pos=305 133,flags=invisible,fg=cd.bmp;","
+	/BOOK=0 0,		pos=275 45,fg=book.bmp;"," 
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+} 
+
+//***********************************************************************
+181 SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+181 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=farmer_o\\backgrnd.dib,toon=frtoon.avi,delay=0,clip=CL CT CR CB,"," 
+	
+	prev=NOFADE NOCLIP TRANS_COVER_LEFT  50 1000,","
+	next=NOFADE NOCLIP TRANS_COVER_RIGHT 50 1000,","
+	jump=NOFADE NOCLIP TRANS_BOX_OUT     50 1000;","
+
+	/OPEN=0 60,		event=40 /HOLDPOKEY 50 /DOCD,prehide=/OPEN,show=/OPEN,pos=70 248,fg=endpokey.bmp,flags=auto invisible,cmd=IDC_NEXT;","
+	/HOLDPOKEY=0 0,	hide=/BOOK, show=/POKEY,flags=updatenow;","
+	/DOCD=0 0,		hide=/POKEY, show=/CD;","
+	/POKEY=0 0,		pos=95 203, flags=invisible,fg=pokey.bmp;","
+	/CD=0 0,		pos=305 133,flags=invisible,fg=cd.bmp;","
+	/BOOK=0 0,		pos=275 45,fg=book.bmp;"," 
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+} 
+
+//***********************************************************************
+182 SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+182 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=sailor_o\\backgrnd.dib,toon=toon.avi,delay=1,clip=CL CT CR CB,"," 
+	
+	prev=NOFADE NOCLIP TRANS_COVER_LEFT  50 1000,","
+	next=NOFADE NOCLIP TRANS_COVER_RIGHT 50 1000,","
+	jump=NOFADE NOCLIP TRANS_BOX_OUT     50 1000;","
+
+	/OPEN=0 60,		event=37 /HOLDPOKEY 47 /DOCD,prehide=/OPEN,show=/OPEN,pos=70 248,fg=endpokey.bmp,flags=auto invisible,cmd=IDC_NEXT;","
+	/HOLDPOKEY=0 0,	hide=/BOOK, show=/POKEY,flags=updatenow;","
+	/DOCD=0 0,		hide=/POKEY, show=/CD;","
+	/POKEY=0 0,		pos=95 203, flags=invisible,fg=pokey.bmp;","
+	/CD=0 0,		pos=305 133,flags=invisible,fg=cd.bmp;","
+	/BOOK=0 0,		pos=275 45,fg=book.bmp;"," 
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_BELONGS SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+    EDITTEXT  IDC_EDIT,180,288,256,26,ES_AUTOHSCROLL | NOT WS_BORDER | ES_CENTER | ES_MULTILINE | WS_TABSTOP
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_BELONGS JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=open04\\backgrnd.dib,clip=CL CT CR CB,","  
+	prev=NOFADE NOCLIP TRANS_COVER_LEFT  50 1000,","
+	next=NOFADE NOCLIP TRANS_COVER_RIGHT 50 1000,","
+	jump=NOFADE NOCLIP TRANS_REPLACE 50 1000;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PLAYBELONGS,fg=next.bmp,hint=next.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_BELONGS GAMETABLE
+//***********************************************************************
+{
+"
+	Aaron           =    Aaron.wav;","
+	Aron            =    Aaron.wav;","
+	Arron           =    Aaron.wav;","
+	Abby            =    Abby.wav;","
+	Abbie           =    Abby.wav;","
+	Abigail         =    Abigail.wav;","
+	Abbigale        =    Abigail.wav;","
+	Abigale         =    Abigail.wav;","
+	Abril           =    Abril.wav;","
+	Acacia          =    Acacia.wav;","
+	Ada             =    Ada.wav;","
+	Adalia          =    Adalia.wav;","
+	Adam            =    Adam.wav;","
+	Adela           =    Adela.wav;","
+	Adriana         =    Adriana.wav;","
+	Agata           =    Agata.wav;","
+	Aida            =    Aida.wav;","
+	Aithe           =    Aithe.wav;","
+	Al              =    Al.wav;","
+	Alan            =    Alan.wav;","
+	Alane           =    Alane.wav;","
+	Alba            =    Alba.wav;","
+	Alejandro       =    Alejandr.wav;","
+	Alejgra         =    Alejgra.wav;","
+	Alena           =    Alena.wav;","
+	Alex            =    Alex.wav;","
+	Alexander       =    Alexandr.wav;","
+	Alexis          =    Alexis.wav;","
+	Alexndra        =    Alexndra.wav;","
+	Alexandra       =    Alexndra.wav;","
+	Alice           =    Alice.wav;","
+	Alicia          =    Alicia.wav;","
+	Alisia          =    Alisia.wav;","
+	Alissa          =    Alisia.wav;","
+	Alissa          =    Alissa.wav;","
+	Alyssa          =    Alissa.wav;","
+	Allen           =    Allen.wav;","
+	Allison         =    Allison.wav;","
+	Alison          =    Allison.wav;","
+	Alyson          =    Allison.wav;","
+	Alysson         =    Allison.wav;","
+	Allyson         =    Allison.wav;","
+	Alma            =    Alma.wav;","
+	Almanda         =    Almanda.wav;","
+	Alva            =    Alva.wav;","
+	Amalia          =    Amalia.wav;","
+	Amanda          =    Amanda.wav;","
+	Amber           =    Amber.wav;","
+	Amy             =    Amy.wav;","
+	Ami             =    Amy.wav;","
+	Ana             =    Ana.wav;","
+	Anais           =    Anais.wav;","
+	Anarosa         =    Anarosa.wav;","
+	Anastasia       =    Anastas.wav;","
+	Andre           =    Andre.wav;","
+	Andrea          =    Andrea.wav;","
+	Andrew          =    Andrew.wav;","
+	Andy            =    Andy.wav;","
+	Andie           =    Andy.wav;","
+	Angela          =    Angela.wav;","
+	Angelina        =    Angelina.wav;","
+	Anita           =    Anita.wav;","
+	Ann             =    Ann.wav;","
+	Anne            =    Ann.wav;","
+	Anna            =    Anna.wav;","
+	Annabel         =    Annabel.wav;","
+	Annabell        =    Annabel.wav;","
+	Annabelle       =    Annabel.wav;","
+	Annamaria       =    Annama.wav;","
+	Annie           =    Annie.wav;","
+	Anny            =    Annie.wav;","
+	Anthony         =    Anthony.wav;","
+	Antonia         =    Antonia.wav;","
+	Antonio         =    Antonio.wav;","
+	April           =    April.wav;","
+	Armando         =    Armando.wav;","
+	Arthur          =    Arthur.wav;","
+	Arturo          =    Arturo.wav;","
+	Ashley          =    Ashley.wav;","
+	Augusta         =    Augusta.wav;","
+	Augusto         =    Augusto.wav;","
+	Aundrea         =    Aundrea.wav;","
+	Aurea           =    Aurea.wav;","
+	Aurora          =    Aurora.wav;","
+	Austin          =    Austin.wav;","
+	Ava             =    Ava.wav;","
+	Bailey          =    Bailey.wav;","
+	Barbara         =    Barbara.wav;","
+	Barbera         =    Barbara.wav;","
+	Barbra          =    Barbara.wav;","
+	Beatriz         =    Beatriz.wav;","
+	Belinda         =    Belinda.wav;","
+	Belisa          =    Belisa.wav;","
+	Ben             =    Ben.wav;","
+	Benjamin        =    Benjamin.wav;","
+	Bernardo        =    Bernardo.wav;","
+	Beth            =    Beth.wav;","
+	Bethany         =    Bethany.wav;","
+	Betty           =    Betty.wav;","
+	Bette           =    Betty.wav;","
+	Betti           =    Betty.wav;","
+	Bettie          =    Betty.wav;","
+	Bill            =    Bill.wav;","
+	Blake           =    Blake.wav;","
+	Blanca          =    Blanca.wav;","
+	Bob             =    Bob.wav;","
+	Bonifaci        =    Bonifaci.wav;","
+	Bonifacio       =    Bonifaci.wav;","
+	Bonita          =    Bonita.wav;","
+	Brad            =    Brad.wav;","
+	Bradley         =    Bradley.wav;","
+	Bradly          =    Bradley.wav;","
+	Brandon         =    Brandon.wav;","
+	Brandey         =    Brandy.wav;","
+	Brandi          =    Brandy.wav;","
+	Brandy          =    Brandy.wav;","
+	Brandie         =    Brandy.wav;","
+	Branndie        =    Brandy.wav;","
+	Branndy         =    Brandy.wav;","
+	Branndy         =    Brandy.wav;","
+	Brendon         =    Brendon.wav;","
+	Brendan         =    Brendon.wav;","
+	Brent           =    Brent.wav;","
+	Brett           =    Brett.wav;","
+	Bret            =    Brett.wav;","
+	Brian           =    Brian.wav;","
+	Bryan           =    Brian.wav;","
+	Bryon           =    Brian.wav;","
+	Bridget         =    Bridget.wav;","
+	Bridgette       =    Bridget.wav;","
+	Brigette        =    Bridget.wav;","
+	Brigitte        =    Bridget.wav;","
+	Brigida         =    Brigida.wav;","
+	Brittany        =    Brittany.wav;","
+	Brooke          =    Brooke.wav;","
+	Breheda         =    Breheda.wav;","
+	Caitlin         =    Caitlin.wav;","
+	Caitlyn         =    Caitlin.wav;","
+	Catlin          =    Caitlin.wav;","
+	Catlyn          =    Caitlin.wav;","
+	Kaitlin         =    Caitlin.wav;","
+	Kaitlyn         =    Caitlin.wav;","
+	Katelin         =    Caitlin.wav;","
+	Katelyn         =    Caitlin.wav;","
+	Camelia         =    Camelia.wav;","
+	Cameron         =    Cameron.wav;","
+	Camila          =    Camila.wav;","
+	Camilo          =    Camilo.wav;","
+	Candice         =    Candice.wav;","
+	Candace         =    Candice.wav;","
+	Candida         =    Candida.wav;","
+	Carl            =    Carl.wav;","
+	Carla           =    Carla.wav;","
+	Carlos          =    Carlos.wav;","
+	Carlton         =    Carlton.wav;","
+	Carmen          =    Carmen.wav;","
+	Carol           =    Carol.wav;","
+	Carole          =    Carol.wav;","
+	Carrol          =    Carol.wav;","
+	Caroline        =    Caroline.wav;","
+	Carolyn         =    Carolyn.wav;","
+	Carrie          =    Carrie.wav;","
+	Keri            =    Carrie.wav;","
+	Kerri           =    Carrie.wav;","
+	Kerry	        =    Carrie.wav;","
+	Cari            =    Carrie.wav;","
+	Cary            =    Carrie.wav;","
+	Casey           =    Casey.wav;","
+	Casee           =    Casey.wav;","
+	Kasee           =    Casey.wav;","
+	Kasey           =    Casey.wav;","
+	Casandra        =    Cassandr.wav;","
+	Cassandra       =    Cassandr.wav;","
+	Kasandra        =    Cassandr.wav;","
+	Kassandra       =    Cassandr.wav;","
+	Catherine       =    Catherin.wav;","
+	Cathryn         =    Catherin.wav;","
+	Cathryne        =    Catherin.wav;","
+	Cathleen        =    Cathleen.wav;","
+	Cathlene        =    Cathleen.wav;","
+	Cathy           =    Cathy.wav;","
+	Cathe           =    Cathy.wav;","
+	Cathie          =    Cathy.wav;","
+	Catlyn          =    Catlyn.wav;","
+	Ceasar          =    Ceasar.wav;","
+	Cesar           =    Ceasar.wav;","
+	Chad            =    Chad.wav;","
+	Chandler        =    Chandler.wav;","
+	Charles         =    Charles.wav;","
+	Charlie         =    Charlie.wav;","
+	Chelsea         =    Chelsea.wav;","
+	Cheryl          =    Cheryl.wav;","
+	Chey            =    Chey.wav;","
+	Che             =    Chey.wav;","
+	Chris           =    Chris.wav;","
+	Christian       =    Christan.wav;","
+	Christy         =    Christi.wav;","
+	Kristi          =    Christi.wav;","
+	Kristine        =    Christi.wav;","
+	Kristy          =    Christi.wav;","
+	Christop        =    Christop.wav;","
+	Christopher     =    Christop.wav;","
+	Cristofer       =    Christop.wav;","
+	Christian       =    Christan.wav;","
+	Christina       =    Chrstina.wav;","
+	Chrstina        =    Chrstina.wav;","
+	Christina       =    Chrstina.wav;","
+	Kristina        =    Chrstina.wav;","
+	Chrstine        =    Chrstine.wav;","
+	Christine       =    Chrstine.wav;","
+	Chrystal        =    Chrystal.wav;","
+	Crystal         =    Chrystal.wav;","
+	Chuck           =    Chuck.wav;","
+	Cindy           =    Cindy.wav;","
+	Cyndy           =    Cindy.wav;","
+	Cindi           =    Cindy.wav;","
+	Claudio         =    Claudio.wav;","
+	Click           =    Click.wav;","
+	Cody            =    Cody.wav;","
+	Cole            =    Cole.wav;","
+	Colin           =    Colin.wav;","
+	Collin          =    Colin.wav;","
+	Collen          =    Colin.wav;","
+	Colleen         =    Colleen.wav;","
+	Connie          =    Connie.wav;","
+	Connor          =    Connor.wav;","
+	Conner          =    Connor.wav;","
+	Conor           =    Connor.wav;","
+	Consuelo        =    Consuelo.wav;","
+	Cora            =    Cora.wav;","
+	Corazon         =    Corazon.wav;","
+	Corey           =    Corey.wav;","
+	Cory            =    Corey.wav;","
+	Cori            =    Corey.wav;","
+	Corie           =    Corey.wav;","
+	Corrie          =    Corey.wav;","
+	Cornelia        =    Cornelia.wav;","
+	Kori            =    Cory.wav;","
+	Korie           =    Cory.wav;","
+	Kory            =    Cory.wav;","
+	Courtney        =    Courtney.wav;","
+	Craig           =    Craig.wav;","
+	Kraig           =    Craig.wav;","
+	Cruz            =    Cruz.wav;","
+	Crystal         =    Crystal.wav;","
+	Curt            =    Curt.wav;","
+	Kurt            =    Curt.wav;","
+	Curtis          =    Curtis.wav;","
+	Kurtis          =    Curtis.wav;","
+	Cynthia         =    Cynthia.wav;","
+	Dan             =    Dan.wav;","
+	Dana            =    Dana.wav;","
+	Daniel          =    Daniel.wav;","
+	Daniela         =    Daniela.wav;","
+	Danielle        =    Danielle.wav;","
+	Danny           =    Danny.wav;","
+	Danni           =    Danny.wav;","
+	Dannie          =    Danny.wav;","
+	Daria           =    Daria.wav;","
+	Darin           =    Darin.wav;","
+	Daren           =    Darren.wav;","
+	Darren          =    Darren.wav;","
+	Darin           =    Darren.wav;","
+	Daron           =    Darren.wav;","
+	Daryl           =    Daryl.wav;","
+	Darrel          =    Daryl.wav;","
+	Darrell         =    Daryl.wav;","
+	Darryl          =    Daryl.wav;","
+	Dave            =    Dave.wav;","
+	David           =    David.wav;","
+	Davis           =    Davis.wav;","
+	Dawn            =    Dawn.wav;","
+	Dean            =    Dean.wav;","
+	Debbi           =    Debbie.wav;","
+	Debbie          =    Debbie.wav;","
+	Debby           =    Debbie.wav;","
+	Debra           =    Debra.wav;","
+	Debrorah        =    Debra.wav;","
+	Debrah          =    Debra.wav;","
+	Delfina         =    Delfina.wav;","
+	Delia           =    Delia.wav;","
+	Delinda         =    Delinda.wav;","
+	D'Lynda         =    Delinda.wav;","
+	Dena            =    Dena.wav;","
+	Denise          =    Denise.wav;","
+	Dennis          =    Dennis.wav;","
+	Derek           =    Derek.wav;","
+	Derik           =    Derek.wav;","
+	Derrek          =    Derek.wav;","
+	Derrick         =    Derek.wav;","
+	Devon           =    Devon.wav;","
+	Devin           =    Devon.wav;","
+	Devora          =    Devora.wav;","
+	Diana           =    Diana.wav;","
+	Dianna          =    Diana.wav;","
+	Diane           =    Diane.wav;","
+	Diann           =    Diane.wav;","
+	Dianne          =    Diane.wav;","
+	Dian            =    Diane.wav;","
+	Dyan            =    Diane.wav;","
+	Dick            =    Dick.wav;","
+	Diego           =    Diego.wav;","
+	Dena            =    Dina.wav;","
+	Dina            =    Dina.wav;","
+	Deena           =    Dina.wav;","
+	Delores         =    Dolores.wav;","
+	Dolores         =    Dolores.wav;","
+	Domicia         =    Domicia.wav;","
+	Dominga         =    Dominga.wav;","
+	Domingo         =    Domingo.wav;","
+	Dominic         =    Dominic.wav;","
+	Dominick        =    Dominic.wav;","
+	Domnique        =    Domnique.wav;","
+	Dominique       =    Domnique.wav;","
+	Dominiqu        =    Domnique.wav;","
+	Don             =    Don.wav;","
+	Donald          =    Donald.wav;","
+	Donna           =    Donna.wav;","
+	Dora            =    Dora.wav;","
+	Doug            =    Doug.wav;","
+	Douglas         =    Douglas.wav;","
+	Drew            =    Drew.wav;","
+	Dustin          =    Dustin.wav;","
+	Eba             =    Eba.wav;","
+	Ed              =    Ed.wav;","
+	Eduardo         =    Eduardo.wav;","
+	Edward          =    Edward.wav;","
+	Elaine          =    Elaine.wav;","
+	Elain           =    Elaine.wav;","
+	Elayne          =    Elaine.wav;","
+	Elena           =    Elena.wav;","
+	Elga            =    Elga.wav;","
+	Elisabet        =    Elisabet.wav;","
+	Elisabeth       =    Elisabet.wav;","
+	Elizabeth       =    Elisabet.wav;","
+	Ellen           =    Ellen.wav;","
+	Elsa            =    Elsa.wav;","
+	Elyse           =    Elsa.wav;","
+	Elva            =    Elva.wav;","
+	Elzabeth        =    Elzabeth.wav;","
+	Emijila         =    Emijila.wav;","
+	Emilio          =    Emilio.wav;","
+	Emily           =    Emily.wav;","
+	Emili           =    Emily.wav;","
+	Emilie          =    Emily.wav;","
+	Enrique         =    Enrique.wav;","
+	Enter           =    Enter.wav;","
+	Erberto         =    Erberto.wav;","
+	Eric            =    Eric.wav;","
+	Erick           =    Eric.wav;","
+	Erik            =    Eric.wav;","
+	Eriq            =    Eric.wav;","
+	Erique          =    Eric.wav;","
+	Erica           =    Erica.wav;","
+	Ericka          =    Erica.wav;","
+	Erika           =    Erica.wav;","
+	Erin            =    Erin.wav;","
+	Ermundo         =    Ermundo.wav;","
+	Esmirald        =    Esmirald.wav;","
+	Esperan         =    Esperan.wav;","
+	Esteban         =    Esteban.wav;","
+	Estela          =    Estela.wav;","
+	Etha            =    Etha.wav;","
+	Eugene          =    Eugene.wav;","
+	Eugean          =    Eugene.wav;","
+	Eujena          =    Eujena.wav;","
+	Eva             =    Eva.wav;","
+	Evan            =    Evan.wav;","
+	Evanjel         =    Evanjel.wav;","
+	Fabiola         =    Fabiola.wav;","
+	Federico        =    Federico.wav;","
+	Felicia         =    Felicia.wav;","
+	Felipe          =    Felipe.wav;","
+	Felix           =    Felix.wav;","
+	Fernando        =    Fernando.wav;","
+	Fidel           =    Fidel.wav;","
+	Fidelia         =    Fidelia.wav;","
+	Filberto        =    Filberto.wav;","
+	Flor            =    Flor.wav;","
+	Floriana        =    Floriana.wav;","
+	Florinda        =    Florinda.wav;","
+	Forest          =    Forest.wav;","
+	Francisco       =    Francisc.wav;","
+	Frank           =    Frank.wav;","
+	Fransisca       =    Fransisc.wav;","
+	Fred            =    Fred.wav;","
+	Frida           =    Frida.wav;","
+	Gabriel         =    Gabriel.wav;","
+	Gabriela        =    Gabriela.wav;","
+	Gabriella       =    Gabriela.wav;","
+	Gary            =    Gary.wav;","
+	Gene            =    Gene.wav;","
+	Jean            =    Gene.wav;","
+	Jene            =    Gene.wav;","
+	Jeanne          =    Gene.wav;","
+	George          =    George.wav;","
+	Georgina        =    Georgina.wav;","
+	Georgna         =    Georgna.wav;","
+	Gerald          =    Gerald.wav;","
+	Jarrold         =    Gerald.wav;","
+	Gerry           =    Gerry.wav;","
+	Gilberto        =    Gilberto.wav;","
+	Gina            =    Gina.wav;","
+	Geana           =    Gina.wav;","
+	Geena           =    Gina.wav;","
+	Gena            =    Gina.wav;","
+	Ginny           =    Ginny.wav;","
+	Glenda          =    Glenda.wav;","
+	Gloria          =    Gloria.wav;","
+	Glorya          =    Gloria.wav;","
+	Gonzalo         =    Gonzalo.wav;","
+	Gordon          =    Gordon.wav;","
+	Gordan          =    Gordon.wav;","
+	Graciela        =    Graciela.wav;","
+	Grant           =    Grant.wav;","
+	Greald          =    Greald.wav;","
+	Greg            =    Greg.wav;","
+	Gregory         =    Gregory.wav;","
+	Guadalup        =    Guadalup.wav;","
+	Guido           =    Guido.wav;","
+	Guijermo        =    Guijermo.wav;","
+	Guillermo       =    Guijermo.wav;","
+	Gustavo         =    Gustavo.wav;","
+	Hacinta         =    Hacinta.wav;","
+	Hali            =    Hali.wav;","
+	Haley           =    Hali.wav;","
+	Hanna           =    Hanna.wav;","
+	Hannah          =    Hanna.wav;","
+	Hanah           =    Hanna.wav;","
+	Heather         =    Heather.wav;","
+	Hector          =    Hector.wav;","
+	Heidi           =    Heidi.wav;","
+	Helene          =    Helene.wav;","
+	Herberto        =    Herberto.wav;","
+	Hermosa         =    Hermosa.wav;","
+	Hernando        =    Hernando.wav;","
+	Hignacio        =    Hignacio.wav;","
+	Hilda           =    Hilda.wav;","
+	Hillary         =    Hillary.wav;","
+	Holly           =    Holly.wav;","
+	Hortenc         =    Hortenc.wav;","
+	Hugo            =    Hugo.wav;","
+	Humberto        =    Humberto.wav;","
+	Ian             =    Ian.wav;","
+	Ilena           =    Ilena.wav;","
+	Imelda          =    Imelda.wav;","
+	Ines            =    Ines.wav;","
+	Ira             =    Ira.wav;","
+	Iris            =    Iris.wav;","
+	Irma            =    Irma.wav;","
+	Isabel          =    Isabel.wav;","
+	Isadero         =    Isadero.wav;","
+	Ivana           =    Ivana.wav;","
+	Jack            =    Jack.wav;","
+	Jackie          =    Jackie.wav;","
+	Jacklene        =    Jacklene.wav;","
+	Jacklyn         =    Jacklyn.wav;","
+	Jacklin         =    Jacklyn.wav;","
+	Jacqlin         =    Jacklyn.wav;","
+	Jacqline        =    Jacklyn.wav;","
+	Jacqueline      =    Jacklyn.wav;","
+	Jacquelyn       =    Jacklyn.wav;","
+	Jacqlyn         =    Jacklyn.wav;","
+	Jaqlin          =    Jacklyn.wav;","
+	Jaqlyn          =    Jacklyn.wav;","
+	Jaime           =    Jaime.wav;","
+	Jake            =    Jake.wav;","
+	James           =    James.wav;","
+	Jamie           =    Jamie.wav;","
+	Jayme           =    Jamie.wav;","
+	Jamey           =    Jamie.wav;","
+	Jan             =    Jan.wav;","
+	Jane            =    Jane.wav;","
+	Janet           =    Janet.wav;","
+	Jared           =    Jared.wav;","
+	Jarod           =    Jared.wav;","
+	Jarrod          =    Jared.wav;","
+	Jasmin          =    Jasmin.wav;","
+	Jason           =    Jason.wav;","
+	Javier          =    Javier.wav;","
+	Jay             =    Jay.wav;","
+	Geff            =    Jeff.wav;","
+	Geof            =    Jeff.wav;","
+	Geoff           =    Jeff.wav;","
+	Jeff            =    Jeff.wav;","
+	Jeffery         =    Jeffery.wav;","
+	Geoffrey        =    Jeffery.wav;","
+	Jeffrey         =    Jeffery.wav;","
+	Jenna           =    Jenna.wav;","
+	Jenah           =    Jenna.wav;","
+	Jenne           =    Jenna.wav;","
+	Jenna           =    Jenna.wav;","
+	Jennah          =    Jenna.wav;","
+	Jennifer        =    Jennifer.wav;","
+	Jenifer         =    Jennifer.wav;","
+	Jenny           =    Jenny.wav;","
+	Jeremiah        =    Jeremiah.wav;","
+	Jeremy          =    Jeremy.wav;","
+	Jerimiah        =    Jerimah.wav;","
+	Jerry           =    Jerry.wav;","
+	Jesse           =    Jesse.wav;","
+	Jessica         =    Jessica.wav;","
+	Jesus           =    Jesus.wav;","
+	Jiame           =    Jiame.wav;","
+	Jill            =    Jill.wav;","
+	Jillian         =    Jillian.wav;","
+	Jim             =    Jim.wav;","
+	Joanna          =    Joanna.wav;","
+	Johanna         =    Joanna.wav;","
+	Joanne          =    Joanne.wav;","
+	Joannie         =    Joannie.wav;","
+	Joaquin         =    Joaquin.wav;","
+	Jody            =    Jody.wav;","
+	Jodey           =    Jody.wav;","
+	Jodi            =    Jody.wav;","
+	Jodie           =    Jody.wav;","
+	Joe             =    Joe.wav;","
+	Jo              =    Joe.wav;","
+	Joel            =    Joel.wav;","
+	John            =    John.wav;","
+	Jon             =    John.wav;","
+	Jonn            =    John.wav;","
+	Jonathan        =    Jonathan.wav;","
+	Jordan          =    Jordan.wav;","
+	Jorden          =    Jordan.wav;","
+	Jorge           =    Jorge.wav;","
+	Jorgina         =    Jorgina.wav;","
+	Jose            =    Jose.wav;","
+	Josefina        =    Josefina.wav;","
+	Joseph          =    Joseph.wav;","
+	Josh            =    Josh.wav;","
+	Joshua          =    Joshua.wav;","
+	Juan            =    Juan.wav;","
+	Juana           =    Juana.wav;","
+	Judy            =    Judy.wav;","
+	Julia           =    Julia.wav;","
+	Julie           =    Julie.wav;","
+	Julio           =    Julio.wav;","
+	Justin          =    Justin.wav;","
+	Kara            =    Kara.wav;","
+	Karen           =    Karen.wav;","
+	Karin           =    Karen.wav;","
+	Karyn           =    Karen.wav;","
+	Karina          =    Karina.wav;","
+	Kate            =    Kate.wav;","
+	Katherine       =    Katherne.wav;","
+	Kathryn         =    Katherne.wav;","
+	Kathryne        =    Katherne.wav;","
+	Kathleen        =    Kathleen.wav;","
+	Kathlene        =    Kathleen.wav;","
+	Kathy           =    Kathy.wav;","
+	Kathe           =    Kathy.wav;","
+	Kathie          =    Kathy.wav;","
+	Katie           =    Katie.wav;","
+	Kayla           =    Kayla.wav;","
+	Keith           =    Keith.wav;","
+	Kelly           =    Kelly.wav;","
+	Kelli           =    Kelly.wav;","
+	Kellie          =    Kelly.wav;","
+	Ken             =    Ken.wav;","
+	Kenneth         =    Kenneth.wav;","
+	Kevin           =    Kevin.wav;","
+	Kim             =    Kim.wav;","
+	Kimberly        =    Kimberly.wav;","
+	Krista          =    Krista.wav;","
+	Christa         =    Krista.wav;","
+	Christen        =    Kristin.wav;","
+	Christin        =    Kristin.wav;","
+	Chrysten        =    Kristin.wav;","
+	Chrystin        =    Kristin.wav;","
+	Cristen         =    Kristin.wav;","
+	Cristin         =    Kristin.wav;","
+	Crysten         =    Kristin.wav;","
+	Crystin         =    Kristin.wav;","
+	Kristin         =    Kristin.wav;","
+	Kristen         =    Kristin.wav;","
+	Krysten         =    Kristin.wav;","
+	Kristina        =    Kristina.wav;","
+	Krystal         =    Krystal.wav;","
+	Krystal         =    Krystal.wav;","
+	Kyle            =    Kyle.wav;","
+	Laura           =    Laura.wav;","
+	Lara            =    Laura.wav;","
+	Lauren          =    Lauren.wav;","
+	Loren           =    Lauren.wav;","
+	Leah            =    Leah.wav;","
+	Lee             =    Lee.wav;","
+	Leonardo        =    Leonardo.wav;","
+	Leslie          =    Leslie.wav;","
+	Lesli           =    Leslie.wav;","
+	Lesley          =    Leslie.wav;","
+	Lesli           =    Leslie.wav;","
+	Lesley          =    Leslie.wav;","
+	Liana           =    Liana.wav;","
+	Lidia           =    Lidia.wav;","
+	Lilia           =    Lilia.wav;","
+	Liliana         =    Liliana.wav;","
+	Lina            =    Lina.wav;","
+	Linda           =    Linda.wav;","
+	Lynda           =    Linda.wav;","
+	Lindsey         =    Lindsey.wav;","
+	Lindsay         =    Lindsey.wav;","
+	Lensy           =    Lindsey.wav;","
+	Linsa           =    Linsa.wav;","
+	Lisa            =    Lisa.wav;","
+	Leesa           =    Lisa.wav;","
+	Lola            =    Lola.wav;","
+	Lolita          =    Lolita.wav;","
+	Lora            =    Lora.wav;","
+	Lorena          =    Lorena.wav;","
+	Lorenzo         =    Lorenzo.wav;","
+	Lori            =    Lori.wav;","
+	Lorie           =    Lori.wav;","
+	Lorri           =    Lori.wav;","
+	Lorry           =    Lori.wav;","
+	Lory            =    Lori.wav;","
+	Lorey           =    Lorie.wav;","
+	Louis           =    Louis.wav;","
+	Lucia           =    Lucia.wav;","
+	Lucila          =    Lucila.wav;","
+	Luisa           =    Luisa.wav;","
+	Luis            =    Luis.wav;","
+	Luke            =    Luke.wav;","
+	Luna            =    Luna.wav;","
+	Lydia           =    Lydia.wav;","
+	Lynn            =    Lynn.wav;","
+	Lynne           =    Lynn.wav;","
+	Linn            =    Lynn.wav;","
+	Lin             =    Lynn.wav;","
+	Magdalen        =    Magdalen.wav;","
+	Manuel          =    Manuel.wav;","
+	Marcela         =    Marcela.wav;","
+	Marcello        =    Marcello.wav;","
+	Marcelo         =    Marcello.wav;","
+	Marcia          =    Marcia.wav;","
+	Marco           =    Marco.wav;","
+	Marcus          =    Marcus.wav;","
+	Margaret        =    Margaret.wav;","
+	Margarit        =    Margaret.wav;","
+	Margarita       =    Margarit.wav;","
+	Maria           =    Maria.wav;","
+	Mariana         =    Mariana.wav;","
+	Marie           =    Marie.wav;","
+	Mariel          =    Mariel.wav;","
+	Marilyn         =    Marilyn.wav;","
+	Marina          =    Marina.wav;","
+	Marine          =    Marine.wav;","
+	Marisol         =    Marisol.wav;","
+	Mark            =    Mark.wav;","
+	Marc            =    Mark.wav;","
+	Marq            =    Mark.wav;","
+	Marsha          =    Marsha.wav;","
+	Marcia          =    Marsha.wav;","
+	Marta           =    Marta.wav;","
+	Martha          =    Martha.wav;","
+	Martino         =    Martino.wav;","
+	Mary            =    Mary.wav;","
+	Merry           =    Mary.wav;","
+	Mason           =    Mason.wav;","
+	Matello         =    Matello.wav;","
+	Mateo           =    Matello.wav;","
+	Mathew          =    Mathew.wav;","
+	Matthew         =    Mathew.wav;","
+	Matilde         =    Matilde.wav;","
+	Matt            =    Matt.wav;","
+	Max             =    Max.wav;","
+	Megan           =    Megan.wav;","
+	Meghan          =    Megan.wav;","
+	Melanie         =    Melanie.wav;","
+	Melina          =    Melina.wav;","
+	Melinda         =    Melinda.wav;","
+	Malinda         =    Melinda.wav;","
+	Melissa         =    Melissa.wav;","
+	Mercedes        =    Mercedes.wav;","
+	Meredith        =    Meredith.wav;","
+	Meridith        =    Meredith.wav;","
+	Mica            =    Mica.wav;","
+	Michael         =    Michael.wav;","
+	Michelle        =    Michelle.wav;","
+	Michele         =    Michelle.wav;","
+	Miguel          =    Miguel.wav;","
+	Miquel          =    Miguel.wav;","
+	Mike            =    Mike.wav;","
+	Miriam          =    Miriam.wav;","
+	Mitch           =    Mitch.wav;","
+	Mitchell        =    Mitchell.wav;","
+	Molly           =    Molly.wav;","
+	Molli           =    Molly.wav;","
+	Monica          =    Monica.wav;","
+	Morgan          =    Morgan.wav;","
+	Nancy           =    Nancy.wav;","
+	Nanci           =    Nancy.wav;","
+	Natalia         =    Natalia.wav;","
+	Natalie         =    Natalie.wav;","
+	Natasha         =    Natasha.wav;","
+	Nate            =    Nate.wav;","
+	Nathan          =    Nathan.wav;","
+	Nathniel        =    Nathniel.wav;","
+	Nathanial       =    Nathniel.wav;","
+	Nathaniel       =    Nathniel.wav;","
+	Neal            =    Neal.wav;","
+	Neil            =    Neal.wav;","
+	Nicholas        =    Nicholas.wav;","
+	Nicolas         =    Nicholas.wav;","
+	Nick            =    Nick.wav;","
+	Nickolas        =    Nickolas.wav;","
+	Nicole          =    Nicole.wav;","
+	Nickole         =    Nicole.wav;","
+	Nichole         =    Nicole.wav;","
+	Nina            =    Nina.wav;","
+	Noemi           =    Noemi.wav;","
+	Octavio         =    Octavio.wav;","
+	Ofelia          =    Ofelia.wav;","
+	Olivia          =    Olivia.wav;","
+	Owen            =    Owen.wav;","
+	Pablo           =    Pablo.wav;","
+	Paco            =    Paco.wav;","
+	Page			=	 Page.wav;","
+	Paige			=	 Page.wav;","
+	Pam             =    Pam.wav;","
+	Pamela          =    Pamela.wav;","
+	Pasqual         =    Pasqual.wav;","
+	Pascal          =    Pasqual.wav;","
+	Pat             =    Pat.wav;","
+	Patricia        =    Patricia.wav;","
+	Patricio        =    Patricio.wav;","
+	Patrick         =    Patrick.wav;","
+	Patti           =    Patti.wav;","
+	Patty           =    Patti.wav;","
+	Patton          =    Patton.wav;","
+	Payton          =    Patton.wav;","
+	Paul            =    Paul.wav;","
+	Paulo           =    Paulo.wav;","
+	Pedro           =    Pedro.wav;","
+	Pete            =    Pete.wav;","
+	Peter           =    Peter.wav;","
+	Petra           =    Petra.wav;","
+	Phil            =    Phil.wav;","
+	Phill           =    Phil.wav;","
+	Phillip         =    Phillip.wav;","
+	Philip          =    Phillip.wav;","
+	Pia             =    Pia.wav;","
+	Pilar           =    Pilar.wav;","
+	Placido         =    Placido.wav;","
+	Porcia          =    Porcia.wav;","
+	Preston         =    Preston.wav;","
+	Prudencia       =    Prudenci.wav;","
+	Rachel          =    Rachel.wav;","
+	Rafael          =    Rafael.wav;","
+	Ramona          =    Ramona.wav;","
+	Ramond          =    Ramond.wav;","
+	Randy           =    Randy.wav;","
+	Randi           =    Randy.wav;","
+	Raphaela        =    Raphaela.wav;","
+	Raquel          =    Raquel.wav;","
+	Raul            =    Raul.wav;","
+	Ray             =    Ray.wav;","
+	Raymond         =    Raymond.wav;","
+	Rebecca         =    Rebecca.wav;","
+	Regina          =    Regina.wav;","
+	Remo            =    Remo.wav;","
+	Renaldo         =    Renaldo.wav;","
+	Renato          =    Renato.wav;","
+	Rene            =    Rene.wav;","
+	Renee           =    Rene.wav;","
+	Ricardo         =    Ricardo.wav;","
+	Richard         =    Richard.wav;","
+	Rick            =    Rick.wav;","
+	Ricke           =    Ricke.wav;","
+	Rickque         =    Ricke.wav;","
+	Ricky           =    Ricke.wav;","
+	Rob             =    Rob.wav;","
+	Robert          =    Robert.wav;","
+	Roberto         =    Roberto.wav;","
+	Robin           =    Robin.wav;","
+	Robyn           =    Robin.wav;","
+	Rocio           =    Rocio.wav;","
+	Rocky           =    Rocky.wav;","
+	Roderigo        =    Roderigo.wav;","
+	Rodney          =    Rodney.wav;","
+	Roger           =    Roger.wav;","
+	Rolando         =    Rolando.wav;","
+	Romana          =    Romana.wav;","
+	Ron             =    Ron.wav;","
+	Ronald          =    Ronald.wav;","
+	Rosa            =    Rosa.wav;","
+	Rosalea         =    Rosalea.wav;","
+	Rosalind        =    Rosalind.wav;","
+	Rosenda         =    Rosenda.wav;","
+	Rosy            =    Rosy.wav;","
+	Rosi            =    Rosy.wav;","
+	Rosie           =    Rosy.wav;","
+	Ruben           =    Ruben.wav;","
+	Rueben          =    Ruben.wav;","
+	Ruis            =    Ruis.wav;","
+	Ruy             =    Ruis.wav;","
+	Ruperto         =    Ruperto.wav;","
+	Russel          =    Russel.wav;","
+	Ruth            =    Ruth.wav;","
+	Ryan            =    Ryan.wav;","
+	Sabrina         =    Sabrina.wav;","
+	Sebrina         =    Sabrina.wav;","
+	Sally           =    Sally.wav;","
+	Sam             =    Sam.wav;","
+	Samantha        =    Samantha.wav;","
+	Samuel          =    Samuel.wav;","
+	Sancho          =    Sancho.wav;","
+	Sandra          =    Sandra.wav;","
+	Sandy           =    Sandy.wav;","
+	Sandi           =    Sandy.wav;","
+	Santiago        =    Santiago.wav;","
+	Sara            =    Sara.wav;","
+	Sarah           =    Sara.wav;","
+	Sera            =    Sara.wav;","
+	Serah           =    Sara.wav;","
+	Saundra         =    Saundra.wav;","
+	Scott           =    Scott.wav;","
+	Sean            =    Sean.wav;","
+	Shaun           =    Sean.wav;","
+	Shawn           =    Sean.wav;","
+	Shon            =    Sean.wav;","
+	Chaun           =    Sean.wav;","
+	Selena          =    Selena.wav;","
+	Selina          =    Selena.wav;","
+	Selma           =    Selma.wav;","
+	Serafina        =    Serafina.wav;","
+	Sergio          =    Sergio.wav;","
+	Serphina        =    Serphina.wav;","
+	Seth            =    Seth.wav;","
+	Shane           =    Shane.wav;","
+	Shanna          =    Shanna.wav;","
+	Shannon         =    Shannon.wav;","
+	Shannaon        =    Shannon.wav;","
+	Sharon          =    Sharon.wav;","
+	Shawn           =    Shawn.wav;","
+	Sheila          =    Sheila.wav;","
+	Sidney          =    Sidney.wav;","
+	Silvia          =    Silvia.wav;","
+	Sofia           =    Sofia.wav;","
+	Sonia           =    Sonia.wav;","
+	Sophia          =    Sophia.wav;","
+	Stacy           =    Stacy.wav;","
+	Stacey          =    Stacy.wav;","
+	Stacie          =    Stacy.wav;","
+	Steffan         =    Stephan.wav;","
+	Steffen         =    Stephan.wav;","
+	Stephani        =    Stephani.wav;","
+	Stefani         =    Stephani.wav;","
+	Stefanie        =    Stephani.wav;","
+	Steffani        =    Stephani.wav;","
+	Steffany        =    Stephani.wav;","
+	Stephanie       =    Stephani.wav;","
+	Stephenie       =    Stephani.wav;","
+	Stephnie        =    Stephani.wav;","
+	Stephen         =    Stephen.wav;","
+	Steve           =    Steve.wav;","
+	Steven          =    Steven.wav;","
+	Stephen         =    Steven.wav;","
+	Stewart         =    Stewart.wav;","
+	Stuart          =    Stewart.wav;","
+	Sue             =    Sue.wav;","
+	Susan           =    Susan.wav;","
+	Suzanne         =    Suzanne.wav;","
+	Suzie           =    Suzie.wav;","
+	Suzy            =    Suzie.wav;","
+	Susie           =    Suzie.wav;","
+	Tamara          =    Tamara.wav;","
+	Tania           =    Tania.wav;","
+	Tanya           =    Tania.wav;","
+	Tanner          =    Tanner.wav;","
+	Tara            =    Tara.wav;","
+	Tera            =    Tara.wav;","
+	Taylor          =    Taylor.wav;","
+	Ted             =    Ted.wav;","
+	Telma           =    Telma.wav;","
+	Terasa          =    Terasa.wav;","
+	Terencio        =    Terencio.wav;","
+	Teresa          =    Teresa.wav;","
+	Theresa         =    Teresa.wav;","
+	Terry           =    Terry.wav;","
+	Terri           =    Terry.wav;","
+	Teri            =    Terry.wav;","
+	Theodore        =    Theodore.wav;","
+	Theodoro        =    Theodoro.wav;","
+	Teodoro         =    Theodoro.wav;","
+	Theresa         =    Theresa.wav;","
+	Thomas          =    Thomas.wav;","
+	Tomas           =    Thomas.wav;","
+	Tiffany         =    Tiffany.wav;","
+	Tim             =    Tim.wav;","
+	Timothy         =    Timothy.wav;","
+	Tito            =    Tito.wav;","
+	Todd            =    Todd.wav;","
+	Tom             =    Tom.wav;","
+	Tomara          =    Tomara.wav;","
+	Tony            =    Tony.wav;","
+	Toni            =    Tony.wav;","
+	Tonya           =    Tonya.wav;","
+	Tanya           =    Tonya.wav;","
+	Tracy           =    Tracy.wav;","
+	Traci           =    Tracy.wav;","
+	Tracie          =    Tracy.wav;","
+	Tracey          =    Tracy.wav;","
+	Travis          =    Travis.wav;","
+	Trevor          =    Trevor.wav;","
+	Troy            =    Troy.wav;","
+	Tyler           =    Tyler.wav;","
+	Ursula          =    Ursula.wav;","
+	Valeria         =    Valeria.wav;","
+	Valerie         =    Valerie.wav;","
+	Vanessa         =    Vanessa.wav;","
+	Vera            =    Vera.wav;","
+	Veronica        =    Veronica.wav;","
+	Vic             =    Vic.wav;","
+	Vick            =    Vic.wav;","
+	Vicente         =    Vicente.wav;","
+	Victor          =    Victor.wav;","
+	Victoria        =    Victoria.wav;","
+	Vidal           =    Vidal.wav;","
+	Vikki           =    Vikki.wav;","
+	Vickey          =    Vikki.wav;","
+	Vicki           =    Vikki.wav;","
+	Vickie          =    Vikki.wav;","
+	Vicky           =    Vikki.wav;","
+	Vito            =    Vito.wav;","
+	Vivian          =    Vivian.wav;","
+	Wade            =    Wade.wav;","
+	Walter          =    Walter.wav;","
+	Wanda           =    Wanda.wav;","
+	Warren          =    Warren.wav;","
+	Wendy           =    Wendy.wav;","
+	Whitley         =    Whitley.wav;","
+	Whitney         =    Whitney.wav;","
+	Whitney         =    Whitney.wav;","
+	Whitni          =    Whitney.wav;","
+	Whitnie         =    Whitney.wav;","
+	Whitny          =    Whitney.wav;","
+	Whittany        =    Whitney.wav;","
+	Will            =    Will.wav;","
+	William         =    William.wav;","
+	Xaivier         =    Xaivier.wav;","
+	Ynes            =    Ynes.wav;","
+	Ynez            =    Ynes.wav;","
+	Yolanda         =    Yolanda.wav;","
+	Yvette          =    Yvette.wav;","
+	Yvonne          =    Yvonne.wav;","
+	Zachery         =    Zachery.wav;","
+	Zachary         =    Zachery.wav;","
+	Zacherie        =    Zachery.wav;","
+	Zelma           =    Zelma.wav;","
+",0
+}
+
+//***********************************************************************
+5 SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+5 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=house\\backgrnd.dib, toon=toon.avi, delay=1, flags=startidlefirst, wave=idle.wav, clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Opening Animation ***//
+
+    /OPENING=508 588, 		event=516 /HT1 523 /HT2 529 /HT3 535 /HT4 543 /HT5 547 /HH6 548 /HIDECLOTHES, show=/C14CLOTHES /PILLOWEYE, flags=auto noidlestop;","
+
+		/TEXT=0 0,				pos=54 387, fg=text.bmp;","
+		/TEXT1=0 0,				hot=51 384, fg=text01.bmp,flags=invisible alwayshot notrans,preshow=/TEXT1,hide=/TEXT1,wave=01.wav;","
+		/TEXT2=0 0,				hot=136 385, fg=text02.bmp,flags=invisible alwayshot notrans,preshow=/TEXT2,hide=/TEXT2,wave=02.wav;","
+		/TEXT3=0 0,				hot=197 384, fg=text03.bmp,flags=invisible alwayshot notrans,preshow=/TEXT3,hide=/TEXT3,wave=03.wav;","
+		/TEXT4=0 0,				hot=240 384, fg=text04.bmp,flags=invisible alwayshot notrans,preshow=/TEXT4,hide=/TEXT4,wave=04.wav;","
+		/TEXT5=0 0,				hot=51 408, fg=text05.bmp,flags=invisible alwayshot notrans,preshow=/TEXT5,hide=/TEXT5,wave=05.wav;","
+		/TEXT6=0 0,				hot=89 408, fg=text06.bmp,flags=invisible alwayshot notrans,preshow=/TEXT6,hide=/TEXT6,wave=06.wav;","
+		/TEXT7=0 0,				hot=142 410, fg=text07.bmp,flags=invisible alwayshot notrans,preshow=/TEXT7,hide=/TEXT7,wave=07.wav;","
+		/TEXT8=0 0,				hot=165 408, fg=text08.bmp,flags=invisible alwayshot notrans,preshow=/TEXT8,hide=/TEXT8,wave=08.wav;","
+		/TEXT9=0 0,				hot=216 408, fg=text09.bmp,flags=invisible alwayshot notrans,preshow=/TEXT9,hide=/TEXT9,wave=09.wav;","
+		/TEXT10=0 0,			hot=249 413, fg=text10.bmp,flags=invisible alwayshot notrans,preshow=/TEXT10,hide=/TEXT10,wave=10.wav;","
+
+		/HT1=0 0,				show=/TEXT1, flags=updatenow;"," 		
+		/HT2=0 0,				hide=/TEXT1, show=/TEXT2 /TEXT3, flags=updatenow;"," 		
+		/HT3=0 0,				hide=/TEXT2 /TEXT3, show=/TEXT4 /TEXT5, flags=updatenow;"," 		
+		/HT4=0 0,				hide=/TEXT4 /TEXT5, show=/TEXT6 /TEXT7 /TEXT8, flags=updatenow;"," 		
+		/HT5=0 0,				hide=/TEXT6 /TEXT7 /TEXT8, show=/TEXT9 /TEXT10, flags=updatenow;"," 		
+		/HH6=0 0,			    hide=/TEXT9 /TEXT10, flags=updatenow;","
+
+		/HIDECLOTHES=0 0,		hide=/C14CLOTHES;","
+
+//*** Ending Animation ***//
+
+	/ENDING=632 673, 		prehide=/C7QUILT, flags=exit;","
+
+//*** Clickables ***//
+
+	/CARPETPLAY=0 23,		hot=381 380 476 431, prehide=/C1CARPET, show=/C1CARPET;","
+	  	/C1CARPET=0 0,		pos=332 347, fg=carp.bmp;","  
+	/C2BOOK=28 53,	     	hot=297 321, fg=book.bmp;","
+	/C3DRAWER=60 79,	 	hot=301 219, fg=draw.bmp;","
+	/C4LAMP=84 134,		 	hot=302 140, fg=lamp.bmp;","		   
+	    /PICTUREBMP=0 0,	pos=252 68,  fg=pict.bmp;","
+    /C6PICTURE=160 181,	 	hot=252 68,  fg=picture.bmp, flags=sprite idle alwayshot cycleback,speed=6,cells=9, prehide=/PICTUREBMP, show=/PICTUREBMP;","
+    /C7QUILT=384 429, 	   	hot=68 198,  fg=quil2.bmp, flags=nohide;","
+    /C5SOCK=140 154,     	hot=119 340, fg=sock.bmp;","
+	/C8MOLDING=216 271,	 	hot=82 45,   fg=door.bmp;","
+	/C9PANTS=276 320,    	hot=232 279, fg=pant.bmp;","    
+	/C10PILLOW=328 355,  	hot=395 233, fg=pill.bmp;","
+		/PILLOWEYE=0 0,		pos=408 242, fg=pilleyes.bmp, flags=sprite idle alwayshot cycleback invisible,speed=7,cells=12;","
+	/C11FRAME1=0 0,	 		hot=37 101,  fg=frame1.bmp, hide=/C11FRAME1, show=/C11FRAME2, flags=click;","
+	/C11FRAME2=0 0,			hot=37 101,  fg=frame2.bmp, flags=invisible, hide=/C11FRAME2, show=/C11FRAME3, flags=click;","
+	/C11FRAME3=0 0,			hot=37 101,  fg=frame3.bmp, flags=invisible, hide=/C11FRAME3, show=/C11FRAME1, flags=click;","
+//   	/C12MOUSE=384 429,	 	hot=200 250 240 300;"," 
+
+
+	/C13SHELF=440 487,   	hot=297 248, fg=elev.bmp;","    
+	/C14CLOTHES=548 588,	hot=358 266, fg=clot.bmp;","
+   	/C15SOUND1=0 2111,      hot=500 220 589 272, wave=cl15118.wav, prehide=/C15SOUND1, show=/C15SOUND2;","
+	/C15SOUND2=0 2020,      hot=500 220 589 272, wave=cl15a118.wav, prehide=/C15SOUND2, show=/C15SOUND3;","
+	
+	/C15SOUND3=0 2236,      hot=500 220 589 272, wave=cl15b118.wav, prehide=/C15SOUND3, show=/C15SOUND1;","
+
+// Repeat Icon
+
+ 	/REPEAT=0 0, 			hot=301 411, flags=autobutton click nofade nohide notrans,fg=frog.bmp, end=/OPENING;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=mainmenu.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+}  
+
+//***********************************************************************
+IDD_CHASEI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_CHASEI GAMETABLE
+//***********************************************************************
+{
+"
+	furniture=tv.bmp,furnx=400,furny=80;","
+	furniture=sofa.bmp,furnx=275,furny=250;","
+	
+	annsmesssize=8;","
+	levelpieces=8;","
+	annwalkr=ANNWALKR.BMP,annwalku=ANNWALKU.BMP,annwalkl=ANNWALKL.BMP,annwalkd=ANNWALKD.BMP;","
+	anngetr=ANNCARYR.BMP,anngetu=ANNCARYU.BMP,anngetl=ANNCARYL.BMP,anngetd=ANNCARYD.BMP;","  
+	annstep=5,annx=180,anny=250,annwalkcells=6,anncarrycells=6;","
+	
+	annbdooropen=BOPEN.BMP,annbdoorshut=BCLOSE.BMP;","  
+	
+	doorxshut=167,dooryshut=235,doorxopen=108,dooryopen=270;","
+	
+	introwav=intro1.wav;","
+	successplay=successi.wav;","
+	catchwav=dopen.wav;","
+	doorclosewav=dclose.wav;","
+	
+	basketx=89,baskety=104;","
+	windowx=77,windowy=29;","
+	catchbydoor=0;","
+	laundrystartx=240,laundrystarty=370;","
+
+",0
+}
+
+//***********************************************************************
+IDD_CHASEI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=house_a\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=mainmenu.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+} 
+
+//***********************************************************************
+26 SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+26 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=house_v\\backgrnd.dib, toon=toon.avi, delay=1, clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+	/OPENING=0 336,		pos=163 111, fg=openbmp.bmp, flags=auto, prehide=/OPENING, show=/ENDINGBMP, cmd=IDC_NEXT;","
+	/ENDINGBMP=0 0,		pos=162 112, fg=endbmp.bmp, flags=invisible;","
+	
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=mainmenu.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+",0
+}
+
+//***********************************************************************
+IDD_ORDERSD SCENE              
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_ORDERSD JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=demo\\backgrn1.dib, delay=1, clip=CL CT CR CB,flags=hintson,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+    
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_ORDERFR SCENE              
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_ORDERFR JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=demo\\backgrn1.dib, delay=1, clip=CL CT CR CB,flags=hintson,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+    
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+} 
+
+
+//***********************************************************************
+IDD_ORDERHSE SCENE              
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_ORDERHSE JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=demo\\backgrn1.dib, delay=1, clip=CL CT CR CB,flags=hintson,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+    
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_MAINMENU SCENE              
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_MAINMENU JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=demo\\backgrn1.dib, delay=1, clip=CL CT CR CB,flags=hintson,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+    
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+}
+//**** Sailor Dog Demo ****///
+
+//***********************************************************************
+191 SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+191 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=sailor\\backgrnd.dib,toon=toon.avi, delay=1,clip=CL CT CR CB,"," 
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+	
+	/STARTEVENT=540 694,event=679 /SCUPEVENT,show=/SCUPPERS,flags=auto;","  
+ 	/SCUPEVENT=0 0,		hide=/SCUPPERS;","  
+ 	/SCUPPERS=452 478,	hot=295 178, prehide=/HAT, show=/HAT, fg=scuppers.bmp;"," 	
+	/TEXT=0 0,			pos=57 386, flags=nohide,fg=text.bmp;","
+	/BLINK=0 15,		hot=212 123,flags=nohide,hide=/BLINK,show=/WIPERS,fg=blink.bmp;","
+	/WIPERS=20 44,		hot=212 123,flags=invisible nohide,hide=/WIPERS,show=/BLINK,fg=blink.bmp;","
+ 	/CLOUD1=256 283,	hot=47 29, fg=cloud1.bmp;"," 
+	/CLOUD2=344 368,	hot=377 30, prehide=/HAT, show=/HAT, fg=cloud2.bmp;","
+ 	/HAT=344 368,		hot=398 178, prehide=/CLOUD2, show=/CLOUD2, fg=hat.bmp;","  
+ 	/RALPH=180 212,		hot=353 107, fg=ralph.bmp;","
+ 	/ED=216 253,		hot=362 143, fg=ed.bmp;"," 
+ 	/HURL=160 177,		hot=291 95, flags=nohide,fg=hurl.bmp;","  
+ 	/MERMAID 288 339,	hot=47 196 149 283;"," 
+ 	/WAVE1=372 417,		hot=540 97 593 150, prehide=/SCUPPERS /HAT, show=/SCUPPERS /HAT;","
+ 	/LOBSTER=420 449,	hot=558 155 591 251;","
+ 	/BALLOON=516 538,	hot=467 158, fg=balloon.bmp;"," 
+	/WHEEL=860 980,		hot=277 194, fg=wheel.bmp;","   
+	/RAIL=480 493,		hot=118 177, fg=rail.bmp;","
+	/ROPE=0 0,			pos=131 0, fg=rope.bmp;","
+	/CLEAT=496 514,		hot=174 263, flags=nohide notrans,prehide=/ROPE, show=/ROPE, fg=cleat.bmp;","
+	/SHOWROPE=0 0,		show=/ROPE;","
+	/HIDEROPE=0 0,		hide=/ROPE;","
+	/IDLE1=700 754,		event=724 /HIDEROPE 754 /SHOWROPE,flags=idle enablestop,stopshow=/ROPE;","	
+
+//*** Repeat Icon ***//
+
+ 	/REPEAT=756 858, 	hot=574 406, flags=autobutton click nofade nohide notrans,fg=frog.bmp;","
+
+// Word for Word Stuff //
+
+	/WORD01=0 0,		hot=54 384,flags=invisible alwayshot notrans,preshow=/WORD01,hide=/WORD01,fg=word01.bmp,wave=word001.wav;","
+	/WORD02=0 0,		hot=96 385,flags=invisible alwayshot notrans,preshow=/WORD02,hide=/WORD02,fg=word02.bmp,wave=word002.wav;","
+	/WORD03=0 0,		hot=147 383,flags=invisible alwayshot notrans,preshow=/WORD03,hide=/WORD03,fg=word03.bmp,wave=word003.wav;","
+	/WORD04=0 0,		hot=208 383,flags=invisible alwayshot notrans,preshow=/WORD04,hide=/WORD04,fg=word04.bmp,wave=word004.wav;","
+	/WORD05=0 0,		hot=268 383,flags=invisible alwayshot notrans,preshow=/WORD05,hide=/WORD05,fg=word05.bmp,wave=word005.wav;","
+	/WORD06=0 0,		hot=287 383,flags=invisible alwayshot notrans,preshow=/WORD06,hide=/WORD06,fg=word06.bmp,wave=word006.wav;","
+	/WORD07=0 0,		hot=346 385,flags=invisible alwayshot notrans,preshow=/WORD07,hide=/WORD07,fg=word07.bmp,wave=word007.wav;","
+	/WORD08=0 0,		hot=368 388,flags=invisible alwayshot notrans,preshow=/WORD08,hide=/WORD08,fg=word08.bmp,wave=word008.wav;","
+	/WORD09=0 0,		hot=407 384,flags=invisible alwayshot notrans,preshow=/WORD09,hide=/WORD09,fg=word09.bmp,wave=word009.wav;","
+	/WORD10=0 0,		hot=450 385,flags=invisible alwayshot notrans,preshow=/WORD10,hide=/WORD10,fg=word10.bmp,wave=word010.wav;","
+	/WORD11=0 0,		hot=519 383,flags=invisible alwayshot notrans,preshow=/WORD11,hide=/WORD11,fg=word11.bmp,wave=word011.wav;","
+	/WORD12=0 0,		hot=561 383,flags=invisible alwayshot notrans,preshow=/WORD12,hide=/WORD12,fg=word12.bmp,wave=word012.wav;","
+	/WORD13=0 0,		hot=55 406,flags=invisible alwayshot notrans,preshow=/WORD13,hide=/WORD13,fg=word13.bmp,wave=word013.wav;","
+	/WORD14=0 0,		hot=90 406,flags=invisible alwayshot notrans,preshow=/WORD14,hide=/WORD14,fg=word14.bmp,wave=word014.wav;","
+	/WORD15=0 0,		hot=140 406,flags=invisible alwayshot notrans,preshow=/WORD15,hide=/WORD15,fg=word15.bmp,wave=word015.wav;","
+	/WORD16=0 0,		hot=163 411,flags=invisible alwayshot notrans,preshow=/WORD16,hide=/WORD16,fg=word16.bmp,wave=word016.wav;","
+	/WORD17=0 0,		hot=177 406,flags=invisible alwayshot notrans,preshow=/WORD17,hide=/WORD17,fg=word17.bmp,wave=word017.wav;","
+	/WORD18=0 0,		hot=223 411,flags=invisible alwayshot notrans,preshow=/WORD18,hide=/WORD18,fg=word18.bmp,wave=word018.wav;","
+	/WORD19=0 0,		hot=237 406,flags=invisible alwayshot notrans,preshow=/WORD19,hide=/WORD19,fg=word19.bmp,wave=word019.wav;","
+	/WORD20=0 0,		hot=291 411,flags=invisible alwayshot notrans,preshow=/WORD20,hide=/WORD20,fg=word20.bmp,wave=word020.wav;","
+	/WORD21=0 0,		hot=329 406,flags=invisible alwayshot notrans,preshow=/WORD21,hide=/WORD21,fg=word21.bmp,wave=word021.wav;","
+	/WORD22=0 0,		hot=383 406,flags=invisible alwayshot notrans,preshow=/WORD22,hide=/WORD22,fg=word22.bmp,wave=word022.wav;","
+	/WORD23=0 0,		hot=431 406,flags=invisible alwayshot notrans,preshow=/WORD23,hide=/WORD23,fg=word23.bmp,wave=word023.wav;","
+	/WORD24=0 0,		hot=484 411,flags=invisible alwayshot notrans,preshow=/WORD24,hide=/WORD24,fg=word24.bmp,wave=word024.wav;","
+	/WORD25=0 0,		hot=523 411,flags=invisible alwayshot notrans,preshow=/WORD25,hide=/WORD25,fg=word25.bmp,wave=word025.wav;","
+	/WORD26=0 0,		hot=538 406,flags=invisible alwayshot notrans,preshow=/WORD26,hide=/WORD26,fg=word26.bmp,wave=word026.wav;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+}  
+
+//***********************************************************************
+192 SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+192 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=sailor_v\\backgrn1.dib,pos=199 109,toon=toon.avi,delay=0,scalevideo=1,flags=video,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+	
+    /SWITCH=0 480,		wave=ltswitch.wav,end=/PLAY,flags=auto;","
+	/PLAY=0 399,		event=22 /L1A 26 /L1B 32 /L2 33 /L2A 38 /L2B 44 /L3 45 /L3A 49 /L3B 56 /L3C 63 /L4 68 /L4A 73 /L4B 78 /L5A 83 /L5B 90 /L6A 101 /L6B 107 /L7A 112 /L8","
+						113 /L8A 124 /L8B 129 /L8C 138 /L9A 146 /L9B 153 /L9C 159 /L10A 167 /L11 169 /L11A 180 /L11B 187 /L12 192 /L12A 203 /L12B 208 /L12C 213 /L12D 216 /L13","
+						217 /L13A 224 /L13B 232 /L13C 240 /L14A 245 /L15 249 /L15A 260 /L15B 280 /L16 283 /L16A 295 /L16B 300 /L16C 306 /L17A 317 /L17B 323 /L17C 328 /L18A","
+						335 /L18B 342 /L18C 350 /L19A 375 /L19B 385 /L19C, cmd=IDC_NEXT, flags=auto;"," 
+//	/END=0 0,			pos=200 109, fg=last.bmp, flags=invisible;","
+
+	/L1A=0 0, 			show=/LINE1A;","   
+	/L1B=0 0,			hide=/LINE1A, show=/LINE1B, flags=updatenow;","	
+	/L2=0 0, 			hide=/LINE1B /LINE1, show=/LINE2, flags=updatenow;","   
+	/L2A=0 0, 			show=/LINE2A, flags=updatenow;","   
+	/L2B=0 0,			hide=/LINE2A, show=/LINE2B, flags=updatenow;","	
+	/L3=0 0, 			hide=/LINE2B /LINE2, show=/LINE3, flags=updatenow;","   
+	/L3A=0 0, 			show=/LINE3A, flags=updatenow;","   
+	/L3B=0 0,			hide=/LINE3A, show=/LINE3B, flags=updatenow;","	
+	/L3C=0 0,			hide=/LINE3B, show=/LINE3C, flags=updatenow;","		
+	/L4=0 0, 			hide=/LINE3C /LINE3, show=/LINE4, flags=updatenow;","   
+	/L4A=0 0, 			show=/LINE4A, flags=updatenow;","   
+	/L4B=0 0,			hide=/LINE4A, show=/LINE4B, flags=updatenow;","	
+	/L5=0 0, 			hide=/LINE4B /LINE4, show=/LINE5, flags=updatenow;","   
+	/L5A=0 0, 			hide=/LINE4B /LINE4, show=/LINE5 /LINE5A, flags=updatenow;","   
+	/L5B=0 0,			hide=/LINE5A, show=/LINE5B, flags=updatenow;","	
+	/L6=0 0, 			hide=/LINE5B /LINE5, show=/LINE6, flags=updatenow;","   
+	/L6A=0 0, 			hide=/LINE5B /LINE5,show=/LINE6A /LINE6, flags=updatenow;","   
+	/L6B=0 0,			hide=/LINE6A, show=/LINE6B, flags=updatenow;","	
+	/L7A=0 0, 			hide=/LINE6B /LINE6, show=/LINE7A, flags=updatenow;","   
+	/L8=0 0, 			hide=/LINE7A, show=/LINE8, flags=updatenow;","   
+	/L8A=0 0, 			hide=/LINE7A /LINE7,show=/LINE8A, flags=updatenow;","   
+	/L8B=0 0,			hide=/LINE8A, show=/LINE8B, flags=updatenow;","	
+	/L8C=0 0,			hide=/LINE8B, show=/LINE8C, flags=updatenow;","	
+	/L9A=0 0, 			hide=/LINE8C /LINE8, show=/LINE9A /LINE9, flags=updatenow;","   
+	/L9B=0 0,			hide=/LINE9A, show=/LINE9B, flags=updatenow;","	
+	/L9C=0 0,			hide=/LINE9B, show=/LINE9C, flags=updatenow;","	
+//	/L10=0 0, 			hide=/LINE9C /LINE9, show=/LINE10, flags=updatenow;","   
+	/L10A=0 0, 			hide=/LINE9C /LINE9, show=/LINE10A, flags=updatenow;","   
+	/L11=0 0, 			hide=/LINE10A /LINE10, show=/LINE11, flags=updatenow;","   
+	/L11A=0 0, 			show=/LINE11A, flags=updatenow;","   
+	/L11B=0 0,			hide=/LINE11A, show=/LINE11B, flags=updatenow;","	
+	/L12=0 0, 			hide=/LINE11B /LINE11, show=/LINE12, flags=updatenow;","   
+	/L12A=0 0, 			hide=/LINE11B /LINE11,show=/LINE12A, flags=updatenow;","   
+	/L12B=0 0, 			hide=/LINE12A,show=/LINE12B, flags=updatenow;","   
+	/L12C=0 0, 			hide=/LINE12B,show=/LINE12C, flags=updatenow;","   	
+	/L12D=0 0, 			hide=/LINE12C,show=/LINE12D, flags=updatenow;","   
+	/L13=0 0, 			hide=/LINE12D /LINE12, show=/LINE13, flags=updatenow;","   
+	/L13A=0 0, 			hide=/LINE12D /LINE12,show=/LINE13A, flags=updatenow;","   
+	/L13B=0 0, 			hide=/LINE13A,show=/LINE13B, flags=updatenow;","   
+	/L13C=0 0, 			hide=/LINE13B,show=/LINE13C, flags=updatenow;","   	
+//	/L14=0 0, 			hide=/LINE13C /LINE13, show=/LINE14, flags=updatenow;","   
+	/L14A=0 0, 			hide=/LINE13C /LINE13, show=/LINE14A /LINE14, flags=updatenow;","   
+	/L15=0 0, 			hide=/LINE14A /LINE14, show=/LINE15, flags=updatenow;","   
+	/L15A=0 0, 			hide=/LINE14A /LINE14,show=/LINE15A, flags=updatenow;","   
+	/L15B=0 0, 			hide=/LINE15A,show=/LINE15B, flags=updatenow;","   
+	/L16=0 0, 			hide=/LINE15B /LINE15, show=/LINE16, flags=updatenow;","   
+	/L16A=0 0, 			hide=/LINE15B /LINE15,show=/LINE16A, flags=updatenow;","   
+	/L16B=0 0, 			hide=/LINE16A,show=/LINE16B, flags=updatenow;","   
+	/L16C=0 0, 			hide=/LINE16B,show=/LINE16C, flags=updatenow;","   	
+	/L17A=0 0, 			hide=/LINE16C /LINE16,show=/LINE17A /LINE17, flags=updatenow;","   
+	/L17B=0 0, 			hide=/LINE17A,show=/LINE17B, flags=updatenow;","   
+	/L17C=0 0, 			hide=/LINE17B,show=/LINE17C, flags=updatenow;","   	
+	/L18A=0 0, 			hide=/LINE17C /LINE17,show=/LINE18A /LINE18, flags=updatenow;","   
+	/L18B=0 0, 			hide=/LINE18A,show=/LINE18B, flags=updatenow;","   
+	/L18C=0 0, 			hide=/LINE18B,show=/LINE18C, flags=updatenow;","   	
+	/L19A=0 0, 			hide=/LINE18C /LINE18,show=/LINE19A /LINE19, flags=updatenow;","   
+	/L19B=0 0, 			hide=/LINE19A,show=/LINE19B, flags=updatenow;","   
+	/L19C=0 0, 			hide=/LINE19B,show=/LINE19C, flags=updatenow;","   	
+
+	/CLEANUP=0 0,		hide=/LINE19C;","     
+     
+	/LINE1=0 0,			pos=165 401, fg=line01.bmp;","
+	/LINE1A=0 0,		pos=162 398, fg=line01a.bmp, flags=invisible;","
+	/LINE1B=0 0,		pos=327 398, fg=line01b.bmp, flags=invisible;","
+	/LINE2=0 0,			pos=192 401, fg=line02.bmp, flags=invisible;","
+	/LINE2A=0 0,		pos=189 398, fg=line02a.bmp, flags=invisible;","
+	/LINE2B=0 0,		pos=288 398, fg=line02b.bmp, flags=invisible;","		
+	/LINE3=0 0,			pos=114 401, fg=line03.bmp, flags=invisible;","
+	/LINE3A=0 0,		pos=111 398, fg=line03a.bmp, flags=invisible;","
+	/LINE3B=0 0,		pos=276 398, fg=line03b.bmp, flags=invisible;","	
+	/LINE3C=0 0,		pos=418 405, fg=line03c.bmp, flags=invisible;","		
+	/LINE4=0 0,			pos=212 401, fg=line04.bmp, flags=invisible;","
+	/LINE4A=0 0,		pos=209 398, fg=line04a.bmp, flags=invisible;","
+	/LINE4B=0 0,		pos=347 401, fg=line04b.bmp, flags=invisible;","	
+	/LINE5=0 0,			pos=147 401,  fg=line05.bmp, flags=invisible;","
+	/LINE5A=0 0,		pos=144 398,  fg=line05a.bmp, flags=invisible;","
+	/LINE5B=0 0,		pos=309 398, fg=line05b.bmp, flags=invisible;","
+	/LINE6=0 0,			pos=208 401,  fg=line06.bmp, flags=invisible;","
+	/LINE6A=0 0,		pos=205 398,  fg=line06a.bmp, flags=invisible;","
+	/LINE6B=0 0,		pos=311 398, fg=line06b.bmp, flags=invisible;","
+	/LINE7=0 0,			pos=241 401, fg=line07.bmp, flags=invisible;","
+	/LINE7A=0 0,		pos=241 398, fg=line07a.bmp, flags=invisible;","
+	/LINE8=0 0,			pos=76 401, fg=line08.bmp, flags=invisible;","
+	/LINE8A=0 0,		pos=73 398, fg=line08a.bmp, flags=invisible;","
+	/LINE8B=0 0,		pos=249 398, fg=line08b.bmp, flags=invisible;","
+	/LINE8C=0 0,		pos=445 398, fg=line08c.bmp, flags=invisible;","	
+	/LINE9=0 0,			pos=94 401, fg=line09.bmp, flags=invisible;","	
+	/LINE9A=0 0,		pos=91 398, fg=line09a.bmp, flags=invisible;","	
+	/LINE9B=0 0,		pos=233 398, fg=line09b.bmp, flags=invisible;","
+	/LINE9C=0 0,		pos=427 398, fg=line09c.bmp, flags=invisible;","
+	/LINE10=0 0,		pos=262 401,  fg=line10.bmp, flags=invisible;","
+	/LINE10A=0 0,		pos=262 398,  fg=line10a.bmp, flags=invisible;","
+	/LINE11=0 0,		pos=159 401,  fg=line11.bmp, flags=invisible;","
+	/LINE11A=0 0,		pos=156 398,  fg=line11a.bmp, flags=invisible;","
+	/LINE11B=0 0,		pos=361 398, fg=line11b.bmp, flags=invisible;","		
+	/LINE12=0 0,		pos=49 401, fg=line12.bmp, flags=invisible;","
+	/LINE12A=0 0,		pos=47 398, fg=line12a.bmp, flags=invisible;","
+	/LINE12B=0 0,		pos=268 398, fg=line12b.bmp, flags=invisible;","
+	/LINE12C=0 0,		pos=395 398, fg=line12c.bmp, flags=invisible;","
+	/LINE12D=0 0,		pos=532 401, fg=line12d.bmp, flags=invisible;","
+	/LINE13=0 0,		pos=94 401, fg=line13.bmp, flags=invisible;","
+	/LINE13A=0 0,		pos=91 398, fg=line13a.bmp, flags=invisible;","
+	/LINE13B=0 0,		pos=234 398, fg=line13b.bmp, flags=invisible;","
+	/LINE13C=0 0,		pos=397 398, fg=line13c.bmp, flags=invisible;","
+	/LINE14=0 0,		pos=262 401, fg=line14.bmp, flags=invisible;","
+	/LINE14A=0 0,		pos=259 398, fg=line14a.bmp, flags=invisible;","
+	/LINE15=0 0,		pos=156 404, fg=line15.bmp, flags=invisible;","
+	/LINE15A=0 0,		pos=153 401, fg=line15a.bmp, flags=invisible;","
+	/LINE15B=0 0,		pos=357 401, fg=line15b.bmp, flags=invisible;","
+	/LINE16=0 0,		pos=102 401, fg=line16.bmp, flags=invisible;","
+	/LINE16A=0 0,		pos=99 398, fg=line16a.bmp, flags=invisible;","
+	/LINE16B=0 0,		pos=337 398, fg=line16b.bmp, flags=invisible;","
+	/LINE16C=0 0,		pos=396 398, fg=line16c.bmp, flags=invisible;","
+	/LINE17=0 0,		pos=96 401, fg=line17.bmp, flags=invisible;","
+	/LINE17A=0 0,		pos=93 398, fg=line17a.bmp, flags=invisible;","
+	/LINE17B=0 0,		pos=331 398, fg=line17b.bmp, flags=invisible;","
+	/LINE17C=0 0,		pos=402 401, fg=line17c.bmp, flags=invisible;","
+	/LINE18=0 0,		pos=90 401, fg=line18.bmp, flags=invisible;","
+	/LINE18A=0 0,		pos=87 398, fg=line18a.bmp, flags=invisible;","
+	/LINE18B=0 0,		pos=249 398, fg=line18b.bmp, flags=invisible;","
+	/LINE18C=0 0,		pos=411 398, fg=line18c.bmp, flags=invisible;","
+	/LINE19=0 0,		pos=115 401, fg=line19.bmp, flags=invisible;","
+	/LINE19A=0 0,		pos=113 398, fg=line19a.bmp, flags=invisible;","
+	/LINE19B=0 0,		pos=273 398, fg=line19b.bmp, flags=invisible;","
+	/LINE19C=0 0,		pos=407 398, fg=line19c.bmp, flags=invisible;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+}  
+
+//***********************************************************************
+IDD_CONNECTI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_CONNECTI GAMETABLE
+//***********************************************************************
+{
+"
+	colorindex=45,transitionclip=100 32 590 380,linethickness=2,closeness=15,startpt=48 317,endpt=487 317,starcells=6,","
+	trans1=18 1 1 3000,trans2=0 10 1 1000,delay=2,flags=uselast,","
+	gamearea=47 30 592 433,","
+	soundtrack=sndtrack.wav,","
+	click=click.wav,","
+	intros=intro1.wav,","
+	success=success3.wav;","
+
+	// level one constellations
+	bg1=airessi.dib,bg2=airesc.dib,guide=airesg.dib,wave=aires1.wav aires2.wav,level=1,","
+	pts=281 248  398 91  454 101  467 131  281 248;","
+	bg1=cancersi.dib,bg2=cancerc.dib,guide=cancerg.dib,noise=cancern.wav,wave=cancer1.wav cancer2.wav,level=1,","
+	pts=350 255  351 190  281 136  0 0  351 190  414 153  0 0;","
+	bg1=columbsi.dib,bg2=columbc.dib,guide=columbg.dib,noise=columbn.wav,wave=columb1.wav columb2.wav,level=1,","
+	pts=288 223  317 220  386 189  341 177  317 220;","
+	bg1=corvussi.dib,bg2=corvusc.dib,guide=corvusg.dib,noise=corvusn.wav,wave=corvus1.wav corvus2.wav,level=1,","
+	pts=290 221  322 160  411 154  385 270  290 221;","
+	bg1=librasi.dib,bg2=librac.dib,guide=librag.dib,noise=libran.wav,wave=libra1.wav libra2.wav,level=1,","
+	pts=397 116  375 209  287 226  288 143  397 116;","
+	bg1=lyrasi.dib,bg2=lyrac.dib,guide=lyrag.dib,noise=lyran.wav,wave=lyra1.wav lyra2.wav,level=1,","
+	pts=323 257  387 218  369 109  322 134  323 257;","
+	bg1=cephiusi.dib,bg2=cephiuc.dib,guide=cephiusg.dib,noise=cephiusn.wav,wave=cephius1.wav cephius2.wav,level=1,","
+	pts=331 192  308 139  348 106  381 159  390  239  331 192;","
+	bg1=delphisi.dib,bg2=delphic.dib,guide=delphig.dib,noise=delphin.wav,wave=delphi1.wav delphi2.wav,level=1,","
+	pts=385 190  340 149  314 123  288 140  312 158  340 149;","
+",0
+}
+
+//***********************************************************************
+IDD_CONNECTI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=sailor_a\\airess.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+	
+	/BOAT=0 0,			pos=48 317,fg=boat.bmp;","              
+	
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+}
+
+///**** Farmer Right Demo ****///
+
+//***********************************************************************
+141 SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+
+//***********************************************************************
+141 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=farmer\\backgrnd.dib,toon=toon2.avi,flags=startidlefirst, wave=toonidle.wav, delay=1,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+// Text Bitmap
+
+	/TEXT=0 0,				pos=52 363, fg=text.bmp;","
+
+// Clickables
+
+	/DUCKS=856 888,			hot=262 123,flags=sprite idle alwayshot,speed=10,cells=20,fg=ducks.bmp;","									
+	/TREES=924 939,			hot=91 64,fg=trees.bmp;","
+	/SILO=172 221,			hot=47 147,fg=silo.bmp;","
+
+	/FL1=224 360,			hot=215 114,fg=fl1.bmp;","		
+
+	/HOUSE=420 469,			hot=430 22,fg=house.bmp;","
+	/FENCE=696 728,			hot=116 271,fg=fence.bmp;","
+	/COWTAIL=0 0,			pos=340 292,flags=sprite idle cycleback,speed=16,cells=8,fg=cowtail.bmp;","
+    /COW=1100 1121,			hot=348 304,fg=cow.bmp, prehide=/COWTAIL, show=/COWTAIL;","
+
+	/HORSE=1232 1307,		event=1268 /SHOWHORSE 1269 /HIDEFR2 1285 /SHOWFR2 1286 /HIDEHORSE, hot=55 285 155 360;","
+		/HIDEHORSE=0 0,		hide=/HORSEBMP;","
+		/SHOWHORSE=0 0,     show=/HORSEBMP;","
+		/HIDEFR2=0 0,		hide=/FR2;","
+		/SHOWFR2=0 0,		show=/FR2;","
+
+	/HORSEBMP=0 0,		pos=314 274,fg=horse.bmp, flags=invisible;","
+	/SHEEP=608 690,			hot=141 233,flags=sprite idle alwayshot cycleback,speed=9,cells=9,fg=sheep.bmp;","									
+	/CH1=732 764,			hot=295 231,flags=sprite idle alwayshot,speed=9,cells=3,fg=chickidl.bmp;","		
+	/CH2=768 800,			hot=437 231,flags=sprite idle alwayshot,speed=9,cells=3,fg=chickid2.bmp;","									
+	/FOX=804 819,			hot=340 205,fg=fox.bmp;","
+	/CAT=824 851,			hot=434 41,fg=cat.bmp;","	
+	/BUSHES=892 921,		hot=301 30,fg=bushes.bmp;","	
+	/STEPS=940 972,			hot=443 178, fg=steps.bmp, prehide=/FR2, preshow=/FR1, hide=/FR1, show=/FR2;"," 
+	/FL2=976 1003,			hot=278 101,fg=fl2.bmp;","
+	/DONKEY=1008 1035,		hot=95 302 178 356;","
+    /CHICKS=1036 1060,		hot=418 136,fg=chicks.bmp;","
+	/CLOUDS=1064 1096,		hot=159 26,fg=clouds.bmp;","
+  	/ROOSTER=104 169,		hot=54 78,fg=rooster.bmp;","    
+	/FR2=4 99,				hot=508 233,flags=sprite idle alwayshot invisible,speed=12,cells=8,fg=fridl.bmp;","
+    
+	/ENTRY=1124 1225,		event=1158 /HIDEFR 1183 /SHOWFR, flags=auto noidlestop, hide=/FR1, show=/FR2;","
+	  /HIDEFR=0 0,			hide=/FR1;","
+	  /SHOWFR=0 0,			show=/FR1;","   
+	  /FR1=0 0,				pos=493 235, fg=fr2.bmp;","
+
+// Repeat Icon
+
+ 	/REPEAT=0 0, 			hot=374 410, flags=autobutton click nofade nohide notrans,fg=frog.bmp, end=/ENTRY, hide=/FR2, show=/FR1;","
+
+// Word for Word Stuff //
+
+	/WORD01=0 0,		hot=49 361,flags=invisible alwayshot notrans,preshow=/WORD01,hide=/WORD01,fg=word01.bmp,wave=01.wav;","
+	/WORD02=0 0,		hot=114 360,flags=invisible alwayshot notrans,preshow=/WORD02,hide=/WORD02,fg=word02.bmp,wave=02.wav;","
+	/WORD03=0 0,		hot=165 360,flags=invisible alwayshot notrans,preshow=/WORD03,hide=/WORD03,fg=word03.bmp,wave=03.wav;","
+	/WORD04=0 0,		hot=199 360,flags=invisible alwayshot notrans,preshow=/WORD04,hide=/WORD04,fg=word04.bmp,wave=04.wav;","
+	/WORD05=0 0,		hot=229 360,flags=invisible alwayshot notrans,preshow=/WORD05,hide=/WORD05,fg=word05.bmp,wave=05.wav;","
+	/WORD06=0 0,		hot=266 360,flags=invisible alwayshot notrans,preshow=/WORD06,hide=/WORD06,fg=word06.bmp,wave=06.wav;","
+	/WORD07=0 0,		hot=310 360,flags=invisible alwayshot notrans,preshow=/WORD07,hide=/WORD07,fg=word07.bmp,wave=07.wav;","
+	/WORD08=0 0,		hot=370 360,flags=invisible alwayshot notrans,preshow=/WORD08,hide=/WORD08,fg=word08.bmp,wave=08.wav;","
+	/WORD09=0 0,		hot=50 384,flags=invisible alwayshot notrans,preshow=/WORD09,hide=/WORD09,fg=word09.bmp,wave=09.wav;","
+	/WORD10=0 0,		hot=70 384,flags=invisible alwayshot notrans,preshow=/WORD10,hide=/WORD10,fg=word10.bmp,wave=10.wav;","
+	/WORD11=0 0,		hot=101 386,flags=invisible alwayshot notrans,preshow=/WORD11,hide=/WORD11,fg=word11.bmp,wave=11.wav;","
+	/WORD12=0 0,		hot=173 385,flags=invisible alwayshot notrans,preshow=/WORD12,hide=/WORD12,fg=word12.bmp,wave=12.wav;","
+	/WORD13=0 0,		hot=202 384,flags=invisible alwayshot notrans,preshow=/WORD13,hide=/WORD13,fg=word13.bmp,wave=13.wav;","
+	/WORD14=0 0,		hot=242 384,flags=invisible alwayshot notrans,preshow=/WORD14,hide=/WORD14,fg=word14.bmp,wave=14.wav;","
+	/WORD15=0 0,		hot=272 384,flags=invisible alwayshot notrans,preshow=/WORD15,hide=/WORD15,fg=word15.bmp,wave=15.wav;","
+	/WORD16=0 0,		hot=313 384,flags=invisible alwayshot notrans,preshow=/WORD16,hide=/WORD16,fg=word16.bmp,wave=16.wav;","
+	/WORD17=0 0,		hot=354 384,flags=invisible alwayshot notrans,preshow=/WORD17,hide=/WORD17,fg=word17.bmp,wave=17.wav;","
+	/WORD18=0 0,		hot=385 384,flags=invisible alwayshot notrans,preshow=/WORD18,hide=/WORD18,fg=word18.bmp,wave=18.wav;","
+	/WORD19=0 0,		hot=50 413,flags=invisible alwayshot notrans,preshow=/WORD19,hide=/WORD19,fg=word19.bmp,wave=19.wav;","
+	/WORD20=0 0,		hot=95 410,flags=invisible alwayshot notrans,preshow=/WORD20,hide=/WORD20,fg=word20.bmp,wave=20.wav;","
+	/WORD21=0 0,		hot=140 408,flags=invisible alwayshot notrans,preshow=/WORD21,hide=/WORD21,fg=word21.bmp,wave=21.wav;","
+	/WORD22=0 0,		hot=173 408,flags=invisible alwayshot notrans,preshow=/WORD22,hide=/WORD22,fg=word22.bmp,wave=22.wav;","
+	/WORD23=0 0,		hot=204 408,flags=invisible alwayshot notrans,preshow=/WORD23,hide=/WORD23,fg=word23.bmp,wave=23.wav;","
+	/WORD24=0 0,		hot=254 413,flags=invisible alwayshot notrans,preshow=/WORD24,hide=/WORD24,fg=word24.bmp,wave=24.wav;","
+	/WORD25=0 0,		hot=289 408,flags=invisible alwayshot notrans,preshow=/WORD25,hide=/WORD25,fg=word25.bmp,wave=25.wav;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+}  
+
+//***********************************************************************
+142 SCENE
+//***********************************************************************
+STAGE ""
+PROPS
+{
+	TOONHOLDER()
+}
+ 
+//***********************************************************************
+142 JUMPTABLE
+//***********************************************************************
+{
+"	
+	bg=farmer_v\\backgrnd.dib,toon=musicvd1.avi, flags=startidlefirst, clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+    /MUSICVIDEO=0 462,	event=11 /OD1 15 /L1A 23 /L1B 25 /L1C 36 /CD1 37 /OD2 34 /L2 41 /L2A 45 /L2B 59 /CD2 62 /OD3 57 /L3 66 /L3A 73 /L3B"," 
+    					83 /L4 84 /CD3 86 /OD6 90 /L4A 92 /L4B 97 /L4C 107 /L5 108 /OD1 109 /CD6 111 /L5A 118 /L5B 121 /L5C","
+    					131 /L6 133 /OD4 134 /CD1 135 /L6A 143 /L6B 146 /L6C 155 /L7 157 /CD4 166 /OD1 170 /L7A 175 /L7B 180 /L7C 186 /L7D","
+    					190 /OD2 192 /L8 193 /CD1 194 /L8A 200 /L8B 203 /L9 204 /L9A 211 /L9B 212 /L10 216 /OD5 217 /CD2 218 /L10A 222 /L10B","
+    					225 /L11 226 /L11A 230 /L11B 235 /L11C 239 /L12 240 /OD6 241 /CD5 242 /L12A 248 /L12B 252 /L12C 258 /L12D 263 /OD4","
+    					261 /L13 265 /CD6 266 /L13A 270 /L13B 276 /L14 277 /L14A 282 /L14B 290 /L14C 302 /OD1 303 /CD4 300 /L15 308 /L15A 313 /L15B 316 /L15C","
+    					322 /L16 325 /OD2 326 /CD1 330 /L16A 336 /L16B 345 /L17 348 /CD2 354 /OD3 356 /L17A 364 /L17B 375 /CD3 376 /OD6","
+    					379 /L18 380 /L18A 382 /L18B 387 /L18C 396 /L19 398 /OD1 399 /CD6 400 /L19A 408 /L19B  410 /L19C 420 /L20 421 /OPENALL 424 /L20A 432 /L20B 436 /L20C 442 /L20D 456 /CLOSEALL,","
+    					flags=auto noidlestop, cmd=IDC_NEXT, hide=/LINE20;","
+
+	/DOOR1CLOSED=0 0,	pos=96 115, fg=door.bmp;","
+	/DOOR2CLOSED=0 0,	pos=222 93, fg=door.bmp;","
+	/DOOR3CLOSED=0 0,	pos=346 116, fg=door.bmp;","
+	/DOOR4CLOSED=0 0,	pos=69 239, fg=door.bmp;","
+	/DOOR5CLOSED=0 0,	pos=221 238, fg=door.bmp;","
+	/DOOR6CLOSED=0 0,	pos=374 239, fg=door.bmp;","
+
+	/DOOR1OPEN=0 0,		pos=63 112, flags=invisible, fg=lopen.bmp;","
+	/DOOR2OPEN=0 0,		pos=189 90, flags=invisible, fg=lopen.bmp;","
+	/DOOR3OPEN=0 0,		pos=433 113, flags=invisible, fg=ropen.bmp;","
+	/DOOR4OPEN=0 0,		pos=156 237, flags=invisible, fg=ropen.bmp;","
+	/DOOR5OPEN=0 0,		pos=307 236, flags=invisible, fg=ropen.bmp;","
+	/DOOR6OPEN=0 0,		pos=341 236, flags=invisible, fg=lopen.bmp;","
+
+	/OD1=0 0,			hide=/DOOR1CLOSED, show=/DOOR1OPEN, flags=updatenow;","
+	/OD2=0 0,			hide=/DOOR2CLOSED, show=/DOOR2OPEN, flags=updatenow;","
+	/OD3=0 0,			hide=/DOOR3CLOSED, show=/DOOR3OPEN, flags=updatenow;","
+	/OD4=0 0,			hide=/DOOR4CLOSED, show=/DOOR4OPEN, flags=updatenow;","
+	/OD5=0 0,			hide=/DOOR5CLOSED, show=/DOOR5OPEN, flags=updatenow;","
+	/OD6=0 0,			hide=/DOOR6CLOSED, show=/DOOR6OPEN, flags=updatenow;","
+	/OPENALL=0 0,		hide=/DOOR2CLOSED /DOOR3CLOSED /DOOR4CLOSED /DOOR5CLOSED /DOOR6CLOSED,","
+						show=/DOOR2OPEN /DOOR3OPEN /DOOR4OPEN /DOOR5OPEN /DOOR6OPEN,","
+						flags=updatenow;","
+
+	/CD1=0 0,			hide=/DOOR1OPEN, show=/DOOR1CLOSED, flags=updatenow;","
+	/CD2=0 0,			hide=/DOOR2OPEN, show=/DOOR2CLOSED, flags=updatenow;","
+	/CD3=0 0,			hide=/DOOR3OPEN, show=/DOOR3CLOSED, flags=updatenow;","
+	/CD4=0 0,			hide=/DOOR4OPEN, show=/DOOR4CLOSED, flags=updatenow;","
+	/CD5=0 0,			hide=/DOOR5OPEN, show=/DOOR5CLOSED, flags=updatenow;","
+	/CD6=0 0,			hide=/DOOR6OPEN, show=/DOOR6CLOSED, flags=updatenow;","
+	/CLOSEALL=0 0,		hide=/DOOR1OPEN /DOOR2OPEN /DOOR3OPEN /DOOR4OPEN /DOOR5OPEN /DOOR6OPEN,","
+						show=/DOOR1CLOSED /DOOR2CLOSED /DOOR3CLOSED /DOOR4CLOSED /DOOR5CLOSED /DOOR6CLOSED,","
+						flags=updatenow;","
+    						
+	/CATEYES=0 0,		pos=473 392,flags=sprite idle,speed=4,cells=8,fg=cateyes.bmp;","
+	/FREYES=0 0,		pos=534 245,flags=sprite idle,speed=4,cells=6,fg=freyes.bmp;","
+
+	/CHICK1=0 0,		pos=355 376,flags=sprite idle cycleback,speed=9,cells=5,fg=chick1.bmp;","
+	/CHICK2=0 0,		pos=112 374,flags=sprite idle cycleback,speed=9,cells=5,fg=chick2.bmp;","
+  	/MOUSE1=0 0,		pos=211 377,flags=sprite idle cycleback,speed=9,cells=5,fg=mouse2.bmp;","
+
+	/LINE1=0 0, 		pos=175 40, fg=line01.bmp;","
+	/LINE1a=0 0, 		pos=172 37, flags=invisible, fg=line01a.bmp;","
+	/LINE1b=0 0, 		pos=172 37, flags=invisible, fg=line01b.bmp;","
+	/LINE1c=0 0, 		pos=172 37, flags=invisible, fg=line01c.bmp;","
+	/LINE2=0 0, 		pos=228 40, flags=invisible, fg=line02.bmp;","
+	/LINE2a=0 0, 		pos=225 37, flags=invisible, fg=line02a.bmp;","
+	/LINE2b=0 0, 		pos=225 37, flags=invisible, fg=line02b.bmp;","
+	/LINE3=0 0, 		pos=213 40, flags=invisible, fg=line03.bmp;","
+	/LINE3a=0 0, 		pos=210 37, flags=invisible, fg=line03a.bmp;","
+	/LINE3b=0 0, 		pos=210 37, flags=invisible, fg=line03b.bmp;","
+	/LINE4=0 0, 		pos=221 40, flags=invisible, fg=line04.bmp;","
+	/LINE4a=0 0, 		pos=218 37, flags=invisible, fg=line04a.bmp;","
+	/LINE4b=0 0, 		pos=218 37, flags=invisible, fg=line04b.bmp;","
+	/LINE4c=0 0, 		pos=218 37, flags=invisible, fg=line04c.bmp;","
+	/LINE5=0 0, 		pos=126 40, flags=invisible, fg=line05.bmp;","
+	/LINE5a=0 0, 		pos=123 37, flags=invisible, fg=line05a.bmp;","
+	/LINE5b=0 0, 		pos=123 37, flags=invisible, fg=line05b.bmp;","
+	/LINE5c=0 0, 		pos=123 37, flags=invisible, fg=line05c.bmp;","
+	/LINE6=0 0, 		pos=145 40, flags=invisible, fg=line06.bmp;","
+	/LINE6a=0 0, 		pos=142 37, flags=invisible, fg=line06a.bmp;","
+	/LINE6b=0 0, 		pos=142 37, flags=invisible, fg=line06b.bmp;","
+	/LINE6c=0 0, 		pos=142 37, flags=invisible, fg=line06c.bmp;","
+	/LINE7=0 0, 		pos=178 40, flags=invisible, fg=line07.bmp;","
+	/LINE7a=0 0, 		pos=175 38, flags=invisible, fg=line07b.bmp;","
+	/LINE7b=0 0, 		pos=175 38, flags=invisible, fg=line07c.bmp;","
+	/LINE7c=0 0, 		pos=175 37, flags=invisible, fg=line07d.bmp;","
+	/LINE7d=0 0, 		pos=175 37, flags=invisible, fg=line07e.bmp;","
+	/LINE8=0 0, 		pos=236 39, flags=invisible, fg=line08.bmp;","
+	/LINE8a=0 0, 		pos=233 36, flags=invisible, fg=line08a.bmp;","
+	/LINE8b=0 0, 		pos=233 36, flags=invisible, fg=line08b.bmp;","
+	/LINE9=0 0, 		pos=233 40, flags=invisible, fg=line09.bmp;","
+	/LINE9a=0 0, 		pos=230 37, flags=invisible, fg=line09b.bmp;","
+	/LINE9b=0 0, 		pos=230 37, flags=invisible, fg=line09c.bmp;","
+	/LINE10=0 0, 		pos=228 40, flags=invisible, fg=line10.bmp;","
+	/LINE10a=0 0, 		pos=225 37, flags=invisible, fg=line10a.bmp;","
+	/LINE10b=0 0, 		pos=225 37, flags=invisible, fg=line10b.bmp;","
+	/LINE11=0 0, 		pos=221 40, flags=invisible, fg=line11.bmp;","
+	/LINE11a=0 0, 		pos=218 37, flags=invisible, fg=line11a.bmp;","
+	/LINE11b=0 0, 		pos=218 37, flags=invisible, fg=line11b.bmp;","
+	/LINE11c=0 0, 		pos=218 37, flags=invisible, fg=line11c.bmp;","
+	/LINE12=0 0, 		pos=77 40, flags=invisible, fg=line12.bmp;","
+	/LINE12a=0 0, 		pos=74 37, flags=invisible, fg=line12a.bmp;","
+	/LINE12b=0 0, 		pos=74 37, flags=invisible, fg=line12b.bmp;","
+	/LINE12c=0 0, 		pos=74 37, flags=invisible, fg=line12c.bmp;","
+	/LINE12d=0 0, 		pos=74 37, flags=invisible, fg=line12d.bmp;","
+	/LINE13=0 0, 		pos=190 38, flags=invisible, fg=line13.bmp;","
+	/LINE13a=0 0, 		pos=187 35, flags=invisible, fg=line13a.bmp;","
+	/LINE13b=0 0, 		pos=187 35, flags=invisible, fg=line13b.bmp;","
+	/LINE14=0 0, 		pos=132 40, flags=invisible, fg=line14.bmp;","
+	/LINE14a=0 0, 		pos=129 37, flags=invisible, fg=line14a.bmp;","
+	/LINE14b=0 0, 		pos=129 37, flags=invisible, fg=line14b.bmp;","
+	/LINE14c=0 0, 		pos=129 37, flags=invisible, fg=line14c.bmp;","
+	/LINE15=0 0, 		pos=175 40, flags=invisible, fg=line15.bmp;","
+	/LINE15a=0 0, 		pos=172 37, flags=invisible, fg=line15a.bmp;","
+	/LINE15b=0 0, 		pos=172 37, flags=invisible, fg=line15b.bmp;","
+	/LINE15c=0 0, 		pos=172 37, flags=invisible, fg=line15c.bmp;","
+	/LINE16=0 0, 		pos=228 40, flags=invisible, fg=line16.bmp;","
+	/LINE16a=0 0, 		pos=225 37, flags=invisible, fg=line16a.bmp;","
+	/LINE16b=0 0, 		pos=225 37, flags=invisible, fg=line16b.bmp;","
+	/LINE17=0 0, 		pos=213 40, flags=invisible, fg=line17.bmp;","
+	/LINE17a=0 0, 		pos=210 37, flags=invisible, fg=line17a.bmp;","
+	/LINE17b=0 0, 		pos=210 37, flags=invisible, fg=line17b.bmp;","
+	/LINE18=0 0, 		pos=221 40, flags=invisible, fg=line18.bmp;","
+	/LINE18a=0 0, 		pos=218 37, flags=invisible, fg=line18a.bmp;","
+	/LINE18b=0 0, 		pos=218 37, flags=invisible, fg=line18b.bmp;","
+	/LINE18c=0 0, 		pos=218 37, flags=invisible, fg=line18c.bmp;","
+	/LINE19=0 0, 		pos=126 40, flags=invisible, fg=line19.bmp;","
+	/LINE19a=0 0, 		pos=123 37, flags=invisible, fg=line19a.bmp;","
+	/LINE19b=0 0, 		pos=123 37, flags=invisible, fg=line19b.bmp;","
+	/LINE19c=0 0, 		pos=123 37, flags=invisible, fg=line19c.bmp;","
+	/LINE20=0 0, 		pos=145 40, flags=invisible, fg=line20.bmp;","
+	/LINE20a=0 0, 		pos=142 37, flags=invisible, fg=line20a.bmp;","
+	/LINE20b=0 0, 		pos=142 37, flags=invisible, fg=line20b.bmp;","
+	/LINE20c=0 0, 		pos=142 37, flags=invisible, fg=line20c.bmp;","
+
+	/L1A=0 0,			show=/LINE1a, flags=updatenow;","
+	/L1B=0 0,			hide=/LINE1a, show=/LINE1b, flags=updatenow;","
+	/L1C=0 0,			hide=/LINE1b, show=/LINE1c, flags=updatenow;","
+
+	/L2=0 0,			hide=/LINE1 /LINE1c, show=/LINE2, flags=updatenow;","
+	/L2A=0 0,			show=/LINE2a, flags=updatenow;","
+	/L2B=0 0,			hide=/LINE2a, show=/LINE2b, flags=updatenow;","
+
+	/L3=0 0,			hide=/LINE2 /LINE2b, show=/LINE3, flags=updatenow;","
+	/L3A=0 0,			show=/LINE3a, flags=updatenow;","
+	/L3B=0 0,			hide=/LINE3a, show=/LINE3b, flags=updatenow;","
+
+	/L4=0 0,			hide=/LINE3 /LINE3b, show=/LINE4, flags=updatenow;","
+	/L4A=0 0,			show=/LINE4a, flags=updatenow;","
+	/L4B=0 0,			hide=/LINE4a, show=/LINE4b, flags=updatenow;","
+	/L4C=0 0,			hide=/LINE4b, show=/LINE4c, flags=updatenow;","
+
+	/L5=0 0,			hide=/LINE4 /LINE4c, show=/LINE5, flags=updatenow;","
+	/L5A=0 0,			show=/LINE5a, flags=updatenow;","
+	/L5B=0 0,			hide=/LINE5a, show=/LINE5b, flags=updatenow;","
+	/L5C=0 0,			hide=/LINE5b, show=/LINE5c, flags=updatenow;","
+
+	/L6=0 0,			hide=/LINE5 /LINE5c, show=/LINE6, flags=updatenow;","
+	/L6A=0 0,			show=/LINE6a, flags=updatenow;","
+	/L6B=0 0,			hide=/LINE6a, show=/LINE6b, flags=updatenow;","
+	/L6C=0 0,			hide=/LINE6b, show=/LINE6c, flags=updatenow;","
+
+	/L7=0 0,			hide=/LINE6 /LINE6c, show=/LINE7, flags=updatenow;","
+	/L7A=0 0,			show=/LINE7a, flags=updatenow;","
+	/L7B=0 0,			hide=/LINE7a, show=/LINE7b, flags=updatenow;","
+	/L7C=0 0,			hide=/LINE7b, show=/LINE7c, flags=updatenow;","
+	/L7D=0 0,			hide=/LINE7c, show=/LINE7d, flags=updatenow;","
+
+ 	/L8=0 0,			hide=/LINE7 /LINE7d, show=/LINE8, flags=updatenow;","
+	/L8A=0 0,			show=/LINE8a, flags=updatenow;","
+	/L8B=0 0,			hide=/LINE8a, show=/LINE8b, flags=updatenow;","
+
+ 	/L9=0 0,			hide=/LINE8 /LINE8b, show=/LINE9, flags=updatenow;","
+	/L9A=0 0,			show=/LINE9a, flags=updatenow;","
+	/L9B=0 0,			hide=/LINE9a, show=/LINE9b, flags=updatenow;","
+
+ 	/L10=0 0,			hide=/LINE9 /LINE9b, show=/LINE10, flags=updatenow;","
+	/L10A=0 0,			show=/LINE10a, flags=updatenow;","
+	/L10B=0 0,			hide=/LINE10a, show=/LINE10b, flags=updatenow;","
+
+ 	/L11=0 0,			hide=/LINE10 /LINE10b, show=/LINE11, flags=updatenow;","
+	/L11A=0 0,			show=/LINE11a, flags=updatenow;","
+	/L11B=0 0,			hide=/LINE11a, show=/LINE11b, flags=updatenow;","
+	/L11C=0 0,			hide=/LINE11b, show=/LINE11c, flags=updatenow;","
+
+ 	/L12=0 0,			hide=/LINE11 /LINE11c, show=/LINE12, flags=updatenow;","
+	/L12A=0 0,			show=/LINE12a, flags=updatenow;","
+	/L12B=0 0,			hide=/LINE12a, show=/LINE12b, flags=updatenow;","
+	/L12C=0 0,			hide=/LINE12b, show=/LINE12c, flags=updatenow;","
+	/L12D=0 0,			hide=/LINE12c, show=/LINE12d, flags=updatenow;","
+
+ 	/L13=0 0,			hide=/LINE12 /LINE12d, show=/LINE13, flags=updatenow;","
+	/L13A=0 0,			show=/LINE13a, flags=updatenow;","
+	/L13B=0 0,			hide=/LINE13a, show=/LINE13b, flags=updatenow;","
+
+ 	/L14=0 0,			hide=/LINE13 /LINE13b, show=/LINE14, flags=updatenow;","
+	/L14A=0 0,			show=/LINE14a, flags=updatenow;","
+	/L14B=0 0,			hide=/LINE14a, show=/LINE14b, flags=updatenow;","
+	/L14C=0 0,			hide=/LINE14b, show=/LINE14c, flags=updatenow;","
+
+ 	/L15=0 0,			hide=/LINE14 /LINE14c, show=/LINE15, flags=updatenow;","
+	/L15A=0 0,			show=/LINE15a, flags=updatenow;","
+	/L15B=0 0,			hide=/LINE15a, show=/LINE15b, flags=updatenow;","
+	/L15C=0 0,			hide=/LINE15b, show=/LINE15c, flags=updatenow;","
+
+ 	/L16=0 0,			hide=/LINE15 /LINE15c, show=/LINE16, flags=updatenow;","
+	/L16A=0 0,			show=/LINE16a, flags=updatenow;","
+	/L16B=0 0,			hide=/LINE16a, show=/LINE16b, flags=updatenow;","
+
+ 	/L17=0 0,			hide=/LINE16 /LINE16b, show=/LINE17, flags=updatenow;","
+	/L17A=0 0,			show=/LINE17a, flags=updatenow;","
+	/L17B=0 0,			hide=/LINE17a, show=/LINE17b, flags=updatenow;","
+
+ 	/L18=0 0,			hide=/LINE17 /LINE17b, show=/LINE18, flags=updatenow;","
+	/L18A=0 0,			show=/LINE18a, flags=updatenow;","
+	/L18B=0 0,			hide=/LINE18a, show=/LINE18b, flags=updatenow;","
+	/L18C=0 0,			hide=/LINE18b, show=/LINE18c, flags=updatenow;","
+ 
+ 	/L19=0 0,			hide=/LINE18 /LINE18c, show=/LINE19, flags=updatenow;","
+	/L19A=0 0,			show=/LINE19a, flags=updatenow;","
+	/L19B=0 0,			hide=/LINE19a, show=/LINE19b, flags=updatenow;","
+	/L19C=0 0,			hide=/LINE19b, show=/LINE19c, flags=updatenow;","
+
+ 	/L20=0 0,			hide=/LINE19 /LINE19c, show=/LINE20, flags=updatenow;","
+	/L20A=0 0,			show=/LINE20a, flags=updatenow;","
+	/L20B=0 0,			hide=/LINE20a, show=/LINE20b, flags=updatenow;","
+	/L20C=0 0,			hide=/LINE20b, show=/LINE20c, flags=updatenow;","
+	/L20D=0 0,			hide=/LINE20c, flags=updatenow;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+}
+
+//***********************************************************************
+IDD_MIXUPI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_MIXUPI GAMETABLE
+//***********************************************************************
+{
+"
+	toprect=209 0 424 198,midrect=209 197 449 314,botrect=209 313 449 441,","
+	gamearea=47 30 592 433,","
+	intros=intro1.wav intro2.wav intro3.wav,soundtrack=sndtrack.wav,","
+	success=success.wav success.wav success.wav,","
+	interactivity=1;","
+
+	top=catt.dib,mid=catm.dib,bot=catb.dib,wave3=cat.wav,anim=cate.dib 273 99 5 4 30;","
+	top=cowt.dib,mid=cowm.dib,bot=cowb.dib,wave3=cow.wav,anim=cowe.dib 281 106 5 4 40;","
+	top=goatt.dib,mid=goatm.dib,bot=goatb.dib,wave3=goat.wav,anim=goate.dib 280 108 5 4 35;","
+	top=chickent.dib,mid=chickenm.dib,bot=chickenb.dib,wave3=chicken.wav,anim=chickene.dib 292 77 5 4 25;","
+	top=sheept.dib,mid=sheepm.dib,bot=sheepb.dib,wave3=sheep.wav,anim=sheepe.dib 285 98 5 4 35;","
+	top=donkeyt.dib,mid=donkeym.dib,bot=donkeyb.dib,wave3=donkey.wav,anim=donkeye.dib 281 110 5 4 40;","
+	top=duckt.dib,mid=duckm.dib,bot=duckb.dib,wave3=duck.wav,anim=ducke.dib 284 95 5 4 30;","
+	top=horset.dib,mid=horsem.dib,bot=horseb.dib,wave3=horse.wav,anim=horsee.dib 278 101 5 4 40;","
+",0
+}  
+
+//***********************************************************************
+IDD_MIXUPI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=farmer_a\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=main.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+
+",0
+}  
+  

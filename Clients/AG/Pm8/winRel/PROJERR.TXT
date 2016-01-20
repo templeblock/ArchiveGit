@@ -1,0 +1,1 @@
+No DIRECTORY Field in C:\WINDOWS\TEMP\rnlog.txt

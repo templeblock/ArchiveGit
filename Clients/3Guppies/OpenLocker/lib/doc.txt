@@ -1,0 +1,72 @@
+Description
+------------
+The ContentHandler class is a composite object that utilizes the factory
+pattern. A ContentHandler knows how to proxy to another content handler or an
+appropriate media handler. A ContentHandler is for validating, retrieving
+and storing content which can be submitted to the mobilizer. A MediaHandler is
+for converting and editing media that is submitted to the mobilizer.
+
+Essentially, 'content' isn't tied to a mime type and 'media' is. Thus, a
+ContentHandler handles basic operations that are not tied to any one type of
+media such as retrieval and storage. A MediaHandler handles operations that
+are specific to a media type such as editing and converting.
+
+
+Usage
+------
+A ContentHandler is invoked, which specifies a handler of one of the following
+types: Url, PostedFile, PersonalMedia, GlobalMedia, LocalMedia. The
+ContentHandler instantiates the appropriate handler based on which handler was
+specified.
+
+A content handler overrides validate() and getContentData().
+
+validate() is then invoked on the content handler. validate() should return
+TRUE if its content is valid, or false otherwise. This may include database
+lookups and anything else that is needed.
+
+getContentData() is then invoked on the content handler, which proxies the
+call to the handler that was requested (Url, PostedFile, etc).
+getContentData() does two things, it populates $this->fileInfo and returns
+that data structure, it also instantiates a media handler. The data structure
+is as follows:
+    Size            - Size of converted file
+    Path            - Path to converted file
+    MimeType        - Mime type of file, from database
+    CapabilityId    - Id of capability, from database
+    Extension       - Extension (.ext), from database
+    PreviewUrl      - URL where content can be previewed  
+    Personal        - Whether it is personal content or not
+    RealFilename    - The handler name, followed by a '*', followed by the
+                      filename, not including path info, on the filesystem.
+                      Specifying the handler allows the Local handler to
+                      resolve it.
+    Filename        - The 'friendly' filename
+
+The following are part of this data structure, but are populated by the
+appropriate MediaHandler
+    Original        - The filename of the original file (personal files only)
+    Converted       - The filename of the converted file
+    ConvertedTo     - Id of the media type that it was converted to
+
+When a media handler is instantiated, it is passed the current fileInfo data
+structure. From this data structure, it determines the appropriate media
+handler to use (Video, Audio, Picture, Other).
+
+Several methods must be overridden by a MediaHandler, including hasEditor(),
+getEditor(), getWidthHeight(), and getCommands().
+
+hasEditor() returns a boolean value indicating if there is an application for
+editing the content type.
+
+getEditor() returns an array of the module/action/view that can be used for
+displaying the media editor.
+
+The following two methods accept an $_options array. This is documented in the
+Mobilize action.
+
+getWidthHeight($_options) returns array(0,0) if not appropriate, otherwise it returns
+an appropriate width and height for use in conversion.
+
+getCommands($_options) returns an array with 10 indexed members, each
+specifying part of the command to be executed.

@@ -1,0 +1,21 @@
+// Source file: OBJECT.C
+LPOBJECT CALLBACK EXPORT ObjCreateFromFrame(STORAGE_TYPE StorageType, LPFRAME lpFrame, LPALPHA lpAlpha, LPRECT lpRect, BOOL NoUndo);
+LPOBJECT ObjCreateFromPixmap(STORAGE_TYPE StorageType, LPPIXMAP lpPixmap, LPMASK lpAlpha, LPRECT lpRect, BOOL NoUndo);
+void ObjFreeUp(LPOBJECT lpObject);
+LPMASK ObjGetAlpha(LPOBJECT lpObject);
+void ObjSetAlpha(LPOBJECT lpObject, LPMASK lpAlpha);
+LPFRAME ObjGetEditFrame(LPOBJECT lpObject);
+LPFRAME ObjGetUndoFrame(LPOBJECT lpObject);
+LPOBJECT ObjDuplicateObject(LPOBJECT lpObject);
+void ObjSelectObject(LPPRIMOBJECT lpObject, BOOL fSelect);
+void ObjAddTail(LPOBJECTLIST lpObjList, LPPRIMOBJECT lpObject);
+void ObjDeleteObjects(LPOBJECTLIST lpObjList, STORAGE_TYPE StorageType);
+BOOL ObjDeleteObject(LPOBJECTLIST lpObjList, LPPRIMOBJECT lpObject);
+int ObjCountObjects(LPOBJECTLIST lpObjList);
+BOOL ObjSelectObjects(LPOBJECTLIST lpObjList, LPRECT lpRect, BOOL fSelect, BOOL fBottomUp, BOOL fMultiSelect);
+BOOL ObjDeselectAll(LPOBJECTLIST lpObjList);
+LPPRIMOBJECT ObjGetSelectedObject(LPOBJECTLIST lpObjList, LPPRIMOBJECT lpObject, BOOL fBottomUp);
+LPPRIMOBJECT ObjGetNextObject(LPOBJECTLIST lpObjList, LPPRIMOBJECT lpObject, BOOL fBottomUp);
+void CALLBACK EXPORT ObjUnlinkObject(LPOBJECTLIST lpObjList, LPPRIMOBJECT lpObject);
+void ObjLinkObject(LPOBJECTLIST lpObjList, LPPRIMOBJECT lpLinkObject, LPPRIMOBJECT lpObject, BOOL fAfter);
+

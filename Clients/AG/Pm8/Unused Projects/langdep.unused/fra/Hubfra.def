@@ -1,0 +1,7 @@
+; hubfra.def : Declares the module parameters for the DLL.
+
+LIBRARY      HUBENG
+DESCRIPTION  'HUBFRA PrintMaster French HUB 32-bit Resources'
+
+EXPORTS
+    ; Explicit exports can go here

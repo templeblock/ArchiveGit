@@ -1,0 +1,2 @@
+// Stick Control syles
+#define ST_HONLY	0x0002L

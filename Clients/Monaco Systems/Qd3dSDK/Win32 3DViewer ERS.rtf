@@ -1,0 +1,483 @@
+{\rtf1\ansi \deff12\deflang1033{\fonttbl{\f3\fmodern\fcharset0\fprq1 Courier;}{\f4\froman\fcharset0\fprq2 Times New Roman;}{\f8\froman\fcharset0\fprq2 Times;}{\f9\fswiss\fcharset0\fprq2 Helvetica;}
+{\f11\fmodern\fcharset0\fprq1 Courier New;}{\f12\froman\fcharset0\fprq2 New York;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;
+\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\widctlpar \f12 \snext0 Normal;}
+{\*\cs10 \additive Default Paragraph Font;}{\s15\widctlpar\tqc\tx4320\tqr\tx8640 \f12 \sbasedon0\snext15 header;}{\s16\widctlpar\tqc\tx4320\tqr\tx8640 \f12 \sbasedon0\snext16 footer;}}{\info{\title Windows Viewer}{\author Richard Lawler}
+{\operator Richard Lawler}{\creatim\yr1996\mo12\dy18\hr15\min52}{\revtim\yr1996\mo12\dy20\hr17\min31}{\version2}{\edmins3}{\nofpages18}{\nofwords5101}{\nofchars29077}{\*\company Apple Computer}{\vern57431}}
+\margl1440\margr1080\margt996\margb1100\gutter360 \facingp\widowctrl\ftnbj\aenddoc\hyphhotz0\margmirror\sprstsp\otblrul\brkfrm\sprstsm\truncex\nolead\msmcap\hyphcaps0\fracwidth \fet0\sectd \linex0\endnhere {\headerl \pard\plain \li2700\sl-220\slmult0
+\widctlpar \f12 {\b\f9\fs18 3D Viewer
+\par }}{\headerr \pard\plain \li2700\sl-220\slmult0\widctlpar \f12 {\b\f9\fs18 Introduction
+\par }}{\footerl \pard\plain \sl-240\slmult0\widctlpar\tx2700 \f12 {\b\f8\fs20 \chpgn  }{\i\f8\fs20 \tab ESCHER ERS -- APPLE NEED TO KNOW CONFIDENTIAL 10/21/96
+\par }}{\footerr \pard\plain \li2700\sl-240\slmult0\widctlpar\tqr\tx9720 \f12 {\i\f8\fs20 ESCHER ERS -- APPLE NEED TO KNOW CONFIDENTIAL 10/21/96\tab }{\b\f8\fs20 \chpgn  
+\par }}{\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}
+{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \fi-2707\li2707\ri1987\sa600\sl-600\slmult0\nowidctlpar\tx2700 \f12 {\f8\fs48 \tab 
+The QuickDraw 3D Viewer Controller on Win32
+\par }\pard \fi-2700\li2700\ri1200\sb460\sa160\sl-280\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9 \tab 41.1\tab Introduction 
+\par }\pard \qj\li2700\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 This chapter describes the QuickDraw 3D Viewer Controller (or 3D Viewer), which provides a high-level interface for displaying 3D objects and other data in a window and allowing users limited
+ interaction with those objects. You can use the functions described here to present 3D data (stored either in a file or in memory) to users quickly and easily. The 3D Viewer provides controls with which the user can manipulate several aspects of the disp
+layed data, such as the point of view.
+\par }\pard \li2700\sb240\sa120\sl-280\slmult0\nowidctlpar {\i\f8 IMPORTANT
+\par The 3D Viewer allows you to display 3D data in 3DMF metafiles (or in memory) with minimal programming effort. It is analogous to the movie controller provided with QuickTime, which allows you, also with minim
+al programming effort, to display and allow users to control movies. If your application needs more advanced rendering or interaction capabilities, or if you want to allow users to create and manipulate objects dynamically, you can use the lower-level Qui
+ckDraw 3D application programming interfaces in addition to, or instead of, the higher-level 3D Viewer programming interfaces.
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 The 3D Viewer supports the same platforms as the QuickDraw 3D library. Two versions of the 3D Viewer library are available: one to
+ support the PowerPC version of the MacOS and the other to support the Win32 API  running on either Windows 95 or  the Intel processor version of Windows NT 3.51 and later. The two different versions of the viewer have similar APIs and can be used similar
+ly. But the two different versions of the 3D Viewer are intimately tied to the target platform through dependencies on each platform\rquote 
+s base graphics libraries, their window management systems and their respective event handling architectures. Therefore, the
+ APIs are not identical, there are some API functions and constant which are unique to one platform or the other and many of the functions take different parameters. Because of these necessary differences the two libraries have different symbolic namespac
+es. The MacOS version of the 3D Viewer uses the original }{\f3\fs20 Q3Viewer}{\f8\fs20 ... naming for compatibility reasons, for example: }{\f3\fs20 Q3ViewerNew}{\f8\fs20 . The Win32 version of the 3D Viewer uses a }{\f3\fs20 Q3WinViewer}{\f8\fs20 
+... naming convention, for example: }{\f3\fs20 Q3WinViewerNew}{\f8\fs20 . 
+\par }\pard \fi-2700\li2700\ri1200\sb460\sa160\sl-280\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9 \tab 41.2\tab About the 3D Viewer
+\par }\pard \qj\li2700\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 
+The 3D Viewer (or, more briefly, the Viewer) is a shared library that provides a very simple method for displaying 3D models, together with a set of controls that permit limited interaction with those models. 
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 
+An instance of the 3D Viewer is a viewer object. Every viewer object is typically associated with exactly one window, within which the viewer object must be entirely contained. The viewer object can occupy the entire content region of the window, or it ca
+n occupy some smaller portion of the window. Your application can create more than one viewer object; indeed, it can create more than one viewer object associated with a single window.
+\par When a viewer object is first created and displayed to the user, it consists of a picture area that contains the displayed image and either a controller strip or a badge. The controller strip is a rectangular area at the bottom of the viewer object that c
+ontains one or more controls. (See the following section for a complete explanation of these controls.) A badge is 
+a visual element that is displayed in the picture area when the controller strip is not visible. The user can click on the badge to make the controller strip appear.
+\par It\rquote s important to understand that the 3D Viewer is built on top of QuickDraw 3D, but you don\rquote 
+t need to call any QuickDraw 3D functions to use the 3D Viewer. The 3D Viewer is a DLL  that is separate from the QuickDraw 3D shared library. You can call }{\f3\fs20 Q3WinViewerNew}{\f8\fs20  (and any other 3D Viewer functions) without having called }{
+\f3\fs20 Q3Initialize}{\f8\fs20  to initialize QuickDraw 3D. The models displayed by the Viewer must be structured according to the QuickDraw 3D Metafile specification, but the metafile data can be stored either in a file or in memory.
+\par }\pard \fi-780\li2700\sb360\sa80\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs20 \tab 41.2.1\tab Controller Strips
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 The 3D Viewer provides control elements for manipulating the location and orientation of the user\rquote s point of view (that is, of the view\rquote s camera). 
+\par These controls are, from left to right:
+\par }\pard \qj\fi-288\li2988\sb60\sl-240\slmult0\nowidctlpar\tx2988 {\f8\fs20 \bullet \tab The camera viewpoint popup. This control allows the user to view the model from a different camera viewp
+oint. Holding down the camera viewpoint button causes a pop-up menu to appear, listing the pre-defined direction cameras as well as any perspective (view angle aspect) cameras stored in the view hints of the 3DMF data. If any such cameras in the data have
+ name attributes associated with them the names will be displayed in the popup. Otherwise the cameras will be listed as \ldblquote Camera #1\rdblquote 
+ etc. (The pre-defined direction cameras are calculated based on the front and top custom attributes if present in the 3DMF view hints. Otherwise the pre-defined camera directions are calculated from the model\rquote 
+s coordinate space.) Whether this popup is displayed is controlled through the }{\f3\fs20 kQ3ViewerButtonCamera}{\f8\fs20  flag. 
+\par }\pard \li2700\sb240\sa120\sl-280\slmult0\nowidctlpar {\i\f8 Note: only cameras of the type }{\f3\fs20 kQ3CameraTypeViewAngleAspect}{\i\f8  are displayed in the camera viewpoint popup menu.
+\par }\pard \qj\fi-288\li2988\sb60\sl-240\slmult0\nowidctlpar\tx2988 {\f8\fs20 \bullet \tab 
+The distance button. This control allows the user to move closer to or farther away from the model. Clicking the distance button and then dragging the cursor downward in the picture area causes the displayed 
+object to move closer. Dragging the cursor upward in the picture area causes the displayed object to move farther away. The up and down arrow keys cause the model to move farther or closer respectively. This modal state button is controlled through the }{
+\f3\fs20 kQ3ViewerButtonTruck}{\f8\fs20  flag. 
+\par \bullet \tab The rotate button. This control allows the user to effectively rotate an object. Clicking the rotate button and then dragging the cursor in the picture area causes the displayed object to rotate in the direction in which the curs
+or is dragged. The left and right arrow keys cause the model to rotate left and right. The up and down arrow keys cause the model to rotate up and down. This modal state button is controlled through the }{\f3\fs20 kQ3ViewerButtonOrbit}{\f8\fs20  flag. 
+
+\par \bullet \tab 
+The zoom button. This control allows the user to alter the field of view of the current camera, thereby zooming in or out on the object in the model. The up and down arrow keys cause the model to zoom out and in.  This button is not displayed by default
+. This modal state button is controlled through the }{\f3\fs20 kQ3ViewerButtonZoom}{\f8\fs20  flag.
+\par \bullet \tab 
+The move button. This control allows the user to move an object. Clicking the move button and then dragging on the object in the picture area causes the object to be moved to a new location. The up, down, left and right arrow keys cause the model to mov
+e up, down, left or right respectively. This modal state button is controlled through the }{\f3\fs20 kQ3ViewerButtonDolly}{\f8\fs20  flag.
+\par \bullet \tab The reset button. This push-button resets the camera viewpoint to its initial setting. Whether this push-button is displayed is controlled through the }{\f3\fs20 kQ3ViewerButtonReset}{\f8\fs20  flag.
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 Your application controls which of these buttons are displayed in a viewer object\rquote s controller strip at the time you create the viewer object, or by appropriately setting a viewer
+\rquote s flags. 
+\par }\pard \fi-780\li2700\sb360\sa80\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs20 \tab 41.2.2\tab Badges
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 The 3D Viewer allows your application to distinguish 3D data from static graphics in documents by the use of a badge. 
+\par The badge lets the user know that the image represents a 3D model rather than a static image. A badge appears when the viewer object is first displayed and the }{\f11\fs20 kQ3ViewerShowBadge}{\f8\fs20  flag is set in the object\rquote 
+s viewer flags. When the user clicks the badge, the badge disappears and the standard controller strip appears.
+\par }\pard \li2700\sb240\sa120\sl-280\slmult0\nowidctlpar {\i\f8 
+Note: The badge control is one-directional. It only switches a viewer from badge mode to controller strip mode. There is no user interface control to switch the viewer back to badge mode.  It is the responsibility of the host application to redisplay the 
+badge by resetting the viewer\rquote s badge flag and clearing the control strip flag. For example, when a viewer object is deselected in a compound document the application may switch the viewer back to badge mode. 
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 Your application can control whether the 3D Viewer displays a badge in a viewer pane by appropriately setting a viewer\rquote s flags. See \ldblquote Viewer Flags\rdblquote 
+ for more information.
+\par Typically you won\rquote t want your viewer to support interaction when the badge is displayed. To disable interaction you must set the viewer\rquote s }{\f3\fs20 kQ3ViewerButtonNone}{\i\f4  }{\f8\fs20 flag.
+\par }\pard \fi-780\li2700\sb360\sa80\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs20 \tab 41.2.3\tab \tab \tab Drag and Drop
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs18 The version 1.5.0  release of the 3D Viewer for Win32 only supports dropping 3DMF files onto the viewer window via the }{\f3\fs18 WM_DROPFILES}{\f8\fs18 
+ mechanism. A Win32 application wanting to support full drag and drop with the 3D Viewer will need to use an external protocol such as the OLE data transfer interfaces.
+\par }{\f8\fs20 A host application can also set the viewer to a special mode where the only interaction supported is dropping files. This mode must be explicitly set with the }{\f3\fs20 kQ3ViewerButtonNone }{\f8\fs20 flag.
+\par }\pard \li2700\sb240\sa120\sl-280\slmult0\nowidctlpar {\i\f4 Note:}{\f3  }{\f3\fs20 kQ3ViewerButtonNone}{\i\f4  is similar to the}{\i\f3  }{\f3\fs20 kQ3ViewerDragMode}{\i\f4  of the MacOS version of the 3D Viewer}{\i\f3 .
+\par }{\f4\fs20 An application can receive notifications when the 3D Viewer handles WM_DROPFILES via WM_NOTIFY messages. This way an application can update its title bar with the name of the currently displayed 3DMF for example.
+\par }\pard \fi-2700\li2700\ri1200\sb460\sa160\sl-280\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9 \tab 41.3\tab Using the 3D Viewer with Win32
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 This section provides examples of how to use the Win32 version of the QuickDraw 3D Viewer  Controller to display 3D data in a window.
+\par }\pard \fi-780\li2700\sb360\sa80\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs20 \tab 41.3.3\tab Creating a Viewer 
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can create a viewer object by calling the }{\f3\fs20 Q3WinViewerNew}{\f8\fs20  function. You pass }{\f3\fs20 Q3WinViewerNew}{\f8\fs20 
+ a handle to the parent window typically in which you want the viewer to appear, the rectangle that is to contain the viewer pane, and a selector indicating which viewer features to enable. Q3WinViewerNew returns a reference to a viewer object. The functi
+on }{\f3\fs20 MyCreateViewer}{\f8\fs20  below creates a viewer that occupies the entire client rectangle of the parent window which is passed to it as a parameter.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\b\f9\fs18 
+\par }{\f3\fs20 TQ3ViewerObject MyCreateViewer (HWND hWnd)
+\par \{
+\par \tab RECT aWinRect;
+\par \tab GetClientRect(hWnd, (LPRECT)&aWinRect);
+\par \tab gViewer = Q3WinViewerNew (hWnd, &aWinRect, 
+\par \tab \tab (unsigned long) kQ3ViewerDefault);
+\par \tab return gViewer;
+\par \}
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 The third parameter to the call to }{\f3\fs20 Q3WinViewerNew}{\f8\fs20 
+ is a set of viewer flags that specify information about the appearance and behavior of the new viewer object. Typically the viewer flag parameter is set to the value }{\f3\fs20 kQ3ViewerDefault}{\f8\fs20 
+, indicating that the default values of the viewer flags are to be used. See \ldblquote Viewer Flags,\rdblquote  for a complete description of the available viewer flags.
+\par Alternatively, a QuickDraw 3D Viewer can be created using the Win32 window creation APIs (CreateWindow, CreateWindowEx). The Q3Viewer.DLL registers a window class for the 3D Viewer when the DLL is loaded. This window class is identified by the class name 
+defined by the constant }{\f11\fs18 kQ3ViewerClassName}{\f4\fs18 . The following example shows how a 3D Viewer window can be created using CreateWindowEx API.}{\f4\fs20 
+\par }\pard \qj\li2707\sl-240\slmult0\nowidctlpar\tx3420\tx4140\tx4860 {\f11\fs18 hwndViewer = CreateWindowEx 
+\par (flags & kQ3ViewerDraggingInOff ? 0: WS_EX_ACCEPTFILES , 
+\par \tab kQ3ViewerClassName,\tab \tab 
+\par \tab "My 3D Viewer", 
+\par \tab dwFlags | flags, 
+\par \tab rect.left, rect.top, rect.right - rect.left, rect.bottom \tab - rect.top,
+\par \tab hWnd, 
+\par \tab NULL, 
+\par \tab hInst, 
+\par \tab NULL);
+\par }\pard \fi-780\li2700\sb360\sa80\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs20 \tab 41.3.4\tab Attaching Data to a Viewer
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You specify the 3D model to be displayed in a viewer pane\rquote s picture area by calling either the }{\f3\fs20 Q3WinViewerUseFile}{\f8\fs20  or }{\f3\fs20 Q3WinViewerUseData}{\f8\fs20 
+ function. }{\f3\fs20 Q3WinViewerUseFile}{\f8\fs20  takes a reference to an existing viewer object and a file reference number of an open 3DMF metafile, as follows:
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx3960\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560 {\f3\fs20 myErr = Q3WinViewerUseFile(myViewer, myFsRefNum);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You use the }{\f3\fs20 Q3WinViewerUseData}{\f8\fs20  function to specify a 3D model whose data is already in memory (either on the Clipboard or elsewhere in RAM). }{\f3\fs20 
+Q3WinViewerUseData}{\f8\fs20  takes a reference to an existing viewer object, a pointer to the 3DMF metafile data in RAM, and the number of bytes occupied by that data. Here\rquote s an example of calling }{\f3\fs20 Q3WinViewerUseData}{\f8\fs20 :
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 myErr = Q3WinViewerUseData(myViewer, myDataPtr,
+\par  \tab myDataSize);
+\par }\pard \li2700\sb240\sa120\sl-280\slmult0\nowidctlpar {\i\f8 IMPORTANT
+\par The data in the buffer whose address and size you pass to }{\f3\fs20 Q3WinViewerUseData}{\i\f8  must be in the QuickDraw 3D Metafile (3DMF) format. 
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 
+Once you attach the metafile data to a visible viewer object, the user is able to see the 3D model in the viewer pane. If, however, the viewer pane was invisible when it was created, you need to call the }{\f3\fs20 Q3WinViewerDraw}{\f8\fs20 
+ function to make it visible.
+\par The 3D Viewer treats the model data as a single group. You can get a reference to the model data currently displayed in the viewer\rquote s picture area by calling the }{\f3\fs20 Q3WinViewerGetGroup}{\f8\fs20 
+ function. You can change that model data by calling the }{\f3\fs20 Q3WinViewerUseGroup}{\f8\fs20  function.
+\par You can also retrieve the view object associated with a viewer object by calling the }{\f3\fs20 Q3WinViewerGetView}{\f8\fs20 
+ function. You can then modify some of the view settings, such as the lights or the camera. If you wish, you can also restore the view settings to their original values by calling the }{\f3\fs20 Q3WinViewerRestoreView}{\f8\fs20  function.
+\par An application can also set the viewer to display one of several predefined points of view by calling }{\f3\fs20 Q3WinViewerSetCameraView}{\f8\fs20  and }{\f3\fs20 Q3WinViewerSetCameraNumber}{\f8\fs20 .
+\par }\pard \fi-2700\li2700\ri1200\sb460\sa160\sl-280\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9 \tab 41.5\tab 3D Viewer Reference
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 This section describes the constants and routines that you can use to create and manage instances of the 3D Viewer.
+\par }\pard \fi-780\li2700\sb360\sa80\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs20 \tab 41.5.1\tab Constants
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 This section describes the constants you might need to use when creating and managing a viewer object.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.1.2\tab Viewer Flags 
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 When you create a new viewer object (by calling }{\f3\fs20 Q3WinViewerNew or CreateWindow}{\f8\fs20 
+), you need to specify a set of viewer flags that control various aspects of the new viewer object.
+\par }\pard \li3060\ri360\widctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3 enum \{
+\par \tab kQ3ViewerShowBadge \tab \tab = 1<<0,
+\par \tab kQ3ViewerActive\tab \tab \tab \tab = 1<<1,
+\par \tab kQ3ViewerControllerVisible\tab = 1<<2,
+\par \tab kQ3ViewerButtonCamera\tab \tab = 1<<3,
+\par \tab kQ3ViewerButtonTruck\tab \tab = 1<<4,
+\par \tab kQ3ViewerButtonOrbit\tab \tab = 1<<5,
+\par \tab kQ3ViewerButtonZoom\tab \tab = 1<<6,
+\par \tab kQ3ViewerButtonDolly\tab \tab = 1<<7,
+\par \tab kQ3ViewerButtonReset\tab \tab = 1<<8,
+\par \tab kQ3ViewerButtonNone\tab \tab = 1<<9,
+\par \tab kQ3ViewerOutputTextMode\tab = 1<<10,
+\par \tab kQ3ViewerDraggingInOff\tab = 1<<11,
+\par \tab kQ3ViewerDefault\tab \tab \tab = 1<<15
+\par \};
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\b\f8\fs20 Constant descriptions
+\par }\pard \li2700\widctlpar {\f3\fs20 kQ3ViewerShowBadge
+\par }{\f8\fs20 If this fl
+ag is set, a badge is displayed in the viewer pane whenever the controller strip is not visible. See "Badges" for details on when the badge appears and disappears. If this flag is clear, no badge is displayed. This flag is off by default.
+\par }{\f3\fs20 kQ3ViewerActive
+\par }{\f8\fs20 If this flag is set, the viewer object is active. When cleared the viewer object is in-active and the control strip, if displayed, is dimmed. This flag is on by default.
+\par }{\f3\fs20 kQ3ViewerControllerVisible
+\par }{\f8\fs20 If this flag is set, the controller strip is visible. If this flag is clear, the controller strip is not visible. When the }{\f3\fs20 kQ3ViewerShowBadge}{\f8\fs20 
+ flag is set, the controller strip should be made not visible by clearing this flag. This flag is on by default.
+\par }{\f3\fs20 kQ3ViewerDraggingInOff}{\f8\fs20  Disables dropping files into the 3D Viewer. See "Drag and Drop" section for a discussion of drag and drop and the viewer. This flag is off by default.
+\par }{\f3\fs20 kQ3ViewerButtonCamera
+\par }{\f8\fs20 If this flag is set, the camera angle popup in the controller strip is displayed.  This flag is on by default.
+\par }{\f3\fs20 kQ3ViewerButtonTruck
+\par }{\f8\fs20 When used with }{\f3\fs20 Q3WinViewerSetFlags}{\f8\fs20  this flag is used to set the distance button in the controller strip to be displayed. When used with }{\f3\fs20 Q3WinViewerSetCurrentButton}{\f8\fs20 
+. it sets the viewer to distance mode and selects the distance button. This flag is on by default.
+\par }{\f3\fs20 kQ3ViewerButtonOrbit
+\par }{\f8\fs20 When used with }{\f3\fs20 Q3WinViewerSetFlags}{\f8\fs20  this flag is used to set the rotate button in the controller strip to be displayed. When used with }{\f3\fs20 Q3WinViewerSetCurrentButton}{\f8\fs20 
+. it sets the viewer to rotate mode and selects the rotate button. This flag is on by default.
+\par }{\f3\fs20 kQ3ViewerButtonZoom
+\par }{\f8\fs20 When used with }{\f3\fs20 Q3WinViewerSetFlags}{\f8\fs20  this flag is used to set the zoom button in the controller strip to be displayed. When used with }{\f3\fs20 Q3WinViewerSetCurrentButton}{\f8\fs20 
+. it sets the viewer to zoom mode and selects the zoom button. This flag is off by default.
+\par }{\i\f8\fs20 Note: the zoom button is not displayed by default.
+\par }{\f11\fs20 kQ3ViewerButtonDolly}{\f8\fs20 
+\par When used with }{\f3\fs20 Q3WinViewerSetFlags}{\f8\fs20  this flag is used to set the move button in the controller strip to be displayed. When used with }{\f3\fs20 Q3WinViewerSetCurrentButton}{\f8\fs20 
+. it sets the viewer to move mode and selects the move button. This flag is on by default.
+\par }{\f3\fs20 kQ3ViewerButtonReset }{\f8\fs20 
+\par When used with }{\f3\fs20 Q3WinViewerSetFlags}{\f8\fs20  this flag is used to set the reset button in the controller strip to be displayed. This flag is on by default.
+\par }{\i\f8\fs20 Note: the reset button is a push-button and does not change the mode of the viewer when pressed.
+\par }{\f3\fs20 kQ3ViewerOutputTextMode }{\f8\fs20 
+\par When set }{\f3\fs20 kQ3ViewerOutputTextMode}{\f8\fs20  this flag causes }{\f3\fs20 Q3WinViewerWriteFile}{\f8\fs20  to output 3DMF in text-mode. This flag is off by default.
+\par }{\f3\fs20 kQ3ViewerButtonNone }{\f8\fs20 
+\par When used with }{\f3\fs20 Q3WinViewerSetCurrentButton}{\f8\fs20  this flag sets the viewer to a mode where most interaction is ignored. When in this mode the viewer only responds to file drops and badge interaction. This flag is off by default.
+\par }{\f3\fs20 kQ3ViewerDefault }{\f8\fs20 
+\par The default configuration for a viewer object. 
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.1.3\tab Viewer State Flags 
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 The }{\f3\fs20 Q3WinViewerGetState}{\f8\fs20 
+ function returns a long integer that encodes information about the current state of a viewer object. Bits of the returned long integer are addressed using these viewer state flags:
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 enum \{
+\par \tab kQ3ViewerEmpty    = 0,
+\par \tab kQ3ViewerHasModel = 1<<0,
+\par \tab kQ3ViewerHasUndo  = 1<<1
+\par \};
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\b\f8\fs20 Constant descriptions
+\par }{\f3\fs20 kQ3ViewerEmpty}{\f8\fs20  If this flag is set, there is no image currently displayed by the specified viewer object.
+\par }{\f3\fs20 kQ3ViewerHasModel }{\f8\fs20 If this flag is set, there is an image currently displayed by the specified viewer object.
+\par }{\f3\fs20 kQ3ViewerHasUndo }{\f8\fs20  }{\f3\fs20 
+If this flag is set, the viewer camera has been modified and thus can be undone. An application might use this information when deciding whether to enable the undo menu item. Also see the function Q3WinViewerGetUndoString.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.1.4\tab Camera View Command Constants 
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 The }{\f3\fs20 Q3WinViewerSetCameraView}{\f8\fs20  function takes one of the following camera view commands. These commands set the viewer to a predefined camera view.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 typedef enum TQ3ViewerCameraView \{
+\par \tab kQ3ViewerCameraRestore,
+\par \tab kQ3ViewerCameraFit,
+\par \tab kQ3ViewerCameraFront,
+\par \tab kQ3ViewerCameraBack,
+\par \tab kQ3ViewerCameraLeft,
+\par \tab kQ3ViewerCameraRight,
+\par \tab kQ3ViewerCameraTop,
+\par \tab kQ3ViewerCameraBottom
+\par \} TQ3ViewerCameraView;
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\b\f8\fs20 Constant descriptions
+\par }{\f3\fs20 kQ3ViewerCameraRestore}{\f8\fs20   
+\par }\pard \qj\li2700\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 This command resets the viewer\rquote s camera view to its original position. The result of calling }{\f3\fs20 Q3WinViewerSetCameraViwer}{\f8\fs20  with the }{\f3\fs20 kQ3ViewerCameraRestore}{
+\f8\fs20  command  is the same as calling the function  }{\f3\fs20 Q3WinViewerRestoreView}{\f8\fs20 . Both }{\f3\fs20 Q3WinViewerRestoreView}{\f8\fs20  and the }{\f3\fs20 kQ3ViewerCameraRestore}{\f8\fs20  command perform the same function as the viewer
+\rquote s reset button
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 kQ3ViewerCameraFit }{\f8\fs20 
+\par }\pard \qj\li2700\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 This command repositions the camera such that the 3D model data fits the viewer content pane.
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 kQ3ViewerCameraFront}{\f8\fs20 ,  
+\par \tab }{\f3\fs20 kQ3ViewerCameraBack}{\f8\fs20 ,  
+\par \tab }{\f3\fs20 kQ3ViewerCameraLeft}{\f8\fs20 ,  
+\par \tab }{\f3\fs20 kQ3ViewerCameraRight}{\f8\fs20 ,  
+\par \tab }{\f3\fs20 kQ3ViewerCameraTop}{\f8\fs20 ,  
+\par \tab }{\f3\fs20 kQ3ViewerCameraBottom}{\f8\fs20   }{\f3\fs20  
+\par }\pard \qj\li2700\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 These commands position the viewer camera to predefined positions based on the }{\f3\fs20 front}{\f8\fs20  and }{\f3\fs20 top}{\f8\fs20 
+ attributes in the data model if they are present. If the front and top attributes are not present in the data the camera positions are calculated from the model\rquote s coordinate space.
+\par }\pard \fi-780\li2700\sb360\sa80\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs20 \tab 41.5.2\tab 3D Viewer Routines
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 This section describes the routines that you can use to create and manage the 3D Viewer. You can use these routines to
+\par }\pard \qj\fi-288\li2988\sb60\sl-240\slmult0\nowidctlpar\tx2988 {\f8\fs20 \bullet \tab create a new viewer object
+\par \bullet \tab dispose of a viewer object
+\par \bullet \tab attach a file or block of data to a viewer object
+\par \bullet \tab handle editing operations associated with a viewer object
+\par }\pard \li2700\sb240\sa120\sl-280\slmult0\nowidctlpar {\i\f8 Note You don\rquote t need to use all of these routines in order to use the 3D Viewer. For a description of which routines are required in a typical application, see \ldblquote 
+Using the 3D Viewer on Win32.\rdblquote  
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.1\tab Creating and Destroying Viewers
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 This section describes the routines you can use to create and destroy viewer objects. See \ldblquote Creating a Viewer\rdblquote 
+ for complete source code examples that illustrate how to use these routines.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 41.5.2.1.1\tab Q3WinViewerNew
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerNew}{\f8\fs20  function to create a new viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3WinViewerObject Q3WinViewerNew (
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx3960\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560 {\f3\fs20 \tab HWND window,
+\par \tab RECT *rect,
+\par \tab unsigned long flags);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 port}{\f8\fs20   The parent window of the viewer you are about to instantiate. Passing NULL will cause a popup viewer window with no parent to be created.
+\par }{\f3\fs20 rect}{\f8\fs20  The desired viewer pane for the new viewer object. This Win32 RECT rectangle is spec
+ified in client coordinates, where the origin (0, 0) is the upper-left corner of the window and values increase to the right and down the window.
+\par }{\f3\fs20 flags}{\f8\fs20  A set of viewer flags.  Any of the Windows window style flags may be included as well.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerNew}{\f8\fs20  function returns, as its function result, a reference to a new viewer object that is to be drawn in the window specified by the }{\f3\fs20 windows}{\f8\fs20  parameter, in the location specified by the }
+{\f3\fs20 rect}{\f8\fs20  parameter. The }{\f3\fs20 flags}{\f8\fs20  parameter specifies the desired set of viewer flags. See \ldblquote Viewer Flags\rdblquote  or information on the flags you can specify when calling }{\f3\fs20 Q3WinViewerNew}{\f8\fs20 .
+
+\par The }{\f3\fs20 Q3WinViewerNew}{\f8\fs20  function calls the QuickDraw 3D function }{\f3\fs20 Q3Initialize}{\f8\fs20  if your application has not already called it. (See also CreateWindow and CreateWindowEx).
+\par }\pard \nowidctlpar {\f3\fs20 
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.1.2\tab Q3WinViewerDispose
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerDispose}{\f8\fs20  function to dispose of a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx3960\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560 {\f3\fs20 TQ3Status Q3WinViewerDispose (TQ3WinViewerObject theViewer);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }\pard \nowidctlpar {\f3\fs20 
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerDispose}{\f8\fs20  function disposes of the viewer object specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter.  (see also DisposeWindow).
+\par 
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.2\tab Attaching Data to a Viewer
+\par \tab 41.5.2.2.1\tab Q3WinViewerUseFile
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerUseFile}{\f8\fs20  function to set the file containing the 3D model to be displayed in a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx3960\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560 {\f3\fs20 TQ3Status Q3WinViewerUseFile (
+\par \tab TQ3WinViewerObject theViewer, 
+\par \tab Handle fileh);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 fileh}{\f8\fs20  The Windows file handle of an open file.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerUseFile}{\f8\fs20  function sets the 3D data file to be displayed in the viewer object specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter to the open file having the file handle specified by the }{\f3\fs20 
+fileh}{\f8\fs20  parameter.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.2.2\tab Q3WinViewerUseData
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerUseData}{\f8\fs20  function to set the memory-based data displayed in a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3Status Q3WinViewerUseData (
+\par \tab TQ3WinViewerObject theViewer,
+\par \tab void *data,
+\par \tab long size);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 data}{\f8\fs20  A pointer to the beginning of a block of data in memory.
+\par }{\f3\fs20 size}{\f8\fs20  The size, in bytes, of the specified block of data.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerUseData}{\f8\fs20  function sets the 3D data to be displayed in the viewer object specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter to the data block beginning at the address specified by the }{\f3\fs20 data}{
+\f8\fs20  parameter and having the size specified by the }{\f3\fs20 size}{\f8\fs20  parameter.
+\par }\pard \nowidctlpar {\f3\fs20 
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.3\tab Drawing the Viewer and Rendering the Viewer Data
+\par \tab 41.5.2.3.1\tab Q3WinViewerDraw
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerDraw}{\f8\fs20  function to draw a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx3960\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560 {\f3\fs20 TQ3Status Q3WinViewerDraw (
+\par \tab TQ3WinViewerObject theViewer);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerDraw}{\f8\fs20  function draws the viewer object specified by the }{\f3\fs20 theViewer}{\f8\fs20 
+ parameter. You need to call this function any time you wish to force an update of the viewer window.  You can also use Win32 specific APIs (UpdateWindow, InvalidateRect, etc.) to force an update.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.3.2\tab Q3WinViewerDrawContent
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerDrawContent}{\f8\fs20  function to redraw (or render) only the 3D content displayed in a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3Status Q3WinViewerDrawContent(
+\par \tab TQ3WinViewerObject theViewer);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerDrawContent}{\f8\fs20  function forces the viewer to re-render the 3D data displayed in the viewer object specified by the }{\f3\fs20 theViewer}{\f8\fs20 
+ parameter. You would only call this function if your application has directly modified the viewer\rquote s 3D model data using the QuickDraw 3D API.  An application would use this call instead of }{\f3\fs20 Q3WinViewerDraw}{\f8\fs20 
+ in order to avoid the flicker assocatated with redrawing user interface elements. 
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.3.3\tab Q3WinViewerDrawControlStrip
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerDrawControlStrip}{\f8\fs20  function to redraw  the user interface elements of the viewer.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3Status Q3WinViewerDrawControlStrip(
+\par \tab TQ3WinViewerObject theViewer);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerDrawControlStrip}{\f8\fs20  function forces the viewer to redraw the user interface elements of the viewer object specified by the }{\f3\fs20 theViewer}{\f8\fs20 
+ parameter.  The user interface elements are the control strip and its buttons and the badge. You would typically use this call instead of }{\f3\fs20 Q3WinViewerDraw}{\f8\fs20  if you 
+want to update the control strip but specifically do not want to re-render the 3D data displayed by the viewer.   You can also cause the same effect by getting the control strips windows (Q3WinViewerGetControlStrip) and using Win32 calls to force an updat
+e (UpdateWindow).
+\par }\pard \nowidctlpar {\f3\fs20 
+\par 
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4\tab Accessing Viewer Information and State
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 The 3D Viewer provides routines that you can use to get and set information about a viewer object.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.1\tab Q3WinViewerGetView
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerGetView}{\f8\fs20  function to get the view object associated with a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3ViewObject Q3WinViewerGetView (TQ3WinViewerObject
+\par \tab theViewer);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerGetView}{\f8\fs20  function returns, as its function result, the view object currently associated with the viewer specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.2\tab Q3WinViewerRestoreView
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerRestoreView}{\f8\fs20  function to restore the camera associated with a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 OSErr Q3WinViewerRestoreView (TQ3WinViewerObject 
+\par \tab theViewer);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerRestoreView}{\f8\fs20  function restores the camera settings of the viewer specified by the }{\f3\fs20 theViewer}{\f8\fs20 
+ parameter to the original camera specified in the associated view hints object. If there is no view hints object associated with the specified viewer, }{\f3\fs20 Q3WinViewerRestoreView}{\f8\fs20  creates a new default camera. }{\f3\fs20 
+Q3WinViewerRestoreView}{\f8\fs20  performs the same function as the reset button.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.3\tab Q3WinViewerSetCameraView
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerSetCameraView}{\f8\fs20  function to restore the camera associated with a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3Status Q3WinViewerSetCameraView(
+\par \tab \tab TQ3WinViewerObject \tab \tab theViewer, 
+\par \tab \tab TQ3WinViewerCameraView viewType);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 viewType}{\f8\fs20  One of the camera view command.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerSetCameraView}{\f8\fs20  function performs a command defined by the }{\f3\fs20 viewType}{\f8\fs20  parameter which can modify the camera settings of the viewer specified by the }{\f3\fs20 theViewer}{\f8\fs20 
+ parameter. These commands include setting the camera to a pre-defined cannonical camera position: front, back, top, bottom, left and right; fitting the camera to the data\rquote 
+s bounding sphere or restoring the camera to the original positon. The camera view commands which can be used with }{\f3\fs20 Q3WinViewerSetCameraView}{\f8\fs20  are 
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx3960\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560 {\f3\fs20 \tab kQ3ViewerCameraRestore,
+\par \tab kQ3ViewerCameraFit,
+\par \tab kQ3ViewerCameraFront,
+\par \tab kQ3ViewerCameraBack,
+\par \tab kQ3ViewerCameraLeft,
+\par \tab kQ3ViewerCameraRight,
+\par \tab kQ3ViewerCameraTop,
+\par \tab and kQ3ViewerCameraBottom.
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 See \ldblquote Camera View Command Constants\rdblquote  for descriptions.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.4\tab Q3WinViewerGetCameraCount
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerGetCameraCount}{\f8\fs20  to query the number of camera objects associated with the view hints of the current 3D model data used by the viewer. 
+
+\par }{\f3\fs20 TQ3Status Q3WinViewerGetCameraCount(
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 \tab \tab TQ3ViewerObject \tab theViewer, 
+\par \tab \tab unsigned long \tab *cnt);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 cnt}{\f8\fs20  On exit, the number of camera objects in the 3D model data. 
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerGetCameraCount}{\f8\fs20  function returns through the }{\f3\fs20 cnt}{\f8\fs20  parameter the number of camera objects specified in the 3D model data associated with the viewer specified by the }{\f3\fs20 theViewer}{
+\f8\fs20  parameter. If there is no view hints object associated with the specified viewer, }{\f3\fs20 Q3WinViewerGetCameraCount}{\f8\fs20  will return a count of 0. 
+\par }\pard \li2700\sb240\sa120\sl-280\slmult0\nowidctlpar {\i\f8 Note: only cameras of the type }{\f3\fs20 kQ3CameraViewAngleAspect}{\i\f8  are counted by this routine.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.5\tab Q3WinViewerSetCameraNumber
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerSetCameraNumber}{\f8\fs20  function sets the viewer to use the nth camera associated with a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3Status Q3WinViewerSetCameraNumber(
+\par \tab \tab TQ3ViewerObject \tab theViewer, 
+\par \tab \tab unsigned long \tab cameraNo);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 cameraNo}{\f8\fs20  A camera index (one-based). i.e. The first camera can be set by passing 1.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerSetCameraNumber}{\f8\fs20  function sets the camera settings of the viewer specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter to the nth camera specified in the associated view hints object. The }{\f3\fs20 
+cameraNo}{\f8\fs20  parameter specifies the nth camera and should not be larger than the number of available view aspect angle cameras returned by }{\f3\fs20 Q3WinViewerGetCameraCount}{\f8\fs20 .  This function 
+performs the same result as selecting one of the view hints defined cameras in the camera angle popup.
+\par }\pard \nowidctlpar {\f3\fs20 
+\par 
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.6\tab Q3WinViewerGetFlags
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerGetFlags}{\f8\fs20  function to get the current viewer flags for a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 unsigned long Q3WinViewerGetFlags(TQ3ViewerObject
+\par \tab theViewer);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerGetFlags}{\f8\fs20  function returns, as its function result, the current set of viewer flags for the viewer specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.7\tab Q3WinViewerSetFlags
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerSetFlags}{\f8\fs20  function to set the viewer flags for a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx3960\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560 {\f3\fs20 TQ3Status Q3WinViewerSetFlags (
+\par \tab TQ3ViewerObject theViewer,
+\par \tab unsigned long flags);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 flags}{\f8\fs20  A set of viewer flags. See \ldblquote Viewer Flags\rdblquote  for a description of the constants you can use to set or clear individual viewer flags.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }\pard \li2700\sb240\sa120\sl-280\slmult0\nowidctlpar {\f8\fs20 The }{\f3\fs20 Q3WinViewerSetFlags}{\f8\fs20  function sets the viewer flags associated with the viewer object specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter to the values pass
+ed in the }{\f3\fs20 flags}{\f8\fs20  parameter.  All flags aplying to the control strip cause and immediate referesh upon setting.  Other flags may require you to update the viewer window by calling Q3WinViewerDraw or Win32 API UpdateWindow.  (}{
+\f8\fs20\cf6 NOTE we should list the ones that need a refresh and the ones that do not}{\f8\fs20 )}{\f3\fs20 
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.8\tab Q3WinViewerGetBounds
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerGetBounds}{\f8\fs20  function to get the rectangle that bounds a viewer\rquote s pane.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3Status Q3WinViewerGetBounds (
+\par \tab TQ3ViewerObject theViewer,
+\par \tab RECT *bounds);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 bounds}{\f8\fs20  On exit, the Windows rectangle that bounds the pane currently associated with the specified viewer object.  This rectangle is in client coordinates of the parent window.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerGetBounds}{\f8\fs20  function returns, through the }{\f3\fs20 bounds}{\f8\fs20  parameter, the  rectangle that currently bounds the pane associated with the viewer object specified by the }{\f3\fs20 bounds}{\f8\fs20 
+ parameter.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.9\tab Q3WinViewerSetBounds 
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerSetBounds}{\f8\fs20  function to set the rectangle that bounds a viewer\rquote s pane.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3Status Q3WinViewerSetBounds (
+\par \tab TQ3ViewerObject theViewer,
+\par \tab RECT *bounds);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 bounds}{\f8\fs20 
+ The desired viewer pane for the specified viewer object. This Windows rectangle is specified in client coordinates, where the origin (0, 0) is the upper-left corner of the window and values increase to the right and down the window.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerSetBounds}{\f8\fs20  function sets the bounds of the viewer pane of the viewer object specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter to the rectangle specified by the }{\f3\fs20 bounds}{\f8\fs20 
+ parameter.  Calling this function will force the viewer window to be redrawn.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.10\tab Q3WinViewerGetMinimumDimensions
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerGetBounds}{\f8\fs20  function to get the rectangle that bounds a viewer\rquote s pane.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3Status Q3WinViewerGetMininumDimension(
+\par \tab TQ3ViewerObject \tab theViewer,
+\par \tab unsigned long \tab *width,
+\par \tab unsigned long \tab *height);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 width}{\f8\fs20  On exit, the minimum viewer pane width required to display the entire contents of the control strip.
+\par }{\f3\fs20 height}{\f8\fs20  On exit, the minimum viewer pane height required to display the control strip.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerGetMininumDimension}{\f8\fs20  function returns, through the }{\f3\fs20 width }{\f8\fs20 and}{\f3\fs20  height}{\f8\fs20 
+ parameters, the  minimum dimensions required to display the viewer control strip of the viewer object specified by the parameter }{\f3\fs20 theViewer}{\f8\fs20 . An application which implements a resizable viewer pane should make sure the viewer doesn
+\rquote t get sized smaller than these minimum dimentions returned by this function. If a viewer pane displaying a
+ control strip is sized smaller than these dimension some of the buttons in the control strip will be clipped.  Ths function will not operate unless theViewer currently is shown with a control strip.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.11\tab Q3WinViewerGetWindow
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerGetWindow}{\f8\fs20  function to get the HWND associated with the viewer.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 HWND Q3WinViewerGetWindow (TQ3ViewerObject \tab 
+\par \tab theViewer);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerGetwindow}{\f8\fs20  function returns, as its function result, the HWND currently associated with the viewer object specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.12\tab Q3WinViewerSetWindow
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerSetWindow}{\f8\fs20  function to set the parent HWND of a viewer window.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3Status Q3WinViewerSetWindow (TQ3ViewerObject theViewer, \tab 
+\par \tab HWND window);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 window}{\f8\fs20  A HWND that will be the new parent window of the viewer control window. You may also pass in NULL for the HWND, which will allow you to create an empty viewer that can be associated with an HWND later.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerSetWindow }{\f8\fs20 function sets the Windows parent window associated with the viewer object specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter to the HWND specified by the }{\f3\fs20 window}{\f8\fs20 
+ parameter. 
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.13\tab Q3WinViewerGetGroup
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerGetGroup}{\f8\fs20  function to get the group of objects currently associated with a viewer.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3GroupObject Q3WinViewerGetGroup (TQ3ViewerObject \line \tab theViewer);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerGetGroup}{\f8\fs20  function returns, as its function result, a reference to the group containing the objects currently associated with the viewer specified by the }{\f3\fs20 theViewer}{\f8\fs20 
+ parameter. The reference count of that group is incremented. You should therefore dispose of the group when you have finished using it.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.14\tab Q3WinViewerUseGroup
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerUseGroup}{\f8\fs20  function to set the group of objects associated with a viewer.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 TQ3Status Q3WinViewerUseGroup (
+\par \tab TQ3ViewerObject theViewer,
+\par \tab TQ3GroupObject group);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 \tab }{\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\f3\fs20 group}{\f8\fs20  A group.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerUseGroup}{\f8\fs20  function sets the group of objects associated with the viewer specified by the }{\f3\fs20 theViewer}{\f8\fs20  parameter to the group specified by the }{\f3\fs20 group}{\f8\fs20  parameter.
+\par }\pard \fi-780\li2700\sb240\sl-240\slmult0\nowidctlpar\tqr\tx2520\tx2700 {\b\f9\fs18 \tab 41.5.2.4.15\tab Q3WinViewerGetState
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 You can use the }{\f3\fs20 Q3WinViewerGetState}{\f8\fs20  function to get the current state of a viewer object.
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 unsigned long Q3WinViewerGetState (TQ3ViewerObject
+\par  \tab theViewer);
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f3\fs20 theViewer}{\f8\fs20  A viewer object.
+\par }{\b\f8\fs20 DESCRIPTION
+\par }{\f8\fs20 The }{\f3\fs20 Q3WinViewerGetState}{\f8\fs20  function returns a long integer that encodes information about the current state of the
+ viewer object specified by the theViewer parameter. Bits of the returned long integer are addressed using these constants, which define the viewer state flags:
+\par }\pard \li3060\ri360\sl-240\slmult0\nowidctlpar\tx3492\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920 {\f3\fs20 enum \{
+\par \tab kQ3ViewerEmpty    = 0,
+\par \tab kQ3ViewerHasModel = 1<<0,
+\par \tab kQ3ViewerHasUndo  = 1<<1
+\par \};
+\par }\pard \qj\li2700\sb240\sa120\sl-240\slmult0\nowidctlpar {\f8\fs20 If }{\f3\fs20 Q3WinViewerGetState}{\f8\fs20  returns the value }{\f3\fs20 kQ3ViewerEmpty}{\f8\fs20 , there is no image currently displayed by the specified viewer object. If }{\f3\fs20 
+Q3WinViewerGetState }{\f8\fs20 returns the value }{\f3\fs20 kQ3ViewerHasModel}{\f8\fs20 , there is an image currently displayed by the specified viewer object. If }{\f3\fs20 Q3WinViewerGetState }{\f8\fs20 returns the value }{\f3\fs20 kQ3ViewerHasUndo}{
+\f8\fs20 , the user has modified the camera state through the interactive controls. You can use this information to determine whether Edit menu commands such as Undo, Cut, Clear, and Copy should be enabled or disabled. Also see }{\f3\fs20 
+Q3WinViewerGetUndoString}{\f8\fs20 .
+\par }\pard \nowidctlpar {\f3\fs20 
+\par 
+\par }}

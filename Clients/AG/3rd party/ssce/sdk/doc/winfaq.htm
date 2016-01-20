@@ -1,0 +1,1333 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("MicroVision WebExpress","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c0ffc0","Wintertree","1") -->
+  <!-- $MVD$:color("19","c0ff","Or1","1") -->
+  <TITLE>Sentry Spelling Checker Engine - How do I...? (Windows)</TITLE>
+ </HEAD>
+ <BODY BGCOLOR="WHITE">
+  <H1>
+   Sentry Spelling Checker Engine<BR>
+   Windows SDK<BR>
+   Frequently Asked Questions</H1>
+  <P>
+   This document contains quick links to the programmer's guide sections 
+   relating to the most common questions asked about the Sentry Windows SDK.</P>
+  <P>
+   More answers to frequently asked questions, plus technical support 
+   articles, can be found on <A HREF="http://www.wintertree-software.com/support/ssce/">Wintertree
+    Software's support site</A>.</P>
+  <H2>
+   Dictionaries and lexicons</H2>
+  <BLOCKQUOTE>
+   <P>
+    <B><I>How do I...</I></B></P>
+   <UL>
+    <LI>
+    <P>
+     <A HREF="#AddToCustDict">Add words to a custom dictionary?</A><BR>
+     <LI><A HREF="#AddToUserDict">Add words to a user dictionary?</A><BR>
+     <LI><A HREF="#AddToDict">Add words to the dictionary?</A><BR>
+     <LI><A HREF="#CompressLex">Build or create a compressed dictionary?</A><BR>
+     <LI><A HREF="#CreateTempLex">Create a temporary lexicon?</A><BR>
+     <LI><A HREF="#EditUserDict">Edit a user dictionary?</A><BR>
+     <LI><A HREF="#AccessUserLex">Access a dictionary listed in UserLexFiles?</A><BR>
+     <LI><A HREF="#DictContainsWord">Find out which dictionary file 
+     contains a word?</A><BR>
+     <LI><A HREF="#RemoveFromMainDict">Remove words from a main dictionary?</A><BR>
+     <LI><A HREF="#RemoveFromUserDict">Remove words from a user dictionary?</A><BR>
+     <LI><A HREF="#PreventIgnoreChange">Prevent Sentry from ignoring or 
+     changing words from a previous spelling check?</A><BR>
+     <LI><A HREF="#ImportWords">Import words into a user dictionary?</A><BR>
+     <LI><A HREF="#ChangeMainDictLang">Change the main dictionary language?</A><BR>
+     <LI><A HREF="#ReadCLX">Read the contents of a .clx (compressed 
+     lexicon) file?</A><BR>
+     <LI><A HREF="#WordDict">Use a Microsoft Word/Office dictionary?</A><BR>
+     <LI><A HREF="#AssocExtraInfo">Associate extra information with words 
+     in a dictionary?</A></P>
+    </UL>
+   <P>
+    <B><I>More questions:</I></B></P>
+   <UL>
+    <LI>
+    <P>
+     <A HREF="#LexVsDict">What's the difference between a dictionary and a lexicon?</A><BR>
+     <LI><A HREF="#MainVsUser">What's the difference between a main and 
+     user lexicon?</A><BR>
+     <LI><A HREF="#LexFileNameEncoding">How are the dictionary file names encoded?</A><BR>
+     <LI><A HREF="#TLXFileFormat">What is the text lexicon (.tlx) file format?</A><BR>
+     <LI><A HREF="#AMTLXMainOrUser">Is ssceam.tlx (or sscebr.tlx) a main 
+     dictionary or user dictionary?</A><BR>
+     <LI><A HREF="#CallOpenLex">Do I have to call SSCE_OpenLex?</A></P>
+    </BLOCKQUOTE>
+   </UL>
+  <H2>
+   Installation</H2>
+  <BLOCKQUOTE>
+   <P>
+    <B><I>How do I...</I></B></P>
+   <UL>
+    <LI>
+    <P>
+     <A HREF="#SetUpOnTargetSys">Set up Sentry on the end-user's system?</A><BR>
+     <LI><A HREF="#UseHLM">Make the Sentry DLL read settings from 
+     HKEY_LOCAL_MACHINE instead of HKEY_CURRENT_USER?</A><BR>
+     <LI><A HREF="#UseINI">Make the Sentry DLL use an INI file rather than 
+     the registry?</A><BR>
+     <LI><A HREF="#SetRegTree">Make the Sentry DLL read settings from my 
+     app's registry tree?</A><BR>
+     <LI><A HREF="#InstallOnNetwork">Install Sentry on a network?</A></P>
+    </UL>
+   <P>
+    <B><I>More questions:</I></B></P>
+   <UL>
+    <LI>
+    <P>
+     <A HREF="#InstallFiles">What files can I install on my end user's system?</A><BR>
+     <LI><A HREF="#RegisterDLL">Do I have to register the Sentry DLL?</A><BR>
+     <LI><A HREF="#InstallSDKEndUser">Can I install the Sentry Windows SDK 
+     on an end-user's system?</A></P>
+    </BLOCKQUOTE>
+   </UL>
+  <H2>
+   Miscellaneous</H2>
+  <BLOCKQUOTE>
+   <P>
+    <B><I>How do I...</I></B></P>
+   <UL>
+    <LI>
+    <P>
+     <A HREF="#ChangeOpts">Change Sentry options at run time?</A><BR>
+     <LI><A HREF="#ValidatePartNos">Check the validity of part numbers or 
+     other codes?</A><BR>
+     <LI><A HREF="#CountWords">Count words?</A><BR>
+     <LI><A HREF="#ExpandAbbreviations">Expand abbreviations?</A><BR>
+     <LI><A HREF="#Wildcards">Find words using wildcards?</A><BR>
+     <LI><A HREF="#RandomWord">Generate a random word?</A><BR>
+     <LI><A HREF="#Suggestions">Look up suggestions?</A><BR>
+     <LI><A HREF="#MutliThread">Use the Sentry DLL in a multi-threaded application?</A></P>
+    </UL>
+   <P>
+    <B><I>More questions:</I></B></P>
+   <UL>
+    <LI>
+    <P>
+     <A HREF="#CallOpenSession">Do I have to call SSCE_OpenSession before 
+     calling SSCE_CheckBlockDlg, SSCE_CheckCtrlBackground, or SSCE_CheckCtrlDlg?</A><BR>
+     <LI><A HREF="#StaticLink">Can I statically link the Sentry engine 
+     into my application rather than calling it as a DLL?</A></P>
+    </BLOCKQUOTE>
+   </UL>
+  <H2>
+   Spelling</H2>
+  <BLOCKQUOTE>
+   <P>
+    <B><I>How do I...</I></B></P>
+   <UL>
+    <LI>
+    <P>
+     <A HREF="#CheckBackground">Check spelling as the user types, like in 
+     Word or Office?</A><BR>
+     <LI><A HREF="#UK">Check spelling in British (or UK or International) English?</A><BR>
+     <LI><A HREF="#CheckNonEnglish">Check spelling in languages other than English?</A><BR>
+     <LI><A HREF="#MultipleLanguages">Check spelling in multiple languages?</A><BR>
+     <LI><A HREF="#HTMLForm">Check spelling in an HTML form?</A><BR>
+     <LI><A HREF="#CheckHTML">Check the spelling of HTML?</A><BR>
+     <LI><A HREF="#CheckPhrases">Check the spelling of multi-word phrases, 
+     such as names?</A><BR>
+     <LI><A HREF="#CheckTextBox">Check the spelling of text in a text box 
+     or control?</A><BR>
+     <LI><A HREF="#CheckSingleWord">Find out if a single word is spelled correctly?</A><BR>
+     <LI><A HREF="#WasTextChanged">Find out if the user made corrections 
+     to the text?</A><BR>
+     <LI><A HREF="#IgnoreURL">Make Sentry skip over URLs, e-mail 
+     addresses, etc.?</A></P>
+    </BLOCKQUOTE>
+   </UL>
+  <H2>
+   User interface</H2>
+  <BLOCKQUOTE>
+   <P>
+    <B><I>How do I...</I></B></P>
+   <UL>
+    <LI>
+    <P>
+     <A HREF="#ChangeDlgLang">Change the language of text in the built-in 
+     dialog boxes?</A><BR>
+     <LI><A HREF="#SetDlgPos">Display the built-in spelling dialog box at 
+     a specific screen location?</A><BR>
+     <LI><A HREF="#AltHelpFile">Make the built-in dialog boxes display my 
+     help file when the Help button is pressed?</A><BR>
+     <LI><A HREF="#PreventAddWords">Prevent the user from adding words to 
+     a user dictionary?</A><BR>
+     <LI><A HREF="#PreventChangeOption">Prevent the user from changing options?</A><BR>
+     <LI><A HREF="#RemoveButton">Remove or disable a button from a 
+     built-in dialog box?</A></P>
+    </UL>
+   <P>
+    <B><I>More questions:</I></B></P>
+   <UL>
+    <LI>
+    <P>
+     <A HREF="#HiliteMisspelled">Why doesn't SSCE_CheckCtrlDlg highlight 
+     misspelled words in the text box?</A></P>
+    </BLOCKQUOTE>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="AddToCustDict"></A>How do I add words to a custom dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    Use the <A HREF="coreref.htm#SSCE_CreateLex">SSCE_CreateLex</A> 
+    function to create a new dictionary file.</P>
+   <LI>
+   <P>
+    Use the <A HREF="coreref.htm#SSCE_AddToLex">SSCE_AddToLex</A> 
+    function to add words from within your application at run time.</P>
+   <LI>
+   <P>
+    You can display the <A HREF="winapi.htm#How2DisplayDictDlg">Dictionaries
+     dialog box</A> and use it to add words to a dictionary file.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="AddToUserDict"></A>How do I add words to a user dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    Use the <A HREF="coreref.htm#SSCE_CreateLex">SSCE_CreateLex</A> 
+    function to create a new dictionary file.</P>
+   <LI>
+   <P>
+    Use the <A HREF="coreref.htm#SSCE_AddToLex">SSCE_AddToLex</A> 
+    function to add words from within your application at run time.</P>
+   <LI>
+   <P>
+    You can display the <A HREF="winapi.htm#How2DisplayDictDlg">Dictionaries
+     dialog box</A> and use it to add words to a dictionary file.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="AddToDict"></A>How do I add words to the dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    The way this is done using Sentry is to <A HREF="#AddToCustDict">create
+     a custom dictionary file</A> and add your words to it.</P>
+   <LI>
+   <P>
+    The custom dictionary file should be included in the <A HREF="winref.htm#Properties">MainLexFiles
+     property</A>, or if you are opening dictionaries explicitly, opened 
+    with <A HREF="coreref.htm#SSCE_OpenLex">SSCE_OpenLex</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CompressLex"></A>How do I build or create a compressed dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="winsdk.htm#How2CompressLex">How to Create Compressed Lexicons</A></P>
+   <LI>
+   <P>
+    If you want to create compressed dictionaries at run time from your 
+    application, <A HREF="coreapi.htm#How2CompressLex">click here</A> for instructions.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CreateTempLex"></A>How do I create a temporary lexicon?</H3>
+  <UL>
+   <LI>
+   <P>
+    If you use the built-in dialog boxes or the <A HREF="winref.htm#SSCE_GetSid">SSCE_GetSid</A> 
+    function, a temporary lexicon is created automatically. The temporary 
+    lexicon is used to hold &quot;ignore all&quot; and &quot;change 
+    all&quot; words.</P>
+   <LI>
+   <P>
+    If you want to access this temporary lexicon, call <A HREF="winref.htm#SSCE_GetLexId">SSCE_GetLexId</A>.</P>
+   <LI>
+   <P>
+    If you want to create a temporary lexicon for your own purposes, call <A HREF="coreref.htm#SSCE_CreateLex">SSCE_CreateLex</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="EditUserDict"></A>How do I edit a user dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    User dictionaries can be edited through the <A HREF="winapi.htm#How2DisplayDictDlg">Dictionaries
+     dialog box</A>.</P>
+   <LI>
+   <P>
+    If you want to change the contents of a user dictionary at run time 
+    from your application, call <A HREF="coreref.htm#SSCE_AddToLex">SSCE_AddToLex</A>,
+     <A HREF="coreref.htm#SSCE_DelFromLex">SSCE_DelFromLex</A>, and <A HREF="coreref.htm#SSCE_GetLex">SSCE_GetLex</A>.</P>
+   <LI>
+   <P>
+    See also: <A HREF="#AccessUserLex">How do I access a dictionary 
+    listed in UserLexFiles?</A></P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="AccessUserLex"></A>How do I access a dictionary listed in UserLexFiles?</H3>
+  <UL>
+   <LI>
+   <P>
+    Use <A HREF="winref.htm#SSCE_GetLexId">SSCE_GetLexId</A> to obtain 
+    the lexicon id of the dictionary, then use one of the functions in <A HREF="coreref.htm#Functions">Sentry's
+     Core API</A> to manipulate the dictionary's contents.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="DictContainsWord"></A>How do I find out which dictionary 
+   file contains a word?</H3>
+  <UL>
+   <LI>
+   <P>
+    There is no straightforward way to do this.</P>
+   <LI>
+   <P>
+    The recommended approach is to call <A HREF="coreref.htm#SSCE_FindLexWord">SSCE_FindLexWord</A> 
+    on each open dictionary until it returns a non-negative result.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="RemoveFromMainDict"></A>How do I remove words from a main dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    The easiest method is to <A HREF="#AddToCustDict">define a custom dictionary</A> 
+    and add words with the &quot;Exclude&quot; action (<A HREF="coreref.htm#ActionCodes">SSCE_EXCLUDE_ACTION</A>)
+     to it.</P>
+   <LI>
+   <P>
+    The custom dictionary containing excluded words must be opened before 
+    other main dictionary files (i.e., it should be listed first in the <A HREF="winref.htm#Properties">MainLexFiles</A> property).</P>
+   <LI>
+   <P>
+    The only way to physically remove words from a .clx (compressed 
+    lexicon) file is to obtain the word list used to create it, edit the 
+    word list to remove the words, then <A HREF="#CompressLex">re-compress
+     the word list</A>.</P>
+   <LI>
+   <P>
+    The word lists used to create Wintertree Software's dictionaries are <A HREF="http://www.wintertree-software.com/dev/dict/wordlists.html">sold
+     separately</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="RemoveFromUserDict"></A>How do I remove words from a user dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="#EditUserDict">How do I edit a user dictionary?</A></P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="PreventIgnoreChange"></A>How do I prevent Sentry from 
+   ignoring or changing words from a previous spelling check?</H3>
+  <UL>
+   <LI>
+   <P>
+    When the user clicks the Ignore All or Change All buttons in the 
+    built-in spelling dialog box, the Sentry DLL adds the words to a 
+    temporary dictionary.</P>
+   <LI>
+   <P>
+    The contents of the temporary dictionary are not automatically 
+    cleared between spelling checks.</P>
+   <LI>
+   <P>
+    You can clear the contents of the temporary dictionary by calling <A HREF="winref.htm#SSCE_ResetLex">SSCE_ResetLex</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="ImportWords"></A>How do I import words into a user dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    Call <A HREF="coreref.htm#SSCE_AddToLex">SSCE_AddToLex</A> to add 
+    each word to the user dictionary.</P>
+   <LI>
+   <P>
+    Use <A HREF="winref.htm#SSCE_GetLexId">SSCE_GetLexId</A> to obtain 
+    the lexicon id of the dictionary.</P>
+   <LI>
+   <P>
+    Importing a large number of words will take a long time because the 
+    user dictionary's disk image is re-written after each word is added. 
+    Here's a faster approach:</P>
+   <OL>
+    <LI>
+    <P>
+     Call <A HREF="winref.htm#SSCE_SetUserLexFile">SSCE_SetUserLexFiles</A> 
+     with the user dictionary excluded from the set of files. This will 
+     ensure the user dictionary is closed.</P>
+    <LI>
+    <P>
+     Call <A HREF="coreref.htm#SSCE_CreateLex">SSCE_CreateLex</A> to 
+     create a temporary lexicon.</P>
+    <LI>
+    <P>
+     Add the imported words to the temporary lexicon using <A HREF="coreref.htm#SSCE_AddToLex">SSCE_AddToLex</A>.</P>
+    <LI>
+    <P>
+     Call <A HREF="coreref.htm#SSCE_GetLex">SSCE_GetLex</A> to obtain the 
+     temporary lexicon's image.</P>
+    <LI>
+    <P>
+     Append each word entry in the temporary lexicon's image to the user 
+     dictionary file (each word entry is delimited by a null character).</P>
+    </OL>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="ChangeMainDictLang"></A>How do I change the main dictionary language?</H3>
+  <UL>
+   <LI>
+   <P>
+    Users can select a different dictionary language through the 
+    &quot;Main Dictionary Language&quot; drop-down list in the <A HREF="winapi.htm#How2DisplayOptions">Options
+     dialog box</A>. The list shows the languages of dictionaries 
+    installed on the system in the <A HREF="winref.htm#Properties">MainLexPath</A> property.</P>
+   <LI>
+   <P>
+    To change the main dictionary language at run time from your 
+    application, call <A HREF="winref.htm#SSCE_SetMainLexFile">SSCE_SetMainLexFiles</A>.</P>
+   <LI>
+   <P>
+    If you open dictionary files explicitly in your application, close 
+    the current set of main dictionary files (using <A HREF="coreref.htm#SSCE_ClearLex">SSCE_CloseLex</A>),
+     then open the new set (using <A HREF="coreref.htm#SSCE_OpenLex">SSCE_OpenLex</A>).</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="ReadCLX"></A>How do I read the contents of a .clx 
+   (compressed lexicon) file?</H3>
+  <UL>
+   <LI>
+   <P>
+    There is no way to read compressed lexicons directly. Compressed 
+    lexicon (.clx) files are in a complex binary format, and the Sentry 
+    API provides no means of reading them.</P>
+   <LI>
+   <P>
+    You can <A HREF="http://www.wintertree-software.com/dev/dict/wordlists.html">purchase
+     the word lists</A> used to create Wintertree Software's dictionaries.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="WordDict"></A>How do I use a Microsoft Word/Office dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    Sentry can use use the user dictionary (usually named custom.dic) 
+    created by Microsoft Word/Office. Sentry cannot use Word's (or any 
+    other application's) main dictionary for technical and legal reasons.</P>
+   <LI>
+   <P>
+    The user dictionary is typically a small text file containing words 
+    the user added, such as the user's family name, street name, business 
+    name, etc. To find the names of the user dictionaries Word knows 
+    about, select (in Word) Tools + Options + Spelling &amp; Grammar, 
+    then click on the Dictionaries... button. The dialog that pops up 
+    shows the path to the user dictionaries plus a list of user 
+    dictionary files. Knowing the path name and the user dictionary file 
+    name, you can add the user dictionary to the <A HREF="winref.htm#Properties">UserLexFiles</A> 
+    property, or use the Add button in the Dictionaries dialog box to 
+    locate and add the file.</P>
+   </UL>
+  <P ALIGN=LEFT>
+   <HR ALIGN=LEFT WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="AssocExtraInfo"></A>How do I associate extra information 
+   with words in a dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    Text lexicons (.tlx files) associate an action and another word with 
+    each word they contain.</P>
+   <LI>
+   <P>
+    You can use the other word to associate additional information, such 
+    as mapping one word to another, mapping a word to a small set of 
+    synonyms, mapping a part number to a name, etc.</P>
+   <LI>
+   <P>
+    Up to 80 characters can be associated with each word.</P>
+   <LI>
+   <P>
+    Add the words and associated information to a text lexicon using <A HREF="coreref.htm#SSCE_AddToLex">SSCE_AddToLex</A> 
+    (see <A HREF="#AddToCustDict">How do I create a custom dictionary?</A> 
+    for more information). Use <A HREF="coreref.htm#ActionCodes">SSCE_AUTO_CHANGE_ACTION
+     or SSCE_CONDITIONAL_CHANGE_ACTION</A>.</P>
+   <LI>
+   <P>
+    Use <A HREF="coreref.htm#SSCE_CheckWord">SSCE_CheckWord</A>, <A HREF="coreref.htm#SSCE_CheckBlock">SSCE_CheckBlock</A>,
+     or <A HREF="coreref.htm#SSCE_CheckString">SSCE_CheckString</A> to 
+    check your text.</P>
+   <LI>
+   <P>
+    When the SSCE_Check* function you call returns <A HREF="coreref.htm#SpellingCheckResult">SSCE_AUTO_CHANGE_WORD_RSLT</A> 
+    (or <A HREF="coreref.htm#SpellingCheckResult">SSCE_CONDITIONALLY_CHANGE_WORD_RSLT</A>),
+     the &quot;otherWord&quot; parameter will contain the associated information.</P>
+   <LI>
+   <P>
+    It is not possible to use this approach with compressed lexicons.</P>
+   <LI>
+   <P>
+    See also: <A HREF="#ExpandAbbreviations">How do I expand abbreviations?</A></P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="LexVsDict"></A>What's the difference between a dictionary 
+   and a lexicon?</H3>
+  <UL>
+   <LI>
+   <P>
+    There are no differences. The terms are interchangeable.</P>
+   <LI>
+   <P>
+    We prefer the term &quot;lexicon&quot; since &quot;dictionary&quot; 
+    suggests words including definitions. However, many customers are 
+    more comfortable with &quot;dictionary,&quot; so both terms are used.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="MainVsUser"></A>What's the difference between a main and 
+   user lexicon?</H3>
+  <UL>
+   <LI>
+   <P>
+    Main dictionary files are read only. They can't be modified at run 
+    time (though the .tlx files forming part of the main dictionary can 
+    be modified &quot;off line&quot;).</P>
+   <LI>
+   <P>
+    User dictionary files are intended to be modified at run time.</P>
+   <LI>
+   <P>
+    Main dictionary files do not appear in the &quot;Add words to&quot; 
+    drop-down list in the spelling dialog box, whereas user dictionary 
+    files do.</P>
+   <LI>
+   <P>
+    Main dictionary files do not appear in the Dictionaries dialog box, 
+    whereas user dictionary files do.</P>
+   <LI>
+   <P>
+    The Sentry DLL uses the <A HREF="winref.htm#Properties">MainLexFiles 
+    and UserLexFiles properties</A> to determine whether a given file is 
+    a user dictionary or main dictionary.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="LexFileNameEncoding"></A>How are the dictionary file names encoded?</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="coreapi.htm#AboutLexicons">About Sentry's Lexicons</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="TLXFileFormat"></A>What is the text lexicon (.tlx) file format?</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="coreapi.htm#AboutTextLexFileFmt">About the Text Lexicon 
+    File Format</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="AMTLXMainOrUser"></A>Is ssceam.tlx (or sscebr.tlx) a main 
+   dictionary or user dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    ssceam.tlx is part of the main American English dictionary. It should 
+    be listed in the <A HREF="winref.htm#Properties">MainLexFiles</A> 
+    property, and should <I>not</I> be listed in UserLexFiles (similarly 
+    for sscebr.tlx).</P>
+   <LI>
+   <P>
+    See <A HREF="coreapi.htm#AboutLexicons">About Sentry's Lexicons</A> 
+    for more information.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CallOpenLex"></A>Do I have to call SSCE_OpenLex?</H3>
+  <UL>
+   <LI>
+   <P>
+    No. You can set the <A HREF="winref.htm#Properties">MainLexFiles and 
+    UserLexFiles properties</A>, and the Sentry DLL will open 
+    dictionaries automatically.</P>
+   <LI>
+   <P>
+    You can access the session under which the dictionaries are 
+    automatically opened using <A HREF="winref.htm#SSCE_GetSid">SSCE_GetSid</A>.</P>
+   <LI>
+   <P>
+    If you open your own session using <A HREF="coreref.htm#SSCE_OpenSession">SSCE_OpenSession</A>,
+     you will have to open lexicons explicitly using <A HREF="coreref.htm#SSCE_OpenLex">SSCE_OpenLex</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="SetUpOnTargetSys"></A>How do I set up Sentry on the 
+   end-user's system?</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="winsdk.htm#How2InstallRunTime">How to Install the Sentry 
+    Run-Time Software with your Applications</A> for an overview of the procedure.</P>
+   <LI>
+   <P>
+    Note that in most cases, you must set the <A HREF="winref.htm#Properties">MainLexPath
+     and MainLexFiles properties</A> on the end-user's system 
+    (applications that call <A HREF="coreref.htm#SSCE_OpenLex">SSCE_OpenLex</A> 
+    explicitly are the exception).</P>
+   <LI>
+   <P>
+    MainLexPath and MainLexFiles are set up automatically on your 
+    development system when you install the Sentry SDK. Your setup program/procedure
+     is responsible for making these settings on your end user's system.</P>
+   <LI>
+   <P>
+    Most installation/setup programs can create or change registry keys 
+    and INI files, and this is the recommended way to set MainLexPath and 
+    MainLexFiles. Consult your installation/setup program's documentation 
+    for instructions.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="UseHLM"></A>How do I make the Sentry DLL read settings from 
+   HKEY_LOCAL_MACHINE instead of HKEY_CURRENT_USER?</H3>
+  <UL>
+   <LI>
+   <P>
+    Call <A HREF="winref.htm#SSCE_SetRegTreeName">SSCE_SetRegTreeName</A>,
+     and prefix the registry key with &quot;HKEY_LOCAL_MACHINE&quot; like this:</P>
+   </UL><BLOCKQUOTE><BLOCKQUOTE><PRE>HKEY_LOCAL_MACHINE\Software\myco\myapp</PRE></BLOCKQUOTE></BLOCKQUOTE><P
+    ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="UseINI"></A>How do I make the Sentry DLL use an INI file 
+   rather than the registry?</H3>
+  <UL>
+   <LI>
+   <P>
+    The 32-bit Sentry DLL will read and write settings from and to the 
+    INI file you specify after you call <A HREF="winref.htm#SSCE_SetIniFile">SSCE_SetIniFile</A>.</P>
+   <LI>
+   <P>
+    You should call SSCE_SetIniFile each time your application runs, 
+    before calling any other Sentry functions.</P>
+   <LI>
+   <P>
+    After SSCE_SetIniFile is called, the Sentry DLL will continue 
+    accessing properties through the INI file until <A HREF="winref.htm#SSCE_SetRegTreeName">SSCE_SetRegTreeName</A> 
+    is called.</P>
+   <LI>
+   <P>
+    The 16-bit Sentry DLL always accesses settings from an INI file 
+    (SSCE.INI by default).</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="SetRegTree"></A>How do I make the Sentry DLL read settings 
+   from my app's registry tree?</H3>
+  <UL>
+   <LI>
+   <P>
+    Call <A HREF="winref.htm#SSCE_SetRegTreeName">SSCE_SetRegTreeName</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="InstallOnNetwork"></A>How do I install Sentry on a network?</H3>
+  <UL>
+   <LI>
+   <P>
+    The Sentry DLL can be placed on a network drive if the directory it 
+    is in is listed in each client's PATH setting, or if it is located in 
+    the same directory as the application's .exe file.</P>
+   <LI>
+   <P>
+    Main dictionary files can be located on a network drive if the each 
+    client's <A HREF="winref.htm#Properties">MainLexPath</A> property 
+    points to the network directory containing them.</P>
+   <LI>
+   <P>
+    Updateable user dictionaries should not be shared by users on a 
+    network. A misspelled word added to a shared dictionary by one use 
+    will compromise the effectiveness of the spelling checker for all 
+    users. Instead, we recommend that each user have his or her own user 
+    dictionary, and submit global words to an administrator who adds them 
+    to a shared <A HREF="#AddToCustDict">custom dictionary</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="InstallFiles"></A>What files can I install on my end user's system?</H3>
+  <UL>
+   <LI>
+   <P>
+    The <A HREF="license.htm">License Agreement</A> specifies which files 
+    you are permitted to install on your end-user's system.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="RegisterDLL"></A>Do I have to register the Sentry DLL?</H3>
+  <UL>
+   <LI>
+   <P>
+    No. The Sentry DLL will be located by Windows if it is placed in the 
+    PATH or in the same directory as an application which uses it.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="InstallSDKEndUser"></A>Can I install the Sentry Windows SDK 
+   on an end-user's system?</H3>
+  <UL>
+   <LI>
+   <P>
+    Only if you purchase one copy of the Sentry Windows SDK for each end user.</P>
+   <LI>
+   <P>
+    Your application doesn't need the entire SDK at run time, only 
+    certain portions (namely, the Sentry DLL and dictionary files).</P>
+   <LI>
+   <P>
+    Your application also needs to set the <A HREF="winref.htm#Properties">MainLexPath
+     and MainLexFiles properties</A> so the Sentry DLL can find the dictionaries.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="ChangeOpts"></A>How do I change Sentry options at run time?</H3>
+  <UL>
+   <LI>
+   <P>
+    Users can change some options through the <A HREF="winapi.htm#How2DisplayOptions">Options
+     dialog box</A>.</P>
+   <LI>
+   <P>
+    To change options from your application, call <A HREF="coreref.htm#SSCE_SetOption">SSCE_SetOption</A>.
+     Pass the session id returned by <A HREF="winref.htm#SSCE_GetSid">SSCE_GetSid</A> 
+    (unless your application opens its own session using <A HREF="coreref.htm#SSCE_OpenSession">SSCE_OpenSession</A>).</P>
+   <LI>
+   <P>
+    Option <A HREF="winref.htm#Properties">properties</A> will not be 
+    updated until the Sentry DLL is unloaded (which happens when the last 
+    application using the DLL exits).</P>
+   <LI>
+   <P>
+    If your application modifies an option property (e.g., by changing 
+    the INI file or system registry), the change won't take effect until 
+    the Sentry DLL is next loaded.</P>
+   <LI>
+   <P>
+    Only options changed in the session returned by SSCE_GetSid will be 
+    reflected in the option properties (i.e., if you call SSCE_SetOption 
+    with a session id opened via SSCE_OpenSession, you must take 
+    responsibility for saving the option settings).</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="ValidatePartNos"></A>How do I check the validity of part 
+   numbers or other codes?</H3>
+  <UL>
+   <LI>
+   <P>
+    You can use Sentry to quickly validate codes such as part numbers, 
+    user ids, ZIP codes, etc. by checking that they exist in a dictionary.</P>
+   <LI>
+   <P>
+    Create a text file containing the codes, one code per line.</P>
+   <LI>
+   <P>
+    If your text file contains more than 5000 lines, consider <A HREF="#CompressLex">compressing
+     it</A>.</P>
+   <LI>
+   <P>
+    Open the text file (or compressed lexicon) using <A HREF="coreref.htm#SSCE_OpenLex">SSCE_OpenLex</A>.</P>
+   <LI>
+   <P>
+    Call <A HREF="coreref.htm#SSCE_CheckWord">SSCE_CheckWord</A> to 
+    validate a code against the dictionary of codes.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CountWords"></A>How do I count words?</H3>
+  <UL>
+   <LI>
+   <P>
+    Call <A HREF="coreref.htm#SSCE_CountStringWor">SSCE_CountStringWords</A> 
+    to count the words in a string.</P>
+   <LI>
+   <P>
+    See <A HREF="coreapi.htm#How2CheckString">How to Check Spelling of a 
+    String of Words</A> for the rules used to identify words within a string.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="ExpandAbbreviations"></A>How do I expand abbreviations?</H3>
+  <UL>
+   <LI>
+   <P>
+    Add the abbreviations and expansions to a <A HREF="#AddToCustDict">custom
+     dictionary</A> with the <A HREF="coreref.htm#ActionCodes">SSCE_AUTO_CHANGE_ACTION
+     or SSCE_CONDITONAL_CHANGE_ACTION</A>.</P>
+   <LI>
+   <P>
+    Include the custom dictionary in the <A HREF="winref.htm#Properties">MainLexFiles</A> 
+    property (or open it explicitly using <A HREF="coreref.htm#SSCE_OpenLex">SSCE_OpenLex</A>).</P>
+   <LI>
+   <P>
+    If your application calls <A HREF="winref.htm#SSCE_CheckBlockDlg">SSCE_CheckBlockDlg</A>,
+     <A HREF="winref.htm#SSCE_CheckCtrlBackg">SSCE_CheckCtrlBackground</A>,
+     or <A HREF="winref.htm#SSCE_CheckCtrlDlg">SSCE_CheckCtrlDlg</A>, the 
+    abbreviation expansion will happen automatically (or conditionally).</P>
+   <LI>
+   <P>
+    If your application calls <A HREF="coreref.htm#SSCE_CheckBlock">SSCE_CheckBlock</A>,
+     <A HREF="coreref.htm#SSCE_CheckWord">SSCE_CheckWord</A>, or <A HREF="coreref.htm#SSCE_CheckString">SSCE_CheckString</A>,
+     the <A HREF="coreref.htm#SpellingCheckResult">result bit-mask</A> 
+    from these functions will contain SSCE_AUTO_CHANGE_WORD_RSLT (or 
+    SSCE_CONDITIONAL_CHANGE_WORD_RSLT) when an abbreviation is 
+    encountered. The &quot;otherWord&quot; parameter will contain the 
+    abbreviation's expansion.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="Wildcards"></A>How do I find words using wildcards?</H3>
+  <UL>
+   <LI>
+   <P>
+    Sentry's API provides no means of searching using wildcards.</P>
+   <LI>
+   <P>
+    If you want to locate words using a wildcard in a single character 
+    position, substitute each letter for the wildcard character and call <A HREF="coreref.htm#SSCE_CheckWord">SSCE_CheckWord</A> 
+    to determine if the result matches a known word.</P>
+   <LI>
+   <P>
+    Example: For <I>b?ll</I>, try <I>ball</I>, <I>bbll</I>, <I>bcll</I>...
+     <I>bzll</I>. With the American English dictionary open, 
+    SSCE_CheckWord will match <I>ball</I>, <I>bell</I>, <I>bill</I>, <I>boll</I>,
+     and <I>bull</I>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="RandomWord"></A>How do I generate a random word?</H3>
+  <UL>
+   <LI>
+   <P>
+    Sentry's API provides no means of selecting random words directly, 
+    but you can use this technique:</P>
+   <OL>
+    <LI>
+    <P>
+     Generate a random string of letters roughly equal in length to the 
+     length of the word you want, or of a random length if the length 
+     isn't important. For best results, your random string should contain 
+     at least four characters.</P>
+    <LI>
+    <P>
+     If you want random words starting with a specific letter, make your 
+     random string start with that letter. Generally, if you want your 
+     random word to have any particular characteristics (e.g., end in <I>ing</I>,
+      vowel in the second position, etc.), give the random string the same characteristics.</P>
+    <LI>
+    <P>
+     Pass the random string to the <A HREF="coreref.htm#SSCE_Suggest">SSCE_Suggest</A> 
+     function. If you want the random word to closely resemble the random 
+     string, use a low depth value.</P>
+    <LI>
+    <P>
+     Chose one of the resulting suggestions as the random word. Some of 
+     the suggestions may be acronyms or abbreviations (all caps), and some 
+     may be proper nouns (start with a capital). You may want to exclude 
+     these if they aren't suitable for your purpose. You may have to call 
+     SSCE_Suggest several times to obtain a random word with the right characteristics.</P>
+    </OL>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="Suggestions"></A>How do I look up suggestions?</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="coreapi.htm#How2Suggest">How to Look Up Suggestions for 
+    Misspelled Words</A>.</P>
+   <LI>
+   <P>
+    The built-in spelling dialog box locates and displays suggestions automatically.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="MutliThread"></A>How do I use the Sentry DLL in a 
+   multi-threaded application?</H3>
+  <UL>
+   <LI>
+   <P>
+    Each thread should open its own session using <A HREF="coreref.htm#SSCE_OpenSession">SSCE_OpenSession</A>.
+     Each session is thread safe.</P>
+   <LI>
+   <P>
+    If threads must share sessions, the session must be treated as a 
+    critical resource. Access to the session must be serialized using a 
+    semaphore, mutex, etc.</P>
+   <LI>
+   <P>
+    The session id returned by <A HREF="winref.htm#SSCE_GetSid">SSCE_GetSid</A> 
+    should not be used in a multi-threaded context, or in any kind of 
+    background processing, since this session id may be shared by other 
+    applications using the Sentry DLL.</P>
+   <LI>
+   <P>
+    See <A HREF="coreapi.htm#AboutThreadSafety">About Thread Safety</A> 
+    for more information.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CallOpenSession"></A>Do I have to call SSCE_OpenSession 
+   before calling SSCE_CheckBlockDlg, SSCE_CheckCtrlBackground, or SSCE_CheckCtrlDlg?</H3>
+  <UL>
+   <LI>
+   <P>
+    No. The Sentry DLL automatically opens a session and uses it when you 
+    call SSCE_CheckCtrlDlg, etc.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="StaticLink"></A>Can I statically link the Sentry engine into 
+   my application rather than calling it as a DLL?</H3>
+  <UL>
+   <LI>
+   <P>
+    The Sentry Windows SDK ships with 16- and 32-bit DLLs. It does not 
+    include a static library you can link with your application. You 
+    could upgrade to the Sentry Source SDK, compile the source code, and 
+    statically link the object files with your application.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CheckBackground"></A>How do I check spelling as the user 
+   types, like in Word or Office</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="winapi.htm#How2CheckBackground">Checking Rich-Text 
+    Controls in the Background</A></P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="UK"></A>How do I check spelling in British (or UK or 
+   International) English?</H3>
+  <UL>
+   <LI>
+   <P>
+    When you install the Sentry Windows SDK on your development system, 
+    the registry is set up to use American English dictionaries. Use this 
+    procedure to switch to British English dictionaries:</P>
+   <OL>
+    <LI>
+    <P>
+     Run the Sentry Example Program (Start + Programs + Sentry Spelling 
+     Checker Engine + Sentry Example Program).</P>
+    <LI>
+    <P>
+     Click the &quot;Check text box&quot; button.</P>
+    <LI>
+    <P>
+     Enter your license key when prompted.</P>
+    <LI>
+    <P>
+     Click one of the &quot;Check Spelling&quot; buttons.</P>
+    <LI>
+    <P>
+     When the &quot;Check Spelling&quot; dialog box appears, click the 
+     &quot;Options&quot; button.</P>
+    <LI>
+    <P>
+     When the &quot;Options&quot; dialog box appears, select &quot;British 
+     English&quot; in the &quot;Main Dictionary language&quot; drop-down list.</P>
+    <LI>
+    <P>
+     Click the &quot;OK&quot; button in the &quot;Options&quot; dialog box.</P>
+    <LI>
+    <P>
+     Click the &quot;Cancel&quot; button in the &quot;Check Spelling&quot; 
+     dialog box.</P>
+    </OL>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CheckNonEnglish"></A>How do I check spelling in languages 
+   other than English?</H3>
+  <UL>
+   <LI>
+   <P>
+    The Sentry DLL checks the spelling of words against the set of open dictionaries.</P>
+   <LI>
+   <P>
+    To check the spelling of text in a different language, tell Sentry to 
+    use dictionary files specific to that language.</P>
+   <LI>
+   <P>
+    You can <A HREF="http://www.wintertree-software.com/dev/dict">purchase
+     dictionaries</A> in languages other than English from Wintertree Software.</P>
+   <LI>
+   <P>
+    You may be able to obtain word lists from other sources and use them 
+    to <A HREF="#CompressLex">create compressed dictionaries</A>.</P>
+   <LI>
+   <P>
+    Place the dictionary file(s) in the directory indicated by the <A HREF="winref.htm#Properties">MainLexPath
+     property</A>.</P>
+   <LI>
+   <P>
+    See <A HREF="#ChangeMainDictLang">How do I change the main dictionary language?</A> 
+    for further instructions.</P>
+   <LI>
+   <P>
+    If you are using Sentry's built-in dialog boxes, you may want to 
+    translate the text they display into another language. See <A HREF="#ChangeDlgLang">How
+     do I change the language of text in the built-in dialog boxes?</A> 
+    for more information.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="MultipleLanguages"></A>How do I check spelling in multiple languages?</H3>
+  <UL>
+   <LI>
+   <P>
+    Ideally, your application should provide some means for the user to 
+    indicate which language text is entered in, and <A HREF="#CheckNonEnglish">use
+     main dictionaries specific to that language</A>.</P>
+   <LI>
+   <P>
+    It's not a good idea to have dictionaries for more than one language 
+    open at the same time. Having dictionaries for two or more languages 
+    open at once increases the probability that a misspelled word in one 
+    language will match a valid word in the other language, and therefore 
+    will not be detected. Also, having two main dictionaries open at once 
+    will increase the time required to check spelling and look up suggestions.</P>
+   <LI>
+   <P>
+    If you cannot tell which language text was entered in, you could try 
+    checking the text against dictionaries for each language, one by one, 
+    and picking the language that results in the fewest spelling errors.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="HTMLForm"></A>How do I check spelling in an HTML form?</H3>
+  <UL>
+   <LI>
+   <P>
+    You can use Sentry to check spelling of text boxes in HTML forms if 
+    your Web server is IIS or PWS. See <A HREF="sentry_asp.html">Using 
+    Sentry Spelling Checker Engine with ASP</A> for more information.</P>
+   <LI>
+   <P>
+    The Sentry DLL was designed for use in desktop applications operated 
+    by a single user. Using Sentry in a server-based spelling checker is 
+    effective only if your server receives low traffic volume. Our <A HREF="http://www.wintertree-software.com/dev/spellingserver/">Wintertree
+     Spelling Server</A> product is better suited to server-based spell-checking.</P>
+   <LI>
+   <P>
+    Browsers will generally not allow calls to DLLs on the client. You 
+    may be able to wrap the Sentry DLL in an ActiveX control or signed 
+    applet, but this is not tested or supported.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CheckHTML"></A>How do I check the spelling of HTML?</H3>
+  <UL>
+   <LI>
+   <P>
+    When the <A HREF="winref.htm#Properties">IgnoreHTMLMarkups</A> (<A HREF="coreapi.htm#IGNOREHTMLMARKUPSOP">SSCE_IGNORE_HTML_MARKUPS_OPT</A>)
+     option is enabled, Sentry will skip over any HTML markups 
+    encountered in the text.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CheckPhrases"></A>How do I check the spelling of multi-word 
+   phrases, such as names?</H3>
+  <UL>
+   <LI>
+   <P>
+    You can add multi-word phrases containing spaces to a <A HREF="#AddToCustDict">custom
+     dictionary</A>.</P>
+   <LI>
+   <P>
+    Use <A HREF="coreref.htm#SSCE_CheckWord">SSCE_CheckWord</A> to check 
+    multi-word phrases. The string passed to this function is treated as 
+    a single word, even if it contains spaces.</P>
+   <LI>
+   <P>
+    Sentry functions that check strings of words (<A HREF="coreref.htm#SSCE_CheckBlock">SSCE_CheckBlock</A>,
+     <A HREF="coreref.htm#SSCE_CheckString">SSCE_CheckString</A>, <A HREF="winref.htm#SSCE_CheckBlockDlg">SSCE_CheckBlockDlg</A>,
+     <A HREF="winref.htm#SSCE_CheckCtrlDlg">SSCE_CheckCtrlDlg</A>, <A HREF="winref.htm#SSCE_CheckCtrlBackg">SSCE_CheckCtrlBackground</A>)
+     treat spaces as word separators, so these functions cannot be used 
+    to check multi-word phrases.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CheckTextBox"></A>How do I check the spelling of text in a 
+   text box or control?</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="winapi.htm#How2CheckControl">How to Check Spelling in a 
+    Text Control or Rich-Text Control.</A></P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="CheckSingleWord"></A>How do I find out if a single word is 
+   spelled correctly?</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="coreapi.htm#How2CheckWord">How to check spelling of a 
+    single word</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="WasTextChanged"></A>How do I find out if the user made 
+   corrections to the text?</H3>
+  <UL>
+   <LI>
+   <P>
+    Call <A HREF="winref.htm#SSCE_GetStatistics">SSCE_GetStatistics</A>. 
+    If the value of the &quot;wordsChanged&quot; parameter is greater 
+    than zero, the text was modified.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="IgnoreURL"></A>How do I make Sentry skip over URLs, e-mail 
+   addresses, etc.?</H3>
+  <UL>
+   <LI>
+   <P>
+    Enable the <A HREF="winref.htm#Properties">IgnoreDomainNames</A> (<A HREF="coreapi.htm#IGNOREDOMAINNAMESOP">SSCE_IGNORE_DOMAIN_NAMES_OPT</A>)
+     option. When this option is set, Sentry skips over text that appears 
+    to be a URL or e-mail address.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="ChangeDlgLang"></A>How do I change the language of text in 
+   the built-in dialog boxes?</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="winapi.htm#How2Localize">How to localize Sentry's 
+    built-in dialog boxes</A>.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="SetDlgPos"></A>How do I display the built-in spelling dialog 
+   box at a specific screen location?</H3>
+  <UL>
+   <LI>
+   <P>
+    Call <A HREF="winref.htm#SSCE_SetDialogOrigi">SSCE_SetDialogOrigin</A>.
+     When the spelling dialog is displayed subsequently, it will be 
+    displayed at the specified position.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="AltHelpFile"></A>How do I make the built-in dialog boxes 
+   display my help file when the Help button is pressed?</H3>
+  <UL>
+   <LI>
+   <P>
+    See <A HREF="winsdk.htm#How2UseDiffHelp">How to use a different help file</A>.</P>
+   <LI>
+   <P>
+    The help text displayed by the included help file (ssce.hlp) in RTF 
+    form is located in ssce\sdk\lib\ssce.rtf. This file can be imported 
+    into most help-file generation applications.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="PreventAddWords"></A>How do I prevent the user from adding 
+   words to a user dictionary?</H3>
+  <UL>
+   <LI>
+   <P>
+    The &quot;Add&quot; button in the built-in spelling dialog box will 
+    be enabled only if at least one user dictionary exists. If there are 
+    no user dictionaries, the Add button will be disabled.</P>
+   <LI>
+   <P>
+    The user will still be able to add user dictionaries by clicking the 
+    &quot;Dictionaries&quot; button.</P>
+   <LI>
+   <P>
+    See <A HREF="#RemoveButton">How do I remove or disable a button from 
+    a built-in dialog box?</A> for instructions on removing or disabling 
+    the &quot;Dictionaries&quot; button.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="PreventChangeOption"></A>How do I prevent the user from 
+   changing options?</H3>
+  <UL>
+   <LI>
+   <P>
+    The built-in spelling dialog box contains a Options button, which 
+    presents the options dialog box. This dialog box allows the user to 
+    change certain options.</P>
+   <LI>
+   <P>
+    See <A HREF="#RemoveButton">How do I remove or disable a button from 
+    a built-in dialog box?</A> for instructions on removing or disabling 
+    the &quot;Options&quot; button.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="RemoveButton"></A>How do I remove or disable a button from a 
+   built-in dialog box?</H3>
+  <UL>
+   <LI>
+   <P>
+    You can define an alternate dialog box template with the button 
+    hidden or disabled. See <A HREF="winapi.htm#How2ChangeDialogApp">How 
+    do change the appearance of Sentry's dialog boxes</A> for instructions.</P>
+   </UL>
+  <P ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <H3>
+   <A NAME="HiliteMisspelled"></A>Why doesn't SSCE_CheckCtrlDlg 
+   highlight misspelled words in my text box?</H3>
+  <UL>
+   <LI>
+   <P ALIGN=LEFT>
+    Make sure the text box has the Hide Selection property set to False. 
+    If you create the control yourself, make sure the ES_NOHIDESEL edit 
+    style is set. See <A HREF="winapi.htm#How2CheckControl">How to check 
+    an edit control or rich-edit control</A> for more information.</P>
+   </UL>
+  <P ALIGN=LEFT>
+   <HR ALIGN=LEFT WIDTH="100%" SIZE="2">
+   </P>
+  <P>
+   Copyright &copy; 2001 <A HREF="http://www.wintertree-software.com">Wintertree
+    Software Inc</A>.<BR>
+   $Revision: 5.14.10 $
+ </BODY>
+</HTML>

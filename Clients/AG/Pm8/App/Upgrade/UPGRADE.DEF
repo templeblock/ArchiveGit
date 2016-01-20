@@ -1,0 +1,8 @@
+; Upgrade.def : Declares the module parameters for the DLL.
+
+LIBRARY      IUPG32
+DESCRIPTION  'Instant-upgrade Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+	Upgrade @1

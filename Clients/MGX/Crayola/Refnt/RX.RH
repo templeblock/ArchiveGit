@@ -1,0 +1,520 @@
+//®FD1¯®PL1¯®TP0¯®BT0¯
+// (c) Copyright 1991 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+
+
+//************************************************************************
+// Standard Control Heights -- MAY BE EDITTED FOR LOCALIZATIONS
+//************************************************************************
+#define TDY 10
+#define EDY 13
+#define NDY 12
+#define BDY 15
+#define CDY 13
+#define RDY 10
+#define SLY 10
+#define CBY 9
+#define MINIY 12
+#define PPMINIY 13
+#define MINIX 16
+
+//************************************************************************
+// Standard Widths for Decimal Digits - MAY BE EDITTED FOR LOCALIZATIONS
+// 4 * nDigits + 5
+//************************************************************************
+#define DX1 9
+#define DX2 13
+#define DX3 17
+#define DX4 21
+#define DX5 25
+#define DX6 29
+#define DX7 33
+#define DX8 37
+#define SP 3
+
+
+//************************************************************************
+// NOTHING BELOW THIS LINE SHOULD BE MODIFIED FOR LOCALIZATION
+//************************************************************************
+
+
+
+
+//************************************************************************
+// Private Styles and Style Groupings
+//************************************************************************
+// Generic custom control definitions
+#define WS_NOTACTIVE	1L
+
+//***************************************************
+// Icon & image controls share some code.. be careful about overlapping flags
+// Icon control styles & LabeledFrame Also
+#define WS_NOSHADOWS	0x0002L
+#define WS_BITMAP 		0x0004L
+#define WS_TOOL  		0x0008L
+#define WS_TEXT	  		0x0010L
+#define WS_IMAGE  		0x0020L
+#define WS_ONTIMER		0x0040L
+#define WS_OBJECT		0x0080L
+#define WS_BORDERONLY	0x0100L
+#define WS_TWOFACED		0x0200L
+// Image control styles
+#define IS_STRETCHABLE	0x0002L
+#define IS_MOVEABLE		0x0004L
+#define IS_HASCHANGED	0x0010L
+#define IS_RATIO_CONSTRAIN  0x0020L
+#define IS_LIMITSIZE	0x0040L
+//***************************************************
+
+// Step control style
+#define ST_HORZ 	1L
+
+// Ruler control styles
+#define RS_HORZ		1L
+#define RS_VERT		2L
+
+//************************************************************************
+// Defines for Conditional Compilation
+//************************************************************************
+#ifdef OEM
+	#define RETAIL_MENU		GRAYED
+	#define RETAIL_BUTTON	DISABLED
+	#define RETAIL_ICON		/E+ WS_NOTACTIVE
+#else
+	#define RETAIL_MENU
+	#define RETAIL_BUTTON
+	#define RETAIL_ICON
+#endif
+
+// Named Switches
+#define PRELOAD /Rp
+#define LOADONCALL /Rl
+#define MOVEABLE /Rm
+#define DISCARDABLE /Rd+
+
+#define MENUBREAK /MB+
+#define MENUINACTIVE /Mi+
+
+#define ALT /Ka+
+#define CTRL /Kc+
+#define SHIFT /Ks+
+#define NOINV /Kn+
+#define ASCII /KV /KE
+#define VIRTKEY /KV /KE
+
+#define TAB /T+
+#define NOTAB /T-
+#define GROUP /G+
+#define NOGROUP /G-
+
+#define BORDER /Bl
+#define NOBORDER /B-
+#define CAPTION /WT+
+#define SYSMENU /WS+
+#define DLGFRAME /Bd
+//#define NOIDLEMSG /E+ DS_NOIDLEMSG
+#define PASSTHROUGH /E+ DS_PASSTHROUGH
+#define NOIDLEMSG
+#define VISIBLE /WV+
+#define INVISIBLE /WV-
+#define DISABLED /Wd+
+#define ENABLED /Wd-
+#define CHILD /WC
+#define POPUP /WP
+#define CLIPSIBLINGS /Ws+
+#define CLIPCHILDREN /Wc+
+#define MAXIMIZEBOX /Wx+
+#define NOMAXIMIZEBOX /Wx-
+#define MINIMIZEBOX /Wn+
+#define NOMINIMIZEBOX /Wn-
+#define V_SCROLL /Wv+
+#define H_SCROLL /Wh+
+
+#define TOP /At
+#define BOTTOM /Ab
+#define MID /Am
+#define CENTER /Ac
+#define LEFT /Al
+#define RIGHT /Ar
+#define WIDE /AW
+#define TALL /AH
+#define FULL /Aw /Ah
+#define FULLX /Aw
+#define FULLY /Ah
+
+#define LEFT2RIGHT /Cr
+#define TOP2BOTTOM /Cc
+#define STACK /Cs
+#define SAMEWIDTH /Cw+
+#define SAMEHEIGHT /Ch+
+
+// Predefined spacing
+#define RECT(l,t,r,b) PXY(l,t) PWH(r - l,b - t)
+#define FU(n) f: ((4 * (n)) / 5)
+#define XY(x,y) /Px FU(x) /Py FU(y)
+#define PXY(x,y) /Px (x) /Py (y)
+#define WIDTH(dx) /Pw FU(dx)
+#define HEIGHT(dy) /Ph FU(dy)
+#define WH(dx,dy) /Pw FU(dx) /Ph FU(dy)
+#define PW(dx) /Pw (dx)
+#define PH(dy) /Ph (dy)
+#define PWH(dx,dy) /Pw (dx) /Ph (dy)
+#define TIGHT TIGHTX TIGHTY
+#define TIGHTX /SX -1
+#define TIGHTY /SY -1
+#define FLUSH FLUSHX FLUSHY
+#define FLUSHX /SX 0
+#define FLUSHY /SY 0
+#define CLOSE CLOSEX CLOSEY
+#define CLOSEX /SX f: 1
+#define CLOSEY /SY f: 1
+#define LOOSE LOOSEX LOOSEY
+#define LOOSEX /SX f: 3
+#define LOOSEY /SY f: 3
+#define SPACEIN(x,y) /Sx f: (x) /Sy f: (y)
+#define SPACEOUT(x,y) /SX f: (x) /SY f: (y)
+#define SPACE(n) control /Pw f: (n) /Ph f: (n) TIGHT
+#define PSPACE(n) control /Pw (n) /Ph (n) TIGHT
+#define GAP control /Pw 1 /Ph 1 TIGHT
+#define FILLW control WIDE /Ph 1 FLUSH
+#define FILLH control TALL /Pw 1
+#define CHARS(n) WIDTH( 1 + (RXU_XSTANDARD * ((n) + 1)) )
+//#define CHARS(n) WIDTH( 1 + (3 * ((n) + 1)) ) // For the system font
+#define CHARHEIGHT(n) HEIGHT( 1 + (RXU_YSTANDARD * ((n) + 1)) )
+#define ITEMS(n) /D dropheight (n)
+
+#define IDX(name,id) /L name /X id
+#define IDN(name,id) /L name /N id
+#define RCDATA(id) block /N id /U "rcdata" LOADONCALL MOVEABLE DISCARDABLE
+#define DIALOG(name,id) dialog /L name /N id LOADONCALL MOVEABLE DISCARDABLE NOIDLEMSG
+#define MODELESS CHILD VISIBLE CLIPSIBLINGS NOBORDER
+#define MODELESSFLOAT CHILD VISIBLE CLIPSIBLINGS BORDER CAPTION SYSMENU
+#define MODAL POPUP VISIBLE DLGFRAME
+#define MODALFLOAT POPUP VISIBLE DLGFRAME CAPTION
+#define MODALFULL POPUP VISIBLE NOBORDER
+
+#define DEFFONT /F RXF_SMALLSYSTEM
+#define SYSFONT /F RXF_SYSTEM
+#define THINFONT /F RXF_ANSIVAR
+
+default dialog		TIGHT DEFFONT SPACEIN(0,0) MID CENTER
+default frame		LOOSE DEFFONT SPACEIN(0,0)
+default control		LOOSE DEFFONT NOGROUP
+default defpush		LOOSE HEIGHT(BDY) WIDTH(40) DEFFONT TAB GROUP
+default push		LOOSE HEIGHT(BDY) WIDTH(40) DEFFONT TAB GROUP
+default text		LOOSEX TIGHTY HEIGHT(TDY) DEFFONT NOTAB NOGROUP /Pw-
+default text_centered	LOOSEX TIGHTY HEIGHT(TDY) DEFFONT NOTAB NOGROUP /Pw-
+default text_right	LOOSEX TIGHTY HEIGHT(TDY) DEFFONT NOTAB NOGROUP /Pw-
+default hslider		LOOSE HEIGHT(SLY) DEFFONT TAB GROUP // /E+ SS_CLICKSTEP
+default vslider		LOOSE HEIGHT(SLY) DEFFONT TAB GROUP // /E+ SS_CLICKSTEP
+default radio		LOOSE HEIGHT(RDY) DEFFONT TAB GROUP
+default check_led1	LOOSE HEIGHT(CDY) DEFFONT TAB GROUP
+default edit		LOOSE HEIGHT(EDY) DEFFONT TAB NOGROUP
+default combolist	LOOSE HEIGHT(EDY) DEFFONT TAB NOGROUP
+default comboedit	LOOSE HEIGHT(EDY) DEFFONT TAB NOGROUP
+default listbox		LOOSE DEFFONT TAB NOGROUP
+
+#define OK defpush IDX("OK",IDOK)
+#define CANCEL push IDX("Cancel",IDCANCEL)
+
+#define ICONR(id) panel_push IDX("",id) TIGHT MID /E+ PBS_PICTURERADIOBTN /D paneldef id 16 16 0 0 PBS_UP
+#define BACKGROUND(name) picture_bmp WIDE TALL /E+ PCS_ACTUAL /E+ PCS_TILED /L name
+#define PATTERN(r1,g1,b1,r2,g2,b2) control /U RXCN_BKGRND /E+ BCS_PATTERN /D bkpat BKP_DITHER1 r1 g1 b1 0 r2 g2 b2 0
+#define SOLID(r,g,b,id) control /U RXCN_BKGRND /E+ BCS_SOLID IDX("",id) /D bkpat -1 r g b 0 r g b 0
+#define PATCH(r,g,b,id) SOLID(r,g,b,id) BORDER WH(8,8) TIGHT
+pattern bkpat		w: 1 b: 4 b: 4
+//picture_bmp /AW /AH /E+ PCS_ACTUAL /E+ PCS_TILED /L "spots"
+
+//************************************************************************
+// Macros for simplified control assignents
+//************************************************************************
+#define THIN /E+ FCS_THIN
+#define MEDIUM /E+ FCS_MEDIUM
+#define THICK /E+ FCS_THICK
+#define GROOVE /U RXCN_FRAME /E+ FCS_GROOVE SPACEIN(3,3)
+#define BEVELIN /U RXCN_FRAME /E+ FCS_BEVELIN SPACEIN(3,3)
+#define BEVELOUT /U RXCN_FRAME /E+ FCS_BEVELOUT SPACEIN(3,3)
+#define RIDGE /U RXCN_FRAME /E+ FCS_RIDGE SPACEIN(3,3)
+#define BOX /U RXCN_FRAME /E+ FCS_BORDER SPACEIN(3,3)
+#define CBSORT /E+ CBS_SORT
+#define LBSORT /E+ LBS_SORT
+#define NOPREFIX /E+ SS_NOPREFIX
+
+//************************************************************************
+// Border Macros
+//************************************************************************
+//#define ICONBORDER frame MEDIUM GROOVE MID SPACEIN(0,0)
+//#define RIBBONBORDER frame THIN GROOVE LEFT2RIGHT WIDE SPACEIN(1,0)
+#define DLGPANE frame THIN BEVELOUT TOP2BOTTOM FLUSH
+
+//************************************************************************
+// Dialog Macros
+//************************************************************************
+//#define RIBBON MODELESS TOP WIDE LEFT2RIGHT SPACEIN(2,2) MID
+//#define TOOLBAR MODELESS LEFT TALL TOP2BOTTOM SPACEIN(3,1) CENTER
+//#define STATUSBAR MODELESS BOTTOM WIDE LEFT2RIGHT SPACEIN(3,3) MID
+
+//************************************************************************
+// Macros for Beveled Boxes and Lines
+//************************************************************************
+#define DIVIDER control THIN BEVELIN PW(2) TALL TIGHT
+#define LINE control THIN BEVELIN PH(2) WIDE LOOSE
+#define VBLACKLINE control THIN BOX PW(1) TALL TIGHT
+#define BLACKLINE control THIN BOX PH(1) WIDE TIGHT
+#define THICKBLACKLINE control THIN BOX PH(2) WIDE TIGHT
+
+//************************************************************************
+// Static Text Macros - L for Little fonts - BOX for boxed text
+//************************************************************************
+#define TEXTRX(name, id) \
+	text IDX(name,id) LEFT
+#define CTEXTRX(name, id) \
+	text_centered IDX(name,id) CENTER
+#define RTEXTRX(name, id) \
+	text_right IDX(name,id) RIGHT
+#define LABEL(name) \
+	TEXTRX(name,-1) THINFONT CENTER
+#define LABELID(name, id) \
+	TEXTRX(name, id) THINFONT CENTER
+
+//************************************************************************
+// Macros for Check, Radio, and Push Buttons
+//************************************************************************
+#define BUTTONRX(name, id) \
+	push IDX(name,id)
+#define DUTTONRX(name, id) \
+	defpush IDX(name,id)
+#define CHECKRX(name, id) \
+	check_led1 IDX(name,id)
+#define RADIORX(name, id) \
+	radio IDX(name,id)
+
+//************************************************************************
+// Macros for Edit Boxes
+//************************************************************************
+//	edit IDX("",id)
+#define EDITRX(id) \
+	control /U 1 IDX("",id) BORDER LOOSE HEIGHT(EDY) DEFFONT TAB NOGROUP
+#define NAME(id) \
+	EDITRX(id) /E+ ES_AUTOHSCROLL /E+ ES_OEMCONVERT
+
+//************************************************************************
+// Macros for List Boxes
+//************************************************************************
+#define LISTRX(id) \
+	listbox /X id V_SCROLL BORDER \
+		/E+ LBS_SORT \
+		/E+ LBS_NOINTEGRALHEIGHT \
+		/E+ LBS_NOTIFY
+#define ODLISTRX(id) \
+	LISTRX(id) \
+		/E+ LBS_OWNERDRAWFIXED \
+		/E+ LBS_HASSTRINGS
+#define ODMCLISTRX(id) \
+		LISTRX(id) \
+		/E+ LBS_OWNERDRAWFIXED \
+		/E+ LBS_HASSTRINGS \
+		/E+ LBS_MULTICOLUMN \
+		/E+ LBS_NOINTEGRALHEIGHT \
+		/E+ LBS_WANTKEYBOARDINPUT
+
+
+//************************************************************************
+// Macros for Combo Boxes
+//************************************************************************
+#define COMBORX(id) \
+	combolist /X id V_SCROLL \
+		/E+ CBS_DROPDOWNLIST \
+		/E+ CBS_AUTOHSCROLL
+#define COMBOEDITRX(id) \
+	comboedit /X id V_SCROLL \
+		/E+ CBS_DROPDOWN \
+		/E+ CBS_AUTOHSCROLL \
+		/E+ CBS_SORT
+#define ODCOMBORX(id) \
+	COMBORX(id) \
+		/E+ CBS_OWNERDRAWFIXED \
+		/E+ CBS_HASSTRINGS
+#define CBITEM(name, id) \
+	push IDX(name,id) XY(0,0) NOTAB NOGROUP INVISIBLE TIGHT /Ov-
+
+//************************************************************************
+// Macros for Sliders
+//************************************************************************
+#define HSLIDE(id,mn,mx,mnt,mxt) \
+	hslider IDX("",id) /D sliderdata 0 mn mx 1 mnt mxt
+#define VSLIDE(id,mn,mx,mnt,mxt) \
+	vslider IDX("",id) /D sliderdata 0 mn mx 1 mnt mxt
+
+//************************************************************************
+// Macros for Scroll Bars
+//************************************************************************
+#define HSCROLL(id) \
+	hscroll IDX("",id) TAB
+#define VSCROLL(id) \
+	vscroll IDX("",id) TAB
+
+//************************************************************************
+// Macros for Icons
+//************************************************************************
+#define ICONRX(id) \
+	control /U "icon" IDX("",id) PWH(34,34) TAB
+#define ICONRX2(id) \
+	ICONRX(id) /E+ WS_TWOFACED
+#define SMICON(id) \
+	ICONRX(id) PWH(17,17)
+#define MEDICON(id) \
+	ICONRX(id) PWH(26,26)
+#define IMAGEICON(id) \
+	ICONRX(id) NOTAB /E+ WS_TOOL /E+ WS_IMAGE TIGHT
+#define IMAGEICON(id) \
+	ICONRX(id) NOTAB /E+ WS_TOOL /E+ WS_IMAGE TIGHT
+#define TOOL(id) \
+	ICONRX(id) NOTAB /E+ WS_TOOL TIGHT
+#define MINITOOL(id) \
+	SMICON(id) NOTAB /E+ WS_TOOL TIGHT
+#define TICONRX(id) \
+	ICONRX(id) NOTAB /E+ WS_TOOL /E+ WS_NOSHADOWS
+#define BUTTICON(id) \
+	ICONRX(id) NOTAB /E+ WS_ONTIMER
+#define DUAL(name, id) \
+	ICONRX(id) /L name /E+ WS_TEXT
+#define PICON(id) \
+	ICONRX(id) PWH(32,32) \
+		/E+ WS_TOOL \
+		/E+ WS_NOTACTIVE \
+		/E+ WS_NOSHADOWS
+#define BITMAPRX(id) \
+	control /U "icon" IDX("",id) /E+ WS_BITMAP
+#define BITMAPRX2(id) \
+	BITMAPRX(id) /E+ WS_TWOFACED
+#define PBITMAPRX(id, dx, dy) \
+	BITMAPRX(id) WH(dx,dy) DISABLED /E+ WS_NOTACTIVE
+#define OBJICON(id) \
+	ICONRX(id) NOTAB /E+ WS_OBJECT TIGHT
+
+//************************************************************************
+// Special Custom Controls
+//************************************************************************
+#define TEXTFRAMERX(id) \
+	control /U "labeledframe" /X id /E+ WS_IMAGE TAB
+
+#define VISUALFRAMERX(id) \
+	control /U "visualframe" /X id TAB
+
+#define TEXTBLOCK(id) \
+	control /U "block" IDX("",id)
+#define COLORRX(name, id) \
+	control /U "color" IDX(name,id)
+#define SPINRX(id) \
+	control /U "spin" IDX("",id) WH(8,EDY) TIGHTX
+#define IMAGERX(name,id) \
+	control /U "image" IDX(name,id) TAB CLIPCHILDREN VISIBLE
+#define OBJLISTRX(name,id) \
+	control /U "image" IDX(name,id) TAB CLIPCHILDREN VISIBLE /E+ WS_OBJECT
+#define PATHRX(name, id) \
+	control /U "path" IDX(name,id)
+
+//************************************************************************
+// Stuff grabbed from WINDOWS.H to avoid including the monster file
+//************************************************************************
+#define MF_OWNERDRAW    0x0100
+
+/* Virtual Keys, Standard Set */
+#define VK_LBUTTON	  0x01
+#define VK_RBUTTON	  0x02
+#define VK_CANCEL	  0x03
+#define VK_MBUTTON	  0x04  /* NOT contiguous with L & RBUTTON */
+#define VK_BACK 	  0x08
+#define VK_TAB		  0x09
+#define VK_CLEAR	  0x0C
+#define VK_RETURN	  0x0D
+#define VK_SHIFT	  0x10
+#define VK_CONTROL	  0x11
+#define VK_MENU 	  0x12
+#define VK_PAUSE	  0x13
+#define VK_CAPITAL	  0x14
+#define VK_ESCAPE	  0x1B
+#define VK_SPACE	  0x20
+#define VK_PRIOR	  0x21
+#define VK_NEXT 	  0x22
+#define VK_END		  0x23
+#define VK_HOME 	  0x24
+#define VK_LEFT 	  0x25
+#define VK_UP		  0x26
+#define VK_RIGHT	  0x27
+#define VK_DOWN 	  0x28
+#define VK_SELECT	  0x29
+#define VK_PRINT	  0x2A
+#define VK_EXECUTE	  0x2B
+#define VK_SNAPSHOT	  0x2C
+/* #define VK_COPY 	  0x2C not used by keyboards. */
+#define VK_INSERT	  0x2D
+#define VK_DELETE	  0x2E
+#define VK_HELP 	  0x2F
+
+/* VK_A thru VK_Z are the same as their ASCII equivalents: 'A' thru 'Z' */
+/* VK_0 thru VK_9 are the same as their ASCII equivalents: '0' thru '0' */
+
+#define VK_NUMPAD0	  0x60
+#define VK_NUMPAD1	  0x61
+#define VK_NUMPAD2	  0x62
+#define VK_NUMPAD3	  0x63
+#define VK_NUMPAD4	  0x64
+#define VK_NUMPAD5	  0x65
+#define VK_NUMPAD6	  0x66
+#define VK_NUMPAD7	  0x67
+#define VK_NUMPAD8	  0x68
+#define VK_NUMPAD9	  0x69
+#define VK_MULTIPLY	  0x6A
+#define VK_ADD		  0x6B
+#define VK_SEPARATOR	  0x6C
+#define VK_SUBTRACT	  0x6D
+#define VK_DECIMAL	  0x6E
+#define VK_DIVIDE	  0x6F
+#define VK_F1		  0x70
+#define VK_F2		  0x71
+#define VK_F3		  0x72
+#define VK_F4		  0x73
+#define VK_F5		  0x74
+#define VK_F6		  0x75
+#define VK_F7		  0x76
+#define VK_F8		  0x77
+#define VK_F9		  0x78
+#define VK_F10		  0x79
+#define VK_F11		  0x7A
+#define VK_F12		  0x7B
+#define VK_F13		  0x7C
+#define VK_F14		  0x7D
+#define VK_F15		  0x7E
+#define VK_F16		  0x7F
+
+#define VK_NUMLOCK	  0x90
+
+/* Dialog Styles */
+#define DS_ABSALIGN	  0x01L
+#define DS_SYSMODAL	  0x02L
+#define DS_LOCALEDIT	  0x20L  /* Edit items get Local storage. */
+#define DS_SETFONT	  0x40L  /* User specified font for Dlg controls */
+#define DS_MODALFRAME    0x80L
+#define DS_NOIDLEMSG    0x100L
+
+/* Static Control Constants */
+#define SS_LEFT 	  0x00L
+#define SS_CENTER	  0x01L
+#define SS_RIGHT	  0x02L
+#define SS_ICON 	  0x03L
+#define SS_BLACKRECT	  0x04L
+#define SS_GRAYRECT	  0x05L
+#define SS_WHITERECT	  0x06L
+#define SS_BLACKFRAME	  0x07L
+#define SS_GRAYFRAME	  0x08L
+#define SS_WHITEFRAME	  0x09L
+#define SS_USERITEM	  0x0AL
+
+#define SS_LEFTNOWORDWRAP 0x0CL
+#define SS_NOPREFIX	  0x80L  /* Don't do "&" character translation */
+
+

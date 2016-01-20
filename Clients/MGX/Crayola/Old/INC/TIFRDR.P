@@ -1,0 +1,27 @@
+// Source file: tifrdr.c
+LPFRAME CALLBACK EXPORT tifrdr( LPSTR lpFileName, int outDepth, LPINT lpDataType, BOOL bReadOnly );
+LPFRAME ReadTiffData( int iFile, LPSTR lpFileName, int outDepth, LPINT lpDataType, BOOL bReadOnly, LPRECT lpRect, BOOL bCrop, LPINT lpFullFileX, LPINT lpFullFileY, LPINT lpFullResolution);
+int WriteTiffData( int iFile, LPSTR lpFileName, LPFRAME lpSrcFrame, int xSrc, int ySrc);
+int image_read (LPTR ptr, unsigned size_of_ptr, int count, int ifh, BOOL bRead);
+static int image_write (LPTR lpSrc, int xSrc, unsigned size_of_ptr, int count, int ifh);
+static void skip_to_strip(void);
+static void ReadHorzDiff8( LPTR lpImage, int iCount );
+static void ReadHorzDiff24( LPTR lpImage, int iCount );
+static void ReadHorzDiff32( LPTR lpImage, int iCount );
+void image_read_startstrip( void );
+static void diff_fixtagval (LPTAG tagp);
+static void rightjust_tagval (LPTAG tagp);
+static int flexiread (int ifh, LPTR ptr, REG int size);
+BOOL ReadTiffHeader( int iFile, LPSTR lpFileName, int OutDepth, LPINT lpDataType, BOOL bReadOnly, LPTIFFHEADER lpHeader );
+void FreeTiffHeader( LPTIFFHEADER lpHeader );
+static void Expand6to8bits( LPTR lpIn, int iInByteCount );
+static void Expand4to24bits( LPTR lpIn, int iInByteCount );
+static void Expand4to8bits( LPTR lpIn, int iInByteCount );
+static void Expand8to24bits( LPTR lpIn, int iInByteCount );
+static void copyn( LPTR lpIn, LPTR lpOut, int iCount, int incr );
+HFILE WINAPI _tlopen( LPCSTR lpFileName, int iMode );
+HFILE WINAPI _tlclose( HFILE hFile );
+LONG WINAPI _tllseek( HFILE hFile, LONG lPos, int iMode );
+UINT WINAPI _tlread( HFILE hFile, void _huge* lpData, UINT wCount );
+UINT WINAPI _tlwrite( HFILE hFile, const void _huge* lpData, UINT wCount );
+

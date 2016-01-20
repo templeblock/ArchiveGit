@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<script language="javascript">
+		var strProcess = '';
+		var strServerType = '';
+		var strContext = '';
+		var strReturnValue = 'Status=;Context=;';
+		var strJoinURL = "http://subs.subsag.com/html.ng/adsize=text&page=joincnp&site=DFLT&ostatus=A&Params.styles=MKTjoin&channel=create&memowns=n";
+		var strSignInURL = "http://www.americangreetings.com/members/signin.pd";
+		var strURL = '';
+		
+		getURLValues();
+		
+		function getURLValues()
+		{
+          strDlgArg = String(window.dialogArguments);
+          
+          var aryQueryValues = strDlgArg.split(';');
+          // Walk the list to set the values for member status and price
+          for (aryIndex in aryQueryValues)
+          {
+              var strQueryValue = aryQueryValues[aryIndex];
+              var aryQueryValue = strQueryValue.split('=');
+              if (aryQueryValue[0] == 'Process'){strProcess = aryQueryValue[1];}
+              if (aryQueryValue[0] == 'ServerType'){strServerType = aryQueryValue[1];}
+              if (aryQueryValue[0] == 'ContextString'){strContext = aryQueryValue[1];}
+          }
+
+		  if (strProcess == "JOIN")
+		  {
+				strURL = strJoinURL;
+				if (strServerType == "DEV")   // devserver
+					strURL += "&ahost=http://dev.americangreetings.com";
+				if (strServerType == "WORK")  // workserver
+					strURL += "&ahost=http://work.americangreetings.com";
+				if (strServerType == "STAGE") // stageserver
+					strURL += "&ahost=http://stage.americangreetings.com";
+				if (strServerType == "PROD")  // productionserver
+					strURL += "&ahost=http://www.americangreetings.com";
+				
+				strURL += "&purl=cnpflowtest:";
+				strURL += strContext;
+		  }
+		  
+		  if (strProcess == "SIGNIN")
+		  {
+				if (strServerType == "DEV")   // devserver
+					strSignInURL = "http://dev.americangreetings.com/members/signin.pd";
+				if (strServerType == "WORK")  // workserver
+					strSignInURL = "http://work.americangreetings.com/members/signin.pd";
+				if (strServerType == "STAGE") // stageserver
+					strSignInURL = "http://stage.americangreetings.com/members/signin.pd";
+				if (strServerType == "PROD")  // productionserver
+					strSignInURL = "http://www.americangreetings.com/members/signin.pd";
+					
+				strURL = strSignInURL;
+				strURL += "?referrer=cnpflowtest:";
+				strURL += strContext;
+		  }
+		            
+		}
+		
+	</script>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+		<meta name="ProgId" content="VisualStudio.HTML">
+		<meta name="Originator" content="Microsoft Visual Studio .NET 7.1">
+		<script language="javascript">
+			function setFrameSrc()
+			{
+				//strURL = "http://dev.americangreetings.com/cnp/callplugin.pd";
+				//strURL = "http://localhost/dataupload/FYS_Page0_1.htm";
+				parent.document.getElementById("CFrame").src = strURL;
+			}
+			
+//			function CloseNow(pContext)
+//			{
+//				strReturnValue = "Status=LOCAL;";
+//				strReturnValue += "Context=" + pContext + ";";
+//				window.returnValue = strReturnValue;
+//				window.close();
+//			}
+			
+		</script>
+	</head>
+	<frameset onload="setFrameSrc()">
+		<frame id='CFrame' frameborder="0" scrolling="auto">
+		</frame>
+	</frameset>
+</html>

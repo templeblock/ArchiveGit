@@ -1,0 +1,4 @@
+// Source file: tpaint.c
+BOOL WINPROC EXPORT DlgPaintProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+int PaintProc( HWND hWindow, LPARAM lParam, UINT msg );
+

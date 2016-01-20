@@ -1,0 +1,215 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#                                                                            
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+!IFDEF BUILDDLL
+PROJ=ctldll
+PROJFLAGS=-DCTLLIB -DNO_MFC
+OBJDIR=dllobj
+!ELSE
+PROJ=ctllib
+PROJFLAGS=-DCTLLIB
+!ENDIF
+DLLOBJDIR=dllobj
+NOPCH=
+REFDIR=..\ref
+MAKDIR=$(REFDIR)
+DEFAULTBUILD =$(OBJDIR) $(PROJ).lib
+CTYPE=
+INSTALLLIST=\
+	$(REFDIR)\$(PROJ).lib\
+	$(REFDIR)\ctlutil.h\
+	$(REFDIR)\ctllib.h\
+	$(REFDIR)\ctllib.rh\
+	$(REFDIR)\common.h\
+	$(REFDIR)\common.rh\
+	$(REFDIR)\listbox.h\
+	$(REFDIR)\listbox.rh\
+	$(REFDIR)\slider.h\
+	$(REFDIR)\spin.h\
+	$(REFDIR)\stick.h\
+	$(REFDIR)\stick.rh\
+	$(REFDIR)\icon.h\
+	$(REFDIR)\icon.rh\
+	$(REFDIR)\mapctl.h\
+	$(REFDIR)\stext.h\
+	$(REFDIR)\stext.rh\
+	$(REFDIR)\lutctl.h\
+	$(REFDIR)\lutctl.rh\
+	$(REFDIR)\gradctl.h\
+	$(REFDIR)\gradctl.rh\
+	$(REFDIR)\patch.h\
+	$(REFDIR)\patch.rh\
+	$(REFDIR)\histoctl.h\
+	$(REFDIR)\tagctl.h\
+	$(REFDIR)\picker.h\
+	$(REFDIR)\picker.rh\
+	$(REFDIR)\grid.h\
+	$(REFDIR)\grid.rh\
+	$(REFDIR)\dlgitem.h\
+	$(REFDIR)\ctltools.h\
+	$(REFDIR)\dlgcat.h\
+	$(REFDIR)\dlgsec.h\
+	$(REFDIR)\dyndlg.h\
+	$(REFDIR)\dlgres.h\
+	$(REFDIR)\winxext.h
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+!include "$(MAKDIR)\win.mak"
+
+##############################################################################
+#
+#--- Everything is known, so make a default build target
+#
+DLLS	=\
+	icon.dll\
+	grid.dll
+	
+##############################################################################
+#
+#--- Interesting files
+#
+OBJS    =\
+	$(OBJDIR)\ctlinit.obj\
+	$(OBJDIR)\common.obj\
+	$(OBJDIR)\ctlutil.obj\
+	$(OBJDIR)\ctltools.obj\
+	$(OBJDIR)\dlgcat.obj\
+	$(OBJDIR)\dlgsec.obj\
+	$(OBJDIR)\dlgitem.obj\
+	$(OBJDIR)\grid.obj\
+	$(OBJDIR)\listbox.obj\
+	$(OBJDIR)\icon.obj\
+	$(OBJDIR)\lutctl.obj\
+	$(OBJDIR)\mapctl.obj\
+	$(OBJDIR)\stext.obj\
+	$(OBJDIR)\gradctl.obj\
+	$(OBJDIR)\patch.obj\
+	$(OBJDIR)\stick.obj\
+	$(OBJDIR)\histoctl.obj\
+	$(OBJDIR)\tagctl.obj\
+	$(OBJDIR)\picker.obj\
+	$(OBJDIR)\slider.obj\
+	$(OBJDIR)\spin.obj
+
+DLLOBJS=\
+	$(DLLOBJDIR)\common.obj\
+	$(DLLOBJDIR)\ctlutil.obj\
+	$(DLLOBJDIR)\ctltools.obj\
+	$(DLLOBJDIR)\dlgitem.obj\
+	$(DLLOBJDIR)\dlgedit.obj\
+	libentry.obj
+
+LIBS=libw ldllcew frame
+
+##############################################################################
+#
+#--- Targets
+dlls: $(DLLS)
+
+$(PROJ).lib: $(OBJS)
+  @del $@ >nul
+  $(LIBEXE) $(LIBFLAGS) /out:$@ @<<
+$(OBJS)
+<<
+
+##############################################################################
+#
+#--- Implicit Rules
+#    make any you think you will need.  They can be identical in nature,
+#    but NMAKE wants have at least one for each possible virtual combination
+#
+#.c{$(DLLOBJDIR)}.obj:
+#	@echo Compiling $(@B).c ...
+#	$(cc) /nologo -c -ALw -Gy -G2sw -Zp -Os -DCTLLIB -DDLGEDIT -D_WINDLL -Fo$*.obj $(CTYPE) $<  > $(@B).err
+#	@type $(@B).err 
+
+icon.dll:	$(DLLOBJDIR)\$(@B).obj $(DLLOBJS) dlgedit.def
+    $(link) $(linkdebug) $(guiflags) /NOE @<<
+    $(DLLOBJDIR)\$(@B).obj $(DLLOBJS),
+    $(@B).dll,
+    $(@B).map,
+    $(LIBS),
+    dlgedit.de f
+<<
+
+grid.dll:	$(DLLOBJDIR)\$(@B).obj $(DLLOBJS) dlgedit.def
+    $(link) $(linkdebug) $(guiflags) /NOE @<<
+    $(DLLOBJDIR)\$(@B).obj $(DLLOBJS),
+    $(@B).dll,
+    $(@B).map,
+    $(LIBS),
+    dlgedit.def
+<<
+
+picker.dll:	$(DLLOBJDIR)\$(@B).obj $(DLLOBJS) dlgedit.def
+    $(link) $(linkdebug) $(guiflags) /NOE @<<
+    $(DLLOBJDIR)\$(@B).obj $(DLLOBJS),
+    $(@B).dll,
+    $(@B).map,
+    $(LIBS),
+    dlgedit.def
+<<
+
+##############################################################################
+#
+#--- Dependencies
+#
+#
+CTLINIT_DEPS = \
+	common.h\
+	ctllib.h\
+	dlgitem.h\
+	check.h\
+	grid.h\
+	grid.rh\
+	listbox.h\
+	listbox.rh\
+	picker.h\
+	picker.rh\
+	radio.h\
+	slider.h\
+	spin.h\
+	icon.h\
+	icon.rh
+	
+$(OBJDIR)\dlgcat.obj: $(@B).c $(@B).h dlgres.h winxext.h debug.h
+$(OBJDIR)\dlgsec.obj: $(@B).c $(@B).h dlgcat.h dyndlg.h winxext.h debug.h
+$(OBJDIR)\dlgedit.obj: $(@B).cpp $(@B).h
+$(OBJDIR)\dlgitem.obj: $(@B).cpp $(@B).h
+$(OBJDIR)\ctlinit.obj: $(CTLINIT_DEPS)
+$(OBJDIR)\common.obj: $(@B).cpp $(@B).h
+$(OBIDIR)\ctltools.obj: $(@B).cpp $(@B).h ctlutil.h common.h
+$(OBIDIR)\ctlutil.obj: $(@B).cpp $(@B).h common.h
+$(OBJDIR)\icon.obj: $(@B).cpp $(@B).h $(@B).rh ctlutil.h common.h common.rh dlgitem.h
+$(OBJDIR)\listbox.obj: $(@B).cpp $(@B).h $(@B).rh ctlutil.h common.h
+$(OBJDIR)\grid.obj: $(@B).cpp $(@B).h $(@B).rh ctlutil.h common.h
+$(OBJDIR)\stext.obj: $(@B).cpp $(@B).h common.h
+$(OBJDIR)\lutctl.obj: $(@B).cpp $(@B).h $(@B).rh common.h
+$(OBJDIR)\gradctl.obj: $(@B).cpp $(@B).h common.h
+$(OBJDIR)\patch.obj: $(@B).cpp $(@B).h common.h
+$(OBJDIR)\stick.obj: $(@B).cpp $(@B).h common.h
+$(OBJDIR)\histoctl.obj: $(@B).cpp $(@B).h common.h
+$(OBJDIR)\tagctl.obj: $(@B).cpp $(@B).h common.h
+$(OBJDIR)\picker.obj: $(@B).cpp $(@B).h $(@B).rh ctlutil.h common.h
+$(OBJDIR)\slider.obj: $(@B).cpp $(@B).h $(@B).rh ctlutil.h common.h
+$(OBJDIR)\spin.obj: $(@B).cpp $(@B).h $(@B).rh ctlutil.h common.h common.rh dlgitem.h
+
+##############################################################################
+
+
+
+

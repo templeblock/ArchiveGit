@@ -1,0 +1,184 @@
+//Microsoft App Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+AVIHEDMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open...",                    IDM_OPEN
+        MENUITEM "&Save",                       IDM_SAVE
+        MENUITEM "Save &As...",                 IDM_SAVEAS
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "H&otspots"
+    BEGIN
+        MENUITEM "&Only Show Hotspots In Current Frame",
+                                                IDM_SHOWFRAMEHOTSPOTS
+        MENUITEM "&Redraw",                     IDM_REDRAW
+        MENUITEM "&Delete Selected Hotspot",    IDM_DELETE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About...",                   IDM_ABOUT
+    END
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+ABOUTBOX DIALOG DISCARDABLE  22, 17, 179, 94
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About AVIHED"
+FONT 8, "System"
+BEGIN
+    LTEXT           "Microsoft AVI Hotspot Editor",IDC_STATIC,34,10,132,8
+    LTEXT           "Copyright \251 1993 Microsoft Corporation.",IDC_STATIC,
+                    34,34,132,8
+    LTEXT           "Version 1.00",IDC_STATIC,34,22,127,8
+    DEFPUSHBUTTON   "OK",IDOK,34,76,32,12,WS_GROUP
+    ICON            IDI_ICON1,IDC_STATIC,8,10,18,20
+    LTEXT           "All rights reserved.",IDC_STATIC,34,46,132,8
+    LTEXT           "Written by David Feinleib",IDC_STATIC,34,58,132,8
+END
+
+FRAMEDLG DIALOG DISCARDABLE  0, 0, 142, 73
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Frame"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      ">",ID_FORWARD,100,36,18,14
+    PUSHBUTTON      "<",ID_REVERSE,23,36,18,14
+    EDITTEXT        ID_FRAMEEDIT,40,7,42,12,ES_AUTOHSCROLL
+    LTEXT           "Frame:",IDC_STATIC,7,9,27,7
+    PUSHBUTTON      "Go To Frame",ID_GOFRAME,86,6,50,14
+    PUSHBUTTON      "Play",ID_PLAY,49,36,43,14
+    LTEXT           "Current frame:",IDC_STATIC,7,60,52,8
+    LTEXT           "0 of 0",ID_CURRENTFRAME,64,60,58,8
+END
+
+HOTSPOTDLG DIALOG DISCARDABLE  0, 0, 185, 246
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Hotspot Attributes"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,45,230,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,101,230,40,14
+    LTEXT           "&Command String:",IDC_STATIC,14,22,57,8
+    GROUPBOX        "Binding",ID_BINDING,4,4,174,34
+    EDITTEXT        ID_COMMAND,73,20,88,12,ES_AUTOHSCROLL
+    LTEXT           "&Hotspot Id:",IDC_STATIC,4,45,42,8
+    EDITTEXT        ID_HOTSPOTID,48,42,131,12,ES_AUTOHSCROLL
+    GROUPBOX        "Bounding Box",IDC_STATIC,4,64,174,54
+    RTEXT           "Left:",IDC_STATIC,10,82,24,8
+    RTEXT           "Right:",IDC_STATIC,10,101,24,8
+    EDITTEXT        ID_LEFT,38,80,26,12,ES_AUTOHSCROLL
+    EDITTEXT        ID_RIGHT,38,98,26,12,ES_AUTOHSCROLL
+    RTEXT           "Top:",IDC_STATIC,78,82,24,8
+    RTEXT           "Bottom:",IDC_STATIC,73,101,29,8
+    EDITTEXT        ID_TOP,106,80,26,12,ES_AUTOHSCROLL
+    EDITTEXT        ID_BOTTOM,106,98,26,12,ES_AUTOHSCROLL
+    GROUPBOX        "Active frames",IDC_STATIC,4,125,174,36
+    LTEXT           "Begin frame:",IDC_STATIC,12,144,46,8
+    EDITTEXT        ID_BEGINFRAME,60,142,26,12,ES_AUTOHSCROLL
+    LTEXT           "End frame:",IDC_STATIC,94,144,38,8
+    EDITTEXT        ID_ENDFRAME,136,142,26,12,ES_AUTOHSCROLL
+    GROUPBOX        "When hotspot selected",IDC_STATIC,4,166,175,57
+    CONTROL         "Continue playing",ID_CONTINUE,"Button",
+                    BS_AUTORADIOBUTTON,12,180,161,10
+    CONTROL         "Stop playing",ID_STOP,"Button",BS_AUTORADIOBUTTON,12,
+                    194,159,10
+    CONTROL         "Jump to frame:",ID_JUMP,"Button",BS_AUTORADIOBUTTON,12,
+                    208,61,10
+    EDITTEXT        ID_TOFRAME,76,207,26,12,ES_AUTOHSCROLL
+END
+
+SELECTDLG DIALOG DISCARDABLE  0, 0, 131, 35
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Selected Hotspot Info"
+FONT 8, "MS Sans Serif"
+BEGIN
+    RTEXT           "Left:",IDC_STATIC,4,6,24,8
+    RTEXT           "Right:",IDC_STATIC,4,24,24,8
+    RTEXT           "Top:",IDC_STATIC,72,6,24,8
+    RTEXT           "Bottom:",IDC_STATIC,67,24,29,8
+    LTEXT           "0",ID_LEFT,34,6,26,8
+    LTEXT           "0",ID_TOP,102,6,26,8
+    LTEXT           "0",ID_BOTTOM,102,24,26,8
+    LTEXT           "0",ID_RIGHT,34,24,26,8
+END
+
+#ifdef APSTUDIO_INVOKED
+//////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+IDI_ICON1               ICON    DISCARDABLE     "ICON1.ICO"
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+Pattern                 BITMAP  PRELOAD DISCARDABLE "PATTERN.BMP"
+
+#ifndef APSTUDIO_INVOKED
+////////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,16 @@
+[MSVC Status File]
+Version=1.00
+ProjectType=0
+External=0
+BrkptCount=2
+BrkptType1=0
+BrkptActive1=0
+BrkptAmbig1=0
+BrkptIndex1=-1
+BrkptLoc1={,n:\src\autorun\autorun.cpp,} .76
+BrkptType2=0
+BrkptActive2=1
+BrkptAmbig2=0
+BrkptIndex2=-1
+BrkptLoc2={,n:\dev\src\tools\autoru~4\autorun.cpp,} .453
+WatchCount=0

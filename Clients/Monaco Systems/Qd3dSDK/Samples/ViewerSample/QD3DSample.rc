@@ -1,0 +1,335 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "winver.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APP                 ICON    DISCARDABLE     "RES/QD3DSample.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_GENERIC MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New",                        IDM_NEW
+        MENUITEM "&Open...",                    IDM_OPEN
+        MENUITEM "Save As...",                  IDM_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "Edit"
+    BEGIN
+        MENUITEM "Undo",                        IDM_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cut",                         IDM_CUT
+        MENUITEM "&Copy",                       IDM_COPY
+        MENUITEM "Paste",                       IDM_PASTE
+        MENUITEM "Clear",                       IDM_CLEAR
+    END
+    POPUP "Flags"
+    BEGIN
+        MENUITEM "Control Strip",               IDM_CONTROLSTRIP
+        MENUITEM SEPARATOR
+        MENUITEM "Camera Button",               IDM_CAMERABUTTON
+        MENUITEM "Truck Button",                IDM_TRUCKBUTTON
+        MENUITEM "Orbit Button",                IDM_ORBITBUTTON
+        MENUITEM "Dolly Button",                IDM_DOLLYBUTTON
+        MENUITEM "Zoom Button",                 IDM_ZOOMBUTTON
+        MENUITEM "Reset Button",                IDM_RESETBUTTON
+        MENUITEM SEPARATOR
+        MENUITEM "Active",                      IDM_ACTIVE
+        MENUITEM "Badge",                       IDM_BADGE
+        MENUITEM "Text Mode",                   IDM_TEXTMODE
+        MENUITEM "Dragging In Off",             IDM_DRAGGINGINOFF
+        MENUITEM SEPARATOR
+        MENUITEM "SetWindow WS_BORDER",         IDM_DRAWFRAME
+    END
+    POPUP "API Tests"
+    BEGIN
+        MENUITEM "Test Q3WinViewerSetWindow",   IDM_TESTSETWINDOW
+        MENUITEM "Test Q3WinViewerGetMinimumDimension", IDM_TESTMINDIMENSION
+        MENUITEM "Test Q3WinViewerGetButtonRect", IDM_TESTGETBUTTONRECT
+        POPUP "Test Q3WinViewerSetCurrentButton"
+        BEGIN
+            MENUITEM "Camera Buton",                IDM_TESTSETCAMERABUTTON
+            MENUITEM "Truck Button",                IDM_TESTSETTRUCKBUTTON
+            MENUITEM "Rotate Button",               IDM_TESTSETROTATEBUTTON
+            MENUITEM "Zoom Button",                 IDM_TESTSETZOOMBUTTON
+            MENUITEM "Dolly Button",                IDM_TESTSETDOLLYBUTTON
+        END
+        MENUITEM "Test Q3WinViewerGetBitmap",   IDM_TESTGETBITMAP
+        MENUITEM "Test Q3ViewerSet/GetBackground Color", IDM_GETSETCOLOR
+        MENUITEM "Test Q3WinViewerWriteData",   IDM_TESTWRITEDATA
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About QuickDraw 3D Viewer...", IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_GENERIC ACCELERATORS MOVEABLE PURE 
+BEGIN
+    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "C",            IDM_COPY,               VIRTKEY, CONTROL, NOINVERT
+    "O",            IDM_OPEN,               VIRTKEY, CONTROL, NOINVERT
+    "Q",            IDM_EXIT,               VIRTKEY, CONTROL, NOINVERT
+    "S",            IDM_SAVEAS,             VIRTKEY, SHIFT, CONTROL, 
+                                                    NOINVERT
+    VK_F1,          IDM_ABOUT,              VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 22, 17, 253, 63
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About QuickDraw 3D Viewer"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,211,6,32,14,WS_GROUP
+    ICON            IDI_APP,-1,3,2,18,20
+    LTEXT           "CompanyName",IDC_COMPANYNAME,30,2,100,8
+    LTEXT           "FileDescription",IDC_FILEDESCRIPTION,30,10,116,8
+    RTEXT           "ProductVersion",IDC_PRODUCTVERSION,150,11,44,8,0,
+                    WS_EX_RIGHT
+    LTEXT           "LegalCopyright",IDC_LEGALCOPYRIGHT,30,18,137,8
+    LTEXT           "LegalTrademarks",IDC_LEGALTRADEMARKS,30,35,164,23
+    CONTROL         "",501,"Static",SS_BLACKRECT,29,31,165,1
+END
+
+IDD_NEWVIEWERDIALOG DIALOG DISCARDABLE  0, 0, 383, 206
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create Quickdraw 3D Viewer"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,327,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,327,24,50,14
+    EDITTEXT        IDC_WINDOWNAMEEDITBOX,61,13,66,12,ES_AUTOHSCROLL
+    LTEXT           "Window Name:",IDC_STATIC,7,15,52,9
+    GROUPBOX        "Windows Flags",IDC_STATIC,129,32,189,144
+    GROUPBOX        "Quickdraw 3D Flags",IDC_STATIC,13,32,110,144
+    CONTROL         "kQ3ViewerShowBadge",IDC_CHECKSHOWBADGE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,42,89,10
+    CONTROL         "kQ3ViewerActive",IDC_CHECKACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,52,71,10
+    CONTROL         "kQ3ViewerControllerVisible",IDC_CHECKCONTROLLERVISIBLE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,62,100,10
+    CONTROL         "kQ3ViewerDrawFrame",IDC_CHECKSHOWBADGE4,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,72,87,10
+    CONTROL         "kQ3ViewerButtonCamera",IDC_CHECKCAMERABUTTON,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,82,95,10
+    CONTROL         "kQ3ViewerButtonTruck",IDC_CHECKBUTTONTRUCK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,92,90,10
+    CONTROL         "kQ3ViewerButtonOrbit",IDC_CHECKBUTTONORBIT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,102,86,10
+    CONTROL         "kQ3ViewerButtonZoom",IDC_CHECKBUTTONZOOM,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,112,89,10
+    CONTROL         "kQ3ViewerButtonDolly",IDC_CHECKNBUTTONDOLLY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,122,87,10
+    CONTROL         "kQ3ViewerButtonReset",IDC_CHECKBUTTONRESET,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,132,90,10
+    CONTROL         "kQ3ViewerOutputTextMode",IDC_CHECKOUTPUTTEXT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,142,104,10
+    CONTROL         "kQ3ViewerDraggingInOff",IDC_CHECKDRAGINOFF,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,152,95,10
+    CONTROL         "kQ3ViewerDefault",IDC_CHECKDEFAULT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,162,73,10
+    CONTROL         "WS_OVERLAPPED",IDC_CHECKOVERLAPPED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,135,45,80,10
+    CONTROL         "WS_POPUP",IDC_CHECKPOPUP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,55,57,10
+    CONTROL         "WS_CHILD",IDC_CHECKCHILD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,65,53,10
+    CONTROL         "WS_MINIMIZE",IDC_CHECKMINIMIZE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,75,65,10
+    CONTROL         "WS_DISABLED",IDC_CHECKDISABLED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,95,67,10
+    CONTROL         "WS_CLIPSIBLINGS",IDC_CHECKCLIPSIBLINGS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,135,105,80,10
+    CONTROL         "WS_CLIPCHILDREN",IDC_CHECKCLIPCHILDREN,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,135,115,84,10
+    CONTROL         "WS_MAXIMIZE",IDC_CHECKMAXIMIZE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,125,67,10
+    CONTROL         "WS_CAPTION",IDC_CHECKCAPTION,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,135,63,10
+    CONTROL         "WS_BORDER",IDC_CHECKBORDER,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,145,63,10
+    CONTROL         "WS_DLGFRAME",IDC_CHECKDLGFRAME,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,155,71,10
+    CONTROL         "WS_VSCROLL",IDC_CHECKVSCROLL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,165,65,10
+    CONTROL         "WS_VISIBLE",IDC_CHECKVISIBLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,85,59,10
+    CONTROL         "WS_HSCROLL",IDC_CHECKHSCROLL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,233,44,65,10
+    CONTROL         "WS_SYSMENU",IDC_CHECKSYSMENU,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,233,55,67,10
+    CONTROL         "WS_THICKFRAME",IDC_CHECKTHICKFRAME,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,233,65,78,10
+    CONTROL         "WS_MAXIMIZE",IDC_CHECKMAXIMIZE2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,233,74,67,10
+    CONTROL         "WS_MINIMIZEBOX",IDC_CHECKMINIMIZEBOX,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,233,84,79,10
+    CONTROL         "WS_MAXIMIZEBOX",IDC_CHECKMAXIMIZEBOX,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,233,95,81,10
+    CONTROL         "Use Q3WinViewerNew",IDC_RADIOUSEQ3WINVIEWERNEW,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,14,181,89,10
+    CONTROL         "Use CreateWindowEx",IDC_RADIOUSECREATEWINDOW,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,104,181,85,10
+    GROUPBOX        "Static",IDC_STATIC,192,182,137,17
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 1,5,0,23
+ PRODUCTVERSION 1,5,0,23
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x2bL
+#else
+ FILEFLAGS 0x2aL
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "Comments", "Apple Preliminary\0"
+            VALUE "CompanyName", "Apple Computer, Inc.\0"
+            VALUE "FileDescription", "QuickDraw 3D Viewer Application\0"
+            VALUE "FileVersion", "1, 5, 0, 23\0"
+            VALUE "InternalName", "Quickdraw 3D Viewer Demo\0"
+            VALUE "LegalCopyright", "Copyright © 1996 Apple Computer, Inc.\0"
+            VALUE "LegalTrademarks", "QuickDraw is a trademark of Apple Computer, Inc.\0"
+            VALUE "OriginalFilename", "\0"
+            VALUE "ProductName", "QuickDraw 3D Demo\0"
+            VALUE "ProductVersion", "1, 5, 0, 23\0"
+            VALUE "SpecialBuild", "Preliminary\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+#endif    // !_MAC
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""winver.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        RIGHTMARGIN, 252
+    END
+
+    IDD_NEWVIEWERDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 377
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

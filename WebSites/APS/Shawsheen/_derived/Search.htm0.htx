@@ -1,0 +1,86 @@
+<html>
+
+<head>
+<base href="http://localhost/APS/Shawsheen/Search.htm">
+
+<title>Search Form</title>
+
+
+<meta name="Microsoft Border" content="none, default">
+</head>
+
+<body>
+<!--webbot bot="Include" U-Include="../../APS/Shawsheen/Banner.htm" TAG="BODY" startspan -->
+
+<p align="center">
+<applet code="fphover.class" codebase="../../_fpclass/" width="120" height="24">
+	<param name="text" value="Shawsheen">
+	<param name="color" value="#000080">
+	<param name="hovercolor" value="#0000FF">
+	<param name="textcolor" value="#FFFFFF">
+	<param name="effect" value="glow">
+	<param name="target" value="main">
+	<param name="url" value valuetype="ref">
+</applet>
+</p>
+
+<!--webbot bot="Include" endspan i-checksum="35142" -->
+<!--webbot bot="Include" tag="BODY" u-include="ContentHeader.htm" startspan --><strong>[APS/Shawsheen/ContentHeader.htm]</strong><!--webbot bot="Include" endspan i-checksum="12296" -->
+
+
+<h3><tt>SEARCH FOR ARTICLE</tt></h3>
+
+<p>Find articles posted to this discussion containing matching words or patterns.</p>
+<!--webbot bot="Search" s-index="_Shawsh" s-dsn="default" s-fields="TimeStamp,DocumentK,Weight" TAG="FORM" S-Text="Search for:" I-Size="20" S-Submit="Start Search" S-Clear="Clear" b-useindexserver="1" startspan U-DOC-URL="APS/Shawsheen/Search.htm" --><form action="../../_vti_script/APS_Shawsheen_Search.htm0.idq" method="POST"><p><b>Search for: </b><input type="text" name="UserRestriction" size="20" value="<%if UserRestriction NE VT_EMPTY%><%if UserRestriction NE "UserRestriction"%><%UserRestriction%><%endif%><%endif%>"></p><p><input type="submit" value="Start Search"><input type="reset" value="Clear"></p></form><!--webbot bot="Search" endspan i-checksum="29502" -->
+<table BORDER="0">
+  <tr>
+    <td><%if CiContainsFirstRecord EQ 0%>
+      <form ACTION="../../_vti_script/APS_Shawsheen_Search.htm0.idq" METHOD="POST">
+        <input TYPE="HIDDEN" NAME="CiBookmark" VALUE="<%CiBookmark%>"><input TYPE="HIDDEN" NAME="CiBookmarkSkipCount" VALUE="-<%EscapeRAW CiMaxRecordsPerPage%>"><input TYPE="HIDDEN" NAME="CiMaxRecordsPerPage" VALUE="<%EscapeRAW CiMaxRecordsPerPage%>"><input TYPE="HIDDEN" NAME="UserRestriction" VALUE="<%UserRestriction%>"><input TYPE="HIDDEN" NAME="CiScope" VALUE="<%CiScope%>"><%if CiMaxRecordsPerPage EQ 1%><input TYPE="SUBMIT" VALUE="Previous hit"><%else%><input TYPE="SUBMIT" VALUE="Previous <%CiMaxRecordsPerPage%> Hits"><%endif%>
+      </form>
+      <%endif%></td>
+    <td><%if CiContainsLastRecord EQ 0%>
+      <form ACTION="../../_vti_script/APS_Shawsheen_Search.htm0.idq" METHOD="POST">
+        <input TYPE="HIDDEN" NAME="CiBookmark" VALUE="<%CiBookmark%>"><input TYPE="HIDDEN" NAME="CiBookmarkSkipCount" VALUE="<%EscapeRAW CiMaxRecordsPerPage%>"><input TYPE="HIDDEN" NAME="CiMaxRecordsPerPage" VALUE="<%EscapeRAW CiMaxRecordsPerPage%>"><input TYPE="HIDDEN" NAME="UserRestriction" VALUE="<%UserRestriction%>"><input TYPE="HIDDEN" NAME="CiScope" VALUE="<%CiScope%>"><%if CiRecordsNextPage EQ 1%><input TYPE="SUBMIT" VALUE="Next hit"><%else%><input TYPE="SUBMIT" VALUE="Next <%CiRecordsNextPage%> Hits"><%endif%>
+      </form>
+      <%endif%></td>
+  </tr>
+</table>
+<%if CiMatchedRecordCount EQ 0%>
+<p><b>No documents found. Please try again.</b></p>
+<%else%>
+<p><b>Number of documents found: <%CiMatchedRecordCount%>. Click on a document
+to view it, or submit another search.</b></p>
+<table BORDER>
+  <caption><b>Search Results</b></caption>
+  <tr>
+    <td><b>Document</b></td>
+    <td><b>Date</b></td>
+    <td align="right"><b>Size</b></td>
+    <td align="right"><b>Score</b></td>
+  </tr>
+  <%endif%><%begindetail%>
+  <tr>
+    <td><a href="<%EscapeURL vpath%>"><%if DocTitle ISEMPTY%><%Filename%><%else%><%DocTitle%><%endif%></a></td>
+    <td><%if write NE ""%><%write%> GMT<%else%>&nbsp<%endif%></td>
+    <td align="right"><%if size NE ""%><%size%><%else%>&nbsp<%endif%></td>
+    <td align="right"><%if rank NE ""%><%rank%><%else%>&nbsp<%endif%></td>
+  </tr>
+  <%enddetail%><%if CiMatchedRecordCount GT 0%>
+</table>
+<%endif%>
+<!--webbot bot="Include" tag="BODY" u-include="ContentFooter.htm" startspan -->
+
+<hr>
+<h5 align="right"><font face="MS Sans Serif" size="1">If you wish to make a contribution<br>
+to the <font color="#FF0000">Shawsheen Elementary School</font> site,<br>
+please email the editor of the site:<a href="mailto://JimMcCurdy@FaceToFaceSoftware.com"><br>
+JimMcCurdy@FaceToFaceSoftware.com</a><br>
+Last changed: April 27, 2005
+<br>
+</font></h5>
+
+<!--webbot bot="Include" endspan i-checksum="6714" -->
+
+</body>
+</html>

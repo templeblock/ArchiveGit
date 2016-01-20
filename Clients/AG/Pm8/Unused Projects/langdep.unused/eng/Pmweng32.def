@@ -1,0 +1,5 @@
+; PMWENG32.def : Declares the module parameters for the DLL.
+
+LIBRARY      PMWENG32
+DESCRIPTION  'PrintMaster UK ENglish 32-bit Resources'
+

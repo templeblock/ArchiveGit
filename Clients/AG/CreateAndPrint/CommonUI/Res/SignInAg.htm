@@ -1,0 +1,83 @@
+<html id="main" style="width:600; height:300;">
+	<head>
+		<title>Print Options</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<meta content="MSHTML 6.00.2900.2180" name="GENERATOR">
+	</head>
+	<style>
+		body
+			{ cursor:hand; }
+		input
+			{ cursor:hand; }
+	</style>
+	<script language="javascript">
+		var strSelection = 'FALSE';
+		function OnClickJoinNow()
+		{
+			strSelection = 'TRUE';
+		}
+		function OnClickJoinLater()
+		{
+			strSelection = 'FALSE';
+		}
+		function OnClickContinue()
+		{
+			window.returnValue = strSelection;
+			window.close();
+		}
+	</script>
+	<body onselectstart="return false;" onmouseover="this.style.cursor='default'" text="#000000"
+		vlink="#000066" alink="#000000" link="#000066" bgcolor="#ffffff" leftmargin="0" topmargin="0"
+		marginheight="0" marginwidth="0">
+		<table cellspacing="0" cellpadding="0" width="600" bgcolor="#ffffff" border="0" id="Table1">
+			<tbody>
+				<tr>
+					<td>
+						<img height="44" src="PrintMethodLogoAg.gif" width="600" border="0">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table cellspacing="10" cellpadding="0" width="600" bgcolor="#ffffff" border="0" id="Table2">
+			<tbody>
+				<tr>
+					<td valign="top" align="left">
+						<input type="radio" checked value="#" name="#" onclick="OnClickJoinNow()" id="Radio1">
+					</td>
+					<td valign="top" align="left">
+						<img height="45" alt="Print at Home" src="PrintMethodLocal.gif" width="45" border="0">
+					</td>
+					<td style="FONT-SIZE: 12px; COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif"
+						valign="top" align="left">
+						<span style="FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif">
+							Join Now </span>
+						<br>
+						Print your card on your home printer.
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" align="left">
+						<input type="radio" value="#" name="#" onclick="OnClickJoinLater()" id="Radio2">
+					</td>
+					<td valign="top" align="left">
+						<img height="45" alt="Print For You" src="PrintMethodForYou.gif" width="45" border="0">
+					</td>
+					<td style="FONT-SIZE: 12px; COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif"
+						valign="top" align="left">
+						<span style="FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif">
+							Join Later </span>
+						<br>
+						We can now print your cards on high quality paper and mail them for you!<br>
+						It’s only $2.95 per card (includes&nbsp;postage)
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" align="left">&nbsp;</td>
+					<td valign="top" align="left" colspan="2">
+						<span style="cursor:hand; " onclick="OnClickContinue()"><img type="image" alt="Continue" src="PrintMethodContinue.gif" border="0" name=""></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

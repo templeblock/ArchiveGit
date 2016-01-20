@@ -1,0 +1,671 @@
+//
+// PSLAUNCH.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+// Note: for European project types comment
+// out the following US_PROJECTS define.
+#define US_PROJECTS
+
+// Project types:  Note, our defines are 1-based where they are
+// 0 - based in their respective apps.  The code that obtains
+// the project type will subtract 1 from it's value to 0 base
+// the project type.
+//
+#define kSign										 1
+#define kCertificate								 2 
+#define kLetterHead									 3
+#define kYearlyCalendar								 4 
+#define kMonthlyCalendar							 5 
+#define kWeeklyCalendar								 6 
+#define kDailyCalendar								 7
+#define kGreetingCardSideFoldHalfPage				 8 
+#define kGreetingCardSideFoldSpreadHalfPage			 9 
+#define kGreetingCardTopFoldHalfPage				10 
+#define kGreetingCardTopFoldSpreadHalfPage			11
+#define kGreetingCardSideFoldQuarterPage			12 
+#define kGreetingCardSideFoldSpreadQuarterPage		13 
+#define kGreetingCardTopFoldQuarterPage				14 
+#define kGreetingCardTopFoldSpreadQuarterPage		15
+#define kGreetingCardSideFoldNotecard				16 
+#define kGreetingCardSideFoldSpreadNotecard			17 
+#define kGreetingCardTopFoldNotecard				18
+#define kGreetingCardTopFoldSpreadNotecard			19
+#define kNotepad									20
+#define kPostCard									21
+#define kBanner										22
+#define kBusinessCard								23
+#define kBusinessEnvelope							24
+#define k9x6Envelope								25
+#define kNotecardEnvelope							26
+#define k6x4p75Envelope								27
+#define kPrintShopEnvelope							28
+#define kTrifoldBrochure							29
+#define kPamphlet									30
+#define kPostItNote									31
+#define kLabel4030									32
+#define kLabel4031									33
+#define kLabel4060									34
+#define kLabel4061									35
+#define kLabel4062									36
+#define kLabel4065									37
+#define kLabel4067									38
+#define kLabel4088									39
+#define kLabel4143									40
+#define kLabel4145									41
+#define kLabel4240									42
+#define kLabel4241									43
+#define kLabel5160									44
+#define kLabel5161									45
+#define kLabel5162									46
+#define kLabel5163									47
+#define kLabel5164									48
+#define kLabel5196									49
+#define kLabel5197									50
+#define kLabel5198									51
+#define kLabel5199face								52
+#define kLabel5199spine								53
+#define kLabel5267									54
+#define kLabel5361									55
+#define kLabel5385									56
+#define kLabel5386									57
+#define kLabel5390									58
+#define kLabel5395									59
+#define kLabel5824									60
+#define kLabel7160									61
+#define kLabel7161									62
+#define kLabel7162									63
+#define kLabel7163									64
+#define kLabel7164									65
+#define kLabel7165									66
+#define kLabel7166									67
+#define kLabel7168									68
+#define kLabel7651									69
+#define kLabel7655									70
+#define kLabel7664									71
+#define kLabel7671face								72
+#define kLabel7674spine								73
+#define kLabel7418									74
+#define kEGreeting									75
+#define kTestPage									76
+#define kPostCard2Panel								77
+#define kGreetingCard4PanelSideFoldNotecard			78
+#define kGreetingCard4PanelSideFoldSpreadNotecard	79
+#define kGreetingCard4PanelTopFoldNotecard			80
+#define kGreetingCard4PanelTopFoldSpreadNotecard	81
+#define kA4PostCard									82
+#define kA4PostCard2Panel							83
+#define kA4BusinessCard								84
+#define kLabelC2160									85
+#define kLabelC2163									86
+#define kLabelC2166									87
+#define kLabelC2180									88
+#define kLabelC2241									89
+#define kLabelC2242									90
+#define kLabelC2245									91
+#define kLabelC2351									92
+#define kLabelC2352									93
+#define kLabelC2354									94
+#define kLabelC2355									95
+#define kLabel7413									96
+#define kA4Postit									97
+#define kLabel7421									98
+#define kEnvelopeDL									99
+#define kEnvelopeC4									100
+#define kEnvelopeC5									101
+#define kEnvelopeC6									102
+#define kA4GreetingCard4PanelSideFoldNotecard		103
+#define kA4GreetingCard4PanelSideFoldSpreadNotecard	104
+#define kA4GreetingCard4PanelTopFoldNotecard		105
+#define kA4GreetingCard4PanelTopFoldSpreadNotecard	106
+#define kA4PlainPaperPostCard						107
+#define kGreetingCardPhotoFrameSideFold				108
+#define kGreetingCardPhotoFrameTopFold				109
+#define kGreetingCardEmbossedSideFold				110
+#define kGreetingCardEmbossedTopFold				111
+#define kGreetingCardHalfFoldEmbossedSideFold		112
+#define kGreetingCardHalfFoldEmbossedTopFold		113
+#define kLabel3261Small								114
+#define kLabel3261Large								115
+#define kGreetingCardMiniFoldCardSideFold			116
+#define kGreetingCardMiniFoldCardTopFold			117
+#define kPhotoLayout1								118
+#define kPhotoLayout2								119
+#define kPhotoLayout3								120
+#define kPhotoLayout4								121
+#define kPhotoLayout5								122
+#define kPhotoLayout6								123
+#define kPhotoLayout7								124
+#define kPhotoLayout8								125
+#define kPhotoAlbum									126
+#define kPhotoCollage								127
+#define kPhotoNovelty								128
+#define kGreetingCardSmallPhotoFrameSideFold		129
+#define kGreetingCardSmallPhotoFrameTopFold			130
+#define kGreetingCardLargePhotoFrameSideFold		131
+#define kGreetingCardLargePhotoFrameTopFold			132
+#define kAvery3263PostCard							133
+#define kAvery3258Envelope							134
+#define kAvery3259Envelope							135
+#define kAvery3260Envelope							136
+#define kGreetingCardMiniFoldCardSideFoldSpread		137
+#define kGreetingCardMiniFoldCardTopFoldSpread		138
+#define kLabelPrintList								139
+#define kA4AveryC2354BusinessCard					140
+#define kBlankPageTransfer							141
+#define kNumberOfBuiltInProjTypes					142
+
+// Press Writer project types
+//
+#define kNewsletter									151
+#define kBrocures									152
+#define kReports									153
+#define kBooklets									154
+#define kLetters									155
+#define kFlyers										156
+#define kCustom										157
+
+// Paper Types
+//
+#define kUSLetter									0
+#define kUSLegal									1
+#define kA4Letter									2
+#define kB5Letter									3
+#define kTabloid									4
+#define kA3Tabloid									5
+#define kSpecialPaperSize							6
+#define kNumberOfPaperSizes							7
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// SYSTEMDATA
+//
+
+// The project map contains any project specific information needed 
+// for displaying the path to project associated with each project
+// type.  Note, the project defines are 1 based, due to the fact that
+// for our purposes 0 is undefined and because there is one project 
+// type, signs, that is defined as 0.  Because the app maintains the 
+// actual project type, which is used for lookups into the project table, 
+// the project table (and the project table only) needs to contain 0 based 
+// project types.  This is why each of the project types of 1 subtracted 
+// from them in the project table.
+//
+ID_PROJECT_MAP SYSTEMDATA MOVEABLE PURE
+BEGIN
+	//																						
+	// Project Type			Header ID				Project Start Dialog			Format Dlg ID						Paper Map
+	kBlankPage - 1,			IDB_TEXT_SIGN,			IDD_PROJECT_FORMAT,				0,									0,
+	kSign - 1,				IDB_TEXT_SIGN,			IDD_PROJECT_METHOD,				0,									0,
+	kCertificate - 1,		IDB_TEXT_SIGN,			IDD_PROJECT_METHOD,				0,									0,
+	kLetterHead - 1,		IDB_TEXT_SIGN,			IDD_PROJECT_METHOD,				0,									0,
+	kGreetingCard - 1,		IDB_TEXT_GREETINGCARD,	IDD_PROJECT_METHOD,				IDD_PROJECT_FORMAT_GREETINGCARD,	0,
+	kCalendar - 1,			IDB_TEXT_CALENDAR,		IDD_PROJECT_CALENDAR_METHOD,	0,									0,
+	kPamphlet - 1,			IDB_TEXT_SIGN,			IDD_PROJECT_METHOD,				0,									0,
+	kNameTag - 1,			IDB_TEXT_SIGN,			IDD_PROJECT_METHOD,				0,									0,
+	kPostCard - 1,			IDB_TEXT_SIGN,			IDD_PROJECT_METHOD,				0,									0,
+	kBanner - 1,			IDB_TEXT_SIGN,			IDD_PROJECT_METHOD,				0,									0,
+	kBusinessCard - 1,		IDB_TEXT_SIGN,			IDD_PROJECT_METHOD,				0,									0,
+	kEnvelope - 1,			IDB_TEXT_ENVELOPE,		IDD_PROJECT_METHOD,				IDD_PROJECT_FORMAT_ENVELOPE,		0,
+	kPostItNote - 1,		IDB_TEXT_SIGN,			IDD_PROJECT_METHOD,				0,									0,
+	kLabels - 1,			IDB_TEXT_LABEL,			IDD_PROJECT_METHOD,				IDD_PROJECT_FORMAT_LABEL,			0,
+	kBlankPageTransfer - 1,	IDB_TEXT_SIGN,			IDD_PROJECT_METHOD,				0,									0,
+	kNewsletter - 1,		IDB_TEXT_NEWSLETTER,	IDD_PROJECT_METHOD_PRESSWRITER,	0,									0,
+	kBrocures - 1,			IDB_TEXT_SIGN,			IDD_PROJECT_METHOD_PRESSWRITER,	0,									0,
+	kLetters - 1,			IDB_TEXT_SIGN,			IDD_PROJECT_METHOD_PRESSWRITER,	0,									0,
+	kReports - 1,			IDB_TEXT_SIGN,			IDD_PROJECT_METHOD_PRESSWRITER,	0,									0,
+	kFlyers - 1,			IDB_TEXT_SIGN,			IDD_PROJECT_METHOD_PRESSWRITER,	0,									0,
+	kBooklets - 1,			IDB_TEXT_SIGN,			IDD_PROJECT_METHOD_PRESSWRITER,	0,									0,
+	kWebsite - 1,			IDB_TEXT_WEBSITE,		IDD_PROJECT_WEBSITE_METHOD,		0,									0,
+//	kPhotoAlbum - 1,		IDB_TEXT_PHOTOPROJECT,	IDD_PROJECT_METHOD,				0,									0,  // QSL only
+//	kPhotoCollage - 1,		IDB_TEXT_PHOTOPROJECT,	IDD_PROJECT_METHOD,				0,									0,  // QSL only
+//	kPhotoNovelty - 1,		IDB_TEXT_PHOTOPROJECT,	IDD_PROJECT_METHOD,				0,									0,  // QSL only
+END
+
+#ifdef US_PROJECTS
+
+ID_PROJECT_PAPER_MAP SYSTEMDATA MOVEABLE PURE
+BEGIN
+	// Project Type					// Paper			// New Project Type
+	kGreetingCardSideFoldNotecard,	kUSLetter,			kGreetingCard4PanelSideFoldNotecard,
+	kGreetingCardTopFoldNotecard,	kUSLetter,			kGreetingCard4PanelTopFoldNotecard,
+	kPostCard2Panel,				kA4Letter,			kPostCard,
+	kPostCard,						kTabloid,			kAvery3263PostCard,
+END
+
+#else
+
+ID_PROJECT_PAPER_MAP SYSTEMDATA MOVEABLE PURE
+BEGIN
+	// Project Type					// Paper			// New Project Type
+	kGreetingCardSideFoldNotecard,	kA4Letter,			kA4GreetingCard4PanelSideFoldNotecard,
+	kGreetingCardTopFoldNotecard,	kA4Letter,			kA4GreetingCard4PanelTopFoldNotecard,
+	kPostCard2Panel,				kA3Tabloid,			kA4PostCard2Panel,
+	kPostCard2Panel,				kA4Letter,			kA4PostCard2Panel,
+	kPostCard2Panel,				kUSLetter,			kA4PostCard,
+	kPostCard2Panel,				kSpecialPaperSize,	kA4PlainPaperPostCard,
+	kPostCard,						kA3Tabloid,			kA4PostCard2Panel,
+	kPostCard,						kA4Letter,			kA4PostCard2Panel,
+	kPostCard,						kUSLetter,			kA4PostCard,
+	kPostCard,						kSpecialPaperSize,	kA4PlainPaperPostCard,
+	kBusinessCard,					kAllPaperTypes,		kA4AveryC2354BusinessCard,
+	kPostItNote,					kAllPaperTypes,		kA4Postit,
+END
+
+#endif // US_PROJECTS
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// BUTTONDATA
+//
+
+#define IMAGEDATA_CONFIG1		IMAGEDATA_wFOCUS | IMAGEDATA_ONDOWN | IMAGEDATA_INFOTEXT
+#define IMAGEDATA_CONFIG2		IMAGEDATA | IMAGEDATA_TEXT
+
+IDD_PSLAUNCH_DIALOG BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style				Data	Preview		Image Data																	// Info Text
+	IDC_CARDSHOP,			IMAGEDATA_CONFIG1,	0,		0,			IDB_CATEGORY_CARDSHOP,	0xFFFF, 0xFFFF, 164, IDB_CATEGORY_CARDSHOP_FOCUS,	IDS_INFOTEXT_CATEGORY_CARDSHOP,
+	IDC_PHOTO_PROJECTS,		IMAGEDATA_CONFIG1,	0,		0,			IDB_CATEGORY_PHOTO,		0xFFFF, 0xFFFF, 164, IDB_CATEGORY_PHOTO_FOCUS,		IDS_INFOTEXT_CATEGORY_PHOTO,
+	IDC_CREATIVE_CORNER,	IMAGEDATA_CONFIG1,	0,		0,			IDB_CATEGORY_CREATIVE,	0xFFFF, 0xFFFF, 164, IDB_CATEGORY_CREATIVE_FOCUS,	IDS_INFOTEXT_CATEGORY_CREATIVE,
+	IDC_CATEGORY_CLASSROOM,	IMAGEDATA_CONFIG1,	0,		0,			IDB_CATEGORY_CLASSROOM,	0xFFFF, 0xFFFF, 164, IDB_CATEGORY_CLASSROOM_FOCUS,	IDS_INFOTEXT_CATEGORY_CLASSROOM,
+	IDC_CATEGORY_WORKPLACE,	IMAGEDATA_CONFIG1,	0,		0,			IDB_CATEGORY_WORKPLACE,	0xFFFF, 0xFFFF, 164, IDB_CATEGORY_WORKPLACE_FOCUS,	IDS_INFOTEXT_CATEGORY_WORKPLACE,
+	IDC_PROJECTS_INTERNET,	IMAGEDATA_CONFIG1,	0,		0,			IDB_CATEGORY_INTERNET,	0xFFFF, 0xFFFF, 164, IDB_CATEGORY_INTERNET_FOCUS,	IDS_INFOTEXT_CATEGORY_INTERNET,
+	IDC_PROJECTS_ALL,		IMAGEDATA_CONFIG1,	0,		0,			IDB_CATEGORY_ALL,		0xFFFF, 0xFFFF, 164, IDB_CATEGORY_ALL_FOCUS,		IDS_INFOTEXT_CATEGORY_ALL,
+	IDC_CATEGORY_OPEN,		IMAGEDATA_CONFIG1,	0,		0,			IDB_CATEGORY_OPEN,		0xFFFF, 0xFFFF, 164, IDB_CATEGORY_OPEN_FOCUS,		IDS_INFOTEXT_CATEGORY_OPEN,
+	0x0000,
+END
+
+IDD_CATEGORY_CARD_SHOP BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style		Data			Preview		Image Data
+	IDC_GREETING_CARDS,		0,			kGreetingCard,	0,		
+	0x0000,
+END
+
+IDD_CATEGORY_PHOTO_PROJECTS BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style		Data			Preview		Image Data
+	IDC_PROJECT_OPTION1,	IMAGEDATA,	kPhotoAlbum,	0,			IDB_PROJECT_PHOTOBALBUMS,		0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION2,	IMAGEDATA,	kPhotoCollage,	0,			IDB_PROJECT_PHOTOCOLLAGES,		0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION3,	IMAGEDATA,	kPhotoNovelty,	0,			IDB_PROJECT_PHOTOPAGES,			0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION4,	IMAGEDATA,	0,				0,			IDB_PROJECT_PHOTOQUICKPRINTS,	0xFFFF, 0xFFFF, 87,
+	0x0000,
+END
+
+IDD_CATEGORY_CREATIVE BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style				Data				Preview		Image Data
+	IDC_PROJECT_OPTION1,	IMAGEDATA_CONFIG2,	kBlankPage,			0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION2,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION3,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION4,	IMAGEDATA_CONFIG2,	kNameTag,			0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION5,	IMAGEDATA_CONFIG2,	kBanner,			0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION6,	IMAGEDATA_CONFIG2,	kCalendar,			0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION7,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION8,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION9,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION10,	IMAGEDATA_CONFIG2,	kGreetingCard,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION11,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION12,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION13,	IMAGEDATA_CONFIG2,	kPostItNote,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION14,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION15,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION16,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION17,	IMAGEDATA_CONFIG2,	kBlankPageTransfer,	0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION18,	IMAGEDATA_CONFIG2,	0,					0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	0x0000,
+END
+
+IDD_CATEGORY_CLASSROOM BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style				Data			Preview		Image Data
+	IDC_PROJECT_OPTION1,	IMAGEDATA_CONFIG2,	kBlankPage,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION2,	IMAGEDATA_CONFIG2,	kNameTag,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION3,	IMAGEDATA_CONFIG2,	kBanner,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION4,	IMAGEDATA_CONFIG2,	kCalendar,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION5,	IMAGEDATA_CONFIG2,	kCertificate,	0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION6,	IMAGEDATA_CONFIG2,	0,				0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION7,	IMAGEDATA_CONFIG2,	kLabels,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION8,	IMAGEDATA_CONFIG2,	0,				0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION9,	IMAGEDATA_CONFIG2,	0,				0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION10,	IMAGEDATA_CONFIG2,	0,				0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION11,	IMAGEDATA_CONFIG2,	kSign,			0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION12,	IMAGEDATA_CONFIG2,	kBooklets,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION13,	IMAGEDATA_CONFIG2,	kBrocures,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION14,	IMAGEDATA_CONFIG2,	kFlyers,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION15,	IMAGEDATA_CONFIG2,	kNewsletter,	0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION16,	IMAGEDATA_CONFIG2,	kReports,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION17,	IMAGEDATA_CONFIG2,	kWebsite,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	0x0000,
+END
+
+IDD_CATEGORY_WORKPLACE BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style				Data			Preview		Image Data
+	IDC_PROJECT_OPTION1,	IMAGEDATA_CONFIG2,	kBlankPage,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION2,	IMAGEDATA_CONFIG2,	kNameTag,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION3,	IMAGEDATA_CONFIG2,	kBanner,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION4,	IMAGEDATA_CONFIG2,	kBusinessCard,	0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION5,	IMAGEDATA_CONFIG2,	kCalendar,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION6,	IMAGEDATA_CONFIG2,	kCertificate,	0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION7,	IMAGEDATA_CONFIG2,	kEnvelope,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION8,	IMAGEDATA_CONFIG2,	kLabels,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION9,	IMAGEDATA_CONFIG2,	kLetterHead,	0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION10,	IMAGEDATA_CONFIG2,	0,				0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION11,	IMAGEDATA_CONFIG2,	kPostCard,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION12,	IMAGEDATA_CONFIG2,	kPostItNote,	0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION13,	IMAGEDATA_CONFIG2,	kSign,			0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION14,	IMAGEDATA_CONFIG2,	kBooklets,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION15,	IMAGEDATA_CONFIG2,	kBrocures,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION16,	IMAGEDATA_CONFIG2,	kFlyers,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION17,	IMAGEDATA_CONFIG2,	kLetters,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION18,	IMAGEDATA_CONFIG2,	kNewsletter,	0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION19,	IMAGEDATA_CONFIG2,	kReports,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION20,	IMAGEDATA_CONFIG2,	kLetters,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION21,	IMAGEDATA_CONFIG2,	kWebsite,		0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	0x0000,
+END
+
+IDD_CATEGORY_INTERNETWORLD BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style				Data			Preview		Image Data
+	IDC_PROJECT_OPTION1,	IMAGEDATA_CONFIG2,	0,				0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	IDC_PROJECT_OPTION2,	IMAGEDATA,			kWebsite,		0,			IDB_PROJECT_WEBSITE,	0xFFFF, 0xFFFF, 88,
+	IDC_PROJECT_OPTION3,	IMAGEDATA_CONFIG2,	0,				0,			IDB_PROJECT_BLANKPAGES,	0xFFFF, 0xFFFF, 87,
+	0x0000,
+END
+
+IDD_PROJECT_METHOD BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style		Data								Preview		Image Data
+	IDC_START_SCRATCH,		0,			IDD_PROJECT_FORMAT,					0,			
+	0x0000,
+END
+
+IDD_PROJECT_METHOD_PRESSWRITER BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style		Data								Preview		Image Data
+	IDC_START_SCRATCH,		0,			IDD_PROJECT_FORMAT_PRESSWRITER,		0,			
+	IDC_START_CUSTOMIZE,	0,			IDD_PROJECT_QSL_PRESSWRITER,		0,			
+	0x0000,
+END
+
+IDD_PROJECT_CALENDAR_METHOD BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style		Data								Preview		Image Data
+	IDC_START_SCRATCH,		0,			IDD_PROJECT_CALENDAR_TYPE,			0,			
+	0x0000,
+END
+
+IDD_PROJECT_CALENDAR_TYPE BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style		Data				Preview							Image Data
+	IDC_CALENDAR_YEARLY,	IMAGEDATA,	kYearlyCalendar,	IDB_PREVIEW_CALENDAR_YEARLY,	IDB_CALENDAR_YEARLY,	0xFFFF, 0xFFFF, 75,
+	IDC_CALENDAR_MONTHLY,	IMAGEDATA,	kMonthlyCalendar,	IDB_PREVIEW_CALENDAR_MONTHLY	IDB_CALENDAR_MONTHLY,	0xFFFF, 0xFFFF, 75,
+	IDC_CALENDAR_WEEKLY,	IMAGEDATA,	kWeeklyCalendar,	IDB_PREVIEW_CALENDAR_WEEKLY,	IDB_CALENDAR_WEEKLY,	0xFFFF, 0xFFFF, 75,
+	IDC_CALENDAR_DAILY,		IMAGEDATA,	kDailyCalendar,		IDB_PREVIEW_CALENDAR_DAILY,		IDB_CALENDAR_DAILY,		0xFFFF, 0xFFFF, 75,
+	0x0000,
+END
+
+IDD_PROJECT_WEBSITE_METHOD BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style		Data							Preview		Image Data
+	IDC_START_SCRATCH,		0,			0,								0,			
+	0x0000,
+END
+
+IDD_PROJECT_FORMAT BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style		Data			Preview
+	IDC_FORMAT_TALL,		0,			0,				IDB_PREVIEW_TALL,
+	IDC_FORMAT_WIDE,		0,			0,				IDB_PREVIEW_WIDE,
+	0x0000,
+
+END
+
+IDD_PROJECT_FORMAT_PRESSWRITER BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style		Data				Preview
+	IDC_FORMAT_TALL,		0,			0,					IDB_PREVIEW_TALL,
+	IDC_FORMAT_WIDE,		0,			0,					IDB_PREVIEW_WIDE,
+	IDC_NEXT,				0,			IDD_PROJECT_SETUP,	0,
+	0x0000,
+END
+
+IDD_PROJECT_FORMAT_ENVELOPE BUTTONDATA MOVEABLE PURE 
+BEGIN
+	// Control ID			Style		Data			Preview						Image Data
+	IDC_ENVELOPE_STOCK,		IMAGEDATA,	0,				0,							IDB_ENVELOPE_STOCK,	0xFFFF, 0xFFFF, 75,
+	IDC_ENVELOPE_PS,		IMAGEDATA,	0,				IDB_PREVIEW_ENVELOPE_PS,	IDB_ENVELOPE_PS,	0xFFFF, 0xFFFF, 75,
+	0x0000,
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// LISTDATA
+//
+
+IDD_CATEGORY_ALL LISTDATA MOVEABLE PURE 
+BEGIN
+    IDC_PROJECT_LIST, 
+		IDS_PROJECT_ANIMATED_GREETINGS	0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_BLANK_PAGES			kBlankPage,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_BANNERS				kBanner,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_BOOKLETS			kBooklets,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_BROCHURES			kBrocures,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_BUSINESS_CARDS		kBusinessCard,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_CALENDARS			kCalendar,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_CERTIFICATES		kCertificate,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_ENVELOPES			kEnvelope,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_FLASHCARDS			0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_FLYERS				kFlyers,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_GIFT_BAGS			0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_GIFT_TAGS			0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_GIFT_WRAP			0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_GREETING_CARDS		kGreetingCard,		IDB_PREVIEW_GREETINGCARD,
+		IDS_PROJECT_HEAT_TRANSFERS		kBlankPageTransfer,	IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_LABELS				kLabels,			IDB_PREVIEW_LABELS,
+		IDS_PROJECT_LETTERHEADS			kLetterHead,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_LETTERS				kLetters,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_NAME_TAGS			kNameTag,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_NEWSLETTERS			kNewsletter,		IDB_PREVIEW_NEWSLETTER,
+		IDS_PROJECT_ONLINE_GREETINGS	0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_PAMPHLETS			kPamphlet,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_PHOTO_ALBUMS		kPhotoAlbum,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_PHOTO_COLLAGES		kPhotoCollage,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_PHOTO_NOVELTIES		kPhotoNovelty,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_PHOTO_QUICKPRINTS	0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_PLACEMATS			0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_POSTCARDS			kPostCard,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_POSTIT_NOTES		kPostItNote,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_REPORTS				kReports,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_RESUMES				0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_SCRAPBOOKS			0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_SIGNS				kSign,				IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_TABLE_CARDS			0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_TSHIRTS				0,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_PROJECT_WEBSITES			kWebsite,			IDB_PREVIEW_WEBSITE,
+		IDS_PROJECT_YEARBOOKS			0,					IDB_PREVIEW_PLACEHOLDER,
+		0x0000,
+	0x0000,
+END
+
+IDD_PROJECT_FORMAT_GREETINGCARD LISTDATA MOVEABLE PURE 
+BEGIN
+    IDC_FORMAT_LIST, 
+		IDS_FORMAT_QUARTERFOLD_TALL,		kGreetingCardSideFoldQuarterPage,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_QUARTERFOLD_WIDE,		kGreetingCardTopFoldQuarterPage,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_HALFFOLD_TALL,			kGreetingCardSideFoldHalfPage,			IDB_PREVIEW_HALFFOLD_TALL,
+		IDS_FORMAT_HALFFOLD_WIDE,			kGreetingCardTopFoldHalfPage,			IDB_PREVIEW_HALFFOLD_WIDE,
+		IDS_FORMAT_NOTECARD_TALL,			kGreetingCardSideFoldNotecard,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_NOTECARD_WIDE,			kGreetingCardTopFoldNotecard,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_TRIFOLD_TALL,			kTrifoldBrochureTall,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_TRIFOLD_WIDE,			kTrifoldBrochureWide,					IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PHOTOCARD35_TALL,		kGreetingCardSmallPhotoFrameSideFold,	IDB_PREVIEW_HALFFOLD_TALL,
+		IDS_FORMAT_PHOTOCARD35_WIDE,		kGreetingCardSmallPhotoFrameTopFold,	IDB_PREVIEW_HALFFOLD_WIDE,
+		IDS_FORMAT_PHOTOCARD46_TALL,		kGreetingCardLargePhotoFrameSideFold,	IDB_PREVIEW_HALFFOLD_TALL,
+		IDS_FORMAT_PHOTOCARD46_WIDE,		kGreetingCardLargePhotoFrameTopFold,	IDB_PREVIEW_HALFFOLD_WIDE,
+		IDS_FORMAT_MINIFOLDCARDTALL,		kGreetingCardMiniFoldCardSideFold,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_MINIFOLDCARDWIDE,		kGreetingCardMiniFoldCardTopFold,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_HALFFOLDEMBOSSEDTALL,	kGreetingCardHalfFoldEmbossedSideFold,	IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_HALFFOLDEMBOSSEDWIDE,	kGreetingCardHalfFoldEmbossedTopFold,	IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_EMBOSSEDTALL,			kGreetingCardEmbossedSideFold,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_EMBOSSEDWIDE,			kGreetingCardEmbossedTopFold,			IDB_PREVIEW_PLACEHOLDER,
+		0x0000,
+	0x0000,
+END
+
+#ifdef US_PROJECTS
+
+IDD_PROJECT_FORMAT_LABEL LISTDATA MOVEABLE PURE 
+BEGIN
+		// String					Project Type		Preview
+    IDC_FORMAT_LIST, 
+		IDS_FORMAT_LABEL3261SMALL,	kLabel3261Small,	IDB_PREVIEW_LABEL3261SMALL,
+		IDS_FORMAT_LABEL3261LARGE,	kLabel3261Large,	IDB_PREVIEW_LABEL3261LARGE,
+		IDS_FORMAT_LABEL5160,		kLabel5160,			IDB_PREVIEW_LABEL5160,
+		IDS_FORMAT_LABEL5161,		kLabel5161,			IDB_PREVIEW_LABEL5161,
+		IDS_FORMAT_LABEL5162,		kLabel5162,			IDB_PREVIEW_LABEL5162,
+		IDS_FORMAT_LABEL5163,		kLabel5163,			IDB_PREVIEW_LABEL5163,
+		IDS_FORMAT_LABEL5164,		kLabel5164,			IDB_PREVIEW_LABEL5164,
+		IDS_FORMAT_LABEL5196,		kLabel5196,			IDB_PREVIEW_LABEL5196,
+		IDS_FORMAT_LABEL5197,		kLabel5197,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABEL5198,		kLabel5198,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABEL5199FACE,	kLabel5199face,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABEL5199SPINE,	kLabel5199spine,	IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABEL5267,		kLabel5267,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABEL5385,		kLabel5385,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABEL5386,		kLabel5386,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABEL5824,		kLabel5824,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_NAMEBADGE5361,	kLabel5361,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_NAMEBADGE5390,	kLabel5390,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_NAMEBADGE5395,	kLabel5395,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4030,		kLabel4030,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4031,		kLabel4031,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4060,		kLabel4060,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4061,		kLabel4061,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4062,		kLabel4062,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4065,		kLabel4065,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4088,		kLabel4088,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4143,		kLabel4143,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4145,		kLabel4145,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4240,		kLabel4240,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_PINFED4241,		kLabel4241,			IDB_PREVIEW_PLACEHOLDER,
+		0x0000,
+	0x0000,
+END
+
+IDD_PROJECT_FORMAT_ENVELOPE LISTDATA MOVEABLE PURE 
+BEGIN
+		// String						Project Type		Preview
+    IDC_FORMAT_LIST, 
+		IDS_FORMAT_BUSINESSENVELOPE10,	kBusinessEnvelope,	IDB_PREVIEW_ENVELOPE_BUSINESS,
+		IDS_FORMAT_STOCKENVELOPE9X6,	k9x6Envelope,		IDB_PREVIEW_ENVELOPE_9x6,
+		IDS_FORMAT_STOCKENVELOPE6X4,	k6x4p75Envelope,	IDB_PREVIEW_ENVELOPE_6x4p75,
+		IDS_FORMAT_NOTECARD_ENVELOPE,	kNotecardEnvelope,	IDB_PREVIEW_ENVELOPE_NOTECARD,
+		IDS_FORMAT_AVERY3258ENVELOPE,	kAvery3258Envelope,	IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_AVERY3259ENVELOPE,	kAvery3259Envelope,	IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_AVERY3260ENVELOPE,	kAvery3260Envelope,	IDB_PREVIEW_PLACEHOLDER,
+		0x0000,
+	0x0000,
+END
+
+#else
+
+IDD_PROJECT_FORMAT_LABEL LISTDATA MOVEABLE PURE 
+BEGIN
+		// String					Project Type		Preview
+    IDC_FORMAT_LIST, 
+		IDS_FORMAT_LABELL7160,		kLabel7160,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7161,		kLabel7161,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7162,		kLabel7162,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7163,		kLabel7163,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7164,		kLabel7164,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7165,		kLabel7165,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7166,		kLabel7166,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7168,		kLabel7168,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELC2160,		kLabelC2160,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELC2163,		kLabelC2163,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7651,		kLabel7651,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELC2180,		kLabelC2180,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7655,		kLabel7655,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7664,		kLabel7664,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELC2166,		kLabelC2166,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7671FACE,	kLabel7671face,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELL7674SPINE,	kLabel7674spine,	IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_NAMEBADGEL7418,	kLabel7418,			IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELC2241,		kLabelC2241,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELC2242,		kLabelC2242,		IDB_PREVIEW_PLACEHOLDER,
+		IDS_FORMAT_LABELC2245,		kLabelC2245,		IDB_PREVIEW_PLACEHOLDER,
+		0x0000,
+	0x0000,
+END
+
+IDD_PROJECT_FORMAT_ENVELOPE LISTDATA MOVEABLE PURE 
+BEGIN
+		// String						Project Type		Preview
+    IDC_FORMAT_LIST, 
+		IDS_FORMAT_STOCKENVELOPE_DL,	kEnvelopeDL,		IDB_PREVIEW_ENVELOPE_BUSINESS,
+		IDS_FORMAT_STOCKENVELOPE_C4,	kEnvelopeC4,		IDB_PREVIEW_ENVELOPE_9x6,
+		IDS_FORMAT_STOCKENVELOPE_C5,	kEnvelopeC5,		IDB_PREVIEW_ENVELOPE_6x4p75,
+		IDS_FORMAT_STOCKENVELOPE_C6,	kEnvelopeC6,		IDB_PREVIEW_ENVELOPE_NOTECARD,
+//		IDS_FORMAT_AVERY3258ENVELOPE,	kEnvelopeC6,		IDB_PREVIEW_PLACEHOLDER,
+//		IDS_FORMAT_AVERY3259ENVELOPE,	kEnvelopeC6,		IDB_PREVIEW_PLACEHOLDER,
+//		IDS_FORMAT_AVERY3260ENVELOPE,	kEnvelopeC6,		IDB_PREVIEW_PLACEHOLDER,
+		0x0000,
+	0x0000,
+END
+
+#endif // US_PROJECTS
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Project to application data
+//
+														// App String				// Paper Map
+//kGreetingCardSideFoldHalfPage		PROJECT_MAP	BEGIN	IDS_APP_PRINTSHOP,			kPaperMapDefault,	END
+//kGreetingCardTopFoldHalfPage		PROJECT_MAP	BEGIN	IDS_APP_PRINTSHOP,			kPaperMapDefault,	END
+//kGreetingCardSideFoldQuarterPage	PROJECT_MAP	BEGIN	IDS_APP_PRINTSHOP,			kPaperMapDefault,	END
+//kGreetingCardTopFoldQuarterPage		PROJECT_MAP	BEGIN	IDS_APP_PRINTSHOP,			kPaperMapDefault,	END
+//kNewsletter							PROJECT_MAP	BEGIN	IDS_APP_PRESSWRITER,		kPaperMapDefault,	END
+//kWebsite							PROJECT_MAP	BEGIN	IDS_APP_WEBSITEDESIGNER,	0,					END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Paper Map
+//
+kPaperMapDefault PAPER_MAP 
+BEGIN
+	IDS_PAPER_USLETTER,
+	IDS_PAPER_USLEGAL,
+	IDS_PAPER_USTABLOID,
+	0x0000
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+#ifdef _DEBUG
+STRINGTABLE DISCARDABLE 
+BEGIN
+	IDS_APP_PRINTSHOP				"PS6Debug"
+	IDS_APP_PRESSWRITER				"PSPDebug"
+	IDS_APP_WEBSITEDESIGNER			"PSWebDebug"
+END
+#else
+STRINGTABLE DISCARDABLE 
+BEGIN
+	IDS_APP_PRINTSHOP				"PS6"
+	IDS_APP_PRESSWRITER				"PSPW"
+	IDS_APP_WEBSITEDESIGNER			"PSWeb"
+END
+#endif
+
+/////////////////////////////////////////////////////////////////////////////

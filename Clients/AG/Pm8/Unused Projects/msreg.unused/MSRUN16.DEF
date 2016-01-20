@@ -1,0 +1,22 @@
+;
+; $Workfile:   msrun16.def  $
+; $Revision:   1.1  $
+; $Date:   27 Dec 1995 15:45:00  $
+;
+; Copyright (C) 1995 MicroLogic Software, Inc.
+; All rights reserved.
+;
+
+; cdlaunch.def : Declares the module parameters for the application.
+
+NAME         MSRUN16
+DESCRIPTION  'Mindscape EXE Launcher'
+EXETYPE      WINDOWS
+
+CODE         PRELOAD MOVEABLE DISCARDABLE
+DATA         PRELOAD MOVEABLE MULTIPLE
+
+HEAPSIZE     1024   ; initial heap size
+; Stack size is passed as argument to linker's /STACK option
+
+

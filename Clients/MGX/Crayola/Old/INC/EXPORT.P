@@ -1,0 +1,6 @@
+// Source file: EXPORT.C
+BOOL FAR _export ExportClockCursor(int part, int whole, BOOL bEscapable);
+LPTR FAR _export ExportDataPointer(int x, int y, BOOL bModify);
+BOOL ExportImageDLL( LPTR lpExportFile );
+BOOL ExportImage( HWND hWnd, ITEMID idItem, ITEMID idIniSection );
+

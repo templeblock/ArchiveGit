@@ -1,0 +1,135 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "ngsres.h"
+#include "hubdef.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "ngsres.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDBNGS_NGS1             BITMAP  DISCARDABLE     "resaddon\\ngsback.bmp"
+IDBNGS_VIEW_BIO_DN      BITMAP  DISCARDABLE     "resaddon\\bi_64dw.bmp"
+IDBNGS_VIEW_BIO_UP      BITMAP  DISCARDABLE     "resaddon\\bi_64up.bmp"
+IDBNGS_EXIT_DN          BITMAP  DISCARDABLE     "resaddon\\ex_64dw.bmp"
+IDBNGS_EXIT_UP          BITMAP  DISCARDABLE     "resaddon\\ex_64up.bmp"
+IDBNGS_INSTALL_DN       BITMAP  DISCARDABLE     "resaddon\\in_64dw.bmp"
+IDBNGS_INSTALL_UP       BITMAP  DISCARDABLE     "resaddon\\in_64up.bmp"
+IDBNGS_VIEW_ART_DN      BITMAP  DISCARDABLE     "resaddon\\vi_64dw.bmp"
+IDBNGS_VIEW_ART_UP      BITMAP  DISCARDABLE     "resaddon\\vi_64up.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HUBTABLE
+//
+IDR_HUBTABLE            HUBTABLE DISCARDABLE
+BEGIN
+   NUM_SCREEN_NGS1,
+   NUM_BUTTON_NGS1,
+   0L,
+// Screens
+   IDBNGS_NGS1,         // Bitmap ID
+   600,                 // Width
+   400,                 // Height
+   CLIP_SIZE_NGS1,
+   0L,
+// Buttons
+   IDC_ADDON_INSTALL,
+   IDBNGS_INSTALL_UP, IDBNGS_INSTALL_DN,
+   220, 201,
+
+   IDC_ART_GALLERY,//IDC_ADDON_VIEW_ART,
+   IDBNGS_VIEW_ART_UP, IDBNGS_VIEW_ART_DN,
+   105, 172,
+
+   IDC_ADDON_VIEW_BIO,
+   IDBNGS_VIEW_BIO_UP, IDBNGS_VIEW_BIO_DN,
+   396, 172,
+
+   IDC_HUB_EXIT,
+   IDBNGS_EXIT_UP, IDBNGS_EXIT_DN,
+   424, 252
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT_ADDON DIALOG DISCARDABLE  0, 0, 254, 187
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About National Geographic Photo Gallery"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,100,75,50,14
+    CTEXT           "National Geographic Photo Gallery",IDC_STATIC,0,5,250,8
+    CTEXT           "© 1997 National Geographic Society. All rights reserved.\n National Geographic and Yellow Border are registered trademarks ® of National Geographic Society. Marcas Registradas.  ",
+                    IDC_STATIC,0,100,250,35
+    CTEXT           "Mindscape is a registered trademark and the Mindscape logo is a trademark of Mindscape, Inc.\n Unauthorized reproduction or distribution of the material or programming contents contained on this CD-ROM without written permission is prohibited.",
+                    IDC_STATIC,0,140,250,45
+    CTEXT           "Version 1.0",IDC_STATIC,5,20,245,8
+    CTEXT           "Product Number\t112680",IDC_STATIC,5,35,245,8
+    CTEXT           "Press enter or click OK to Continue",IDC_STATIC,0,60,
+                    245,8
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

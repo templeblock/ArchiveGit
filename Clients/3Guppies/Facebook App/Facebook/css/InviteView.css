@@ -1,0 +1,12 @@
+/*** FACEBOOK APP : INVITE STYLES ***/
+
+
+div.FBbody { padding: 10px 0 0 10px; }
+
+form.inviteFriends { float: left; width: 328px; }
+form.inviteFriends button { float: right; }
+form.inviteFriends div#selectFriends { width: 328px; height: 350px; border: 1px solid #C7BCAF; overflow: auto; }
+form.inviteFriends div#selectFriends .inviteUserThumb { float: left; width: 70px; height: 110px; margin: 0 2px 4px 0; padding: 2px; }
+
+div#guppyFriends { float: left; width: 270px; margin-left: 10px; }
+div#guppyFriends .guppyUserThumb { margin: 0px 2px 2px 0px; padding: 2px; width: 60px; height: 110px; float: left; }

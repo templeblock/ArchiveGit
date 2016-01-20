@@ -1,0 +1,77 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#                                                                            
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+NOPCH=
+REFDIR=..\ref
+MAKDIR=$(REFDIR)
+!IFNDEF PROJ
+!IFDEF BUILDDLL
+PROJ=imgdll
+FLAGS=-DNO_MFC /MT
+OBJDIR=dllobj
+!ELSE
+PROJ=imgutil
+FLAGS=-DNO_MFC
+!ENDIF
+!ENDIF
+DEFAULTBUILD =$(OBJDIR) $(PROJ).lib
+INSTALLLIST=\
+	$(REFDIR)\$(PROJ).lib\
+	$(REFDIR)\imgutil.h \
+	$(REFDIR)\macros.h \
+	$(REFDIR)\types.h
+	
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+!include "$(MAKDIR)\win.mak"
+
+##############################################################################
+#
+#--- Interesting files
+#
+OBJS    =\
+	$(OBJDIR)\clrinfo.obj \
+	$(OBJDIR)\fileio.obj \
+	$(OBJDIR)\gamma.obj \
+	$(OBJDIR)\makemap.obj \
+	$(OBJDIR)\map.obj \
+	$(OBJDIR)\memory.obj \
+	$(OBJDIR)\quick.obj \
+	$(OBJDIR)\strings.obj \
+	$(OBJDIR)\util.obj \
+	$(OBJDIR)\tform.obj
+	
+
+##############################################################################
+#
+#--- Targets
+default: $(DEFAULTBUILD)
+
+$(PROJ).lib: $(OBJS)
+  @del $@ >nul
+  $(LIBEXE) $(LIBFLAGS) /out:$@ @<<
+$(OBJS)
+<<
+
+##############################################################################
+#
+#--- Implicit Rules
+#    make any you think you will need.  They can be identical in nature,
+#    but NMAKE wants have at least one for each possible virtual combination
+#
+##############################################################################
+    

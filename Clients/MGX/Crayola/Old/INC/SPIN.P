@@ -1,0 +1,14 @@
+// Source file: SPIN.C
+void InitDlgItemSpin( HWND hWindow, int idControl, int iValue, BOOL bSigned, int iMin, int iMax );
+void SetDlgItemSpinLimits( HWND hWindow, int idControl, int iMin, int iMax );
+void SetDlgItemSpinStep( HWND hWindow, int idControl, long lStep );
+int SetDlgItemSpin( HWND hWindow, int idControl, int iValue, BOOL bSigned );
+int GetDlgItemSpin( HWND hWindow, int idControl, LPINT lpTranslated, BOOL bSigned );
+void InitDlgItemSpinFixed( HWND hWindow, int idControl, LFIXED fValue, BOOL bConvert, LFIXED fMin, LFIXED fMax );
+void SetDlgItemSpinFixedLimits( HWND hWindow, int idControl, LFIXED fMin, LFIXED fMax );
+LFIXED SetDlgItemSpinFixed( HWND hWindow, int idControl, LFIXED fValue, BOOL bConvert );
+LFIXED GetDlgItemSpinFixed( HWND hWindow, int idControl, LPINT lpTranslated, BOOL bConvert );
+long WINPROC EXPORT SpinControl( HWND hWindow, unsigned message, WPARAM wParam, LPARAM lParam );
+void HandleSpinValue( HWND hWindow, BOOL bInTopRect, BOOL bInBottomRect );
+void DrawSpin( HDC hDC, LPRECT lpRect, BOOL bPlus, BOOL bDown );
+

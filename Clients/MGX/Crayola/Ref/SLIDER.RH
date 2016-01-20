@@ -1,0 +1,53 @@
+/*****************************************************************************
+
+          Copyright (c) Micrografx, Inc., 1991.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+             from Micrografx, 1303 Arapaho, Richardson, TX. 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                   slider.rh
+
+******************************************************************************
+******************************************************************************
+
+                      Slider control resource defintions
+
+*****************************************************************************/
+
+/********************************** Styles **********************************/
+
+#define SLS_BUTTONS                 0x0001L         // Show Inc/Dec buttons
+
+#define SLS_STANDARD                0x0000L         // Slider style
+#define SLS_RAISED                  0x0002L
+#define SLS_LARGE                   0x0004L
+#define SLS_EXLARGE                 0x0006L
+
+#define SLS_HORIZONTAL              0x0000L         // Horizontal orientation
+#define SLS_VERTICAL                0x0008L         // Vertical orientation
+
+#define SLS_UNSIGNED                0x0010L         // Sign of value
+#define SLS_SIGNED                  0x0000L
+
+#define SLS_TICKSABOVE              0x0020L         // Ruler markings
+#define SLS_TICKSBELOW              0x0040L
+#define SLS_TICKSLEFT               0x0020L
+#define SLS_TICKSRIGHT              0x0040L
+
+#define SLS_BEVELTICKS              0x0080L         // 3-D ruler markings
+
+#define SLS_UNIFORM                 0x0100L         // Force uniform spacing
+
+#define SLS_LABELENDS               0x0200L         // Label endpoints
+
+#define SLS_NOFOCUS                 0x0400L         // Never accept focus
+
+#define SLS_EXTENDED                0x0800L         // Extend slider ends
+
+/******************************** Constants *********************************/
+
+#define SLSTYLE_MASK                0x0006
+
+/****************************************************************************/

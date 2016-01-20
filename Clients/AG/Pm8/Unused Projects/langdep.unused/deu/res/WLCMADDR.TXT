@@ -1,0 +1,3 @@
+Das Adreßbuch ist ein elektronisches Verzeichnis für Namen, Adressen, Telefonnummern und wichtige Datumsangaben.
+
+Verwenden Sie das Adreßbuch gemeinsam mit der Mail Merge-Funktion, um zahlreiche persönlich adressierte Karten auf einmal zu verschicken.

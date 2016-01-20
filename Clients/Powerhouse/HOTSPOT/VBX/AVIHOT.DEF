@@ -1,0 +1,21 @@
+LIBRARY         AVIHOT
+EXETYPE         WINDOWS
+DESCRIPTION     'AVIHOT DLL Copyright (c) 1993 Microsoft Corporation.'
+CODE            PRELOAD MOVEABLE
+DATA            PRELOAD MOVEABLE SINGLE
+HEAPSIZE        2048
+
+EXPORTS
+;    WEP     @1      RESIDENTNAME
+;    WEP     @1
+;    SbClsProc     @2
+;    hspPlayAVI    @3
+;    LDLLHandler   @4
+LibMain	@2
+VBINITCC @1
+VBTERMCC @4
+    
+;SEGMENTS
+;    WEP_TEXT FIXED
+
+;----------------------------------------------------------------------------

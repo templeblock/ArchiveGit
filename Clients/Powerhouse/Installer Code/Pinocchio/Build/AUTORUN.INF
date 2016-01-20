@@ -1,0 +1,5 @@
+[autorun]
+open=autorun.exe pinoc setup.exe
+icon=pinoc.ico
+shell\test=Read &Me
+shell\test\command=write pinread.wri

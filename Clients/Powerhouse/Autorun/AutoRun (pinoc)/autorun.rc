@@ -1,0 +1,11 @@
+#include <windows.h>
+#include "autorun.h"
+
+-1 ICON DISCARDABLE "autorun.ico"
+
+AUTORUN ACCELERATORS MOVEABLE PURE 
+BEGIN
+    VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
+    VK_RETURN,      IDM_CONTINUE,           VIRTKEY, NOINVERT
+END
+

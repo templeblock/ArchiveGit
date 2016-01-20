@@ -1,0 +1,4 @@
+// Source file: tmarker.c
+BOOL WINPROC EXPORT DlgMarkerProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+int MarkerProc( HWND hWindow, LPARAM lParam, UINT msg );
+

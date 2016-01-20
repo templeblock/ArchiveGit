@@ -1,0 +1,129 @@
+#  wt -- a 3d game engine
+#
+#  Copyright (C) 1994 by Chris Laurel
+#  email:  claurel@mr.net
+#  snail mail:  Chris Laurel, 5700 W Lake St #208,  St. Louis Park, MN  55416
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+
+
+
+############ Graphics systems -- uncomment one of these ##########
+#### Linux with svgalib
+GRAPHICLIBS=-lvgagl -lvga
+ GRAPHOBJS=linuxvga.o
+# uncomment only one of the next two lines
+  INPUTDEVOBJS=linux-console.o
+# INPUTDEVOBJS=linux-mouse.o
+  GRAPHDEFS=-DLINUXVGA
+ NAME=wt
+
+#### X11 
+# If your server does not support the shared memory extension, add
+#   -DNO_XSHM to the GRAPHDEFS line
+#  GRAPHICLIBS=-lXext -lX11
+#  GRAPHOBJS=x11graphics.o
+#  INPUTDEVOBJS=x11input.o
+#  GRAPHDEFS=-DX11GRAPHICS
+#  NAME=xwt
+
+### Architecture ###
+ARCH=ARCH_i86
+# ARCH= ARCH_SUN
+# ARCH=ARCH_OTHER
+ARCH_DEFS=-D$(ARCH)
+
+CC=gcc
+#### debugging version
+# CFLAGS=-g -DDEBUG -m486 -Wall -Winline $(GRAPHDEFS) $(ARCH_DEFS)
+# BASELIBS=-lm
+
+#### profiling version
+# CFLAGS=-g -pg -O2 -m486 -Wall -Winline $(GRAPHDEFS) $(ARCH_DEFS)
+# BASELIBS=-lm
+
+#### profiling version -- bprof
+# CFLAGS=-g -pg -m486 -Wall -Winline $(GRAPHDEFS) $(ARCH_DEFS)
+# BASELIBS=-lbmon -lm
+
+#### standard version
+  CFLAGS=-O2 -m486 -Wall -Winline $(GRAPHDEFS) $(ARCH_DEFS)
+  BASELIBS=-lm
+
+#### demo version
+# CFLAGS=-O2 -static -m486 -Wall -Winline $(GRAPHDEFS) $(ARCH_DEFS)
+# BASELIBS=-lm
+
+
+
+LIBS=$(BASELIBS) $(GRAPHICLIBS)
+
+
+OBJECTS=error.o fixed.o framebuf.o list.o render.o \
+	table.o	texture.o view.o world.o worldfile.o wt.o wtmem.o \
+        gifload.o expand.o \
+	$(INPUTDEVOBJS) $(GRAPHOBJS)
+
+$(NAME): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(NAME) $(LIBS)
+
+clean:
+	rm *.o $(NAME)
+
+
+error.o: framebuf.h graphics.h error.h
+
+fixed.o: error.h fixed.h 
+
+framebuf.o: wt.h error.h graphics.h wtmem.h framebuf.h
+
+bmload.o: wt.h error.h texture.h
+
+linux-console.o: wt.h error.h input.h
+
+linux-mouse.o: wt.h error.h input.h
+
+linuxvga.o: wt.h error.h framebuf.h graphics.h
+
+list.o: wt.h wtmem.h list.h
+
+render.o: wt.h error.h fixed.h wtmem.h table.h view.h texture.h \
+	framebuf.h graphics.h world.h slice.h render.h \
+	slice.c
+
+table.o: wtmem.h table.h
+
+texture.o: wt.h wtmem.h error.h texture.h
+
+view.o: fixed.h wtmem.h view.h
+
+world.o: wt.h fixed.h error.h wtmem.h texture.h table.h world.h
+
+worldfile.o: wt.h error.h fixed.h wtmem.h list.h table.h texture.h world.h \
+	 worldfile.h
+
+wt.o: wt.h fixed.h  view.h texture.h table.h world.h worldfile.h framebuf.h \
+	render.h graphics.h input.h
+
+wtmem.o: error.h wtmem.h
+
+x11graphics.o: wt.h error.h framebuf.h graphics.h
+
+x11input.o: wt.h error.h input.h x11graphics.h
+flread.o: flread.c
+flgifr.o: flgifr.c
+flalfb.o: flalfb.c 
+gifload.o: gifload.c

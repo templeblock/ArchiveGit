@@ -1,0 +1,127 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resrc1.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Canada) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+SSCEDEMO DIALOG DISCARDABLE  18, 18, 462, 210
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sentry Spelling-Checker Engine Demo"
+CLASS "SSCEDemo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_TEXT_EDT,5,115,450,36,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_NOHIDESEL | WS_VSCROLL | NOT WS_TABSTOP
+    LTEXT           "Text:",IDC_STATIC,5,105,60,8
+    EDITTEXT        IDC_RESULT_EDT,5,165,450,42,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL | NOT 
+                    WS_TABSTOP
+    LTEXT           "Result:",IDC_STATIC,5,155,85,8
+    RTEXT           "&Session id:",IDC_STATIC,220,65,60,8
+    EDITTEXT        IDC_SESSION_ID_EDT,285,65,25,12,ES_AUTOHSCROLL
+    RTEXT           "&Lexicon id:",IDC_STATIC,220,80,60,8
+    EDITTEXT        IDC_LEXICON_ID_EDT,285,80,25,12,ES_AUTOHSCROLL
+    RTEXT           "&Block id:",IDC_STATIC,220,95,60,8
+    EDITTEXT        IDC_BLOCK_ID_EDT,285,95,25,12,ES_AUTOHSCROLL
+    LISTBOX         IDC_FUNCTION_LST,5,40,195,45,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Invoke",IDC_INVOKE_BTN,80,90,50,14
+    RTEXT           "Param1",IDC_PARAM1_LBL,220,5,59,8
+    RTEXT           "Param2",IDC_PARAM2_LBL,220,20,59,8
+    RTEXT           "Param3",IDC_PARAM3_LBL,220,35,59,8
+    RTEXT           "Param4",IDC_PARAM4_LBL,220,50,59,8
+    EDITTEXT        IDC_PARAM1_EDT,285,5,170,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PARAM2_EDT,285,20,170,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PARAM3_EDT,285,35,170,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PARAM4_EDT,285,50,170,12,ES_AUTOHSCROLL
+    LTEXT           "Select a function, fill in the required parameters, and click Invoke.",
+                    IDC_STATIC,5,0,195,20
+    LTEXT           "Function:",IDC_STATIC,5,30,60,8
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resrc1.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    "SSCEDEMO", DIALOG
+    BEGIN
+        RIGHTMARGIN, 275
+        BOTTOMMARGIN, 209
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (Canada) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,27 @@
+/* A sample style sheet for XHTML Basic */
+/* Modified from the HTML 4 CSS stylesheet found in the CSS 2 specification. */
+body	{}
+img		{padding-top:4px}
+p		{color:navy; font-size:medium}
+em		{font-style:italic; color:olive}
+caption	{font-weight:bold; text-align:right}
+ol		{list-style-type:upper-roman; list-style-position:inside}
+ul		{color:navy; list-style-type:square}
+li		{color:navy; list-style-position:inside}
+table,td,tr,th
+		{border-width:1px; border-color:maroon; border-style:solid; text-align:center; background-color:silver}
+h6		{text-align:center; font-size:small}
+h2		{font-size:large; color:black}
+h3		{font-weight:bold; font-size:medium}
+
+/* the "b" style is defined here and can be used on any document that calls style.css by using */
+/* <span class="b"> or <div class="b"> and end tags around the text to be affected */
+.b		{font-weight:bold}
+.u 		{text-decoration:underline}
+.blink	{text-decoration:blink}
+.big 	{font-size:larger}
+.i 		{font-style:italic}
+.small 	{font-size:smaller}
+
+.home	{margin-top:6px; margin-right:6px; padding-right:6px}
+.box	{margin:1px; padding:1px; border-width:1px; border-style:solid; border-color:black; background-color:#ccaaff; text-align:center}

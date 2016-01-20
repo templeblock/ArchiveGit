@@ -1,0 +1,39 @@
+:Base pmw.HLP
+1 Contents=IDH_Contents
+1 Getting Started
+2 Getting Started=Getting_Started
+2 The Big Picture=The_Big_Picture
+2 Hints=Hints
+2 The Hub Screen=HIDR_MAINFRAME
+1 Creating New Documents
+2 Creating new documents=Creating_new_documents
+2 Using Ready-Made Designs=Using_Ready_Made_Designs
+2 The Project Browser=HIDD_PROJECT_BROWSER
+2 Using the Design Wizard=HIDD_WH_PROJECT_TYPE
+2 Creating a Brand New Project=HIDD_NEW_DIALOG
+2 Creating Matching Sets=Creating_Matching_Sets
+2 Creating Newsletters=Creating_Newsletters
+1 Working with Projects
+2 Working With Projects=Working_With_Projects
+2 Importing and Exporting Projects=Importing_and_Exporting_Projects
+2 Project Types=Project_Types
+1 Design Basics
+2 Design Basics=Design_Basics
+2 The Design Workspace=The_Design_Workspace
+2 Adding Design Elements=Adding_Design_Elements
+2 Making Changes=Making_Changes
+2 Arranging Elements=Arranging_Elements
+2 Using the Status Bar=Using_the_Status_Bar
+2 Previewing and Printing=Previewing_and_Printing
+2 Scanning pictures and graphics.=Scanning_pictures_and_graphics
+2 Saving your Project=Saving_your_Project
+1 Resources
+2 Resources...=Resources...
+2 Using the Art Gallery=HIDD_ART_BROWSER
+2 Working with Pictures=Working_with_Pictures
+2 Using the Sentiment Gallery=HIDD_SENTIMENT_BROWSER
+2 PrintMaster Gold on the Internet=PrintMaster_Gold_on_the_Internet
+2 Using PhotoEnhancer=Using_PhotoEnhancer
+2 Using your Address Book=HIDD_ADDRESS_BOOK
+1 Advanced
+2 Advanced Features and Tools=Advanced_Features_and_Tools

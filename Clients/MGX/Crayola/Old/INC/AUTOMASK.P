@@ -1,0 +1,24 @@
+// Source file: automask.c
+BOOL automask( int x, int y, LPPPOINT lpVecptr, LPINT lpVeccnt, LPINT lpMx, LPINT lpMy, LPINT lpDx, LPINT lpDy, int idColorModel);
+long EdgeValue8( int x, int y, int FromDir, int dx, int dy, int depth);
+long EdgeValue24( int x, int y, int FromDir, int dx, int dy, int depth );
+long Distance24(LPTR lpV1, LPTR lpV2);
+long Distance24HSL(LPTR lpV1, LPTR lpV2);
+long Distance24H(LPTR lpV1, LPTR lpV2);
+long Distance24L(LPTR lpV1, LPTR lpV2);
+long Distance24SL(LPTR lpV1, LPTR lpV2);
+long Distance24HS(LPTR lpV1, LPTR lpV2);
+long Distance24HL(LPTR lpV1, LPTR lpV2);
+long Distance24S(LPTR lpV1, LPTR lpV2);
+long Distance32(LPTR lpV1, LPTR lpV2);
+long Distance32HSL(LPTR lpV1, LPTR lpV2);
+long Distance32H(LPTR lpV1, LPTR lpV2);
+long Distance32L(LPTR lpV1, LPTR lpV2);
+long Distance32SL(LPTR lpV1, LPTR lpV2);
+long Distance32HS(LPTR lpV1, LPTR lpV2);
+long Distance32HL(LPTR lpV1, LPTR lpV2);
+long Distance32S(LPTR lpV1, LPTR lpV2);
+long EdgeValue32( int x, int y, int FromDir, int dx, int dy, int depth);
+int GoingAway( int dx, int dy );
+int direction( int dx, int dy );
+

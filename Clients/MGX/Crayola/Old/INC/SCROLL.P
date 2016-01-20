@@ -1,0 +1,5 @@
+// Source file: SCROLL.C
+void SetScrollBar( HWND hDlg, int idControl, int Value, int MinValue, int MaxValue );
+int HandleScrollBar( HWND hDlg, int idControl, WORD wParam, LONG lParam, int MinValue, int MaxValue );
+
+

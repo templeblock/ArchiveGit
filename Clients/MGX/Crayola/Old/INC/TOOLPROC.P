@@ -1,0 +1,5 @@
+// Source file: TOOLPROC.C
+int CustomProc( HWND hWindow, LPARAM lParam, UINT msg );
+int PointerProc( HWND hWindow, long lParam, int msg );
+int GrabberProc( HWND hWindow, LPARAM lParam, UINT msg );
+

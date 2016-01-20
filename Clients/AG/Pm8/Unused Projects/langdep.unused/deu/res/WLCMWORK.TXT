@@ -1,0 +1,5 @@
+Der Arbeitsbereich ist Ihr persönliches Zeichenbrett. Hier können Sie zeichnen, färben, bearbeiten und Schrift in Ihre Projekte einfügen. 
+
+Seitlich und oberhalb des Arbeitsbereichs erscheinen fünf Werkzeugmenüs. 
+
+Die Werkzeuge am Oberrand dienen zum Einfügen und Bearbeiten von Text. Links sehen Sie die Werkzeuge zum Einfügen, Verändern und Erstellen von Grafiken, rechts die Werkzeuge zum Anordnen von Grafiken und Text.

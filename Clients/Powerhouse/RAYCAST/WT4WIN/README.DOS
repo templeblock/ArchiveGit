@@ -1,0 +1,24 @@
+        wt 0.04 32-bit DOS binaries
+        ---------------------------
+by Petteri Kangaslampi a.k.a. Alfred / S2
+
+I also managed to destroy the readme-file for this one, so try
+to manage without one for now on. 'readme' is the original wt
+0.04 readme-file and it should contain most of the information
+needed. This wt port is compiled with Watcom C32 9.5, and
+requires a 80386 computer with some memory.
+
+Once again, I am sorry for this incovenience, but I really am
+too tired to write anything sensible. Perhaps I should learn to
+think when using DOS in order to prevent this kind of problems.
+
+As a final note: Remember to extract with subdirectories!
+
+If you have questions, comments or something, contact me:
+
+        pekanga@freeport.uwasa.fi
+or
+        Petteri Kangaslampi
+        Simeoninkuja 4
+        FIN-36240 Kangasala 4
+        Finland

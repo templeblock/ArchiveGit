@@ -1,0 +1,59 @@
+
+
+
+
+         FFFFFFF    A      XX    XX
+          F        AAA       X  X
+          FFFF    A   A       XX               ( OR SEND BY MAIL )   
+          F      AAAAAAA     X  X
+         FF     AA     AA  XX    XX     
+
+
+
+         Please FAX this form to: 1 800 837 4294   (Do not send a cover page)
+
+
+         ------------------------------------------------------------------------
+
+
+
+         Or, send by mail to:    PictureWorks Technology, Inc
+                                 c/o Pipeline Communications
+                                 PO Box 671449
+                                 Marietta, GA 30067-0025   USA.
+
+
+
+         ------------------------------------------------------------------------
+
+          XXX:ALSXXXSAAAAL:
+
+          First Name:  $(REGISTER.201)  Middle Initial: $(REGISTER.202) 
+          Last Name:   $(REGISTER.203)
+
+          Company:     $(REGISTER.204)
+
+          Address 1:   $(REGISTER.213)
+          Address 2:   $(REGISTER.214)
+          City:        $(REGISTER.215)  
+          State:       $(REGISTER.216)  
+          Zip Code:    $(REGISTER.217)
+          Country:     $(REGISTER.218)
+
+          Home Area Code: $(REGISTER.219)  Home Phone: $(REGISTER.220) $(REGISTER.220)
+          Work Area Code: $(REGISTER.206)  Work Phone: $(REGISTER.207) $(REGISTER.207) 
+          Extension:      $(REGISTER.208)
+
+          E-mail:        $(REGISTER.223)
+          Comments 1:    $(REGISTER.3002)
+          Comments 2:    $(REGISTER.3002)
+
+          Date:        $(REGISTER.3001)
+          System:      $(REGISTER.3000)
+          Product:     $(REGISTER.251)  $(REGISTER.252)
+
+          Thanks for registering.  We hope you enjoy your PictureWorks product.
+
+          XXX:ALSXXXSAAAAL:
+
+

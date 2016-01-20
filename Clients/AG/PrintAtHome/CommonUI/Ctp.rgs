@@ -1,0 +1,38 @@
+HKCR
+{
+	AXCTP3Lib.Ctp.1 = s 'Ctp Class'
+	{
+		CLSID = s '{BB333333-6DA1-4e80-B62A-3DF950FCC697}'
+	}
+
+	AXCTP3Lib.Ctp = s 'Ctp Class'
+	{
+		CLSID = s '{BB333333-6DA1-4e80-B62A-3DF950FCC697}'
+		CurVer = s 'AXCTP3Lib.Ctp.1'
+	}
+
+	NoRemove CLSID
+	{
+		ForceRemove {BB333333-6DA1-4e80-B62A-3DF950FCC697} = s 'Print At Home ActiveX Plug-in'
+		{
+		
+			ProgID = s 'AXCTP3Lib.Ctp.1'
+			VersionIndependentProgID = s 'AXCTP3Lib.Ctp'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			ForceRemove 'Control'
+			ForceRemove 'Insertable'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 1'
+			'MiscStatus' = s '0'
+			{
+				'1' = s '%OLEMISC%'
+			}
+			'TypeLib' = s '{43333333-317E-4797-BE46-2AB8B5980651}'
+			'Version' = s '1.0'
+		}
+	}
+}

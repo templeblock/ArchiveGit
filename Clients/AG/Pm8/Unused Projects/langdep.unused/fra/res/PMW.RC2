@@ -1,0 +1,132 @@
+//
+// PMW.RC2 - resources App Studio does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by App Studio
+#endif //APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+// Version stamp for this .EXE
+
+#include "ver.h"
+
+VS_VERSION_INFO     VERSIONINFO
+  FILEVERSION       5,0,0,7
+  PRODUCTVERSION    5,0,0,7
+  FILEFLAGSMASK     VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+  FILEFLAGS         VS_FF_DEBUG|VS_FF_PRIVATEBUILD|VS_FF_PRERELEASE
+#else
+  FILEFLAGS         0 // final version
+#endif
+#ifdef WIN32
+  FILEOS            VOS_DOS_WINDOWS32
+#else
+  FILEOS            VOS_DOS_WINDOWS16
+#endif
+  FILETYPE          VFT_APP
+  FILESUBTYPE       0   // not used
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "040904E4" // Lang=US English, CharSet=Windows Multilingual
+		BEGIN 
+			VALUE "CompanyName",     "Mindscape, Inc.\0"
+			VALUE "FileDescription", "PrintMaster\0"
+			VALUE "FileVersion",     "5.00.07\0"
+			VALUE "InternalName",    "PMW\0"
+			VALUE "LegalCopyright",  "\0"
+			VALUE "LegalTrademarks", "\0"
+			VALUE "OriginalFilename","PMW.EXE\0"
+			VALUE "ProductName",     "PrintMaster\0"
+			VALUE "ProductVersion",  "5.00.07\0"
+		END
+	END
+	BLOCK "VarFileInfo" 
+	BEGIN 
+		VALUE "Translation", 0x409, 1252
+			// English language (0x409) and the Windows ANSI codepage (1252)
+	END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+// Add additional manually edited resources here...
+
+IDD_SINGLE_PREVIEW_TOOLBAR DIALOG PRELOAD DISCARDABLE  0, 0, 187, 16
+#ifdef _WIN32
+STYLE WS_CHILD | 0x04
+#else
+STYLE WS_CHILD | CBRS_TOP
+#endif
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Print...",AFX_ID_PREVIEW_PRINT,2,2,44,12
+    PUSHBUTTON      "Zoom &In",AFX_ID_PREVIEW_ZOOMIN,48,2,44,12
+    PUSHBUTTON      "Zoom &Out",AFX_ID_PREVIEW_ZOOMOUT,94,2,44,12
+    PUSHBUTTON      "&Close",AFX_ID_PREVIEW_CLOSE,140,2,44,12
+END
+
+IDD_PREVIEW_TOOLBAR DIALOG PRELOAD DISCARDABLE  0, 0, 281, 16
+#ifdef _WIN32
+STYLE WS_CHILD | 0x04
+#else
+STYLE WS_CHILD | CBRS_TOP
+#endif
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Print...",AFX_ID_PREVIEW_PRINT,2,2,44,12
+    PUSHBUTTON      "Pre&v Page",AFX_ID_PREVIEW_PREV,48,2,44,12
+    PUSHBUTTON      "&Next Page",AFX_ID_PREVIEW_NEXT,94,2,44,12
+    PUSHBUTTON      "Zoom &In",AFX_ID_PREVIEW_ZOOMIN,140,2,44,12
+    PUSHBUTTON      "Zoom &Out",AFX_ID_PREVIEW_ZOOMOUT,186,2,44,12
+    PUSHBUTTON      "&Close",AFX_ID_PREVIEW_CLOSE,232,2,44,12
+END
+
+STRINGTABLE
+BEGIN
+IDS_FLDTRANS_SRC0		"First Name"  
+IDS_FLDTRANS_SRC1       "Last Name"
+IDS_FLDTRANS_SRC2       "Relationship"
+IDS_FLDTRANS_SRC3       "Title"
+IDS_FLDTRANS_SRC4       "Company"
+IDS_FLDTRANS_SRC5       "Address1"
+IDS_FLDTRANS_SRC6       "Address2"
+IDS_FLDTRANS_SRC7       "City"        
+IDS_FLDTRANS_SRC8       "State"  
+IDS_FLDTRANS_SRC9       "Zip"
+IDS_FLDTRANS_SRC10      "Phone"   
+IDS_FLDTRANS_SRC11      "Country"        
+IDS_FLDTRANS_SRC12      "Fax"
+IDS_FLDTRANS_SRC13      "Email"   
+IDS_FLDTRANS_SRC14      "Birthday"        
+IDS_FLDTRANS_SRC15      "Anniversary"
+IDS_FLDTRANS_SRC16      "User Defined Info"
+IDS_FLDTRANS_SRC17      "User Defined Date"        
+IDS_FLDTRANS_SRC18      ""
+IDS_FLDTRANS_SRC19      ""
+IDS_FLDTRANS_SRC20      ""
+IDS_FLDTRANS_DEST0      "Prénom"        
+IDS_FLDTRANS_DEST1      "Nom"
+IDS_FLDTRANS_DEST2      "Nature de la relation"  
+IDS_FLDTRANS_DEST3      "Titre"       
+IDS_FLDTRANS_DEST4      "Société" 
+IDS_FLDTRANS_DEST5      "Adresse1" 
+IDS_FLDTRANS_DEST6      "Adresse2"
+IDS_FLDTRANS_DEST7      "Localité"
+IDS_FLDTRANS_DEST8      "" 
+IDS_FLDTRANS_DEST9      "Code postal"      
+IDS_FLDTRANS_DEST10     "Téléphone"        
+IDS_FLDTRANS_DEST11     "Pays"
+IDS_FLDTRANS_DEST12     "Fax"
+IDS_FLDTRANS_DEST13     "Courrier électronique"   
+IDS_FLDTRANS_DEST14     "Anniversaire"        
+IDS_FLDTRANS_DEST15     "Anniversaire de mariage"        
+IDS_FLDTRANS_DEST16     "Infos définies par l'utilisateur"        
+IDS_FLDTRANS_DEST17     "Date définie par l'utilisateur"        
+IDS_FLDTRANS_DEST18     ""
+IDS_FLDTRANS_DEST19     ""      
+IDS_FLDTRANS_DEST20     ""      
+END
+
+/////////////////////////////////////////////////////////////////////////////

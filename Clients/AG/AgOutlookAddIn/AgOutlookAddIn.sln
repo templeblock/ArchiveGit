@@ -1,0 +1,88 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AgOutlookAddIn", "AgOutlookAddIn.vcproj", "{89C8C2E3-3490-48C5-AF31-08DEF01FB662}"
+	ProjectSection(ProjectDependencies) = postProject
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C} = {68228D2F-1484-4E15-A0B6-9A48D9048B7C}
+		{9205B43E-F898-4D11-996C-AF712BAED1A9} = {9205B43E-F898-4D11-996C-AF712BAED1A9}
+		{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84} = {E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "..\Shared\Shared.vcproj", "{68228D2F-1484-4E15-A0B6-9A48D9048B7C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JMSrvr", "..\JMSrvr\JMSrvr.vcproj", "{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}"
+	ProjectSection(ProjectDependencies) = postProject
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C} = {68228D2F-1484-4E15-A0B6-9A48D9048B7C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JMHook", "..\JMHook\JMHook.vcproj", "{098E1403-07EA-4A74-949A-31EF3186D149}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Extensions", "Extensions.vcproj", "{D3FD1DF1-9B82-4190-B4BC-F2AD59052516}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JpegLib", "..\JpegLib\JpegLib.vcproj", "{9205B43E-F898-4D11-996C-AF712BAED1A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A367324-FB16-49F8-8CE4-6CEB3CB3A2AC}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 7
+		SccProjectName0 = \u0022$/AgApplications/AgOutlookAddIn\u0022,\u0020ZBAAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = true
+		SccProjectUniqueName1 = AgOutlookAddIn.vcproj
+		SccLocalPath1 = .
+		CanCheckoutShared = true
+		SccProjectUniqueName2 = ..\\Shared\\Shared.vcproj
+		SccProjectName2 = \u0022$/AgApplications/Shared\u0022,\u0020LOBAAAAA
+		SccLocalPath2 = ..\\Shared
+		CanCheckoutShared = true
+		SccProjectUniqueName3 = ..\\JMSrvr\\JMSrvr.vcproj
+		SccProjectName3 = \u0022$/AgApplications/JMSrvr\u0022,\u0020CVBAAAAA
+		SccLocalPath3 = ..\\JMSrvr
+		CanCheckoutShared = true
+		SccProjectUniqueName4 = ..\\JMHook\\JMHook.vcproj
+		SccProjectName4 = \u0022$/AgApplications/JMHook\u0022,\u0020JSBAAAAA
+		SccLocalPath4 = ..\\JMHook
+		CanCheckoutShared = true
+		SccProjectUniqueName5 = Extensions.vcproj
+		SccLocalPath5 = .
+		CanCheckoutShared = true
+		SccProjectUniqueName6 = ..\\JpegLib\\JpegLib.vcproj
+		SccProjectName6 = \u0022$/AgApplications/JpegLib\u0022,\u0020TDEAAAAA
+		SccLocalPath6 = ..\\JpegLib
+		CanCheckoutShared = true
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89C8C2E3-3490-48C5-AF31-08DEF01FB662}.Debug|Win32.ActiveCfg = Debug|Win32
+		{89C8C2E3-3490-48C5-AF31-08DEF01FB662}.Debug|Win32.Build.0 = Debug|Win32
+		{89C8C2E3-3490-48C5-AF31-08DEF01FB662}.Release|Win32.ActiveCfg = Release|Win32
+		{89C8C2E3-3490-48C5-AF31-08DEF01FB662}.Release|Win32.Build.0 = Release|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Debug|Win32.Build.0 = Debug|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Release|Win32.ActiveCfg = Release|Win32
+		{68228D2F-1484-4E15-A0B6-9A48D9048B7C}.Release|Win32.Build.0 = Release|Win32
+		{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}.Debug|Win32.Build.0 = Debug|Win32
+		{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}.Release|Win32.ActiveCfg = Release|Win32
+		{E2A71CFB-4646-4B3F-82A4-7DBDA65A2F84}.Release|Win32.Build.0 = Release|Win32
+		{098E1403-07EA-4A74-949A-31EF3186D149}.Debug|Win32.ActiveCfg = Debug|Win32
+		{098E1403-07EA-4A74-949A-31EF3186D149}.Debug|Win32.Build.0 = Debug|Win32
+		{098E1403-07EA-4A74-949A-31EF3186D149}.Release|Win32.ActiveCfg = Release|Win32
+		{098E1403-07EA-4A74-949A-31EF3186D149}.Release|Win32.Build.0 = Release|Win32
+		{D3FD1DF1-9B82-4190-B4BC-F2AD59052516}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D3FD1DF1-9B82-4190-B4BC-F2AD59052516}.Debug|Win32.Build.0 = Debug|Win32
+		{D3FD1DF1-9B82-4190-B4BC-F2AD59052516}.Release|Win32.ActiveCfg = Release|Win32
+		{D3FD1DF1-9B82-4190-B4BC-F2AD59052516}.Release|Win32.Build.0 = Release|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Debug|Win32.Build.0 = Debug|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Release|Win32.ActiveCfg = Release|Win32
+		{9205B43E-F898-4D11-996C-AF712BAED1A9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

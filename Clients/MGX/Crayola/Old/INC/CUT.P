@@ -1,0 +1,14 @@
+// Source file: cut.c
+BOOL RenderToClipboard( HWND hWindow, WORD wFormat );
+HGLOBAL ConstructMGXImage( LPSTR lpImageFile, LPSTR lpMaskFile );
+HGLOBAL ConstructPalette( HPALETTE hPal );
+BOOL PasteFromClipboard( HWND hWindow, BOOL fNeedMask );
+static BOOL PasteMGXImage( HWND hWindow, LPSTR lpImageFile, LPSTR lpMaskFile );
+static BOOL PasteDIB( HWND hWindow, LPSTR lpImageFile, LPSTR lpMaskFile );
+static BOOL PasteBitmap( HWND hWindow, LPSTR lpImageFile, LPSTR lpMaskFile );
+static BOOL WriteDIBClip( LPBITMAPINFOHEADER lpInfo, LPSTR lpImageFile, LPSTR lpMaskFile );
+static BOOL WriteDIB( LPBITMAPINFOHEADER lpInfo, LPSTR lpImageFile );
+static BOOL WriteDIBMask( LPBITMAPINFOHEADER lpInfo, LPSTR lpMaskFile );
+HGLOBAL ConstructObject( LPIMAGE lpImage, LPRECT lpRect );
+
+

@@ -1,0 +1,30 @@
+// Source file: defaults.c
+BOOL GetIniPath( LPSTR lpIniFile );
+void ResetIniPath( void );
+int GetDefaultInt( LPSTR lpKeyName, int nDefault );
+WORD GetDefaultString( LPSTR lpKeyName, LPSTR lpDefault, LPSTR lpReturnedString, int nSize);
+BOOL PutDefaultInt( LPSTR lpKeyName, int nDefault );
+BOOL PutDefaultString( LPSTR lpKeyName, LPSTR lpString);
+void LoadAllPreferences(BOOL fMemOnly);
+void SavePreferences( void );
+void SaveMiscPreferences( void );
+void SaveRecallList( void );
+LPSTR stripstruct( LPSTR lpString );
+BOOL SaveToolPreferences( int idTool );
+static void HandleBrushSettings( int idTool, BOOL fPut );
+void SetCommonSettings( void );
+void SetCommonMode(int iModes);
+void SetCommonOpacity(int Opacity);
+void SetCommonMergeMode(MERGE_MODE MergeMode);
+void SetCommonColorModel(int idColorModel);
+void SetCommonRange(int Range);
+void SetCommonWidth(LFIXED Width);
+void SetCommonHeight(LFIXED Height);
+void SetCommonConstrain(int Constrain);
+void SetCommonBrushShape(int BrushShape);
+void SetCommonBrushSize(int BrushSize);
+void SetCommonPressure(int Pressure);
+void SetCommonFeather(int Feather);
+void SetCommonDoCircle(BOOL DoCircle);
+void SetCommonUnits(int Units);
+

@@ -1,0 +1,8 @@
+// Source file: PRNPROCS.C
+void DoPrintSizeInits( void );
+BOOL WINPROC EXPORT DlgPrintSetupProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+BOOL LoadPrintStyle( LPSTR lpExtName );
+BOOL LoadHalftoneStyle( LPSTR lpExtName );
+BOOL LoadSeparateStyle( LPSTR lpExtName );
+BOOL LoadCalibrateStyle( LPSTR lpExtName );
+

@@ -1,0 +1,24 @@
+error.OBJ+
+fixed.OBJ+
+framebuf.OBJ+
+gifload.OBJ+
+list.OBJ+
+render.OBJ+
+table.OBJ+
+texture.OBJ+
+view.OBJ+
+wingraph.OBJ+
+wininput.OBJ+
+world.OBJ+
+worldfil.OBJ+
+wt.OBJ+
+wtmem.OBJ+
+wingdll.OBJ+
+winpal.OBJ+
+wtwin.OBJ
+$SCW$.EXE
+NUL
+comdlg32.lib winmm.lib KERNEL32.LIB GDI32.LIB USER32.LIB
+WTWIN.DEF
+wtwin.RES 
+

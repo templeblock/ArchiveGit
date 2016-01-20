@@ -1,0 +1,6 @@
+// Source file: WACOM.C
+BOOL WacStart( void );
+void WacEnd( void );
+BOOL WacInit( void );
+int WacPressure( void );
+

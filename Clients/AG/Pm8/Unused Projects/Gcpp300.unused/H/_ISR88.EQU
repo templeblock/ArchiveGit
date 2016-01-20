@@ -1,0 +1,88 @@
+;
+; _ISR88.EQU
+;
+; The Greenleaf Comm++ Library
+;
+; Copyright (C) 1991-95 Greenleaf Software Inc.  All Rights Reserved.
+;
+; NOTES
+;
+; This file contains the ISR data structure for the real mode
+; interrupt service routine.
+;
+; MODIFICATIONS
+;
+
+;
+; This is a copy of the data variables in the serint
+; class so that they can be directly accessed from
+; here.
+;
+IF _LDATA
+
+APORT STRUC
+				UBASE 			DW			? 			; UART base addresses
+				TXBLOCK 		DB			? 			; handshake recieved from remote
+				RXBLOCK 		DB			? 			; handshake sent to remote
+				PARITY			DB			? 			; 0x7f if parity is on otherwise 0xff
+				TXFLOW			DB			? 			; current input handshake
+				RXFLOW			DB			? 			; current output handshake
+				MODEMSTAT 	DB			? 			; change of RS232 state
+				RXBUFFER		DD			? 			; ptr to input buffer
+				RXHEAD			DW			? 			; head of buffer
+				RXTAIL			DW			? 			; tail of buffer
+				RXCOUNT 		DW			? 			; no of bytes in buffer
+				RXLENGTH		DW			? 			; size of the input buffer
+				RXHIGHMARK	DW			? 			; RXLENGTH - headroom
+				RXBLOCKING	DW			? 			; blocking flag
+				TXBUFFER		DD			? 			; ptr to next char in tx buffer
+				TXHEAD			DW			? 			; head of buffer
+				TXTAIL			DW			? 			; tail of buffer
+				TXCOUNT 		DW			? 			; no of bytes left in buffer
+				TXLENGTH		DW			? 			; size of the output buffer
+				TXFLAG			DW			? 			; tx interrupt active?
+				LSERROR 		DW			? 			; line register/overflow error
+				TXCT				DW			? 			; transmit counter
+				RXCT				DW			? 			; rx counter
+				MDCT				DW			? 			; modem status counter
+				LSCT				DW			? 			; linestatus counter
+				IS16550 		DB			? 			; is UART a 16550
+APORT ENDS
+
+ELSE
+
+APORT STRUC
+				UBASE 			DW			? 			; UART base address
+				TXBLOCK 		DB			? 			; handshake recieved from remote
+				RXBLOCK 		DB			? 			; handshake sent to remote
+				PARITY			DB			? 			; 0x7f if parity is on otherwise 0xff
+				TXFLOW			DB			? 			; current input handshake
+				RXFLOW			DB			? 			; current output handshake
+				MODEMSTAT 	DB			? 			; change of RS232 state
+				RXBUFFER		DW			? 			; ptr to input buffer
+				RXHEAD			DW			? 			; head of buffer
+				RXTAIL			DW			? 			; tail of buffer
+				RXCOUNT 		DW			? 			; no of bytes in buffer
+				RXLENGTH		DW			? 			; size of the input buffer
+				RXHIGHMARK	DW			? 			; RXLENGTH - headroom
+				RXBLOCKING	DW			? 			; blocking flag
+				TXBUFFER		DW			? 			; ptr to next char in tx buffer
+				TXHEAD			DW			? 			; head of buffer
+				TXTAIL			DW			? 			; tail of buffer
+				TXCOUNT 		DW			? 			; no of bytes left in buffer
+				TXLENGTH		DW			? 			; size of the output buffer
+				TXFLAG			DW			? 			; tx interrupt active?
+				LSERROR 		DW			? 			; line register/overflow error
+				TXCT				DW			? 			; transmit counter
+				RXCT				DW			? 			; rx counter
+				MDCT				DW			? 			; modem status counter
+				LSCT				DW			? 			; linestatus counter
+				IS16550 		DB			? 			; is UART a 16550
+APORT ENDS
+
+ENDIF
+
+
+DGROUP  GROUP       _DATA
+
+        .list

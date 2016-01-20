@@ -1,0 +1,53 @@
+HKCR
+{
+	AgOutlookAddIn.Addin.1 = s 'MsAddIn Class'
+	{
+		CLSID = s '{C704648D-6030-47E9-ADBA-1E13B6A784AE}'
+	}
+	AgOutlookAddIn.Addin = s 'MsAddIn Class'
+	{
+		CLSID = s '{C704648D-6030-47E9-ADBA-1E13B6A784AE}'
+		CurVer = s 'AgOutlookAddIn.Addin.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C704648D-6030-47E9-ADBA-1E13B6A784AE} = s 'Addin Class'
+		{
+			ProgID = s 'AgOutlookAddIn.Addin.1'
+			VersionIndependentProgID = s 'AgOutlookAddIn.Addin'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EDDBDEA4-5C07-453F-BE8C-81D738984381}'
+		}
+	}
+}
+
+HKCU
+{
+  	NoRemove Software
+	{
+		NoRemove Microsoft
+		{
+			NoRemove Office
+			{
+				NoRemove Outlook
+				{
+					NoRemove Addins
+					{
+						'AgOutlookAddIn.Addin'
+						{
+							val FriendlyName = s 'Creata Mail'
+							val Description = s 'Creata Mail Outlook Addin'
+							val LoadBehavior = d '00000003'
+							val CommandLineSafe = d '00000000' 
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

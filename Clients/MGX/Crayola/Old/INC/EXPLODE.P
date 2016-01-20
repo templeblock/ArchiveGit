@@ -1,0 +1,2 @@
+// Source file: explode.c
+void Explode (HWND hWnd,UINT uiExplosion,int x,int y);

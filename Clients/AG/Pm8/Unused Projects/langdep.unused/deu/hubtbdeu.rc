@@ -1,0 +1,55 @@
+#include "resource.h"
+//////////////////////////////////////////////////////////////////////////
+//
+// HUBTABLE
+//
+
+#define  NUM_SCREEN_PMW7   1
+#define  NUM_BUTTON_PMW7   8
+
+IDR_HUBTABLE            HUBTABLE DISCARDABLE
+BEGIN
+   NUM_SCREEN_PMW7,
+   NUM_BUTTON_PMW7,
+   0L,
+// Screens
+   IDB_HUB_BACKGROUND	// Bitmap ID
+   540,						// Width
+   360,						// Height
+   0,							// No clipping or matting
+   0L,
+
+// Buttons
+	IDC_READY_MADE,											// Button ID
+	IDB_HUB_READYMADE_UP, IDB_HUB_READYMADE_DOWN,	// Bitmap ID (up, down)
+	168, 61,														// Button Origin
+
+	IDC_WITH_HELP,
+	IDB_HUB_WITHHELP_UP, IDB_HUB_WITHHELP_DOWN,
+   266, 61,
+
+   ID_FILE_NEW,
+   IDB_HUB_BRANDNEW_UP, IDB_HUB_BRANDNEW_DOWN,
+   364, 61,
+
+   IDC_HUB_ART_GALLERY,
+   IDB_HUB_ARTGALLERY_UP, IDB_HUB_ARTGALLERY_DOWN,
+   168, 188,
+
+   IDC_ADDRESS,
+   IDB_HUB_ADDRESSBOOK_UP, IDB_HUB_ADDRESSBOOK_DOWN,
+   168, 233,
+
+   IDC_INTERNET,
+   IDB_HUB_INTERNET_UP, IDB_HUB_INTERNET_DOWN,
+   168, 279,
+
+//   IDC_ART_AND_MORE_STORE,
+//   IDB_HUB_ARTANDMORE_UP, IDB_HUB_ARTANDMORE_DOWN,
+//   168, 295,
+
+   IDC_HUB_EXIT,
+   IDB_HUB_CANCEL_UP, IDB_HUB_CANCEL_DOWN,
+   463, 321,
+END
+

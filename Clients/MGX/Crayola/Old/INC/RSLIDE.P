@@ -1,0 +1,50 @@
+/*****************************************************************************
+
+       Copyright (c) Micrografx, Inc., 1993 - 1994.  All rights reserved.
+    Permission to use this work for any purpose must by obtained in writing
+           from Micrografx, 1303 Arapaho Rd, Richardson, Texas 75081.
+
+******************************************************************************
+******************************************************************************
+
+                                    rwho.p
+
+******************************************************************************
+******************************************************************************
+
+  Description:  Room dialog functions.
+ Date Created:  02/03/94
+       Author:  Stephen M. Suggs
+
+*****************************************************************************/
+
+#ifndef RSLIDE_P
+#define RSLIDE_P
+
+/****************************** Public Functions ****************************/
+
+extern BOOL WINPROC EXPORT DlgRoomSlideshow (HWND hDlg,UINT msg,WPARAM wParam,LPARAM lParam);
+extern BOOL WINPROC EXPORT DlgRoomSlidePlay (HWND hDlg,UINT msg,WPARAM wParam,LPARAM lParam);
+extern BOOL WINPROC EXPORT DlgSlideEffProc  (HWND hDlg,UINT msg,WPARAM wParam,LPARAM lParam);
+
+/****************************** Local Functions *****************************/
+
+BOOL ProcessImage (HWND hWnd, int Index);
+void FreeImages (HWND hWnd);
+BOOL DeleteSlideImage (HWND hWnd, int Index);
+BOOL InsertSlideImage (HWND hWnd, int Index);
+BOOL UpdateSlideINI (void);
+BOOL MyDeleteFile (LPSTR pFile);
+BOOL MyRenameFile (LPSTR pOldName, int iNewIndex);
+static BOOL MyCopyFiles (LPSTR lpInFile, LPSTR lpOutFile);
+static void UpdateImages (HWND hWnd);
+static void GetThumbFilename (LPSTR szFileName, int idx);
+static void SlidePlayAnimations (HWND hWnd);
+static void SlideStopAnimations (HWND hWnd);
+static BOOL ImageHasAnimations (void);
+
+/****************************************************************************/
+
+#endif
+
+

@@ -1,0 +1,4 @@
+// determines whenter the patch should be drawn with gdi or superblt
+// Note: this style is not used if the color is read from the control text
+#define PS_USEGDI  0x0001
+

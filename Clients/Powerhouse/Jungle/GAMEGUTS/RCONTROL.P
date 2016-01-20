@@ -1,0 +1,3 @@
+// Source file: rcontrol.cpp
+long WINPROC EXPORT RadarControl( HWND hWindow, unsigned message, WPARAM wParam, LPARAM lParam);
+

@@ -1,0 +1,8 @@
+; PSToolbar.def : Declares the module parameters for the DLL.
+
+LIBRARY      "PSToolbar"
+DESCRIPTION  'PSToolbar Windows Dynamic Link Library'
+
+EXPORTS
+	LoadToolbar
+	GetToolbar

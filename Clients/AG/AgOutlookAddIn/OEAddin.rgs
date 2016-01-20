@@ -1,0 +1,26 @@
+HKCR
+{
+	AgOutlookAddIn.OEAddin.1 = s 'OEAddin Class'
+	{
+		CLSID = s '{DA514619-4DF0-4F28-A591-0639E104A397}'
+	}
+	AgOutlookAddIn.OEAddin = s 'OEAddin Class'
+	{
+		CLSID = s '{DA514619-4DF0-4F28-A591-0639E104A397}'
+		CurVer = s 'AgOutlookAddIn.OEAddin.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DA514619-4DF0-4F28-A591-0639E104A397} = s 'OEAddin Class'
+		{
+			ProgID = s 'AgOutlookAddIn.OEAddin.1'
+			VersionIndependentProgID = s 'AgOutlookAddIn.OEAddin'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EDDBDEA4-5C07-453F-BE8C-81D738984381}'
+		}
+	}
+}

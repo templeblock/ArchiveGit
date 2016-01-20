@@ -1,0 +1,1183 @@
+<html>
+<head>
+	<title>Workspace Help</title>
+	<style type="text/css">
+		body {font-family: Verdana; font-size: 10pt; color: black; background-color: white;}
+		h1 {font-family: Verdana; font-size: 16pt; color: blue;}
+		h2 {font-family: Verdana; font-size: 14pt; color: red;}
+		h3 {font-family: Verdana; font-size: 12pt; color: green;}
+		a:link {text-decoration: none; color: #000080;}
+		a:visited {text-decoration: none; color: #000080;}
+		a:active {text-decoration: none; color: #000080;}
+		a:hover {text-decoration: underline; color: #FF4400;}
+	</style>
+	<script language="JavaScript" type="text/javascript" src="cphelp.js"></script>
+	<script language="JavaScript" type="text/javascript">
+		SetTopic('[topic]');
+	</script>
+</head> 
+
+<body marginheight="0" marginwidth="0" topmargin="10" leftmargin="10">
+[[if topic == '' or topic == '0']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('0', '1');
+	</script>
+	<h1>Table of Contents</h1>
+	<a href="cphelp.pd?topic=1">What is Create &amp; Print <sup>sm</sup> ?</a><br>
+	<a href="cphelp.pd?topic=2">What do I need to do in order to use Create &amp; Print?</a><br>
+	<a href="cphelp.pd?topic=3">Getting started - How to use Create &amp; Print.</a><br>
+	<a href="cphelp.pd?topic=4">Frequently Asked Questions</a><br>
+	<a href="cphelp.pd?topic=5">Using the Creative Workspace</a><br>
+	<a href="cphelp.pd?topic=6">Project Instructions</a><br>
+	<a href="cphelp.pd?topic=7">Browser Support</a><br>
+	<a href="cphelp.pd?topic=8">Contact us</a><br>
+
+[[elif topic == '1']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('0', '2');
+	</script>
+	<h1>What is Create &amp; Print <sup>sm</sup> ?</h1>
+	<p>
+		Create &amp; Print was developed for people who like to express themselves with 
+		one-of-a-kind cards, CD labels, business cards, notecards, envelopes, invitations, and more.  Our printable 
+		products are easy to design and personalise, and fun to send.<br>
+		<br>
+		Want to:</p>
+	<ul>
+		<li>
+		Add a photo to your projects?
+		<li>
+		Double-check your spelling?
+		<li>
+			Save your completed project so you can use it again in the future?</li></ul>
+	<p>
+		Create &amp; Print helps you do all that and more!<br>
+		<br>
+		Whether you are celebrating a special occasion, or just keeping in touch, 
+		Create &amp; Print has lots of ways to help you say what is on your mind and in 
+		your heart.  We'll give you art and words.  You add the magic.
+	</p>
+[[elif topic == '2']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('1', '3');
+	</script>
+	<h1>What do I need to do in order to use Create &amp; Print?</h1>
+	<ul>
+		<li>
+		Membership
+		<li>
+		A compatible Internet browser&nbsp;
+		<li>
+		A personal printer
+		<li>
+		For Various Projects you will need Greeting Card Paper, A4 Paper, CD Labels, Address Labels, Scissors
+		<li>
+		Create &amp; Print Plug-in (downloads when you first use a project)
+		<li>
+		Create &amp; Print art and templates
+		<li>
+		Your imagination
+		<li>
+			It's quick, easy and fun!
+		</li>
+	</ul>
+[[elif topic == '3']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('2', '4');
+	</script>
+	<h1>Getting started - How to use Create &amp; Print.</h1>
+	<ol>
+		<li>
+		Starting at the home page of Create &amp; Print, pick a project to create.
+	    Click on the <b>project</b>.
+		<li>
+		The next page will show you thumbs/images of various products.  The left side of 
+		the page will allow you to navigate through more products designs within the 
+		project type.  Click the categories and check out what else there is.
+		<li>
+		To see a larger view of the product, click on the image.
+		<li>
+			If this is the product you want to complete, click on the <b>Create</b>
+		button.
+		<li>
+			If you would like to view more products you can click back to the <b>thumbs</b> 
+			page or click <b>More Projects</b>.
+		<li>
+		Continue to browse until you find the right product for your needs.
+		<li>
+			Clicking on the <b>Create</b> button will open up 
+			the <b>Creative Workspace</b>.  In the workspace, you can personalise your 
+		project by changing the text, adding a new test message, adding a favourite 
+		photo, and so much more.  Have fun!
+		<li>
+			When completed, click <b>Print</b>.  Your project will be sent to your printer.</li></ol>
+	<p><b>Tip:<br>
+		</b>
+		<br>
+		All text on the Create &amp; Print greeting cards and projects can be edited to 
+		fit your specific need.  If you see a Floral design in Thank you that you think 
+		would make a great Anniversary greeting, change the text.  It is easy, fast and 
+		fun!<br>
+		<br>
+	</p>
+[[elif topic == '4']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('3', '50');
+	</script>
+	<h1>Frequently Asked Questions</h1>
+	<a href="cphelp.pd?topic=50">What is the Create &amp; Print Plug-in?</a><br>
+	<a href="cphelp.pd?topic=51">Is the Create &amp; Print plug-in safe to install on my computer?</a><br>
+	<a href="cphelp.pd?topic=52">Must I install the Create &amp; Print Plug-in?</a><br>
+	<a href="cphelp.pd?topic=53">How do I install the Create &amp; Print Plug-in?</a><br>
+	<a href="cphelp.pd?topic=54">How long does the Create &amp; Print plug-in take to download?</a><br>
+	<a href="cphelp.pd?topic=55">Create &amp; Print Plug-in will not install.  Why?</a><br>
+	<a href="cphelp.pd?topic=56">My Project will not appear.  Why?</a><br>
+	<a href="cphelp.pd?topic=57">Do I have to pay for upgrades of the Create &amp; Print Plug-in?</a><br>
+	<a href="cphelp.pd?topic=58">How do I change the card sizes?</a><br>
+	<a href="cphelp.pd?topic=59">How do I Add-a-Photo to my project?</a><br>
+	<a href="cphelp.pd?topic=60">What kind of paper is best to use with Create &amp; Print?</a><br>
+	<a href="cphelp.pd?topic=61">How does a half-fold greeting print?</a><br>
+	<a href="cphelp.pd?topic=62">How does a quarter-fold greeting print?</a><br>
+	<a href="cphelp.pd?topic=63">How many copies of my project can I print?</a><br>
+	<a href="cphelp.pd?topic=64">How do I print Envelopes?</h1>
+</a><br>
+[[elif topic == '5']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('64', '40');
+	</script>
+	<h1>Using the Creative Workspace</h1>
+	<p>
+	After you have chosen the project you want to personalise, click on the&nbsp;<b>Create</b> button 
+    and the Create &amp; Print Creative 
+	Workspace window will pop up.&nbsp;The Creative Workspace is where you can 
+	personalise and print your greeting card or project.  You can add, delete, or 
+	change text and art elements.&nbsp;<br>
+	<br>
+	You can start by simply highlighting the 
+	project's existing text message and begin typing.  Your keystrokes will change 
+	the&nbsp;sentiment right on your screen.  You can also change the size, colour, 
+	alignment and type of font used on your project, and add shapes or photos.<br> 
+	<br>
+	There are many other tools available in the workspace if you wish to create a 
+	truly unique printed project.  Each button icon represents one of the tools in the workshop.  If you need a quick hint as to what each tool does,
+	place the curser over the tool icon.  Hold the pointer over the tool icon 
+	for a several seconds and the message will appear.<br>
+	</p>
+	<a href="cphelp.pd?topic=40">Top Toolbar</a><br>
+	<a href="cphelp.pd?topic=41">Left Toolbar</a><br>
+[[elif topic == '6']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('41', '20');
+	</script>
+	<h1>Project Instructions</h1>
+	<a href="cphelp.pd?topic=20">Address Labels</a><br>
+	<a href="cphelp.pd?topic=21">Bookmarks</a><br>
+    <a href="cphelp.pd?topic=22">Business Cards</a><br>
+    <a href="cphelp.pd?topic=23">CD Lables</a><br>
+	<a href="cphelp.pd?topic=24">Certificates</a><br>
+	<a href="cphelp.pd?topic=25">Fax Cover Sheets</a><br>
+	<a href="cphelp.pd?topic=26">Garland</a><br>
+	<a href="cphelp.pd?topic=27">Gift Tags</a><br>
+	<a href="cphelp.pd?topic=28">Hats</a><br>
+	<a href="cphelp.pd?topic=29">Lists</a><br>
+	<a href="cphelp.pd?topic=30">Notecards</a><br>
+	<a href="cphelp.pd?topic=31">Postcards</a><br>
+	<a href="cphelp.pd?topic=32">Posters</a><br>
+	<a href="cphelp.pd?topic=33">Stationery</a><br>
+[[elif topic == '7']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('33', '8');
+	</script>
+	<h1>Browser Support</h1>
+	<p>We strongly recommend you use Create &amp; Print with either Internet
+	Explorer 5.5 (or higher) or Netscape 4.7x (or higher).  Create &amp; Print is not compatible with Macintosh computers,
+	WebTV, Eye Opener, or Internet Appliances.</p>
+	<p>For Internet Explorer, go to <a target="ie" href="http://www.microsoft.co.uk">www.microsoft.co.uk</a>, then Downloads.</p>
+	<p>For Netscape, got to <a target="ns" href="http://www.netscape.co.uk">www.netscape.co.uk</a>, then browser central.</p>
+[[elif topic == '8']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('7', '8');
+	</script>
+	<h1>Contact us</h1>
+	<p>We are here to provide support for the site, and we're always happy to hear from our customers!<br><br>
+	<a target="email" href="[ahost]/customer/emailus.pd">Email Us</a>
+	</p>
+
+[[elif topic == '20']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('6', '21');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Address Labels</h2>
+	<p>Personalised <b>address labels</b> make a unique impression.  The 
+		variety of designs offered that will make your package or envelope stand out.<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 Address Label Sheet.<br>
+		<br>
+		<b>Directions:</b><br>
+		<br>
+		Label template sizes are noted on the left navigation bar and also under the 
+		design image of the label.</p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			For additional labels, click the <b>Add Page button</b> (the + sign)
+		above your project.
+		<li>
+		When you add a label it will be identical to the first label.  Text can be 
+		changed to label #2 is need be.  You can print as many labels as needed.
+		<li>
+			To skip a label on your sheet, click the <b>Add Page button</b> (the + sign) and then click <b>No</b>.  This
+		will skip a label space on your sheet if you want to start on the 3rd 
+		label.  Do this for as many label spaces you would like to skip.
+		<li>
+			When completed, click <b>Print</b>.
+		<li>
+		In your Print dialog box, click on the template you are using for correct 
+		printing of labels.
+		<li>
+			If you would like to save your project, Click <b>Save</b> and follow the 
+			directions.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Address Label Sheets are available at most office supply stores.<br>
+		Check the project label size and make sure it is the size of your label paper 
+		stock.<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+		<br>
+	</p>	
+[[elif topic == '21']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('20', '22');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Bookmarks</h2>
+	<p>Create a personalised <b>bookmark</b> and make wonderful and timeless keepsake.  Whether
+		its fun and silly, inspirational or cute, bookmarks are a great way to 
+		express your creativity.<br>
+		<br>
+		<b>You will need:<br>
+		</b>
+		<br>
+		A4 Paper, Scissors. Self-Adhesive Laminating paper (optional).<br>
+		<br>
+		<b>Directions:</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			For additional pages, click the <b>Add Page button</b> (the + sign)
+		above your project.
+		<li>
+			Click <b>Print </b>
+		to print the finished project.
+		<li>
+		Cut along the outside edges.
+		<li>
+			If you would like to save your project, click <b>Save</b> and follow the 
+			directions.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+		Use Coloured paper to add some flair.<br>
+		Laminate the bookmark with self-adhesive plastic.<br>
+		Punch a hole near the top and attach a tassel or ribbon.<br>
+		Outline the image with decorate paints.<br>
+		<br>
+	</p>	
+[[elif topic == '22']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('21', '23');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Business Cards</h2>
+	<p><b>Business cards</b> are a necessity when it comes to networking.  These personalised 
+		cards are wallet-sized reminders of you.  Create your own and never have to 
+		order them again.<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		Business Card Paper Stock, sheet of 10 or 8 cards.<br>
+		<br>
+		<b>Directions:</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Change text.
+		<li>
+		To add additional business cards, click the <b>Add Page button</b> (the + sign) located above your project.  
+		To fill the sheet of 10, add 9 additional cards.
+		<li>
+		Each card can be personalised separately or all can have the same message.  It is up to you.
+		<li>
+			When completed, click <b>Print</b>.
+		<li>
+			If you would like to save your project, click <b>Save</b> and follow the 
+			directions.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+		A traditional business card includes your name and title and the name, address 
+		and phone number of your business.  Today, it has become common to include your 
+		email address, web site address and mobile phone number.<br>
+		Business card stock is available at office supply stores.<br>
+		<br>
+	</p>
+[[elif topic == '23']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('22', '24');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>CD Labels</h2>
+	<p>You've created your own CD now create a <b>CD Label</b> that expresses your taste.<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 CD Label Sheet.<br>
+		<br>
+		<b>Directions:</b></p>
+        Label template sizes are noted on the left navigation bar and also under the design image of the label.
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to add song titles or file names.
+		<li>
+			When completed, click <b>Print</b>.
+		<li>
+			In your Print dialog box, click on the template you are 
+			using for correct printing of labels.
+		<li>
+			If you would like to save your project, click <b>Save</b> and follow the 
+			directions.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+                CD Label Sheets are available at most office supply stores.<br>
+                Check the project label size and make sure it is the size of your label paper stock.<br>
+                Print your project on scrap paper first to check the alignment, spelling 
+                and overall look of the project.
+         </p>	
+[[elif topic == '24']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('23', '25');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Certificates</h2>
+	<p>Recognise an amazing achievement or unusual accomplishment with a personalised <b>certificate</b>.  They
+		can be special, unique and fun to create.<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 Paper. Self-Adhesive Laminating Paper (optional).<br>
+		<br>
+		<b>Directions:</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			For additional pages, click the <b>Add Page button</b> (the + sign)
+		above your project.
+		<li>
+			When completed, click <b>Print</b>.
+		<li>
+			If you would like to save your project, click <b>Save</b> and follow the 
+			directions.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+		Choose a certificate style that compliments the accomplishment.  For example, 
+		formal styles may be best suited for the workplace or scholastic achievements, 
+		and lighthearted styles may be best for sports or other personal achievements.<br>
+		Use plain white paper, coloured paper or card stock depending on the look you 
+		want.<br>
+		Laminate the certificate with self-adhesive plastic or frame it.</p>
+[[elif topic == '25']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('24', '26');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Fax Cover Sheets</h2>
+	<p>Sending a <b>fax</b>? Make sure it gets noticed with cover sheets that show off 
+		your creativity and personality!<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 Paper.<br>
+		<br>
+		<b>Directions:</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			For additional pages, click the <b>Add Page button</b> (the + sign)
+		above your project.
+		<li>
+			When completed, click <b>Print</b>.
+		<li>
+			If you would like to save your project, click <b>Save</b> and follow the 
+			directions.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Fax cover sheets usually include your return information and the recipients, 
+		the date, the number of pages and the subject.<br>
+		For business faxes, insert your business logo or letterhead for a professional 
+		appearance.<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+		<br>
+	</p>
+[[elif topic == '26']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('25', '27');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Garland</h2>
+	<p>Make your own <b>garland</b> and have fun decorating.  Personalised garland 
+		creates a festive atmosphere for special occasions.<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 Paper or Cardboard, Scissors, Tape, Paste or glue.<br>
+		<br>
+		<b>Directions:</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			For additional garland pages, click the <b>Add Page button</b> (the + sign)
+		above your project.
+		<li>
+		Each sheet can be personalised separately.
+		<li>
+			When completed, click <b>Print</b>.
+		<li>
+		If the same message is to appear on all sheets, note how many copies of the 
+		Garland you would like within the Print Dialog box.
+		<li>
+			If you would like to save your project, click <b>Save</b>
+		and follow the directions.
+		<li>
+			Cut out and tape panels together.  You can cut straight line across the top and 
+			bottom, or you can do more detailed cutting if you want to.</li></ol>
+	<p><b>Tips:<br>
+		</b>
+		<br>
+		Use garland to decorate entrances, windows, or railings.<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+		For more support, glue the completed sheets to cardboard and then cut out.<br>
+		Add a special photo for a more personalised garland.<br>
+	</p>	
+[[elif topic == '27']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('26', '28');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Gift Tags</h2>
+	<p><b>Gift tags</b> are both decorative and practical.  Add flair to your packages and 
+		ensure the person getting the gift knows who sent it.<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 Paper, Scissors. Matching envelopes require tape or glue.<br>
+		<br>
+		<b>Directions:<br>
+		</b>
+		<br>
+		<b>For all Gift tags</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			When completed, click <b>Print</b>.
+		<li>
+			If you would like to save your project, click <b>Save</b>
+		and follow the directions.
+		<li>
+		Cut along the solid lines.
+		<li>
+			Fold along the dotted lines (if applicable).</li></ol>
+	<p><b>Gift Tag Envelopes</b></p>
+	<ol>
+		<li>
+		Cut along solid lines.
+		<li>
+			Design side facing down, fold up the flaps along the dotted lines.  Tape or glue 
+			the bottom and side flaps to secure.</li></ol>
+	<p><b>Hanging gift tags</b></p>
+	<ol>
+		<li>
+		Follow the above steps 1 through 7.
+		<li>
+			Carefully cut or punch out the hole near the top and tie a ribbon or string 
+			through the hole.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+		Use plain white paper, coloured paper or card stock depending on the look you 
+		want.<br>
+		Glitter paint or ribbon can be used to embellish the design.<br>
+		Personalise a gift tag and add to packages, gift bags or boxes.
+	</p>
+[[elif topic == '28']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('27', '29');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Hats</h2>
+	<p>Easy to make and fun to wear, <b>hats</b> add lighthearted fun for kids of all 
+		ages!<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 Paper, Scissors.<br>
+		Band and visor hats require glue or tape.  Cone hats require ribbon or string.<br>
+		<br>
+		<b>Directions for all Hats</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			For additional hat pages, click the <b>Add Page button</b> (the + sign)
+		above your project
+		<li>
+			If you would like to save your project, click <b>Save</b>
+		and follow the directions.
+		<li>
+		Cut along the outlines and solid lines.
+		<li>
+			Crease along the dotted line.</li></ol>
+	<p><b>Band Hats</b></p>
+	<ol>
+		<li>
+		Follow steps 1-6 under All Hats.
+		<li>
+		Tape band ends together, end to end, centring any text.
+		<li>
+		Measure band to desired size, and tape.
+		<li>
+			Glue or tape the remaining pieces to the band.</li></ol>
+	<p><b>Visor Hats</b></p>
+	<ol>
+		<li>
+			Follow steps 1-6 under All Hats.
+		</li>
+		<li>
+		Cut out the visor and bands.
+		<li>
+		Score and bend on the dotted lines.
+		<li>
+		Attach bands above the brim at protruding sides of visor.
+		<li>
+			Tape the bands together to size.</li></ol>
+	<p><b>Cone Hats</b></p>
+	<ol>
+		<li>
+			Follow steps 1-6 under All Hats.
+		</li>
+		<li>
+		Cut out hat along the solid lines.
+		<li>
+		Bend into a cone shape, overlapping area as indicated, and tape or glue to 
+		secure.</li></ol>
+        <b>Attach string or ribbon to tie under the chin.</b>	
+[[elif topic == '29']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('28', '30');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Lists</h2>
+	<p><b>Lists</b> are reminders that make life easier and less stressful. 
+	There are checklists for planning parties, groceries, to-do activities and occasions.<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 Paper, Scissors.<br>
+		<br>
+		<b>Directions:</b></p>
+	<ol>
+		<li>
+		Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+		For additional pages, click the Add Page button (the + sign) above your project. 
+		<li>
+		When completed, click <b>Print</b>.
+		<li>
+		If you would like to save your project, click <b>Save</b> and follow the 
+		directions.
+		<li>
+		Two lists are on one page, cut lengthwise using scissors or a paper cutter.
+		</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Use plain white paper, coloured paper or card stock depending on the look you want.<br>
+		Print additional pages or photocopy personalised lists. Then, tie with a ribbon to 
+		make an attractive gift.<br>
+		Print your project on scrap paper first to check the alignment, spelling and overall 
+		look of the project.
+		<br>
+	</p>		
+[[elif topic == '30']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('29', '31');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Notecards</h2>
+        <p>Notes are a great way to keep in touch with one another.  You can choose from a 
+        wide selection and then customise it with your personal message.  A <b>Notecard</b> is a 
+		pleasant special surprise that is sure to brighten someones day. <br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 Paper.<br>
+		<br>
+		<b>Directions:</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			When completed, click <b>Print</b>.
+		<li>
+		Your project can be printed as a half-fold or quarter-fold note.  Click on the 
+		size wanted within the print dialog box (lower left corner).  A ½-fold note 
+		calls for double-sided printing.  Follow the directions on your screen.
+		<li>
+		Fold according to the printed size.
+		<li>
+			If you would like to save your project, click <b>Save</b> and follow the 
+			directions.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Special paper, scored for folding in half or quarters, is available at most 
+		craft or office supply stores.<br>
+		If you are using card stock rather than scored paper, use a straight edge to 
+		create a crisp and professional looking fold.<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+		Add your favourite photo to your notecard.<br>
+	</p>
+[[elif topic == '31']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('30', '32');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Postcards</h2>
+	<p><b>Postcards</b> are an easy and fun way to keep in touch.  If your message is short and 
+		sweet you will love our postcards.  It's a great way to say “thanks,” “hello” or 
+		“I miss you.” They are even perfect for announcing lifes special moments and 
+		sending seasonal wishes.<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		Heavy Paper or card stock, A4 Paper or purchased postcard templates.  Scissors.<br>
+		<br>
+		<b>Directions:</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			When completed, click <b>Print</b>.
+		<li>
+		Postcards are double-sided printed.  Follow the directions on your screen.
+		<li>
+			If you would like to save your project, click <b>Save</b>
+		and follow the directions.
+		<li>
+			If using heavy paper or cardstock, cut the postcard out with scissors.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Special postcard template is available at most office supply stores.<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+		<br>
+	</p>
+[[elif topic == '32']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('31', '33');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Posters</h2>
+	<p><b>Posters</b> get your message across when you have something big to say.  Personalise 
+		your poster and create a one-of-a-kind decoration.  It's a great way to spice up 
+		any room.<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 Paper.<br>
+		<br>
+		<b>Directions:</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			For additional pages, click the <b>Add Page button</b> (the + sign)
+		above your project.
+		<li>
+			When completed, click <b>Print</b>.
+		For double-sided printing, follow the directions on your screen.
+		<li>
+			If you would like to save your project, click <b>Save</b> and follow the 
+			directions.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Roll up your poster and tie with ribbon or string and give as a gift.<br>
+		Use plain white paper, coloured paper or card stock depending on how colourful 
+		and durable you would like your poster to be.<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+		Embellish the design with glitter, stickers or ribbons.<br>
+	</p>
+[[elif topic == '33']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('32', '7');
+	</script>
+	<h1>Project Instructions</h1>
+	<h2>Stationery</h2>
+	<p>Be unique! Personalise your <b>stationery</b> with a message, favourite quote, or your 
+		own name!<br>
+		<br>
+		<b>You will need:</b><br>
+		<br>
+		A4 Paper.<br>
+		<br>
+		<b>Directions:</b></p>
+	<ol>
+		<li>
+			Click on <b>Create</b>
+		to open the Create &amp; Print workspace.
+		<li>
+		Click directly on the text to change it.
+		<li>
+			For additional pages, click the <b>Add Page button</b> (the + sign)
+		above your project.
+		<li>
+			When completed, click <b>Print</b>.
+		<li>
+			If you would like to save your project, click <b>Save</b> and follow the 
+			directions.</li></ol>
+	<p><b>Tips:</b><br>
+		<br>
+		Choose a stationery style that fits your mood whimsical, cute, formal, etc.<br>
+		Add a favourite photo to share.<br>
+		To compliment your stationery, create coordinating envelopes and labels.<br>
+		Print your project on scrap paper first to check the alignment, spelling and 
+		overall look of the project.<br>
+	</p>
+
+[[elif topic == '40']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('5', '41');
+	</script>
+	<h1>Using the Creative Workspace</h1>
+	<h2>Top Toolbar</h2>
+	<p>
+		<img src="[imghost]/cp/help/help_print.gif" border="0" align="middle"></img> &nbsp;<b>Print 
+			your project</b>
+	</p>
+	<p>
+		Send your completed greeting or project to the printer.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_open.gif" border="0" align="middle"></img> &nbsp;<b>Open a saved project</b>
+	</p>
+	<p>
+		Open a saved project.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_close.gif" border="0" align="middle"></img> &nbsp;<b>Close your project</b>
+	</p>
+	<p>
+		A project can be closed from the creative workspace.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_saveas.gif" border="0" align="middle"></img> &nbsp;<b>Save your project to </b>
+	</p>
+	<p>
+		Click to save your completed project to your hard drive.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_undo.gif" border="0" align="middle"></img> &nbsp;<b>Undo the last change</b>
+	</p>
+	<p>
+		Click to undo your last edit.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_redo.gif" border="0" align="middle"></img> &nbsp;<b>Redo the last change</b>
+	</p>
+	<p>
+		Click to redo your last edit.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_cut.gif" border="0" align="middle"></img> &nbsp;<b>Cut the selected object to the clipboard</b>
+	</p>
+	<p>
+		Click to cut/remove a selected item from your project.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_copy.gif" border="0" align="middle"></img> &nbsp;<b>Copy the selected object to the clipboard</b>
+	</p>
+	<p>
+		Click to copy a selected text or image to the clipboard.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_paste.gif" border="0" align="middle"></img> &nbsp;<b>Paste from the clipboard</b>
+	</p>
+	<p>
+		Click to place a copy of your text or image to the clipboard.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_delete.gif" border="0" align="middle"></img> &nbsp;<b>Delete the selected object</b>
+	</p>
+	<p>
+		Click to remove a selected text or image from your project.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_spellcheck.gif" border="0" align="middle"></img> &nbsp;<b>Check Spelling</b>
+	</p>
+	<p>
+		Click to check all spelling in the text boxes.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_grid.gif" border="0" align="middle"></img> &nbsp;<b>Show and hide the alignment Grid</b>
+	</p>
+	<p>
+		Click to show or hide a grid that can be used for aligning text and images on 
+		your project.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_extras.gif" border="0" align="middle"></img> &nbsp;<b>Access the Extras</b>
+	</p>
+	<p>
+		Click to download fonts and spell check.<br>
+	</p>
+[[elif topic == '41']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('40', '6');
+	</script>
+	<h1>Using the Creative Workspace</h1>
+	<h2>Left Toolbar</h2>
+	<p>
+		<img src="[imghost]/cp/help/help_help.gif" border="0" align="middle"></img> &nbsp;<b>Get Help</b>
+	</p>
+	<p>
+		Click to display Help<br>
+		<br>
+		<img src="[imghost]/cp/help/help_addtextbox.gif" border="0" align="middle"></img> &nbsp;<b>Add a Text Box object</b>
+	</p>
+	<p>
+		Click to add a text box to your greeting or project.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_addphoto.gif" border="0" align="middle"></img> &nbsp;<b>Add-A-Photo 
+			object</b>
+	</p>
+	<p>
+		Click to add a photo or art image to your greeting or project.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_addshape.gif" border="0" align="middle"></img> &nbsp;<b>Add a Shape object</b>
+	</p>
+	<p>
+		Click to add a shape to your greeting or project.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_zoom.gif" border="0" align="middle"></img> &nbsp;<b>Change the Zoom level</b>
+	</p>
+	<p>
+		Allows you to zoom in or out of your project.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_transform.gif" border="0" align="middle"></img> &nbsp;<b>Move or Size the selected object</b>
+	</p>
+	<p>
+		Move, resize or rotate your selected text or image.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_flip.gif" border="0" align="middle"></img> &nbsp;<b>Flip the selected object</b>
+	</p>
+	<p>
+		Flip your image or text from left to right or top to bottom on your project.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_rotate.gif" border="0" align="middle"></img> &nbsp;<b>Rotate the selected object</b>
+	</p>
+	<p>
+		Click to rotate your text or image clockwise or counter clockwise.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_position.gif" border="0" align="middle"></img> &nbsp;<b>Change the Position of the selected object</b>
+	</p>
+	<p>
+		Move selected text or image to various points on your project.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_layers.gif" border="0" align="middle"></img> &nbsp;<b>Change the Layering of the selected object</b>
+	</p>
+	<p>
+		Move selected text or image from front to back or back to front.<br>
+		<br>
+		<img src="[imghost]/cp/help/help_select.gif" border="0" align="middle"></img> &nbsp;<b>Select an object</b>
+	</p>
+	<p>
+		Click to select the next or previous object within your project.<br>
+		<br>
+	</p>
+[[elif topic == '50']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('4', '51');
+	</script>
+	<h1>What is the Create &amp; Print Plug-in?</h1>
+	The Create &amp; Print Plug-in allows you the ability to create and personalise 
+	the thousands of greetings and projects online.  No additional software programmes 
+	are needed.<br>
+	<br>
+[[elif topic == '51']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('50', '52');
+	</script>
+	<h1>Is the Create &amp; Print plug-in safe to install on my computer?</h1>
+	Yes.  The Create &amp; Print plug-in is developed by [ahostname] and 
+	is guaranteed to be safe from any virus.<br>
+	<br>
+[[elif topic == '52']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('51', '53');
+	</script>
+	<h1>Must I install the Create &amp; Print Plug-in?</h1>
+	Yes.  Without the Create &amp; Print plug-in you will not be able to create and 
+	personalise any projects.<br>
+	<br>
+[[elif topic == '53']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('52', '54');
+	</script>
+	<h1>How do I install the Create &amp; Print Plug-in?</h1>
+	The Create &amp; Print Plug-in is designed to automatically install for you.<br>
+	To install the plug-in, first choose a project.  Click on <b>Create</b> .  
+	You will be prompted to download the Create &amp; Print creative workspace.<br>
+	A Security Warning will appear as the plug-in starts to download.  This warning 
+	is your browsers way of telling you that a site wants to download a plug-in to 
+	your computer.  Click Yes to begin downloading.<br>
+	The Create &amp; Print plug-in is created by [ahostname] and 
+	guaranteed to safe from any virus.<br>
+	Once the plug-in is installed, the Creative Workspace will appear and you can 
+	continue to create your greeting card or project.<br>
+	<br>
+[[elif topic == '54']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('53', '55');
+	</script>
+	<h1>How long does the Create &amp; Print plug-in take to download?</h1>
+	<p>
+		It depends on the speed of your Internet connection, but usually it won't take 
+		more than a minute or two.  In most cases it will only take a few seconds.</p>
+[[elif topic == '55']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('54', '56');
+	</script>
+	<h1>Create &amp; Print Plug-in will not install.  Why?</h1>
+	<p>If the Create &amp; Print Plug-in did not install automatically, you will need 
+		to check various settings on your browser.</p>
+	<ol>
+		<li>
+		Click the Windows Start menu, point to Settings, and click Control Panel.
+		<li>
+		Double click on Internet Options.
+		<li>
+		Click the Security Tab.
+		<li>
+		Click Custom Level.
+		<li>
+		Look for Download signed ActiveX controls, and Enable it.
+		<li>
+		Look for Run ActiveX controls and plug-ins.  Enable it.
+		<li>
+		Look for Script ActiveX controls marked safe for scripting.  Enable it.
+		<li>
+		Click the OK button to save the changes made to the Security Settings.
+		<li>
+		Click OK to close the Internet Properties window.
+		<li>
+		Click the Control Panel window.
+		<li>
+		Proceed to the <b>Create</b> button.
+		<li>
+		Click <b>Create</b>.  This button 
+			activates the download of the Create &amp; Print plug-in.</li></ol>
+[[elif topic == '56']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('55', '57');
+	</script>
+	<h1>My Project will not appear.  Why?</h1>
+	<p>Create &amp; Print will not work correctly unless you have the latest version of 
+		the Create &amp; Print plug-in installed on your computer.<br>
+		<br>
+		If you are not prompted to download the Create and Print plug-in or if your 
+		project never appears in the workspace, please follow these steps to refresh 
+		the page and the connection to our site:</p>
+	<ol>
+		<li>
+		Refresh the preview page before you click on <b>Create</b>
+		by pressing F5 on your keyboard.
+		<li>
+		Now click on <b>Create</b>.
+		<li>
+		When the workspace loads, press F5 again to refresh the workspace.</li></ol>
+[[elif topic == '57']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('56', '58');
+	</script>
+	<h1>Do I have to pay for upgrades of the Create &amp; Print Plug-in?</h1>
+	No.  Upgrades to the Create &amp; Print plug-in are Free.  You will be prompted 
+	to upgrade the plug-in automatically when you revisit the site and new updates 
+	are available.
+	<br>
+[[elif topic == '58']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('57', '59');
+	</script>
+	<h1>How do I change the card sizes?</h1>
+	<p>All Create &amp; Print greeting cards can be printed as ½ Fold or ¼ Fold.  This 
+		is done within the print dialog box.</p>
+	<ol>
+		<li>
+			Complete your project and click <b>Print</b>.
+		<li>
+			The print dialog box will appear.  In the lower left corner click on <b>½ fold</b>
+			or <b>¼ fold</b>
+		to notify your printer of what size you would like the greeting card to print 
+		as.
+		<li>
+			Click <b>OK</b> and your project will be sent to your printer for printing.</li></ol>
+[[elif topic == '59']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('58', '60');
+	</script>
+	<h1>How do I Add-a-Photo to my project?</h1>
+	You can add a photo to any Create &amp; Print project.  Some projects are 
+	specifically designed as Add-a-Photo projects, with a space for your photo 
+	incorporated into the project layout.  But photos can be added to all products.  You
+	just need to decide where to feature the photo.<br>
+	<br>
+	<b>Add-a-Photo projects:<br>
+	</b>
+	<br>
+	If you have chosen a project that incorporates the Add-a-Photo feature in its 
+	design, you can simply double-click on the works add-a Photo; place within the 
+	card or project.<br>
+	The Add-a-Photo dialogue box will open.  Browse your hard drive for the photo 
+	you would like to attach to the project.  When you have found it, click <b>Open</b>.  The
+	picture will insert itself into he correct location.<br>
+	<br>
+	<b>All Projects:<br>
+	</b>
+	<br>
+	Click on <b>Photo </b>located in the left hand tool bar.  The add-a-photo 
+	dialogue box will open and you can browse your hard drive the photo.  When you 
+	fine it, click <b>Open</b>.  The photo will attach itself to the centre of the 
+	project.  Double click on the inserted photo to move to the correct location on 
+	your project.<br>
+	<br>
+	<b>Resizing and moving photos:<br>
+	</b>
+	<br>
+	There are two ways to resize a photo youve added.  You can click the <b>Resize</b>
+	button (a square icon o to the left under <b>Transform</b>).  Alternately, you 
+	can double click on the photo itself.  Drag the handles in any direct to make 
+	the photo size you would like.<br>
+	<br>
+[[elif topic == '60']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('59', '61');
+	</script>
+	<h1>What kind of paper is best to use with Create &amp; Print?</h1>
+	<p>
+		Greeting card stock is generally best for greeting cards, notecards, 
+		and announcements and is available at most office supply stores and many 
+		department stores. Card stock is comparable to store-bought card quality, 
+		and is pre-scored to make folding easier. But any high quality, heavyweight 
+		paper is also great for your Create &amp; Print greeting cards, bookmarks, 
+		certificates, and posters. CD Label Sheets are best for printing CD labels as 
+		they have the adhesive to stick to the CD.  </p>
+[[elif topic == '61']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('60', '62');
+	</script>
+	<h1>How does a half-fold greeting print?</h1>
+	<p>
+		Single-fold greetings print on both sides of the paper.  You will have to 
+		reinsert the paper to print on both sides.  After Create &amp; Print has checked 
+		to see what type of printer you have, it will run a print test using only one 
+		sheet of paper.  Next, a series of dialog boxes will give you instructions 
+		specific to your printer.  Simply follow the instructions, click the "Next" 
+		button when prompted, and you will have no difficulty printing your greetings.</p>
+[[elif topic == '62']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('61', '63');
+	</script>
+	<h1>How does a quarter-fold greeting print?</h1>
+	<p>
+		Quarter-fold greetings print with all of the art and text on one side of the 
+		paper.  Just fold the paper in half twice, and your greeting will be finished!</p>
+[[elif topic == '63']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('62', '64');
+	</script>
+	<h1>How many copies of my project can I print?</h1>
+	<p>
+		You can print as many copies as you like.  This feature can be especially 
+		helpful when you're printing invitations, newsletters, labels, envelopes, or 
+		announcements.</p>
+[[elif topic == '64']]
+	<script language="JavaScript" type="text/javascript">
+		SetPrevNextTopic('63', '5');
+	</script>
+	<h1>How do I print Envelopes?</h1>
+	<p>After printing greeting cards, notecards, invitations, and stationery, the Envelope Wizard 
+	will automatically pop up.  There are four steps in the Wizard to print an envelope:</p>
+	<ol>
+		<li>
+			Select the Envelope Size and a Background Colour (optional).
+		<li>
+		Add Images from the Envelope Wizard to the Envelope by dragging and dropping them onto 
+		the envelope.  You may also use the <b>Add</b> features in the Creative Workspace to add photos, shapes, text boxes.  
+		<li>
+		Enter your Return Address and the Mailing Address.
+		<li>
+		Click the <b>Done</b> button to print the envelope or use the back button to go back and make any changes.</li></ol>
+	<p><b>Tip:<br>
+		</b>
+		<br>
+		Once the envelope is created, it can be edited or printed just like any other project.   
+		If you want to launch the Envelope Wizard without printing a card, you can do so from 
+		the Extras drop down menu.<br>
+		<br>
+	</p>
+[[endif]]
+
+</body>
+</html>

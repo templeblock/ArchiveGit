@@ -1,0 +1,243 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_enu)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\CpDesktop.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_LOGOAG              ICON                    "res\\LogoAg.ico"
+IDI_LOGOBM              ICON                    "res\\LogoBm.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 250, 54
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About Create & Print"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Create & Print version ",IDHELP,40,10,151,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2004 AmericanGreetings.com",IDC_STATIC,40,
+                    25,202,8
+    ICON            IDI_LOGOAG,IDC_STATIC,11,10,20,20
+    DEFPUSHBUTTON   "OK",IDOK,192,6,50,16,WS_GROUP
+END
+
+IDD_CPDESKTOP DIALOGEX 0, 0, 126, 81
+STYLE DS_SETFONT | DS_NOIDLEMSG | DS_CENTER | WS_MINIMIZEBOX | 
+    WS_MAXIMIZEBOX | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_NOPARENTNOTIFY | WS_EX_APPWINDOW
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+END
+
+IDD_HTMLDIALOG DIALOGEX 0, 0, 120, 81
+STYLE DS_SETFONT | DS_NOIDLEMSG | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | 
+    WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+EXSTYLE WS_EX_NOPARENTNOTIFY | WS_EX_APPWINDOW
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,5053,0
+ PRODUCTVERSION 1,0,5053,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "AG Interactive"
+            VALUE "FileDescription", "Create & Print Desktop"
+            VALUE "FileVersion", "1.0.5053"
+            VALUE "InternalName", "CpDesktop.exe"
+            VALUE "LegalCopyright", "© AG.com, Inc.  All rights reserved."
+            VALUE "OriginalFilename", "CpDesktop.exe"
+            VALUE "ProductName", "Create & Print"
+            VALUE "ProductVersion", "1.0.5053"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 47
+    END
+
+    IDD_CPDESKTOP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 119
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    IDD_HTMLDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 113
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_SPLASHAG            BITMAP                  "res\\SplashAg.bmp"
+IDB_SPLASHBM            BITMAP                  "res\\SplashBm.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About Create && Print..."
+    IDS_HOME_PAGE           "index.htm"
+    IDS_LINELIST_PAGE       "linelist.xml"
+    IDS_VARIABLES_PAGE      "variables.xsl"
+    IDS_APPAG_FOLDER        "AppAg\\"
+    IDS_APPBM_FOLDER        "AppBm\\"
+    IDS_APPBR_FOLDER        "AppBr\\"
+    IDS_APPMS_FOLDER        "AppMs\\"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_APPUK_FOLDER        "AppUk\\"
+    IDS_CONTENT_FOLDER      "Content\\"
+    IDS_PRODUCT_FOLDER      "pack\\product\\"
+    IDS_LINELIST_FOLDER     "pack\\linelist\\"
+    IDS_THUMBSLIST_FOLDER   "pack\\thumbslist\\"
+    IDS_TITLEAG             "American Greetings Create & Print"
+    IDS_TITLEBM             "Blue Mountain Create & Print"
+    IDS_UIUPDATES_FOLDER    "updates\\"
+    IDS_APPTR_FOLDER        "AppTr\\"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_enu)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\CpDesktop.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

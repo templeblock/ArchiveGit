@@ -1,0 +1,17 @@
+The mobilizer extension is provided by Mixxer, Inc. as a reference for how to
+use our API. The Mixxer API is was designed to allow third parties to give
+their users the option of making content mobile, or sharing it with friends.
+
+We provide no guarentee that this extension will be bug free, but we hope it
+will be useful.
+
+Mixxer is, and will continue to be, free for this type of usage. We sell
+premium content to pay the bills, but our main focus is mobile community
+applications.
+
+If you would like changes to this extension, have a patch, would like a job or
+don't like me please contact mxxr-dev@lists.mixxer.com, we appreciate the
+feedback.
+
+Portions of this code were taken from the Adblock plugin and are subject to
+that licensing and copyright the appropriate authors.

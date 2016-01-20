@@ -1,0 +1,11 @@
+// Source file: cmask.c
+void Shields( BOOL bOn );
+void ShieldsSave( void );
+void ShieldsRestore( void );
+void SetupShield( void );
+static void SetupColorMask( BYTE Mask, LPCOLORINFO lpColor1, LPCOLORINFO lpColor2, BOOL On );
+void Shield(LPTR pm, LPTR pd, WORD wCount, int depth);
+void Shield8(LPTR pm, LPTR pd, WORD wCount);
+void Shield24(LPTR pm, LPRGB pd, WORD wCount);
+void Shield32(LPTR pm, LPCMYK pd, WORD wCount);
+

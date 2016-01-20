@@ -1,0 +1,2243 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>My Form Frame</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<base target="previewframe">
+		<meta content="JavaScript" name="vs_defaultClientScript">
+		<meta content="http://schemas.microsoft.com/intellisense/ie3-2nav3-0" name="vs_targetSchema">
+		<meta content="Microsoft Visual Studio.NET 7.0" name="GENERATOR">
+		<meta content="VisualStudio.HTML" name="ProgId">
+		<meta content="Microsoft Visual Studio.NET 7.0" name="Originator">
+		<link href="styles.css" type="text/css" rel="stylesheet">
+			<script language="javascript" id="clientEventHandlersJS">
+			var PaddingUnits = 'px';
+			var DefaultSettingsFileName = 'settings.txt';
+			var SenderMsgBlockName = '[textmessage]';
+			var ForReading = 1, ForWriting = 2, ForAppending = 8;
+			var form = null;
+
+			function Initialize(bReset)
+			{
+				form = document.forms.myform;
+				if (bReset)
+					form.reset();
+
+				SetColor('bg_color',        form.bg_color.value, '#ffffff');
+				SetColor('bg_bdr_color',    form.bg_bdr_color.value, '#000000');
+				SetColor('tb_bdr_color',    form.tb_bdr_color.value, '#000000');
+				SetColor('fr_color',        form.fr_color.value, '#ccffff');
+				SetColor('fr_bdr_color',    form.fr_bdr_color.value, '#000000');
+				SetColor('gr1_bdr_color',   form.gr1_bdr_color.value, '#000000');
+				SetColor('gr2_bdr_color',   form.gr2_bdr_color.value, '#000000');
+				SetColor('gr3_bdr_color',   form.gr3_bdr_color.value, '#000000');
+				SetColor('gr4_bdr_color',   form.gr4_bdr_color.value, '#000000');
+				SetColor('gr5_bdr_color',   form.gr5_bdr_color.value, '#000000');
+				SetColor('gr6_bdr_color',   form.gr6_bdr_color.value, '#000000');
+				SetColor('text_head_color', form.text_head_color.value, '#000000');
+				SetColor('text_foot_color', form.text_foot_color.value, '#000000');
+				SetColor('text_body_color', form.text_body_color.value, '#000000');
+
+				var objLoaded = document.getElementById('objLoaded');
+				if (objLoaded)
+				{
+					if (objLoaded.value == '1')
+					{ // This is a refresh
+						ShowHideAll();
+						Preview()
+					//j	alert('refresh'); // Debug
+						return;
+					}
+
+					objLoaded.value = '1';
+				}
+
+				// Since this is not a refresh, initalize all form elements to their default values
+				text_head_Default(0,0);
+				text_foot_Default(0,0);
+				text_body_Default(0,0);
+				bg_Default(0,0);
+				fr_Default(0,0);
+				gr1_Default(0,0);
+				gr2_Default(0,0);
+				gr3_Default(0,0);
+				gr4_Default(0,0);
+				gr5_Default(0,0);
+				gr6_Default(0,0);
+				export_Default();
+
+				form.bg_pad_left.value   = 15;
+				form.bg_pad_top.value    = 0;
+				form.bg_pad_right.value  = 15;
+				form.bg_pad_bottom.value = 0;
+
+				form.fr_pad_left.value   = 15;
+				form.fr_pad_top.value    = 15;
+				form.fr_pad_right.value  = 15;
+				form.fr_pad_bottom.value = 15;
+
+				form.fr_width.value  = 400;
+				form.fr_height.value = 200;
+
+				form.gr1_width.value = '';
+				form.gr1_height.value = '';
+
+				form.gr2_width.value = '';
+				form.gr2_height.value = '';
+
+				form.gr3_width.value = '';
+				form.gr3_height.value = '';
+
+				form.gr4_width.value = '';
+				form.gr4_height.value = '';
+
+				form.gr5_width.value = '';
+				form.gr5_height.value = '';
+
+				form.gr6_width.value = '';
+				form.gr6_height.value = '';
+
+				if (bReset)
+					ShowHideAll();
+			}
+			function PutCheck(element)
+			{
+				return element.toString() + '=' + GetCheck(element);
+			}
+			function PutValue(element)
+			{
+				return element.toString() + '=' + GetValue(element);
+			}
+			function PutBlock(element)
+			{
+				return element.toString() + '=' + eval('escape(form.' + element + '.value)');
+			}
+			function PutConstant(element, value)
+			{
+				return element.toString() + '=' + value;
+			}
+			function GetCheck(element)
+			{
+				return eval('form.' + element + '.checked');
+			}
+			function GetValue(element)
+			{
+				return eval('form.' + element + '.value');
+			}
+			function SetCheck(element, value)
+			{
+				eval('form.' + element + '.checked = ' + value);
+			}
+			function SetValue(element, value)
+			{
+				eval('form.' + element + '.value = value');
+			}
+			function SetBlock(element, value)
+			{
+				SetValue(element, unescape(value));
+			}
+			function SetColor(element, color, defcolor)
+			{
+				SetValue(element, color);
+				try {eval('document.all.' + element + '_sample.style.backgroundColor = (color == "" ? defcolor : color)');}
+				catch(error){eval('document.all.' + element + '_sample.style.backgroundColor = defcolor');}
+			}
+			function text_head_Default(bClear, bPreview)
+			{
+				var str = 'Text header block';
+				SetValue('text_head', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function text_foot_Default(bClear, bPreview)
+			{
+				var str = 'Text footer block';
+				SetValue('text_foot', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function text_body_Default(bClear, bPreview)
+			{
+				var str = 'The sender\'s message text goes here.  ';
+				str += str;
+				str += str;
+				str += str;
+				SetValue('text_body', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function bg_Default(bClear, bPreview)
+			{
+				var str = 'bg.gif';
+				SetValue('bg_url', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function fr_Default(bClear, bPreview)
+			{
+				var str = 'fr.gif';
+				SetValue('fr_url', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function gr1_Default(bClear, bPreview)
+			{
+				var str = 'gr1.gif';
+				SetValue('gr1_url', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function gr2_Default(bClear, bPreview)
+			{
+				var str = 'gr2.gif';
+				SetValue('gr2_url', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function gr3_Default(bClear, bPreview)
+			{
+				var str = 'gr3.gif';
+				SetValue('gr3_url', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function gr4_Default(bClear, bPreview)
+			{
+				var str = 'gr4.gif';
+				SetValue('gr4_url', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function gr5_Default(bClear, bPreview)
+			{
+				var str = 'gr5.gif';
+				SetValue('gr5_url', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function gr6_Default(bClear, bPreview)
+			{
+				var str = 'gr6.gif';
+				SetValue('gr6_url', (bClear ? '' : str));
+				if (bPreview) Preview();
+			}
+			function export_Default()
+			{
+				var str = ''; // Someday get this out of a cookie
+				SetValue('export_path', str);
+				return true;
+			}
+			function Open()
+			{
+				var SettingsPath = Browse2(false/*bSave*/, 'Select a text filename to open new page settings', DefaultSettingsFileName,
+					'Text Settings Files (*.txt)|*.txt|All Files (*.*)|*.*'/*Filter*/,
+					'txt'/*DefaultExt*/);
+				if (!SettingsPath)
+					return false;
+
+				var fso = OpenFSO();
+				if (!fso)
+					return false;
+
+				if (!fso.FileExists(SettingsPath))
+				{
+					alert('File ' + SettingsPath + ' does not exist');
+					return false;
+				}
+
+				Initialize(true/*bReset*/);
+
+				var tso = fso.OpenTextFile(SettingsPath, ForReading, false/*bCreate*/);
+				if (!tso)
+					return false;
+
+				while (!tso.AtEndOfStream)
+				{
+					var line = tso.ReadLine();
+					if (line == null || line == '')
+						continue;
+					var namevalue = line.split('=');
+					if (namevalue == null)
+						continue;
+					var element = namevalue[0];
+					var value = namevalue[1];
+					switch (element)
+					{
+						case 'bg_color':			{ SetColor(element, value, '#ffffff'); break; }
+						case 'bg_pad_left':			{ SetValue(element, value); break; }
+						case 'bg_pad_top':			{ SetValue(element, value); break; }
+						case 'bg_pad_right':		{ SetValue(element, value); break; }
+						case 'bg_pad_bottom':		{ SetValue(element, value); break; }
+						case 'bg_url_enabled':		{ SetCheck(element, value); break; }
+
+						case 'bg_url':				{ SetValue(element, value); break; }
+						case 'bg_pos':				{ SetValue(element, value); break; }
+						case 'bg_repeat_width':		{ SetCheck(element, value); break; }
+						case 'bg_repeat_height':	{ SetCheck(element, value); break; }
+					//j	case 'bg_fixed':			{ SetCheck(element, value); break; }
+
+						case 'fr_enabled':			{ SetCheck(element, value); break; }
+						case 'fr_color':			{ SetColor(element, value, '#ccffff'); break; }
+						case 'fr_pad_left':			{ SetValue(element, value); break; }
+						case 'fr_pad_top':			{ SetValue(element, value); break; }
+						case 'fr_pad_right':		{ SetValue(element, value); break; }
+						case 'fr_pad_bottom':		{ SetValue(element, value); break; }
+						case 'fr_width':			{ SetValue(element, value); break; }
+						case 'fr_height':			{ SetValue(element, value); break; }
+						case 'fr_url_enabled':		{ SetCheck(element, value); break; }
+
+						case 'fr_url':				{ SetValue(element, value); break; }
+						case 'fr_pos':				{ SetValue(element, value); break; }
+						case 'fr_repeat_width':		{ SetCheck(element, value); break; }
+						case 'fr_repeat_height':	{ SetCheck(element, value); break; }
+					//j	case 'fr_fixed':			{ SetCheck(element, value); break; }
+
+						case 'gr1_enabled':			{ SetCheck(element, value); break; }
+						case 'gr1_url':				{ SetValue(element, value); break; }
+						case 'gr1_pos':				{ if (value == 'normal') value = 'normal center';
+													  SetValue(element, value); break; }
+						case 'gr1_width':			{ SetValue(element, value); break; }
+						case 'gr1_height':			{ SetValue(element, value); break; }
+						case 'gr1_zindex':			{ SetValue(element, value); break; }
+
+						case 'gr2_enabled':			{ SetCheck(element, value); break; }
+						case 'gr2_url':				{ SetValue(element, value); break; }
+						case 'gr2_pos':				{ if (value == 'normal') value = 'normal center';
+													  SetValue(element, value); break; }
+						case 'gr2_width':			{ SetValue(element, value); break; }
+						case 'gr2_height':			{ SetValue(element, value); break; }
+						case 'gr2_zindex':			{ SetValue(element, value); break; }
+
+						case 'gr3_enabled':			{ SetCheck(element, value); break; }
+						case 'gr3_url':				{ SetValue(element, value); break; }
+						case 'gr3_pos':				{ if (value == 'normal') value = 'normal center';
+													  SetValue(element, value); break; }
+						case 'gr3_width':			{ SetValue(element, value); break; }
+						case 'gr3_height':			{ SetValue(element, value); break; }
+						case 'gr3_zindex':			{ SetValue(element, value); break; }
+
+						case 'gr4_enabled':			{ SetCheck(element, value); break; }
+						case 'gr4_url':				{ SetValue(element, value); break; }
+						case 'gr4_pos':				{ if (value == 'normal') value = 'normal center';
+													  SetValue(element, value); break; }
+						case 'gr4_width':			{ SetValue(element, value); break; }
+						case 'gr4_height':			{ SetValue(element, value); break; }
+						case 'gr4_zindex':			{ SetValue(element, value); break; }
+
+						case 'gr5_enabled':			{ SetCheck(element, value); break; }
+						case 'gr5_url':				{ SetValue(element, value); break; }
+						case 'gr5_pos':				{ if (value == 'normal') value = 'normal center';
+													  SetValue(element, value); break; }
+						case 'gr5_width':			{ SetValue(element, value); break; }
+						case 'gr5_height':			{ SetValue(element, value); break; }
+						case 'gr5_zindex':			{ SetValue(element, value); break; }
+
+						case 'gr6_enabled':			{ SetCheck(element, value); break; }
+						case 'gr6_url':				{ SetValue(element, value); break; }
+						case 'gr6_pos':				{ if (value == 'normal') value = 'normal center';
+													  SetValue(element, value); break; }
+						case 'gr6_width':			{ SetValue(element, value); break; }
+						case 'gr6_height':			{ SetValue(element, value); break; }
+						case 'gr6_zindex':			{ SetValue(element, value); break; }
+
+						case 'text_head_enabled':	{ SetCheck(element, value); break; }
+						case 'text_head':			{ SetBlock(element, value); break; }
+						case 'text_head_font':		{ SetValue(element, value); break; }
+						case 'text_head_fontsize':	{ SetValue(element, value); break; }
+						case 'text_head_fontweight':{ SetCheck(element, value); break; }
+						case 'text_head_fontstyle':	{ SetCheck(element, value); break; }
+						case 'text_head_decoration':{ SetCheck(element, value); break; }
+						case 'text_head_align':		{ SetValue(element, value); break; }
+						case 'text_head_color':		{ SetColor(element, value, '#000000'); break; }
+
+						case 'text_foot_enabled':	{ SetCheck(element, value); break; }
+						case 'text_foot':			{ SetBlock(element, value); break; }
+						case 'text_foot_font':		{ SetValue(element, value); break; }
+						case 'text_foot_fontsize':	{ SetValue(element, value); break; }
+						case 'text_foot_fontweight':{ SetCheck(element, value); break; }
+						case 'text_foot_fontstyle':	{ SetCheck(element, value); break; }
+						case 'text_foot_decoration':{ SetCheck(element, value); break; }
+						case 'text_foot_align':		{ SetValue(element, value); break; }
+						case 'text_foot_color':		{ SetColor(element, value, '#000000'); break; }
+
+						case 'text_body_enabled':	{ SetCheck(element, value); break; }
+						case 'text_body':			{ SetBlock(element, value); break; }
+						case 'text_body_font':		{ SetValue(element, value); break; }
+						case 'text_body_fontsize':	{ SetValue(element, value); break; }
+						case 'text_body_fontweight':{ SetCheck(element, value); break; }
+						case 'text_body_fontstyle':	{ SetCheck(element, value); break; }
+						case 'text_body_decoration':{ SetCheck(element, value); break; }
+						case 'text_body_align':		{ SetValue(element, value); break; }
+						case 'text_body_color':		{ SetColor(element, value, '#000000'); break; }
+
+						case 'borders_enabled':		{ SetCheck(element, value); break; }
+						case 'bg_bdr_size':			{ SetValue(element, value); break; }
+						case 'bg_bdr_color':		{ SetColor(element, value, '#000000'); break; }
+						case 'tb_bdr_size':			{ SetValue(element, value); break; }
+						case 'tb_bdr_color':		{ SetColor(element, value, '#000000'); break; }
+						case 'fr_bdr_size':			{ SetValue(element, value); break; }
+						case 'fr_bdr_color':		{ SetColor(element, value, '#000000'); break; }
+						case 'gr1_bdr_size':		{ SetValue(element, value); break; }
+						case 'gr1_bdr_color':		{ SetColor(element, value, '#000000'); break; }
+						case 'gr2_bdr_size':		{ SetValue(element, value); break; }
+						case 'gr2_bdr_color':		{ SetColor(element, value, '#000000'); break; }
+						case 'gr3_bdr_size':		{ SetValue(element, value); break; }
+						case 'gr3_bdr_color':		{ SetColor(element, value, '#000000'); break; }
+						case 'gr4_bdr_size':		{ SetValue(element, value); break; }
+						case 'gr4_bdr_color':		{ SetColor(element, value, '#000000'); break; }
+						case 'gr5_bdr_size':		{ SetValue(element, value); break; }
+						case 'gr5_bdr_color':		{ SetColor(element, value, '#000000'); break; }
+						case 'gr6_bdr_size':		{ SetValue(element, value); break; }
+						case 'gr6_bdr_color':		{ SetColor(element, value, '#000000'); break; }
+
+						case 'options_enabled':		{ SetCheck(element, value); break; }
+						case 'gr_transparent':		{ SetCheck(element, value); break; }
+						case 'gr_autoplay':			{ SetCheck(element, value); break; }
+						case 'gr_loop':				{ SetCheck(element, value); break; }
+						case 'bg_float':			{ SetCheck(element, value); break; }
+						case 'units':				{ SetValue(element, value); break; }
+					}
+				}
+
+			// START PATCHES
+				// If necessary, change the text body block (sender message block) to the default
+				if (GetValue('text_body') == SenderMsgBlockName)
+					text_body_Default(0,0);
+				
+				// Force bg_float to be true
+				SetCheck('bg_float', 'true');
+
+				// Force options_enabled to be false
+				SetCheck('options_enabled', 'false');
+
+				// Force the text size to be 11pt
+				SetValue('text_body_fontsize', '11')
+				SetValue('units', 'pt');
+			// END PATCHES
+
+				if (GetValue('bg_url')  == '')	{ SetCheck('bg_url_enabled', false); bg_Default(0,0); }
+				if (GetValue('fr_url')  == '')	{ SetCheck('fr_url_enabled', false); fr_Default(0,0); }
+				if (GetValue('gr1_url') == '')	{ SetCheck('gr1_enabled', false);	 gr1_Default(0,0); }
+				if (GetValue('gr2_url') == '')	{ SetCheck('gr2_enabled', false);	 gr2_Default(0,0); }
+				if (GetValue('gr3_url') == '')	{ SetCheck('gr3_enabled', false);	 gr3_Default(0,0); }
+				if (GetValue('gr4_url') == '')	{ SetCheck('gr4_enabled', false);	 gr4_Default(0,0); }
+				if (GetValue('gr5_url') == '')	{ SetCheck('gr5_enabled', false);	 gr5_Default(0,0); }
+				if (GetValue('gr6_url') == '')	{ SetCheck('gr6_enabled', false);	 gr6_Default(0,0); }
+				
+				var SettingsFolder = fso.GetParentFolderName(SettingsPath);
+				if (GetCheck('bg_url_enabled'))	SetValue('bg_url',  VerifyFile(GetValue('bg_url'),  SettingsFolder));
+				if (GetCheck('fr_url_enabled'))	SetValue('fr_url',  VerifyFile(GetValue('fr_url'),  SettingsFolder));
+				if (GetCheck('gr1_enabled'))	SetValue('gr1_url', VerifyFile(GetValue('gr1_url'), SettingsFolder));
+				if (GetCheck('gr2_enabled'))	SetValue('gr2_url', VerifyFile(GetValue('gr2_url'), SettingsFolder));
+				if (GetCheck('gr3_enabled'))	SetValue('gr3_url', VerifyFile(GetValue('gr3_url'), SettingsFolder));
+				if (GetCheck('gr4_enabled'))	SetValue('gr4_url', VerifyFile(GetValue('gr4_url'), SettingsFolder));
+				if (GetCheck('gr5_enabled'))	SetValue('gr5_url', VerifyFile(GetValue('gr5_url'), SettingsFolder));
+				if (GetCheck('gr6_enabled'))	SetValue('gr6_url', VerifyFile(GetValue('gr6_url'), SettingsFolder));
+
+				tso.Close();
+				ShowHideAll();
+				Preview();
+				return true;
+			}
+			function Export(SettingsPath)
+			{
+				var fso = OpenFSO();
+				if (!fso)
+					return;
+
+				if (!SettingsPath)
+				{
+					SettingsPath = GetValue('export_path');
+					if (SettingsPath == null || SettingsPath == '')
+					{
+						alert('Before you export, please specify an Export Path in the Options section');
+						return;
+					}
+
+					var Folder = BrowseFolder('Enter a simple folder name to export the project to ' + SettingsPath);
+					if (!Folder)
+						return;
+
+					SettingsPath += ('\\' + Folder);
+					MakeFolder(fso, SettingsPath);
+					SettingsPath += ('\\' + DefaultSettingsFileName);
+				}
+					
+				// The SettingsPath is a full specification of the settings file
+				var SettingsFile = fso.GetFileName(SettingsPath);
+				var SettingsFolder = fso.GetParentFolderName(SettingsPath);
+
+				try
+				{
+					var f = fso.CreateFolder(SettingsFolder);
+				//j	alert(f.Path); // Debug
+				}
+				catch(error)
+				{
+					if (error.description.indexOf('already exists') < 0)
+					{
+						var FsoError = 'Could not create folder "' + SettingsFolder + '"';
+						alert(error.description + '\n\n' + FsoError);
+						return;
+					}
+				}
+
+				var HtmlPath = SettingsFolder + '\\index.html';
+				try
+				{
+					var tso = fso.OpenTextFile(HtmlPath, ForWriting, true/*bCreate*/);
+					tso.WriteLine('<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">');
+					tso.WriteLine('<html><head><title></title></head>');
+					tso.WriteLine(GetBody(SettingsFolder));
+					tso.WriteLine('</html>');
+					tso.Close();
+
+					// Save the settings last
+					var NewSettingsPath = SettingsFolder + '\\' + SettingsFile;
+					SaveSettings(fso, NewSettingsPath);
+				//j	alert('Settings saved to ' + NewSettingsPath); // Debug
+
+					if (confirm('Save complete.\n\n' + NewSettingsPath + '\n\nWould you like to see the results?'))
+						PopupURL(HtmlPath);
+				}
+				catch(error)
+				{
+					var FsoError = 'Could not export HTML to "' + HtmlPath + '"';
+					alert(error.description + '\n\n' + FsoError);
+				}
+			}
+			function SaveSettings(fso, SettingsPath)
+			{
+				try
+				{
+					var tso = fso.OpenTextFile(SettingsPath, ForWriting, true/*bCreate*/);
+					if (!tso)
+						return;
+
+					tso.WriteLine(PutValue('bg_color'));
+					tso.WriteLine(PutValue('bg_pad_left'));
+					tso.WriteLine(PutValue('bg_pad_top'));
+					tso.WriteLine(PutValue('bg_pad_right'));
+					tso.WriteLine(PutValue('bg_pad_bottom'));
+					tso.WriteLine(PutCheck('bg_url_enabled'));
+					if (GetCheck('bg_url_enabled'))
+					{
+						tso.WriteLine(PutValue('bg_url'));
+						tso.WriteLine(PutValue('bg_pos'));
+						tso.WriteLine(PutCheck('bg_repeat_width'));
+						tso.WriteLine(PutCheck('bg_repeat_height'));
+					//j	tso.WriteLine(PutCheck('bg_fixed'));
+					}
+
+					tso.WriteLine(PutCheck('fr_enabled'));
+					if (GetCheck('fr_enabled'))
+					{
+						tso.WriteLine(PutValue('fr_color'));
+						tso.WriteLine(PutValue('fr_pad_left'));
+						tso.WriteLine(PutValue('fr_pad_top'));
+						tso.WriteLine(PutValue('fr_pad_right'));
+						tso.WriteLine(PutValue('fr_pad_bottom'));
+						tso.WriteLine(PutValue('fr_width'));
+						tso.WriteLine(PutValue('fr_height'));
+						tso.WriteLine(PutCheck('fr_url_enabled'));
+						if (GetCheck('fr_url_enabled'))
+						{
+							tso.WriteLine(PutValue('fr_url'));
+							tso.WriteLine(PutValue('fr_pos'));
+							tso.WriteLine(PutCheck('fr_repeat_width'));
+							tso.WriteLine(PutCheck('fr_repeat_height'));
+						//j	tso.WriteLine(PutCheck('fr_fixed'));
+						}
+					}
+
+					tso.WriteLine(PutCheck('gr1_enabled'));
+					if (GetCheck('gr1_enabled'))
+					{
+						tso.WriteLine(PutValue('gr1_url'));
+						tso.WriteLine(PutValue('gr1_pos'));
+						tso.WriteLine(PutValue('gr1_width'));
+						tso.WriteLine(PutValue('gr1_height'));
+						tso.WriteLine(PutValue('gr1_zindex'));
+					}
+					
+					tso.WriteLine(PutCheck('gr2_enabled'));
+					if (GetCheck('gr2_enabled'))
+					{
+						tso.WriteLine(PutValue('gr2_url'));
+						tso.WriteLine(PutValue('gr2_pos'));
+						tso.WriteLine(PutValue('gr2_width'));
+						tso.WriteLine(PutValue('gr2_height'));
+						tso.WriteLine(PutValue('gr2_zindex'));
+					}
+
+					tso.WriteLine(PutCheck('gr3_enabled'));
+					if (GetCheck('gr3_enabled'))
+					{
+						tso.WriteLine(PutValue('gr3_url'));
+						tso.WriteLine(PutValue('gr3_pos'));
+						tso.WriteLine(PutValue('gr3_width'));
+						tso.WriteLine(PutValue('gr3_height'));
+						tso.WriteLine(PutValue('gr3_zindex'));
+					}
+
+					tso.WriteLine(PutCheck('gr4_enabled'));
+					if (GetCheck('gr4_enabled'))
+					{
+						tso.WriteLine(PutValue('gr4_url'));
+						tso.WriteLine(PutValue('gr4_pos'));
+						tso.WriteLine(PutValue('gr4_width'));
+						tso.WriteLine(PutValue('gr4_height'));
+						tso.WriteLine(PutValue('gr4_zindex'));
+					}
+
+					tso.WriteLine(PutCheck('gr5_enabled'));
+					if (GetCheck('gr5_enabled'))
+					{
+						tso.WriteLine(PutValue('gr5_url'));
+						tso.WriteLine(PutValue('gr5_pos'));
+						tso.WriteLine(PutValue('gr5_width'));
+						tso.WriteLine(PutValue('gr5_height'));
+						tso.WriteLine(PutValue('gr5_zindex'));
+					}
+
+					tso.WriteLine(PutCheck('gr6_enabled'));
+					if (GetCheck('gr6_enabled'))
+					{
+						tso.WriteLine(PutValue('gr6_url'));
+						tso.WriteLine(PutValue('gr6_pos'));
+						tso.WriteLine(PutValue('gr6_width'));
+						tso.WriteLine(PutValue('gr6_height'));
+						tso.WriteLine(PutValue('gr6_zindex'));
+					}
+
+					tso.WriteLine(PutCheck('text_head_enabled'));
+					if (GetCheck('text_head_enabled'))
+					{
+						tso.WriteLine(PutBlock('text_head'));
+						tso.WriteLine(PutValue('text_head_font'));
+						tso.WriteLine(PutValue('text_head_fontsize'));
+						tso.WriteLine(PutCheck('text_head_fontweight'));
+						tso.WriteLine(PutCheck('text_head_fontstyle'));
+						tso.WriteLine(PutCheck('text_head_decoration'));
+						tso.WriteLine(PutValue('text_head_align'));
+						tso.WriteLine(PutValue('text_head_color'));
+					}
+
+					tso.WriteLine(PutCheck('text_foot_enabled'));
+					if (GetCheck('text_foot_enabled'))
+					{
+						tso.WriteLine(PutBlock('text_foot'));
+						tso.WriteLine(PutValue('text_foot_font'));
+						tso.WriteLine(PutValue('text_foot_fontsize'));
+						tso.WriteLine(PutCheck('text_foot_fontweight'));
+						tso.WriteLine(PutCheck('text_foot_fontstyle'));
+						tso.WriteLine(PutCheck('text_foot_decoration'));
+						tso.WriteLine(PutValue('text_foot_align'));
+						tso.WriteLine(PutValue('text_foot_color'));
+					}
+
+					tso.WriteLine(PutCheck('text_body_enabled'));
+					if (GetCheck('text_body_enabled'))
+					{
+						tso.WriteLine(PutConstant('text_body', SenderMsgBlockName));
+					//j	tso.WriteLine(PutBlock('text_body'));
+						tso.WriteLine(PutValue('text_body_font'));
+						tso.WriteLine(PutValue('text_body_fontsize'));
+						tso.WriteLine(PutCheck('text_body_fontweight'));
+						tso.WriteLine(PutCheck('text_body_fontstyle'));
+						tso.WriteLine(PutCheck('text_body_decoration'));
+						tso.WriteLine(PutValue('text_body_align'));
+						tso.WriteLine(PutValue('text_body_color'));
+					}
+
+					tso.WriteLine(PutCheck('borders_enabled'));
+					if (GetCheck('borders_enabled'))
+					{
+						tso.WriteLine(PutValue('bg_bdr_size'));
+						tso.WriteLine(PutValue('bg_bdr_color'));
+						tso.WriteLine(PutValue('tb_bdr_size'));
+						tso.WriteLine(PutValue('tb_bdr_color'));
+						tso.WriteLine(PutValue('fr_bdr_size'));
+						tso.WriteLine(PutValue('fr_bdr_color'));
+						tso.WriteLine(PutValue('gr1_bdr_size'));
+						tso.WriteLine(PutValue('gr1_bdr_color'));
+						tso.WriteLine(PutValue('gr2_bdr_size'));
+						tso.WriteLine(PutValue('gr2_bdr_color'));
+						tso.WriteLine(PutValue('gr3_bdr_size'));
+						tso.WriteLine(PutValue('gr3_bdr_color'));
+						tso.WriteLine(PutValue('gr4_bdr_size'));
+						tso.WriteLine(PutValue('gr4_bdr_color'));
+						tso.WriteLine(PutValue('gr5_bdr_size'));
+						tso.WriteLine(PutValue('gr5_bdr_color'));
+						tso.WriteLine(PutValue('gr6_bdr_size'));
+						tso.WriteLine(PutValue('gr6_bdr_color'));
+					}
+
+					tso.WriteLine(PutCheck('options_enabled'));
+					tso.WriteLine(PutCheck('gr_transparent'));
+					tso.WriteLine(PutCheck('gr_autoplay'));
+					tso.WriteLine(PutCheck('gr_loop'));
+					tso.WriteLine(PutCheck('bg_float'));
+					tso.WriteLine(PutValue('units'));
+
+					tso.Close();
+				}
+				catch(error)
+				{
+					var FsoError = 'Could not save settings to "' + SettingsPath + '"';
+					alert(error.description + '\n\n' + FsoError);
+				}
+			}
+			function Break(text)
+			{
+				var replacetext = '<br>';
+				text = escape(text)
+				var index = -1;
+				while (text.indexOf('%0D%0A') > -1)
+					text = text.replace('%0D%0A', replacetext);
+				while (text.indexOf('%0A') > -1)
+					text = text.replace('%0A', replacetext);
+				while (text.indexOf('%0D') > -1)
+					text = text.replace('%0D', replacetext);
+
+				return unescape(text)
+			}
+			var buffer = '';
+			function Buffer(text)
+			{
+				buffer += text;
+			}
+			function CopyFile(filepath, folder)
+			{
+				if (!folder)
+					return null;
+					
+				var fso = OpenFSO();
+				if (!fso)
+					return null;
+
+			//	fso.GetParentFolderName(filepath)	Path, no Filename, no trailing slash
+			//	fso.GetDriveName(filepath)			\\Gromit\wallaby (empty for http path)
+			//	fso.GetBaseName(filepath)			Filename, no extension
+			//	fso.GetAbsolutePathName(filepath)	Full path (weird for http path)
+			//	fso.GetExtensionName(filepath)		Extension
+			///	fso.GetFile(filepath)				Full path (File not found for http path)
+			//	fso.GetFileName(filepath)			Filename with extension
+				try
+				{
+					var filename = fso.GetFileName(filepath);
+					var separator = (folder.indexOf('/') >= 0 ? '/' : '\\');
+					var newfilepath = folder + separator + filename;
+					var fp1 = filepath.toUpperCase();
+					var fp2 = newfilepath.toUpperCase();
+					if (fp1 != fp2)
+						fso.CopyFile(filepath, newfilepath, true/*bOverwrite*/);
+					return newfilepath;
+				}
+				catch(error)
+				{
+					var bIsHttp = (filepath.indexOf('http:') >= 0);
+					var FsoError = error.description + '\n\n' + filepath;
+					if (bIsHttp)
+						FsoError += '\n\nImages referenced from the Web cannot be exported.  However, the exported page will continue to reference this image from the Web.\n\nIf you wish, change the reference to a local hard disk or file server and save again.'
+					alert(FsoError);
+					return null;
+				}
+
+				return null;
+			}
+			function GetFileName(filepath)
+			{
+				var fso = OpenFSO();
+				if (!fso)
+					return filepath;
+
+				return fso.GetFileName(filepath);
+			}
+			function VerifyFile(filepath, SettingsFolder)
+			{
+			//j	var bIsHttp = (filepath.indexOf('http:') >= 0);
+			//j	if (bIsHttp)
+			//j		return filepath;
+
+				var fso = OpenFSO();
+				if (!fso)
+					return filepath;
+
+				var filename = fso.GetFileName(filepath);
+				var filepath2 = SettingsFolder + '\\' + filename;
+				if (fso.FileExists(filepath2))
+					return filepath2;
+
+				if (fso.FileExists(filepath))
+					return filepath;
+
+				alert('File verification failed for\n\n"' + filepath2 + '"');
+				return filepath2;
+			}
+			function BufferBackgroundStyle(type, defcolor, SettingsFolder)
+			{
+				var color         = GetValue(type + '_color');
+				var url_enabled   = GetCheck(type + '_url_enabled');         
+				var repeat_width  = GetCheck(type + '_repeat_width');         
+				var repeat_height = GetCheck(type + '_repeat_height');         
+				var pos           = GetValue(type + '_pos');         
+				var fixed         = GetCheck(type + '_fixed');         
+				var url           = GetValue(type + '_url');         
+				if (SettingsFolder && url_enabled && url != '')
+				{
+					var newfilepath = CopyFile(url, SettingsFolder);
+					if (newfilepath)
+					{
+						SetValue(type + '_url', newfilepath);
+						url = GetFileName(newfilepath);
+					}
+				}
+
+				if (color == '') color = defcolor;
+
+				Buffer('background-color:' + color + '; ');
+				if (url_enabled && url != '')
+				{
+					Buffer('background-image:url(' + url + '); ');
+					var repeat = 'no-repeat';
+					if (repeat_width)
+						repeat = (repeat_height ? 'both' : 'repeat-x');
+					else
+					if (repeat_height)
+						repeat = 'repeat-y';
+					Buffer('background-repeat:' + repeat + '; ');
+					Buffer('background-position:' + pos + '; ');
+					Buffer('background-attachment:' + (fixed ? 'fixed' : 'scroll') + '; ');
+				}
+			}
+			function BufferTextStyle(type, bUnderline, bAlign)
+			{
+				var text_font        = GetValue(type + '_font');         
+				var text_fontsize    = GetValue(type + '_fontsize');
+				var text_fontweight  = GetCheck(type + '_fontweight');
+				var text_fontstyle   = GetCheck(type + '_fontstyle');
+				var text_decoration  = GetCheck(type + '_decoration');
+				var text_align       = GetValue(type + '_align');
+				var text_color       = GetValue(type + '_color');
+				if (text_color == '') text_color = '#000000';
+
+				Buffer('font-family:'     + text_font + '; ');
+				Buffer('font-size:'       + text_fontsize + GetValue('units') + '; ');
+				Buffer('font-weight:'     + (text_fontweight ? 'bold' : 'normal') + '; ');
+				Buffer('font-style:'      + (text_fontstyle ? 'italic' : 'normal') + '; ');
+				Buffer('color:'           + text_color + '; ');
+				if (bAlign)
+					Buffer('text-align:'      + text_align + '; ');
+				if (bUnderline)
+					Buffer('text-decoration:' + (text_decoration ? 'underline' : 'none') + '; ');
+			}
+			function BufferText(type, bSenderMsgBlock, SettingsFolder)
+			{
+				if (!GetCheck(type + '_enabled'))
+					return;
+
+				Buffer(bSenderMsgBlock ? '<tr><td style="width:100%; height:100%;">' : '<tr><td>');
+				Buffer('<div contenteditable="true" style="position:relative; ');
+				BufferTextStyle(type, true, true);
+				if (bSenderMsgBlock)
+				{
+					Buffer('width:100%; height:100%; ');
+					var bBorders = GetCheck('borders_enabled');
+					if (bBorders && (GetValue('tb_bdr_size') != ''))
+					{
+						var tb_bdr_color = GetValue('tb_bdr_color');
+						if (tb_bdr_color == '') tb_bdr_color = '#000000';
+						Buffer('border:' + GetValue('tb_bdr_size') + ' solid ' + tb_bdr_color + '; ');
+					}
+				}
+				Buffer('">');
+				var strText = (bSenderMsgBlock && SettingsFolder ? SenderMsgBlockName : Break(GetValue(type)));
+				Buffer(strText);
+				Buffer('</div>');
+				Buffer('</td></tr>');
+			}
+			function BufferGraphic(type, bIfNormal, SettingsFolder)
+			{
+				if (!GetCheck(type + '_enabled'))
+					return;
+
+				var gr_pos = GetValue(type + '_pos');
+				var bNormal = (gr_pos.indexOf('normal') >= 0);
+				if (bNormal != bIfNormal)
+					return;
+
+				var gr_zindex       = GetValue(type + '_zindex');
+				var gr_width        = GetValue(type + '_width');
+				var gr_height       = GetValue(type + '_height');
+				var gr_url          = GetValue(type + '_url');
+				var gr_bdr_size     = GetValue(type + '_bdr_size');
+				var gr_bdr_color    = GetValue(type + '_bdr_color');
+				if (gr_bdr_color == '') gr_bdr_color = '#000000';
+
+				if (SettingsFolder && gr_url != '')
+				{
+					var newfilepath = CopyFile(gr_url, SettingsFolder);
+					if (newfilepath)
+					{
+						SetValue(type + '_url', newfilepath);
+						gr_url = GetFileName(newfilepath);
+					}
+				}
+
+				var urltest = gr_url.toLowerCase();
+				var bGIF = (urltest.indexOf('.gif') >= 0);
+				var bJPG = (urltest.indexOf('.jpg') >= 0);
+				var bFlash = (urltest.indexOf('.swf') >= 0);
+				if (!bGIF && !bJPG && !bFlash)
+					return;
+
+				var bTile = (gr_pos.indexOf('tile') >= 0);
+				var bLeft = (gr_pos.indexOf('left') >= 0);
+				var bCenter = (gr_pos.indexOf('center') >= 0);
+				var bRight = (gr_pos.indexOf('right') >= 0);
+				var bTop = (gr_pos.indexOf('top') >= 0);
+				var bMiddle = (gr_pos.indexOf('middle') >= 0);
+				var bBottom = (gr_pos.indexOf('bottom') >= 0);
+				var bHorz = (bTop || bMiddle || bBottom);
+				var bVert = (bLeft || bCenter || bRight);
+				var bBorders = GetCheck('borders_enabled');
+
+				var bg_color = GetValue('bg_color');
+				if (bg_color == '') bg_color = '#ffffff';
+
+				var fr_color = GetValue('fr_color');
+				if (fr_color == '') fr_color = '#ccffff';
+
+				if (bNormal)
+					Buffer('<tr><td>');
+				Buffer('<div contenteditable="false" unselectable="on" ');
+
+				if (bNormal)
+				{
+					Buffer('style="position:relative; " ');
+					if (bLeft)
+						Buffer('align="left">');
+					else
+					if (bRight)
+						Buffer('align="right">');
+					else // default
+						Buffer('align="center">');
+				}
+				else
+				{
+					Buffer('style="position:absolute; z-index:' + gr_zindex + '; ');
+					if (bCenter)
+					{
+						var half = gr_width / 2;
+						if (!half)
+						{
+							var number = type.replace('gr', '');
+							alert('Be sure to enter the width of Graphic ' + number + ' in order to place it "top center" or "bottom center".');
+						}
+						Buffer('left:50%; margin-left:-' + half + 'px; ');
+					}
+					if (bLeft)
+						Buffer('left:0px; ');
+					if (bRight)
+						Buffer('right:-1px; ');
+					if (bTop)
+						Buffer('top:0px; ');
+					if (bBottom)
+						Buffer('bottom:-1px; ');
+
+					if (bTile)
+					{
+						if (bHorz)
+						{
+							Buffer('width:100%; ');
+						//j	if (bFlash && gr_width == '')
+							if (bFlash)
+								gr_width = '100%';
+						}
+						if (bVert)
+						{
+							Buffer('height:100%; ');
+						//j	if (bFlash && gr_height == '')
+							if (bFlash)
+								gr_height = '100%';
+						}
+						if (!bFlash)
+						{
+							Buffer('background-image:url(' + gr_url + '); ');
+							Buffer('background-repeat:' + (bVert && bHorz ? 'both' : (bVert ? 'repeat-y' : 'repeat-x')) + '; ');
+							Buffer('background-position:left top; ');
+							Buffer('background-attachment:scroll; ');
+						}
+					}
+					
+					if (bBorders && gr_bdr_size != '')
+						Buffer('border:' + gr_bdr_size + ' solid ' + gr_bdr_color + '; ');
+
+					Buffer('">');
+				}
+
+				Buffer((bFlash ? '<object' : '<img') + ' unselectable="on" id="' + type + '" style="');
+				if (bNormal)
+				{
+					if (bBorders && gr_bdr_size != '')
+						Buffer('border:' + gr_bdr_size + ' solid ' + gr_bdr_color + '; ');
+				}
+				if (bFlash && gr_width == '')
+					gr_width = '100%';
+				if (gr_width != '')
+					Buffer('width:' + gr_width + '; ');
+				if (gr_height != '')
+					Buffer('height:' + gr_height + '; ');
+				Buffer('" ');
+
+				if (!bFlash)
+				{
+					Buffer('src="' + gr_url + '" alt="">');
+				}
+				else
+				{
+					var strPrefix = ((!SettingsFolder && gr_url.indexOf('://') < 0) ? 'file://' : '');
+					var url = strPrefix + gr_url;
+					
+					Buffer('codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" ');
+					Buffer('classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">');
+					Buffer('<param name="Movie" value="' + url + '">');
+				//j	Buffer('<param name="Src" value="' + url + '">');
+					Buffer('<param name="Quality" value="High">');
+					Buffer('<param name="BGColor" value="' + (GetCheck('fr_enabled') ? fr_color : bg_color) + '">');
+					Buffer('<param name="Play" value="' + (GetCheck('gr_autoplay') ? '-1' : '0') + '">');
+					Buffer('<param name="Loop" value="' + (GetCheck('gr_loop') ? '-1' : '0') + '">');
+					Buffer('<param name="Menu" value="-1">');
+					Buffer('<param name="WMode" value="' + (GetCheck('gr_transparent') ? 'Transparent' : 'Window') + '">');
+					Buffer('<param name="Scale" value="' + (bTile ? 'ExactFit' : 'ShowAll') + '">');
+				//j	Buffer('<param name="SAlign" value="">');
+				//j	Buffer('<param name="Menu" value="-1">');
+				//j	Buffer('<param name="Base" value="">');
+				//j	Buffer('<param name="AllowScriptAccess" value="always">');
+				//j	Buffer('<param name="DeviceFont" value="0">');
+				//j	Buffer('<param name="EmbedMovie" value="-1">');
+				//j	Buffer('<param name="SWRemote" value="">');
+				//j	Buffer('<param name="_cx" value="14552">');
+				//j	Buffer('<param name="_cy" value="10583">');
+				//j	Buffer('<param name="FlashVars" value="">');
+					Buffer('<embed ');
+					Buffer('src="' + url + '" ');
+					Buffer('quality="high" ');
+					Buffer('swLiveConnect="false" ');
+					Buffer('type="application/x-shockwave-flash" ');
+					Buffer('pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" ');
+					Buffer('>');
+					Buffer('</embed>');
+					Buffer('</object>');
+				}
+
+				Buffer('</div>');
+				if (bNormal)
+					Buffer('</td></tr>');
+			}
+			function BufferPadding(type)
+			{
+				var l = GetValue(type + '_pad_left');
+				var r = GetValue(type + '_pad_right');
+				var t = GetValue(type + '_pad_top');
+				var b = GetValue(type + '_pad_bottom');
+				if (l == '') l = '0';
+				if (r == '') r = '0';
+				if (t == '') t = '0';
+				if (b == '') b = '0';
+				Buffer('padding-left:' + l + PaddingUnits + '; ');
+				Buffer('padding-right:' + r + PaddingUnits + '; ');
+				Buffer('padding-top:' + t + PaddingUnits + '; ');
+				Buffer('padding-bottom:' + b + PaddingUnits + '; ');
+			}
+			function GetBody(SettingsFolder)
+			{
+				if (form == null || document.readyState != 'complete')
+					return null;
+
+				// Issue: absolute vs. relative
+				//		absolute (adv - can get all the way to the edges of the document on a cut/paste)
+				//		relative (adv - no fixed images during replys)
+				// Issue: body bg img vs. div bg img (bg_float)
+				//		body bg img (adv - get fixed scroll bg feature)
+				//		div bg img (adv - can cut and paste the bg, and reply has no bg to get in way)
+				// Issue: to use contenteditable or not
+				//		use contenteditable (adv - avoid typing in arbitrary areas; dis - could be unsupported on some platforms)
+				//		don't use contenteditable (adv - can move images around)
+				// Issue: to use divs or tables
+				//		div's (adv - can use contenteditable, simpler)
+				//		table's (adv - none)
+				// Other things I have learned:
+				//		Don't stylize the body if you want to be able to cut and paste the entire document
+				//		Don't use style sheets because they won't copy or paste
+
+				var bBorders = GetCheck('borders_enabled');
+				var bFloat = GetCheck('bg_float');
+				
+				buffer = '';
+
+				// Start the body tag
+				Buffer('<body style="margin:0px; ');
+				if (!bFloat)
+					BufferBackgroundStyle('bg', '#ffffff', SettingsFolder);
+				Buffer('">');
+
+				// Start the outer container div tag that contains any background image
+				Buffer('<div contenteditable="false" unselectable="on" style="position:relative; width:100%; height:100%; ');
+			//j	BufferTextStyle('text_body', false, false); // Should be unnecessary, but what the heck
+				if (bFloat)
+					BufferBackgroundStyle('bg', '#ffffff', SettingsFolder);
+				if (bBorders && (GetValue('bg_bdr_size') != ''))
+				{
+					var bg_bdr_color = GetValue('bg_bdr_color');
+					if (bg_bdr_color == '') bg_bdr_color = '#000000';
+					Buffer('border:' + GetValue('bg_bdr_size') + ' solid ' + bg_bdr_color + '; ');
+				}
+				Buffer('">');
+
+				// Output any graphics that float, wrapped in div tags
+				BufferGraphic('gr1', false, SettingsFolder);
+				BufferGraphic('gr2', false, SettingsFolder);
+				BufferGraphic('gr3', false, SettingsFolder);
+				BufferGraphic('gr4', false, SettingsFolder);
+				BufferGraphic('gr5', false, SettingsFolder);
+				BufferGraphic('gr6', false, SettingsFolder);
+
+				// Start the inner padding div tag
+				Buffer('<div contenteditable="false" unselectable="on" style="position:relative; width:100%; height:100%; ');  
+			//j	BufferTextStyle('text_body', false, false); // Should be unnecessary, but what the heck
+				BufferPadding('bg');
+				Buffer('" align="center">');
+
+				if (GetCheck('fr_enabled'))
+				{
+					// Start the inner frame div tag
+					Buffer('<div contenteditable="false" unselectable="on" style="position:relative; ');
+					BufferTextStyle('text_body', false, true);
+					BufferBackgroundStyle('fr', '#ccffff', SettingsFolder);
+					BufferPadding('fr');
+					if (bBorders && (GetValue('fr_bdr_size') != ''))
+					{
+						var fr_bdr_color = GetValue('fr_bdr_color');
+						if (fr_bdr_color == '') fr_bdr_color = '#000000';
+						Buffer('border:' + GetValue('fr_bdr_size') + ' solid ' + fr_bdr_color + '; ');
+					}
+					var fr_width = GetValue('fr_width');
+					if (fr_width != '')
+						Buffer('width:' + fr_width + '; ');
+					var fr_height = GetValue('fr_height');
+					if (fr_height != '')
+						Buffer('height:' + fr_height + '; ');
+					Buffer('">');
+				}
+
+				// Output anything that flows normally; must be wrapped in a table
+				Buffer('<table unselectable="on" cellspacing="0" cellpadding="0" style="width:100%; height:100%; ');
+			//j	BufferTextStyle('text_body', false, false); // Should be unnecessary, but what the heck
+				Buffer('"><tbody unselectable="on">');
+				BufferGraphic('gr1', true, SettingsFolder);
+				BufferText('text_head', false, SettingsFolder);
+				BufferGraphic('gr2', true, SettingsFolder);
+				BufferText('text_foot', false, SettingsFolder);
+				BufferGraphic('gr3', true, SettingsFolder);
+				BufferText('text_body', true, SettingsFolder);
+				BufferGraphic('gr4', true, SettingsFolder);
+				BufferGraphic('gr5', true, SettingsFolder);
+				BufferGraphic('gr6', true, SettingsFolder);
+				// Add padding if the text body block (sender message block) is not displayed
+				if (!GetCheck('text_body_enabled'))
+					Buffer('<tr><td style="width:100%; height:100%"></td></tr>');
+				Buffer('</tbody></table>');
+
+				// End the inner frame div tag
+				if (GetCheck('fr_enabled'))
+					Buffer('</div>');
+
+				// End the inner padding div tag
+				Buffer('</div>');
+
+				// End the outer container div tag
+				Buffer('</div>');
+
+				Buffer('</body>');
+				return buffer;
+			}
+
+			//	fso.GetParentFolderName(filepath)	Path, no Filename, no trailing slash
+			//	fso.GetDriveName(filepath)			\\Gromit\wallaby (empty for http path)
+			//	fso.GetBaseName(filepath)			Filename, no extension
+			//	fso.GetAbsolutePathName(filepath)	Full path (weird for http path)
+			//	fso.GetExtensionName(filepath)		Extension
+			//	fso.GetFile(filepath)				Full path (File not found for http path)
+			//	fso.GetFileName(filepath)			Filename with extension
+
+			function OpenFSO()
+			{
+				try
+				{
+					var fso = new ActiveXObject('Scripting.FileSystemObject');
+					if (!fso)
+						throw '';
+					return fso;
+				}
+				catch (error)
+				{
+					var FsoError = 'Your security settings are preventing access to the file utilities.  To correct this problem, use the Internet Explorer Tools menu to access the InternetOptions/Security/LocalIntranet/DefaultLevel button.  Then set the Security Level slider to "Low".';
+					alert(error.description + '\n\n' + FsoError);
+					return null;
+				}
+			}
+
+			function OpenDialogXP(Filter, DefaultExt, InitDir)
+			{
+				// Filter is of the form: 'Text Settings Files (*.txt)|*.txt|All Files (*.*)|*.*';
+				var dialog = null;
+				try
+				{
+					dialog = new ActiveXObject('UserAccounts.CommonDialog'); // Windows XP only
+					if (!dialog)
+						throw '';
+				}
+				catch (error)
+				{
+					alert('The UserAccounts common dialogs do not exist');
+					return null;
+				}
+
+				// Some common dialog constants
+				var OFN_HIDEREADONLY = 0x4;
+				var OFN_CREATEPROMPT = 0x2000;
+				var OFN_EXPLORER = 0x80000;
+				var OFN_LONGNAMES = 0x200000;
+				
+				// Setup the dialog parameters
+				dialog.Flags = OFN_EXPLORER | OFN_LONGNAMES | OFN_CREATEPROMPT | OFN_HIDEREADONLY;
+				dialog.InitialDir = InitDir;	// set opening directory
+				dialog.Filter = Filter;			// show file types
+				dialog.FilterIndex = 1;			// show all files
+				dialog.FileName = '';			// set default filename
+
+				dialog.ShowOpen();
+
+				// Retrieve the result
+  				var filepath = dialog.FileName;
+				if (!filepath)
+					filepath = '';
+				return filepath;
+			}
+
+			function OpenSaveDialog(bSave, Filter, DefaultExt, InitDir, DefFileName)
+			{
+				// Filter is of the form: 'Text Settings Files (*.txt)|*.txt|All Files (*.*)|*.*';
+				var dialog = null;
+				try
+				{
+					dialog = new ActiveXObject('MSComDlg.CommonDialog');
+					if (!dialog)
+						throw '';
+				}
+				catch (error)
+				{
+					if (!bSave)
+						return OpenDialogXP(Filter, DefaultExt, InitDir);
+
+					alert('The MSComDlg common dialogs do not exist');
+					return null;
+				}
+
+				// Some common dialog constants
+				var OFN_HIDEREADONLY = 0x4;
+				var OFN_CREATEPROMPT = 0x2000;
+				var OFN_EXPLORER = 0x80000;
+				var OFN_LONGNAMES = 0x200000;
+				
+				// Setup the dialog parameters
+				dialog.Flags = OFN_EXPLORER | OFN_LONGNAMES | OFN_CREATEPROMPT | OFN_HIDEREADONLY;
+				dialog.MaxFileSize = 260;		// allocate space for file name
+				dialog.DefaultExt = DefaultExt;	// default extension
+				dialog.InitDir = InitDir;		// set opening directory
+				dialog.Filter = Filter;			// show file types
+				dialog.FilterIndex = 1;			// show all files
+				dialog.FileName = DefFileName;	// set default filename
+
+				if (bSave)
+					dialog.ShowSave();
+				else
+					dialog.ShowOpen();
+
+				// Retrieve the result
+  				var filepath = dialog.FileName;
+				if (!filepath)
+					filepath = '';
+				return filepath;
+			}
+
+			function MakeFolder(fso, Folder)
+			{
+				try
+				{
+					if (!fso.FolderExists(Folder))
+						var f = fso.CreateFolder(Folder);
+					return true;
+				}
+				catch (error)
+				{
+					var FsoError = 'Could not create Folder "' + Folder + '"';
+					alert(error.description + '\n\n' + FsoError);
+					return false;
+				}
+			}
+
+			function EditColor(element, defcolor)
+			{
+				eval('var color = form.' + element + '.value');
+				try {eval('document.all.' + element + '_sample.style.backgroundColor = (color == "" ? defcolor : color)');}
+				catch(error){eval('document.all.' + element + '_sample.style.backgroundColor = defcolor');}
+
+				Preview();
+			}
+			function ChooseColor(element)
+			{
+				var color = window.showModalDialog('selectcolor.htm', null/*args*/, 'dialogWidth:550px; dialogHeight:128px; status:no; resizable:yes; center:yes; scroll:no');
+				if (color == null)
+					return;
+				SetColor(element, color, color);
+				Preview();
+			}
+			function OpenGraphic(element)
+			{
+				var bAllowSWF = (element.indexOf('gr') >= 0);
+				var prompt = 'Select a ' + (bAllowSWF ? 'GIF, JPG, or SWF' : 'GIF or JPG') + ' image file';
+				var path  = GetValue(element);
+				var filepath = Browse2(false/*bSave*/, prompt, path,
+					(!bAllowSWF ? 
+						'All Supported Files (*.gif, *.jpg)|*.gif;*.jpg|All Files (*.*)|*.*' : 
+						'All Supported Files (*.gif, *.jpg, *.swf)|*.gif;*.jpg;*.swf|All Files (*.*)|*.*')/*Filter*/,
+						''/*DefaultExt*/);
+				if (!filepath)
+					return;
+				SetValue(element, filepath);
+				Preview();
+			}
+			function Browse2(bSave, prompt, path, Filter, DefaultExt)
+			{
+				var InitDir = 'c:\\';
+				var DefFileName = '';
+				if (path)
+				{
+					var fso = OpenFSO();
+					if (fso)
+					{
+						InitDir = fso.GetParentFolderName(path)
+						DefFileName = fso.GetFileName(path);
+					}
+				}
+
+				var filepath = OpenSaveDialog(bSave, Filter, DefaultExt, InitDir, DefFileName);
+				if (filepath == '')
+					return null;
+				if (!filepath)
+					filepath = window.showModalDialog('browse.htm', prompt, 'dialogWidth:550px; dialogHeight:128px; status:no; resizable:yes; center:yes; scroll:no');
+				if (filepath == '')
+					return null;
+				return filepath;
+			}
+			function BrowseFolder(prompt)
+			{
+				var filepath = window.showModalDialog('browsefolder.htm', prompt, 'dialogWidth:550px; dialogHeight:128px; status:no; resizable:yes; center:yes; scroll:no');
+				if (filepath == '')
+					return null;
+				return filepath;
+			}
+			function Save()
+			{
+				var SettingsPath = Browse2(true/*bSave*/, 'Select a text filename to save your page settings', DefaultSettingsFileName,
+					'Text Settings Files (*.txt)|*.txt|All Files (*.*)|*.*'/*Filter*/,
+					'txt'/*DefaultExt*/);
+				if (!SettingsPath)
+					return;
+				
+				if (!SettingsPath)
+					return;
+
+				Export(SettingsPath);
+			}
+			var sx = 0;
+			var sy = 0;
+			function Preview()
+			{
+				var PreviewFrame = window.parent.previewframe;
+				if (PreviewFrame == null)
+					return;
+				try
+				{
+				//j	if (PreviewFrame.document.readyState != 'complete')
+				//j		return;
+					sx = PreviewFrame.document.body.scrollLeft;
+					sy = PreviewFrame.document.body.scrollTop;
+					PreviewFrame.location.reload(false/*bReloadSource*/);
+				}
+				catch(error)
+				{
+				}
+			}
+			function PopupURL(url)
+			{
+				var w = 800;
+				var h = 600;
+				var l = (screen.width - w) / 2;
+				var t = (screen.height - h) / 2;
+				if (l < 0) l = 0;
+				if (t < 0) t = 0;
+				w -= 12; // the browser adds 12 for the left and right non-client areas
+				h -= 61; // the browser adds 61 for the top, caption, statusbar, and bottom non-client areas
+				var PopupSize = 'width=' + w + ',height=' + h + ',left=' + l + ',top=' + t;
+				window.open(url, 'Preview', PopupSize + ',location=yes,toolbar=yes,menubar=yes,resizable=yes,scrollbars=yes');
+			}
+			function ShowHideAll()
+			{
+//j				var form = form;
+//j				if (form == null)
+//j					return;
+
+				ShowHideDiv('bg_url_div',		GetCheck('bg_url_enabled'));
+				ShowHideDiv('fr_div',			GetCheck('fr_enabled'));
+				ShowHideDiv('fr_url_div',		GetCheck('fr_url_enabled'));
+				ShowHideDiv('gr1_div',			GetCheck('gr1_enabled'));
+				ShowHideDiv('gr2_div',			GetCheck('gr2_enabled'));
+				ShowHideDiv('gr3_div',			GetCheck('gr3_enabled'));
+				ShowHideDiv('gr4_div',			GetCheck('gr4_enabled'));
+				ShowHideDiv('gr5_div',			GetCheck('gr5_enabled'));
+				ShowHideDiv('gr6_div',			GetCheck('gr6_enabled'));
+				ShowHideDiv('text_head_div',	GetCheck('text_head_enabled'));
+				ShowHideDiv('text_foot_div',	GetCheck('text_foot_enabled'));
+				ShowHideDiv('text_body_div',	GetCheck('text_body_enabled'));
+				ShowHideDiv('borders_div',		GetCheck('borders_enabled'));
+				ShowHideDiv('options_div',		GetCheck('options_enabled'));
+			}
+			function ShowHideDiv(id, bShow)
+			{
+				var div = document.getElementById(id);
+				if (div == null)
+					return;
+				if (!bShow)
+				{
+					div.style.visibility = 'hidden';
+					div.style.display = 'none';
+					div.style.position = 'relative';
+				}
+				else
+				{
+					div.style.visibility = 'visible';
+					div.style.display = 'block';
+					div.style.position = 'relative';
+				}
+ 			}
+			function KeyCheck(object)
+			{
+				var e = event;
+				if (!e)
+					return;
+
+				if (e.keyCode == 13/*enter*/)
+				{
+					if (object.onfocusout)
+						object.onfocusout();
+					else
+						Preview();
+				}
+			}
+			function ColorPicker(element)
+			{
+				var plugin = null;
+				try
+				{
+					plugin = document.crusher; //j new ActiveXObject('Crusher.Plugin');
+					if (!plugin)
+						throw '';
+				}
+				catch(error)
+				{
+					alert('The Crusher plugin does not exist');
+					return;
+				}
+
+				var color = null;
+				try
+				{
+					color = plugin.ColorPicker(0/*iFormat*/);
+				}
+				catch(error)
+				{
+					alert('The Crusher plugin does not have a ColorPicker function');
+					return;
+				}
+
+				if (color == null)
+					return;
+				SetColor(element, color, color);
+				Preview();
+			}
+			</script>
+	</head>
+	<body onload="Initialize(false)">
+		<form id="Form1" name="myform" action="<?=$REDIRECT_URL?>" method="post">
+			<table class="tborder" id="Table2" style="width:100%; " cellspacing="1" cellpadding="0">
+				<tbody>
+					<tr>
+						<td class="header" valign="top" align="middle" colspan="2">JazzyMail Content Designer - version 2.1</td>
+					</tr>
+					<tr valign="top">
+						<td></td>
+						<td>
+							<b>Background:</b><br>
+							<b>Color:&nbsp;&nbsp;&nbsp;</b> <input class="color" id="bg_color_sample" name="bg_color_sample" onclick="ChooseColor('bg_color')" type="button" value=" " style="background-color:#ffffff">
+							<input id="Hidden3" type="text" size="7" name="bg_color" onfocusout="EditColor('bg_color', '#ffffff')" onkeyup="KeyCheck(this)">
+							<input id="Button2" onclick="ChooseColor('bg_color')" type="button" value="C" name="cc1">
+							<input id="Button36" onclick="ColorPicker('bg_color')" type="button" value="P" name="cc2">&nbsp;
+							<br>
+							<b>Margins:&nbsp;</b> <b>&nbsp;L</b> <input id="Text4" type="text" size="3" name="bg_pad_left" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+							<b>&nbsp;T</b> <input id="Text5" type="text" size="3" name="bg_pad_top" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+							<b>&nbsp;R</b> <input id="Text6" type="text" size="3" name="bg_pad_right" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+							<b>&nbsp;B</b> <input id="Text7" type="text" size="3" name="bg_pad_bottom" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+							<br>
+							<input type="checkbox" id="Checkbox20" name="bg_url_enabled" onclick="ShowHideDiv('bg_url_div', this.checked);Preview();">
+							<b>Filename (gif, or jpg):</b><br>
+							<div id="bg_url_div" style="visibility:hidden; display:none; position:relative">
+								<input id="Text1" type="text" maxlength="255" size="36" name="bg_url" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<input id="Button3" onclick="OpenGraphic('bg_url')" type="button" value="O" name="di">
+								<input id="Button6" onclick="bg_Default(1,1)" type="button" value="X" name="di1">
+								<input id="Button30" onclick="bg_Default(0,1)" type="button" value="#" name="di">
+								<br>
+								<b>Anchored:&nbsp;</b>
+								<select id="Select11" name="bg_pos" onchange="Preview()">
+									<option value="left top" selected>left top</option>
+									<option value="left center">left center</option>
+									<option value="left bottom">left bottom</option>
+									<option value="center top">center top</option>
+									<option value="center center">center center</option>
+									<option value="center bottom">center bottom</option>
+									<option value="right top">right top</option>
+									<option value="right center">right center</option>
+									<option value="right bottom">right bottom</option>
+								</select>
+								<br>
+								<b>Tile:&nbsp;</b> <input type="checkbox" id="Checkbox11" name="bg_repeat_width" checked onclick="Preview()"><a href="javascript://" onclick="form.bg_repeat_width.click();return false">H</a>
+								<input type="checkbox" id="Checkbox12" name="bg_repeat_height" checked onclick="Preview()"><a href="javascript://" onclick="form.bg_repeat_height.click();return false">V</a>
+								<input type="hidden" id="Checkbox3" name="bg_fixed">
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox19" name="fr_enabled" onclick="ShowHideDiv('fr_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Inside Frame:</b>
+							<div id="fr_div" style="visibility:hidden; display:none; position:relative">
+								<b>Color:&nbsp;&nbsp;&nbsp;</b> <input class="color" id="fr_color_sample" name="fr_color_sample" onclick="ChooseColor('fr_color')" type="button" value=" " style="background-color:#ccffff">
+								<input id="Text15" type="text" size="7" name="fr_color" onfocusout="EditColor('fr_color', '#ccffff')" onkeyup="KeyCheck(this)">
+								<input id="Button19" onclick="ChooseColor('fr_color')" type="button" value="C" name="cc1">
+								<input id="Button37" onclick="ColorPicker('fr_color')" type="button" value="P" name="cc2">&nbsp;
+								<br>
+								<b>Margins:&nbsp;</b> <b>&nbsp;L</b> <input id="Text17" type="text" size="3" name="fr_pad_left" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<b>&nbsp;T</b> <input id="Text18" type="text" size="3" name="fr_pad_top" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<b>&nbsp;R</b> <input id="Text19" type="text" size="3" name="fr_pad_right" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<b>&nbsp;B</b> <input id="Text20" type="text" size="3" name="fr_pad_bottom" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<br>
+								<b>MinWidth:&nbsp;</b> <input id="Text21" type="text" size="5" name="fr_width" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								&nbsp; <b>MinHeight:&nbsp;</b> <input id="Text22" type="text" size="5" name="fr_height" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<br>
+								<input type="checkbox" id="Checkbox21" name="fr_url_enabled" onclick="ShowHideDiv('fr_url_div', this.checked);Preview();">
+								<b>Filename (gif, or jpg):</b><br>
+								<div id="fr_url_div" style="visibility:hidden; display:none; position:relative">
+									<input id="Text14" type="text" maxlength="255" size="36" name="fr_url" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+									<input id="Button31" onclick="OpenGraphic('fr_url')" type="button" value="O" name="di">
+									<input id="Button18" onclick="fr_Default(1,1)" type="button" value="X" name="di1">
+									<input id="Button17" onclick="fr_Default(0,1)" type="button" value="#" name="di">
+									<br>
+									<b>Anchored:&nbsp;</b>
+									<select id="Select3" name="fr_pos" onchange="Preview()">
+										<option value="left top" selected>left top</option>
+										<option value="left center">left center</option>
+										<option value="left bottom">left bottom</option>
+										<option value="center top">center top</option>
+										<option value="center center">center center</option>
+										<option value="center bottom">center bottom</option>
+										<option value="right top">right top</option>
+										<option value="right center">right center</option>
+										<option value="right bottom">right bottom</option>
+									</select>
+									<br>
+									<b>Tile:&nbsp;</b> <input type="checkbox" id="Checkbox16" name="fr_repeat_width" checked onclick="Preview()"><a href="javascript://" onclick="form.fr_repeat_width.click();return false">H</a>
+									<input type="checkbox" id="Checkbox17" name="fr_repeat_height" checked onclick="Preview()"><a href="javascript://" onclick="form.fr_repeat_height.click();return false">V</a>
+									<input type="hidden" id="Checkbox18" name="fr_fixed">
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox22" name="gr1_enabled" onclick="ShowHideDiv('gr1_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Graphic 1 filename (flash, gif, or jpg):</b><br>
+							<div id="gr1_div" style="visibility:hidden; display:none; position:relative">
+								<input id="Text3" type="text" maxlength="255" size="36" name="gr1_url" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<input id="Button32" onclick="OpenGraphic('gr1_url')" type="button" value="O" name="di">
+								<input id="Button5" onclick="gr1_Default(1,1)" type="button" value="X" name="df2">
+								<input id="Button4" onclick="gr1_Default(0,1)" type="button" value="#" name="df">
+								<br>
+								<b>Position:&nbsp;</b>
+								<select id="Select8" name="gr1_pos" onchange="Preview()">
+									<option value="normal left">normal left</option>
+									<option value="normal center" selected>normal center</option>
+									<option value="normal right">normal right</option>
+									<option value="left top">top left</option>
+									<option value="center top">top center</option>
+									<option value="right top">top right</option>
+									<option value="left bottom">bottom left</option>
+									<option value="center bottom">bottom center</option>
+									<option value="right bottom">bottom right</option>
+									<option value="tile left">tile left</option>
+									<option value="tile right">tile right</option>
+									<option value="tile top">tile top</option>
+									<option value="tile bottom">tile bottom</option>
+								</select>
+								<b>&nbsp;Layer:&nbsp;</b>
+								<select id="Select23" name="gr1_zindex" onchange="Preview()">
+									<option value="-1" selected>1 front</option>
+									<option value="-2">2</option>
+									<option value="-3">3</option>
+									<option value="-4">4</option>
+									<option value="-5">5</option>
+									<option value="-6">6 back</option>
+								</select>
+								<br>
+								<b>Width:&nbsp;</b> <input id="Text9" type="text" size="5" name="gr1_width" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								&nbsp; <b>Height:&nbsp;</b> <input id="Text10" type="text" size="5" name="gr1_height" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox26" name="gr2_enabled" onclick="ShowHideDiv('gr2_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Graphic 2 filename (flash, gif, or jpg):</b><br>
+							<div id="gr2_div" style="visibility:hidden; display:none; position:relative">
+								<input id="Text23" type="text" maxlength="255" size="36" name="gr2_url" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<input id="Button33" onclick="OpenGraphic('gr2_url')" type="button" value="O" name="di">
+								<input id="Button22" onclick="gr2_Default(1,1)" type="button" value="X" name="df2">
+								<input id="Button21" onclick="gr2_Default(0,1)" type="button" value="#" name="df">
+								<br>
+								<b>Position:&nbsp;</b>
+								<select id="Select14" name="gr2_pos" onchange="Preview()">
+									<option value="normal left">normal left</option>
+									<option value="normal center" selected>normal center</option>
+									<option value="normal right">normal right</option>
+									<option value="left top">top left</option>
+									<option value="center top">top center</option>
+									<option value="right top">top right</option>
+									<option value="left bottom">bottom left</option>
+									<option value="center bottom">bottom center</option>
+									<option value="right bottom">bottom right</option>
+									<option value="tile left">tile left</option>
+									<option value="tile right">tile right</option>
+									<option value="tile top">tile top</option>
+									<option value="tile bottom">tile bottom</option>
+								</select>
+								<b>&nbsp;Layer:&nbsp;</b>
+								<select id="Select24" name="gr2_zindex" onchange="Preview()">
+									<option value="-1" selected>1 front</option>
+									<option value="-2">2</option>
+									<option value="-3">3</option>
+									<option value="-4">4</option>
+									<option value="-5">5</option>
+									<option value="-6">6 back</option>
+								</select>
+								<br>
+								<b>Width:&nbsp;</b> <input id="Text24" type="text" size="5" name="gr2_width" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								&nbsp; <b>Height:&nbsp;</b> <input id="Text25" type="text" size="5" name="gr2_height" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox30" name="gr3_enabled" onclick="ShowHideDiv('gr3_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Graphic 3 filename (flash, gif, or jpg):</b><br>
+							<div id="gr3_div" style="visibility:hidden; display:none; position:relative">
+								<input id="Text27" type="text" maxlength="255" size="36" name="gr3_url" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<input id="Button34" onclick="OpenGraphic('gr3_url')" type="button" value="O" name="di">
+								<input id="Button25" onclick="gr3_Default(1,1)" type="button" value="X" name="df2">
+								<input id="Button24" onclick="gr3_Default(0,1)" type="button" value="#" name="df">
+								<br>
+								<b>Position:&nbsp;</b>
+								<select id="Select18" name="gr3_pos" onchange="Preview()">
+									<option value="normal left">normal left</option>
+									<option value="normal center" selected>normal center</option>
+									<option value="normal right">normal right</option>
+									<option value="left top">top left</option>
+									<option value="center top">top center</option>
+									<option value="right top">top right</option>
+									<option value="left bottom">bottom left</option>
+									<option value="center bottom">bottom center</option>
+									<option value="right bottom">bottom right</option>
+									<option value="tile left">tile left</option>
+									<option value="tile right">tile right</option>
+									<option value="tile top">tile top</option>
+									<option value="tile bottom">tile bottom</option>
+								</select>
+								<b>&nbsp;Layer:&nbsp;</b>
+								<select id="Select25" name="gr3_zindex" onchange="Preview()">
+									<option value="-1" selected>1 front</option>
+									<option value="-2">2</option>
+									<option value="-3">3</option>
+									<option value="-4">4</option>
+									<option value="-5">5</option>
+									<option value="-6">6 back</option>
+								</select>
+								<br>
+								<b>Width:&nbsp;</b> <input id="Text28" type="text" size="5" name="gr3_width" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								&nbsp; <b>Height:&nbsp;</b> <input id="Text29" type="text" size="5" name="gr3_height" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox34" name="gr4_enabled" onclick="ShowHideDiv('gr4_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Graphic 4 Filename (flash, gif, or jpg):</b><br>
+							<div id="gr4_div" style="visibility:hidden; display:none; position:relative">
+								<input id="Text31" type="text" maxlength="255" size="36" name="gr4_url" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<input id="Button35" onclick="OpenGraphic('gr4_url')" type="button" value="O" name="di">
+								<input id="Button28" onclick="gr4_Default(1,1)" type="button" value="X" name="df2">
+								<input id="Button27" onclick="gr4_Default(0,1)" type="button" value="#" name="df">
+								<br>
+								<b>Position:&nbsp;</b>
+								<select id="Select22" name="gr4_pos" onchange="Preview()">
+									<option value="normal left">normal left</option>
+									<option value="normal center" selected>normal center</option>
+									<option value="normal right">normal right</option>
+									<option value="left top">top left</option>
+									<option value="center top">top center</option>
+									<option value="right top">top right</option>
+									<option value="left bottom">bottom left</option>
+									<option value="center bottom">bottom center</option>
+									<option value="right bottom">bottom right</option>
+									<option value="tile left">tile left</option>
+									<option value="tile right">tile right</option>
+									<option value="tile top">tile top</option>
+									<option value="tile bottom">tile bottom</option>
+								</select>
+								<b>&nbsp;Layer:&nbsp;</b>
+								<select id="Select26" name="gr4_zindex" onchange="Preview()">
+									<option value="-1" selected>1 front</option>
+									<option value="-2">2</option>
+									<option value="-3">3</option>
+									<option value="-4">4</option>
+									<option value="-5">5</option>
+									<option value="-6">6 back</option>
+								</select>
+								<br>
+								<b>Width:&nbsp;</b> <input id="Text32" type="text" size="5" name="gr4_width" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								&nbsp; <b>Height:&nbsp;</b> <input id="Text33" type="text" size="5" name="gr4_height" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox28" name="gr5_enabled" onclick="ShowHideDiv('gr5_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Graphic 5 Filename (flash, gif, or jpg):</b><br>
+							<div id="gr5_div" style="visibility:hidden; display:none; position:relative">
+								<input id="Text35" type="text" maxlength="255" size="36" name="gr5_url" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<input id="Button57" onclick="OpenGraphic('gr5_url')" type="button" value="O" name="di">
+								<input id="Button58" onclick="gr5_Default(1,1)" type="button" value="X" name="df2">
+								<input id="Button59" onclick="gr5_Default(0,1)" type="button" value="#" name="df">
+								<br>
+								<b>Position:&nbsp;</b>
+								<select id="Select27" name="gr5_pos" onchange="Preview()">
+									<option value="normal left">normal left</option>
+									<option value="normal center" selected>normal center</option>
+									<option value="normal right">normal right</option>
+									<option value="left top">top left</option>
+									<option value="center top">top center</option>
+									<option value="right top">top right</option>
+									<option value="left bottom">bottom left</option>
+									<option value="center bottom">bottom center</option>
+									<option value="right bottom">bottom right</option>
+									<option value="tile left">tile left</option>
+									<option value="tile right">tile right</option>
+									<option value="tile top">tile top</option>
+									<option value="tile bottom">tile bottom</option>
+								</select>
+								<b>&nbsp;Layer:&nbsp;</b>
+								<select id="Select28" name="gr5_zindex" onchange="Preview()">
+									<option value="-1" selected>1 front</option>
+									<option value="-2">2</option>
+									<option value="-3">3</option>
+									<option value="-4">4</option>
+									<option value="-5">5</option>
+									<option value="-6">6 back</option>
+								</select>
+								<br>
+								<b>Width:&nbsp;</b> <input id="Text36" type="text" size="5" name="gr5_width" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								&nbsp; <b>Height:&nbsp;</b> <input id="Text37" type="text" size="5" name="gr5_height" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox29" name="gr6_enabled" onclick="ShowHideDiv('gr6_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Graphic 6 Filename (flash, gif, or jpg):</b><br>
+							<div id="gr6_div" style="visibility:hidden; display:none; position:relative">
+								<input id="Text38" type="text" maxlength="255" size="36" name="gr6_url" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								<input id="Button50" onclick="OpenGraphic('gr6_url')" type="button" value="O" name="di">
+								<input id="Button51" onclick="gr6_Default(1,1)" type="button" value="X" name="df2">
+								<input id="Button52" onclick="gr6_Default(0,1)" type="button" value="#" name="df">
+								<br>
+								<b>Position:&nbsp;</b>
+								<select id="Select29" name="gr6_pos" onchange="Preview()">
+									<option value="normal left">normal left</option>
+									<option value="normal center" selected>normal center</option>
+									<option value="normal right">normal right</option>
+									<option value="left top">top left</option>
+									<option value="center top">top center</option>
+									<option value="right top">top right</option>
+									<option value="left bottom">bottom left</option>
+									<option value="center bottom">bottom center</option>
+									<option value="right bottom">bottom right</option>
+									<option value="tile left">tile left</option>
+									<option value="tile right">tile right</option>
+									<option value="tile top">tile top</option>
+									<option value="tile bottom">tile bottom</option>
+								</select>
+								<b>&nbsp;Layer:&nbsp;</b>
+								<select id="Select30" name="gr6_zindex" onchange="Preview()">
+									<option value="-1" selected>1 front</option>
+									<option value="-2">2</option>
+									<option value="-3">3</option>
+									<option value="-4">4</option>
+									<option value="-5">5</option>
+									<option value="-6">6 back</option>
+								</select>
+								<br>
+								<b>Width:&nbsp;</b> <input id="Text39" type="text" size="5" name="gr6_width" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+								&nbsp; <b>Height:&nbsp;</b> <input id="Text60" type="text" size="5" name="gr6_height" onfocusout="Preview()" onkeyup="KeyCheck(this)">
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox23" name="text_head_enabled" onclick="ShowHideDiv('text_head_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Text header block:</b></br>
+							<div id="text_head_div" style="visibility:hidden; display:none; position:relative">
+								<textarea rows="2" cols="35" id="Text8" name="text_head" onfocusout="Preview()" onkeyup="KeyCheck(this)"></textarea>
+								<input id="Button8" onclick="text_head_Default(1,1)" type="button" value="X" name="ti1">
+								<input id="Button7" onclick="text_head_Default(0,1)" type="button" value="#" name="ti">
+								<br>
+								<select id="Select1" name="text_head_font" onchange="Preview()">
+									<option value="Arial, Helvetica, sans-serif" selected>Arial</option>
+									<option value="Times New Roman, Times, serif">Times</option>
+									<option value="Courier New, Courier, mono">Courier</option>
+									<option value="Verdana, Arial, Helvetica, sans-serif">Verdana</option>
+									<option value="Tahoma">Tahoma</option>
+								</select>
+								<select id="Select2" name="text_head_fontsize" onchange="Preview()">
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="14">14</option>
+									<option value="16">16</option>
+									<option value="18">18</option>
+									<option value="20" selected>20</option>
+									<option value="24">24</option>
+									<option value="26">26</option>
+									<option value="30">30</option>
+								</select>
+								<input type="checkbox" id="Checkbox4" name="text_head_fontweight" onclick="Preview()"><a href="javascript://" onclick="form.text_head_fontweight.click();return false"><b>B</b></a>
+								<input type="checkbox" id="Checkbox5" name="text_head_fontstyle" onclick="Preview()"><a href="javascript://" onclick="form.text_head_fontstyle.click();return false"><i>I</i></a>
+								<input type="checkbox" id="Checkbox1" name="text_head_decoration" onclick="Preview()"><a href="javascript://" onclick="form.text_head_decoration.click();return false"><u>U</u></a>
+								<br>
+								<input class="color" id="text_head_color_sample" name="text_head_color_sample" onclick="ChooseColor('text_head_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text2" type="text" size="7" name="text_head_color" onfocusout="EditColor('text_head_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button11" onclick="ChooseColor('text_head_color')" type="button" value="C" name="cc1">
+								<input id="Button38" onclick="ColorPicker('text_head_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select12" name="text_head_align" onchange="Preview()">
+									<option value="left">left</option>
+									<option value="center" selected>center</option>
+									<option value="right">right</option>
+									<option value="justify">justify</option>
+								</select>
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox24" name="text_foot_enabled" onclick="ShowHideDiv('text_foot_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Text footer block:</b></br>
+							<div id="text_foot_div" style="visibility:hidden; display:none; position:relative">
+								<textarea rows="2" cols="35" id="Textarea1" name="text_foot" onfocusout="Preview()" onkeyup="KeyCheck(this)"></textarea>
+								<input id="Button10" onclick="text_foot_Default(1,1)" type="button" value="X" name="ti1">
+								<input id="Button9" onclick="text_foot_Default(0,1)" type="button" value="#" name="ti">
+								<br>
+								<select id="Select6" name="text_foot_font" onchange="Preview()">
+									<option value="Arial, Helvetica, sans-serif" selected>Arial</option>
+									<option value="Times New Roman, Times, serif">Times</option>
+									<option value="Courier New, Courier, mono">Courier</option>
+									<option value="Verdana, Arial, Helvetica, sans-serif">Verdana</option>
+									<option value="Tahoma">Tahoma</option>
+								</select>
+								<select id="Select9" name="text_foot_fontsize" onchange="Preview()">
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="14">14</option>
+									<option value="16">16</option>
+									<option value="18">18</option>
+									<option value="20" selected>20</option>
+									<option value="24">24</option>
+									<option value="26">26</option>
+									<option value="30">30</option>
+								</select>
+								<input type="checkbox" id="Checkbox8" name="text_foot_fontweight" onclick="Preview()"><a href="javascript://" onclick="form.text_foot_fontweight.click();return false"><b>B</b></a>
+								<input type="checkbox" id="Checkbox9" name="text_foot_fontstyle" onclick="Preview()"><a href="javascript://" onclick="form.text_foot_fontstyle.click();return false"><i>I</i></a>
+								<input type="checkbox" id="Checkbox10" name="text_foot_decoration" onclick="Preview()"><a href="javascript://" onclick="form.text_foot_decoration.click();return false"><u>U</u></a>
+								<br>
+								<input class="color" id="text_foot_color_sample" name="text_foot_color_sample" onclick="ChooseColor('text_foot_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Hidden2" type="text" size="7" name="text_foot_color" onfocusout="EditColor('text_foot_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button1" onclick="ChooseColor('text_foot_color')" type="button" value="C" name="cc1">
+								<input id="Button39" onclick="ColorPicker('text_foot_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select7" name="text_foot_align" onchange="Preview()">
+									<option value="left">left</option>
+									<option value="center" selected>center</option>
+									<option value="right">right</option>
+									<option value="justify">justify</option>
+								</select>
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox25" name="text_body_enabled" onclick="ShowHideDiv('text_body_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Sender message block (text not saved):</b></br>
+							<div id="text_body_div" style="visibility:hidden; display:none; position:relative">
+								<textarea rows="2" cols="35" id="Textarea2" name="text_body" onfocusout="Preview()" onkeyup="KeyCheck(this)"></textarea>
+								<input id="Button13" onclick="text_body_Default(1,1)" type="button" value="X" name="ti1">
+								<input id="Button12" onclick="text_body_Default(0,1)" type="button" value="#" name="ti">
+								<br>
+								<select id="Select13" name="text_body_font" onchange="Preview()">
+									<option value="Arial, Helvetica, sans-serif" selected>Arial</option>
+									<option value="Times New Roman, Times, serif">Times</option>
+									<option value="Courier New, Courier, mono">Courier</option>
+									<option value="Verdana, Arial, Helvetica, sans-serif">Verdana</option>
+									<option value="Tahoma">Tahoma</option>
+								</select>
+								<select id="Select15" name="text_body_fontsize" onchange="Preview()">
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12" selected>12</option>
+									<option value="14">14</option>
+									<option value="16">16</option>
+									<option value="18">18</option>
+									<option value="20">20</option>
+									<option value="24">24</option>
+									<option value="26">26</option>
+									<option value="30">30</option>
+								</select>
+								<input type="checkbox" id="Checkbox13" name="text_body_fontweight" onclick="Preview()"><a href="javascript://" onclick="form.text_body_fontweight.click();return false"><b>B</b></a>
+								<input type="checkbox" id="Checkbox14" name="text_body_fontstyle" onclick="Preview()"><a href="javascript://" onclick="form.text_body_fontstyle.click();return false"><i>I</i></a>
+								<input type="checkbox" id="Checkbox15" name="text_body_decoration" onclick="Preview()"><a href="javascript://" onclick="form.text_body_decoration.click();return false"><u>U</u></a>
+								<br>
+								<input class="color" id="text_body_color_sample" name="text_body_color_sample" onclick="ChooseColor('text_body_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text11" type="text" size="7" name="text_body_color" onfocusout="EditColor('text_body_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button14" onclick="ChooseColor('text_body_color')" type="button" value="C" name="cc1">
+								<input id="Button40" onclick="ColorPicker('text_body_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select17" name="text_body_align" onchange="Preview()">
+									<option value="left" selected>left</option>
+									<option value="center">center</option>
+									<option value="right">right</option>
+									<option value="justify">justify</option>
+								</select>
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox38" name="borders_enabled" onclick="ShowHideDiv('borders_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Borders:</b></br>
+							<div id="borders_div" style="visibility:hidden; display:none; position:relative">
+								<input class="color" id="bg_bdr_color_sample" name="bg_bdr_color_sample" onclick="ChooseColor('bg_bdr_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text12" type="text" size="7" name="bg_bdr_color" onfocusout="EditColor('bg_bdr_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button15" onclick="ChooseColor('bg_bdr_color')" type="button" value="C" name="cc1">
+								<input id="Button41" onclick="ColorPicker('bg_bdr_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select19" name="bg_bdr_size" onchange="Preview()">
+									<option value="" selected>off</option>
+									<option value="1px">1 px</option>
+									<option value="2px">2 px</option>
+									<option value="3px">3 px</option>
+									<option value="4px">4 px</option>
+									<option value="5px">5 px</option>
+									<option value="6px">6 px</option>
+									<option value="7px">7 px</option>
+									<option value="8px">8 px</option>
+									<option value="9px">9 px</option>
+									<option value="10px">10 px</option>
+									<option value="12px">12 px</option>
+									<option value="14px">14 px</option>
+									<option value="16px">16 px</option>
+									<option value="18px">18 px</option>
+									<option value="20px">20 px</option>
+								</select>
+								<b>&nbsp;Background</b>
+								<br>
+								<input class="color" id="tb_bdr_color_sample" name="tb_bdr_color_sample" onclick="ChooseColor('tb_bdr_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text40" type="text" size="7" name="tb_bdr_color" onfocusout="EditColor('tb_bdr_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button48" onclick="ChooseColor('tb_bdr_color')" type="button" value="C" name="cc1">
+								<input id="Button53" onclick="ColorPicker('tb_bdr_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select33" name="tb_bdr_size" onchange="Preview()">
+									<option value="" selected>off</option>
+									<option value="1px">1 px</option>
+									<option value="2px">2 px</option>
+									<option value="3px">3 px</option>
+									<option value="4px">4 px</option>
+									<option value="5px">5 px</option>
+									<option value="6px">6 px</option>
+									<option value="7px">7 px</option>
+									<option value="8px">8 px</option>
+									<option value="9px">9 px</option>
+									<option value="10px">10 px</option>
+									<option value="12px">12 px</option>
+									<option value="14px">14 px</option>
+									<option value="16px">16 px</option>
+									<option value="18px">18 px</option>
+									<option value="20px">20 px</option>
+								</select>
+								<b>&nbsp;Sender msg</b>
+								<br>
+								<input class="color" id="fr_bdr_color_sample" name="fr_bdr_color_sample" onclick="ChooseColor('fr_bdr_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text16" type="text" size="7" name="fr_bdr_color" onfocusout="EditColor('fr_bdr_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button20" onclick="ChooseColor('fr_bdr_color')" type="button" value="C" name="cc1">
+								<input id="Button42" onclick="ColorPicker('fr_bdr_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select5" name="fr_bdr_size" onchange="Preview()">
+									<option value="" selected>off</option>
+									<option value="1px">1 px</option>
+									<option value="2px">2 px</option>
+									<option value="3px">3 px</option>
+									<option value="4px">4 px</option>
+									<option value="5px">5 px</option>
+									<option value="6px">6 px</option>
+									<option value="7px">7 px</option>
+									<option value="8px">8 px</option>
+									<option value="9px">9 px</option>
+									<option value="10px">10 px</option>
+									<option value="12px">12 px</option>
+									<option value="14px">14 px</option>
+									<option value="16px">16 px</option>
+									<option value="18px">18 px</option>
+									<option value="20px">20 px</option>
+								</select>
+								<b>&nbsp;Inside frame</b>
+								<br>
+								<input class="color" id="gr1_bdr_color_sample" name="gr1_bdr_color_sample" onclick="ChooseColor('gr1_bdr_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text13" type="text" size="7" name="gr1_bdr_color" onfocusout="EditColor('gr1_bdr_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button16" onclick="ChooseColor('gr1_bdr_color')" type="button" value="C" name="cc1">
+								<input id="Button43" onclick="ColorPicker('gr1_bdr_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select4" name="gr1_bdr_size" onchange="Preview()">
+									<option value="" selected>off</option>
+									<option value="1px">1 px</option>
+									<option value="2px">2 px</option>
+									<option value="3px">3 px</option>
+									<option value="4px">4 px</option>
+									<option value="5px">5 px</option>
+									<option value="6px">6 px</option>
+									<option value="7px">7 px</option>
+									<option value="8px">8 px</option>
+									<option value="9px">9 px</option>
+									<option value="10px">10 px</option>
+									<option value="12px">12 px</option>
+									<option value="14px">14 px</option>
+									<option value="16px">16 px</option>
+									<option value="18px">18 px</option>
+									<option value="20px">20 px</option>
+								</select>
+								<b>&nbsp;Graphic 1</b>
+								<br>
+								<input class="color" id="gr2_bdr_color_sample" name="gr2_bdr_color_sample" onclick="ChooseColor('gr2_bdr_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text26" type="text" size="7" name="gr2_bdr_color" onfocusout="EditColor('gr2_bdr_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button23" onclick="ChooseColor('gr2_bdr_color')" type="button" value="C" name="cc1">
+								<input id="Button44" onclick="ColorPicker('gr2_bdr_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select10" name="gr2_bdr_size" onchange="Preview()">
+									<option value="" selected>off</option>
+									<option value="1px">1 px</option>
+									<option value="2px">2 px</option>
+									<option value="3px">3 px</option>
+									<option value="4px">4 px</option>
+									<option value="5px">5 px</option>
+									<option value="6px">6 px</option>
+									<option value="7px">7 px</option>
+									<option value="8px">8 px</option>
+									<option value="9px">9 px</option>
+									<option value="10px">10 px</option>
+									<option value="12px">12 px</option>
+									<option value="14px">14 px</option>
+									<option value="16px">16 px</option>
+									<option value="18px">18 px</option>
+									<option value="20px">20 px</option>
+								</select>
+								<b>&nbsp;Graphic 2</b>
+								<br>
+								<input class="color" id="gr3_bdr_color_sample" name="gr3_bdr_color_sample" onclick="ChooseColor('gr3_bdr_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text30" type="text" size="7" name="gr3_bdr_color" onfocusout="EditColor('gr3_bdr_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button26" onclick="ChooseColor('gr3_bdr_color')" type="button" value="C" name="cc1">
+								<input id="Button45" onclick="ColorPicker('gr3_bdr_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select16" name="gr3_bdr_size" onchange="Preview()">
+									<option value="" selected>off</option>
+									<option value="1px">1 px</option>
+									<option value="2px">2 px</option>
+									<option value="3px">3 px</option>
+									<option value="4px">4 px</option>
+									<option value="5px">5 px</option>
+									<option value="6px">6 px</option>
+									<option value="7px">7 px</option>
+									<option value="8px">8 px</option>
+									<option value="9px">9 px</option>
+									<option value="10px">10 px</option>
+									<option value="12px">12 px</option>
+									<option value="14px">14 px</option>
+									<option value="16px">16 px</option>
+									<option value="18px">18 px</option>
+									<option value="20px">20 px</option>
+								</select>
+								<b>&nbsp;Graphic 3</b>
+								<br>
+								<input class="color" id="gr4_bdr_color_sample" name="gr4_bdr_color_sample" onclick="ChooseColor('gr4_bdr_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text34" type="text" size="7" name="gr4_bdr_color" onfocusout="EditColor('gr4_bdr_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button29" onclick="ChooseColor('gr4_bdr_color')" type="button" value="C" name="cc1">
+								<input id="Button46" onclick="ColorPicker('gr4_bdr_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select21" name="gr4_bdr_size" onchange="Preview()">
+									<option value="" selected>off</option>
+									<option value="1px">1 px</option>
+									<option value="2px">2 px</option>
+									<option value="3px">3 px</option>
+									<option value="4px">4 px</option>
+									<option value="5px">5 px</option>
+									<option value="6px">6 px</option>
+									<option value="7px">7 px</option>
+									<option value="8px">8 px</option>
+									<option value="9px">9 px</option>
+									<option value="10px">10 px</option>
+									<option value="12px">12 px</option>
+									<option value="14px">14 px</option>
+									<option value="16px">16 px</option>
+									<option value="18px">18 px</option>
+									<option value="20px">20 px</option>
+								</select>
+								<b>&nbsp;Graphic 4</b>
+								<br>
+								<input class="color" id="gr5_bdr_color_sample" name="gr5_bdr_color_sample" onclick="ChooseColor('gr5_bdr_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text50" type="text" size="7" name="gr5_bdr_color" onfocusout="EditColor('gr5_bdr_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button58" onclick="ChooseColor('gr5_bdr_color')" type="button" value="C" name="cc1">
+								<input id="Button49" onclick="ColorPicker('gr5_bdr_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select31" name="gr5_bdr_size" onchange="Preview()">
+									<option value="" selected>off</option>
+									<option value="1px">1 px</option>
+									<option value="2px">2 px</option>
+									<option value="3px">3 px</option>
+									<option value="4px">4 px</option>
+									<option value="5px">5 px</option>
+									<option value="6px">6 px</option>
+									<option value="7px">7 px</option>
+									<option value="8px">8 px</option>
+									<option value="9px">9 px</option>
+									<option value="10px">10 px</option>
+									<option value="12px">12 px</option>
+									<option value="14px">14 px</option>
+									<option value="16px">16 px</option>
+									<option value="18px">18 px</option>
+									<option value="20px">20 px</option>
+								</select>
+								<b>&nbsp;Graphic 5</b>
+								<br>
+								<input class="color" id="gr6_bdr_color_sample" name="gr6_bdr_color_sample" onclick="ChooseColor('gr6_bdr_color')" type="button" value=" " style="background-color:#000000">
+								<input id="Text61" type="text" size="7" name="gr6_bdr_color" onfocusout="EditColor('gr6_bdr_color', '#000000')" onkeyup="KeyCheck(this)">
+								<input id="Button64" onclick="ChooseColor('gr6_bdr_color')" type="button" value="C" name="cc1">
+								<input id="Button65" onclick="ColorPicker('gr6_bdr_color')" type="button" value="P" name="cc2">&nbsp;
+								<select id="Select32" name="gr6_bdr_size" onchange="Preview()">
+									<option value="" selected>off</option>
+									<option value="1px">1 px</option>
+									<option value="2px">2 px</option>
+									<option value="3px">3 px</option>
+									<option value="4px">4 px</option>
+									<option value="5px">5 px</option>
+									<option value="6px">6 px</option>
+									<option value="7px">7 px</option>
+									<option value="8px">8 px</option>
+									<option value="9px">9 px</option>
+									<option value="10px">10 px</option>
+									<option value="12px">12 px</option>
+									<option value="14px">14 px</option>
+									<option value="16px">16 px</option>
+									<option value="18px">18 px</option>
+									<option value="20px">20 px</option>
+								</select>
+								<b>&nbsp;Graphic 6</b>
+							</div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td>
+							<input type="checkbox" id="Checkbox39" name="options_enabled" onclick="ShowHideDiv('options_div', this.checked);Preview();">
+						</td>
+						<td>
+							<b>Options:</b></br>
+							<div id="options_div" style="visibility:hidden; display:none; position:relative">
+								<b>Flash:&nbsp;</b> <input type="checkbox" id="Checkbox2" name="gr_transparent" checked onclick="Preview()"><a href="javascript://" onclick="form.gr_transparent.click();return false">transparent</a>
+								<input type="checkbox" id="Checkbox6" name="gr_autoplay" checked onclick="Preview()"><a href="javascript://" onclick="form.gr_autoplay.click();return false">autoplay</a>
+								<input type="checkbox" id="Checkbox7" name="gr_loop" checked onclick="Preview()"><a href="javascript://" onclick="form.gr_loop.click();return false">loop</a>
+								<br>
+								<b>Background Type:&nbsp;</b> <input type="checkbox" id="Checkbox27" name="bg_float" checked onclick="Preview()"><a href="javascript://" onclick="form.bg_float.click();return false">float</a>
+								<br>
+								<b>Font Units:&nbsp;</b><select id="Select20" name="units" onchange="Preview()">
+									<option value="pt" selected>points</option>
+									<option value="px">pixels</option>
+								</select>
+								<br>
+								<b>Export Path:&nbsp;</b><input type="text" maxlength="255" size="32" value="" name="export_path">
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<input type="button" value="Open" id="Open2" name="Open2" onclick="Open()">
+			<input type="button" value="Save" id="Save2" name="Save2" onclick="Save(null)">
+			<input type="button" value="Export" id="Export2" name="Export2" onclick="Export(null)">
+			<input type="button" value="Close" id="Close2" name="Close2" onclick="Initialize(true);Preview()">
+			<input type="button" value="Preview" id="Preview2" name="Preview2" onclick="Preview()">
+			<input type="hidden" id="objLoaded" name="objLoaded" value="0">
+		</form>
+		<object id="crusher" style="visibility: hidden;" classid="clsid:BD8667B7-38D8-4C77-B580-18C3E146372C" codebase="http://www.imgag.com/cp/install/Crusher.cab#version=1,0,0,2" height="1" width="1" viewastext>
+			<!--iframe width="100%" height="100%" frameborder=0 src="http://www.americangreetings.com/cnp/noactivex.htm">
+		</iframe-->
+		</object>
+		<object id="dialog" style="visibility: hidden;" classid="clsid:F9043C85-F6F2-101A-A3C9-08002B2F49FB" codebase="http://activex.microsoft.com/controls/vb5/comdlg32.cab" height="1" width="1" viewastext>
+		</object>
+
+		<object classid="clsid:5220cb21-c88d-11cf-b347-00aa00a28331" viewastext>
+			<param name="LPKPath" value="comdlg.lpk"><!--lpk_tool.exe-->
+		</object>
+    </body>
+</html>

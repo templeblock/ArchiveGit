@@ -1,0 +1,267 @@
+//Microsoft App Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+DLGDEMO MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open...",                    IDM_FILE_OPEN
+        MENUITEM "&Save",                       IDM_FILE_SAVE
+        MENUITEM "&Check Spelling...",          IDM_FILE_SPELLING
+        MENUITEM "Check Spelling (Alternate dialog)...",
+                                                IDM_FILE_SPELLING_ALT
+        MENUITEM "Check Spelling (Selected only)...",
+                                                IDM_FILE_SPELLING_SELECTED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_FILE_EXIT
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "&Spelling Preferences...",    IDM_OPTIONS_PREFERENCES
+    END
+    POPUP "&Dictionaries"
+    BEGIN
+        MENUITEM "Edit &Dictionaries...",       IDM_LEXICONS_EDIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Sentry Spelling Checker Engine...",IDM_HELP_ABOUT
+        MENUITEM SEPARATOR
+        MENUITEM "&Wintertree Software's Web Site",IDM_HELP_WEB_SITE
+    END
+END
+
+IDR_SPELLING_CONTEXT_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "junk"
+    BEGIN
+        MENUITEM "Suggestion 1",                IDM_SPELLING_CONTEXT_SUGGESTION_1
+        , GRAYED
+        MENUITEM "Suggestion 2",                IDM_SPELLING_CONTEXT_SUGGESTION_2
+        , GRAYED
+        MENUITEM "Suggestion 3",                IDM_SPELLING_CONTEXT_SUGGESTION_3
+        , GRAYED
+        MENUITEM "Suggestion 4",                IDM_SPELLING_CONTEXT_SUGGESTION_4
+        , GRAYED
+        MENUITEM "Suggestion 5",                IDM_SPELLING_CONTEXT_SUGGESTION_5
+        , GRAYED
+        MENUITEM "Suggestion 6",                IDM_SPELLING_CONTEXT_SUGGESTION_6
+        , GRAYED
+        MENUITEM "Suggestion 7",                IDM_SPELLING_CONTEXT_SUGGESTION_7
+        , GRAYED
+        MENUITEM "Suggestion 8",                IDM_SPELLING_CONTEXT_SUGGESTION_8
+        , GRAYED
+        MENUITEM "Suggestion 9",                IDM_SPELLING_CONTEXT_SUGGESTION_9
+        , GRAYED
+        MENUITEM "Suggestion 10",               IDM_SPELLING_CONTEXT_SUGGESTION_10
+        , GRAYED
+        MENUITEM "Suggestion 11",               IDM_SPELLING_CONTEXT_SUGGESTION_11
+        , GRAYED
+        MENUITEM "Suggestion 12",               IDM_SPELLING_CONTEXT_SUGGESTION_12
+        , GRAYED
+        MENUITEM "Suggestion 13",               IDM_SPELLING_CONTEXT_SUGGESTION_13
+        , GRAYED
+        MENUITEM "Suggestion 14",               IDM_SPELLING_CONTEXT_SUGGESTION_14
+        , GRAYED
+        MENUITEM "Suggestion 15",               IDM_SPELLING_CONTEXT_SUGGESTION_15
+        , GRAYED
+        MENUITEM "Suggestion 16",               IDM_SPELLING_CONTEXT_SUGGESTION_16
+        , GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "I&gnore All",                 IDM_SPELLING_CONTEXT_IGNORE_ALL
+
+        MENUITEM "&Add",                        IDM_SPELLING_CONTEXT_ADD
+        MENUITEM SEPARATOR
+        MENUITEM "&Spelling...",                IDM_SPELLING_CONTEXT_SPELLING
+
+    END
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+DLGDEMO                 ICON    DISCARDABLE     "APPICON.ICO"
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+CHECKSPELLINGDLG DIALOG DISCARDABLE  15, 28, 220, 200
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Check Spelling"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "S&uggestions:",ID_SUGGESTIONS_LBL,4,17,71,8
+    LISTBOX         ID_SUGGEST_LIST,78,17,88,71,WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Ignore",ID_IGNORE_BTN,170,2,45,12
+    PUSHBUTTON      "I&gnore All",ID_IGNORE_ALL_BTN,170,17,45,12
+    PUSHBUTTON      "&Change",ID_REPLACE_BTN,170,32,45,12
+    PUSHBUTTON      "Change A&ll",ID_REPLACE_ALL_BTN,170,47,45,12
+    PUSHBUTTON      "&Add",ID_ADD_TO_LEX_BTN,170,62,45,12
+    PUSHBUTTON      "&Suggest",ID_SUGGEST_BTN,170,77,45,12
+    LTEXT           "Add &words to:",ID_ADD_WORDS_LBL,4,95,72,8
+    COMBOBOX        ID_IGN_LEX_CB,78,92,88,40,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Dictio&naries...",ID_EDIT_LEX_BTN,4,112,51,16
+    PUSHBUTTON      "&Options...",ID_OPTIONS_BTN,58,112,51,16
+    PUSHBUTTON      "Cancel",IDCANCEL,166,112,51,16
+    LTEXT           "Consider Changing:",ID_PROBLEM_LBL,4,4,72,8,NOT 
+                    WS_GROUP
+    EDITTEXT        ID_PROBLEM_WORD_EDT,78,2,88,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Help...",ID_HELP_BTN,112,112,51,16
+    EDITTEXT        IDC_CONTEXT_EDT,4,136,212,60,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_NOHIDESEL | 
+                    ES_READONLY | NOT WS_VISIBLE | WS_DISABLED | WS_VSCROLL | 
+                    WS_HSCROLL
+    PUSHBUTTON      "&Undo",ID_UNDO_BTN,170,92,45,12
+END
+
+EDITLEXDLG DIALOG DISCARDABLE  15, 27, 198, 177
+STYLE DS_MODALFRAME | DS_NOIDLEMSG | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Dictionaries"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Words:",ID_WORDS_LBL,4,68,52,8
+    COMBOBOX        ID_LEX_CONTENTS_CB,4,76,128,72,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "&Add Word",ID_LEX_ADD_WORD_BTN,140,76,50,12
+    PUSHBUTTON      "&Delete Word",ID_LEX_DEL_WORD_BTN,140,92,50,12
+    PUSHBUTTON      "I&mport...",ID_IMPORT_BTN,140,108,50,12
+    PUSHBUTTON      "&Export...",ID_EXPORT_BTN,140,124,50,12
+    LTEXT           "F&iles:",ID_FILES_LBL,8,12,40,8,NOT WS_GROUP
+    COMBOBOX        ID_LEX_FILES_CB,8,20,124,56,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "Add &File",ID_LEX_ADD_FILE_BTN,140,12,50,12
+    PUSHBUTTON      "&New...",ID_LEX_NEW_FILE_BTN,140,28,50,12
+    PUSHBUTTON      "&Remove File",ID_LEX_DEL_FILE_BTN,140,44,50,12
+    DEFPUSHBUTTON   "Cl&ose",IDCANCEL,112,156,50,14
+    GROUPBOX        "",IDC_STATIC,4,4,192,60
+    RTEXT           "Language:",ID_LANGUAGE_LBL,8,36,36,8
+    LTEXT           "",ID_LANG_TEXT,48,36,84,8
+    PUSHBUTTON      "&Help",ID_HELP_BTN,40,156,44,13
+    COMBOBOX        ID_LEX_ACTION_CB,4,100,128,46,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        ID_LEX_OTHER_WORD_EDT,4,124,128,13,ES_AUTOHSCROLL
+    LTEXT           "A&ction:",IDC_STATIC,4,88,56,8
+    LTEXT           "O&ther word:",IDC_STATIC,4,114,77,8
+END
+
+OPTIONSDLG DIALOG DISCARDABLE  64, 32, 122, 187
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Ignore &capitalized words",IDC_IGNORE_CAPS_CHK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,4,108,10
+    CONTROL         "I&gnore words with &numbers",
+                    IDC_IGNORE_MIXED_DIGITS_CHK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,4,24,108,10
+    CONTROL         "Report &doubled words",IDC_REPORT_DOUBLED_WORDS_CHK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,44,108,10
+    DEFPUSHBUTTON   "&OK",IDOK,9,164,32,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,81,164,32,14
+    CONTROL         "Ignore &all-caps words",IDC_IGNORE_ALL_CAPS_CHK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,14,108,10
+    CONTROL         "Cas&e sensitive",IDC_CASE_SENSITIVE_CHK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,54,108,10
+    CONTROL         "&Phonetic suggestions",IDC_PHONETIC_SUGG_CHK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,64,108,10
+    CONTROL         "Suggest sp&lit words",IDC_SUGGEST_SPLIT_WORDS_CHK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,84,108,10
+    CONTROL         "Ignore words with &mixed case",
+                    IDC_IGNORE_MIXED_CASE_CHK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,4,34,108,10
+    PUSHBUTTON      "&Help",ID_HELP_BTN,45,164,32,14
+    CONTROL         "&Typographical suggestions",IDC_TYPO_SUGG_CHK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,74,108,10
+    CONTROL         "Matc&h case in replacements",IDC_MATCH_CASE_CHK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,94,108,10
+    GROUPBOX        "Suggestions",-1,3,116,117,42
+    CONTROL         "&Fast but less accurate",IDC_SUGG_DEPTH_1_RB,"Button",
+                    BS_AUTORADIOBUTTON,11,126,105,8
+    CONTROL         "&Moderately fast and accurate",IDC_SUGG_DEPTH_2_RB,
+                    "Button",BS_AUTORADIOBUTTON,11,136,105,8
+    CONTROL         "Slo&w but accurate",IDC_SUGG_DEPTH_3_RB,"Button",
+                    BS_AUTORADIOBUTTON,11,146,105,8
+    CONTROL         "A&uto correct",IDC_AUTO_CORRECT_CHK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,104,108,10
+END
+
+NEWLEXDLG DIALOG DISCARDABLE  0, 0, 218, 68
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "New Dictionary"
+FONT 8, "MS Sans Serif"
+BEGIN
+    RTEXT           "&File Name:",ID_FILE_NAME_LBL,4,8,48,8
+    EDITTEXT        ID_FILE_NAME_EDIT,56,4,100,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Browse...",ID_BROWSE_BTN,164,4,50,14
+    RTEXT           "&Language",ID_LANGUAGE_LBL,4,24,48,8
+    COMBOBOX        ID_LANGUAGE_CB,56,24,100,56,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,20,44,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,148,44,50,14
+    PUSHBUTTON      "&Help",ID_HELP_BTN,84,44,50,14
+END
+
+#ifdef APSTUDIO_INVOKED
+//////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef APSTUDIO_INVOKED
+////////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

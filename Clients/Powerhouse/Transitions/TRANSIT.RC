@@ -1,0 +1,120 @@
+#include <windows.h>
+#include "resource.h"
+#include "commonid.h"
+#include "mainid.h"
+
+//***********************************************************************
+stringtable LMD
+//***********************************************************************
+{
+	IDS_CLASS, "trans"
+	IDS_TITLE, "Transition Demo by Powerhouse Entertainment"
+}
+
+//************************************************************************
+// The main APPLICATION ACCELERATOR commands
+//************************************************************************
+IDR_ACCEL ACCELERATORS MOVEABLE DISCARDABLE PURE
+{
+	VK_SPACE, IDC_MAINMENU, VIRTKEY
+	VK_ESCAPE, IDC_MAINMENU, VIRTKEY
+}
+
+//***********************************************************************
+// Imbedded icons, cursors, bitmaps, wave files, etc.
+//***********************************************************************
+-1 icon	LMD transit.ico
+IDC_HAND_POINT_CURSOR	cursor	LMD hpoint.cur
+IDC_HAND_CLOSED_CURSOR	cursor	LMD hclosed.cur
+
+
+//***********************************************************************
+1 SCENE //	replace 1
+//***********************************************************************
+STAGE "screen.bmp"
+PROPS
+{
+	BUTTON( "Replace", IDC_BUTTON1, 5, 5, 150, 28);
+	BUTTON( "Horizontal Blinds", IDC_BUTTON2, 5, 35, 150, 28);
+	BUTTON( "Vertical Blinds", IDC_BUTTON3, 5, 65, 150, 28);
+	BUTTON( "Box In", IDC_BUTTON4, 5, 95, 150, 28);
+	BUTTON( "Box Out", IDC_BUTTON5, 5, 125, 150, 28);
+	BUTTON( "Checkerboard Left", IDC_BUTTON6, 5, 155, 150, 28);
+	BUTTON( "Checkerboard Right", IDC_BUTTON7, 5, 185, 150, 28);
+	BUTTON( "Checkerboard Up", IDC_BUTTON8, 5, 215, 150, 28);
+	BUTTON( "Checkerboard Down", IDC_BUTTON9, 5, 245, 150, 28);
+	BUTTON( "Cover Left", IDC_BUTTON10, 5, 275, 150, 28);
+	BUTTON( "Cover Right", IDC_BUTTON11, 5, 305, 150, 28);
+	BUTTON( "Cover Up", IDC_BUTTON12, 5, 335, 150, 28);
+	BUTTON( "Cover Down", IDC_BUTTON13, 5, 365, 150, 28);
+	BUTTON( "Cover Left Down", IDC_BUTTON14, 5, 395, 150, 28);
+	BUTTON( "Cover Left Up", IDC_BUTTON15, 5, 425, 150, 28);
+	BUTTON( "Cover Right Down", IDC_BUTTON16, 160, 5, 150, 28);
+	BUTTON( "Cover Right Up", IDC_BUTTON17, 160, 35, 150, 28);
+	BUTTON( "Dissolve", IDC_BUTTON18, 160, 65, 150, 28);
+	BUTTON( "Fade Thru Black", IDC_BUTTON19, 160, 95, 150, 28);
+	BUTTON( "Stretch Horz Out", IDC_BUTTON20, 160, 125, 150, 28);
+	BUTTON( "Stretch Vert Out", IDC_BUTTON21, 160, 155, 150, 28);
+	BUTTON( "Stretch Left", IDC_BUTTON22, 160, 185, 150, 28);
+	BUTTON( "Stretch Right", IDC_BUTTON23, 160, 215, 150, 28);
+	BUTTON( "Stretch Up", IDC_BUTTON24, 160, 245, 150, 28);
+	BUTTON( "Stretch Down", IDC_BUTTON25, 160, 275, 150, 28);
+	BUTTON( "Rain Left", IDC_BUTTON26, 160, 305, 150, 28);
+	BUTTON( "Rain Right", IDC_BUTTON27, 160, 335, 150, 28);
+	BUTTON( "Rain Up", IDC_BUTTON28, 160, 365, 150, 28);
+	BUTTON( "Rain Down", IDC_BUTTON29, 160, 395, 150, 28);
+	BUTTON( "Random Vert Bars", IDC_BUTTON30, 160, 425, 150, 28);
+	BUTTON( "Random Horz Bars", IDC_BUTTON31, 315, 5, 150, 28);
+	BUTTON( "*Rotate Vert", IDC_BUTTON32, 315, 35, 150, 28);
+	BUTTON( "Rotate Horz", IDC_BUTTON33, 315, 65, 150, 28);
+	BUTTON( "Spiral CW Out", IDC_BUTTON34, 315, 95, 150, 28);
+	BUTTON( "Spiral CCW In", IDC_BUTTON35, 315, 125, 150, 28);
+	BUTTON( "Spiral CCW Out", IDC_BUTTON36, 315, 155, 150, 28);
+	BUTTON( "Spiral CW In", IDC_BUTTON37, 315, 185, 150, 28);
+	BUTTON( "Split Horz In", IDC_BUTTON38, 315, 215, 150, 28);
+	BUTTON( "Split Vert In", IDC_BUTTON39, 315, 245, 150, 28);
+	BUTTON( "Split Vert Out", IDC_BUTTON40, 315, 275, 150, 28);
+	BUTTON( "Split Horz Out", IDC_BUTTON41, 315, 305, 150, 28);
+	BUTTON( "Uncover Left", IDC_BUTTON42, 315, 335, 150, 28);
+	BUTTON( "Uncover Right", IDC_BUTTON43, 315, 365, 150, 28);
+	BUTTON( "Uncover Up", IDC_BUTTON44, 315, 395, 150, 28);
+	BUTTON( "Uncover Down", IDC_BUTTON45, 315, 425, 150, 28);
+	BUTTON( "Uncover Left Down", IDC_BUTTON46, 470, 5, 150, 28);
+	BUTTON( "Uncover Left Up", IDC_BUTTON47, 470, 35, 150, 28);
+	BUTTON( "Uncover Right Down", IDC_BUTTON48, 470, 65, 150, 28);
+	BUTTON( "Uncover Right Up", IDC_BUTTON49, 470, 95, 150, 28);
+	BUTTON( "Waterfall", IDC_BUTTON50, 470, 125, 150, 28);
+	BUTTON( "Weave Vert", IDC_BUTTON51, 470, 155, 150, 28);
+	BUTTON( "Weave Horz", IDC_BUTTON52, 470, 185, 150, 28);
+	BUTTON( "Wipe Left", IDC_BUTTON53, 470, 215, 150, 28);
+	BUTTON( "Wipe Right", IDC_BUTTON54, 470, 245, 150, 28);
+	BUTTON( "Wipe Up", IDC_BUTTON55, 470, 275, 150, 28);
+	BUTTON( "Wipe Down", IDC_BUTTON56, 470, 305, 150, 28);
+	BUTTON( "Wipe Left Down", IDC_BUTTON57, 470, 335, 150, 28);
+	BUTTON( "Wipe Left Up", IDC_BUTTON58, 470, 365, 150, 28);
+	BUTTON( "Wipe Right Down", IDC_BUTTON59, 470, 395, 150, 28);
+	BUTTON( "Wipe Right Up", IDC_BUTTON60, 470, 425, 150, 28);
+	BUTTON( "X-Ray", IDC_BUTTON61, 470, 455, 150, 28);
+	LTEXT( "Speed", -1, 5, 458, 50, 20 )
+	EDIT( IDC_EDIT1, 55, 458, 50, 20 )
+	LTEXT( "Step Size", -1, 110, 458, 80, 20 )
+	EDIT( IDC_EDIT2, 190, 458, 50, 20 )
+}
+
+//***********************************************************************
+2 SCENE //	blinds horizontal 2
+//***********************************************************************
+STAGE "screen1.bmp"
+PROPS
+{
+	GOTOSCENE( "3", -1, 0, 0, 640, 480 )
+}
+
+//***********************************************************************
+3 SCENE //	blinds vertical 3
+//***********************************************************************
+STAGE "screen2.bmp"
+PROPS
+{
+ 	GOTOSCENE( "2", -1, 0, 0, 640, 480 )
+}

@@ -1,0 +1,33 @@
+//®FD1¯®PL1¯®TP0¯®BT0¯®RM200¯
+// (c) Copyright 1991 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX  75081
+#ifndef _COMMON_RH_
+#define _COMMON_RH_
+
+// Generic custom control definitions
+#define WS_NOTENABLED	(WS_NOTACTIVE|WS_DISABLED)
+#define WS_NOTACTIVE	1L
+#define WS_NOSHADOWS	0x0002L
+#define WS_BITMAP 		0x0004L
+#define WS_TOOL  		0x0008L
+#define WS_TEXT	  		0x0010L
+#define WS_IMAGE  		0x0020L
+#define WS_ONTIMER		0x0040L
+#define WS_BORDERONLY	0x0100L
+#define	WS_NOBGND	0x0200L
+
+/* CButtonMaker styles */
+#define BMS_DBLBORDER       1   // for def push buttons
+#define BMS_STDBEVEL        0   // shadow and hilight same thickness
+#define BMS_WINDOWSBEVEL    2   // hilight thinner than shadow
+#define BMS_THINBEVEL       4   // thin, short buttons
+#define BMS_THICKBEVEL      0   // thick, tall buttons
+#define BMS_ROUNDCORNERS    8   // rounded corners
+#define BMS_NOBORDER        16  // no borders
+
+#endif // _COMMON_RH_
+
+
+

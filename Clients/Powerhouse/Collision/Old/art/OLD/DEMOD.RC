@@ -1,0 +1,158 @@
+#include "windows.h"
+#include "resource.h"
+#include "commonid.h"
+#include "demod.h"
+
+//***********************************************************************
+stringtable LMD
+//***********************************************************************
+	{
+    IDS_CLASS,	"power"
+    IDS_TITLE,	"Demolition Derby by Powerhouse Entertainment"
+	}
+
+//***********************************************************************
+// Imbedded icons, cursors, bitmaps, wave files, etc.
+//***********************************************************************
+-1			icon	LMD demod.ico
+IDC_CLOSE	wave	LMD goodbye.wav
+//***********************************************************************
+
+// Title specific scenes (dialogs), stages, (backgrounds), and props (controls)
+//
+// STAGE switches are as follows:
+//									/s = scaled to fit window
+//									/c = centered
+//									/n = do not use WinG
+//									/a = animation will be used (requires 2 DIB's)
+// VIDEO switches are as follows:
+// Note: Two videos in one scene may cause a hang
+//									/a = auto play (when scene begins)
+//									/f = full screen playback
+//									/z = zoom by 2 playback
+// GOTOSCENE switches are as follows:
+//									/t = timed to go in 5 seconds
+//										 even if not clicked
+
+// What about MIDI tracks with the 'stage'?
+// What about sprites?
+// What about wav files?
+
+//***********************************************************************
+1 SCENE
+//***********************************************************************
+STAGE "logo.bmp/c"
+PROPS
+	{
+	GOTOSCENE( "2/t", -1, 0, 0, 640, 480 )
+	}
+
+//***********************************************************************
+2 SCENE
+//***********************************************************************
+STAGE "demod1.bmp"
+PROPS
+	{
+	EDIT( IDC_SKILL, 20, 430, 64, 24 )
+	VIDEO( "demod1.avi/z", IDC_VIDEO,   0,  0 )
+	BUTTON( "Pause",   IDC_PAUSE,    20, 400, 64, 24 )
+	BUTTON( "Play",    IDC_PLAY,    100, 400, 64, 24 )
+	BUTTON( "Forward", IDC_FORWARD, 180, 400, 64, 24 )
+	BUTTON( "Reverse", IDC_REVERSE, 260, 400, 64, 24 )
+	BUTTON( "Jump",    IDC_JUMP,    340, 400, 64, 24 )
+	BUTTON( "Stop",    IDC_STOP,    420, 400, 64, 24 )
+	GOTOSCENE( "2", -1, 580, 400, 50, 50 )
+	}
+
+//***********************************************************************
+//	End codes are actions that occur after a clip has played to completion
+//	The end values accompanies the end code as additional information
+//		0 - freeze at the end of the clip
+//			(both values are ignored)
+//		1 - jump to the last clip to play previously
+//			this could be anywhere in the clip based on skill level
+//			(both values are ignored)
+//		2 - loop back to the entry point in the clip
+//			this could be anywhere in the clip based on skill level
+//			(both values are ignored)
+//			(future: value 1 is how many times to loop back; 0 is forever)
+//			(future: value 2 is the clip to jump to when time expires)
+//		3 - loop the end of the clip
+//			(value 1 is the number of frames to loop)
+//		4 - jump to a new clip
+//			(if value 2 is 0, jump to the clip specified by value 1)
+//			(if value 2 is not 0, choose a random clip between the 2 values)
+//***********************************************************************
+
+//***********************************************************************
+//	Hits codes are indications of where an opponent's car is hit:
+//		1-2-3	Front
+//		|   |
+//		8   4     0 means no hit took place
+//		|   |
+//		7-6-5	Rear
+//***********************************************************************
+
+//***********************************************************************
+IDC_VIDEO rcdata LMD
+//***********************************************************************
+	{
+//Clip  Start    End  End  End End Car Face    In  Hit	Interpretation
+// No.  Frame  Frame Code  Vl1 Vl2  No. Dir.  Rev? Code
+	 0,	   0,	  26,	4,	0,	29,	0,	 0,		0,	0,	// test pattern
+	 1,	  27,	 102,	4,	0,	29,	1,	 6,		0,	2,	// car 1, facing us, hit head on
+	 2,	 103,	 192,	4,	0,	29,	1,	12,		0,	6,	// car 1, facing away, hit in rear
+	 3,	 193,	 249,	4,	0,	29,	1,	 3,		0,	5,	// car 1, facing right, hit rear pass. 1/4
+	 4,	 250,	 284,	4,	0,	29,	0,	 0,		0,	0,	// miss car 1, into bushes
+	 5,	 285,	 369,	4,	0,	29,	1,	 3,		0,	7,	// car 1, facing right, hit rear pass. 1/4
+	 6,	 370,	 456,	4,	0,	29,	1,	 9,		0,	7,	// car 1, facing left, hit rear driv. 1/4
+	 7,	 457,	 511,	4,	0,	29,	1,	 9,		0,	3,	// car 1, facing left, hit rear driv. 1/4
+	 8,	 512,	 546,	4,	0,	29,	0,	 0,		0,	0,	// miss car 1, into bushes
+	 9,	 547,	 586,	1	0,	29,	1,	 4,		0,	5,	// car 1, facing 4'o'clock, hit rear pass. 1/4
+	10,	 587,	 632,	4,	0,	29,	0,	 0,		0,	0,	// miss car 1, into bushes
+	11,	 633,	 704,	4,	0,	29,	1,	 4,		0,	5,	// car 1, facing 4'o'clock, hit read pass. 1/4
+	12,	 705,	 764,	4,	0,	29,	2,	 4,		0,	5,	// car 2, facing 4'o'clock, hit rear pass. 1/4
+	13,	 765,	 793,	4,	0,	29,	0,	 0,		0,	0,	// miss car 2, into bushes
+	14,	 794,	 845,	4,	0,	29,	2,	 4,		0,	5,	// car 2, facing 4'o'clock, hit rear pass. 1/4
+	15,	 852,	 904,	4,	0,	29,	2,	10,		1,	1,	// car 2, facing 10'o'clock, driving in reverse, hit front driv. 1/4
+	16,	 905,	 940,	4,	0,	29,	0,	 0,		0,	0,	// miss car 2, into bushes
+	17,	 941,	 991,	4,	0,	29,	2,	 6,		0,	2,	// car 2, facing us, hit head on
+	18,	 992,	1050,	4,	0,	29,	2,	12,		0,	6,	// car 2, facing away, hit in rear
+	19,	1051,	1083,	4,	0,	29,	2,	 4,		0,	5,	// car 2, facing 4'o'clock, hit rear pass. 1/4
+	20,	1084,	1124,	4,	0,	29,	0,	 0,		0,	0,	// miss car 2, into bushes
+	21,	1125,	1168,	4,	0,	29,	2,	 4,		0,	5,	// car 2, facing 4'o'clock, hit rear pass. 1/4
+	22,	1176,	1224,	4,	0,	29,	2,	10,		1,	1,	// car 2, facing 10'o'clock, driving in reverse, hit front driv. 1/4
+	23,	1225,	1269,	4,	0,	29,	0,	 0,		0,	0,	// miss car 2, into bushes
+	24,	1270,	1329,	4,	0,	29,	3,	-1,		0,	2,	// light, hit head on
+	25,	1330,	1378,	4,	0,	29,	4,	 9,		0,	7,	// car 4, facing right, stationary, hit rear driv. 1/4
+	26,	1379,	1435,	4,	0,	29,	5,	 9,		0,	8,	// car 5, facing right, stationary, hit midsection driv.
+	27,	1436,	1510,	4,	0,	29,	6,	 9,		0,	1,	// car 6, facing right, stationary, hit front driv. 1/4
+	28,	1511,	1568,	4,	0,	29,	3,	-1,		0,	2,	// light, hit head on
+	29,	1569,	1673,	4,	0,	29,	0,	 0,		0,	0,	// pit stop for gas
+	}                       
+//***********************************************************************
+3 SCENE
+//***********************************************************************
+STAGE "demod2.bmp"
+PROPS
+	{
+	GOTOSCENE( "3", -1, 0, 50, 50, 50 )
+	VIDEO( "demod1.avi",   IDC_VIDEO,   0,   0 )
+	VIDEO( "demod1.avi/f", -1, 320,   0 )
+	}
+
+//***********************************************************************
+4 SCENE
+//***********************************************************************
+STAGE "demod3.bmp"
+PROPS
+	{
+	BUTTON( "Pause",   IDC_PAUSE,    20, 400, 64, 24 )
+	BUTTON( "Play",    IDC_PLAY,    100, 400, 64, 24 )
+	BUTTON( "Forward", IDC_FORWARD, 180, 400, 64, 24 )
+	BUTTON( "Reverse", IDC_REVERSE, 260, 400, 64, 24 )
+	BUTTON( "Jump",    IDC_JUMP,    340, 400, 64, 24 )
+	BUTTON( "Stop",    IDC_STOP,    420, 400, 64, 24 )
+	VIDEO( "demod1.avi", IDC_VIDEO, 163,  78 )
+	GOTOSCENE( "1", -1, 0, 50, 50, 50 )
+	}

@@ -1,0 +1,61 @@
+// JMSrvr.idl : IDL source for JMSrvr
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (JMSrvr.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(E8F5A042-8BF1-433F-81B0-67CE0A381D38),
+	dual,
+	nonextensible,
+	helpstring("IJMBrkr Interface"),
+	pointer_default(unique)
+]
+interface IJMBrkr : IDispatch{
+	[id(1), helpstring("method Visible")] HRESULT Visible([in] VARIANT_BOOL bVisible);
+	[id(2), helpstring("method Animate")] HRESULT Animate([in] VARIANT_BOOL bAnimate, [in] UINT nDuration);
+	[id(3), helpstring("method SetText")] HRESULT SetText([in] BSTR szText);
+	[id(4), helpstring("method Register")] HRESULT Register([in] LONG Mode, [out] VARIANT_BOOL* bSuccess);
+	[id(5), helpstring("method OnAuthenticate")] HRESULT OnAuthenticate([in] VARIANT varCustomerNum, 
+		                                                                [in] VARIANT varUserId, 
+																		[in] VARIANT varHost, 
+																		[in] VARIANT varUpgradeUrl, 
+																		[in] VARIANT varUsageUrl,
+																		[in] VARIANT varHelp,
+																		[in] VARIANT varBrowse,
+																		[in] VARIANT varOptions,
+																		[in] VARIANT varUserStatus, 
+																		[in] VARIANT varShow, 
+																		[in] VARIANT verResultStatus);
+	[id(6), helpstring("method Show")] HRESULT Show([in] VARIANT bRegisterNow, 
+													[in] VARIANT varWidth, 
+													[in] VARIANT varHeight);
+	[id(7), helpstring("method ExecuteCommand")] HRESULT ExecuteCommand([in] VARIANT varId, [out,retval] VARIANT_BOOL* bSuccess);
+	[propget, id(8), helpstring("property Version")] HRESULT Version([out, retval] VARIANT* pVal);
+	[propget, id(9), helpstring("property SignInUrl")] HRESULT SignInUrl([in] VARIANT varId, [out, retval] VARIANT* pVal);
+	[propput, id(9), helpstring("property SignInUrl")] HRESULT SignInUrl([in] VARIANT varId, [in] VARIANT newVal);
+	[id(10), helpstring("method RegisterClient")] HRESULT RegisterClient([in] OLE_HANDLE Handle, [in] VARIANT varType, [out] OLE_HANDLE * phUtilWnd);
+	[id(11), helpstring("method UnregisterClient")] HRESULT UnregisterClient([in] OLE_HANDLE Handle);
+	[id(12), helpstring("method KillAll")] HRESULT KillAll([in] VARIANT varId);
+};
+
+[
+	uuid(24B59332-C945-476F-B266-2170959CCE24),
+	version(1.0),
+	helpstring("JMSrvr 1.0 Type Library")
+]
+library JMSrvrLib
+{
+	[
+		uuid(BF897EBA-7FBE-41B5-85A3-FBC9212DB1C5),
+		helpstring("JMBrkr Class")
+	]
+	coclass JMBrkr
+	{
+		[default] interface IJMBrkr;
+	};
+};

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--doctype html public "-//w3c//dtd xhtml 1.0 frameset//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-frameset.dtd"-->
+<!--doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd"-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<script language="javascript">
+		var shOnStart = '1';
+		function getQueryVals()
+		{
+			var MyQueryString = location.search.substring(1);
+			if (MyQueryString)
+			{
+				var pairs = MyQueryString.split("&");
+				if (pairs && pairs.length)
+				{
+					var nvpair = pairs[0].split("=");
+					if (nvpair)
+						shOnStart = nvpair[1];
+				}
+			}
+		}
+	</script>
+	<head>
+		<title></title>
+		<script language="javascript" src="navigation.js"></script>
+		<script language="javascript">
+			getQueryVals();
+			var History = new HistoryObject();
+		//j	var AppImages = PreloadAppImages('images/'); // the files are already on disk, so no need to preload
+		</script>
+		<input id="Launch" type="hidden" />
+		<input id="Help" type="hidden" />
+		<input id="ShowOnStartup" type="hidden"/>
+		<input id="RegStartup" type="hidden"/>
+		<input id="LaunchApp" type="hidden"/>
+		<input id="mdb" type="hidden"/>
+	</head>
+	<frameset onload="setFrameSrcEx(shOnStart)" rows="38,*">
+		<frame src="topbar1.htm" id="topbar" style="width:100%; height:38px; " scrolling="no" frameborder="0" ></frame>
+		<frame src="welcome.htm" id="main" style="width:100%; height:100%; " scrolling="auto" frameborder="0" ></frame>
+	</frameset>
+	<!--body style="margin:0px; padding:0px; overflow: auto;" scroll="no" >
+		<iframe src="topbar1.htm" id="topbar" style="width:100%; height:38px; " scrolling="no" frameborder="0" ></iframe>
+		<iframe src="welcome.htm" id="main" style="width:100%; height:100%; " scrolling="auto" frameborder="0" ></iframe>
+	</body-->
+</html>

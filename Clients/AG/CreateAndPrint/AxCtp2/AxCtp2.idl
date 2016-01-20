@@ -1,0 +1,99 @@
+// AxCtp.idl : IDL source for AxCtp2.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AxCtp2.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+#include <olectl.h>
+
+[
+	object,
+	uuid(4C537050-5856-4413-9C89-394611BCBE8A),
+	dual,
+	helpstring("ICtp Interface"),
+	pointer_default(unique)
+]
+interface ICtp : IDispatch
+{
+	[propput, id(1)]  HRESULT Src([in]BSTR strProperty);
+	[propget, id(1)]  HRESULT Src([out,retval]BSTR* pstrProperty);
+	[propput, id(2)]  HRESULT Context([in]BSTR strProperty);
+	[propget, id(2)]  HRESULT Context([out,retval]BSTR* pstrProperty);
+	[         id(3)]  HRESULT PutSrc([in]BSTR strProperty);
+	[         id(4)]  HRESULT GetSrc([out,retval]BSTR* pstrProperty);
+	[         id(5)]  HRESULT PutContext([in]BSTR strProperty);
+	[         id(6)]  HRESULT GetContext([out,retval]BSTR* pstrProperty);
+	[         id(7)]  HRESULT GetVerse([in]BSTR strFilePath, [out,retval]BSTR* pstrProperty);
+	[         id(8)]  HRESULT GetAttributes([in]BSTR strFilePath, [out,retval]BSTR* pstrAttributes);
+	[         id(9)]  HRESULT ProcessImage([in]BSTR strFilePath, [in]int nMaxKB, [in]int nQuality, [out,retval]BSTR* pstrFilePathNew);
+	[         id(10)] HRESULT DoCommand([in]BSTR strCommand, [out,retval]long* plResult);
+	[         id(11)] HRESULT GetCommand([in]BSTR strCommand, [out,retval]long* plResult);
+	[         id(12)] HRESULT FileDownload([in]BSTR bstrSrcUrl, [in] BSTR bstrInfo, [in] BSTR bstrOptionString);
+	[		  id(13)] HRESULT FYSTransfer([in]BSTR OrderId, [in]BSTR CorrelationId, [in]BSTR FYSInfo, [out,retval]BSTR* pstrError);
+	[		  id(14)] HRESULT GetUsageData([out, retval]BSTR* pstrUsageData);
+	[		  id(15)] HRESULT FYSClose();
+	[		  id(16), helpstring("method SetAddressbookUrl")] HRESULT SetAddressbookUrl([in] VARIANT varUrl);
+	[         id(17), helpstring("method ShowAddressbookPopup")] HRESULT ShowAddressbookPopup([in] VARIANT varShow);
+	[         id(18), helpstring("method ResizeAddressbookPopup")] HRESULT ResizeAddressbookPopup([in] VARIANT varWidth, [in] VARIANT varHeight);
+	[         id(19), helpstring("method CloseAddressbookPopup")] HRESULT CloseAddressbookPopup();
+	[         id(20), helpstring("method ProcessAddressbook")] HRESULT ProcessAddressbook([in] VARIANT varData);
+	[         id(21), helpstring("method SetClipArtUrl")] HRESULT SetClipArtUrl([in] VARIANT varUrl);
+	[         id(22), helpstring("method ShowClipArtPopup")] HRESULT ShowClipArtPopup([in] VARIANT varShow);
+	[         id(23), helpstring("method ResizeClipArtPopup")] HRESULT ResizeClipArtPopup([in] VARIANT varWidth, [in] VARIANT varHeight);
+	[         id(24), helpstring("method CloseClipArtPopup")] HRESULT CloseClipArtPopup();
+	[propget, id(25), helpstring("property Version")] HRESULT Version([out, retval] BSTR* pVal);
+};
+
+//[
+//	object,
+//	uuid(11106B2D-2B8E-4407-9E7A-7F058F68F95D),
+//	dual,
+//	nonextensible,
+//	helpstring("IImageExtractor Interface"),
+//	pointer_default(unique)
+//]
+//interface IImageExtractor : IDispatch{
+//};
+
+[
+	uuid(435B34F7-217E-4797-BE46-2AB8B5980651),
+	version(1.0),
+	helpstring("AxCtp2 1.0 Type Library")
+]
+library AXCTP2Lib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(F0207328-6435-4d34-B213-6F7ECF81DD02),
+		helpstring("ICtpEvents Interface")
+	]
+	dispinterface _ICtpEvents
+	{
+		properties:
+		methods:
+		[id(1)] HRESULT FileSaved([in] long lValue);
+	};
+
+	[
+		uuid(BB383206-6DA1-4e80-B62A-3DF950FCC697),
+		helpstring("Ctp Class")
+	]
+	coclass Ctp
+	{
+		[default] interface ICtp;
+		[default, source] dispinterface _ICtpEvents;
+	};
+
+	//[
+	//	uuid(AD9DC685-A13B-4FC2-9AC1-3F01EB66D91C),
+	//	helpstring("ImageExtractor Class")
+	//]
+	//coclass ImageExtractor
+	//{
+	//	[default] interface IImageExtractor;
+	//};
+};

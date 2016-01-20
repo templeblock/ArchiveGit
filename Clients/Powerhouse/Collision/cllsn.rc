@@ -1,0 +1,572 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "cllsnid.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include <winres.h>
+#include "commonid.h"
+#include "cllsndef.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "cllsnid.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include <winres.h>\r\n"
+    "#include ""commonid.h""\r\n"
+    "#include ""cllsndef.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""scenes.hxx""\r\n"
+    "\r\n"
+    "#ifdef _DEBUG\r\n"
+    "          #include ""wdebug.rc""\r\n"
+    "          #include ""author.rc""\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+1                       ICON    DISCARDABLE     "cllsn.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_HAND_POINT_CURSOR   CURSOR  DISCARDABLE     "hpoint.cur"
+IDC_HAND_CLOSED_CURSOR  CURSOR  DISCARDABLE     "no.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDC_GAME0               BITMAP  DISCARDABLE     "buttout.bmp"
+IDC_GAME0x              BITMAP  DISCARDABLE     "buttin.bmp"
+IDC_GAME1               BITMAP  DISCARDABLE     "buttout.bmp"
+IDC_GAME1x              BITMAP  DISCARDABLE     "buttin.bmp"
+IDC_GAME2               BITMAP  DISCARDABLE     "buttout.bmp"
+IDC_GAME2x              BITMAP  DISCARDABLE     "buttin.bmp"
+IDC_GAME3               BITMAP  DISCARDABLE     "buttout.bmp"
+IDC_GAME3x              BITMAP  DISCARDABLE     "buttin.bmp"
+IDC_GAME4               BITMAP  DISCARDABLE     "buttout.bmp"
+IDC_GAME4x              BITMAP  DISCARDABLE     "buttin.bmp"
+IDC_GAME5               BITMAP  DISCARDABLE     "buttout.bmp"
+IDC_GAME5x              BITMAP  DISCARDABLE     "buttin.bmp"
+IDC_SLIDER_MIDIVOL      BITMAP  DISCARDABLE     "thumb.bmp"
+IDC_SLIDER_WAVVOL       BITMAP  DISCARDABLE     "thumb.bmp"
+IDC_START               BITMAP  DISCARDABLE     "startout.bmp"
+IDC_STARTx              BITMAP  DISCARDABLE     "startin.bmp"
+IDC_RESUME              BITMAP  DISCARDABLE     "resumeot.bmp"
+IDC_RESUMEx             BITMAP  DISCARDABLE     "resumein.bmp"
+IDC_CREDITS             BITMAP  DISCARDABLE     "creditot.bmp"
+IDC_CREDITSx            BITMAP  DISCARDABLE     "creditin.bmp"
+IDC_OPTIONS             BITMAP  DISCARDABLE     "optionot.bmp"
+IDC_OPTIONSx            BITMAP  DISCARDABLE     "optionin.bmp"
+IDC_NOT                 BITMAP  DISCARDABLE     "noout.bmp"
+IDC_NOTx                BITMAP  DISCARDABLE     "noin.bmp"
+IDC_YES                 BITMAP  DISCARDABLE     "yesout.bmp"
+IDC_YESx                BITMAP  DISCARDABLE     "yesin.bmp"
+IDC_RETURN              BITMAP  DISCARDABLE     "rtrnout.bmp"
+IDC_RETURNx             BITMAP  DISCARDABLE     "rtrnin.bmp"
+IDC_EXIT                BITMAP  DISCARDABLE     "exitout.bmp"
+IDC_EXITx               BITMAP  DISCARDABLE     "exitin.bmp"
+IDC_ZOOM                BITMAP  DISCARDABLE     "zoomout.bmp"
+IDC_ZOOMx               BITMAP  DISCARDABLE     "zoomin.bmp"
+IDC_SAVE                BITMAP  DISCARDABLE     "saveout.bmp"
+IDC_SAVEx               BITMAP  DISCARDABLE     "savein.bmp"
+IDC_CANCEL              BITMAP  DISCARDABLE     "cancelot.bmp"
+IDC_CANCELx             BITMAP  DISCARDABLE     "cancelin.bmp"
+IDC_QUIT                BITMAP  DISCARDABLE     "quitout.bmp"
+IDC_QUITx               BITMAP  DISCARDABLE     "quitin.bmp"
+IDC_HUD1                BITMAP  DISCARDABLE     "hudblank.bmp"
+IDC_HUD2                BITMAP  DISCARDABLE     "hudblank.bmp"
+IDC_HUD3                BITMAP  DISCARDABLE     "hudblank.bmp"
+IDC_HUD4                BITMAP  DISCARDABLE     "hudblank.bmp"
+IDC_HUD5                BITMAP  DISCARDABLE     "hudblank.bmp"
+IDC_HUDOPP1             BITMAP  DISCARDABLE     "hudblank.bmp"
+IDC_HUDOPP2             BITMAP  DISCARDABLE     "hudblank.bmp"
+IDC_HUDOPP3             BITMAP  DISCARDABLE     "hudblank.bmp"
+IDC_HUDOPP4             BITMAP  DISCARDABLE     "hudblank.bmp"
+IDC_HUDOPP5             BITMAP  DISCARDABLE     "hudblank.bmp"
+IDC_HUDENR_W            BITMAP  DISCARDABLE     "hudenr_w.bmp"
+IDC_HUDENR_S            BITMAP  DISCARDABLE     "hudenr_s.bmp"
+IDC_HUDBAR_W            BITMAP  DISCARDABLE     "hudbar_w.bmp"
+IDC_HUDBAR_S            BITMAP  DISCARDABLE     "hudbar_s.bmp"
+IDC_HUDAMMO             BITMAP  DISCARDABLE     "hudammo.bmp"
+IDC_HUDROCK             BITMAP  DISCARDABLE     "hudrock.bmp"
+IDC_HUDMINE             BITMAP  DISCARDABLE     "hudmine.bmp"
+IDC_HUDENTRY            BITMAP  DISCARDABLE     "hudentry.bmp"
+IDC_HUDEXIT             BITMAP  DISCARDABLE     "hudexit.bmp"
+IDC_ENERGY              BITMAP  DISCARDABLE     "energy_a.bmp"
+IDC_ENERGYx             BITMAP  DISCARDABLE     "energy_b.bmp"
+IDC_ENERGYDIGITA        BITMAP  DISCARDABLE     "nodigit.bmp"
+IDC_ENERGYDIGITB        BITMAP  DISCARDABLE     "nodigit.bmp"
+IDC_ENERGYDIGITC        BITMAP  DISCARDABLE     "nodigit.bmp"
+IDC_WEAPON              BITMAP  DISCARDABLE     "hiliSCRAP.bmp"
+IDC_WEAPON1             BITMAP  DISCARDABLE     "hiliSCRAP.bmp"
+IDC_WEAPON2             BITMAP  DISCARDABLE     "hiliMGN.bmp"
+IDC_WEAPON3             BITMAP  DISCARDABLE     "hiliMISL.bmp"
+IDC_WEAPON4             BITMAP  DISCARDABLE     "hiliLSR.bmp"
+IDC_WEAPON5             BITMAP  DISCARDABLE     "hiliMINE.bmp"
+IDC_WEAPON6				BITMAP  DISCARDABLE     "hiliJACK.bmp"
+IDC_WEAPON7				BITMAP  DISCARDABLE     "hiliLR.bmp"
+IDC_WEAPON8             BITMAP  DISCARDABLE     "hiliBOMB.bmp"
+IDC_WEAPON9				BITMAP  DISCARDABLE		"hiliTHMP.bmp"
+IDC_VOLUME0             BITMAP  DISCARDABLE     "volume4.bmp"
+IDC_VOLUME1             BITMAP  DISCARDABLE     "volume1.bmp"
+IDC_VOLUME2             BITMAP  DISCARDABLE     "volume2.bmp"
+IDC_VOLUME3             BITMAP  DISCARDABLE     "volume3.bmp"
+IDC_VOLUME4             BITMAP  DISCARDABLE     "volume0.bmp"
+IDC_COLLECT01           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT02           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT03           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT04           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT05           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT06           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT07           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT08           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT09           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT10           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT11           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_COLLECT12           BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_L01_OPP1            BITMAP  DISCARDABLE     "opp1_1.bmp"
+IDC_L01_OPP2            BITMAP  DISCARDABLE     "opp1_2.bmp"
+IDC_L01_OPP3            BITMAP  DISCARDABLE     "opp1_3.bmp"
+IDC_L01_OPP4            BITMAP  DISCARDABLE     "opp1_4.bmp"
+IDC_L01_OPP5            BITMAP  DISCARDABLE     "opp1_5.bmp"
+IDC_L01_OPP6            BITMAP  DISCARDABLE     "opp1_6.bmp"
+IDC_L01_OPP7            BITMAP  DISCARDABLE     "opp1_7.bmp"
+IDC_L01_OPP8            BITMAP  DISCARDABLE     "opp1_8.bmp"
+IDC_L01_OPP9            BITMAP  DISCARDABLE     "opp1_9.bmp"
+IDC_L02_OPP1            BITMAP  DISCARDABLE     "opp1_1.bmp"
+IDC_L02_OPP2            BITMAP  DISCARDABLE     "opp1_2.bmp"
+IDC_L02_OPP3            BITMAP  DISCARDABLE     "opp1_3.bmp"
+IDC_L02_OPP4            BITMAP  DISCARDABLE     "opp1_4.bmp"
+IDC_L02_OPP5            BITMAP  DISCARDABLE     "opp1_5.bmp"
+IDC_L02_OPP6            BITMAP  DISCARDABLE     "opp1_6.bmp"
+IDC_L02_OPP7            BITMAP  DISCARDABLE     "opp1_7.bmp"
+IDC_L02_OPP8            BITMAP  DISCARDABLE     "opp1_8.bmp"
+IDC_L02_OPP9            BITMAP  DISCARDABLE     "opp1_9.bmp"
+IDC_L03_OPP1            BITMAP  DISCARDABLE     "opp1_1.bmp"
+IDC_L03_OPP2            BITMAP  DISCARDABLE     "opp1_2.bmp"
+IDC_L03_OPP3            BITMAP  DISCARDABLE     "opp1_3.bmp"
+IDC_L03_OPP4            BITMAP  DISCARDABLE     "opp1_4.bmp"
+IDC_L03_OPP5            BITMAP  DISCARDABLE     "opp1_5.bmp"
+IDC_L03_OPP6            BITMAP  DISCARDABLE     "opp1_6.bmp"
+IDC_L03_OPP7            BITMAP  DISCARDABLE     "opp1_7.bmp"
+IDC_L03_OPP8            BITMAP  DISCARDABLE     "opp1_8.bmp"
+IDC_L03_OPP9            BITMAP  DISCARDABLE     "opp1_9.bmp"
+IDC_L04_OPP1            BITMAP  DISCARDABLE     "opp1_1.bmp"
+IDC_L04_OPP2            BITMAP  DISCARDABLE     "opp1_2.bmp"
+IDC_L04_OPP3            BITMAP  DISCARDABLE     "opp1_3.bmp"
+IDC_L04_OPP4            BITMAP  DISCARDABLE     "opp1_4.bmp"
+IDC_L04_OPP5            BITMAP  DISCARDABLE     "opp1_5.bmp"
+IDC_L04_OPP6            BITMAP  DISCARDABLE     "opp1_6.bmp"
+IDC_L04_OPP7            BITMAP  DISCARDABLE     "opp1_7.bmp"
+IDC_L04_OPP8            BITMAP  DISCARDABLE     "opp1_8.bmp"
+IDC_L04_OPP9            BITMAP  DISCARDABLE     "opp1_9.bmp"
+IDC_L05_OPP1            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L05_OPP2            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L05_OPP3            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L05_OPP4            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L05_OPP5            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L05_OPP6            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L05_OPP7            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L05_OPP8            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L05_OPP9            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L06_OPP1            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L06_OPP2            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L06_OPP3            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L06_OPP4            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L06_OPP5            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L06_OPP6            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L06_OPP7            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L06_OPP8            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L06_OPP9            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L07_OPP1            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L07_OPP2            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L07_OPP3            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L07_OPP4            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L07_OPP5            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L07_OPP6            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L07_OPP7            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L07_OPP8            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L07_OPP9            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L08_OPP1            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L08_OPP2            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L08_OPP3            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L08_OPP4            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L08_OPP5            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L08_OPP6            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L08_OPP7            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L08_OPP8            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L08_OPP9            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L09_OPP1            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L09_OPP2            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L09_OPP3            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L09_OPP4            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L09_OPP5            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L09_OPP6            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L09_OPP7            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L09_OPP8            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L09_OPP9            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L10_OPP1            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L10_OPP2            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L10_OPP3            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L10_OPP4            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L10_OPP5            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L10_OPP6            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L10_OPP7            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L10_OPP8            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L10_OPP9            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L11_OPP1            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L11_OPP2            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L11_OPP3            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L11_OPP4            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L11_OPP5            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L11_OPP6            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L11_OPP7            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L11_OPP8            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L11_OPP9            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L12_OPP1            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L12_OPP2            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L12_OPP3            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L12_OPP4            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L12_OPP5            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L12_OPP6            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L12_OPP7            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L12_OPP8            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L12_OPP9            BITMAP  DISCARDABLE     "oppblank.bmp"
+IDC_L01_COL1            BITMAP  DISCARDABLE     "col01_01.bmp"
+IDC_L02_COL1            BITMAP  DISCARDABLE     "col02_01.bmp"
+IDC_L02_COL2            BITMAP  DISCARDABLE     "col02_02.bmp"
+IDC_L03_COL1            BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_L04_COL1            BITMAP  DISCARDABLE     "col04_01.bmp"
+IDC_L04_COL2            BITMAP  DISCARDABLE     "col04_02.bmp"
+IDC_L04_COL3            BITMAP  DISCARDABLE     "col04_03.bmp"
+IDC_L04_COL4            BITMAP  DISCARDABLE     "col04_04.bmp"
+IDC_L04_COL5            BITMAP  DISCARDABLE     "col04_05.bmp"
+IDC_L04_COL6            BITMAP  DISCARDABLE     "col04_06.bmp"
+IDC_L05_COL1            BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_L06_COL1            BITMAP  DISCARDABLE     "col06_01.bmp"
+IDC_L06_COL2            BITMAP  DISCARDABLE     "col06_02.bmp"
+IDC_L06_COL3            BITMAP  DISCARDABLE     "col06_03.bmp"
+IDC_L06_COL4            BITMAP  DISCARDABLE     "col06_04.bmp"
+IDC_L06_COL5            BITMAP  DISCARDABLE     "col06_05.bmp"
+IDC_L06_COL6            BITMAP  DISCARDABLE     "col06_06.bmp"
+IDC_L06_COL7            BITMAP  DISCARDABLE     "col06_07.bmp"
+IDC_L07_COL1            BITMAP  DISCARDABLE     "col07_01.bmp"
+IDC_L07_COL2            BITMAP  DISCARDABLE     "col07_02.bmp"
+IDC_L07_COL3            BITMAP  DISCARDABLE     "col07_03.bmp"
+IDC_L07_COL4            BITMAP  DISCARDABLE     "col07_04.bmp"
+IDC_L07_COL5            BITMAP  DISCARDABLE     "col07_05.bmp"
+IDC_L08_COL1            BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_L09_COL1            BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_L10_COL1            BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_L11_COL1            BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_L12_COL1            BITMAP  DISCARDABLE     "colblank.bmp"
+IDC_ROCKET00            BITMAP  PRELOAD MOVEABLE PURE "scrnrkt.bmp"
+//IDC_ROCKET01            BITMAP  PRELOAD MOVEABLE PURE "r0035.bmp"
+//IDC_ROCKET02            BITMAP  PRELOAD MOVEABLE PURE "r0036.bmp"
+//IDC_ROCKET03            BITMAP  PRELOAD MOVEABLE PURE "r0037.bmp"
+//IDC_ROCKET04            BITMAP  PRELOAD MOVEABLE PURE "r0038.bmp"
+//IDC_ROCKET05            BITMAP  PRELOAD MOVEABLE PURE "r0039.bmp"
+
+// Generic 'hit' explosions
+IDC_EXP1FR00			BITMAP  PRELOAD MOVEABLE PURE "exp100.bmp"  // Explosion 1 frame 0
+IDC_EXP2FR00			BITMAP  PRELOAD MOVEABLE PURE "exp200.bmp"  // Explosion 2 frame 0
+IDC_EXP3FR00			BITMAP  PRELOAD MOVEABLE PURE "exp300.bmp"  // Explosion 3 frame 0
+IDC_EXP1FR01			BITMAP  PRELOAD MOVEABLE PURE "exp101.bmp"  // Explosion 1 frame 1
+IDC_EXP2FR01			BITMAP  PRELOAD MOVEABLE PURE "exp201.bmp"  // Explosion 2 frame 1
+IDC_EXP3FR01			BITMAP  PRELOAD MOVEABLE PURE "exp301.bmp"  // Explosion 3 frame 1
+IDC_EXP1FR02			BITMAP  PRELOAD MOVEABLE PURE "exp102.bmp"  // Explosion 1 frame 2
+IDC_EXP2FR02			BITMAP  PRELOAD MOVEABLE PURE "exp202.bmp"  // Explosion 2 frame 2
+IDC_EXP3FR02			BITMAP  PRELOAD MOVEABLE PURE "exp302.bmp"  // Explosion 3 frame 2
+IDC_EXP1FR03			BITMAP  PRELOAD MOVEABLE PURE "exp103.bmp"  // Explosion 1 frame 3
+IDC_EXP2FR03			BITMAP  PRELOAD MOVEABLE PURE "exp203.bmp"  // Explosion 2 frame 3
+IDC_EXP3FR03			BITMAP  PRELOAD MOVEABLE PURE "exp303.bmp"  // Explosion 3 frame 3
+
+// Generic miss explostion
+IDC_EXPMISS00			BITMAP  PRELOAD MOVEABLE PURE "exp500.bmp"  // Miss Explosion frame 0
+IDC_EXPMISS01			BITMAP  PRELOAD MOVEABLE PURE "exp501.bmp"  // Miss Explosion frame 1
+IDC_EXPMISS02			BITMAP  PRELOAD MOVEABLE PURE "exp502.bmp"  // Miss Explosion frame 2
+IDC_EXPMISS03			BITMAP  PRELOAD MOVEABLE PURE "exp503.bmp"  // Miss Explosion frame 3
+
+// Laser 'hit' explosion
+IDC_LBIGEXP00           BITMAP  PRELOAD MOVEABLE PURE "exp400.bmp"
+IDC_LBIGEXP01           BITMAP  PRELOAD MOVEABLE PURE "exp401.bmp"
+IDC_LBIGEXP02           BITMAP  PRELOAD MOVEABLE PURE "exp402.bmp"
+IDC_LBIGEXP03           BITMAP  PRELOAD MOVEABLE PURE "exp403.bmp"
+
+// Laser 'miss' explosion
+IDC_LEXPLODE0           BITMAP  PRELOAD MOVEABLE PURE "exp601.bmp"
+IDC_LEXPLODE1           BITMAP  PRELOAD MOVEABLE PURE "exp602.bmp"
+IDC_LEXPLODE2           BITMAP  PRELOAD MOVEABLE PURE "exp603.bmp"
+
+IDC_LBURST00            BITMAP  PRELOAD MOVEABLE PURE "lburst0.bmp"
+IDC_LBURST01            BITMAP  PRELOAD MOVEABLE PURE "lburst1.bmp"
+IDC_LBURST02            BITMAP  PRELOAD MOVEABLE PURE "lburst2.bmp"
+IDC_GUNSPARK00          BITMAP  PRELOAD MOVEABLE PURE "sprk0001.bmp"
+IDC_GUNSPARK01          BITMAP  PRELOAD MOVEABLE PURE "sprk0002.bmp"
+IDC_GUNSPARK02          BITMAP  PRELOAD MOVEABLE PURE "sprk0003.bmp"
+IDC_GUNSPARK03          BITMAP  PRELOAD MOVEABLE PURE "sprk0004.bmp"
+IDC_BCRACK1             BITMAP  PRELOAD MOVEABLE PURE "bcrack1.bmp"
+IDC_BCRACK2             BITMAP  PRELOAD MOVEABLE PURE "bcrack2.bmp"
+IDC_AMMODIGITA          BITMAP  DISCARDABLE     "nodigit.bmp"
+IDC_AMMODIGITB          BITMAP  DISCARDABLE     "nodigit.bmp"
+IDC_AMMODIGITC          BITMAP  DISCARDABLE     "nodigit.bmp"
+IDC_NODIGIT             BITMAP  DISCARDABLE     "nodigit.bmp"
+IDC_DIGIT0              BITMAP  DISCARDABLE     "digit0.bmp"
+IDC_DIGIT1              BITMAP  DISCARDABLE     "digit1.bmp"
+IDC_DIGIT2              BITMAP  DISCARDABLE     "digit2.bmp"
+IDC_DIGIT3              BITMAP  DISCARDABLE     "digit3.bmp"
+IDC_DIGIT4              BITMAP  DISCARDABLE     "digit4.bmp"
+IDC_DIGIT5              BITMAP  DISCARDABLE     "digit5.bmp"
+IDC_DIGIT6              BITMAP  DISCARDABLE     "digit6.bmp"
+IDC_DIGIT7              BITMAP  DISCARDABLE     "digit7.bmp"
+IDC_DIGIT8              BITMAP  DISCARDABLE     "digit8.bmp"
+IDC_DIGIT9              BITMAP  DISCARDABLE     "digit9.bmp"
+IDC_AMMOTYPE			BITMAP  DISCARDABLE     "r_scrap.bmp"
+IDC_AMMOTYPE1			BITMAP  DISCARDABLE     "r_scrap.bmp"
+IDC_AMMOTYPE2           BITMAP  DISCARDABLE     "r_rounds.bmp"
+IDC_AMMOTYPE3           BITMAP  DISCARDABLE     "r_missle.bmp"
+IDC_AMMOTYPE4           BITMAP  DISCARDABLE     "r_lasers.bmp"
+IDC_AMMOTYPE5           BITMAP  DISCARDABLE     "r_mines.bmp"
+IDC_AMMOTYPE6           BITMAP  DISCARDABLE     "r_jacks.bmp"
+IDC_AMMOTYPE7           BITMAP  DISCARDABLE     "r_leroi.bmp"
+IDC_AMMOTYPE8           BITMAP  DISCARDABLE     "r_bombs.bmp"
+IDC_AMMOTYPE9           BITMAP  DISCARDABLE     "r_thump.bmp"
+IDC_OPTSTATE1           BITMAP  DISCARDABLE     "gry_off.bmp"
+IDC_OPTSTATE1x          BITMAP  DISCARDABLE     "red_on.bmp"
+IDC_OPTSTATE2           BITMAP  DISCARDABLE     "gry_std.bmp"
+IDC_OPTSTATE2x          BITMAP  DISCARDABLE     "red_auto.bmp"
+IDC_OPTSTATE3           BITMAP  DISCARDABLE     "gry_off.bmp"
+IDC_OPTSTATE3x          BITMAP  DISCARDABLE     "red_on.bmp"
+IDC_OPTSTATE4           BITMAP  DISCARDABLE     "gry_off.bmp"
+IDC_OPTSTATE4x          BITMAP  DISCARDABLE     "red_on.bmp"
+IDC_OPTSTATE5           BITMAP  DISCARDABLE     "gry_off.bmp"
+IDC_OPTSTATE5x          BITMAP  DISCARDABLE     "red_on.bmp"
+IDC_OPTION1             BITMAP  DISCARDABLE     "breaker1.bmp"
+IDC_OPTION1x            BITMAP  DISCARDABLE     "breaker1x.bmp"
+IDC_OPTION2             BITMAP  DISCARDABLE     "breaker2.bmp"
+IDC_OPTION2x            BITMAP  DISCARDABLE     "breaker2x.bmp"
+IDC_OPTION3             BITMAP  DISCARDABLE     "breaker3.bmp"
+IDC_OPTION3x            BITMAP  DISCARDABLE     "breaker3x.bmp"
+IDC_OPTION4             BITMAP  DISCARDABLE     "breaker4.bmp"
+IDC_OPTION4x            BITMAP  DISCARDABLE     "breaker4x.bmp"
+IDC_OPTION5             BITMAP  DISCARDABLE     "breaker5.bmp"
+IDC_OPTION5x            BITMAP  DISCARDABLE     "breaker5x.bmp"
+IDC_KILL1               BITMAP  DISCARDABLE     "skull1.bmp"
+IDC_KILL2               BITMAP  DISCARDABLE     "skull1.bmp"
+IDC_KILL3               BITMAP  DISCARDABLE     "skull1.bmp"
+IDC_KILL4               BITMAP  DISCARDABLE     "skull1.bmp"
+IDC_KILL5               BITMAP  DISCARDABLE     "skull1.bmp"
+IDC_KILL6               BITMAP  DISCARDABLE     "skull1.bmp"
+IDC_KILL7               BITMAP  DISCARDABLE     "skull1.bmp"
+IDC_KILL8               BITMAP  DISCARDABLE     "skull1.bmp"
+IDC_KILL9               BITMAP  DISCARDABLE     "skull1.bmp"
+IDC_KILL10              BITMAP  DISCARDABLE     "skull10.bmp"
+IDC_KILL20              BITMAP  DISCARDABLE     "skull10.bmp"
+IDC_KILL30              BITMAP  DISCARDABLE     "skull10.bmp"
+IDC_KILL40              BITMAP  DISCARDABLE     "skull10.bmp"
+IDC_KILL50              BITMAP  DISCARDABLE     "skull10.bmp"
+IDC_KILL60              BITMAP  DISCARDABLE     "skull10.bmp"
+IDC_KILL70              BITMAP  DISCARDABLE     "skull10.bmp"
+IDC_KILL80              BITMAP  DISCARDABLE     "skull10.bmp"
+IDC_KILL90              BITMAP  DISCARDABLE     "skull10.bmp"
+IDC_KILL100             BITMAP  DISCARDABLE     "skull100.bmp"
+IDC_KILL200             BITMAP  DISCARDABLE     "skull100.bmp"
+IDC_KILL300             BITMAP  DISCARDABLE     "skull100.bmp"
+IDC_KILL400             BITMAP  DISCARDABLE     "skull100.bmp"
+IDC_FFDONUT01           BITMAP  PRELOAD MOVEABLE PURE "shexp01.bmp"
+IDC_FFDONUT02           BITMAP  PRELOAD MOVEABLE PURE "shexp02.bmp"
+IDC_FFDONUT03           BITMAP  PRELOAD MOVEABLE PURE "shexp03.bmp"
+IDC_FFDONUT04           BITMAP  PRELOAD MOVEABLE PURE "shexp04.bmp"
+//IDC_FFDONUT05           BITMAP  PRELOAD MOVEABLE PURE "shexp05.bmp"
+//IDC_FFDONUT06           BITMAP  PRELOAD MOVEABLE PURE "shexp06.bmp"
+//IDC_FFDONUT01           BITMAP  PRELOAD MOVEABLE PURE "ff01.bmp"
+//IDC_FFDONUT02           BITMAP  PRELOAD MOVEABLE PURE "ff02.bmp"
+//IDC_FFDONUT03           BITMAP  PRELOAD MOVEABLE PURE "ff03.bmp"
+//IDC_FFDONUT04           BITMAP  PRELOAD MOVEABLE PURE "ff04.bmp"
+IDC_SPINEKILL00			BITMAP  PRELOAD MOVEABLE PURE "spine00.bmp"
+IDC_SPINEKILL01			BITMAP  PRELOAD MOVEABLE PURE "spine01.bmp"
+IDC_SPINEKILL02			BITMAP  PRELOAD MOVEABLE PURE "spine02.bmp"
+IDC_JACK00				BITMAP  PRELOAD MOVEABLE PURE "jack0000.bmp"
+IDC_JACK01				BITMAP  PRELOAD MOVEABLE PURE "jack0001.bmp"
+IDC_JACK02				BITMAP  PRELOAD MOVEABLE PURE "jack0002.bmp"
+IDC_JACK03				BITMAP  PRELOAD MOVEABLE PURE "jack0003.bmp"
+IDC_JACK04				BITMAP  PRELOAD MOVEABLE PURE "jack0004.bmp"
+IDC_JACK05				BITMAP  PRELOAD MOVEABLE PURE "jack0005.bmp"
+IDC_LEROY0				BITMAP  PRELOAD MOVEABLE PURE "leroi0.bmp" 
+IDC_LEROY1				BITMAP  PRELOAD MOVEABLE PURE "leroi1.bmp" 
+IDC_LEROY2				BITMAP  PRELOAD MOVEABLE PURE "leroi2.bmp" 
+IDC_LEROY3				BITMAP  PRELOAD MOVEABLE PURE "leroi3.bmp" 
+IDC_LEROY4				BITMAP  PRELOAD MOVEABLE PURE "leroi4.bmp" 
+IDC_THUMP0				BITMAP  PRELOAD MOVEABLE PURE "thumper.bmp"
+
+IDC_RADAR_CAR01			BITMAP  PRELOAD MOVEABLE PURE "rdr_car01.bmp"
+IDC_RADAR_CAR02			BITMAP  PRELOAD MOVEABLE PURE "rdr_car02.bmp"
+IDC_RADAR_CAR03			BITMAP  PRELOAD MOVEABLE PURE "rdr_car03.bmp"
+IDC_RADAR_CAR04			BITMAP  PRELOAD MOVEABLE PURE "rdr_car04.bmp"
+IDC_RADAR_CAR05			BITMAP  PRELOAD MOVEABLE PURE "rdr_car05.bmp"
+IDC_RADAR_CAR06			BITMAP  PRELOAD MOVEABLE PURE "rdr_car06.bmp"
+IDC_RADAR_CAR07			BITMAP  PRELOAD MOVEABLE PURE "rdr_car07.bmp"
+IDC_RADAR_CAR08			BITMAP  PRELOAD MOVEABLE PURE "rdr_car08.bmp"
+IDC_RADAR_CAR09			BITMAP  PRELOAD MOVEABLE PURE "rdr_car09.bmp"
+IDC_RADAR_CAR10			BITMAP  PRELOAD MOVEABLE PURE "rdr_car10.bmp"
+IDC_RADAR_CAR11			BITMAP  PRELOAD MOVEABLE PURE "rdr_car11.bmp"
+IDC_RADAR_CAR12			BITMAP  PRELOAD MOVEABLE PURE "rdr_car12.bmp"
+IDC_RADAR_HEX	        BITMAP  PRELOAD MOVEABLE PURE "rdr_hex0.bmp"
+IDC_RADAR_UNJ	        BITMAP  PRELOAD MOVEABLE PURE "rdr_unj0.bmp"
+IDC_RADAR_BLACKHOLE		BITMAP  PRELOAD MOVEABLE PURE "rdr_blackhole.bmp"
+IDC_RADAR_RADIATION		BITMAP  PRELOAD MOVEABLE PURE "rdr_radiation.bmp"
+IDC_RADAR_OPPGENERATOR	BITMAP  PRELOAD MOVEABLE PURE "rdr_oppgen.bmp"
+IDC_RADAR_SAFECELL		BITMAP  PRELOAD MOVEABLE PURE "rdr_safe.bmp"
+IDC_RADAR_10TO4TUNNEL	BITMAP  PRELOAD MOVEABLE PURE "rdr_10to4.bmp"
+IDC_RADAR_2TO8TUNNEL	BITMAP  PRELOAD MOVEABLE PURE "rdr_2to8.bmp"
+IDC_RADAR_VERTTUNNEL	BITMAP  PRELOAD MOVEABLE PURE "rdr_vert.bmp"
+IDC_RADAR_ENERGY		BITMAP  PRELOAD MOVEABLE PURE "rdr_energy.bmp"
+IDC_RADAR_BARRICADE		BITMAP  PRELOAD MOVEABLE PURE "rdr_barr.bmp"
+IDC_RADAR_CUL			BITMAP  PRELOAD MOVEABLE PURE "rdr_cul.bmp"
+IDC_RADAR_CUL_EMPTY		BITMAP  PRELOAD MOVEABLE PURE "rdr_empty.bmp"
+IDC_RADAR_CUL_ENTRY		BITMAP  PRELOAD MOVEABLE PURE "rdr_entry.bmp"
+IDC_RADAR_CUL_EXIT		BITMAP  PRELOAD MOVEABLE PURE "rdr_exit.bmp"
+IDC_RADAR_CUL_COLLECT	BITMAP  PRELOAD MOVEABLE PURE "rdr_collect.bmp"
+IDC_RADAR_CUL_AMMO		BITMAP  PRELOAD MOVEABLE PURE "rdr_ammo.bmp"
+IDC_RADAR_CUL_SWITCH	BITMAP  PRELOAD MOVEABLE PURE "rdr_switch.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// WAVE
+//
+
+IDC_ROCKETSND           WAVE    PRELOAD MOVEABLE PURE "12rcktln.wav"
+IDC_EXPLSMSND           WAVE    PRELOAD MOVEABLE PURE "expsmall.wav"
+IDC_EXPLBGSND           WAVE    PRELOAD MOVEABLE PURE "2112pwkx.wav"
+IDC_LASERBOMBSND        WAVE    PRELOAD MOVEABLE PURE "13lsrfsn.wav"
+IDC_LASEREXPBG          WAVE    PRELOAD MOVEABLE PURE "lexpbig.wav"
+IDC_LASEREXPSM          WAVE    PRELOAD MOVEABLE PURE "lexpsmal.wav"
+IDC_SHOTSND             WAVE    PRELOAD MOVEABLE PURE "112mchng.wav"
+IDC_CRACKSND			WAVE	PRELOAD MOVEABLE PURE "341wndsh.wav"
+IDC_MGUNSND             WAVE    PRELOAD MOVEABLE PURE "111mchng.wav"
+IDC_TURNSND             WAVE    PRELOAD MOVEABLE PURE "turn.wav"
+IDC_TURNSND180          WAVE    PRELOAD MOVEABLE PURE "turn180.wav"
+IDC_MUSIC1              WAVE    PRELOAD MOVEABLE PURE "driver11.wav"
+IDC_OPPIN               WAVE    PRELOAD MOVEABLE PURE "oppin.wav"
+//IDC_TAUNT01             WAVE    PRELOAD MOVEABLE PURE "am4x1f.wav"
+//IDC_TAUNT02             WAVE    PRELOAD MOVEABLE PURE "am6bx1a.wav"
+//IDC_TAUNT03             WAVE    PRELOAD MOVEABLE PURE "am7ex1a.wav"
+//IDC_TAUNT04             WAVE    PRELOAD MOVEABLE PURE "am9bx1a.wav"
+//IDC_TAUNT05             WAVE    PRELOAD MOVEABLE PURE "am14f.wav"
+//IDC_TAUNT06             WAVE    PRELOAD MOVEABLE PURE "am14x1b.wav"
+//IDC_PRAISE01            WAVE    PRELOAD MOVEABLE PURE "am10x1a.wav"
+//IDC_PRAISE02            WAVE    PRELOAD MOVEABLE PURE "am4x1a.wav"
+//IDC_PRAISE03            WAVE    PRELOAD MOVEABLE PURE "am5x1.wav"
+//IDC_PRAISE04            WAVE    PRELOAD MOVEABLE PURE "am12x1a.wav"
+//IDC_PRAISE05            WAVE    PRELOAD MOVEABLE PURE "am13dx1b.wav"
+//IDC_DEATH01             WAVE    PRELOAD MOVEABLE PURE "am4x1e.wav"
+IDCANCEL                WAVE    DISCARDABLE     "goodbye.wav"
+IDC_OPTSWITCH           WAVE    DISCARDABLE     "switch.wav"
+IDC_ENERGY1SND          WAVE    PRELOAD MOVEABLE PURE "energy1.wav"
+IDC_ENERGY2SND          WAVE    PRELOAD MOVEABLE PURE "41prtlnr.wav"
+IDC_PLAYCAR				WAVE    PRELOAD MOVEABLE PURE "carsound.wav"
+IDC_BOSSCAR				WAVE    PRELOAD MOVEABLE PURE "boss.wav"
+IDC_STRONGCAR			WAVE	PRELOAD MOVEABLE PURE "strong.wav"
+IDC_WEAKCAR				WAVE    PRELOAD MOVEABLE PURE "weak.wav"
+IDC_CARCRASHSND			WAVE    PRELOAD MOVEABLE PURE "71crshth.wav"
+IDC_WALLCRASHSND		WAVE    PRELOAD MOVEABLE PURE "71crshth.wav"
+IDC_JACKSND				WAVE    PRELOAD MOVEABLE PURE "jack.wav"
+IDC_JACKATTSND			WAVE    PRELOAD MOVEABLE PURE "jackatt.wav"
+IDC_MINEBEEPSND			WAVE    PRELOAD MOVEABLE PURE "minebeep.wav"
+IDC_MINELAUNCHSND		WAVE    PRELOAD MOVEABLE PURE "minelnch.wav"
+IDC_SPINELAUNCHSND		WAVE    PRELOAD MOVEABLE PURE "spklnch.wav"
+IDC_PORTALSND			WAVE    PRELOAD MOVEABLE PURE "portal.wav"
+IDC_NOTURNSND			WAVE    PRELOAD MOVEABLE PURE "wallcrsh.wav"
+IDC_SCRAPGUNSND			WAVE    PRELOAD MOVEABLE PURE "scrap1.wav"
+IDC_LEROIFLOATSND		WAVE	PRELOAD MOVEABLE PURE "lrfloat.wav"
+IDC_LEROIATTACKSND		WAVE	PRELOAD MOVEABLE PURE "lrgrowl.wav"
+IDC_THUMPERLAUNCHSND    WAVE    PRELOAD MOVEABLE PURE "thmplnch.wav"
+IDC_THUMPEREXPSND		WAVE    PRELOAD MOVEABLE PURE "thumpexp.wav"
+IDC_SWITCHSND			WAVE    PRELOAD MOVEABLE PURE "swtchof8.wav"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Data
+//
+
+IDC_VIDEO RCDATA DISCARDABLE 
+BEGIN
+    "\000" 
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CLASS               "collision"
+    IDS_TITLE               "Collision by Powerhouse Entertainment"
+    IDS_INI                 "cllsn.ini"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "scenes.hxx"
+
+#ifdef _DEBUG
+          #include "wdebug.rc"
+          #include "author.rc"
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

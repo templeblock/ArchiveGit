@@ -1,0 +1,9 @@
+// Source file: brushup.c
+int TextureProc( HWND hWindow, LPARAM lParam, UINT msg );
+void DisplayBrush(HWND hWnd, int x, int y, BOOL on );
+BOOL DisplayBrushEx(HWND hWnd, int x, int y, BOOL on, LPRECT lpOffRect );
+static void WinBrush( HWND hWnd, HDC hDC, LPRECT lpRect, int flag, int fTickMarks, int shape, LFIXED DispRate );
+void SaveRetouchBrush( ITEMID idItem );
+void SelectRetouchBrush( ITEMID idItem );
+int GetBrushIndex( ITEMID idItem );
+

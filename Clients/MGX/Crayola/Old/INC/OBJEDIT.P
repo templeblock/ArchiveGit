@@ -1,0 +1,20 @@
+// Source file: objedit.c
+BOOL ImgEditInit( LPIMAGE lpImage, EDIT_TARGET Target, UNDO_TYPE UndoType, LPOBJECT lpTargetObject);
+void ImgEditApplyAll( LPIMAGE lpImage, BOOL fApplyData, BOOL fApplyAlpha );
+void ImgEditApply( LPIMAGE lpImage );
+void ImgEditUndo( LPIMAGE lpImage, BOOL fEditUndo, BOOL fMaskUndo );
+static void AnimateUndo( LPRECT lpUndoRect );
+void ImgEditMaskUndo( LPIMAGE lpImage );
+BOOL ImgEditRecover( LPIMAGE lpImage );
+void ImgEditedObject(LPIMAGE lpImage, LPOBJECT lpObject, int iDirty, LPRECT lpEditRect);
+void ImgEditedObjectFrame(LPIMAGE lpImage, LPOBJECT lpObject, int iDirty, LPRECT lpEditRect, LPFRAME lpDataFrame, LPFRAME lpAlphaFrame);
+static BOOL ObjEditInit(LPIMAGE lpImage, LPOBJECT lpObject, UNDO_TYPE UndoType);
+static void ObjEditUndo(LPIMAGE lpImage, LPOBJECT lpObject, BOOL fUndoData, BOOL fUndoAlpha);
+void ObjEditApply(LPIMAGE lpImage, LPOBJECT lpObject, BOOL fApplyData, BOOL fApplyAlpha, BOOL fInitFrame);
+void ObjEditFree( LPOBJECT lpObject );
+void ObjEditFreeUndo( LPOBJECT lpObject, BOOL fFreeData, BOOL fFreeAlpha );
+static BOOL ObjEditUndoDiscardable( LPOBJECT lpObject, BOOL fCheckData, BOOL fCheckAlpha );
+static BOOL ObjEditDiscardUndoCheck( LPOBJECT lpObject, BOOL fCheckData, BOOL fCheckAlpha );
+void SetupMiniViews(HWND hDlg, BOOL fSelectChange);
+
+

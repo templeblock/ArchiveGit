@@ -1,0 +1,192 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "res_author.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include <winres.h>
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "res_author.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include <winres.h>\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_AUTHOR_DIALOG DIALOGEX 0, 0, 492, 225
+STYLE DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Collision Author"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Shot Edit",IDC_STATIC,210,5,210,80
+    EDITTEXT        IDC_PLAYERGATE,220,35,20,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OPP1TYPE,265,35,15,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OPP1POS,285,35,15,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OPP2TYPE,305,35,15,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OPP2POS,325,35,15,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OPP3TYPE,345,35,15,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OPP3POS,365,35,15,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SPECIAL,390,35,15,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SHOT,215,65,170,15,ES_AUTOHSCROLL
+    COMBOBOX        IDC_EVENTS,10,151,50,75,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Event:",IDC_STATIC,10,140,30,10
+    GROUPBOX        "Events",IDC_STATIC,5,130,165,55
+    LTEXT           "Shot:",IDC_STATIC,60,140,30,10
+    EDITTEXT        IDC_EVENTSHOT,60,151,104,12,ES_AUTOHSCROLL
+    GROUPBOX        "Video",IDC_STATIC,335,130,90,30
+    PUSHBUTTON      "Play",IDC_PLAY,340,140,25,15
+    PUSHBUTTON      "Step >",IDC_STEPNEXT,395,140,25,15
+    PUSHBUTTON      "< Step",IDC_STEPPREV,370,140,25,15
+    PUSHBUTTON      "Test",IDC_TEST,100,165,25,15
+    LTEXT           "Description:",IDC_STATIC,210,90,45,10
+    EDITTEXT        IDC_DESCRIPTION,210,100,190,25,ES_MULTILINE | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Frames",IDC_STATIC,5,185,165,36
+    LTEXT           "Start:",IDC_STATIC,10,195,20,10
+    LTEXT           "End:",IDC_STATIC,55,195,20,10
+    EDITTEXT        IDC_STARTFRAME,10,205,40,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ENDFRAME,55,205,40,15,ES_AUTOHSCROLL
+    GROUPBOX        "Flags",IDC_STATIC,175,130,155,90
+    COMBOBOX        IDC_CELLTYPE,181,150,90,75,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Cell Type:",IDC_STATIC,181,140,60,10
+    LTEXT           "Shot Type:",IDC_STATIC,181,166,70,8
+    COMBOBOX        IDC_SHOTTYPE,180,175,90,65,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Shot Cell Position:",IDC_STATIC,181,190,70,10
+    COMBOBOX        IDC_CELLPOSITION,181,201,90,54,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Next",IDC_NEXTCELLTYPE,281,150,20,15
+    PUSHBUTTON      "Prev",IDC_PREVCELLTYPE,301,150,20,15
+    PUSHBUTTON      "Next",IDC_NEXTSHOTTYPE,281,175,20,15
+    PUSHBUTTON      "Prev",IDC_PREVSHOTTYPE,301,175,20,15
+    PUSHBUTTON      "Next",IDC_NEXTCELLPOS,281,201,20,15
+    PUSHBUTTON      "Prev",IDC_PREVCELLPOS,301,201,20,15
+    LTEXT           "View",IDC_STATIC,281,140,35,10
+    DEFPUSHBUTTON   "Save Rec",IDC_SHOTSAVE,430,10,50,14
+    DEFPUSHBUTTON   "Import from Excel",IDC_LOAD,435,195,50,24,BS_MULTILINE
+    CONTROL         "Tree1",IDC_SHOTLIST,"SysTreeView32",TVS_HASLINES | 
+                    TVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,5,10,135,115
+    LTEXT           "Shot List:",IDC_STATIC,5,0,70,10
+    PUSHBUTTON      "Update from Excel",IDC_UPDATE,435,105,50,20,
+                    BS_MULTILINE
+    GROUPBOX        "Looks",IDC_STATIC,145,5,60,115
+    CONTROL         "Normal",IDC_NORMAL,"Button",BS_AUTORADIOBUTTON,150,15,
+                    45,10
+    CONTROL         "Hell Cell",IDC_HELL,"Button",BS_AUTORADIOBUTTON,150,30,
+                    45,10
+    CONTROL         "Ice",IDC_ICE,"Button",BS_AUTORADIOBUTTON,150,45,45,10
+    PUSHBUTTON      "Export to Excel",IDC_EXPORT,435,170,50,20,BS_MULTILINE
+    LTEXT           "Full Shot Name:",IDC_STATIC,215,55,60,10
+    LTEXT           "Player Gate:",IDC_STATIC,215,20,40,10
+    LTEXT           "Opp. 1",IDC_STATIC,265,15,30,10
+    LTEXT           "Opp. 2",IDC_STATIC,305,15,30,10
+    LTEXT           "Opp. 3",IDC_STATIC,345,15,30,10
+    LTEXT           "type",IDC_STATIC,265,25,15,10
+    LTEXT           "pos",IDC_STATIC,285,25,17,10
+    LTEXT           "type",IDC_STATIC,305,25,15,10
+    LTEXT           "pos",IDC_STATIC,325,25,17,10
+    LTEXT           "type",IDC_STATIC,345,25,15,10
+    LTEXT           "pos",IDC_STATIC,365,25,17,10
+    LTEXT           "Special",IDC_STATIC,385,20,30,10
+    PUSHBUTTON      "Grab off",IDC_GRABMODE,45,165,45,15
+    PUSHBUTTON      "Grab It!",IDC_GRAB,10,165,30,15
+    PUSHBUTTON      "Save",IDC_SAVEEVENT,135,165,25,15
+    DEFPUSHBUTTON   "Save Table",IDC_SAVETABLE,430,30,50,14
+    PUSHBUTTON      "Set",IDC_SETNAME,390,65,25,15
+    EDITTEXT        IDC_SHOTFRAME,110,205,40,15,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Current:",IDC_STATIC,110,195,30,10
+    GROUPBOX        "Event Range",IDC_STATIC,335,165,95,55
+    EDITTEXT        IDC_RANGESTART,365,175,35,15,ES_AUTOHSCROLL
+    LTEXT           "Start:",IDC_STATIC,340,175,20,10
+    LTEXT           "End:",IDC_STATIC,340,200,20,10
+    EDITTEXT        IDC_RANGEEND,365,195,35,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set",IDC_SETSTARTRANGE,405,175,20,15
+    PUSHBUTTON      "Set",IDC_SETENDRANGE,405,195,20,15
+END
+
+IDD_SHOTSELECT DIALOG DISCARDABLE  0, 0, 227, 210
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Shot Selector"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Select",IDOK,170,20,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,170,40,50,14
+    CONTROL         "Tree1",IDC_SHOTS,"SysTreeView32",WS_BORDER | WS_TABSTOP,
+                    10,20,150,185
+    LTEXT           "Shot Pools:",IDC_STATIC,10,5,95,10
+    PUSHBUTTON      "Play Shot",IDC_PLAYSHOT,170,80,45,20
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_AUTHOR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 485
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 218
+    END
+
+    IDD_SHOTSELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 220
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+

@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'PAHContentMgr'
+		'PAHContentMgr.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

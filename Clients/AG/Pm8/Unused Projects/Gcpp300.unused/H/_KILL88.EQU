@@ -1,0 +1,30 @@
+;
+; _KILL88.EQU
+;
+; The Greenleaf Comm++ Library
+;
+; Copyright (C) 1991-95 Greenleaf Software Inc.  All Rights Reserved.
+;
+; NOTES
+;
+; This file contains the definitions that 16 bit real mode assembly
+; language should use to access the _asi_kill_time function.  Mostly,
+; this is done via the KILL_TIME macro.
+;
+; MODIFICATIONS
+;
+
+;KILL_TIME       MACRO
+;                LOCAL    LABEL_1
+;                JMP      SHORT LABEL_1
+;LABEL_1:
+;                ENDM
+
+
+                extrn _asi_kill_time:far
+
+KILL_TIME       MACRO
+                call  _asi_kill_time
+                ENDM
+
+

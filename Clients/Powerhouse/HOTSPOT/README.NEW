@@ -1,0 +1,51 @@
+
+README for new AVI Hotspot stuff
+---------------------------------------
+Wayne Radinsky, Microsoft MMDRG, 2 November 1993
+
+	What's New?
+	-------------
+
+The major new feature is the ability to see hotspots while
+the video is playing back while using Video for Windows 1.1.
+This is accomplished by means of a drawproc that draws red
+rectangles on top of the AVI.  If you don't have VFW 1.1, you
+should get a MessageBox telling you it can't install its drawproc,
+but everything else should work the same as before.
+
+The other new item is a hotspot VBX, which can fire VB events
+when hotspots are clicked.  It also has the capability of making
+the hotspots visible with the drawproc, and your VB app can change
+that on the fly.  A simple VB app ("hottst") is included with the
+VBX.
+
+The viewer DLL has also been modified to show hotspots.  This can't
+be changed at run-time, however; if you don't want the hotspots to
+show, use the old DLL.
+
+	Files
+	------
+
+There are 3 subdirectories: Editor, Viewer, and VBX.  If you're using
+Visual C++ you can just go into each dir and load the .MAK files (it
+will tell you that it's in a new directory).  If you're using C7, go
+into the .MAK file and change the directory to your directory, then
+make a "Makefile" that includes the .MAK file.  After that, you can
+use NMAKE to make the project, as usual.
+
+There's one AVI file, ANIMAT.AVI, in the VBX directory.  Copy it into
+the Viewer directory if you want to see the viewer demo.
+
+	BUGS
+	------
+
+Video for Windows gives the drawproc a "relative" frame number,
+which the drawproc interprets as absolute -- what this means is
+that sometimes the hotspots don't go with the frame being shown,
+but with the beginning of the video instead.  I originally thought
+this was an AVI bug, but when last I talked with the AVI folks they
+said it was intentional, so I need to add code that remembers what
+frame was seeked to every time a seek occurs, and makes that number
+available to the drawproc, which will add it to the frame number it
+gets from VFW.
+

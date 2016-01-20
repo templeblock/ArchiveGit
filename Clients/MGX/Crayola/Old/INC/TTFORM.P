@@ -1,0 +1,16 @@
+// Source file: ttform.c
+void TransformObjectsStart(BOOL fNewObject);
+BOOL WINPROC EXPORT DlgTransformerProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+int TransformerProc( HWND hWindow, LPARAM lParam, UINT msg );
+static LPOBJECT StartTransform( LPOBJECT lpObject );
+static void EndTransform( LPOBJECT lpObject );
+static void DoTransform( LPOBJECT lpObject, int iTool );
+static BOOL TransformRefresh( LPOBJECT lpObject, int iCode );
+static BOOL TransformObjectsInit( LPOBJECT lpObject, BOOL bInit );
+static BOOL TransformObjectsExecute( LPOBJECT lpObject, BOOL fMoveOnly );
+static BOOL TransformObject( LPOBJECT lpObject );
+BOOL TransformLine( LPOBJECT lpObject, int x1, int y, int dx, LPTR lpDataBuf, int iDataDepth, LPTR lpAlphaBuf, int iAlphaDepth );
+BOOL TransformSingleLine( LPOBJECT lpObject, int x1, int y, int dx, LPFRAME lpDataFrame, LPTR lpDataBuf, int iDataDepth );
+static BOOL IntersectCorners( int y, LPLFIXED lpX1, LPLFIXED lpX2, LPLFIXED lpFx1, LPLFIXED lpFy1, LPLFIXED lpFx2, LPLFIXED lpFy2 );
+static BOOL IntersectSegment( int y, POINT pa, POINT pb, LPLFIXED lpX, LPLFIXED lpPercent );
+

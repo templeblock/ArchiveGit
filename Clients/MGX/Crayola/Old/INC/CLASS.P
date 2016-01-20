@@ -1,0 +1,6 @@
+// Source file: CLASS.C
+HANDLE WINPROC CreateEditControl( LPCSTR lpClass, LPCSTR lpLabel, DWORD dwStyle, int X,int Y,int W,int H, HWND hParent,HMENU hMenu, LPVOID lpData);
+long WINPROC EXPORT EditControl( HWND hWindow, UINT message, WPARAM wParam, LPARAM lParam );
+BOOL RegisterAllClasses( HINSTANCE hInstance );
+
+

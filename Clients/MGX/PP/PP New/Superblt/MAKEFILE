@@ -1,0 +1,71 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#                                                                            
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+!IFDEF BUILDDLL
+PROJ=superdll
+PROJFLAGS=-DNO_MFC -DNO_WING
+OBJDIR=dllobj
+!ELSE
+PROJ=superblt
+PROJFLAGS=-DNO_MFC
+!ENDIF
+NOPCH=
+REFDIR=..\ref
+MAKDIR=$(REFDIR)
+DEFAULTBUILD =$(OBJDIR) $(PROJ).lib
+INSTALLLIST=\
+	$(REFDIR)\$(PROJ).lib\
+	$(REFDIR)\superblt.h
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+!include "$(MAKDIR)\win.mak"
+
+##############################################################################
+#
+#--- Interesting files
+#
+OBJS    =\
+	$(OBJDIR)\convert.obj \
+	$(OBJDIR)\conv4.obj \
+	$(OBJDIR)\conv8.obj \
+	$(OBJDIR)\conv24.obj \
+	$(OBJDIR)\superblt.obj
+
+##############################################################################
+#
+#--- Targets
+default: $(DEFAULTBUILD)
+
+$(PROJ).lib: $(OBJS)
+  @del $@ >nul
+  $(LIBEXE) $(LIBFLAGS) /out:$@ @<<
+$(OBJS)
+<<
+
+##############################################################################
+#
+#--- Implicit Rules
+#    make any you think you will need.  They can be identical in nature,
+#    but NMAKE wants have at least one for each possible virtual combination
+#
+
+##############################################################################
+#
+#--- Dependencies
+#
+##############################################################################
+

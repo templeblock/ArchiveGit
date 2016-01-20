@@ -1,0 +1,218 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "res_wdebug.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include <winres.h>
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "res_wdebug.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include <winres.h>\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_WDEBUG DIALOG DISCARDABLE  0, 0, 472, 207
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Weapons Debug"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Set",IDC_SETENEMY,310,70,25,14
+    GROUPBOX        "Enemy",IDC_STATIC,265,5,155,85
+    LTEXT           "X",IDC_STATIC,290,15,10,8
+    LTEXT           "Z",IDC_STATIC,310,15,10,8
+    EDITTEXT        IDC_EX1,290,25,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EZ1,310,25,20,12,ES_AUTOHSCROLL
+    LTEXT           "Y:",IDC_STATIC,330,15,10,8
+    EDITTEXT        IDC_EY1,330,25,20,12,ES_AUTOHSCROLL
+    LTEXT           "W",IDC_STATIC,350,15,10,10
+    LTEXT           "H",IDC_STATIC,370,15,10,10
+    EDITTEXT        IDC_EW1,350,25,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EH1,370,25,20,12,ES_AUTOHSCROLL
+    LTEXT           "D",IDC_STATIC,390,15,10,10
+    EDITTEXT        IDC_ED1,390,25,20,12,ES_AUTOHSCROLL
+    GROUPBOX        "3D World",IDC_STATIC,265,115,170,85,BS_CENTER
+    EDITTEXT        IDC_YGROUND,395,135,20,15,ES_AUTOHSCROLL
+    LTEXT           "yGround:",IDC_STATIC,390,125,30,8
+    DEFPUSHBUTTON   "Set Walls",IDC_SETWORLD,380,150,50,14
+    EDITTEXT        IDC_SHOTNAME,160,15,100,15,ES_AUTOHSCROLL
+    CONTROL         "Tree1",IDC_WDSHOTLIST,"SysTreeView32",WS_BORDER | 
+                    WS_TABSTOP,5,15,140,180
+    LTEXT           "Shots:",IDC_STATIC,5,5,35,10
+    LTEXT           "Current Shot:",IDC_STATIC,160,5,55,10
+    PUSHBUTTON      "Play",IDC_WDPLAY,160,30,30,15
+    PUSHBUTTON      "<",IDC_WDSTEPPREV,200,30,20,15
+    PUSHBUTTON      ">",IDC_WDSTEPNEXT,220,30,20,15
+    LTEXT           "Start Frame:",IDC_STATIC,155,95,45,10
+    LTEXT           "End Frame:",IDC_STATIC,215,95,45,10
+    EDITTEXT        IDC_WDSTARTFRAME,155,105,45,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_WDENDFRAME,215,105,45,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Current Frame:",IDC_STATIC,155,70,50,8
+    EDITTEXT        IDC_CURRFRAME,210,70,45,15,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Tween",IDC_TWEENPLAYER,160,165,45,15
+    CONTROL         "Show 3D",IDC_SHOWGRID,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,425,40,40,15
+    PUSHBUTTON      "Fire!",IDC_FIRE,160,50,30,15
+    EDITTEXT        IDC_PLAYERZ,175,145,25,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set",IDC_SETPLAYER,225,145,25,10
+    GROUPBOX        "Player",IDC_STATIC,155,135,105,65
+    LTEXT           "Z:",IDC_STATIC,160,145,8,8
+    PUSHBUTTON      "Clear Tween",IDC_CLEARPLAYERTWEEN,210,165,45,15
+    PUSHBUTTON      "Save Rec",IDC_SAVEREC,425,20,45,15
+    LTEXT           "1",IDC_STATIC,280,145,10,10
+    LTEXT           "2",IDC_STATIC,280,154,10,10
+    LTEXT           "3",IDC_STATIC,280,165,10,10
+    LTEXT           "4",IDC_STATIC,280,175,10,10
+    LTEXT           "x1",IDC_STATIC,295,135,10,10
+    EDITTEXT        IDC_W1_X1,290,145,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W1_Y1,310,145,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W1_X2,335,145,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W1_Y2,355,145,20,12,ES_AUTOHSCROLL
+    LTEXT           "z1",IDC_STATIC,315,135,10,10
+    LTEXT           "x2",IDC_STATIC,340,135,10,10
+    LTEXT           "z2",IDC_STATIC,360,135,10,10
+    EDITTEXT        IDC_W2_X1,290,155,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W2_Y1,310,155,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W2_X2,335,155,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W2_Y2,355,155,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W3_X1,290,165,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W3_Y1,310,165,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W3_X2,335,165,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W3_Y2,355,165,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W4_X1,290,175,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W4_Y1,310,175,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W4_X2,335,175,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W4_Y2,355,175,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W5_X1,290,185,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W5_Y1,310,185,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W5_X2,335,185,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_W5_Y2,355,185,20,12,ES_AUTOHSCROLL
+    LTEXT           "5",IDC_STATIC,280,185,10,10
+    LTEXT           "Walls",IDC_STATIC,280,125,20,10
+    CONTROL         "Loop",IDC_WDLOOP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    200,50,35,10
+    DEFPUSHBUTTON   "Tween Walls",IDC_TWEENWALLS,380,165,50,14
+    DEFPUSHBUTTON   "Clear Tween",IDC_CLEARWALLTWEEN,380,180,50,14
+    CTEXT           "",IDC_PLAYERK,205,145,10,10,SS_SUNKEN
+    CTEXT           "",IDC_WALLK,305,125,10,10,SS_SUNKEN
+    PUSHBUTTON      "Tween",IDC_TWEENENEMY,335,70,30,15
+    PUSHBUTTON      "Clear Tween",IDC_CLEARTWEENENEMY,365,70,45,15
+    LTEXT           "1",IDC_STATIC,280,25,8,10
+    LTEXT           "2",IDC_STATIC,280,40,10,10
+    LTEXT           "3",IDC_STATIC,280,55,10,10
+    EDITTEXT        IDC_EX2,290,40,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EZ2,310,40,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EY2,330,40,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EW2,350,40,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EH2,370,40,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED2,390,40,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EX3,290,55,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EZ3,310,55,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EY3,330,55,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EW3,350,55,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EH3,370,55,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED3,390,55,20,12,ES_AUTOHSCROLL
+    CTEXT           "",IDC_ENEMYK,295,70,10,10,SS_SUNKEN
+    PUSHBUTTON      "Clear K",IDC_CLEARENEMYK,265,70,25,10
+    PUSHBUTTON      "Clear K",IDC_CLEARPLAYERK,215,184,30,10
+    PUSHBUTTON      "Clear K",IDC_CLEARWALLK,320,124,30,10
+    CONTROL         "Use AVI",IDC_USEAVI,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,425,55,40,15
+    PUSHBUTTON      "Copy Rec",IDC_COPYREC,425,80,40,15
+    PUSHBUTTON      "Paste Rec",IDC_PASTEREC,425,100,40,15
+    CONTROL         "Car Crash",IDC_CARCRASH,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFT | BS_TOP | BS_PUSHLIKE | BS_MULTILINE | 
+                    WS_TABSTOP,440,120,25,20
+    CONTROL         "Wall Crash",IDC_WALLCRASH,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFT | BS_TOP | BS_PUSHLIKE | BS_MULTILINE | 
+                    WS_TABSTOP,440,140,25,20
+    EDITTEXT        IDC_OTHERCODE,440,190,25,12,ES_AUTOHSCROLL
+    LTEXT           "Other Code:",IDC_STATIC,440,170,25,15
+    CONTROL         "Radio1",IDC_KEYFOC_1,"Button",BS_AUTORADIOBUTTON,270,25,
+                    10,10
+    CONTROL         "Radio1",IDC_KEYFOC_2,"Button",BS_AUTORADIOBUTTON,270,40,
+                    10,10
+    CONTROL         "Radio1",IDC_KEYFOC_3,"Button",BS_AUTORADIOBUTTON,270,55,
+                    10,10
+    CONTROL         "Radio1",IDC_KEYFOC_4,"Button",BS_AUTORADIOBUTTON,270,
+                    145,10,10
+    CONTROL         "Radio1",IDC_KEYFOC_5,"Button",BS_AUTORADIOBUTTON,270,
+                    155,10,10
+    CONTROL         "Radio1",IDC_KEYFOC_6,"Button",BS_AUTORADIOBUTTON,270,
+                    165,10,10
+    CONTROL         "Radio1",IDC_KEYFOC_7,"Button",BS_AUTORADIOBUTTON,270,
+                    175,10,10
+    CONTROL         "Radio1",IDC_KEYFOC_8,"Button",BS_AUTORADIOBUTTON,270,
+                    185,10,10
+    PUSHBUTTON      "Z+",IDC_ZP,295,95,15,10
+    PUSHBUTTON      "Z-",IDC_ZM,295,105,15,10
+    PUSHBUTTON      "X+",IDC_XP,310,100,15,10
+    PUSHBUTTON      "X-",IDC_XM,280,100,15,10
+    PUSHBUTTON      "All  Z",IDC_ALLZ_100,370,95,35,15
+    EDITTEXT        IDC_DIFAMOUNT,335,95,20,15,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_WDEBUG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 465
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 200
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+

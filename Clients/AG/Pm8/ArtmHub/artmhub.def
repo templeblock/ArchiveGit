@@ -1,0 +1,5 @@
+LIBRARY      artmhub1
+DESCRIPTION  'American Greetings Hub Resources'
+
+EXPORTS
+    ; Explicit exports can go here

@@ -1,0 +1,13 @@
+// Source file: tanimate.c
+static LPOBJECT AddObjectFromToy( LPSTR lpToyFileName, int id );
+LPOBJECT AddObjectFromTiffResource( HINSTANCE hInstance, LPSTR lpName, BOOL fBW);
+int CALLBACK EXPORT StartAnimation (HWND hWnd);
+void CALLBACK EXPORT StopAnimation ( void );
+BOOL WINPROC EXPORT DlgToyProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+int ToyProc( HWND hWindow, LPARAM lParam, UINT msg );
+BOOL GetToyFileName( LPSTR lpString, LPSTR lpFileName );
+BOOL SetToolCursor( HWND hWindow, ITEMID idMoveObject, ITEMID idPlayObject );
+LPOBJECT ImgSelectObjectType( LPIMAGE lpImage, int x, int y, BOOL bAllowBaseObject, BOOL bAllowMoveObject, BOOL bAllowPlayObject );
+void ImgDeleteSelObjects( LPIMAGE lpImage );
+void SelectorHook(HDC hDC, LPRECT lpRect);
+

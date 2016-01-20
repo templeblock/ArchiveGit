@@ -1,0 +1,29 @@
+# Linker directive file for wt 0.04 Watcom C version
+#
+# system:
+system dos4g
+#
+# executable name:
+name wt
+#
+# debug info: line = line numbers, all = full
+debug line
+#
+# wt object fules:
+file error
+file fixed
+file framebuf
+file gifload
+file list
+file render
+file table
+file texture
+file view
+file world
+file worldfil
+file wt
+file wtmem
+#
+# dos-specific object files:
+file dos-keyb
+file dos-vga

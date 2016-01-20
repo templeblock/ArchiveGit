@@ -1,0 +1,79 @@
+/* Source base directory */
+
+BaseSourceDir "Q:\"
+
+/* Destination base directory */
+
+//BaseDestinationDir ""
+
+/* Program Group - Content */
+
+groups 1;
+flags 0;
+
+File "CONTENT\*.BDR" to directory "CONTENT";
+File "CONTENT\*.BDT" to directory "CONTENT";
+File "CONTENT\*.CDR" to directory "CONTENT";
+File "CONTENT\*.IDR" to directory "CONTENT";
+File "CONTENT\*.IDT" to directory "CONTENT";
+File "CONTENT\*.INI" to directory "CONTENT";
+File "CONTENT\*.KDR" to directory "CONTENT";
+File "CONTENT\*.ORD" to directory "CONTENT";
+
+/* PrintMaster Object Files used for AG Logo insertion on projects */
+File "CONTENT\*.PMO" to directory "CONTENT";
+
+/* Program Group - HELP4YOU */
+
+groups 1;
+flags 0;
+
+File "HELP4YOU\W95TECHS.HLP" to "W95TECHS.HLP";
+
+/* Shared Files */
+
+groups 1;
+flags 7; 	// Shared+IgnoreIfInUse+IgnoreIfOlder
+Directory "INSTALL\SHARED" to directory "";
+
+/*	Twain Group */
+groups 32;
+flags 23; 	// Shared+IgnoreIfInUse+IgnoreIfOlder+ForceWindowsDir
+File "INSTALL\TWAIN\TWAIN.DLL" to "TWAIN.DLL";
+File "INSTALL\TWAIN\TWAIN_32.DLL" to "TWAIN_32.DLL";
+File "INSTALL\TWAIN\TWUNK_16.EXE" to "TWUNK_16.EXE";
+File "INSTALL\TWAIN\TWUNK_32.EXE" to "TWUNK_32.EXE";
+
+flags 7; 	// Shared+IgnoreIfInUse+IgnoreIfOlder
+File "INSTALL\TWAIN\MSVCRT20.DLL" to "MSVCRT20.DLL";
+
+/* Program Group - MSREG */
+
+groups 1;
+flags 0;
+
+File "MSREG\MSREG.INI" to "MSREG.INI";
+File "MSREG\MSREG32.DLL" to "MSREG32.DLL";
+File "MSREG\MSRUN32.EXE" to "MSRUN.EXE";
+File "MSREG\PMWDEMO.INF" to "PMWDEMO.INF";
+File "MSREG\*.ICO" to directory "";
+
+/* Program Group - PMW */
+
+groups 1;
+flags 0;
+
+/*
+Directory "PMW\NFX" recurse to directory "NFX";
+Directory "PMW\PHOTOENP" recurse to directory "PHOTOENP";
+Directory "PMW\WITHHELP" recurse to directory "WITHHELP";
+*/
+Directory "PMW" recurse to directory "";
+
+/* Program Group - PMW32 */
+
+File "PMW32\*.*" to directory "";
+
+/* Program Group - Sound Effects */
+
+Directory "SOUNDFX" recurse to directory "SOUNDFX";

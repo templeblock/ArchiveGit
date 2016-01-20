@@ -1,0 +1,20 @@
+LIBRARY     CONTROL
+
+EXETYPE     WINDOWS
+
+STUB        'WINSTUB.EXE'
+
+DESCRIPTION    'Control'
+
+CODE        PRELOAD MOVEABLE DISCARDABLE
+DATA        PRELOAD MOVEABLE SINGLE
+
+EXPORTS
+	WEP						@1  RESIDENTNAME
+	DlgEdit_Info   			@2
+	DlgEdit_Style			@3
+	DlgEdit_Flags			@4
+	DlgEdit_Control			@5
+	DlgEdit_DlgFn			@6
+
+

@@ -1,0 +1,23 @@
+HKCR
+{
+	PSLaunchCtrl.PSLaunchCtrl.1 = s 'PSLaunchCtrl Class'
+	{
+		CLSID = s '{8DC39CD3-4D90-11D2-BD04-006008473DD0}'
+	}
+	PSLaunchCtrl.PSLaunchCtrl = s 'PSLaunchCtrl Class'
+	{
+		CurVer = s 'PSLaunchCtrl.PSLaunchCtrl.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8DC39CD3-4D90-11D2-BD04-006008473DD0} = s 'PSLaunchCtrl Class'
+		{
+			ProgID = s 'PSLaunchCtrl.PSLaunchCtrl.1'
+			VersionIndependentProgID = s 'PSLaunchCtrl.PSLaunchCtrl'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}

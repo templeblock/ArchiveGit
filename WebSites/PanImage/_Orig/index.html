@@ -1,0 +1,1157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<!--
+/** 
+* Copyright DM Solutions Group Inc 2005.  All rights reserved.
+*
+* kamap test file
+*
+* This file contains a sample implementation of kamap.
+* 
+* $Id: index.html,v 1.48.2.8 2005/05/19 19:38:08 pspencer Exp $
+*/
+-->
+<title>KaMap</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="imagetoolbar" content="no" />
+<script type="text/javascript" src="DHTMLapi.js"></script>
+<script type="text/javascript" src="xhr.js"></script>
+<script type="text/javascript">
+//global origin is assumed to be 0,0 but there is a huge problem with FireFox
+//in how large numbers are represented in css style objects ... they get
+//converted into scientific format which effectively truncates the number
+//see http://www.maptools.org/bugzilla/show_bug.cgi?id=1038
+
+var xOrigin = yOrigin = 0;
+//some state tracking variables
+var bMouseDown=false;
+var lastx=0;
+var lasty=0;
+var til = null; //the inside layer - the one that moves
+
+var viewportWidth = null;
+var viewportHeight = null;
+
+var bInit=false; //track first mouse move over map
+var xOffset = 0;
+var yOffset = 0;
+
+var currentMap = '';
+
+//global configuration variables
+var nLayers = 1;
+var tileWidth=200;
+var tileHeight=200;
+var nBuffer = 1;
+//var tileURL = 'tile.php?';
+var tileURL = 'http://sb5.dmsolutions.ca/kamap/tile.php?';
+var nCellSize = null;
+
+var aMapFiles = new Array();
+
+//these are calculated in the page initialization
+var nWide = 0;
+var nHigh = 0;
+
+//current top and left are tracked when the map moves
+//to start the map at some offset, these would be set to
+//the appropriate pixel value.
+var nCurrentTop = null;
+var nCurrentLeft = null;
+
+var aPixel = null;
+
+var nScale = null;
+var nCurrentScale = 0;
+var aScales = new Array(); //initialized by the init.php script
+
+/*
+* log( szMessage )
+* for debugging purposes, this function creates a div element on the fly to
+* contain the log.
+*/
+function log(szMessage)
+{
+	var d = document.getElementById( 'log' );
+	if (d == undefined)
+	{
+		d = document.createElement( 'div' );
+		d.id = 'log';
+		d.setAttribute( 'style', 'zIndex:102;font-family:arial;font-size:10px;position:absolute;top:0px;left:400px;width:400px;height:100px;overflow:auto;visibility:visible');
+		document.body.appendChild( d );
+	}
+	var p = document.createElement( 'p' );
+	p.appendChild(document.createTextNode( ((new Date( )).toLocaleString()) + ": " + szMessage ))
+	if (d.firstChild)
+		d.insertBefore( p, d.firstChild );
+	else
+		d.appendChild(p);
+	d.style.scrollTop = 0;
+}
+
+/* create all necessary layers to hold the map layers */
+function createLayers()
+{
+	var d;
+
+	bMouseDown = false;
+	var viewport = getRawObject('viewport');
+	til = document.createElement('div');
+	til.id = 'theInsideLayer';
+	til.style.position = 'absolute';
+	til.style.left = '0px';
+	til.style.top = '0px';
+	til.style.zIndex = '1';
+
+	viewport.appendChild(til);
+
+	d = document.createElement('div');
+	d.id = 'glassLayer';
+	d.innerHTML = '&nbsp;';
+	viewport.appendChild(d);
+
+	d = getRawObject('glassLayer');
+
+	d.style.position = 'absolute';
+	d.style.top = '0px';
+	d.style.left = '0px';
+	d.style.width = '100%';
+	d.style.height = '100%';
+	d.style.zIndex = '100';
+	//add transparent layer except in Opera
+	if (!isOpera)
+	{
+		d.style.backgroundColor = 'red';
+		d.style.filter = "Alpha(opacity=0)";
+		d.style.MozOpacity = 0;
+		d.style.opacity = 0; //for CSS3
+	}
+	
+	
+	d.onmousedown=omd;
+	d.onmouseup=omu;
+	d.oncontextmenu=ocm;
+	d.onmouseover = omover;
+	d.ondblclick = odc;
+	document.onmouseout = omout;
+	
+	for( var k=0; k<nLayers; k++)
+	{
+		d = document.createElement('div');
+		d.id = "mapLayer" + k;
+		d.className = "mapLayer1";
+		d.style.zIndex = k;
+		til.appendChild(d);
+	}
+}
+
+function safeParseInt( val )
+{
+	return Math.round(parseFloat(val));
+}
+
+function setTile( img, bForce )
+{
+	var szForce = '';
+	if (bForce)
+		szForce = '&force=true';
+	var l = safeParseInt(img.style.left) + xOrigin;
+	var t = safeParseInt(img.style.top) + yOrigin;
+	img.src = 'tile.gif';
+//	img.src = tileURL+'map='+currentMap+'&t='+t+'&l='+l+'&w='+tileWidth+'&h='+tileHeight+'&s='+nScale+szForce;
+}
+var gImageID = 0;
+function createImage( top, left )
+{
+	var img = document.createElement('img');
+	img.src=aPixel.src;
+	img.width=tileWidth;
+	img.height=tileHeight;
+	//first for firefox, rest for IE :(
+	img.setAttribute('style', 'position:absolute; top:'+top+'px; left:'+left+'px;' );
+	img.style.position = 'absolute';
+	img.style.top = (top - yOrigin)+'px';
+	img.style.left = (left - xOrigin)+'px';
+	img.onerror = imgOnError;
+	img.onload = imgOnLoad;
+	img.errorCount = 0;
+	img.id = "i" + gImageID;
+	gImageID = gImageID + 1;    
+	setTile(img, false);
+	return img;
+}
+
+var aErrorStack = new Array();
+
+function imgOnError(e)
+{
+	if (aErrorStack[this.id])
+		aErrorStack[this.id] += 1;
+	else
+		aErrorStack[this.id] = 0;
+	window.setTimeout( 'resetImage("'+this.id+'")', 250 );
+}
+
+function resetImage( id )
+{
+	var img = getRawObject( id );
+	img.onerror = null;
+	img.src = aPixel.src;
+	img.onerror = imgOnError;
+	
+	var bForce = (aErrorStack[id] > 5);
+	setTile(img, bForce);
+}
+
+function imgOnLoad(e)
+{
+	aErrorStack[this.id] = null;
+}
+
+/* append a row of tiles at the bottom */
+function appendRow()
+{
+	if (nWide == 0)
+		return;
+
+	for(var k=0; k<nLayers; k++)
+	{
+		var d = getRawObject('mapLayer'+k);
+		for(var i=0; i<nWide; i++)
+		{
+			var top = nCurrentTop + (nHigh * tileHeight);
+			var left = nCurrentLeft + (i * tileWidth);
+			d.appendChild(createImage(top, left));
+		}
+	}
+	nHigh = nHigh + 1;
+}
+
+function appendColumn()
+{
+	if (nHigh == 0)
+		return;
+
+	for(var k=0; k<nLayers; k++)
+	{
+		var d = getRawObject('mapLayer'+k);
+		for(var j=nHigh-1; j>=0; j--)
+		{
+			var top = nCurrentTop + (j * tileHeight);
+			var left = nCurrentLeft + (nWide * tileWidth);
+			var img = createImage(top,left);
+			if (j < nHigh-1)
+				d.insertBefore(img, d.childNodes[((j+1)*nWide)]);
+			else
+				d.appendChild(img);
+	
+		}
+	}
+	nWide = nWide + 1;
+}
+
+function removeColumn()
+{
+	if (nWide < 4)
+		return;
+
+	for(var k=0; k<nLayers; k++)
+	{
+		var d = getRawObject('mapLayer'+k);
+		for(var j=nHigh - 1; j >= 0; j--)
+		{
+			var img = d.childNodes[((j+1)*nWide)-1];
+			d.removeChild( img );
+		}
+	}
+	nWide = nWide - 1;
+}
+
+function removeRow()
+{
+	if (nHigh < 4)
+		return;
+
+	for(var k=0; k<nLayers; k++)
+	{
+		var d = getRawObject('mapLayer'+k);
+		for(var i=nWide - 1; i >= 0; i--)
+		{
+			var img = d.childNodes[((nHigh-1)*nWide)+i];
+			d.removeChild( img );
+		}
+	}
+	nHigh = nHigh - 1;
+}
+
+/* update the layer URLs based on their current positions */
+function initializeLayers(nFactor)
+{
+	var deltaMouseX = nCurrentLeft + safeParseInt(til.style.left) - xOrigin;
+	var deltaMouseY = nCurrentTop + safeParseInt(til.style.top) - yOrigin;
+
+	var vpWidth = getObjectWidth( 'viewport' );
+	var vpHeight = getObjectHeight( 'viewport' );
+
+	var vpTop = nCurrentTop - deltaMouseY;
+	var vpLeft = nCurrentLeft - deltaMouseX;
+
+	var vpCenterX = vpLeft + vpWidth/2;
+	var vpCenterY = vpTop + vpHeight/2;
+
+	var currentTileX = Math.floor(vpCenterX/tileWidth)*tileWidth;
+	var currentTileY = Math.floor(vpCenterY/tileHeight)*tileHeight;
+
+	var tileDeltaX = currentTileX - nCurrentLeft;
+	var tileDeltaY = currentTileY - nCurrentTop;
+
+	var newVpCenterX = vpCenterX * nFactor;
+	var newVpCenterY = vpCenterY * nFactor;
+
+	var newTileX = Math.floor(newVpCenterX/tileWidth) * tileWidth;
+	var newTileY = Math.floor(newVpCenterY/tileHeight) * tileHeight;
+
+	var newCurrentLeft = newTileX - tileDeltaX;
+	var newCurrentTop = newTileY - tileDeltaY;
+
+	nCurrentLeft = newCurrentLeft;
+	nCurrentTop = newCurrentTop;
+
+	var newTilLeft = -newVpCenterX + viewportWidth/2;
+	var newTilTop = -newVpCenterY + viewportHeight/2;
+
+	xOrigin = nCurrentLeft;
+	yOrigin = nCurrentTop;
+	
+	til.style.left = (newTilLeft + xOrigin) + "px";
+	til.style.top = (newTilTop + yOrigin)+ "px";
+
+	for(var k=0; k<nLayers; k++)
+	{
+		var d = getRawObject( 'mapLayer'+k );
+		for(var j=0; j<nHigh; j++)
+		{
+			for( var i=0; i<nWide; i++)
+			{
+				var img = d.childNodes[(j*nWide)+i];
+				img.src = aPixel.src;
+				img.style.top = (nCurrentTop + j*tileHeight - yOrigin) + "px";
+				img.style.left = (nCurrentLeft + i*tileWidth - xOrigin) + "px";
+				setTile(img, false);
+			}
+		}
+	}
+	checkWrap();
+}
+
+/* take last image from each row and put it at the beginning */
+function wrapR2L()
+{
+	xOffset = xOffset - (nBuffer * tileWidth);
+
+	for (var k=0;k<nLayers;k++)
+	{
+		var d = getRawObject( 'mapLayer'+k );
+		var refLeft = safeParseInt(d.childNodes[0].style.left);
+		for (var j=0; j<nHigh; j++)
+		{
+			var imgLast = d.childNodes[((j+1)*nWide)-1];
+			var imgNext = d.childNodes[j*nWide];
+
+			imgLast.style.left = (refLeft - tileWidth) + 'px';
+			imgLast.src = aPixel.src;
+			d.removeChild(imgLast);
+			d.insertBefore(imgLast, imgNext);
+			setTile(imgLast, false);
+		}
+	}
+}
+
+/* take first image from each row and put it at the end */
+function wrapL2R()
+{
+	xOffset = xOffset + (nBuffer*tileWidth);
+	for (var k=0;k<nLayers;k++)
+	{
+		var d = getRawObject( 'mapLayer'+k );
+		var refLeft = safeParseInt(d.childNodes[nWide-1].style.left);
+		for (var j=0; j<nHigh; j++)
+		{
+			var imgFirst = d.childNodes[j*nWide];
+			var imgNext;
+			/* need to use insertBefore to get a node at the end of a 'row'
+			* but this doesn't work for the very last row :(*/
+			if (j < nHigh-1)
+				imgNext = d.childNodes[((j+1)*nWide)];
+			else
+				imgNext = null;
+
+			imgFirst.style.left = (refLeft + tileWidth) + 'px';
+			imgFirst.src = aPixel.src;
+
+			d.removeChild(imgFirst);
+			if (imgNext)
+				d.insertBefore(imgFirst, imgNext);
+			else
+				d.appendChild(imgFirst);
+			setTile(imgFirst, false);
+		}
+	}
+}
+
+/* take top image from each column and put it at the bottom */
+function wrapT2B()
+{
+	yOffset = yOffset + (nBuffer*tileHeight);
+	for (var k=0;k<nLayers;k++)
+	{
+		var d = getRawObject( 'mapLayer'+k );
+		var refTop = safeParseInt(d.childNodes[(nHigh*nWide)-1].style.top);
+		for (var i=0; i<nWide; i++)
+		{
+			var imgBottom = d.childNodes[0];
+
+			imgBottom.style.top = (refTop + tileHeight) + 'px';
+			imgBottom.src = aPixel.src;
+
+			d.removeChild(imgBottom);
+			d.appendChild(imgBottom);
+			setTile(imgBottom, false);
+		}
+	}
+}
+/* take bottom image from each column and put it at the top */
+function wrapB2T()
+{
+	yOffset = yOffset - (nBuffer*tileHeight);
+
+	for (var k=0;k<nLayers;k++)
+	{
+		var d = getRawObject( 'mapLayer'+k );
+		var refTop = safeParseInt(d.childNodes[0].style.top);
+		for (var i=0; i<nWide; i++)
+		{
+			var imgTop = d.childNodes[(nHigh*nWide)-1];
+
+			imgTop.style.top = (refTop - tileHeight) + 'px';
+			imgTop.src = aPixel.src;
+
+			d.removeChild(imgTop);
+			d.insertBefore(imgTop, d.childNodes[0]);
+			setTile(imgTop, false);
+		}
+	}
+}
+/* on mouse down handler */
+function omd(e)
+{
+	document.onmousemove = omm;
+	if (isIE4) document.onkeydown = kp;
+	document.onkeypress = kp;
+	
+	e = (e)?e:((event)?event:null);
+	if (e.button==2)
+	{
+		e.cancelBubble = true;
+		e.returnValue = false;
+		if (e.stopPropogation) e.stopPropogation();
+		if (e.preventDefault) e.preventDefault();
+		return false;
+	}
+	else
+	{
+		bMouseDown=true;
+		lastx=sx=e.clientX;
+		lasty=sy=e.clientY;
+	}
+}
+/* on mouse up handler */
+function omu(e)
+{
+	e = (e)?e:((event)?event:null);
+	bMouseDown=false;
+	lastx=null;
+	lasty=null;
+}
+/* on mouse move handler */
+function omm(e)
+{
+	e = (e)?e:((event)?event:null);
+	
+	if (!bMouseDown) return;
+	
+	var newTop = safeParseInt(til.style.top);
+	var newLeft = safeParseInt(til.style.left);
+
+	newTop = newTop - lasty + e.clientY;
+	newLeft = newLeft - lastx + e.clientX;
+
+	til.style.top=newTop + 'px';
+	til.style.left=newLeft + 'px';
+
+	checkWrap();
+
+	lastx=e.clientX;
+	lasty=e.clientY;
+
+	e.cancelBubble = true;
+	e.returnValue = false;
+	if (e.preventDefault) e.preventDefault();
+	return false;
+}
+
+function odc(e)
+{
+	e = (e)?e:((event)?event:null);
+	var x, y;    
+	if (e.offsetX)
+	{
+		x = e.offsetX;
+		y = e.offsetY;
+	}
+	else
+	{
+		x = e.layerX;
+		y = e.layerY;
+	}
+	
+	var vpX = viewportWidth/2;
+	var vpY = viewportHeight/2;
+	
+	var dx = x - vpX;
+	var dy = y - vpY;
+	
+	if (dx == 0 && dy == 0)
+	{
+		var bombImg = getRawObject('bomb');
+		var kaBoom = document.createElement('img');
+		kaBoom.src= bombImg.src;
+	}
+	slideBy(-dx, -dy);
+}
+
+function cancelEvent(e)
+{
+	e = (e)?e:((event)?event:null);
+	e.returnValue = false;
+	if (e.preventDefault) e.preventDefault();
+	return false;
+}
+
+function omover()
+{
+}
+
+function omout()
+{
+	bMouseDown = false;
+}
+
+function ocm(e)
+{
+	return cancelEvent(e);
+}
+
+/* handle wrapping the images to keep everything visible */
+function checkWrap()
+{
+	xOffset = safeParseInt(til.style.left) + nCurrentLeft - xOrigin;
+	yOffset = safeParseInt(til.style.top) + nCurrentTop - yOrigin;
+
+	while (xOffset > 0)
+	{
+		wrapR2L();
+	}
+	while (xOffset < -(nBuffer*tileWidth))
+	{
+		wrapL2R();
+	}
+	while (yOffset > -(nBuffer*tileHeight))
+	{
+		wrapB2T();
+	}
+	while (yOffset < -(2*nBuffer*tileHeight))
+	{
+		wrapT2B();
+	}
+
+	var layer = getRawObject( 'mapLayer0' );
+	var img = layer.childNodes[0].style;
+	nCurrentTop = safeParseInt(img.top) + yOrigin;
+	nCurrentLeft = safeParseInt(img.left) + xOrigin;
+
+	checkKeymap();
+}
+
+function moveBy( x, y )
+{
+	til.style.top = (safeParseInt(til.style.top)+y) + 'px';
+	til.style.left = (safeParseInt(til.style.left)+x )+ 'px';
+	checkWrap();
+}
+
+var as=slideid=null;
+var accelerationFactor=1;
+var pixelsPerStep = 30;
+var timePerStep = 25;
+function slideBy(x,y)
+{
+	if (slideid!=null) window.clearTimeout( slideid );
+	
+	as = new Array();
+	
+	var absX = Math.abs(x);
+	var absY = Math.abs(y);
+	
+	var signX = x/absX;
+	var signY = y/absY;
+	
+	var distance = absX>absY?absX:absY;
+	var steps = Math.floor(distance/pixelsPerStep);
+	
+	var dx = dy = 0;
+	if (steps > 0)
+	{
+		dx = (x)/(steps*pixelsPerStep);
+		dy = (y)/(steps*pixelsPerStep);
+	}    
+	
+	var remainderX = x - dx*steps*pixelsPerStep;
+	var remainderY = y - dy*steps*pixelsPerStep;
+	
+	var px=py=0;
+	
+	var curspeed=accelerationFactor;
+	var i=0;
+	while(i<steps)
+	{
+		if (i>0)
+		{
+		px+=as[i-1][0];
+		py+=as[i-1][1]
+		}
+	    
+		var cx = px+Math.round(dx*pixelsPerStep);
+		var cy = py+Math.round(dy*pixelsPerStep);
+		as[i]=new Array(cx-px,cy-py);
+		i++;
+	}
+	if (remainderX != 0 || remainderY != 0)
+	{
+		as[i] = new Array( remainderX, remainderY );
+	}
+	
+	slideid=window.setTimeout('slide(0)', timePerStep);
+}
+function slide(pos)
+{
+	if (pos>=as.length){as=slideid=null;return;}
+	
+	moveBy( as[pos][0], as[pos][1] );
+	
+	pos ++;
+	slideid=window.setTimeout('slide('+pos+')', timePerStep);   
+}
+
+function kp(e)
+{
+e = (e)?e:((event)?event:null);
+if(e)
+{
+var charCode=(e.charCode)?e.charCode:e.keyCode;
+var b=true;
+var nStep = 16;
+switch(charCode){
+case 38://up
+	moveBy(0,nStep);
+	break;
+case 40:
+	moveBy(0,-nStep);
+	break;
+case 37:
+	moveBy(nStep,0);
+	break;
+case 39:
+	moveBy(-nStep,0);
+	break;
+case 33:
+	slideBy(0, viewportHeight/2);
+	break;
+case 34:
+	slideBy(0,-viewportHeight/2);
+	break;
+case 36:
+	slideBy(viewportWidth/2,0);
+	break;
+case 35:
+	slideBy(-viewportWidth/2,0);
+	break;
+case 43:
+	zoomIn();
+	break;
+case 45:
+	zoomOut();
+	break;
+default:
+	b=false;
+}
+if (b){
+	e.cancelBubble = true;
+	e.returnValue = false;
+	if (e.preventDefault) e.preventDefault();
+	return false;
+}
+return true;
+}
+}
+
+function resizeViewport()
+{
+	drawPage();
+	var newViewportWidth = getObjectWidth('viewport');
+	var newViewportHeight = getObjectHeight('viewport');
+	
+	if (viewportWidth == null)
+	{
+	til.style.top = (-1*nCurrentTop + yOrigin) + "px";
+		til.style.left = (-1*nCurrentLeft + xOrigin) + "px";
+		viewportWidth = newViewportWidth;
+		viewportHeight = newViewportHeight;
+	}
+	var newWide = Math.ceil((newViewportWidth / tileWidth) + 2*nBuffer);
+	var newHigh = Math.ceil((newViewportHeight / tileHeight) + 2*nBuffer);
+	
+	til.style.top = (safeParseInt(til.style.top) + (newViewportHeight - viewportHeight)/2)+"px";
+	til.style.left = (safeParseInt(til.style.left) + (newViewportWidth - viewportWidth)/2)+"px";
+	
+	viewportWidth = newViewportWidth;
+	viewportHeight = newViewportHeight;
+
+	//log( 'new size in tiles in ' + newWide + ' x ' + newHigh );
+
+	if (nHigh == 0 && nWide == 0) nWide = newWide;
+
+	while (nHigh < newHigh)
+		appendRow();
+	while (nHigh > newHigh)
+		removeRow();
+	while (nWide < newWide)
+		appendColumn();
+	while (nWide > newWide)
+		removeColumn();
+
+	var layer = getRawObject( 'mapLayer0' );
+	var img = layer.childNodes[0].style;
+	nCurrentTop = safeParseInt(img.top) + yOrigin;
+	nCurrentLeft = safeParseInt(img.left) + xOrigin;
+	
+	checkWrap();
+}
+
+function checkLegend()
+{
+//j    call('legend.php?map='+currentMap+'&scale='+nScale, setLegend);
+}
+
+function setLegend(szLegendURL)
+{
+	var oImg = getRawObject( 'legendImg' );
+	oImg.src = szLegendURL;
+}
+
+var keymapTimeout = null;
+function checkKeymap()
+{
+	if (keymapTimeout != null)
+	{
+		window.clearTimeout( keymapTimeout );
+	}
+	var deltaMouseX = nCurrentLeft - xOrigin + safeParseInt(til.style.left);
+	var deltaMouseY = nCurrentTop - yOrigin + safeParseInt(til.style.top);
+
+	var vpWidth = getObjectWidth( 'viewport' );
+	var vpHeight = getObjectHeight( 'viewport' );
+
+	var vpTop = nCurrentTop - deltaMouseY;
+	var vpLeft = nCurrentLeft - deltaMouseX;
+
+	var vpCenterX = vpLeft + vpWidth/2;
+	var vpCenterY = vpTop + vpHeight/2;
+
+//j    keymapTimeout = window.setTimeout( 'call("keymap.php?map='+currentMap+'&scale='+nScale+'&vpx='+ vpCenterX+'&vpy='+vpCenterY+'&vpw='+viewportWidth+'&vph='+viewportHeight+'", setKeymap)', 250 );
+}
+
+function setKeymap(szKeymapURL)
+{
+	var oImg = getRawObject( 'keymapImg' );
+	oImg.src = szKeymapURL;
+	keymapTimeout = null;
+}
+
+function checkScalebar()
+{
+//j    call('scalebar.php?map='+currentMap+'&scale='+nScale, setScalebar);
+}
+
+function setScalebar(szScalebarURL)
+{
+	var oImg = getRawObject( 'scalebarImg' );
+	oImg.src = szScalebarURL;
+}
+
+
+function drawPage()
+{
+	var browserWidth = getInsideWindowWidth();
+	var browserHeight = getInsideWindowHeight();
+	
+	var vPadding = 44;
+	var hPadding = 36;
+	
+	var viewport = getRawObject('viewport');
+	
+	viewport.style.width = (browserWidth - getObjectWidth('legend') - hPadding) + "px";
+	viewport.style.height = (browserHeight - getObjectHeight('toolbar') - 23 - vPadding) + "px";
+	
+	var legend = getObject('legend');
+	legend.height = (getObjectHeight( 'viewport' ) - getObjectHeight('keymap')- 14) + "px";
+	
+	viewport.onmousedown = cancelEvent;
+	viewport.onmousemove = cancelEvent;
+	viewport.onmouseup = cancelEvent;
+	
+	/*
+	var vch = getRawObject('vCrosshair');
+	if (!vch)
+	{
+		vch = document.createElement('div');
+		vch.id = 'vCrosshair';
+		vch.setAttribute('style', 'z-index:101;position:absolute;top:0px;left:'+(getObjectWidth('viewport')/2)+'px;width:1px;height:'+getObjectHeight('viewport')+'px;border:1px solid #990000;');
+		viewport.appendChild( vch );
+	}
+	var hch = getRawObject('hCrosshair');
+	if (!hch)
+	{
+		hch = document.createElement('div');
+		hch.id = 'hCrosshair';
+		hch.setAttribute('style', 'z-index:101;position:absolute;top:'+(getObjectHeight( 'viewport' ) / 2)+'px;left:0px;width:'+getObjectWidth('viewport')+'px;height:1px;border:1px solid #990000;');
+		viewport.appendChild( hch );
+	}
+	vch.style.left = getObjectWidth( 'viewport' ) / 2 + "px";
+	vch.style.height = getObjectHeight('viewport' ) + "px";
+	
+	hch.style.top = getObjectHeight( 'viewport' ) / 2 + "px";
+	hch.style.width = getObjectWidth( 'viewport') + "px";
+	*/
+}
+
+function myInit()
+{
+	bMouseDown = false;
+	initDHTMLAPI();
+	drawPage();
+	
+	var vpw = getObjectWidth('viewport');
+	var vph = getObjectHeight('viewport');
+	
+	var vp = getRawObject('viewport');
+	var cp = document.createElement( 'div' );
+	cp.id = 'copy_dmsg';
+	cp.style.position = 'absolute';
+	cp.style.left = '3px';
+	cp.style.bottom = '3px';
+	cp.style.zIndex = 101;
+	cp.style.filter='Alpha(opacity=75)';
+	cp.innerHTML = '<span class="copyright">&copy;2005 <a href="http://www.dmsolutions.ca/" target="_blank">DM Solutions Group Inc.</a></span>';
+	vp.appendChild(cp);
+	    
+//j	call( 'init.php?vpw='+vpw+'&vph='+vph, initPhase1 );
+initPhase1('/');
+}
+
+function initPhase1( szInit )
+{
+	if (szInit.substr(0,1) != "/")
+	{
+		alert(szInit);
+		return;
+	}
+	eval(szInit);
+	//cache a_pixel.gif permanently for this session.
+	aPixel = new Image(1,1);
+	aPixel.src="images/a_pixel.gif";
+	xOrigin = nCurrentLeft;
+	yOrigin = nCurrentTop;
+	createLayers();
+	resizeViewport();
+	window.onresize=resizeViewport;
+	var s = getRawObject('scale');
+	s.innerHTML = nScale;
+	var vp = getRawObject('viewport');
+	vp.onmouseover = omover;
+	vp.onmouseout = omout;
+	
+	var sel = document.forms[0].maps;
+	for (var key in aMapFiles)
+	{
+		var bSelected = (key == currentMap);
+		var opt = new Option( aMapFiles[key], key, bSelected, bSelected);
+		sel[sel.length] = opt;
+	}
+	checkLegend();
+	checkScalebar();
+	updateButtons();
+}
+
+function initPhase2(szInit)
+{
+	if (szInit.substr(0,1) != "/")
+	{
+		alert(szInit);
+		return;
+	}
+	eval(szInit);
+	window.onresize=resizeViewport;
+	xOrigin = nCurrentLeft;
+	yOrigin = nCurrentTop;
+	
+	var s = getRawObject('scale');
+	s.innerHTML = nScale;
+	
+	for(var k=0; k<nLayers; k++)
+	{
+		var d = getRawObject( 'mapLayer'+k );
+		for(var j=0; j<nHigh; j++)
+		{
+			for( var i=0; i<nWide; i++)
+			{
+				var img = d.childNodes[(j*nWide)+i];
+				img.src = aPixel.src;
+				img.style.top = (nCurrentTop + j*tileHeight - yOrigin) + "px";
+				img.style.left = (nCurrentLeft + i*tileWidth - xOrigin) + "px";
+				setTile(img, false);
+			}
+		}
+	}
+	//initializeLayers(1);
+	viewportWidth = null; //force resize to recenter properly
+	resizeViewport();
+	checkLegend();
+	checkScalebar();
+	updateButtons();
+}
+
+
+function setMap( opt )
+{
+	if (opt.value == '')
+		return;
+	currentMap = opt.value;
+	
+	var legend = getRawObject('legendImg');
+	legend.src=aPixel.src;
+	var keymap = getRawObject('keymapImg');
+	keymap.src=aPixel.src;
+	var vpw = getObjectWidth('viewport');
+	var vph = getObjectHeight('viewport');
+//j	call( 'init.php?map='+currentMap+'&vpw='+vpw+'&vph='+vph, initPhase2 );
+initPhase2('/'); //j
+	nCurrentScale = 0;
+	updateButtons();
+}
+
+function zoomIn()
+{
+	if (nCurrentScale < aScales.length - 1)
+	{
+		var nZoomFactor = aScales[nCurrentScale]/aScales[nCurrentScale+1];
+		nCurrentScale = nCurrentScale + 1;
+		nScale = aScales[nCurrentScale];
+		initializeLayers(nZoomFactor);
+		var s = getRawObject('scale');
+		s.innerHTML = nScale;
+		checkLegend();
+		checkScalebar();
+	}
+	updateButtons();
+}
+
+function zoomOut()
+{
+	if (nCurrentScale > 0)
+	{
+		var nZoomFactor = aScales[nCurrentScale]/aScales[nCurrentScale-1];
+		nCurrentScale = nCurrentScale - 1;
+		nScale = aScales[nCurrentScale];
+		initializeLayers(nZoomFactor);
+		var s = getRawObject('scale');
+		s.innerHTML = nScale;
+		checkLegend();
+		checkScalebar();
+	}
+	updateButtons();
+}
+
+function updateButtons()
+{
+	document.forms[0].zoomout.disabled = (nCurrentScale == 0);
+	document.forms[0].zoomin.disabled = (nCurrentScale == aScales.length - 1);
+}
+</script>
+
+<style type="text/css">
+body {
+margin: 0px;
+background-color: #d9d9d9;
+overflow: hidden;
+}
+
+.mapLayer1 {
+visibility: visible;
+position: absolute;
+	left: 0px;
+	top: 0px;
+	width:1020px;
+	height:1020px;
+	cursor: move;
+}
+.mapLayer {
+visibility: hidden;
+position: absolute;
+	left: 0px;
+	top: 0px;
+	width:1020px;
+	height:1020px;
+}
+#viewport {
+position: relative;
+background-color: #f0f0f0;
+overflow: hidden;
+border: 1px solid #000000;
+}
+
+#toolbar {
+font-family: arial;
+font-size: 16px;
+font-weight: bold;
+width:100%;
+height: 42px;
+}
+#footer {
+font-family: arial;
+font-size: 10px;
+width:100%;
+height: 33px;
+}
+
+#legend {
+position: relative;
+width: 250px;
+height: 250px;
+overflow: auto;
+background-color: #f0f0f0;
+border: 1px solid #000000;
+}
+
+#keymap {
+position: relative;
+width: 250px;
+height: 150px;
+overflow: hidden;
+background-color: #f0f0f0;
+border: 1px solid #000000;
+}
+
+#scalebar {
+position: relative;
+width: 250px;
+height: 33px;
+overflow: hidden;
+/*background-color: #f0f0f0;*/
+border: 0px solid #000000;
+}
+
+
+.bevel {
+border-top: 1px solid #666666;
+border-left: 1px solid #666666;
+border-right: 1px solid #ffffff;
+border-bottom: 1px solid #ffffff;
+}
+
+.label {
+font-family: arial;
+font-size: 11px;
+font-weight: normal;
+}
+
+
+.value {
+font-family: arial;
+font-size: 11px;
+font-weight: bold;
+}
+
+.title {
+font-family: arial;
+font-size: 24px;
+font-weight: bold;
+}
+
+a { text-decoration: none; color: #333366; }
+
+.copyright {
+font-family: arial;
+font-size: 11px;
+font-weight: bold;
+color: #000000;
+background-color: #ffffff;
+filter: alpha(opacity=75);
+opacity: 0.75;
+-moz-opacity: 0.75;
+}
+</style>
+</head>
+<body onload="myInit();">
+<form>
+<table border="0" width="100%" cellspacing="10" cellpadding="0">
+<tr>
+	<td>
+	<div id="toolbar">
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+				<td><img id='bomb' src="images/kamap.gif" width="36" height="42" border="0" alt="kaMap"></td>
+				<td><span class="title">kaMap!</span></td>
+				</tr>
+			</table>
+			<td align="right"><span class="label">current scale:&nbsp;</span><span id="scale" class="value"></span>&nbsp;<input type="button" name="zoomin" value="Zoom In" onclick="zoomIn()"><input type="button" name="zoomout" value="Zoom Out" onclick="zoomOut()"></td>
+		</tr>
+		</table>
+	</div>
+	</td>
+	<td><select name="maps" onchange="setMap(this.options[this.selectedIndex])">
+		<option value=''>Choose your kaMap!</option>
+		<option value=''>------------------</option>
+		</select></td>
+</tr>
+<tr>
+	<td class="bevel" rowspan="2"><div id="viewport"></div></td>
+	<td class="bevel" valign="top"><div id="legend"><img src="images/a_pixel.gif" id="legendImg"></div></td>
+</tr>
+<tr>
+	<td class="bevel"><div id="keymap"><img src="images/a_pixel.gif" id="keymapImg"></div></td>
+</tr>
+<tr>
+	<td align="right"><div id="scalebar"><img src="images/a_pixel.gif" id="scalebarImg"></div></td>
+	<td align="right"><a href="http://ka-map.maptools.org/" target="_blank"><img alt="powered by ka-Map!" src=
+		"images/powered_by_kamap_lt.png" width="85" height="23" border="0"></a></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+

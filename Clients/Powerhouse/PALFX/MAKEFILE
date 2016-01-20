@@ -1,0 +1,173 @@
+#
+#   Makefile for PALFX (Palette Efects as described in Graphics Design and
+#	Optimization).
+#
+#     (C) Copyright Microsoft Corp. 1991, 1992.  All rights reserved.
+#
+#     You have a royalty-free right to use, modify, reproduce and 
+#     distribute the Sample Files (and/or any modified version) in 
+#     any way you find useful, provided that you agree that 
+#     Microsoft has no warranty obligations or liability for any 
+#     Sample Application Files which are modified. 
+#	 
+#     If you did not get this from Microsoft Sources, then it may not be the
+#     most current version.  This sample code in particular will be updated
+#     and include more documentation.  
+#
+#     Sources are:
+#     	The MM Sys File Transfer BBS: The phone number is 206 936-4082.
+#	CompuServe: WINSDK forum, MDK section.
+#	Anon FTP from ftp.uu.net in vendor/microsoft/multimedia
+
+#TO USE:
+#
+# Run program and then 'open' a DIB.  You can then 'fade to black'.
+# If you choose 'fade to dib' it will ask you for a DIB file to fade back
+# up.  You must 'revert' to reset system. (it's not very smart right now).
+#
+
+
+
+#
+#   to make a NON-DEBUG build, type the following line:
+#       nmake DEBUG=NO
+#   just typing 'nmake' will build a DEBUG build
+#
+#   You can also set the environment variable DEBUG to NO
+#
+
+# set MASM6 to TRUE to use MASM 6
+#
+# let environment variable overide...
+!IF "$(MASM6)" == ""
+MASM6	= FALSE
+!endif
+
+NAME    = palfx
+MISC    = makefile
+
+OPTZ    = -AM -G2sw 
+# turn this on if you want to see assembler that is generated: 
+#OPTZ    = -AM -G2sw -Fc
+
+INCS    = $(NAME).h  
+SRCS    = $(NAME).c  
+OBJ1    = $(NAME).obj dib.obj 
+#effect.obj  sort.obj  mem.obj
+OBJ2    = 
+OBJ3    = 
+OBJS    = $(OBJ1) $(OBJ2) $(OBJ3)
+LIBS    = libw mmsystem mlibcew commdlg shell
+
+
+!IF "$(DEBUG)" == "NO"
+
+DEF     =
+ASOPT   =
+CCOPT   =-Oxwt
+RCOPT   =
+LNOPT   =
+
+!ELSE
+
+DEF     = -DDEBUG
+ASOPT   = -Zi
+CCOPT   = -Zid -Od
+RCOPT   =
+LNOPT   = /CO/LI
+
+!ENDIF
+
+!if "$(MASM6)" == "TRUE"
+# masm 6.x
+AS  = mlx -DMASM6 -I. /Zm /c $(DEF) -Cx $(ASOPT)
+!else
+AS  = masm $(DEF) -Mx $(ASOPT)
+!endif
+
+CC  = cl $(DEF) -c $(OPTZ) -W3 -Zpe $(CCOPT)
+RC  = rc $(DEF) -v $(RCOPT)
+LN  = link /NOPACKC/NOE/NOD/A:16/MAP $(LNOPT)
+
+.asm.obj:
+            $(AS) $*;
+
+.c.obj  :
+            $(CC) $*.c
+
+
+#
+#   RULES
+#
+
+all :  $(NAME).exe
+
+
+$(NAME).exe ::   $(OBJS) $(NAME).res $(NAME).def
+    $(LN) @<<
+    $(OBJ1)+
+    $(OBJ2)+
+    $(OBJ3),
+    $(NAME).exe,
+    $(NAME).map,
+    $(LIBS),
+    $(NAME).def
+<<
+                $(RC) -t $(NAME).res
+!IF "$(DEBUG)" == "NO"
+!else
+                -cvpack -p $(NAME).exe
+                -mapsym $(NAME).map
+!endif
+
+$(NAME).exe ::   $(NAME).res
+                $(RC) -t $(NAME).res
+
+$(NAME).res :   $(NAME).rc $(NAME).h $(NAME).ico
+                $(RC) -r $(NAME).rc
+
+#
+#   SEGMENTATION
+#
+
+SEGC = $(CC) -NT TSEG $*.c
+
+!if "$(MASM6)" == "TRUE"
+# masm 6.x
+SEGA = $(AS) -DSEGNAME=TSEG -Ta $*.asm
+!else
+# masm 5.x
+SEGA = $(AS) -DSEGNAME=TSEG $* ;
+!endif
+
+$(NAME).obj     : ; $(SEGC:TSEG=_TEXT)
+effect.obj      : ; $(SEGC:TSEG=EFFECT_TEXT)
+sort.obj	: ; $(SEGC:TSEG=SORT_TEXT)
+mem.obj		: ; $(SEGA:TSEG=MEM_TEXT)
+dib.obj		: ; $(SEGC:TSEG=DIB_TEXT)
+
+#
+#   DEPENDENCIES
+#
+
+$(NAME).obj :   $(NAME).c $(NAME).h 
+
+$(NAME).res:	$(NAME).rc $(NAME).h $(NAME).rcv sampver.h sampver.ver
+
+mem.obj:	mem.asm
+
+#
+#   MISC. STUFF
+#
+
+clean   :
+            del *.exe
+            del *.lib
+            del *.cod
+            del *.err
+            del *.res
+            del *.obj
+            del *.map
+            del *.sym
+            del *.zip
+

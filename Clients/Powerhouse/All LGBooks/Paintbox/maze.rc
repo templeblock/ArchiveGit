@@ -1,0 +1,573 @@
+//***********************************************************************
+IDD_MAZEI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_MAZEI GAMETABLE
+//***********************************************************************
+{
+"
+	// level 1 game settings
+	intro=intro1.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,","
+	anncells=9,anncycle=8,housecells=4,housecycle=8,housespeed=100,","
+	moveinc=10,roadindex=199,scandistance=75,","
+	successplay=successi.wav,","
+	annl=mortonl.bmp,annr=mortonr.bmp,annu=mortonu.bmp,annd=mortond.bmp,","
+	housel=storml.bmp,houser=stormr.bmp,houseu=stormu.bmp,housed=stormd.bmp;","
+
+	// maze 1
+	bg=easy1i.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+
+	// maze 2
+	bg=easy2i.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+
+	// maze 3
+	bg=easy3i.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+",0
+}
+   
+//***********************************************************************
+IDD_SPANMAZEI GAMETABLE
+//***********************************************************************
+{
+"
+	// level 1 game settings
+	intro=spintro1.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,","
+	anncells=9,anncycle=8,housecells=4,housecycle=8,housespeed=100,","
+	moveinc=10,roadindex=199,scandistance=75,","
+	successplay=spsucci.wav,","
+	annl=mortonl.bmp,annr=mortonr.bmp,annu=mortonu.bmp,annd=mortond.bmp,","
+	housel=storml.bmp,houser=stormr.bmp,houseu=stormu.bmp,housed=stormd.bmp;","
+
+	// maze 1
+	bg=easy1i.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+
+	// maze 2
+	bg=easy2i.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+
+	// maze 3
+	bg=easy3i.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+",0
+}
+
+//***********************************************************************
+IDD_MAZEI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene18\\easy1.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=291 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,	hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0,	hot=218 441,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0,	hot=389 441,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=options.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_NEXT=0 0,		hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans,fg=help.bmp, hint=helphint.wav, wave=help.wav;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_SPANMAZEI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene18\\easy1.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=291 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,	hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=spprev.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=spmain.wav;","
+	/IDC_SOUNDBOX=0 0,	hot=218 441,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=spsounds.wav;","
+	/IDC_OPTIONS=0 0,	hot=389 441,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=spoption.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=spactivy.wav;","
+	/IDC_NEXT=0 0,		hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=spnext.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans,fg=help.bmp, hint=sphelp1.wav, wave=sphelp.wav;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_MAZE1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_MAZE1 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 1 game settings
+	intro=intro1.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,","
+	anncells=9,anncycle=8,housecells=4,housecycle=8,housespeed=100,","
+	moveinc=10,roadindex=199,scandistance=75,","
+	successlevel=success1.wav success1.wav success1.wav success1.wav,","
+	annl=mortonl.bmp,annr=mortonr.bmp,annu=mortonu.bmp,annd=mortond.bmp,","
+	housel=storml.bmp,houser=stormr.bmp,houseu=stormu.bmp,housed=stormd.bmp;","
+
+	// maze 1
+	bg=easy1.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+
+	// maze 2
+	bg=easy2.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+
+	// maze 3
+	bg=easy3.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANMAZE1 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 1 game settings
+	intro=spintro1.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,","
+	anncells=9,anncycle=8,housecells=4,housecycle=8,housespeed=100,","
+	moveinc=10,roadindex=199,scandistance=75,","
+	successlevel=spsucc1.wav spsucc1.wav spsucc1.wav spsucc1.wav,","
+	annl=mortonl.bmp,annr=mortonr.bmp,annu=mortonu.bmp,annd=mortond.bmp,","
+	housel=storml.bmp,houser=stormr.bmp,houseu=stormu.bmp,housed=stormd.bmp;","
+
+	// maze 1
+	bg=easy1.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+
+	// maze 2
+	bg=easy2.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+
+	// maze 3
+	bg=easy3.bmp,annstart=0,housestart=15,vision=2, target=15,","
+	decision=100  71   246  71  393  71  540  71,","
+	decision=100 178   246 178  393 178  540 178,","
+	decision=100 288   246 288  393 288  540 288,","
+	decision=100 395   246 395  393 395  540 395;","
+",0
+}
+
+//***********************************************************************
+IDD_MAZE1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene18\\easy1.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANMAZE1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene18\\easy1.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_MAZE2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_MAZE2 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 2 game settings
+	intro=intro2.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,","
+	anncells=9,anncycle=8,housecells=4,housecycle=8,housespeed=150,","
+	moveinc=10,roadindex=199,scandistance=50,","
+	successlevel=success2.wav success2.wav success2.wav success2.wav,","
+	annl=mortonl.bmp,annr=mortonr.bmp,annu=mortonu.bmp,annd=mortond.bmp,","
+	housel=storml.bmp,houser=stormr.bmp,houseu=stormu.bmp,housed=stormd.bmp;","
+
+	// maze 1
+	bg=medium1.bmp,annstart=0,housestart=19,vision=2, target=19,","
+	warp=manhole.bmp 1 7 15,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 97  68   208  68  320  68  432  68  543  68,","
+	decision= 97 178   208 178  320 178  432 178  543 178,","
+	decision= 97 288   208 288  320 288  432 288  543 288,","
+	decision= 97 398   208 398  320 398  432 398  543 398;","
+
+	// maze 2
+	bg=medium2.bmp,annstart=0,housestart=19,vision=2, target=19,","
+	warp=manhole.bmp 1 4 15,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 97  68   208  68  320  68  432  68  543  68,","
+	decision= 97 178   208 178  320 178  432 178  543 178,","
+	decision= 97 288   208 288  320 288  432 288  543 288,","
+	decision= 97 398   208 398  320 398  432 398  543 398;","
+                                                 
+	// maze 3
+	bg=medium3.bmp,annstart=0,housestart=19,vision=2, target=19,","
+	warp=manhole.bmp 1 11 3,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 97  68   208  68  320  68  432  68  543  68,","
+	decision= 97 178   208 178  320 178  432 178  543 178,","
+	decision= 97 288   208 288  320 288  432 288  543 288,","
+	decision= 97 398   208 398  320 398  432 398  543 398;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANMAZE2 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 2 game settings
+	intro=spintro2.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,","
+	anncells=9,anncycle=8,housecells=4,housecycle=8,housespeed=150,","
+	moveinc=10,roadindex=199,scandistance=50,","
+	successlevel=spsucc2.wav spsucc2.wav spsucc2.wav spsucc2.wav,","
+	annl=mortonl.bmp,annr=mortonr.bmp,annu=mortonu.bmp,annd=mortond.bmp,","
+	housel=storml.bmp,houser=stormr.bmp,houseu=stormu.bmp,housed=stormd.bmp;","
+
+	// maze 1
+	bg=medium1.bmp,annstart=0,housestart=19,vision=2, target=19,","
+	warp=manhole.bmp 1 7 15,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 97  68   208  68  320  68  432  68  543  68,","
+	decision= 97 178   208 178  320 178  432 178  543 178,","
+	decision= 97 288   208 288  320 288  432 288  543 288,","
+	decision= 97 398   208 398  320 398  432 398  543 398;","
+
+	// maze 2
+	bg=medium2.bmp,annstart=0,housestart=19,vision=2, target=19,","
+	warp=manhole.bmp 1 4 15,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 97  68   208  68  320  68  432  68  543  68,","
+	decision= 97 178   208 178  320 178  432 178  543 178,","
+	decision= 97 288   208 288  320 288  432 288  543 288,","
+	decision= 97 398   208 398  320 398  432 398  543 398;","
+
+	// maze 3
+	bg=medium3.bmp,annstart=0,housestart=19,vision=2, target=19,","
+	warp=manhole.bmp 1 11 3,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 97  68   208  68  320  68  432  68  543  68,","
+	decision= 97 178   208 178  320 178  432 178  543 178,","
+	decision= 97 288   208 288  320 288  432 288  543 288,","
+	decision= 97 398   208 398  320 398  432 398  543 398;","
+",0
+}
+
+//***********************************************************************
+IDD_MAZE2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene18\\medium1.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANMAZE2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene18\\medium1.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_MAZE3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_MAZE3 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 2 game settings
+	intro=intro3.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,","
+	anncells=9,anncycle=8,housecells=4,housecycle=8,housespeed=200,","
+	moveinc=10,roadindex=199,scandistance=40,","
+	successlevel=success3.wav success3.wav success3.wav success3.wav,","
+	annl=mortonl.bmp,annr=mortonr.bmp,annu=mortonu.bmp,annd=mortond.bmp,","
+	housel=storml.bmp,houser=stormr.bmp,houseu=stormu.bmp,housed=stormd.bmp;","
+
+	// maze 1
+	bg=hard1.bmp,annstart=0,housestart=29,vision=3, target=29,","
+	warp=manhole.bmp 1 19 14,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 95  65   185  65  275  65  365  65  455  65  545  65,","
+	decision= 95 149   185 149  275 149  365 149  455 149  545 149,","
+	decision= 95 233   185 233  275 233  365 233  455 233  545 233,","
+	decision= 95 317   185 317  275 317  365 317  455 317  545 317,","
+	decision= 95 401   185 401  275 401  365 401  455 401  545 401;","
+
+	// maze 2
+	bg=hard2.bmp,annstart=0,housestart=29,vision=3, target=29,","
+	warp=manhole.bmp 1 12  2,","
+//	warp=manhole.bmp 1  6 22,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 95  65   185  65  275  65  365  65  455  65  545  65,","
+	decision= 95 149   185 149  275 149  365 149  455 149  545 149,","
+	decision= 95 233   185 233  275 233  365 233  455 233  545 233,","
+	decision= 95 317   185 317  275 317  365 317  455 317  545 317,","
+	decision= 95 401   185 401  275 401  365 401  455 401  545 401;","
+
+	// maze 3
+	bg=hard3.bmp,annstart=0,housestart=29,vision=3, target=29,","
+	warp=manhole.bmp 1 11 16,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 95  65   185  65  275  65  365  65  455  65  545  65,","
+	decision= 95 149   185 149  275 149  365 149  455 149  545 149,","
+	decision= 95 233   185 233  275 233  365 233  455 233  545 233,","
+	decision= 95 317   185 317  275 317  365 317  455 317  545 317,","
+	decision= 95 401   185 401  275 401  365 401  455 401  545 401;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANMAZE3 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 2 game settings
+	intro=spintro3.wav,soundtrack=sndtrack.wav,","
+	gamearea=47 30 592 433,","
+	anncells=9,anncycle=8,housecells=4,housecycle=8,housespeed=200,","
+	moveinc=10,roadindex=199,scandistance=40,","
+	successlevel=spsucc3.wav spsucc3.wav spsucc3.wav spsucc3.wav,","
+	annl=mortonl.bmp,annr=mortonr.bmp,annu=mortonu.bmp,annd=mortond.bmp,","
+	housel=storml.bmp,houser=stormr.bmp,houseu=stormu.bmp,housed=stormd.bmp;","
+
+	// maze 1
+	bg=hard1.bmp,annstart=0,housestart=29,vision=3, target=29,","
+	warp=manhole.bmp 1 19 14,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 95  65   185  65  275  65  365  65  455  65  545  65,","
+	decision= 95 149   185 149  275 149  365 149  455 149  545 149,","
+	decision= 95 233   185 233  275 233  365 233  455 233  545 233,","
+	decision= 95 317   185 317  275 317  365 317  455 317  545 317,","
+	decision= 95 401   185 401  275 401  365 401  455 401  545 401;","
+
+	// maze 2
+	bg=hard2.bmp,annstart=0,housestart=29,vision=3, target=29,","
+	warp=manhole.bmp 1 12  2,","
+//	warp=manhole.bmp 1  6 22,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 95  65   185  65  275  65  365  65  455  65  545  65,","
+	decision= 95 149   185 149  275 149  365 149  455 149  545 149,","
+	decision= 95 233   185 233  275 233  365 233  455 233  545 233,","
+	decision= 95 317   185 317  275 317  365 317  455 317  545 317,","
+	decision= 95 401   185 401  275 401  365 401  455 401  545 401;","
+
+	// maze 3
+	bg=hard3.bmp,annstart=0,housestart=29,vision=3, target=29,","
+	warp=manhole.bmp 1 11 16,","
+	stop=stopsign.bmp 500 500 500 500,","
+	decision= 95  65   185  65  275  65  365  65  455  65  545  65,","
+	decision= 95 149   185 149  275 149  365 149  455 149  545 149,","
+	decision= 95 233   185 233  275 233  365 233  455 233  545 233,","
+	decision= 95 317   185 317  275 317  365 317  455 317  545 317,","
+	decision= 95 401   185 401  275 401  365 401  455 401  545 401;","
+",0
+}
+
+//***********************************************************************
+IDD_MAZE3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene18\\hard1.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+	
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANMAZE3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene18\\hard1.bmp,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+	
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 437,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 439,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip,          cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip,          cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip,          cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}

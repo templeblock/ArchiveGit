@@ -1,0 +1,11 @@
+[MSVC Status File]
+Version=1.00
+ProjectType=10
+External=1
+DebugBuildCmd=NMAKE /f PALMERGE.MAK
+ReleaseBuildCmd=NMAKE /f PALMERGE.MAK
+RebuildOption=/a
+BuildMode=1
+TargetName=N:\DEV\SRC\TOOLS\PALMERGE\PALMERGE.EXE
+BrkptCount=0
+WatchCount=0

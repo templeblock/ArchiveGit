@@ -1,0 +1,22 @@
+// Source file: WINPROCS.C
+BOOL WINPROC EXPORT DlgComboProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+BOOL WINPROC EXPORT DlgHeraldProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+void UpdateStatusBar( BOOL bDummy1, BOOL bDummy2, BOOL bMask, BOOL bShield );
+BOOL WINPROC EXPORT DlgWarningProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+VOID DoSizeInits( HWND hDlg );
+void ImageMemory( HWND hDlg, ITEMID idControl, LFIXED fWidth, LFIXED fHeight, int iResolution, int iDepth );
+VOID DoSizeControls( HWND hDlg, WPARAM wParam, LPARAM lParam, BOOL bResAdjust );
+BOOL WINPROC EXPORT DlgProcessProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+VOID SetUnitLabels(HWND hDlg);
+BOOL WINPROC EXPORT DlgExpandProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+BOOL WINPROC EXPORT DlgRotateProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+BOOL WINPROC EXPORT DlgNewProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+BOOL WINPROC EXPORT DlgStatusBoxProc( HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam );
+BOOL WINPROC EXPORT DlgPrefProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+BOOL WINPROC EXPORT DlgLocationsProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+BOOL WINPROC EXPORT DlgInfoProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+BOOL WINPROC EXPORT DlgDriversProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+void DisplayInfo(long lParam, LPRECT lpRect);
+BOOL WINPROC EXPORT DlgInfoFloatProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+
+

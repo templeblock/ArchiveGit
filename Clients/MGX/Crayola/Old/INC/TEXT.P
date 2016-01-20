@@ -1,0 +1,34 @@
+// Source file: text.c
+BOOL TextBegin(HWND hWnd, int x, int y);
+void TextEnd(HWND hWnd, BOOL fCancel);
+void TextAnchor(HWND hWnd);
+void TextMove(HWND hWnd, int x, int y);
+void TextOffset(HWND hWnd, int x, int y);
+void TextRMove(HWND hWnd, int dx, int dy);
+void TextKeystroke(HWND hWnd, WORD nVKey);
+void TextFontChanged(HWND hWnd);
+void TextDisplayCaret(HWND hWnd, HDC hInDC);
+BOOL TextCanRotate(HWND hWnd, int nFont);
+static BOOL TextCheckRotate(BOOL fCanRotate, int nFont);
+static BOOL TextApply(HWND hWnd);
+static BOOL TextFill(LPFRAME lpBits, LPRECT lpRect );
+static BOOL TextCreateObject(LPFRAME lpBits, LPRECT lpRect );
+static void TextRedrawProc(HDC hDC, LPRECT lpRect );
+static void TextDisplayLine(HWND hWnd, HDC hInDC, BOOL on, BYTE bSingleChar, BOOL fDisplay, BOOL fExtentsOnly, LFIXED DispRate, BOOL fAllowScaling);
+static void TextDisplayChar(HDC hDC, char bChar, LPTEXTMETRIC lpTM, LPTFORM lpTForm, BOOL fExtentsOnly, BOOL fDisplay);
+static HFONT TextNewFont(int nFont, int Size, BYTE Style, LFIXED DispRate, BOOL fAllowScaling);
+static int TextGetAngle(int nFont);
+static BOOL TextAddChar(WORD nVKey);
+static BOOL TextCheckBufSize(WORD wBytes);
+static BOOL TextAddByte(BYTE bValue);
+static BYTE TextExtractStyle( void );
+static void TextDeleteAllChars( HWND hWnd );
+static void TextDeleteChar(BOOL bLast);
+LPFRAME TextGetBitmapBits(HDC hDC, HBITMAP hBitmap, int iWidth, int iHeight);
+static void TextDataProc( int y, int left, int right, LPTR lpDst, LPTR lpSrc, int depth );
+static void TextMaskProc(int y, int left, int right, LPTR lpMsk);
+LPFRAME TextAntiAlias(LPFRAME lpRasterBits, int iRasterWidth, int iRasterHeight, int iWidth, int iHeight);
+static void SetBit(LPTR lp, int x);
+static void SetBackSlashBits(LPTR lp, int w, int h, WORD wBytes);
+static void SetSlashBits(LPTR lp, int w, int h, WORD wBytes);
+

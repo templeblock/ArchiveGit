@@ -1,0 +1,926 @@
+// (c) Copyright 1993 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+
+#include "app.rc"
+
+
+//************************************************************************
+// The application STRING assignments
+//************************************************************************
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+IDS_APPNAMEOLE			        "Crayola Artwork"
+IDS_APPNAME				        "Crayola Amazing Art Adventure"
+IDS_INIFILE				        "CRAYOLA.INI"
+IDS_NAMESFILE			        "ADVENTUR.INI"
+IDS_HELPFILE			        "CRAYOLA.HLP"
+IDS_SOUNDDLL			        "ADV_SND.SND"
+
+// file name formats:
+IDS_CIRCUS                      "circus%02u.art"
+IDS_DRAGON                      "dragon%02u.art"
+IDS_JUNGLE                      "jungle%02u.art"
+IDS_MAZES                       "mazes_%02u.art"
+IDS_MONSTER                     "monstr%02u.tif"
+IDS_PLACEMAT                    "plcmat%02u.tif"
+IDS_SHAPES                      "shapes%02u.tif"
+IDS_SPACEBALL                   "spaceb%02u.art"
+IDS_SUBSETS                     "subset%02u.art"
+IDS_WRONG                       "wrong_%02u.art"
+
+// room scenes:
+RM_OPENING                      "open_a.tif"
+RM_WHOAREYOU                    "whoareu.tif"
+RM_ARTROOM                      "adventur.tif"
+RM_GALLERY                      "gallery.tif"
+
+RM_CIRCUS                       "circus.tif"
+RM_DRAGON                       "dragon.tif"
+RM_JUNGLE                       "jungle.tif"
+RM_MAZES                        "mazes.tif"
+RM_MONSTER                      "monstr.tif"
+RM_PLACEMATS                    "plcmat.tif"
+RM_SHAPES                       "shapes.tif"
+RM_SPACEBALL                    "spaceb.tif"
+RM_SUBSETS                      "subset.tif"
+RM_WRONG                        "wrong.tif"
+RM_ADDON                        "addon_a.tif"
+
+IDS_MIXUP_LIB                   "monster.mix"
+
+IDS_INTERMSN_TOY                "tbweed%02u.toy"
+
+IDS_TOUR_GUIDE_ON               "The Tour Guide is ON."
+IDS_TOUR_GUIDE_OFF              "The Tour Guide is OFF."
+
+IDS_CD_MSGALERT                 "Crayola Amazing Art Adventure will add icons to the Program Manager for your convenience."
+IDS_CD_MSGTITLE                 "Crayola"
+IDS_CD_APPGROUP                 "Micrografx for Kids"
+IDS_CD_APPICON                  "Crayola Amazing Art Adventure [CD-ROM]"
+IDS_CD_APPOFFER                 "Art Studio Special Offer [CD-ROM]"
+IDS_CD_AVIICON1                 "Hi Tip! Video [CD-ROM]"
+IDS_CD_AVIICON2                 "Making Crayons Video [CD-ROM]"
+IDS_CD_AVIICON3                 "Around the World Video [CD-ROM]"
+IDS_CD_AVIICON4                 "Making Markers Video [CD-ROM]"
+IDS_CD_AVIICON5                 "Crayola History Video [CD-ROM]"
+IDS_CD_DEMOTEXT                 "Crayola Rocks Demo [CD-ROM]"
+IDS_CD_SAFETY                   "Rules for Safety [CD-ROM]"
+}
+
+
+//************************************************************************
+// The DIALOG BOX definitions
+//************************************************************************
+
+/******************************* Room Dialogs *******************************/
+
+
+RM_ARTROOM DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    HOTSPOT( HS_BURGER,         308, 376,  32,  33 )
+	ANIMATED_TOY( "0504", HS_CAKE,  260, 170 )
+	ANIMATED_TOY( "0503", HS_CLOCK, 464, 240 )
+	ANIMATED_TOY( "0605", HS_CLOWN,  96, 400 )
+	ANIMATED_TOY( "0106", HS_DOG,   478, 361 )
+    HOTSPOT( HS_EASEL,          126, 187, 103, 132 )
+
+//needs to be before HS_EXIT since it is front of the hot spot
+	ANIMATED_TOY( "5001", IDC_ADDONROOM, 180, 335)	// Add-On Room
+
+    HOTSPOT( HS_EXIT,           539, 109,  61, 239 )
+    HOTSPOT( HS_GALLERY,        152,  87,  88, 126 )
+	ANIMATED_TOY( "0502", HS_HORN, 314, 136 )
+	ANIMATED_TOY( "0604", HS_JACK, 367, 338 )
+    HOTSPOT( HS_MAZE,           374, 183,  37,  38 )
+	ANIMATED_TOY( "0308", HS_MONKEY, 10, 334 )
+    HOTSPOT( HS_MONSTER,        425, 177,  34,  62 )
+    HOTSPOT( HS_PLACEMAT,       298, 393,  67,  29 )
+    HOTSPOT( HS_SHAPES,         521, 415,  82,  55 )
+	ANIMATED_TOY( "1003", HS_ROCKET,  69, 207 )
+    HOTSPOT( HS_SPACESHIP,      262, 241,  55,  46 )
+	ANIMATED_TOY( "0505", HS_TOASTER, 251,  8 )
+    HOTSPOT( HS_TOUR,            34,  82,  51, 108 )
+    HOTSPOT( HS_VEGGIES,        264, 295,  75,  47 )
+	ANIMATED_TOY( "1002", -1, 348, 96 )				// helicopter
+	ANIMATED_TOY( "0110", -1, 442, 76 )				// seal
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+    HS_BURGER         "Go to Place Mat Maker."
+    HS_CAKE           "Go to Dragon\'s Birthday coloring book."
+    HS_CLOWN          "Go to Circus Dots follow-the-dots book."
+    HS_EASEL          "Paint a new picture."
+    HS_EXIT           "Quit the program."
+    HS_GALLERY        "Go to the Gallery."
+    HS_MAZE           "Go to Monster Maze Craze coloring book."
+    HS_MONKEY         "Go to Jungle Adventure coloring book."
+    HS_MONSTER        "Go to Monster Mix-ups coloring book."
+    HS_PLACEMAT       "Go to Place Mat Maker."
+    HS_SHAPES         "Go to Hidden Treasure coloring book."
+    HS_SPACESHIP      "Go to Spaceball Magic Dot coloring book."
+    HS_TOASTER        "Go to Silly Scenes\nquestions && answers book."
+    HS_VEGGIES        "Go to What\'s In? What\'s Out? coloring book."
+}
+
+/****************************************************************************/
+
+RM_CIRCUS DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    OBJLIST( "", IDC_HIDDEN_IMAGE, 20, 23, 480, 360 )
+    HOTSPOT( HS_COVER,       504,  21,  20,  42 )
+    HOTSPOT( HS_TAB1,        504,  69,  21,  42 )
+    HOTSPOT( HS_TAB2,        504, 113,  23,  42 )
+    HOTSPOT( HS_TAB3,        504, 153,  24,  42 )
+    HOTSPOT( HS_TAB4,        504, 193,  26,  42 )
+    HOTSPOT( HS_TAB5,        504, 236,  27,  42 )
+    HOTSPOT( HS_TAB6,        504, 276,  29,  42 )
+    HOTSPOT( HS_TAB7,        504, 318,  30,  42 )
+    HOTSPOT( HS_TAB8,        504, 359,  32,  42 )
+    HOTSPOT( HS_BACKART,     538,  28, 100, 100 )
+    TOY( HS_LOGO_CIRCUS,      16, 407 )
+    TOY( HS_XTRA_CIRCUS,     135, 415 )
+    TOY( HS_COLORME,         555, 174 )
+    TOY( HS_SHOWME,           17, 415 )
+
+	ANIMATED_TOY( "0208", IDC_COVER_ANIMATE1, 255, 128 )	// dog
+	ANIMATED_TOY( "0608", IDC_COVER_ANIMATE3, 403, 133 )	// balloon
+	ANIMATED_TOY( "0609", IDC_COVER_ANIMATE4,  48, 100 )	// juggling
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+    HS_COVER          "Show the cover."
+    HS_TAB1           "Show page 1."
+    HS_TAB2           "Show page 2."
+    HS_TAB3           "Show page 3."
+    HS_TAB4           "Show page 4."
+    HS_TAB5           "Show page 5."
+    HS_TAB6           "Show page 6."
+    HS_TAB7           "Show page 7."
+    HS_TAB8           "Show page 8."
+    HS_BACKART        "Go back to the Art room."
+    HS_COLORME        "Color this page."
+    HS_SHOWME         "Show the correct answer."
+}
+
+/****************************************************************************/
+
+RM_DRAGON DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    OBJLIST( "", IDC_HIDDEN_IMAGE, 20, 23, 480, 360 )
+    HOTSPOT( HS_COVER,       504,  21,  20,  42 )
+    HOTSPOT( HS_TAB1,        504,  69,  21,  42 )
+    HOTSPOT( HS_TAB2,        504, 113,  23,  42 )
+    HOTSPOT( HS_TAB3,        504, 153,  24,  42 )
+    HOTSPOT( HS_TAB4,        504, 193,  26,  42 )
+    HOTSPOT( HS_TAB5,        504, 236,  27,  42 )
+    HOTSPOT( HS_TAB6,        504, 276,  29,  42 )
+    HOTSPOT( HS_TAB7,        504, 318,  30,  42 )
+    HOTSPOT( HS_TAB8,        504, 359,  32,  42 )
+    HOTSPOT( HS_BACKART,     538,  28, 100, 100 )
+    TOY( HS_LOGO_DRAGON,      16, 407 )
+    TOY( HS_XTRA_DRAGON,     182, 406 )
+    TOY( HS_COLORME,         555, 174 )
+    TOY( HS_SHOWME,           17, 415 )
+    IMAGE( "", IDC_HIDDEN_LEGEND, 280, 413, 56, 56 )
+
+	ANIMATED_TOY( "1101", IDC_COVER_ANIMATE1, 103, 132 )	// prince's arm
+	ANIMATED_TOY( "1102", IDC_COVER_ANIMATE2, 394, 137 )	// princess's arm
+	ANIMATED_TOY( "5009", IDC_COVER_ANIMATE3, 216, 133 )	// cake flames
+	ANIMATED_TOY( "1103", IDC_COVER_ANIMATE4, 429, 352 )	// green shoe
+	ANIMATED_TOY( "0508", IDC_COVER_ANIMATE5, 266, 315 )	// water can
+	ANIMATED_TOY( "0409", IDC_COVER_ANIMATE6, 385,  61 )	 // dragon's head
+end
+
+/****************************************************************************/
+
+RM_JUNGLE DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    OBJLIST( "", IDC_HIDDEN_IMAGE, 20, 23, 480, 360 )
+    HOTSPOT( HS_COVER,       504,  21,  20,  42 )
+    HOTSPOT( HS_TAB1,        504,  69,  21,  42 )
+    HOTSPOT( HS_TAB2,        504, 113,  23,  42 )
+    HOTSPOT( HS_TAB3,        504, 153,  24,  42 )
+    HOTSPOT( HS_TAB4,        504, 193,  26,  42 )
+    HOTSPOT( HS_TAB5,        504, 236,  27,  42 )
+    HOTSPOT( HS_TAB6,        504, 276,  29,  42 )
+    HOTSPOT( HS_TAB7,        504, 318,  30,  42 )
+    HOTSPOT( HS_TAB8,        504, 359,  32,  42 )
+    HOTSPOT( HS_BACKART,     538,  28, 100, 100 )
+    TOY( HS_LOGO_JUNGLE,      16, 407 )
+    TOY( HS_COLORME,         555, 174 )
+
+	ANIMATED_TOY( "0107", IDC_COVER_ANIMATE1,   6,  26 )	// parrot
+	ANIMATED_TOY( "0705", IDC_COVER_ANIMATE2, 279,  18 )	// sun's rays
+	ANIMATED_TOY( "0302", IDC_COVER_ANIMATE3, 388, 340 )	// snake
+end
+
+/****************************************************************************/
+
+RM_MAZES DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    OBJLIST( "", IDC_HIDDEN_IMAGE, 20, 23, 480, 360 )
+    HOTSPOT( HS_COVER,       504,  21,  20,  42)
+    HOTSPOT( HS_TAB1,        504,  69,  21,  42)
+    HOTSPOT( HS_TAB2,        504, 113,  23,  42)
+    HOTSPOT( HS_TAB3,        504, 153,  24,  42)
+    HOTSPOT( HS_TAB4,        504, 193,  26,  42)
+    HOTSPOT( HS_TAB5,        504, 236,  27,  42)
+    HOTSPOT( HS_TAB6,        504, 276,  29,  42)
+    HOTSPOT( HS_TAB7,        504, 318,  30,  42)
+    HOTSPOT( HS_TAB8,        504, 359,  32,  42)
+    HOTSPOT( HS_BACKART,     538,  28, 100, 100)
+    TOY( HS_LOGO_MAZES,       16, 407)
+    TOY( HS_XTRA_MAZES,      122, 415)
+    TOY( HS_COLORME,         555, 174)
+    TOY( HS_SHOWME,           17, 415)
+    TOY( HS_RESTART,         432, 415)
+	ANIMATED_TOY( "0403", IDC_COVER_ANIMATE1,  23,   7)	// monster on bike
+	ANIMATED_TOY( "1107", IDC_COVER_ANIMATE2, 101, 168)	// arms / eyes
+	ANIMATED_TOY( "0102", IDC_COVER_ANIMATE3, 275, 151)	// dog
+	ANIMATED_TOY( "0910", IDC_COVER_ANIMATE4, 395, 278)	// boy
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+    HS_RESTART        "Click to start over."
+}
+
+/****************************************************************************/
+
+RM_MONSTER DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    OBJLIST( "", IDC_MIXUP_IMAGE, 20, 23, 480, 360)
+    HOTSPOT( HS_COVER,       504,  21,  20,  42)
+    HOTSPOT( HS_TAB1,        504,  69,  21,  42)
+    HOTSPOT( HS_TAB2,        504, 113,  23,  42)
+    HOTSPOT( HS_TAB3,        504, 153,  24,  42)
+    HOTSPOT( HS_TAB4,        504, 193,  26,  42)
+    HOTSPOT( HS_TAB5,        504, 236,  27,  42)
+    HOTSPOT( HS_TAB6,        504, 276,  29,  42)
+    HOTSPOT( HS_TAB7,        504, 318,  30,  42)
+    HOTSPOT( HS_TAB8,        504, 359,  32,  42)
+    HOTSPOT( HS_BACKART,     538,  28, 100, 100)
+    HOTSPOT( IDC_COVER_ANIMATE5, 85,  85, 4, 4 )
+    TOY( HS_LOGO_MONSTER,     16, 407)
+    TOY( HS_MIXUP_HEAD,       60, 410)
+    TOY( HS_MIXUP_BODY,      220, 410)
+    TOY( HS_MIXUP_LEGS,      380, 410)
+    TOY( HS_COLORME,         555, 174)
+
+	ANIMATED_TOY( "0806", IDC_COVER_ANIMATE1,  82, 116) // scientist
+	ANIMATED_TOY( "0407", IDC_COVER_ANIMATE2, 258, 319) // feet
+	ANIMATED_TOY( "0706", IDC_COVER_ANIMATE3, 360, 220) // spark
+	ANIMATED_TOY( "0506", IDC_COVER_ANIMATE4, 243, 200) // beaker
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+    HS_MIXUP_HEAD     "Change the head."
+    HS_MIXUP_BODY     "Change the body."
+    HS_MIXUP_LEGS     "Change the legs."
+}
+
+/****************************************************************************/
+
+RM_PLACEMATS DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    HOTSPOT( HS_PLACEMAT1,    17, 193, 142, 109)
+    HOTSPOT( HS_PLACEMAT2,   172, 193, 142, 109)
+    HOTSPOT( HS_PLACEMAT3,   329, 193, 142, 109)
+    HOTSPOT( HS_PLACEMAT4,   484, 193, 142, 109)
+    HOTSPOT( HS_PLACEMAT5,    17, 315, 142, 109)
+    HOTSPOT( HS_PLACEMAT6,   172, 315, 142, 109)
+    HOTSPOT( HS_PLACEMAT7,   329, 315, 142, 109)
+    HOTSPOT( HS_PLACEMAT8,   484, 315, 142, 109)
+    HOTSPOT( HS_BACKART,     494,  45, 135, 100)
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+    HS_PLACEMAT1      "Color Picnic place mat."
+    HS_PLACEMAT2      "Color Wave place mat."
+    HS_PLACEMAT3      "Color Breakfast place mat."
+    HS_PLACEMAT4      "Color French Fry place mat."
+    HS_PLACEMAT5      "Color Let's Party place mat."
+    HS_PLACEMAT6      "Color Place Setting place mat."
+    HS_PLACEMAT7      "Color Meal Time place mat."
+    HS_PLACEMAT8      "Color Anytime place mat."
+}
+
+
+/****************************************************************************/
+
+RM_SHAPES DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    OBJLIST( "", IDC_SHAPES_IMAGE, 20, 23, 480, 360)
+    HOTSPOT( HS_COVER,       504,  21,  20,  42)
+    HOTSPOT( HS_TAB1,        504,  69,  21,  42)
+    HOTSPOT( HS_TAB2,        504, 113,  23,  42)
+    HOTSPOT( HS_TAB3,        504, 153,  24,  42)
+    HOTSPOT( HS_TAB4,        504, 193,  26,  42)
+    HOTSPOT( HS_TAB5,        504, 236,  27,  42)
+    HOTSPOT( HS_TAB6,        504, 276,  29,  42)
+    HOTSPOT( HS_TAB7,        504, 318,  30,  42)
+    HOTSPOT( HS_TAB8,        504, 359,  32,  42)
+    HOTSPOT( HS_BACKART,     538,  28, 100, 100)
+    TOY( HS_LOGO_SHAPES,      16, 407)
+    TOY( HS_XTRA_SHAPES,     135, 415)
+    TOY( HS_COLORME,         555, 174)
+    TOY( HS_SHOWME,           17, 415)
+    TEXT( "*", HS_BLOCK_TEXT, 147, 428, 353, 32)
+
+	HOTSPOT( HS_HT_HAT,       38, 145,  73, 55)
+	HOTSPOT( HS_HT_IGLOO,    120, 120,  31, 62)
+	HOTSPOT( HS_HT_DOG,      164, 112, 130, 60)
+	HOTSPOT( HS_HT_BBEYES,   315,  98,  50, 60)
+	HOTSPOT( HS_HT_NECKLACE, 378,  92,  90, 70)
+	HOTSPOT( HS_HT_TREE,      30, 250,  60, 80)
+	HOTSPOT( HS_HT_RACOON1,  118, 267,  54, 50)
+	HOTSPOT( HS_HT_LBEYES,   175, 252,  41, 48)
+	HOTSPOT( HS_HT_SAW,      278, 238,  42, 58)
+	HOTSPOT( HS_HT_APPLE,    224, 244,  52, 50)
+	HOTSPOT( HS_HT_UNICORN,  320, 220,  50, 70)
+	HOTSPOT( HS_HT_RACOON2,  391, 231,  44, 52)
+	HOTSPOT( HS_HT_GEYES,    445, 228,  35, 53)
+
+	TOY( IDC_HT_HAT,          29,  92)
+	TOY( IDC_HT_IGLOO,       104,  56)
+	TOY( IDC_HT_DOG,         190,  41)
+	TOY( IDC_HT_BBEYES,      304,  50)
+	TOY( IDC_HT_NECKLACE,    396, 105)
+	TOY( IDC_HT_TREE,         30, 250)
+	TOY( IDC_HT_RACOON1,     111, 210)
+	TOY( IDC_HT_LBEYES,      162, 210)
+	TOY( IDC_HT_SAW,         270, 165)
+	TOY( IDC_HT_APPLE,       213, 305)
+	TOY( IDC_HT_UNICORN,     320, 220)
+	TOY( IDC_HT_RACOON2,     400, 275)
+	TOY( IDC_HT_GEYES,       435, 190)
+end
+
+/****************************************************************************/
+
+RM_SPACEBALL DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    OBJLIST( "", IDC_HIDDEN_IMAGE, 20, 23, 480, 360)
+    HOTSPOT( HS_COVER,       504,  21,  20,  42)
+    HOTSPOT( HS_TAB1,        504,  69,  21,  42)
+    HOTSPOT( HS_TAB2,        504, 113,  23,  42)
+    HOTSPOT( HS_TAB3,        504, 153,  24,  42)
+    HOTSPOT( HS_TAB4,        504, 193,  26,  42)
+    HOTSPOT( HS_TAB5,        504, 236,  27,  42)
+    HOTSPOT( HS_TAB6,        504, 276,  29,  42)
+    HOTSPOT( HS_TAB7,        504, 318,  30,  42)
+    HOTSPOT( HS_TAB8,        504, 359,  32,  42)
+    HOTSPOT( HS_BACKART,     538,  28, 100, 100)
+    TOY( HS_LOGO_SPACEBALL,   16, 407)
+    TOY( HS_XTRA_SPACEBALL,  135, 415)
+    TOY( HS_COLORME,         555, 174)
+    TOY( HS_SHOWME,           17, 415)
+end
+
+/****************************************************************************/
+
+RM_SUBSETS DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    OBJLIST( "", IDC_HIDDEN_IMAGE, 20, 23, 480, 360)
+    HOTSPOT( HS_COVER,       504,  21,  20,  42)
+    HOTSPOT( HS_TAB1,        504,  69,  21,  42)
+    HOTSPOT( HS_TAB2,        504, 113,  23,  42)
+    HOTSPOT( HS_TAB3,        504, 153,  24,  42)
+    HOTSPOT( HS_TAB4,        504, 193,  26,  42)
+    HOTSPOT( HS_TAB5,        504, 236,  27,  42)
+    HOTSPOT( HS_TAB6,        504, 276,  29,  42)
+    HOTSPOT( HS_TAB7,        504, 318,  30,  42)
+    HOTSPOT( HS_TAB8,        504, 359,  32,  42)
+    HOTSPOT( HS_BACKART,     538,  28, 100, 100)
+    TOY( HS_LOGO_SUBSETS,     16, 407)
+    TOY( HS_XTRA_SUBSETS,    135, 415)
+    TOY( HS_COLORME,         555, 174)
+    TOY( HS_SHOWME,           17, 415)
+
+	TOY( IDC_SS_CLOWN,        60, 26)
+	TOY( IDC_SS_S2,		     130, 35)
+
+	TOY( IDC_SS_PINEAPPLE,    28,  70)
+	TOY( IDC_SS_H1,			  25, 107)
+
+	TOY( IDC_SS_PAN,	      82, 132)
+	TOY( IDC_SS_U,			  85, 135)
+
+	TOY( IDC_SS_PAROT1,       29, 149)
+	TOY( IDC_SS_A2,		      30, 190)
+
+	TOY( IDC_SS_CARROT,       90, 175)
+	TOY( IDC_SS_T1,		      88, 205)
+
+	TOY( IDC_SS_CRAB1,	      30, 255)
+	TOY( IDC_SS_QUEST2,		  30, 270)
+
+	TOY( IDC_SS_PIG,		  44, 316)
+	TOY( IDC_SS_H2,			  80, 315)
+
+	TOY( IDC_SS_ELEPHANT,	 206, 315)
+	TOY( IDC_SS_N,			 230, 325)
+
+	TOY( IDC_SS_GFISH,		 130, 315)
+	TOY( IDC_SS_A1,			 150, 320)
+
+	TOY( IDC_SS_SAW,		 287, 305)
+	TOY( IDC_SS_I,			 310, 325)
+
+	TOY( IDC_SS_APPLE,		 365, 315)
+	TOY( IDC_SS_T3,			 360, 334)
+
+	TOY( IDC_SS_COW,		 410, 312)
+	TOY( IDC_SS_W1,			 420, 325)
+
+	TOY( IDC_SS_TOUCAN1,	 405, 245)
+	TOY( IDC_SS_S1,			 465, 260)
+
+	TOY( IDC_SS_FOOTBALL,	 425, 205)
+	TOY( IDC_SS_QUEST1,		 440, 205)
+
+	TOY( IDC_SS_GIRAFFE,	 374,  95)
+	TOY( IDC_SS_W2,			 375, 140)
+
+	TOY( IDC_SS_OCTOPUS,	 360, 25)
+	TOY( IDC_SS_O,			 380, 35)
+
+	TOY( IDC_SS_BUTFLY, 	 437, 97)
+	TOY( IDC_SS_T2,			 465, 97)
+end
+
+/****************************************************************************/
+
+RM_WRONG DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+	OBJLIST( "", IDC_HIDDEN_IMAGE, 20, 23, 480, 360)
+    HOTSPOT( HS_COVER,       504,  21,  20,  42)
+    HOTSPOT( HS_TAB1,        504,  69,  21,  42)
+    HOTSPOT( HS_TAB2,        504, 113,  23,  42)
+    HOTSPOT( HS_TAB3,        504, 153,  24,  42)
+    HOTSPOT( HS_TAB4,        504, 193,  26,  42)
+    HOTSPOT( HS_TAB5,        504, 236,  27,  42)
+    HOTSPOT( HS_TAB6,        504, 276,  29,  42)
+    HOTSPOT( HS_TAB7,        504, 318,  30,  42)
+    HOTSPOT( HS_TAB8,        504, 359,  32,  42)
+    HOTSPOT( HS_BACKART,     538,  28, 100, 100)
+	TOY( HS_LOGO_WRONG,       16, 407)
+	TOY( HS_XTRA_WRONG,      135, 415)
+	TOY( HS_COLORME,         555, 174)
+	TOY( HS_SHOWME,           17, 415)
+	TOY( HS_WRONG_LBULBS,     25,  65)
+	TOY( HS_WRONG_APPLES,     25,  65)
+	TOY( HS_WRONG_PIZZA,     218, 203)
+	TOY( HS_WRONG_NUT,       232, 201)
+	TOY( HS_WRONG_FISH,      328, 258)
+	TOY( HS_WRONG_BEAR,      336, 250)
+	// pig & bird need to be above the pine and palm trees
+	TOY( HS_WRONG_PIG,       320,  60)
+	TOY( HS_WRONG_BIRD,      320,  60)
+	TOY( HS_WRONG_PINE,      326,  35)
+	TOY( HS_WRONG_PALM,      341,  40)
+	TOY( HS_WRONG_DUCK1,     100, 323)
+	TOY( HS_WRONG_DUCK2,     100, 323)
+end
+
+
+//************************************************************************
+// Access: Automatically at startup - The Main dialog
+//************************************************************************
+IDD_MAIN DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless2
+DLG_FONT
+begin
+	TOY( IDC_GOBACK,		569,   0 )
+	TOY( IDC_GALLERY,	 	506,   6 )
+	TOY( IDC_CRAYON,	 	506,  73 )
+	TOY( IDC_PAINT,	 		531,  64 )
+	TOY( IDC_TEXT,		 	579,  81 )
+	TOY( IDC_MARKER,	 	505, 157 )
+	TOY( IDC_FILL,			534, 160 )
+	TOY( IDC_SHAPES,		592, 149 )
+	TOY( IDC_LINES,	 		590, 196 )
+	TOY( IDM_UNDO,		 	507, 256 )
+	TOY( IDC_STAMP,	 		536, 243 )
+	TOY( IDC_TOY,			581, 243 )
+	TOY( IDC_ERASER,	 	513, 304 )
+	TOY( IDC_EFFECTS,		572, 323 )
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+    IDC_GOBACK        "Go back."
+    IDC_GALLERY       "Use the Picture Tool."
+    IDC_CRAYON        "Draw with crayons."
+    IDC_PAINT         "Paint with watercolors."
+    IDC_TEXT          "Type words and numbers."
+    IDC_MARKER        "Draw with markers."
+    IDC_FILL          "Fill with color."
+    IDC_SHAPES        "Draw shapes."
+    IDC_LINES         "Draw Crazy Lines."
+    IDM_UNDO          "Undo a boo-boo."
+    IDC_STAMP         "Add stickers to your picture."
+    IDC_TOY           "Add moving toys to your picture."
+    IDC_ERASER        "Erase or explode a picture."
+    IDC_TRANSFORMER   "Transform a sticker or\ncut and paste."
+    IDC_EFFECTS       "Apply a special effect."
+    IDC_ACTIVECOLOR   "This is the active color."
+
+    IDC_COLOR_RAINBOW   "Rainbow"
+    IDC_COLOR_BLACK     "Black"
+    IDC_COLOR_RED       "Red"
+    IDC_COLOR_ORANGE    "Orange"
+    IDC_COLOR_YELLOW    "Yellow"
+    IDC_COLOR_GREEN     "Green"
+    IDC_COLOR_DKCYAN    "Dark Cyan"
+    IDC_COLOR_BLUE      "Blue"
+    IDC_COLOR_PURPLE    "Purple"
+    IDC_COLOR_MAGENTA   "Magenta"
+    IDC_COLOR_TAN       "Tan"
+    IDC_COLOR_BROWN     "Brown"
+    IDC_COLOR_WHITE     "White"
+    IDC_COLOR_GRAY      "Gray"
+    IDC_COLOR_ROSE      "Rose"
+    IDC_COLOR_SAND      "Sand"
+    IDC_COLOR_LTYELLOW  "Light Yellow"
+    IDC_COLOR_LTGREEN   "Light Green"
+    IDC_COLOR_CYAN      "Cyan"
+    IDC_COLOR_LAVENDER  "Lavender"
+    IDC_COLOR_LTPURPLE  "Light Purple"
+    IDC_COLOR_LTMAGENTA "Light Magenta"
+    IDC_COLOR_LTTAN     "Light Tan"
+    IDC_COLOR_LTBROWN   "Light Brown"
+}
+
+
+//************************************************************************
+// Access: Add-On Room from main art room
+//************************************************************************
+RM_ADDON DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 480
+style Modeless
+DLG_FONT
+begin
+    HOTSPOT(HS_BACKART,     508, 182, 80, 65 )
+end
+
+
+//************************************************************************
+// The RIBBON definitions
+//************************************************************************
+
+//************************************************************************
+// Access: Select Toy (animation) tool
+//************************************************************************
+IDD_TOY DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_TOY, 2, 10 )
+	COPTION( IDC_TOY_CATEGORY, 66, 6 )
+	BOPTION( IDC_TOY_T1,  155,  6 )
+	BOPTION( IDC_TOY_T2,  199,  6 )
+	BOPTION( IDC_TOY_T3,  243,  6 )
+	BOPTION( IDC_TOY_T4,  287,  6 )
+	BOPTION( IDC_TOY_T5,  331,  6 )
+
+	BOPTION( IDC_TOY_T6,  155, 50 )
+	BOPTION( IDC_TOY_T7,  199, 50 )
+	BOPTION( IDC_TOY_T8,  243, 50 )
+	BOPTION( IDC_TOY_T9,  287, 50 )
+	BOPTION( IDC_TOY_T10, 331, 50 )
+
+	SWITCH( IDC_TOY_SW1,  395, 25 )
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+    IDC_TOY_SW1       "Start and stop the moving toys."
+}
+
+
+//************************************************************************
+// Access: Select Draw tool, then Pencil tool
+//************************************************************************
+IDD_STAMP DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_STAMP, 12, 24 )
+	COPTION( IDC_STAMP_CATEGORY, 66, 6 )
+	BOPTION( IDC_STAMP_T1,  155,  6 )
+	BOPTION( IDC_STAMP_T2,  199,  6 )
+	BOPTION( IDC_STAMP_T3,  243,  6 )
+	BOPTION( IDC_STAMP_T4,  287,  6 )
+	BOPTION( IDC_STAMP_T5,  331,  6 )
+	BOPTION( IDC_STAMP_T6,  375,  6 )
+	BOPTION( IDC_STAMP_T7,  419,  6 )
+	BOPTION( IDC_STAMP_T8,  463,  6 )
+
+
+	BOPTION( IDC_STAMP_T9,  155, 50 )
+	BOPTION( IDC_STAMP_T10, 199, 50 )
+	BOPTION( IDC_STAMP_T11, 243, 50 )
+	BOPTION( IDC_STAMP_T12, 287, 50 )
+	BOPTION( IDC_STAMP_T13, 331, 50 )
+	BOPTION( IDC_STAMP_T14, 375, 50 )
+	BOPTION( IDC_STAMP_T15, 419, 50 )
+	BOPTION( IDC_STAMP_T16, 463, 50 )
+end
+
+//************************************************************************
+// Access: Select Effects tool
+//************************************************************************
+IDD_EFFECTS DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_EFFECTS, 4 ,22 )
+	COPTION( IDC_EFFECTS_CATEGORY, 66, 6 )
+	BOPTION( IDC_EFFECTS_T1,  155,  6 )
+	BOPTION( IDC_EFFECTS_T2,  199,  6 )
+	BOPTION( IDC_EFFECTS_T3,  243,  6 )
+	BOPTION( IDC_EFFECTS_T4,  287,  6 )
+	BOPTION( IDC_EFFECTS_T5,  331,  6 )
+	BOPTION( IDC_EFFECTS_T6,  375,  6 )
+	BOPTION( IDC_EFFECTS_T7,  419,  6 )
+	BOPTION( IDC_EFFECTS_T8,  463,  6 )
+
+
+	BOPTION( IDC_EFFECTS_T9,  155, 50 )
+	BOPTION( IDC_EFFECTS_T10, 199, 50 )
+	BOPTION( IDC_EFFECTS_T11, 243, 50 )
+	BOPTION( IDC_EFFECTS_T12, 287, 50 )
+	BOPTION( IDC_EFFECTS_T13, 331, 50 )
+	BOPTION( IDC_EFFECTS_T14, 375, 50 )
+	BOPTION( IDC_EFFECTS_T15, 419, 50 )
+	BOPTION( IDC_EFFECTS_T16, 463, 50 )
+end
+
+
+//************************************************************************
+// Access: Select Eraser tool
+//************************************************************************
+IDD_ERASER DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_ERASER, 4 ,12 )
+	BOPTION( IDC_ERASER_T1,   66,  6 )
+	BOPTION( IDC_ERASER_T2,  110,  6 )
+	BOPTION( IDC_ERASER_T3,  154,  6 )
+	BOPTION( IDC_ERASER_T4,  198,  6 )
+	BOPTION( IDC_ERASER_T5,  242,  6 )
+	BOPTION( IDC_ERASER_T6,  286,  6 )
+	BOPTION( IDC_ERASER_T7,  330,  6 )
+	BOPTION( IDC_ERASER_T8,  374,  6 )
+	BOPTION( IDC_ERASER_T9,  418,  6 )
+	BOPTION( IDC_ERASER_T10, 462,  6 )
+
+
+	BOPTION( IDC_ERASER_T11,  66, 50 )
+	BOPTION( IDC_ERASER_T12, 110, 50 )
+	BOPTION( IDC_ERASER_T13, 154, 50 )
+	BOPTION( IDC_ERASER_T14, 198, 50 )
+	BOPTION( IDC_ERASER_T15, 242, 50 )
+	BOPTION( IDC_ERASER_T16, 286, 50 )
+	BOPTION( IDC_ERASER_T17, 330, 50 )
+	BOPTION( IDC_ERASER_T18, 374, 50 )
+	BOPTION( IDC_ERASER_T19, 418, 50 )
+	BOPTION( IDC_ERASER_T20, 462, 50 )
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+    IDC_ERASER_T1     "Eraser."
+    IDC_ERASER_T2     "Explosion."
+    IDC_ERASER_T3     "Explosion."
+    IDC_ERASER_T4     "Explosion."
+    IDC_ERASER_T5     "Explosion."
+    IDC_ERASER_T6     "Explosion."
+    IDC_ERASER_T7     "Explosion."
+    IDC_ERASER_T8     "Explosion."
+    IDC_ERASER_T9     "Explosion."
+    IDC_ERASER_T10    "Explosion."
+    IDC_ERASER_T11    "Explosion."
+    IDC_ERASER_T12    "Explosion."
+    IDC_ERASER_T13    "Explosion."
+    IDC_ERASER_T14    "Explosion."
+    IDC_ERASER_T15    "Explosion."
+    IDC_ERASER_T16    "Explosion."
+    IDC_ERASER_T17    "Explosion."
+    IDC_ERASER_T18    "Explosion."
+    IDC_ERASER_T19    "Explosion."
+    IDC_ERASER_T20    "Explosion."
+}
+
+
+//************************************************************************
+// Access: Select Text tool
+//************************************************************************
+IDD_TEXT DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_TEXT, 0, 16 )
+	TBUTTON( "A", IDC_TEXT_T1,   64,  6 )
+	TBUTTON( "A", IDC_TEXT_T2,  108,  6 )
+	TBUTTON( "A", IDC_TEXT_T3,  152,  6 )
+	TBUTTON( "A", IDC_TEXT_T4,  196,  6 )
+	TBUTTON( "A", IDC_TEXT_T5,  240,  6 )
+
+	TBUTTON( "A", IDC_TEXT_T6,   64, 50 )
+	TBUTTON( "A", IDC_TEXT_T7,  108, 50 )
+	TBUTTON( "A", IDC_TEXT_T8,  152, 50 )
+	TBUTTON( "A", IDC_TEXT_T9,  196, 50 )
+	TBUTTON( "A", IDC_TEXT_T10, 240, 50 )
+
+	COLOR2( IDC_ACTIVECOLOR, 289, 6 )
+	TOY( IDC_COLORS_TEXT, 313, 3 )
+end
+
+//************************************************************************
+// Access: Select Retouch tool, then Paint tool
+//************************************************************************
+IDD_PAINT DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_PAINT, 10, 8 )
+	BOPTION( IDC_PAINT_T1,   64,  6 )
+	BOPTION( IDC_PAINT_T2,  108,  6 )
+	BOPTION( IDC_PAINT_T4,  152,  6 )
+
+	BOPTION( IDC_PAINT_T6,   64, 50 )
+	BOPTION( IDC_PAINT_T3,  108, 50 )
+	BOPTION( IDC_PAINT_T10,  152, 50 )
+
+	COLOR2( IDC_ACTIVECOLOR, 201, 6 )
+	TOY( IDC_COLORS_PAINT, 225, 5 )
+end
+
+//************************************************************************
+// Access: Select Retouch tool, then Stamp tool
+//************************************************************************
+IDD_LINES DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_LINES, 7, 24 )
+	COPTION( IDC_LINES_CATEGORY, 66, 6 )
+	BOPTION( IDC_LINES_T1,  155,  6 )
+	BOPTION( IDC_LINES_T2,  199,  6 )
+	BOPTION( IDC_LINES_T3,  243,  6 )
+	BOPTION( IDC_LINES_T4,  287,  6 )
+	BOPTION( IDC_LINES_T5,  331,  6 )
+
+	BOPTION( IDC_LINES_T6,  155, 50 )
+	BOPTION( IDC_LINES_T7,  199, 50 )
+	BOPTION( IDC_LINES_T8,  243, 50 )
+	BOPTION( IDC_LINES_T9,  287, 50 )
+	BOPTION( IDC_LINES_T10, 331, 50 )
+
+	COLOR2( IDC_ACTIVECOLOR, 380, 6 )
+	TOY( IDC_COLORS_LINES, 404, 1 )
+end
+
+//************************************************************************
+// Access: Select Retouch tool, then Crayon tool
+//************************************************************************
+IDD_CRAYON DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_CRAYON, 15, 11 )
+	BOPTION( IDC_CRAYON_T1,   64,  6 )
+	BOPTION( IDC_CRAYON_T4,  108,  6 )
+	BOPTION( IDC_CRAYON_T5,  152,  6 )
+
+	BOPTION( IDC_CRAYON_T6,   64, 50 )
+	BOPTION( IDC_CRAYON_T9,  108, 50 )
+	BOPTION( IDC_CRAYON_T3,  152, 50 )
+
+	COLOR2( IDC_ACTIVECOLOR, 201, 6 )
+	TOY( IDC_COLORS_CRAYON, 225, 5 )
+end
+
+//************************************************************************
+// Access: Select Retouch tool, then Marker tool
+//************************************************************************
+IDD_MARKER DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_MARKER, 15, 7 )
+	BOPTION( IDC_MARKER_T1,   64,  6 )
+	BOPTION( IDC_MARKER_T2,  108,  6 )
+	BOPTION( IDC_MARKER_T5,  152,  6 )
+
+	BOPTION( IDC_MARKER_T6,   64, 50 )
+	BOPTION( IDC_MARKER_T7,  108, 50 )
+	BOPTION( IDC_MARKER_T10,  152, 50 )
+
+	COLOR2( IDC_ACTIVECOLOR, 201, 6 )
+	TOY( IDC_COLORS_MARKER, 225, 5 )
+end
+
+//************************************************************************
+// Access: Select Fill tool, then Smart Mask tool
+//************************************************************************
+IDD_FILL DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_FILL, 5, 16 )
+	COPTION( IDC_FILL_CATEGORY, 66, 6 )
+	BOPTION( IDC_FILL_T1,  155,  6 )
+	BOPTION( IDC_FILL_T2,  199,  6 )
+	BOPTION( IDC_FILL_T3,  243,  6 )
+	BOPTION( IDC_FILL_T4,  287,  6 )
+	BOPTION( IDC_FILL_T5,  331,  6 )
+
+	BOPTION( IDC_FILL_T6,  155, 50 )
+	BOPTION( IDC_FILL_T7,  199, 50 )
+	BOPTION( IDC_FILL_T8,  243, 50 )
+	BOPTION( IDC_FILL_T9,  287, 50 )
+	BOPTION( IDC_FILL_T10, 331, 50 )
+
+	COLOR22( IDC_ACTIVECOLOR, 380, 6 )
+	TOY( IDC_COLORS_FILL, 404, 2 )
+end
+
+//************************************************************************
+// Access: Select Draw tool, then Rectangular Draw tool
+//************************************************************************
+IDD_SHAPES DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_SHAPES, 12, 23 )
+	BOPTION( IDC_SHAPES_T1,   64,  6 )
+	BOPTION( IDC_SHAPES_T2,  108,  6 )
+	BOPTION( IDC_SHAPES_T3,  152,  6 )
+	BOPTION( IDC_SHAPES_T4,  196,  6 )
+	BOPTION( IDC_SHAPES_T5,  240,  6 )
+
+	BOPTION( IDC_SHAPES_T6,   64, 50 )
+	BOPTION( IDC_SHAPES_T7,  108, 50 )
+	BOPTION( IDC_SHAPES_T8,  152, 50 )
+	BOPTION( IDC_SHAPES_T9,  196, 50 )
+	BOPTION( IDC_SHAPES_T10, 240, 50 )
+
+	COLOR2( IDC_ACTIVECOLOR, 289, 6 )
+	TOY( IDC_COLORS_SHAPES, 313, 4 )
+end
+
+//************************************************************************
+// Access: Select Gallery tool
+//************************************************************************
+IDD_GALLERY DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 640, 100
+style Modeless
+DLG_FONT
+begin
+	TOY( IDC_GALLERY, 5, 25 )
+	CTOPTION( "Save",        IDC_GALLERY_T1,  70, 7 )
+	CTOPTION( "Print",       IDC_GALLERY_T2, 165, 7 )
+	CTOPTION( "To Floppy",   IDC_GALLERY_T3, 260, 7 )
+	CTOPTION( "From Floppy", IDC_GALLERY_T4, 355, 7 )
+end
+
+stringtable LOADONCALL MOVEABLE DISCARDABLE
+{
+    IDC_GALLERY_T1 "Click to save your picture in the gallery."
+    IDC_GALLERY_T2 "Click to print your picture."
+    IDC_GALLERY_T3 "Click to save your picture to a floppy diskette."
+    IDC_GALLERY_T4 "Click to load a picture from a floppy diskette."
+}
+
+
+

@@ -1,0 +1,573 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+#include "Version.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+1                       RT_MANIFEST             "JMSrvr.exe.manifest"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "#include ""Version.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""JMSrvr.tlb""\r\n"
+    "VS_VERSION_INFO VERSIONINFO\r\n"
+    " FILEVERSION VER_FILE_VERSION\r\n"
+    " PRODUCTVERSION VER_PRODUCT_VERSION\r\n"
+    " FILEFLAGSMASK 0x3fL\r\n"
+    "#ifdef _DEBUG\r\n"
+    " FILEFLAGS 0x1L\r\n"
+    "#else\r\n"
+    " FILEFLAGS 0x0L\r\n"
+    "#endif\r\n"
+    " FILEOS 0x4L\r\n"
+    " FILETYPE 0x2L\r\n"
+    " FILESUBTYPE 0x0L\r\n"
+    "BEGIN\r\n"
+    "    BLOCK ""StringFileInfo""\r\n"
+    "    BEGIN\r\n"
+    "        BLOCK ""040904b0""\r\n"
+    "        BEGIN\r\n"
+    "            VALUE ""CompanyName"", VER_COMPANYNAME\r\n"
+    "            VALUE ""FileDescription"", VER_PRODUCTNAME "" "" VER_COPYRIGHT ""\\0""\r\n"
+    "            VALUE ""FileVersion"", VER_FILE_VERSION_STR\r\n"
+    "            VALUE ""ProductName"", VER_PRODUCTNAME "" "" VER_PRODUCT_VERSION_STR ""\\0""\r\n"
+    "            VALUE ""ProductVersion"", VER_PRODUCT_VERSION_STR\r\n"
+    "            VALUE ""LegalCopyright"", VER_COPYRIGHT\r\n"
+    "            VALUE ""OriginalFilename"", ""JMSrvr.exe""\r\n"
+    "        END\r\n"
+    "    END\r\n"
+    "    BLOCK ""VarFileInfo""\r\n"
+    "    BEGIN\r\n"
+    "        VALUE ""Translation"", 0x409, 1200\r\n"
+    "    END\r\n"
+    "END\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_JMSRVR              REGISTRY                "JMSrvr.rgs"
+IDR_JMBRKR              REGISTRY                "JMBrkr.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_LOGO                ICON                    "logo.ico"
+IDI_LOGO16              ICON                    "logo16.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 280, 54
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About Creata Mail"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    ICON            IDI_LOGO,IDC_STATIC,11,10,20,20
+    LTEXT           "Creata Mail version ",IDHELP,40,10,151,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2004 BlueMountain",IDC_STATIC,40,25,202,8
+    DEFPUSHBUTTON   "OK",IDOK,222,7,50,16,WS_GROUP
+END
+
+IDD_REGISTERDIALOG DIALOGEX 0, 0, 264, 166
+STYLE DS_SETFONT | DS_MODALFRAME | DS_NOIDLEMSG | DS_CENTER | WS_MINIMIZEBOX | 
+    WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_NOPARENTNOTIFY | WS_EX_TOPMOST
+CAPTION "Creata Mail"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_EXPLORER1,"{8856F961-340A-11D0-A96B-00C04FD705A2}",
+                    0x0,0,0,264,166
+END
+
+IDD_MAINT_PROPPAGE DIALOGEX 0, 0, 300, 195
+STYLE DS_SYSMODAL | DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION
+CAPTION "Maintenance"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Check for Updates...",IDC_CHECKUPDATES_BTN,85,19,96,14
+    PUSHBUTTON      "Run Optimization Wizard...",IDC_OPTIMIZE_BTN,85,43,96,
+                    14,BS_NOTIFY
+    LTEXT           "Optimize System:",IDC_OPTIMIZE_STATIC,16,46,61,8
+    LTEXT           "Update Creata Mail:",IDC_UPDATES_STATIC,16,22,66,8
+END
+
+IDD_GENERAL_PROPPAGE DIALOGEX 0, 0, 300, 202
+STYLE DS_SYSMODAL | DS_SETFONT | WS_CHILD | WS_CAPTION
+CAPTION "General"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    CONTROL         "Enable Smart Cache",IDC_SMARTCACHE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,175,36,81,10
+    CONTROL         "Show system tray icon",IDC_TRAYICON_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,175,52,85,10
+    CONTROL         "Always on top",IDC_ALWAYSONTOP_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,175,68,60,10
+    CONTROL         "Outlook",IDC_OUTLOOK_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,20,28,41,10
+    CONTROL         "Outlook Express",IDC_EXPRESS_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,44,68,10
+    CONTROL         "Internet Explorer (Web Mail)",IDC_WEBMAIL_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,60,100,10
+    GROUPBOX        " Enable Creata Mail for:  ",IDC_ACTIVEMAIL_STATIC,14,14,
+                    145,78
+    COMBOBOX        IDC_IECAT_COMBO,173,151,106,55,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Open this content catergory first",IDC_IECAT_STATIC,173,
+                    138,106,8
+    GROUPBOX        " Internet Explorer only: ",IDC_IE_STATIC,168,103,118,85
+    CONTROL         "Outlook",IDC_OTLK_USEDEFAULT_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,121,55,10
+    CONTROL         "Outlook Express",IDC_EXPRESS_USEDEFAULT_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,137,68,10
+    CONTROL         "Internet Explorer (Web Mail)",IDC_IE_USEDEFAULT_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,153,107,10
+    GROUPBOX        " Enable Default Stationery for: ",
+                    IDC_DEFAULTSTATIONERY_STATIC,15,103,145,85
+    GROUPBOX        " Miscellaneous: ",IDC_MISC_STATIC,168,14,118,78
+    PUSHBUTTON      "Clear",IDC_OL_CLEAR_BUTTON,128,121,22,10
+    PUSHBUTTON      "Clear",IDC_OE_CLEAR_BUTTON,128,137,22,10
+    PUSHBUTTON      "Clear",IDC_IE_CLEAR_BUTTON,128,153,22,10
+    CONTROL         "AOL Mail",IDC_AOL_CHECK,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,20,76,45,10
+    CONTROL         "AOL Mail",IDC_AOL_USEDEFAULT_CHECK,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,20,170,45,
+                    10
+    PUSHBUTTON      "Clear",IDC_AOL_CLEAR_BUTTON,128,170,22,10,NOT 
+                    WS_VISIBLE
+END
+
+IDD_PREFERENCE_PROPPAGE DIALOGEX 0, 0, 300, 195
+STYLE DS_SETFONT | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Account"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Sign In...",IDC_UNLOCK_BTN,172,63,55,14
+    PUSHBUTTON      "My Account...",IDC_MYACCOUNT_BTN,173,86,55,14
+    CONTROL         "Enable Creata Mail footer (members only)",
+                    IDC_PROMO_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,77,
+                    141,144,10
+    LTEXT           "Unlock member content:",IDC_UNLOCK_STATIC,71,66,84,8
+    LTEXT           "Edit account information:",IDC_ACCOUNT_STATIC,71,89,82,
+                    8
+    LTEXT           "Your registered email address:",IDC_EMAILADDRESS_STATIC,
+                    43,17,105,8
+    EDITTEXT        IDC_REGISTEREDEMAIL,43,33,213,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED | NOT WS_TABSTOP
+    GROUPBOX        " Member Preferences ",IDC_PREFERENCES_STATIC,43,118,213,
+                    45
+END
+
+IDD_ABOUT2 DIALOGEX 0, 0, 300, 195
+STYLE DS_SYSMODAL | DS_SETFONT | WS_CHILD | WS_CAPTION
+CAPTION "About"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    ICON            IDI_LOGO,IDC_STATIC,29,33,21,20
+    LTEXT           "Copyright (C) AG.com, Inc.",IDC_STATIC,103,72,103,8
+    LTEXT           "Blue Mountain Creata Mail version ",IDC_VERSION_STATIC,
+                    103,62,176,8,SS_NOPREFIX
+    LTEXT           "End Users License Agreement",IDC_LICENSE_STATIC,103,104,
+                    98,8
+    LTEXT           "Terms of Service Agreement",IDC_TERMSOFSERVICE_STATIC,
+                    103,114,95,8
+    LTEXT           "Privacy Policy",IDC_PRIVACY_STATIC,103,125,47,8
+    LTEXT           "http://www.bluemountain.com",IDC_HOME_STATIC,103,82,97,
+                    8
+END
+
+IDD_OPTIMIZEDLG_STEP1 DIALOGEX 0, 0, 244, 168
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Optimization Wizard",IDC_STATIC,8,8,228,152
+    LTEXT           "Select the programs you wish to optimize for Creata Mail.\n\nIf you are unsure, select them all.",
+                    IDC_STATIC,20,24,200,24,SS_NOPREFIX
+    CONTROL         "Microsoft Outlook",IDC_OPTIMIZE_OUTLOOK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,28,56,184,10
+    CONTROL         "Outlook Express",IDC_OPTIMIZE_OE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,28,72,184,10
+    CONTROL         "Internet Explorer (for Hotmail and Yahoo! Mail)",
+                    IDC_OPTIMIZE_IE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,28,
+                    88,184,10
+    LTEXT           "The following updates will be made to the selected pograms:\n\n    o  Mail format set to HTML\n    o  Security zone set to Internet\n    o  ActiveX controls enabled for Flash animations",
+                    IDC_STATIC,20,108,200,48,SS_NOPREFIX
+END
+
+IDD_OPTIMIZEDLG_INTRO DIALOGEX 0, 0, 244, 168
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Optimization Wizard",IDC_STATIC,8,8,228,152
+    LTEXT           "Thank you for installing Creata Mail.\n\nIf you are new to Creata Mail it is highly recommended that you run this wizard to optimize your system for Creata Mail.",
+                    IDC_STATIC,20,24,200,40,SS_NOPREFIX
+END
+
+IDD_OPTIMIZEDLG_FINAL DIALOGEX 0, 0, 244, 168
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Optimization Wizard",IDC_STATIC,8,8,228,104
+    LTEXT           "Optimization complete!\n\nYour system is now configured to use Creata Mail. Just open your email program to get started.",
+                    IDC_STATIC,20,24,200,32,SS_NOPREFIX
+    LTEXT           "If you are a new user, click Register Now to activate Creata Mail. If you chose to skip registration you will be prompted the first time you use Creata Mail.",
+                    IDC_STATIC_UNREGISTERED,20,76,200,28,SS_NOPREFIX
+    LTEXT           "Click the Creata Mail Start Here link on your desktop to help you get the most out of Creata Mail.",
+                    IDC_STATIC,20,132,200,24,SS_NOPREFIX
+    GROUPBOX        "New to Creata Mail?",IDC_STATIC,8,116,228,44
+END
+
+IDD_OPTIMIZEDLG_CANCEL DIALOGEX 0, 0, 244, 168
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "Optimization cancelled.\n\nNo changes were made to your settings.  You can run the Optimization Wizard at any time by selecting it from Options within Creata Mail.",
+                    IDC_STATIC,20,24,200,44,SS_NOPREFIX
+    GROUPBOX        "Optimization Wizard",IDC_STATIC,8,8,228,104
+    LTEXT           "If you are a new user, click Register Now to activate Creata Mail. If you chose to skip registration you will be prompted the first time you use Creata Mail.",
+                    IDC_STATIC_UNREGISTERED,20,76,200,28,SS_NOPREFIX
+    LTEXT           "Click the Creata Mail Start Here link on your desktop to help you get the most out of Creata Mail.",
+                    IDC_STATIC,20,132,200,24,SS_NOPREFIX
+    GROUPBOX        "New to Creata Mail?",IDC_STATIC,8,116,228,44
+END
+
+IDD_OPTIMIZEDLG DIALOGEX 0, 0, 244, 199
+STYLE DS_SYSMODAL | DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Creata Mail"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,0,0,244,168
+    DEFPUSHBUTTON   "Back",IDC_BACK,64,176,56,14
+    DEFPUSHBUTTON   "Next",IDC_NEXT,124,176,56,14
+    PUSHBUTTON      "Cancel",IDC_DONE,184,176,56,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_POPUP_MENU MENU 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "&My Account...",              ID_TRAY_MYACCOUNT
+        MENUITEM "&Upgrade Now...",             ID_TRAY_UPGRADENOW
+        MENUITEM "&Help...",                    ID_TRAY_HELP
+        MENUITEM "Cr&eata Mail Home...",        ID_TRAY_HOME
+        MENUITEM SEPARATOR
+        MENUITEM "Hide &Tray Icon",             ID_TRAY_HIDE
+        MENUITEM SEPARATOR
+        MENUITEM "&About Creata Mail...",       ID_TRAY_ABOUT
+    END
+END
+
+IDR_POPUP_MENU2 MENU 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "&Upgrade Now...",             ID_TRAY_UPGRADENOW
+        MENUITEM "&Feedback...",                ID_TRAY_FEEDBACK
+        MENUITEM "&Help...",                    ID_TRAY_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "&Settings...",                ID_TRAY_SETTINGS
+        MENUITEM "&Launch Creata Mail",         ID_TRAY_LAUNCH
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_REGISTERDIALOG DLGINIT
+BEGIN
+    IDC_EXPLORER1, 0x376, 160, 0
+0x0000, 0x0000, 0x004c, 0x0000, 0x28ee, 0x0000, 0x1be8, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x004c, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 
+0x0000, 0xd0e0, 0x0057, 0x3573, 0x11cf, 0x69ae, 0x0008, 0x2e2b, 0x6212, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x004c, 0x0000, 0x1401, 0x0002, 0x0000, 
+0x0000, 0x00c0, 0x0000, 0x0000, 0x4600, 0x0080, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_MAINT_PROPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 188
+    END
+
+    IDD_GENERAL_PROPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+    END
+
+    IDD_PREFERENCE_PROPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 188
+    END
+
+    IDD_ABOUT2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 188
+    END
+
+    IDD_OPTIMIZEDLG_STEP1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+
+    IDD_OPTIMIZEDLG_INTRO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+
+    IDD_OPTIMIZEDLG_FINAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+
+    IDD_OPTIMIZEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+ID_HAND                 CURSOR                  "Res\\Hand.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BTN1                BITMAP                  "res/stationery.bmp"
+IDB_BTN10               BITMAP                  "res/options.bmp"
+IDB_BTN2                BITMAP                  "res/smileys.bmp"
+IDB_BTN3                BITMAP                  "res/clipart.bmp"
+IDB_BTN4                BITMAP                  "res/ecards.bmp"
+IDB_BTN5                BITMAP                  "res/addaphoto.bmp"
+IDB_BTN6                BITMAP                  "res/invitations.bmp"
+IDB_BTN7                BITMAP                  "res/announcements.bmp"
+IDB_BTN8                BITMAP                  "res/sounds.bmp"
+IDB_BTN9                BITMAP                  "res/favorites.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_PROJNAME            "Creata Mail"
+    IDS_REG_PROMPT          "Please Register Now to activate Creata Mail"
+    IDS_REG_TITLE           "Creata Mail Activation"
+    IDS_REG_UPGRADE_SUCCESS "You have successfully unlocked\n Creata Mail!"
+    IDS_REG_UPGRADE_FAIL    "Creata Mail upgrade has failed. \nEmail has been sent to your registered email address.\nFollow the instructions to upgrade."
+    IDS_REG_UNLOCK_SUCCESS  "Thank You. Your premium \nMember's-only Creata Mail content \nhas been unlocked."
+    IDS_REG_UNLOCK_FAIL     "The Creata Mail unlock procedure has failed. \nVisit our website for technical support."
+    IDS_SECURITY_SUBMIT_FAIL 
+                            "Your current security settings prohibit the submission of unencrypted data.\nFor assistance with changing your security settings visit the Creata Mail\nHelp Center by clicking the HELP button below.\n"
+    IDS_NEWCLIENTS_PROMPT   "You have selected new mail clients for Creata Mail. For this change to take effect\nyou must restart the following:\n\n"
+    IDS_IEDISABLE_PROMPT    "You have elected to disable Creata Mail for web mail. You must restart\nInternet Explorere for this change to take effect."
+    IDS_AOLDISABLE_PROMPT   "You have elected to disable Creata Mail for AOL mail. You must restart\nAOL for this change to take effect."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_WORD_PROMPT         "Creata Mail requires that you use HTML as your default email format.\n\nIs it OK for us to make that change for you?"
+    IDS_ACTIVEX_PROMPT      "In order to access Creata Mail's Flash content, you must allow ActiveX controls to run.\n\nIs it OK for us to make that change for you?"
+    IDS_FLASH_PROMPT        "In order to access Creata Mail's Flash content, Outlook cannot be set to use the Restricted security zone.\n\nIs it OK for us to make that change for you?"
+    IDS_SENDPICTURES_PROMPT "In order to send Creata Mail content, you must enable Send Pictures setting.\n\nIs it OK for us to make that change for you?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_BROWSEREXT_WARN     "In order for Creata Mail to have full capabilities in Internet Explorer, you must enable browser extensions.\n\nIs it OK for us to make that change for you?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LICENSE_URL         "/mail/eula.pd"
+    IDS_SERVICES_URL        "/legal.pd"
+    IDS_PRIVACY_URL         "/warrants.pd"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SMARTCACHE_TIP      "Smart Cache uses Internet Explorer's cache settings to increase the performance of Creata Mail. The content you view is stored on your computer, and won't need to be downloaded every time you view it. By turning Smart Cache on you will see an increase in the speed and performance of Creata Mail. Smart Cache is enabled by default."
+    IDS_TRAYICON_TIP        "This option toggles the system tray icon."
+    IDS_CMENABLE_TIP        "Select the email programs that you would like to use with Creata Mail."
+    IDS_IEONLY_TIP          "When Creata Mail launches it will automatically open to the category that you select here. Applies to webmail through Internet Explorer only."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DEFSTA_TIP          "This section allows you to manage your default stationery. Select the email programs that you would like to use with your default stationery. You can have a different default stationery for each email program. You can also clear the current default stationery for each email program, which will remove the default stationery from any further email messages."
+    IDS_ALWAYSONTOP_TIP     "With this option enabled Creata Mail will always stay on top of other windows, making it easier to insert content into your email messages. Applies to Outlook & Outlook Express only."
+    IDS_REGEMAIL_TIP        "The email address that this copy of Creata Mail is registered to."
+    IDS_UNLOCK_TIP          "Sign In with your email address and password if you are a Creata Mail Member and want to unlock the Member Only content."
+    IDS_MYACCOUNT_TIP       "Edit your account preferences on BlueMountain.com. Manage your newsletter permissions and take advantage of great BlueMountain.com features such as reminders and your address book."
+    IDS_PROMO_TIP           "Creata Mail members can select to disable the footer that is attached to outgoing email messages which contain Creata Mail content."
+    IDS_CHECKUPDATES_TIP    "Creata Mail automatically checks for newer versions each time you open your email program. Click this button to manually check for updates. This is useful if you decided not to upgrade when the automatic update told you a newer version was available."
+    IDS_OPTIMIZE_TIP        "Changes various Internet Explorer and Outlook settings to ensure that Creata Mail functions properly."
+    IDS_CLEARSTA_TIP        "The CLEAR button, unlike the checkbox, permanently removes the default stationery for the specific mail client.\nYou will have to Set Default Stationery once again to use."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "JMSrvr.tlb"
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION VER_FILE_VERSION
+ PRODUCTVERSION VER_PRODUCT_VERSION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", VER_COMPANYNAME
+            VALUE "FileDescription", VER_PRODUCTNAME " " VER_COPYRIGHT "\0"
+            VALUE "FileVersion", VER_FILE_VERSION_STR
+            VALUE "ProductName", VER_PRODUCTNAME " " VER_PRODUCT_VERSION_STR "\0"
+            VALUE "ProductVersion", VER_PRODUCT_VERSION_STR
+            VALUE "LegalCopyright", VER_COPYRIGHT
+            VALUE "OriginalFilename", "JMSrvr.exe"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

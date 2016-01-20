@@ -1,0 +1,3 @@
+// Source file: ABOUT.C
+BOOL WINPROC EXPORT DlgAboutProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam);
+

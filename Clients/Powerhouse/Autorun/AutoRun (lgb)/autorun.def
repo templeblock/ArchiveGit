@@ -1,0 +1,15 @@
+NAME      LGBAUTORUN
+DESCRIPTION  'Little Golden Books AutoRun'
+EXETYPE   WINDOWS
+
+;CODE can be moved in memory and discarded/reloaded
+CODE  PRELOAD MOVEABLE DISCARDABLE
+
+;DATA must be MULTIPLE if program can be invoked more than once
+DATA  PRELOAD MOVEABLE MULTIPLE
+
+HEAPSIZE     1024
+
+EXPORTS
+;    ===List your explicitly exported functions here===
+	WndProc

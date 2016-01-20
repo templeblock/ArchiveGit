@@ -1,0 +1,457 @@
+AWSTATS DATA FILE 6.5 (build 1.857)
+# If you remove this file, all statistics for date 200805 will be lost/reset.
+
+# Position (offset in bytes) in this file of beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1864                
+POS_TIME 2537                
+POS_VISITOR 8356                
+POS_DAY 10929               
+POS_DOMAIN 3242                
+POS_LOGIN 3472                
+POS_ROBOT 3627                
+POS_WORMS 4019                
+POS_EMAILSENDER 4150                
+POS_EMAILRECEIVER 4293                
+POS_SESSION 11295               
+POS_SIDER 11489               
+POS_FILETYPES 4428                
+POS_OS 4749                
+POS_BROWSER 4871                
+POS_SCREENSIZE 5092                
+POS_UNKNOWNREFERER 5166                
+POS_UNKNOWNREFERERBROWSER 5535                
+POS_ORIGIN 5728                
+POS_SEREFERRALS 5867                
+POS_PAGEREFS 6053                
+POS_SEARCHWORDS 6373                
+POS_KEYWORDS 6944                
+POS_MISC 2200                
+POS_ERRORS 7237                
+POS_CLUSTER 3328                
+POS_SIDER_404 7388                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20080513232135 726 178787 0
+FirstTime 20080501105108
+LastTime 20080513232124
+LastUpdate 20080514033800 726 534 187 0 5
+TotalVisits 86                  
+TotalUnique 63                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 63                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 23 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 6 8 110581 4 4 8794
+1 5 9 80468 8 8 22837
+2 39 39 133240 55 55 247261
+3 31 31 32359 15 15 45043
+4 7 7 38053 11 11 55745
+5 4 4 72464 4 4 64428
+6 4 6 47292 4 4 39939
+7 0 0 0 2 2 5114
+8 6 6 76534 0 0 0
+9 4 6 47383 3 3 67840
+10 7 9 141775 11 11 55552
+11 7 13 206713 2 2 5085
+12 1 3 7776 1 1 3323
+13 10 13 65446 3 3 18339
+14 13 18 136644 5 5 18811
+15 18 22 359495 2 2 3660
+16 6 6 17044 4 4 6944
+17 8 14 95772 1 1 1830
+18 15 19 170734 4 4 4915
+19 39 51 432835 10 10 45268
+20 8 19 139004 2 2 5085
+21 8 12 89854 49 49 159126
+22 59 65 935729 100 100 641539
+23 18 18 59571 27 27 137618
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 323 398 3496766
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 8
+surveybot 18 48315 20080512002723 0
+slurp 10 171255 20080511233504 0
+googlebot 6 13750 20080512232521 0
+msnbot 4 72540 20080512103757 0
+jeeves 4 42713 20080513063340 0
+bbot 2 121422 20080505221038 0
+crawl 2 36232 20080510092028 0
+nutch 1 3236 20080508112152 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 16
+svc 29 81483 0 0
+php 3 64844 0 0
+html 15 31527 0 0
+xml 1 488 0 0
+jpg 30 90264 0 0
+doc 9 546442 0 0
+xaml 3 7731 0 0
+asp 38 782738 0 0
+htm 35 1154667 0 0
+aspx 134 306084 0 0
+pl 1 318 0 0
+asmx 16 70620 0 0
+js 8 38484 0 0
+axd 38 281728 0 0
+Unknown 1 6092 0 0
+gif 37 33256 0 0
+END_FILETYPES
+
+# OS ID - Hits
+BEGIN_OS 8
+winxp 93
+winlong 224
+win98 1
+linuxfedora 7
+linux 13
+macosx 3
+win2003 30
+Unknown 27
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 13
+firefox2.0.0.11 3
+msie6.0 47
+firefox1.0.7 7
+firefox2.0.0.14 23
+konqueror 1
+mozilla 1
+firefox1.0 9
+msie7.0 291
+libwww 4
+firefox3.0 3
+firefox2.0.0.12 3
+msie5.5 1
+Unknown 5
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 7
+- 20080513230313
+Java/1.5.0_04 20080513183803
+libwww-perl/5.805 20080503161915
+TheRarestParser/0.2a 20080508205317
+Mozilla/5.0_(compatible) 20080503161915
+panscient.com 20080513102342
+Mozilla/4.0_(compatible;_MSIE_6.0;_MS_Web_Services_Client_Protocol_2.0.50727.1434) 20080513230313
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 4
+- 20080513230313
+Java/1.5.0_04 20080513183803
+TheRarestParser/0.2a 20080508205317
+panscient.com 20080513102342
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 197 197
+From1 0 0
+From2 25 25
+From3 6 6
+From4 95 170
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 4
+google 21 21
+search 1 1
+yahoo 2 2
+msn 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 3
+http://www.keywordspy.com/keyword-research/facetofacesoftware.com 3 3
+http://www.ipower.com/controlpanel/index.bml 2 2
+http://therarestwords.com/facetofacesoftware.com 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 17
+face+software 5
+face+to+face+software 3
+face-to-face+software 2
+mccurdy+video+compression 2
+dr+face+software 1
+software+face+to+face+design 1
+faces+software+artist 1
+face+to+face+software+design 1
+create+face+software 1
+james+mccurdy 1
+kodak+crayola+art+studio 1
+software+face+and+face 1
+face+on+video+software 1
+software+face+to+face 1
+software+for+credentials 1
+programa+face+to+face 1
+inurl+resume+woburn+c%23+qa 1
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 27
+face 24
+software 19
+to 7
+mccurdy 3
+video 3
+design 2
+compression 2
+face-to-face 2
+woburn 1
+credentials 1
+on 1
+james 1
+crayola 1
+kodak 1
+resume 1
+create 1
+studio 1
+faces 1
+art 1
+for 1
+dr 1
+programa 1
+inurl 1
+c%23 1
+artist 1
+qa 1
+and 1
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 6
+403 12 22525
+405 1 1802
+500 141 903183
+415 3 1047
+404 117 223434
+301 6 2642
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 19
+/App_fm/robots.txt 2 http://www.whois.sc/
+/FutureMoneyWebServices/DBService.svc 6 -
+/robots.txt 47 -
+/FutureMoneyWebServices/W 1 -
+/App_dreamingit/ClientBin/FutureMoney.xap 18 -
+/clientaccesspolicy.xml 10 -
+/App_dreamingit/FutureMoneyTestPage.asmx 1 -
+/FutureMoneyWebServices/DebugThis.aspx 1 -
+/ComponentCheck/aspdiag3/test.php 1 -
+/MySqlWebService/mex 1 -
+/ComponentCheck/aspdiag3 1 -
+/App_dreamingit/fm 3 -
+/App_dreamingit/FutureMoneyTestPage.aspx 2 -
+/ComponentCheck/aspdiag3/default.asp 1 -
+/App_dreamingit/robots.txt 7 -
+/MySqlWebService/Services.asmx 1 -
+/crossdomain.xml 12 -
+/FutureMoneyWebServices/DBService.scv 1 -
+/App_dreamingit/crap.config 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 63
+71.174.70.28 210 232 1603467 20080513232124 20080513213828 /App_dreamingit/App_dreamingit/WebResource.axd
+74.52.245.146 7 7 20032 20080513180654
+38.100.41.107 6 6 108696 20080511151325
+38.105.83.13 6 6 108667 20080511083718
+193.238.230.109 5 5 16201 20080503161915
+38.105.83.10 5 5 14671 20080509153005
+69.36.158.11 4 4 97796 20080512153939
+69.36.158.62 3 3 96914 20080502104008
+71.221.110.208 3 6 101908 20080502201500
+41.226.233.158 3 7 101937 20080505115627
+72.64.247.11 1 1 60711 20080505014719
+67.202.49.80 2 2 4079 20080508181802
+202.75.62.10 1 3 7776 20080502011704
+118.137.209.71 1 3 36643 20080506172556
+205.178.184.152 2 4 11051 20080506171936
+64.34.193.229 2 2 36270 20080503195625
+208.80.193.55 1 1 824 20080507033559
+203.150.224.60 2 2 36270 20080504002752
+75.177.133.50 1 1 60711 20080505005017
+157.203.43.103 1 3 7805 20080512112903
+212.85.13.143 1 3 7877 20080512095412
+69.81.133.164 1 3 36643 20080503215814
+72.193.239.194 1 3 7805 20080504200430
+195.70.38.185 2 2 36241 20080503095009
+201.19.225.110 1 3 7776 20080502005727
+210.177.154.17 2 2 36241 20080502220306
+122.167.239.129 1 3 7805 20080512063525
+194.73.227.36 2 4 97450 20080509153026
+72.232.237.202 1 1 3236 20080508205317
+208.80.193.45 1 1 3217 20080502062447
+82.15.233.98 1 1 3246 20080504084330
+211.131.77.82 1 3 7776 20080513125504
+84.60.130.194 1 3 7776 20080508185142
+205.188.242.8 1 1 32986 20080509190412
+41.232.218.22 1 3 7805 20080501205118
+72.48.20.166 1 1 32986 20080513173215
+38.100.41.112 2 2 35034 20080509152203
+81.80.126.145 2 2 36241 20080503153504
+208.80.193.33 1 1 824 20080506184243
+83.184.226.63 3 3 96971 20080509111759
+208.80.193.39 2 2 1648 20080508170304
+201.102.43.12 1 3 7805 20080512141542
+72.187.242.91 1 3 36643 20080511215301
+66.115.185.68 2 2 36270 20080504062147
+66.34.204.26 3 3 9738 20080505140125
+70.109.139.137 1 3 7805 20080506225335
+4.159.174.186 1 3 36643 20080505194323
+205.188.242.7 1 1 32986 20080509190440
+86.96.227.72 1 1 32986 20080502181006
+208.80.193.38 1 1 3217 20080513024043
+66.111.109.218 1 1 32986 20080513183803
+208.80.193.31 1 1 3246 20080507172152
+38.104.58.118 2 2 36203 20080513102342
+98.204.125.136 1 3 36643 20080506181346
+76.111.227.139 1 3 7805 20080510015534
+216.171.98.77 2 2 6530 20080512181743
+62.12.75.44 1 3 36643 20080504151311
+69.157.185.50 1 1 32986 20080504180842
+38.105.83.12 1 1 0 20080512220616
+71.175.32.157 2 4 11022 20080509173457
+205.188.242.4 1 1 32986 20080509190444
+82.74.143.49 1 3 7805 20080501105108
+66.81.169.14 1 3 7805 20080509205057
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 13
+20080501 31 43 253955 3
+20080502 16 25 309437 8
+20080503 13 15 162420 6
+20080504 11 15 161029 7
+20080505 10 16 276021 6
+20080506 13 29 252855 9
+20080507 11 11 44722 5
+20080508 45 47 89781 9
+20080509 32 38 403295 10
+20080510 5 7 80269 2
+20080511 7 9 145339 3
+20080512 11 19 135618 9
+20080513 118 124 1182025 9
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+1h+ 1
+5mn-15mn 1
+2mn-5mn 5
+30s-2mn 7
+0s-30s 69
+30mn-1h 2
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 31
+/index.aspx 63 202951 46 28
+/resume.htm 35 1154667 14 26
+/FutureMoneyWebServices/DebugThis.aspx 34 27075 0 1
+/ComponentCheck/aspdiag3/default.asp 30 277449 0 0
+/FutureMoneyWebServices/DBService.svc 29 81483 3 3
+/App_dreamingit/App_dreamingit/WebResource.axd 18 103299 0 0
+/App_fm/WebResource.axd 17 166932 0 1
+/MySqlWebService/Service.asmx 16 70620 7 6
+/App_dreamingit/FutureMoneyTestPage.html 15 31527 2 1
+/App_dreamingit/default.aspx 11 8288 8 8
+/App_fm/App_fm/WebResource.axd 1 0 0 1
+/PathTo/default.asp 1 859 0 0
+/App_fm/default.aspx 2 616 1 0
+/ComponentCheck/aspdiag3/test.pl 1 318 0 0
+/ComponentCheck/aspdiag3/test.php 3 64844 0 0
+/App_fm/Login.aspx 1 5028 0 0
+/ComponentCheck/aspdiag3/test.aspx 3 5409 0 0
+/app_fm/Register.aspx 2 18397 0 0
+/ComponentCheck/aspnetversion.aspx 1 1202 0 0
+/WebResource.axd 2 11497 0 0
+/App_fm/Default.aspx 1 597 0 0
+/app_fm/Login.aspx 3 15325 0 0
+/App_dreamingit/FutureMoneyTestPage.aspx 10 11184 0 0
+/FutureMoneyWebServices/crossdomain.xml 1 488 1 0
+/app_fm/default.aspx 1 596 0 0
+/JimMcCurdy.doc 9 546442 3 8
+/ComponentCheck/default.asp 7 504430 0 0
+/App_fm/Register.aspx 1 9046 0 0
+/App_dreamingit/Page.xaml 3 7731 0 1
+/FutureMoneyWebServices/DBService.svc/mex 1 6092 0 0
+/FutureMoneyWebServices/Debugthis.aspx 1 370 1 1
+END_SIDER

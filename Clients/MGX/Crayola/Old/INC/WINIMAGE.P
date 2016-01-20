@@ -1,0 +1,35 @@
+// Source file: winimage.c
+BOOL EnablePaintAbort(BOOL fEnable);
+void AstralUpdateWindow(HWND hWnd);
+LPDISPLAYHOOK SetDisplayHook(HWND hWnd, LPDISPLAYHOOK lpDisplayHook);
+LPDISPLAYHOOK GetDisplayHook(HWND hWnd);
+void SetImageHook(HWND hWnd, LPIMAGEHOOK lpImageHook);
+LPIMAGEHOOK GetImageHook(HWND hWnd);
+long WINPROC EXPORT WndImageProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+void UpdateImage(LPRECT lpRepairRect, BOOL fInvalidate );
+void UpdateImageEx(LPIMAGE lpTheImage, LPRECT lpRepairRect, BOOL fInvalidate, BOOL fUpdateActive, BOOL fUpdateNonActive );
+void UpdateImageSize( void );
+static int AstralImagePaint( HWND hWindow );
+BOOL AbortUpdate( void );
+void SetTitleBar( HWND hWindow );
+static void SetupScrollBars( HWND hWindow );
+static void SetupRates( HWND hWindow );
+void Display2File( LPINT lpx, LPINT lpy );
+void File2Display( LPINT lpx, LPINT lpy );
+void File2DisplayEx( LPINT lpx, LPINT lpy, BOOL fCenter );
+void File2DispRect( LPRECT fileRect, LPRECT dispRect );
+void File2DispRectEx( HWND hWnd, LPRECT fileRect, LPRECT dispRect );
+void File2DispRectExact( HWND hWnd, LPRECT fileRect, LPRECT dispRect );
+void File2DispTForm(LPTFORM lpTForm);
+void File2DispTFormEx(LPTFORM lpTForm, BOOL fCenter);
+void Disp2FileTForm(LPTFORM lpTForm);
+BOOL ImageIsDoc( LPIMAGE lpImageDoc );
+LPIMAGE ImageSet( LPIMAGE lpImage );
+BOOL SetCurView( HWND hWnd, HWND far * lphOldWnd );
+HWND ActivateDocument( HWND hWnd );
+void SetupImagePalette( LPIMAGE lpTheImage, BOOL fDepthChange, BOOL fRealizePalette );
+static BOOL FocusObjectStart( HWND hWnd );
+static BOOL FocusObjectEnd( void );
+static BOOL FocusObjectSelect( void );
+static BOOL FocusObjectDelete( void );
+

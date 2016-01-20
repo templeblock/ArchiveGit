@@ -1,0 +1,42 @@
+;
+; MODEL386.EQU
+;
+; DESCRIPTION
+;
+; This is the header file used by assembly files to determine
+; model dependent information for 32 bit assembly code.  Note that
+; the segments are idiosyncratic to 32 bit flat model as supported
+; by our various DOS Extenders.
+;
+; MODIFICATIONS
+;
+;  December 1, 1994
+;
+                             .386
+														 .MODEL  SMALL,C
+
+;
+; The code segments are lined up in this order for a reason, don't
+; change them around.
+;
+;REAL_RELOCATED_16            SEGMENT DWORD PUBLIC USE32 'CODE'
+;REAL_RELOCATED_16            ENDS
+;
+; The new segment scheme dictates that everything in the
+; ISR goes into PISRCODE.  PISR_START and PISR_END are
+; just little marker segments.
+;
+;
+
+;PISR_START                   SEGMENT BYTE PUBLIC USE32 'CODE'
+;PISR_START                   ENDS
+PISRCODE											SEGMENT BYTE PUBLIC USE32 'CODE'
+PISRCODE											ENDS
+;PISR_END                     SEGMENT BYTE PUBLIC USE32 'CODE'
+;PISR_END                     ENDS
+
+PISRDATA                     SEGMENT DWORD PUBLIC USE32 'DATA'
+PISRDATA                     ENDS
+
+DGROUP                       GROUP _DATA, PISRDATA
+

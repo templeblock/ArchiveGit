@@ -1,0 +1,90 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#                                                                            
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+BUILDDLL=1
+NOPCH=
+MAKDIR=$(REFDIR)
+!IFDEF NODEBUG
+PROJ=mgxfrm10
+DEFFILE=mgxframe.def
+!ELSE
+OBJDIR=dobj
+PROJ=mgxfrmd
+DEFFILE=mgxfrmd.def
+!ENDIF
+DEFAULTBUILD = $(OBJDIR) $(DSTDIR)\$(PROJ).dll
+LIBS=libcmt.lib kernel32.lib user32.lib advapi32.lib
+
+INSTALLLIST=\
+	$(DSTDIR)\mgxframe.h\
+	$(DSTDIR)\framelib.h
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+!include "win.mak"
+
+##############################################################################
+#
+#--- Interesting files
+#
+OBJS    =\
+  	$(OBJDIR)\frameold.obj \
+	$(OBJDIR)\frmutils.obj \
+	$(OBJDIR)\frmdib.obj \
+	$(OBJDIR)\frmdtcon.obj \
+	$(OBJDIR)\frmmain.obj \
+	$(OBJDIR)\frmpixel.obj \
+	$(OBJDIR)\frmhsl.obj \
+	$(OBJDIR)\frmmini.obj \
+	$(OBJDIR)\frmsmple.obj \
+	$(OBJDIR)\palette.obj \
+	$(OBJDIR)\fixed.obj
+
+##############################################################################
+#
+#--- Targets
+default: $(DEFAULTBUILD)
+
+##############################################################################
+#
+#--- Implicit Rules
+#    make any you think you will need.  They can be identical in nature,
+#    but NMAKE wants have at least one for each possible virtual combination
+#
+.rc.res:
+	rc -r $(rcvars) $(RESINC) $<
+	
+$(DSTDIR)\$(PROJ).lib: $(DSTDIR)\$(PROJ).dll
+
+$(DSTDIR)\$(PROJ).dll: $(OBJS) $(DEFFILE) version.res
+	$(link) @<<
+	$(linkdebug)
+	$(dlllflags)
+	-map:$(PROJ).map
+	-def:$(DEFFILE)
+	-implib:$(DSTDIR)\$(PROJ).lib
+   -out:$@
+	$(LIBS)
+	$(OBJS)
+	version.res
+<<
+
+##############################################################################
+#
+#--- Dependencies
+#
+##############################################################################
+   

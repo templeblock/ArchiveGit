@@ -1,0 +1,457 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\Tek.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Tek.ico"
+IDC_ZOOM                ICON    DISCARDABLE     "res\\zoom.ico"
+IDC_UNZOOM              ICON    DISCARDABLE     "res\\unzoom.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LAUNCHER DIALOGEX 0, 0, 77, 61
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Launcher"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Edit\nProfile",IDOK,5,5,65,50,BS_MULTILINE
+END
+
+IDD_EDIT_IMAGE DIALOGEX 0, 0, 366, 244
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Edit Profile - Image"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Calibrate",IDC_EDIT_IMAGE_CURVE1,5,20,50,15,0,0,
+                    HIDC_EDIT_IMAGE_CURVE1
+    PUSHBUTTON      "Tone Adjust",IDC_EDIT_IMAGE_CURVE2,55,20,50,15,0,0,
+                    HIDC_EDIT_IMAGE_CURVE2
+    PUSHBUTTON      "Tuning",IDC_EDIT_IMAGE_TUNING,105,20,50,15,0,0,
+                    HIDC_EDIT_IMAGE_TUNING
+    CONTROL         "",IDC_IMAGE,"{5DA9D7E0-5A57-11CF-9E36-00C0930198C0}",
+                    WS_TABSTOP,5,40,355,200,0,HIDC_IMAGE
+    LTEXT           "Mouse Position",IDC_MOUSE_MOVE,295,15,54,8
+    PUSHBUTTON      "Open Image",IDC_OPENIMAGE,5,5,50,15,0,0,HIDC_OPENIMAGE
+    PUSHBUTTON      "Print",IDC_PRINTIMAGE,55,5,50,15,0,0,HIDC_PRINTIMAGE
+    PUSHBUTTON      "Help",IDC_HELPME,105,5,50,15,0,0,HIDC_HELPME
+    PUSHBUTTON      "Info",IDC_INFO,155,20,50,15,0,0,HIDC_INFO
+    CONTROL         "Zoom +",IDC_ZOOM,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | 
+                    WS_TABSTOP,215,10,30,20,0,HIDC_ZOOM
+    CONTROL         "Zoom -",IDC_UNZOOM,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,250,10,30,20,0,HIDC_UNZOOM
+END
+
+IDD_TONEADJUST DIALOGEX 0, 0, 182, 186
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Tone Adjust"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "&Cyan",IDC_CYAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,
+                    5,40,10,0,HIDC_CYAN
+    CONTROL         "&Magenta",IDC_MAGENTA,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,50,5,40,10,0,HIDC_MAGENTA
+    CONTROL         "&Yellow",IDC_YELLOW,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,95,5,40,10,0,HIDC_YELLOW
+    CONTROL         "&Black",IDC_BLACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    140,5,40,10,0,HIDC_BLACK
+    CONTROL         "",IDC_CURVE,"CCurveWindow",WS_TABSTOP,45,55,100,100,0,
+                    HIDC_CURVE
+    LTEXT           "Output Level",-1,5,35,45,10,NOT WS_GROUP
+    LTEXT           "Input Level",-1,5,20,45,10,NOT WS_GROUP
+    CONTROL         "  0",-1,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,41,160,8,
+                    10
+    LTEXT           "10",-1,51,160,10,10
+    LTEXT           "20",-1,61,160,10,10
+    LTEXT           "30",-1,71,160,10,8
+    LTEXT           "40",-1,81,160,10,10
+    LTEXT           "50",-1,91,160,10,10
+    LTEXT           "60",-1,101,160,10,10
+    LTEXT           "70",-1,111,160,10,10
+    LTEXT           "80",-1,121,160,10,10
+    LTEXT           "90",-1,131,160,10,10
+    LTEXT           "100",-1,141,160,15,10
+    RTEXT           "0.0",-1,21,150,15,8
+    RTEXT           "0.2",-1,21,140,15,8
+    RTEXT           "0.4",-1,21,130,15,8
+    RTEXT           "0.6",-1,21,120,15,8
+    RTEXT           "0.8",-1,21,110,15,8
+    RTEXT           "1.0",-1,21,100,15,8
+    RTEXT           "1.2",-1,21,90,15,8
+    RTEXT           "1.4",-1,21,80,15,8
+    RTEXT           "1.6",-1,21,70,15,8
+    RTEXT           "1.8",-1,21,60,15,8
+    RTEXT           "2.0",-1,21,50,15,8
+    CTEXT           "D",-1,5,70,10,10
+    CTEXT           "N",-1,5,90,10,10,SS_CENTERIMAGE
+    CTEXT           "I",-1,5,110,10,10,SS_CENTERIMAGE
+    CTEXT           "E",-1,5,80,10,10,SS_CENTERIMAGE
+    CTEXT           "S",-1,5,100,10,10,SS_CENTERIMAGE
+    CTEXT           "T",-1,5,120,10,10,SS_CENTERIMAGE
+    CTEXT           "Y",-1,5,130,10,10,SS_CENTERIMAGE
+    LTEXT           "P   A   T  C   H",-1,71,170,55,8
+    PUSHBUTTON      "Reset",IDC_RESET,115,25,56,14,NOT WS_TABSTOP,0,
+                    HIDC_RESET
+    EDITTEXT        IDC_LEVELIN,55,20,35,12,ES_AUTOHSCROLL,0,HIDC_LEVELIN
+    EDITTEXT        IDC_LEVELOUT,55,35,35,12,ES_AUTOHSCROLL,0,HIDC_LEVELOUT
+END
+
+IDD_CALIBRATE DIALOGEX 0, 0, 182, 186
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Calibrate"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "&Cyan",IDC_CYAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,
+                    5,40,10,0,HIDC_CYAN
+    CONTROL         "&Magenta",IDC_MAGENTA,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,50,5,40,10,0,HIDC_MAGENTA
+    CONTROL         "&Yellow",IDC_YELLOW,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,95,5,40,10,0,HIDC_YELLOW
+    CONTROL         "&Black",IDC_BLACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    140,5,40,10,0,HIDC_BLACK
+    CONTROL         "",IDC_CURVE,"CCurveWindow",WS_TABSTOP,45,55,100,100,0,
+                    HIDC_CURVE
+    LTEXT           "Output Level",-1,5,35,45,10,NOT WS_GROUP
+    LTEXT           "Input Level",-1,5,20,45,10,NOT WS_GROUP
+    CONTROL         "  0",-1,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,41,160,8,
+                    10
+    LTEXT           "10",-1,51,160,10,10
+    LTEXT           "20",-1,61,160,10,10
+    LTEXT           "30",-1,71,160,10,8
+    LTEXT           "40",-1,81,160,10,10
+    LTEXT           "50",-1,91,160,10,10
+    LTEXT           "60",-1,101,160,10,10
+    LTEXT           "70",-1,111,160,10,10
+    LTEXT           "80",-1,121,160,10,10
+    LTEXT           "90",-1,131,160,10,10
+    LTEXT           "100",-1,141,160,15,10
+    RTEXT           "0.0",-1,21,150,15,8
+    RTEXT           "0.2",-1,21,140,15,8
+    RTEXT           "0.4",-1,21,130,15,8
+    RTEXT           "0.6",-1,21,120,15,8
+    RTEXT           "0.8",-1,21,110,15,8
+    RTEXT           "1.0",-1,21,100,15,8
+    RTEXT           "1.2",-1,21,90,15,8
+    RTEXT           "1.4",-1,21,80,15,8
+    RTEXT           "1.6",-1,21,70,15,8
+    RTEXT           "1.8",-1,21,60,15,8
+    RTEXT           "2.0",-1,21,50,15,8
+    CTEXT           "D",-1,5,70,10,10
+    CTEXT           "N",-1,5,90,10,10,SS_CENTERIMAGE
+    CTEXT           "I",-1,5,110,10,10,SS_CENTERIMAGE
+    CTEXT           "E",-1,5,80,10,10,SS_CENTERIMAGE
+    CTEXT           "S",-1,5,100,10,10,SS_CENTERIMAGE
+    CTEXT           "T",-1,5,120,10,10,SS_CENTERIMAGE
+    CTEXT           "Y",-1,5,130,10,10,SS_CENTERIMAGE
+    LTEXT           "P   A   T  C   H",-1,71,170,55,8
+    PUSHBUTTON      "Reset",IDC_RESET,115,25,56,14,NOT WS_TABSTOP,0,
+                    HIDC_RESET
+    EDITTEXT        IDC_LEVELIN,55,20,35,12,ES_AUTOHSCROLL,0,HIDC_LEVELIN
+    EDITTEXT        IDC_LEVELOUT,55,35,35,12,ES_AUTOHSCROLL,0,HIDC_LEVELOUT
+END
+
+IDD_TUNING DIALOGEX 0, 0, 440, 226
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Tuning"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TWEAK_LPRINT,371,91,21,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TWEAK_APRINT,371,105,21,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TWEAK_BPRINT,371,119,21,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_TWEAK_SELECT,14,21,97,112,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP,0,HIDC_TWEAK_SELECT
+    PUSHBUTTON      "New",IDC_TWEAK_ADD,119,21,41,14,0,0,HIDC_TWEAK_ADD
+    PUSHBUTTON      "Delete",IDC_TWEAK_DELETE,168,21,42,14,0,0,
+                    HIDC_TWEAK_DELETE
+    GROUPBOX        "Tweak Name",IDC_STATIC,7,7,210,35
+    CONTROL         "",IDC_TWEAK_GAMUT,"Static",SS_ETCHEDFRAME,56,49,161,168
+    CTEXT           "L =",IDC_STATIC,7,49,28,14,SS_CENTERIMAGE
+    CTEXT           "50",IDC_TWEAK_LVALUE,7,70,28,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    SCROLLBAR       IDC_TWEAK_LSCROLL,42,49,10,168,SBS_VERT
+    CONTROL         "Mapping",IDC_TWEAK_GAMUTRADIO,"Button",
+                    BS_AUTORADIOBUTTON,308,52,44,10
+    CONTROL         "Printing",IDC_TWEAK_PRINTRADIO,"Button",
+                    BS_AUTORADIOBUTTON,371,52,42,10
+    GROUPBOX        "Lightness Range",IDC_STATIC,224,7,210,35
+    GROUPBOX        "Color Range",IDC_STATIC,329,7,105,35
+    CONTROL         "Slider1",IDC_TWEAK_LRSLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,225,21,75,14,0,
+                    HIDC_TWEAK_LRSLIDER
+    CTEXT           "100",IDC_TWEAK_LRVALUE,301,21,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN,0,HIDC_TWEAK_LRVALUE
+    CONTROL         "Slider1",IDC_TWEAK_CRSLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,331,21,74,14,0,
+                    HIDC_TWEAK_CRSLIDER
+    CTEXT           "100",IDC_TWEAK_CRVALUE,406,21,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN,0,HIDC_TWEAK_CRVALUE
+    EDITTEXT        IDC_TWEAK_LGAMUT,308,91,21,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TWEAK_AGAMUT,308,105,21,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TWEAK_BGAMUT,308,119,21,14,ES_AUTOHSCROLL
+    CTEXT           "0",IDC_TWEAK_LGAMUT2,308,175,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "0",IDC_TWEAK_AGAMUT2,308,189,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "0",IDC_TWEAK_BGAMUT2,308,203,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "L*",IDC_STATIC,231,91,8,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_TWEAK_LDESIRED,245,91,21,14,ES_AUTOHSCROLL
+    LTEXT           "a*",IDC_STATIC,231,105,8,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_TWEAK_ADESIRED,245,105,21,14,ES_AUTOHSCROLL
+    LTEXT           "b*",IDC_STATIC,231,119,8,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_TWEAK_BDESIRED,245,119,21,14,ES_AUTOHSCROLL
+    LTEXT           "L*",IDC_STATIC,231,175,8,14,SS_CENTERIMAGE
+    CTEXT           "0",IDC_TWEAK_LDESIRED2,245,175,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "a*",IDC_STATIC,231,189,8,14,SS_CENTERIMAGE
+    CTEXT           "0",IDC_TWEAK_ADESIRED2,245,189,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "b*",IDC_STATIC,231,203,8,14,SS_CENTERIMAGE
+    CTEXT           "0",IDC_TWEAK_BDESIRED2,245,203,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "Desired",IDC_STATIC,245,70,25,8
+    LTEXT           "Compressed",IDC_STATIC,308,80,40,8
+    LTEXT           "Printed",IDC_STATIC,371,72,23,8
+    LTEXT           "Color",IDC_STATIC,245,80,17,8
+    LTEXT           "Color",IDC_STATIC,371,80,17,8
+    CTEXT           "0",IDC_TWEAK_LPRINT2,371,175,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "0",IDC_TWEAK_APRINT2,371,189,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "0",IDC_TWEAK_BPRINT2,371,203,21,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "Gamut",IDC_STATIC,308,72,22,8
+    GROUPBOX        "Tweak Data",IDC_STATIC,224,45,210,98
+    LTEXT           "Desired",IDC_STATIC,245,154,25,8
+    LTEXT           "Gamut",IDC_STATIC,308,147,22,8
+    LTEXT           "Color",IDC_STATIC,308,164,17,8
+    LTEXT           "Printed",IDC_STATIC,371,156,23,8
+    LTEXT           "Color",IDC_STATIC,245,164,17,8
+    LTEXT           "Color",IDC_STATIC,371,164,17,8
+    LTEXT           "Compressed",IDC_STATIC,308,156,40,8
+    CONTROL         "",IDC_TWEAK_CGAMUT,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    329,91,35,42,WS_EX_DLGMODALFRAME | WS_EX_STATICEDGE
+    CONTROL         "",IDC_TWEAK_CDESIRED,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    266,91,35,42,WS_EX_DLGMODALFRAME | WS_EX_STATICEDGE
+    CONTROL         "",IDC_TWEAK_CPRINT,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    392,91,36,42,WS_EX_DLGMODALFRAME | WS_EX_STATICEDGE
+    CONTROL         "",IDC_TWEAK_CDESIRED2,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,266,175,35,42,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_TWEAK_CGAMUT2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    329,175,35,42,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_TWEAK_CPRINT2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    392,175,36,42,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_TWEAK_MOVETOOL,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | BS_PUSHLIKE,8,159,
+                    28,21
+    CONTROL         "",IDC_TWEAK_SIZETOOL,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | BS_PUSHLIKE,8,128,
+                    28,21
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,188,66,20,20,
+                    WS_EX_DLGMODALFRAME | WS_EX_STATICEDGE
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Tek MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Tek\0"
+            VALUE "LegalCopyright", "Copyright (C) 1999\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Tek.EXE\0"
+            VALUE "ProductName", "Tek Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_LAUNCHER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 70
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 54
+    END
+
+    IDD_EDIT_IMAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 359
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 237
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_TUNING DLGINIT
+BEGIN
+    IDC_TWEAK_SELECT, 0x403, 2, 0
+0x0031, 
+    IDC_TWEAK_SELECT, 0x403, 2, 0
+0x0032, 
+    IDC_TWEAK_SELECT, 0x403, 2, 0
+0x0033, 
+    0
+END
+
+IDD_EDIT_IMAGE DLGINIT
+BEGIN
+    IDC_IMAGE, 0x376, 108, 0
+0x0000, 0x0000, 0x0014, 0x0003, 0x3716, 0x0000, 0x2197, 0x0000, 0x0045, 
+0x0000, 0xffff, 0x00ff, 0x01ff, 0xea01, 0x0003, 0x0100, 0x0101, 0x0101, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0001, 0x0100, 
+0x0000, 0x0300, 0x0000, 0x0200, 0x0000, 0x0100, 0x0000, 0x0000, 0x0000, 
+0x0100, 0x0000, 0x0000, 0x0000, 0x0000, 0x0100, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0100, 0x0101, 0x0101, 0x0101, 0x0001, 0x0001, 0x0001, 0x0000, 
+
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_MOVEDEPTH           BITMAP  DISCARDABLE     "res\\MoveDepth.bmp"
+IDB_MOVEPLANE           BITMAP  DISCARDABLE     "res\\MovePlane.bmp"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\Tek.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,30 @@
+// Source file: PALLIST.C
+LPPALETTE NewPalette(LPSTR lpPaletteName);
+LPPALETTE LinkPalette(LPPALETTE lpHeadPalette, LPPALETTE lpPalette);
+void FreeUpPalette(LPPALETTE lpPalette);
+//LPPALETTE DeletePalette(LPPALETTE lpHeadPalette, int iPalette);
+int NumPalettes(LPPALETTE lpHeadPalette);
+LPPALETTE GetPalette(LPPALETTE lpHeadPalette, LPSTR lpPaletteName, int index);
+BOOL GetPaletteName(LPPALETTE lpHeadPalette, int iPalette, LPSTR lpPaletteName);
+int GetPaletteNum(LPPALETTE lpHeadPalette, LPSTR lpPaletteName, LPPALETTE lpPalette);
+BOOL RenamePalette(LPPALETTE lpHeadPalette, int iPalette, LPSTR lpNewName);
+BOOL MovePaletteEntry(LPPALETTE lpHeadPalette, int iPalette, int iOldEntry, int iNewEntry);
+BOOL InsertPaletteEntry(LPPALETTE lpHeadPalette, int iPalette, int iBefore, LPCOLORINFO lpColorInfo);
+BOOL AppendPaletteEntry(LPPALETTE lpHeadPalette, int iPalette, int iAfter, LPCOLORINFO lpColorInfo);
+BOOL DeletePaletteEntry(LPPALETTE lpHeadPalette, int iPalette, int iEntry);
+BOOL DeletePaletteEntries(LPPALETTE lpHeadPalette, int iPalette, int iStart, int iCount);
+BOOL DeletePaletteLabels(LPPALETTE lpHeadPalette, int iPalette, int iStart, int iCount);
+BOOL AppendAdjustLabels(LPPALETTE lpHeadPalette, int iPalette, int iAfter, int iCount);
+BOOL InsertAdjustLabels(LPPALETTE lpHeadPalette, int iPalette, int iBefore, int iCount);
+BOOL SetPaletteEntryLabel(LPPALETTE lpHeadPalette, int iPalette, int iEntry, LPSTR lpLabel);
+BOOL SetPaletteEntryColor(LPPALETTE lpHeadPalette, int iPalette, int iEntry, LPCOLORINFO lpColorInfo);
+BOOL GetPaletteEntryColor(LPPALETTE lpHeadPalette, int iPalette, int iEntry, LPCOLORINFO lpColorInfo);
+BOOL GetPaletteEntryLabel(LPPALETTE lpHeadPalette, int iPalette, int iEntry, LPTR lpColorLabel);
+void FormatPaletteEntryLabel(LPPALETTE lpPalette, BYTE Type, LPSTR lpLabel, LPTR lpColorLabel);
+BOOL FillPaletteEntries(LPPALETTE lpHeadPalette, int iPalette, int iAfter, LPCOLORINFO lpColor1, LPCOLORINFO lpColor2, int iEntries, BOOL DoHSL, BOOL DoCPO);
+BOOL AddPaletteEntries(LPPALETTE lpHeadPalette, int iPalette, int iAfter, int iEntries, LPCOLORINFO lpColorInfo);
+int FindPaletteEntryLabel(LPPALETTE lpHeadPalette, int iPalette, LPINT lpEntry, LPTR lpColorLabel, int iWhich);
+BOOL MatchCriteria(LPSTR lpLabel, LPTR lpCriteria);
+LPPALETTE CombinePalettes(LPPALETTE lpHeadPalette);
+
+

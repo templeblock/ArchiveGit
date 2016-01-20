@@ -1,0 +1,6 @@
+// Source file: CPO.C
+int OptimizeBegin( LPOBJECT lpObject, LPFRAME lpFrame, LPRGB RGBmapIn, int nColors, STATUSCALLBACKPROC lpStatusCallback, BOOL bReduction, BOOL bOptimize, BOOL bScatter, BOOL bDither, int dx);
+void OptimizeData(int x, int y, int iCount, LPTR lpIn, LPTR lpOut, int depth);
+void OptimizeEnd( void );
+int CountColors( LPOBJECT lpObject, LPFRAME lpFrame, LPRGB lpRGBmap, LPRGB lpRGBData, int iLength, STATUSCALLBACKPROC lpStatusCallback );
+

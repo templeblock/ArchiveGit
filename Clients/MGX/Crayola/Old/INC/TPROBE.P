@@ -1,0 +1,28 @@
+// Source file: tprobe.c
+void SwapActiveAlternate( void );
+static void SetColorInfoString( LPSTR lpString, LPCOLORINFO lpColorInfo, COLORSPACE ColorSpace );
+void SetColorInfo( LPCOLORINFO lpSrcColor, LPCOLORINFO lpDstColor, COLORSPACE ColorSpace );
+void SetActiveColorString( LPSTR lpString, COLORSPACE ColorSpace );
+void SetAlternateColorString( LPSTR lpString, COLORSPACE ColorSpace );
+void SetActiveColor( LPCOLORINFO lpColor, COLORSPACE ColorSpace, BOOL bToolBar );
+void SetAlternateColor( LPCOLORINFO lpColor, COLORSPACE ColorSpace, BOOL bToolBar );
+void SetActiveRGB(LPRGB lpRGB, BOOL bToolBar);
+void SetAlternateRGB(LPRGB lpRGB, BOOL bToolBar);
+void RandomizeActiveColor( void );
+COLORSPACE GetActiveColorString( LPSTR lpString );
+COLORSPACE GetAlternateColorString( LPSTR lpString );
+COLORSPACE GetActiveColor( LPCOLORINFO lpColor );
+COLORSPACE GetAlternateColor( LPCOLORINFO lpColor );
+LPCOLORINFO GetActiveColorInfo( void );
+LPCOLORINFO GetAlternateColorInfo( void );
+COLORSPACE GetActiveColorFromType( FRMDATATYPE Type, LPCOLORINFO lpColor );
+COLORSPACE GetAlternateColorFromType( FRMDATATYPE Type, LPCOLORINFO lpColor );
+LPRGB GetActiveRGB(LPRGB lpRGB);
+LPRGB GetAlternateRGB(LPRGB lpRGB);
+static COLORSPACE GetColorInfoString( LPSTR lpString, LPCOLORINFO lpColorInfo );
+static COLOR GetColor( LPCOLORINFO lpColor, COLORSPACE ColorSpace );
+COLOR GetFrameColor( LPCOLORINFO lpColor, FRMDATATYPE DataType);
+static COLORSPACE GetFrameTypeColorSpace( FRMDATATYPE DataType );
+BOOL ColorsEqual( LPCOLORINFO lpSrcColor, LPCOLORINFO lpDstColor);
+void RepaintColors( void );
+

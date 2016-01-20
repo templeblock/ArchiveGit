@@ -1,0 +1,1611 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+<head>
+<title>Math of Finance</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h2><b><img border="0" src="http://209.64.182.228/images/1.gif" width="39" height="46">CISM700 - Basic Mathematics of Finance</b></h2>
+<p><i>Prof. Sid Sytsma - Ferris State University</i></p>
+<hr>
+<h3><b>Objectives</b></h3>
+<p>Upon completion of this section of the course you should understand and be able to use the material contained in the following topics:
+<ul>
+	<li>COMPOUND INTEREST - compound interest occurs when interest paid on the investment during the first period is added to the principal and, during each subsequent period, interest is earned on
+		the new sum of principal and interest earned in earlier periods.</li>
+	<li>THE EFFECT OF REDUCING THE COMPOUNDING PERIOD - as the compounding period grows shorter (for example, from annually to semiannually), the future value of the invested amount will be greater.
+		Thus, continuous compounding yields the highest return on each dollar saved (invested) at a set interest rate.</li>
+	<li>THE CONCEPT OF FUTURE VALUE - future values are always greater than the original (present value) amount being invested (so long as the interest rate is greater than zero). Similarly, the
+		present value of some future value must be less than that future amount (again assuming a positive discount rate greater than zero).</li>
+	<li>THE RELATIONSHIP BETWEEN PRESENT AND FUTURE VALUES - future and present value calculations are related through the inverse principles of interest and discounts. The equations for future values
+		and present values are mathematically interchangeable.</li>
+	<li>ANNUITIES - an annuity is a series of equal dollar payments for a specified number of periods. Compound annuities involve equal deposits or investments for a certain number of periods. The
+		present value of an annuity is simply the sum of the present values of each period's annuity amounts.</li>
+	<li>PERPETUITIES - a perpetuity is an annuity that continues forever; that is, every period from now on this investment pays the same dollar amount.</li>
+	<li>COMPUTING BOND VALUATION - bond valuation illustrates a combination of the present value of equal annuity payments (the interest payments) and the present value of a single future value (the
+		repayment of the bond principal). The price of a bond is the sum of these two present value calculations.</li>
+	<li>USING TABLES TO PERFORM MATH OF FINANCE COMPUTATIONS - tables have been compiled that greatly simplify present and future value calculations. These tables, however, can't replace a good
+		financial calculator or spreadsheet for ease or speed of calculation.</li>
+	<li>USING EXCEL TO PERFORM MATH OF FINANCE COMPUTATIONS - Excel has a complete array of formulas for computing virtually all math of finance computations. Best use of these functions is through
+		the Formula Wizard in Excel</li>
+</ul>
+<hr>
+<h3><b>COMPOUND INTEREST</b></h3>
+<p>Compound interest results when the interest paid on the investment during the first period is added to the principal and during the second period the interest is earned on the original principal
+plus the interest earned during the first period. Mathematically, the future value of an investment if compounded annually at a rate of <b>i</b> for <b>n</b> years will be</p>
+<math>
+
+<p>FV(N) = PV * (1 + i)^n</p>
+<p>Where:<b></b></p>
+<p><b>n</b> = the number of years during which the compounding occurs</p>
+<p><b>i </b>= the annual compound interest rate</p>
+<p><b>PV</b>= the principal (original) amount invested at the beginning of the first period</p>
+<p><b>FV(N)</b>= the future value of the investment at the end of <b>n</b> years</p>
+<p><b>Example 1</b>:</p>
+<p>Your grandmother deposited $100 in a savings account for you on your first birthday. She stipulated that the money was to remain in the account until your 21st birthday. That day has now arrived
+and you want to withdraw the full amount and purchase tweed seat covers for your historic 1972 Ford Galaxy 500 station wagon with the optional simulated wood paneling. The savings account has paid
+5.25 percent interest compounded annually since the money was deposited. How much money is now in the account?</p>
+<p><b>PV</b>=$100</p>
+<p><b>i</b>=.0525</p>
+<p><b>n</b>=20</p>
+<p>278.25 = 100 * (1 + .0525)^20</p>
+<p>As you can see, you now have enough for the tweed seat covers and maybe some fuzzy dice as well.</p>
+<hr>
+<h3><b>THE RULE OF 72</b></h3>
+<p>The Rule of 72 is a simple way to approximate how long it will take for a given sum to double in value. This &quot;rule&quot; states that one can determine how many years it will take for a given
+sum to double by dividing the annual growth rate into 72. For example, if the annual growth (interest rate) is 9 percent, according to the rule of 72 it should take 72/9 = 8 years for that sum to
+double.</p>
+<hr>
+<h3><b>INCREASING FUTURE VALUE OF AN INVESTMENT</b></h3>
+<p>The future value of an investment can be increased by either increasing the number of years we let it compound or by compounding it at a higher rate. If the compounded period is less than one year,
+the future value of an investment can be determined as follows:</p>
+<p>FV(N) = PV * (1 + (i/m)) ^(mn)</p>
+<p>Where<b></b></p>
+<p><b>m</b> = the number of times compounding occurs during the year</p>
+<p><b>n</b> = the number of years during which the compounding occurs</p>
+<p><b>i </b>= the annual compound interest rate</p>
+<p><b>PV</b>= the principal (original) amount invested at the beginning of the first period</p>
+<p><b>FV(N)</b>= the future value of the investment at the end of <b>n</b> years</p>
+<p><b>Example 2</b>:</p>
+<p>That same $100 deposited by your grandmother is now being compounded monthly rather than annually (once a year). How does this affect the balance in the account?</p>
+<p><b>PV</b>=$100</p>
+<p><b>i</b>=.0525</p>
+<p><b>n</b>=20</p>
+<p><b>m</b>=12</p>
+<p>285.11 = 100 * (1 + .0525/12)^(12/20)</p>
+<p>In the case of continuous compounding, the value of <b>m</b> in the above equation is allowed to approach infinity. As this happens, the value of</p>
+<p>(1 + 1/m)^(mn)</p>
+<p>approaches e^(ixn) in which <i>e</i> is defined as follows and having a value of approximately 2.71828:</p>
+<p>e = lim (m-&gt;infinity) (1 + 1/m)^m</p>
+<p>where oo indicates infinity. Note that this is a good equation to try on your calculator or computer (letting <i>m</i> get larger and larger). Thus, the future value of an investment compounded
+continuously for <b>n</b> years can be determined as follows:</p>
+<p>FV(N) = PV * (e^(in))</p>
+<p>where<b></b></p>
+<p><b>e</b>=2.71828<b></b></p>
+<p><b>n</b>=the number of years during which compounding occurs.<b></b></p>
+<p><b>i</b>=the annual compounded interest rate<b></b></p>
+<p><b>PV</b>=the principal amount invested at the beginning of the first period</p>
+<p><b>FV(N)</b>=the future value of the investment at the end of <b>n</b> years</p>
+<p><b>Example 3</b>:</p>
+<p>Grandma shopped around and found a bank that employed continuous compounding. So how much is the account worth using continuous compounding?</p>
+<p><b>PV</b>=$100</p>
+<p><b>i</b>=.0525</p>
+<p><b>n</b>=20</p>
+<p><b>e</b>=2.71828…</p>
+<p>285.76 = 100 * 2.71828^(.0525*20)</p>
+<p>Comparison of annual, monthly, and continuous compounding from the examples.</p>
+<p>Grandma's $100 is worth $278.25 after compounding annually.</p>
+<p>Grandma's $100 is worth $285.11 after compounding monthly.</p>
+<p>Grandma's $100 is worth $285.76 after compounding continuously. As you can see, compounding continuously yields the highest return.</p>
+<hr>
+<h3><b>PRESENT VALUE</b></h3>
+<p>Determining the present value, that is, the value in today's dollars of a sum of money to be received in the future, involves nothing other than inverse compounding. The differences in these
+techniques come about merely from the investor's point of view. Mathematically, the present value of a sum of money to be received in the future can be determined with the following equation:</p>
+<p>PV = FV(N) * (1/((1 + i)^n))</p>
+<p>where<b></b></p>
+<p><b>n</b>=the number of years until payment will be received<b></b></p>
+<p><b>i</b>=the opportunity rate or discount rate<b></b></p>
+<p><b>PV</b>=the present value of the future sum of money</p>
+<p><b>FV(N)</b> =the future value of the investment at the end of <b>n</b> years</p>
+<p><b>Example 4</b>:</p>
+<p>Your brother-in-law, Lenny, has approached you with yet another money-making scheme. This time he promises that if you'll invest $1,000 today in his &quot;sure-fire absolutely can't fail and you'll
+never get another opportunity like this&quot; business venture, you'll receive $2,000 in 10 years. Alternatively you can deposit the $1,000 in a 9.25 percent insured savings account (we're assuming
+the account is compounded annually). You wonder what the present value of the promised $2,000 from Lenny is worth assuming the 9.25 percent interest rate. In other words, is Lenny's scheme better than
+just depositing the money in the savings account?</p>
+<p>Note that there are two ways to approach this problem. First, you could solve this using the future value approach (i.e., <b>PV </b>= $1,000, <b>i</b> = .0925, <b>n</b> = 10, and solve for <b>FV(10)</b>).
+If your future value amount is greater than the promised $2,000, you should leave your money in the savings account. Second, you could solve the problem in the following manner:</p>
+<p><b>FV(10)</b> =$2,000</p>
+<p><b>i</b>=.0925</p>
+<p><b>n</b>=10</p>
+<p>825.69 = 2000 * (1/((1 + .0925)^10))</p>
+<p>Note that the present value is less than the $1,000 you currently have. Thus we see that Lenny isn't offering you such a great deal after all. In fact, by solving for <b>i</b> you can see that
+Lenny's investment only pays 7.18 percent. Not to mention that investing with Lenny is <b>much</b> riskier than a federally insured savings account.</p>
+<p>The present value of a future sum of money is inversely related to both the number of years until the payment will be received and the opportunity rate.</p>
+<hr>
+<h3><b>ANNUITIES</b></h3>
+<p>An annuity is a series of equal dollar payments for a specified number of years. Because annuities occur frequently in finance, for example, bond interest payments, we treat them specially.</p>
+<p>A compound annuity involves depositing or investing an equal sum of money at the end of each year for a certain number of years and allowing it to grow. This can be done by using our compounding
+equation and compounding each one of the individual deposits to the future or by using the following compound annuity equation:</p>
+<p>FV(N) = A * (SUM t=0 to n-1 (1 + i)^t</p>
+<p>where<b></b></p>
+<p><b>A</b>=the annuity value deposited at the end of each year<b></b></p>
+<p><b>i</b>=the annual compound interest rate<b></b></p>
+<p><b>n</b>=the number of years for which the annuity will last<b></b></p>
+<p><b>FV(N)</b> =the future value of the annuity at the end of the <b>n</b>th year</p>
+<p><b>Example 5</b>:</p>
+<p>You've always loved fast cars. Now that you have a job, you wish to begin setting money aside to buy the car of your dreams, a historic 1973 Orange Vega Hatchback with a solid-state Kraco® sound
+system. Obviously, cars of this quality don't come cheap. You figure you'll need at least $500 to buy this fine example of Detroit engineering. So here's the problem; you can afford to deposit $100 a
+year for 8 years. Obviously you'll have more than $500 in the bank, but Vega's have a history of needing a few little things, like a motor, transmission, brakes, and suspension work. So it looks like
+you'll need to save at least $1,000 in order to buy and drive this automotive trophy. Your savings account pays 8 percent interest compounded annually. How much will your account contain at the end of
+the 8 years?</p>
+<p><b>A</b>=$100</p>
+<p><b>i</b>=.08</p>
+<p><b>n</b>=8</p>
+<p>1063.66 = 100 * (SUm t=0 to 8-1 (1 + .08)^t)</p>
+<p>The calculations show that you will indeed have saved enough money to purchase the transportation you desire.</p>
+<p>You can see that annuity calculations are most easily done with calculators (or computers) that are programmed to handle the iterative portions of the calculations. Pension funds, insurance
+obligation, and interest received from bonds all involve annuities. To compare these financial instruments we would like to know the present value of each of these annuities. This can be done by using
+our present value equation and discounting each one of the individual cash flows back to the present or by using the following present value of an annuity equation:</p>
+<p>PV = A * (SUM t=1 to n) (1/((1 + i)^t))</p>
+<p>where<b></b></p>
+<p><b>A</b>=the annuity withdrawn at the end of each year<b></b></p>
+<p><b>i</b>=the annual interest or discount rate<b></b></p>
+<p><b>PV</b>=the present value of the future annuity<b></b></p>
+<p><b>n</b>=the number of years for which the annuity will last</p>
+<p><b>Example 6</b>:</p>
+<p>Congratulations, you've just won the Mud Flat Lotto! Your cash winnings are $1,000. When you go down to collect your money, you find that rather than a check for the entire amount, the lottery
+commission hands you a promissory note. The note promises to pay you $100 a year for the next 10 years. Now the astute business professional in you senses something wrong. You know that savings
+accounts are paying 10 percent currently. You want to determine how much this promissory note is really worth. How do you solve this problem?</p>
+<p><b>A</b>=$100</p>
+<p><b>i</b>=.10</p>
+<p><b>n</b>=10</p>
+<p>614.46 = 100 * SUM t=1 to 10 (1 / ((1 + .10)^t))</p>
+<p>The prize is worth much less than the promised $1,000. Unfortunately, such is the case for most American lottery payoffs. The lottery commissions are able to enjoy interest income from money that
+belongs to the lottery winners.</p>
+<p>This procedure of solving for <b>A</b>, the annuity value when <b>i</b>, <b>n</b>, and <b>PV</b> are known, is also the procedure used to determine what payments are associated with paying off a
+loan in equal installments. Loans paid off in this way, in periodic payments, are called amortized loans. Here again we know three of the four values in the annuity equation and are solving for a
+value of <b>A</b>, the annual annuity.</p>
+<p><b>Example 7</b>:</p>
+<p>You've decided to go into business with Lenny, your brother in law. He claims to have extensively researched the hottest franchise ideas. He has discovered a franchise opportunity that converts
+used milk cartons into floating artificial ducks. Now your franchise for Decoys R Us costs $20,000. You can borrow the money from your grandmother but she charges 15 percent interest and wants the
+money repaid in 5 years. Your task is to calculate the payments you must make in order to repay grandma. How do solve this problem? <b>Hint</b>: Just rearrange the present value of an annuity formula
+you used in Example 6 and solve for <b>A</b>.</p>
+<p><b>PV</b>=$20,000</p>
+<p><b>i</b>=.15</p>
+<p><b>n</b>=5</p>
+<p>5966.31&nbsp; =&nbsp; 20000 / (SUM t=1 to 5 (1/((1 + .15)^t)))</p>
+<hr>
+<h3><b>PERPETUITIES</b></h3>
+<p>A perpetuity is an annuity that continues forever, that is every year from now on this investment pays the same dollar amount. An example of a perpetuity is preferred stock which yields a constant
+dollar dividend infinitely. The following equation can be used to determine the present value of a perpetuity:</p>
+<p>PV = pp / i</p>
+<p>where<b></b></p>
+<p><b>PV</b>=the present value of the perpetuity<b></b></p>
+<p><b>pp</b>=the constant dollar amount provided by the perpetuity<b></b></p>
+<p><b>i</b>=the annual interest or discount rate</p>
+<hr>
+<h3><b>BOND VALUATION</b></h3>
+<p>Bond valuation illustrates a combination of several discounting techniques and procedures including an annuity, a single cash flow and semiannual periods. When a bond is purchased the owner
+receives two things; interest payments, which are generally made semiannually, and at maturity repayment of the full principal, regardless of how much the bond was purchased for.</p>
+<p>The present value of a bond can be illustrated as follows:</p>
+<p>Bond Value = PV of Interest Payments + Present Value of Return of Principal</p>
+<p>Bond value = A * (SUM t=1 to nm (1 / ((1 + i/m)^t)) + FVnm * (1/((1 + i/m)^nnm))</p>
+<p><b>Example 8</b>:</p>
+<p>You just heard that you are about to be the proud parent of quadruplets. You decide that the time is right to start saving for their college education. You've decided that the stock market is too
+risky for your current situation. You decide to purchase bonds from the Greedy Gulch Power Company. The bonds pay $50 annual payments on the face value of $1,000. The bonds have 5 years remaining
+until redemption. How much should you pay assuming market discount rates of 5, 10, and 15 percent? In other words, you'll need to perform this calculation three times, one with each of the discount
+rates. <b>Hint</b>: Separate the bond's value into two distinct present value calculations. First, perform a present value of an annuity calculation (use the $50 annual payments as your annuity
+stream). Next, perform a present value of a future lump sum (the repayment of the principal) calculation.</p>
+<p><b>A</b>=$50</p>
+<p><b>n</b>=5</p>
+<p><b>m</b>=1 (annual interest payments, this number would be 2 if the bond paid semiannual interest payments).</p>
+<p><b>i</b>=.05 (and then .10 and .15 in the subsequent calculations).</p>
+<p>1000 = 50 * (SUM t=1 to 5*1 (1 / ((1 + .05/1)^t)) + 1000 * ( 1 / ((1 + .05/1)5*1)))</p>
+<p>1000 = 216.47 + 783.53</p>
+<p>Notice that when you calculate the price of the bond at 5 percent, the two components of the bond's value sum to $1,000. The fact that the computed value is equal to the face value indicates that
+this is a 5 percent bond. We see that this is true by dividing the $50 interest payments by the face value. The bond is worth $810.46 at a discount rate of 10 percent and $664.79 at 15 percent. The
+lower prices indicate that investors would pay less for a bond that pays 5 percent when other market investments are paying 10 or 15 percent.</p>
+<hr>
+<h3><b>PRESENT AND FUTURE VALUE TABLES AND EXCEL FORMULAS</b></h3>
+<p>To aid in the calculations of present and future values, tables are provided at the back this handout. These tables were prepared in Excel. The Excel formulas are shown.
+<ul>
+	<li>To aid you in determining the value of <b>FV(N)</b> in the compounding formula FV(N) = PV * (1 + i)^n tables have been compiled for values of <b>(1 + i)n</b> in Appendix A, <i>Compound Sum of
+		$1,</i> of this handout. The Excel formula is =(1+B3)^A4 where B3 contains the per period interest, and A4 contains the number of periods of compounding.</li>
+	<li>To aid in the computation of present values PV = FV(N) * (1/((1 + i)^n)) tables have been compiled for values of (1 / ((1 + i)^n)) and appear in Appendix B, <i>Present Value of $1,</i> in the
+		back of this handout. The Excel formula used is =1/(1+B3)^A4 where B3 contains the per period interest, and A4 contains the number of periods of discounting.</li>
+	<li>Because of the time-consuming nature of compounding an annuity, FV(N) = A * (SUM t=0 to n-1 (1 + i)^t)&nbsp; tables are provided in Appendix C, <i>Sum of an Annuity of $1 for n periods,</i> of
+		your handout for SUM t=1 to n (1 / ((1 + i)^t)) for various combinations of <b>n</b> and <b>I</b>. The Excel formula is = -FV(B3,A4,1,,0) where B3 contains the per period interest, A4 contains
+		the number of periods of compounding, the amount of the annuity is 1 dollar, with payment occurring at the end of each period.</li>
+	<li>To simplify the process of determining the present value of an annuity PV = A * (SUM t=1 to n (1 / (1 + i)^t)) tables are provided in Appendix D, <i>Present Value an Annuity of $1 for n
+		periods</i>, of the text for various combinations of <b>n</b> and <b>i</b> for the value SUM t=1 to n (1 / (1 + i)^t) . The Excel formula used is =-PV(B3,A4,1) where B3 contains the per period
+		interest, A4 contains the number of periods of discounting, and 1 dollar is the amount of the annuity.</li>
+</ul>
+<p>Simplified appendices A, B, C, and D are shown below. More comprehensive Excel tables can be found in most Mathematics of Finance textbooks.</p>
+<table border="1">
+	<tr>
+		<td valign="top" colspan="11"><b>APPENDIX A - COMPOUND SUM OF $1</b></td>
+	</tr>
+	<tr>
+		<td valign="top">Period</td>
+		<td valign="top">1%</td>
+		<td valign="top">2%</td>
+		<td valign="top">3%</td>
+		<td valign="top">4%</td>
+		<td valign="top">5%</td>
+		<td valign="top">10%</td>
+		<td valign="top">15%</td>
+		<td valign="top">20%</td>
+		<td valign="top">25%</td>
+		<td valign="top">30%</td>
+	</tr>
+	<tr>
+		<td valign="top">1</td>
+		<td valign="top">1.01000</td>
+		<td valign="top">1.02000</td>
+		<td valign="top">1.03000</td>
+		<td valign="top">1.04000</td>
+		<td valign="top">1.05000</td>
+		<td valign="top">1.10000</td>
+		<td valign="top">1.15000</td>
+		<td valign="top">1.20000</td>
+		<td valign="top">1.25000</td>
+		<td valign="top">1.30000</td>
+	</tr>
+	<tr>
+		<td valign="top">2</td>
+		<td valign="top">1.02010</td>
+		<td valign="top">1.04040</td>
+		<td valign="top">1.06090</td>
+		<td valign="top">1.08160</td>
+		<td valign="top">1.10250</td>
+		<td valign="top">1.21000</td>
+		<td valign="top">1.32250</td>
+		<td valign="top">1.44000</td>
+		<td valign="top">1.56250</td>
+		<td valign="top">1.69000</td>
+	</tr>
+	<tr>
+		<td valign="top">3</td>
+		<td valign="top">1.03030</td>
+		<td valign="top">1.06121</td>
+		<td valign="top">1.09273</td>
+		<td valign="top">1.12486</td>
+		<td valign="top">1.15763</td>
+		<td valign="top">1.33100</td>
+		<td valign="top">1.52088</td>
+		<td valign="top">1.72800</td>
+		<td valign="top">1.95313</td>
+		<td valign="top">2.19700</td>
+	</tr>
+	<tr>
+		<td valign="top">4</td>
+		<td valign="top">1.04060</td>
+		<td valign="top">1.08243</td>
+		<td valign="top">1.12551</td>
+		<td valign="top">1.16986</td>
+		<td valign="top">1.21551</td>
+		<td valign="top">1.46410</td>
+		<td valign="top">1.74901</td>
+		<td valign="top">2.07360</td>
+		<td valign="top">2.44141</td>
+		<td valign="top">2.85610</td>
+	</tr>
+	<tr>
+		<td valign="top">5</td>
+		<td valign="top">1.05101</td>
+		<td valign="top">1.10408</td>
+		<td valign="top">1.15927</td>
+		<td valign="top">1.21665</td>
+		<td valign="top">1.27628</td>
+		<td valign="top">1.61051</td>
+		<td valign="top">2.01136</td>
+		<td valign="top">2.48832</td>
+		<td valign="top">3.05176</td>
+		<td valign="top">3.71293</td>
+	</tr>
+	<tr>
+		<td valign="top">6</td>
+		<td valign="top">1.06152</td>
+		<td valign="top">1.12616</td>
+		<td valign="top">1.19405</td>
+		<td valign="top">1.26532</td>
+		<td valign="top">1.34010</td>
+		<td valign="top">1.77156</td>
+		<td valign="top">2.31306</td>
+		<td valign="top">2.98598</td>
+		<td valign="top">3.81470</td>
+		<td valign="top">4.82681</td>
+	</tr>
+	<tr>
+		<td valign="top">7</td>
+		<td valign="top">1.07214</td>
+		<td valign="top">1.14869</td>
+		<td valign="top">1.22987</td>
+		<td valign="top">1.31593</td>
+		<td valign="top">1.40710</td>
+		<td valign="top">1.94872</td>
+		<td valign="top">2.66002</td>
+		<td valign="top">3.58318</td>
+		<td valign="top">4.76837</td>
+		<td valign="top">6.27485</td>
+	</tr>
+	<tr>
+		<td valign="top">8</td>
+		<td valign="top">1.08286</td>
+		<td valign="top">1.17166</td>
+		<td valign="top">1.26677</td>
+		<td valign="top">1.36857</td>
+		<td valign="top">1.47746</td>
+		<td valign="top">2.14359</td>
+		<td valign="top">3.05902</td>
+		<td valign="top">4.29982</td>
+		<td valign="top">5.96046</td>
+		<td valign="top">8.15731</td>
+	</tr>
+	<tr>
+		<td valign="top">9</td>
+		<td valign="top">1.09369</td>
+		<td valign="top">1.19509</td>
+		<td valign="top">1.30477</td>
+		<td valign="top">1.42331</td>
+		<td valign="top">1.55133</td>
+		<td valign="top">2.35795</td>
+		<td valign="top">3.51788</td>
+		<td valign="top">5.15978</td>
+		<td valign="top">7.45058</td>
+		<td valign="top">10.60450</td>
+	</tr>
+	<tr>
+		<td valign="top">10</td>
+		<td valign="top">1.10462</td>
+		<td valign="top">1.21899</td>
+		<td valign="top">1.34392</td>
+		<td valign="top">1.48024</td>
+		<td valign="top">1.62889</td>
+		<td valign="top">2.59374</td>
+		<td valign="top">4.04556</td>
+		<td valign="top">6.19174</td>
+		<td valign="top">9.31323</td>
+		<td valign="top">13.78585</td>
+	</tr>
+	<tr>
+		<td valign="top">11</td>
+		<td valign="top">1.11567</td>
+		<td valign="top">1.24337</td>
+		<td valign="top">1.38423</td>
+		<td valign="top">1.53945</td>
+		<td valign="top">1.71034</td>
+		<td valign="top">2.85312</td>
+		<td valign="top">4.65239</td>
+		<td valign="top">7.43008</td>
+		<td valign="top">11.64153</td>
+		<td valign="top">17.92160</td>
+	</tr>
+	<tr>
+		<td valign="top">12</td>
+		<td valign="top">1.12683</td>
+		<td valign="top">1.26824</td>
+		<td valign="top">1.42576</td>
+		<td valign="top">1.60103</td>
+		<td valign="top">1.79586</td>
+		<td valign="top">3.13843</td>
+		<td valign="top">5.35025</td>
+		<td valign="top">8.91610</td>
+		<td valign="top">14.55192</td>
+		<td valign="top">23.29809</td>
+	</tr>
+	<tr>
+		<td valign="top">13</td>
+		<td valign="top">1.13809</td>
+		<td valign="top">1.29361</td>
+		<td valign="top">1.46853</td>
+		<td valign="top">1.66507</td>
+		<td valign="top">1.88565</td>
+		<td valign="top">3.45227</td>
+		<td valign="top">6.15279</td>
+		<td valign="top">10.69932</td>
+		<td valign="top">18.18989</td>
+		<td valign="top">30.28751</td>
+	</tr>
+	<tr>
+		<td valign="top">14</td>
+		<td valign="top">1.14947</td>
+		<td valign="top">1.31948</td>
+		<td valign="top">1.51259</td>
+		<td valign="top">1.73168</td>
+		<td valign="top">1.97993</td>
+		<td valign="top">3.79750</td>
+		<td valign="top">7.07571</td>
+		<td valign="top">12.83918</td>
+		<td valign="top">22.73737</td>
+		<td valign="top">39.37376</td>
+	</tr>
+	<tr>
+		<td valign="top">15</td>
+		<td valign="top">1.16097</td>
+		<td valign="top">1.34587</td>
+		<td valign="top">1.55797</td>
+		<td valign="top">1.80094</td>
+		<td valign="top">2.07893</td>
+		<td valign="top">4.17725</td>
+		<td valign="top">8.13706</td>
+		<td valign="top">15.40702</td>
+		<td valign="top">28.42171</td>
+		<td valign="top">51.18589</td>
+	</tr>
+	<tr>
+		<td valign="top">16</td>
+		<td valign="top">1.17258</td>
+		<td valign="top">1.37279</td>
+		<td valign="top">1.60471</td>
+		<td valign="top">1.87298</td>
+		<td valign="top">2.18287</td>
+		<td valign="top">4.59497</td>
+		<td valign="top">9.35762</td>
+		<td valign="top">18.48843</td>
+		<td valign="top">35.52714</td>
+		<td valign="top">66.54166</td>
+	</tr>
+	<tr>
+		<td valign="top">17</td>
+		<td valign="top">1.18430</td>
+		<td valign="top">1.40024</td>
+		<td valign="top">1.65285</td>
+		<td valign="top">1.94790</td>
+		<td valign="top">2.29202</td>
+		<td valign="top">5.05447</td>
+		<td valign="top">10.76126</td>
+		<td valign="top">22.18611</td>
+		<td valign="top">44.40892</td>
+		<td valign="top">86.50416</td>
+	</tr>
+	<tr>
+		<td valign="top">18</td>
+		<td valign="top">1.19615</td>
+		<td valign="top">1.42825</td>
+		<td valign="top">1.70243</td>
+		<td valign="top">2.02582</td>
+		<td valign="top">2.40662</td>
+		<td valign="top">5.55992</td>
+		<td valign="top">12.37545</td>
+		<td valign="top">26.62333</td>
+		<td valign="top">55.51115</td>
+		<td valign="top">112.45541</td>
+	</tr>
+	<tr>
+		<td valign="top">19</td>
+		<td valign="top">1.20811</td>
+		<td valign="top">1.45681</td>
+		<td valign="top">1.75351</td>
+		<td valign="top">2.10685</td>
+		<td valign="top">2.52695</td>
+		<td valign="top">6.11591</td>
+		<td valign="top">14.23177</td>
+		<td valign="top">31.94800</td>
+		<td valign="top">69.38894</td>
+		<td valign="top">146.19203</td>
+	</tr>
+	<tr>
+		<td valign="top">20</td>
+		<td valign="top">1.22019</td>
+		<td valign="top">1.48595</td>
+		<td valign="top">1.80611</td>
+		<td valign="top">2.19112</td>
+		<td valign="top">2.65330</td>
+		<td valign="top">6.72750</td>
+		<td valign="top">16.36654</td>
+		<td valign="top">38.33760</td>
+		<td valign="top">86.73617</td>
+		<td valign="top">190.04964</td>
+	</tr>
+	<tr>
+		<td valign="top">25</td>
+		<td valign="top">1.28243</td>
+		<td valign="top">1.64061</td>
+		<td valign="top">2.09378</td>
+		<td valign="top">2.66584</td>
+		<td valign="top">3.38635</td>
+		<td valign="top">10.83471</td>
+		<td valign="top">32.91895</td>
+		<td valign="top">95.39622</td>
+		<td valign="top">264.69780</td>
+		<td valign="top">705.64100</td>
+	</tr>
+	<tr>
+		<td valign="top">40</td>
+		<td valign="top">1.48886</td>
+		<td valign="top">2.20804</td>
+		<td valign="top">3.26204</td>
+		<td valign="top">4.80102</td>
+		<td valign="top">7.03999</td>
+		<td valign="top">45.25926</td>
+		<td valign="top">267.86355</td>
+		<td valign="top">1469.77157</td>
+		<td valign="top">7523.16385</td>
+		<td valign="top">36118.86481</td>
+	</tr>
+	<tr>
+		<td valign="top">50</td>
+		<td valign="top">1.64463</td>
+		<td valign="top">2.69159</td>
+		<td valign="top">4.38391</td>
+		<td valign="top">7.10668</td>
+		<td valign="top">11.46740</td>
+		<td valign="top">117.39085</td>
+		<td valign="top">1083.65744</td>
+		<td valign="top">9100.43815</td>
+		<td valign="top">70064.92322</td>
+		<td valign="top">497929.22298</td>
+	</tr>
+	<tr>
+		<td valign="top">60</td>
+		<td valign="top">1.81670</td>
+		<td valign="top">3.28103</td>
+		<td valign="top">5.89160</td>
+		<td valign="top">10.51963</td>
+		<td valign="top">18.67919</td>
+		<td valign="top">304.48164</td>
+		<td valign="top">4383.99875</td>
+		<td valign="top">56347.51435</td>
+		<td valign="top">652530.44680</td>
+		<td valign="top">6864377.17274</td>
+	</tr>
+	<tr>
+		<td valign="top" colspan="11"><b>APPENDIX B - PRESENT VALUE OF $1</b></td>
+	</tr>
+	<tr>
+		<td valign="top">Period</td>
+		<td valign="top">1%</td>
+		<td valign="top">2%</td>
+		<td valign="top">3%</td>
+		<td valign="top">4%</td>
+		<td valign="top">5%</td>
+		<td valign="top">10%</td>
+		<td valign="top">15%</td>
+		<td valign="top">20%</td>
+		<td valign="top">25%</td>
+		<td valign="top">30%</td>
+	</tr>
+	<tr>
+		<td valign="top">1</td>
+		<td valign="top">0.99010</td>
+		<td valign="top">0.98039</td>
+		<td valign="top">0.97087</td>
+		<td valign="top">0.96154</td>
+		<td valign="top">0.95238</td>
+		<td valign="top">0.90909</td>
+		<td valign="top">0.86957</td>
+		<td valign="top">0.83333</td>
+		<td valign="top">0.80000</td>
+		<td valign="top">0.76923</td>
+	</tr>
+	<tr>
+		<td valign="top">2</td>
+		<td valign="top">0.98030</td>
+		<td valign="top">0.96117</td>
+		<td valign="top">0.94260</td>
+		<td valign="top">0.92456</td>
+		<td valign="top">0.90703</td>
+		<td valign="top">0.82645</td>
+		<td valign="top">0.75614</td>
+		<td valign="top">0.69444</td>
+		<td valign="top">0.64000</td>
+		<td valign="top">0.59172</td>
+	</tr>
+	<tr>
+		<td valign="top">3</td>
+		<td valign="top">0.97059</td>
+		<td valign="top">0.94232</td>
+		<td valign="top">0.91514</td>
+		<td valign="top">0.88900</td>
+		<td valign="top">0.86384</td>
+		<td valign="top">0.75131</td>
+		<td valign="top">0.65752</td>
+		<td valign="top">0.57870</td>
+		<td valign="top">0.51200</td>
+		<td valign="top">0.45517</td>
+	</tr>
+	<tr>
+		<td valign="top">4</td>
+		<td valign="top">0.96098</td>
+		<td valign="top">0.92385</td>
+		<td valign="top">0.88849</td>
+		<td valign="top">0.85480</td>
+		<td valign="top">0.82270</td>
+		<td valign="top">0.68301</td>
+		<td valign="top">0.57175</td>
+		<td valign="top">0.48225</td>
+		<td valign="top">0.40960</td>
+		<td valign="top">0.35013</td>
+	</tr>
+	<tr>
+		<td valign="top">5</td>
+		<td valign="top">0.95147</td>
+		<td valign="top">0.90573</td>
+		<td valign="top">0.86261</td>
+		<td valign="top">0.82193</td>
+		<td valign="top">0.78353</td>
+		<td valign="top">0.62092</td>
+		<td valign="top">0.49718</td>
+		<td valign="top">0.40188</td>
+		<td valign="top">0.32768</td>
+		<td valign="top">0.26933</td>
+	</tr>
+	<tr>
+		<td valign="top">6</td>
+		<td valign="top">0.94205</td>
+		<td valign="top">0.88797</td>
+		<td valign="top">0.83748</td>
+		<td valign="top">0.79031</td>
+		<td valign="top">0.74622</td>
+		<td valign="top">0.56447</td>
+		<td valign="top">0.43233</td>
+		<td valign="top">0.33490</td>
+		<td valign="top">0.26214</td>
+		<td valign="top">0.20718</td>
+	</tr>
+	<tr>
+		<td valign="top">7</td>
+		<td valign="top">0.93272</td>
+		<td valign="top">0.87056</td>
+		<td valign="top">0.81309</td>
+		<td valign="top">0.75992</td>
+		<td valign="top">0.71068</td>
+		<td valign="top">0.51316</td>
+		<td valign="top">0.37594</td>
+		<td valign="top">0.27908</td>
+		<td valign="top">0.20972</td>
+		<td valign="top">0.15937</td>
+	</tr>
+	<tr>
+		<td valign="top">8</td>
+		<td valign="top">0.92348</td>
+		<td valign="top">0.85349</td>
+		<td valign="top">0.78941</td>
+		<td valign="top">0.73069</td>
+		<td valign="top">0.67684</td>
+		<td valign="top">0.46651</td>
+		<td valign="top">0.32690</td>
+		<td valign="top">0.23257</td>
+		<td valign="top">0.16777</td>
+		<td valign="top">0.12259</td>
+	</tr>
+	<tr>
+		<td valign="top">9</td>
+		<td valign="top">0.91434</td>
+		<td valign="top">0.83676</td>
+		<td valign="top">0.76642</td>
+		<td valign="top">0.70259</td>
+		<td valign="top">0.64461</td>
+		<td valign="top">0.42410</td>
+		<td valign="top">0.28426</td>
+		<td valign="top">0.19381</td>
+		<td valign="top">0.13422</td>
+		<td valign="top">0.09430</td>
+	</tr>
+	<tr>
+		<td valign="top">10</td>
+		<td valign="top">0.90529</td>
+		<td valign="top">0.82035</td>
+		<td valign="top">0.74409</td>
+		<td valign="top">0.67556</td>
+		<td valign="top">0.61391</td>
+		<td valign="top">0.38554</td>
+		<td valign="top">0.24718</td>
+		<td valign="top">0.16151</td>
+		<td valign="top">0.10737</td>
+		<td valign="top">0.07254</td>
+	</tr>
+	<tr>
+		<td valign="top">11</td>
+		<td valign="top">0.89632</td>
+		<td valign="top">0.80426</td>
+		<td valign="top">0.72242</td>
+		<td valign="top">0.64958</td>
+		<td valign="top">0.58468</td>
+		<td valign="top">0.35049</td>
+		<td valign="top">0.21494</td>
+		<td valign="top">0.13459</td>
+		<td valign="top">0.08590</td>
+		<td valign="top">0.05580</td>
+	</tr>
+	<tr>
+		<td valign="top">12</td>
+		<td valign="top">0.88745</td>
+		<td valign="top">0.78849</td>
+		<td valign="top">0.70138</td>
+		<td valign="top">0.62460</td>
+		<td valign="top">0.55684</td>
+		<td valign="top">0.31863</td>
+		<td valign="top">0.18691</td>
+		<td valign="top">0.11216</td>
+		<td valign="top">0.06872</td>
+		<td valign="top">0.04292</td>
+	</tr>
+	<tr>
+		<td valign="top">13</td>
+		<td valign="top">0.87866</td>
+		<td valign="top">0.77303</td>
+		<td valign="top">0.68095</td>
+		<td valign="top">0.60057</td>
+		<td valign="top">0.53032</td>
+		<td valign="top">0.28966</td>
+		<td valign="top">0.16253</td>
+		<td valign="top">0.09346</td>
+		<td valign="top">0.05498</td>
+		<td valign="top">0.03302</td>
+	</tr>
+	<tr>
+		<td valign="top">14</td>
+		<td valign="top">0.86996</td>
+		<td valign="top">0.75788</td>
+		<td valign="top">0.66112</td>
+		<td valign="top">0.57748</td>
+		<td valign="top">0.50507</td>
+		<td valign="top">0.26333</td>
+		<td valign="top">0.14133</td>
+		<td valign="top">0.07789</td>
+		<td valign="top">0.04398</td>
+		<td valign="top">0.02540</td>
+	</tr>
+	<tr>
+		<td valign="top">15</td>
+		<td valign="top">0.86135</td>
+		<td valign="top">0.74301</td>
+		<td valign="top">0.64186</td>
+		<td valign="top">0.55526</td>
+		<td valign="top">0.48102</td>
+		<td valign="top">0.23939</td>
+		<td valign="top">0.12289</td>
+		<td valign="top">0.06491</td>
+		<td valign="top">0.03518</td>
+		<td valign="top">0.01954</td>
+	</tr>
+	<tr>
+		<td valign="top">16</td>
+		<td valign="top">0.85282</td>
+		<td valign="top">0.72845</td>
+		<td valign="top">0.62317</td>
+		<td valign="top">0.53391</td>
+		<td valign="top">0.45811</td>
+		<td valign="top">0.21763</td>
+		<td valign="top">0.10686</td>
+		<td valign="top">0.05409</td>
+		<td valign="top">0.02815</td>
+		<td valign="top">0.01503</td>
+	</tr>
+	<tr>
+		<td valign="top">17</td>
+		<td valign="top">0.84438</td>
+		<td valign="top">0.71416</td>
+		<td valign="top">0.60502</td>
+		<td valign="top">0.51337</td>
+		<td valign="top">0.43630</td>
+		<td valign="top">0.19784</td>
+		<td valign="top">0.09293</td>
+		<td valign="top">0.04507</td>
+		<td valign="top">0.02252</td>
+		<td valign="top">0.01156</td>
+	</tr>
+	<tr>
+		<td valign="top">18</td>
+		<td valign="top">0.83602</td>
+		<td valign="top">0.70016</td>
+		<td valign="top">0.58739</td>
+		<td valign="top">0.49363</td>
+		<td valign="top">0.41552</td>
+		<td valign="top">0.17986</td>
+		<td valign="top">0.08081</td>
+		<td valign="top">0.03756</td>
+		<td valign="top">0.01801</td>
+		<td valign="top">0.00889</td>
+	</tr>
+	<tr>
+		<td valign="top">19</td>
+		<td valign="top">0.82774</td>
+		<td valign="top">0.68643</td>
+		<td valign="top">0.57029</td>
+		<td valign="top">0.47464</td>
+		<td valign="top">0.39573</td>
+		<td valign="top">0.16351</td>
+		<td valign="top">0.07027</td>
+		<td valign="top">0.03130</td>
+		<td valign="top">0.01441</td>
+		<td valign="top">0.00684</td>
+	</tr>
+	<tr>
+		<td valign="top">20</td>
+		<td valign="top">0.81954</td>
+		<td valign="top">0.67297</td>
+		<td valign="top">0.55368</td>
+		<td valign="top">0.45639</td>
+		<td valign="top">0.37689</td>
+		<td valign="top">0.14864</td>
+		<td valign="top">0.06110</td>
+		<td valign="top">0.02608</td>
+		<td valign="top">0.01153</td>
+		<td valign="top">0.00526</td>
+	</tr>
+	<tr>
+		<td valign="top">25</td>
+		<td valign="top">0.77977</td>
+		<td valign="top">0.60953</td>
+		<td valign="top">0.47761</td>
+		<td valign="top">0.37512</td>
+		<td valign="top">0.29530</td>
+		<td valign="top">0.09230</td>
+		<td valign="top">0.03038</td>
+		<td valign="top">0.01048</td>
+		<td valign="top">0.00378</td>
+		<td valign="top">0.00142</td>
+	</tr>
+	<tr>
+		<td valign="top">30</td>
+		<td valign="top">0.74192</td>
+		<td valign="top">0.55207</td>
+		<td valign="top">0.41199</td>
+		<td valign="top">0.30832</td>
+		<td valign="top">0.23138</td>
+		<td valign="top">0.05731</td>
+		<td valign="top">0.01510</td>
+		<td valign="top">0.00421</td>
+		<td valign="top">0.00124</td>
+		<td valign="top">0.00038</td>
+	</tr>
+	<tr>
+		<td valign="top">40</td>
+		<td valign="top">0.67165</td>
+		<td valign="top">0.45289</td>
+		<td valign="top">0.30656</td>
+		<td valign="top">0.20829</td>
+		<td valign="top">0.14205</td>
+		<td valign="top">0.02209</td>
+		<td valign="top">0.00373</td>
+		<td valign="top">0.00068</td>
+		<td valign="top">0.00013</td>
+		<td valign="top">0.00003</td>
+	</tr>
+	<tr>
+		<td valign="top">50</td>
+		<td valign="top">0.60804</td>
+		<td valign="top">0.37153</td>
+		<td valign="top">0.22811</td>
+		<td valign="top">0.14071</td>
+		<td valign="top">0.08720</td>
+		<td valign="top">0.00852</td>
+		<td valign="top">0.00092</td>
+		<td valign="top">0.00011</td>
+		<td valign="top">0.00001</td>
+		<td valign="top">0.00000</td>
+	</tr>
+	<tr>
+		<td valign="top">60</td>
+		<td valign="top">0.55045</td>
+		<td valign="top">0.30478</td>
+		<td valign="top">0.16973</td>
+		<td valign="top">0.09506</td>
+		<td valign="top">0.05354</td>
+		<td valign="top">0.00328</td>
+		<td valign="top">0.00023</td>
+		<td valign="top">0.00002</td>
+		<td valign="top">0.00000</td>
+		<td valign="top">0.00000</td>
+	</tr>
+	<tr>
+		<td valign="top">75</td>
+		<td valign="top">0.47413</td>
+		<td valign="top">0.22646</td>
+		<td valign="top">0.10895</td>
+		<td valign="top">0.05278</td>
+		<td valign="top">0.02575</td>
+		<td valign="top">0.00079</td>
+		<td valign="top">0.00003</td>
+		<td valign="top">0.00000</td>
+		<td valign="top">0.00000</td>
+		<td valign="top">0.00000</td>
+	</tr>
+	<tr>
+		<td valign="top">100</td>
+		<td valign="top">0.36971</td>
+		<td valign="top">0.13803</td>
+		<td valign="top">0.05203</td>
+		<td valign="top">0.01980</td>
+		<td valign="top">0.00760</td>
+		<td valign="top">0.00007</td>
+		<td valign="top">0.00000</td>
+		<td valign="top">0.00000</td>
+		<td valign="top">0.00000</td>
+		<td valign="top">0.00000</td>
+	</tr>
+	<tr>
+		<td valign="top" colspan="11"><b>APPENDIX C- SUM OF AN ANNUITY OF $1 FOR N PERIODS</b></td>
+	</tr>
+	<tr>
+		<td valign="top">Period</td>
+		<td valign="top">1%</td>
+		<td valign="top">2%</td>
+		<td valign="top">3%</td>
+		<td valign="top">4%</td>
+		<td valign="top">5%</td>
+		<td valign="top">10%</td>
+		<td valign="top">15%</td>
+		<td valign="top">20%</td>
+		<td valign="top">25%</td>
+		<td valign="top">30%</td>
+	</tr>
+	<tr>
+		<td valign="top">1</td>
+		<td valign="top">1.00000</td>
+		<td valign="top">1.00000</td>
+		<td valign="top">1.00000</td>
+		<td valign="top">1.00000</td>
+		<td valign="top">1.00000</td>
+		<td valign="top">1.00000</td>
+		<td valign="top">1.00000</td>
+		<td valign="top">1.00000</td>
+		<td valign="top">1.00000</td>
+		<td valign="top">1.00000</td>
+	</tr>
+	<tr>
+		<td valign="top">2</td>
+		<td valign="top">2.01000</td>
+		<td valign="top">2.02000</td>
+		<td valign="top">2.03000</td>
+		<td valign="top">2.04000</td>
+		<td valign="top">2.05000</td>
+		<td valign="top">2.10000</td>
+		<td valign="top">2.15000</td>
+		<td valign="top">2.20000</td>
+		<td valign="top">2.25000</td>
+		<td valign="top">2.30000</td>
+	</tr>
+	<tr>
+		<td valign="top">3</td>
+		<td valign="top">3.03010</td>
+		<td valign="top">3.06040</td>
+		<td valign="top">3.09090</td>
+		<td valign="top">3.12160</td>
+		<td valign="top">3.15250</td>
+		<td valign="top">3.31000</td>
+		<td valign="top">3.47250</td>
+		<td valign="top">3.64000</td>
+		<td valign="top">3.81250</td>
+		<td valign="top">3.99000</td>
+	</tr>
+	<tr>
+		<td valign="top">4</td>
+		<td valign="top">4.06040</td>
+		<td valign="top">4.12161</td>
+		<td valign="top">4.18363</td>
+		<td valign="top">4.24646</td>
+		<td valign="top">4.31013</td>
+		<td valign="top">4.64100</td>
+		<td valign="top">4.99338</td>
+		<td valign="top">5.36800</td>
+		<td valign="top">5.76563</td>
+		<td valign="top">6.18700</td>
+	</tr>
+	<tr>
+		<td valign="top">5</td>
+		<td valign="top">5.10101</td>
+		<td valign="top">5.20404</td>
+		<td valign="top">5.30914</td>
+		<td valign="top">5.41632</td>
+		<td valign="top">5.52563</td>
+		<td valign="top">6.10510</td>
+		<td valign="top">6.74238</td>
+		<td valign="top">7.44160</td>
+		<td valign="top">8.20703</td>
+		<td valign="top">9.04310</td>
+	</tr>
+	<tr>
+		<td valign="top">6</td>
+		<td valign="top">6.15202</td>
+		<td valign="top">6.30812</td>
+		<td valign="top">6.46841</td>
+		<td valign="top">6.63298</td>
+		<td valign="top">6.80191</td>
+		<td valign="top">7.71561</td>
+		<td valign="top">8.75374</td>
+		<td valign="top">9.92992</td>
+		<td valign="top">11.25879</td>
+		<td valign="top">12.75603</td>
+	</tr>
+	<tr>
+		<td valign="top">7</td>
+		<td valign="top">7.21354</td>
+		<td valign="top">7.43428</td>
+		<td valign="top">7.66246</td>
+		<td valign="top">7.89829</td>
+		<td valign="top">8.14201</td>
+		<td valign="top">9.48717</td>
+		<td valign="top">11.06680</td>
+		<td valign="top">12.91590</td>
+		<td valign="top">15.07349</td>
+		<td valign="top">17.58284</td>
+	</tr>
+	<tr>
+		<td valign="top">8</td>
+		<td valign="top">8.28567</td>
+		<td valign="top">8.58297</td>
+		<td valign="top">8.89234</td>
+		<td valign="top">9.21423</td>
+		<td valign="top">9.54911</td>
+		<td valign="top">11.43589</td>
+		<td valign="top">13.72682</td>
+		<td valign="top">16.49908</td>
+		<td valign="top">19.84186</td>
+		<td valign="top">23.85769</td>
+	</tr>
+	<tr>
+		<td valign="top">9</td>
+		<td valign="top">9.36853</td>
+		<td valign="top">9.75463</td>
+		<td valign="top">10.15911</td>
+		<td valign="top">10.58280</td>
+		<td valign="top">11.02656</td>
+		<td valign="top">13.57948</td>
+		<td valign="top">16.78584</td>
+		<td valign="top">20.79890</td>
+		<td valign="top">25.80232</td>
+		<td valign="top">32.01500</td>
+	</tr>
+	<tr>
+		<td valign="top">10</td>
+		<td valign="top">10.46221</td>
+		<td valign="top">10.94972</td>
+		<td valign="top">11.46388</td>
+		<td valign="top">12.00611</td>
+		<td valign="top">12.57789</td>
+		<td valign="top">15.93742</td>
+		<td valign="top">20.30372</td>
+		<td valign="top">25.95868</td>
+		<td valign="top">33.25290</td>
+		<td valign="top">42.61950</td>
+	</tr>
+	<tr>
+		<td valign="top">11</td>
+		<td valign="top">11.56683</td>
+		<td valign="top">12.16872</td>
+		<td valign="top">12.80780</td>
+		<td valign="top">13.48635</td>
+		<td valign="top">14.20679</td>
+		<td valign="top">18.53117</td>
+		<td valign="top">24.34928</td>
+		<td valign="top">32.15042</td>
+		<td valign="top">42.56613</td>
+		<td valign="top">56.40535</td>
+	</tr>
+	<tr>
+		<td valign="top">12</td>
+		<td valign="top">12.68250</td>
+		<td valign="top">13.41209</td>
+		<td valign="top">14.19203</td>
+		<td valign="top">15.02581</td>
+		<td valign="top">15.91713</td>
+		<td valign="top">21.38428</td>
+		<td valign="top">29.00167</td>
+		<td valign="top">39.58050</td>
+		<td valign="top">54.20766</td>
+		<td valign="top">74.32695</td>
+	</tr>
+	<tr>
+		<td valign="top">13</td>
+		<td valign="top">13.80933</td>
+		<td valign="top">14.68033</td>
+		<td valign="top">15.61779</td>
+		<td valign="top">16.62684</td>
+		<td valign="top">17.71298</td>
+		<td valign="top">24.52271</td>
+		<td valign="top">34.35192</td>
+		<td valign="top">48.49660</td>
+		<td valign="top">68.75958</td>
+		<td valign="top">97.62504</td>
+	</tr>
+	<tr>
+		<td valign="top">14</td>
+		<td valign="top">14.94742</td>
+		<td valign="top">15.97394</td>
+		<td valign="top">17.08632</td>
+		<td valign="top">18.29191</td>
+		<td valign="top">19.59863</td>
+		<td valign="top">27.97498</td>
+		<td valign="top">40.50471</td>
+		<td valign="top">59.19592</td>
+		<td valign="top">86.94947</td>
+		<td valign="top">127.91255</td>
+	</tr>
+	<tr>
+		<td valign="top">15</td>
+		<td valign="top">16.09690</td>
+		<td valign="top">17.29342</td>
+		<td valign="top">18.59891</td>
+		<td valign="top">20.02359</td>
+		<td valign="top">21.57856</td>
+		<td valign="top">31.77248</td>
+		<td valign="top">47.58041</td>
+		<td valign="top">72.03511</td>
+		<td valign="top">109.68684</td>
+		<td valign="top">167.28631</td>
+	</tr>
+	<tr>
+		<td valign="top">16</td>
+		<td valign="top">17.25786</td>
+		<td valign="top">18.63929</td>
+		<td valign="top">20.15688</td>
+		<td valign="top">21.82453</td>
+		<td valign="top">23.65749</td>
+		<td valign="top">35.94973</td>
+		<td valign="top">55.71747</td>
+		<td valign="top">87.44213</td>
+		<td valign="top">138.10855</td>
+		<td valign="top">218.47220</td>
+	</tr>
+	<tr>
+		<td valign="top">17</td>
+		<td valign="top">18.43044</td>
+		<td valign="top">20.01207</td>
+		<td valign="top">21.76159</td>
+		<td valign="top">23.69751</td>
+		<td valign="top">25.84037</td>
+		<td valign="top">40.54470</td>
+		<td valign="top">65.07509</td>
+		<td valign="top">105.93056</td>
+		<td valign="top">173.63568</td>
+		<td valign="top">285.01386</td>
+	</tr>
+	<tr>
+		<td valign="top">18</td>
+		<td valign="top">19.61475</td>
+		<td valign="top">21.41231</td>
+		<td valign="top">23.41444</td>
+		<td valign="top">25.64541</td>
+		<td valign="top">28.13238</td>
+		<td valign="top">45.59917</td>
+		<td valign="top">75.83636</td>
+		<td valign="top">128.11667</td>
+		<td valign="top">218.04460</td>
+		<td valign="top">371.51802</td>
+	</tr>
+	<tr>
+		<td valign="top">19</td>
+		<td valign="top">20.81090</td>
+		<td valign="top">22.84056</td>
+		<td valign="top">25.11687</td>
+		<td valign="top">27.67123</td>
+		<td valign="top">30.53900</td>
+		<td valign="top">51.15909</td>
+		<td valign="top">88.21181</td>
+		<td valign="top">154.74000</td>
+		<td valign="top">273.55576</td>
+		<td valign="top">483.97343</td>
+	</tr>
+	<tr>
+		<td valign="top">20</td>
+		<td valign="top">22.01900</td>
+		<td valign="top">24.29737</td>
+		<td valign="top">26.87037</td>
+		<td valign="top">29.77808</td>
+		<td valign="top">33.06595</td>
+		<td valign="top">57.27500</td>
+		<td valign="top">102.44358</td>
+		<td valign="top">186.68800</td>
+		<td valign="top">342.94470</td>
+		<td valign="top">630.16546</td>
+	</tr>
+	<tr>
+		<td valign="top">25</td>
+		<td valign="top">28.24320</td>
+		<td valign="top">32.03030</td>
+		<td valign="top">36.45926</td>
+		<td valign="top">41.64591</td>
+		<td valign="top">47.72710</td>
+		<td valign="top">98.34706</td>
+		<td valign="top">212.79302</td>
+		<td valign="top">471.98108</td>
+		<td valign="top">1054.79118</td>
+		<td valign="top">2348.80334</td>
+	</tr>
+	<tr>
+		<td valign="top">30</td>
+		<td valign="top">34.78489</td>
+		<td valign="top">40.56808</td>
+		<td valign="top">47.57542</td>
+		<td valign="top">56.08494</td>
+		<td valign="top">66.43885</td>
+		<td valign="top">164.49402</td>
+		<td valign="top">434.74515</td>
+		<td valign="top">1181.88157</td>
+		<td valign="top">3227.17427</td>
+		<td valign="top">8729.98548</td>
+	</tr>
+	<tr>
+		<td valign="top">40</td>
+		<td valign="top">48.88637</td>
+		<td valign="top">60.40198</td>
+		<td valign="top">75.40126</td>
+		<td valign="top">95.02552</td>
+		<td valign="top">120.79977</td>
+		<td valign="top">442.59256</td>
+		<td valign="top">1779.09031</td>
+		<td valign="top">7343.85784</td>
+		<td valign="top">30088.65538</td>
+		<td valign="top">120392.88269</td>
+	</tr>
+	<tr>
+		<td valign="top">50</td>
+		<td valign="top">64.46318</td>
+		<td valign="top">84.57940</td>
+		<td valign="top">112.79687</td>
+		<td valign="top">152.66708</td>
+		<td valign="top">209.34800</td>
+		<td valign="top">1163.90853</td>
+		<td valign="top">7217.71628</td>
+		<td valign="top">45497.19075</td>
+		<td valign="top">280255.69286</td>
+		<td valign="top">1659760.74326</td>
+	</tr>
+	<tr>
+		<td valign="top">60</td>
+		<td valign="top">81.66967</td>
+		<td valign="top">114.05154</td>
+		<td valign="top">163.05344</td>
+		<td valign="top">237.99069</td>
+		<td valign="top">353.58372</td>
+		<td valign="top">3034.81640</td>
+		<td valign="top">29219.99164</td>
+		<td valign="top">281732.57177</td>
+		<td valign="top">2610117.78720</td>
+		<td valign="top">22881253.90915</td>
+	</tr>
+	<tr>
+		<td valign="top" colspan="10"><b>APPENDIX D - PRESENT VALUE OF AN ANNUITY OF $1 FOR N PERIODS</b></td>
+		<td valign="top">&nbsp;</td>
+	</tr>
+	<tr>
+		<td valign="top">Period</td>
+		<td valign="top">1%</td>
+		<td valign="top">2%</td>
+		<td valign="top">3%</td>
+		<td valign="top">4%</td>
+		<td valign="top">5%</td>
+		<td valign="top">10%</td>
+		<td valign="top">15%</td>
+		<td valign="top">20%</td>
+		<td valign="top">25%</td>
+		<td valign="top">30%</td>
+	</tr>
+	<tr>
+		<td valign="top">1</td>
+		<td valign="top">0.99010</td>
+		<td valign="top">0.98039</td>
+		<td valign="top">0.97087</td>
+		<td valign="top">0.96154</td>
+		<td valign="top">0.95238</td>
+		<td valign="top">0.90909</td>
+		<td valign="top">0.86957</td>
+		<td valign="top">0.83333</td>
+		<td valign="top">0.80000</td>
+		<td valign="top">0.76923</td>
+	</tr>
+	<tr>
+		<td valign="top">2</td>
+		<td valign="top">1.97040</td>
+		<td valign="top">1.94156</td>
+		<td valign="top">1.91347</td>
+		<td valign="top">1.88609</td>
+		<td valign="top">1.85941</td>
+		<td valign="top">1.73554</td>
+		<td valign="top">1.62571</td>
+		<td valign="top">1.52778</td>
+		<td valign="top">1.44000</td>
+		<td valign="top">1.36095</td>
+	</tr>
+	<tr>
+		<td valign="top">3</td>
+		<td valign="top">2.94099</td>
+		<td valign="top">2.88388</td>
+		<td valign="top">2.82861</td>
+		<td valign="top">2.77509</td>
+		<td valign="top">2.72325</td>
+		<td valign="top">2.48685</td>
+		<td valign="top">2.28323</td>
+		<td valign="top">2.10648</td>
+		<td valign="top">1.95200</td>
+		<td valign="top">1.81611</td>
+	</tr>
+	<tr>
+		<td valign="top">4</td>
+		<td valign="top">3.90197</td>
+		<td valign="top">3.80773</td>
+		<td valign="top">3.71710</td>
+		<td valign="top">3.62990</td>
+		<td valign="top">3.54595</td>
+		<td valign="top">3.16987</td>
+		<td valign="top">2.85498</td>
+		<td valign="top">2.58873</td>
+		<td valign="top">2.36160</td>
+		<td valign="top">2.16624</td>
+	</tr>
+	<tr>
+		<td valign="top">5</td>
+		<td valign="top">4.85343</td>
+		<td valign="top">4.71346</td>
+		<td valign="top">4.57971</td>
+		<td valign="top">4.45182</td>
+		<td valign="top">4.32948</td>
+		<td valign="top">3.79079</td>
+		<td valign="top">3.35216</td>
+		<td valign="top">2.99061</td>
+		<td valign="top">2.68928</td>
+		<td valign="top">2.43557</td>
+	</tr>
+	<tr>
+		<td valign="top">6</td>
+		<td valign="top">5.79548</td>
+		<td valign="top">5.60143</td>
+		<td valign="top">5.41719</td>
+		<td valign="top">5.24214</td>
+		<td valign="top">5.07569</td>
+		<td valign="top">4.35526</td>
+		<td valign="top">3.78448</td>
+		<td valign="top">3.32551</td>
+		<td valign="top">2.95142</td>
+		<td valign="top">2.64275</td>
+	</tr>
+	<tr>
+		<td valign="top">7</td>
+		<td valign="top">6.72819</td>
+		<td valign="top">6.47199</td>
+		<td valign="top">6.23028</td>
+		<td valign="top">6.00205</td>
+		<td valign="top">5.78637</td>
+		<td valign="top">4.86842</td>
+		<td valign="top">4.16042</td>
+		<td valign="top">3.60459</td>
+		<td valign="top">3.16114</td>
+		<td valign="top">2.80211</td>
+	</tr>
+	<tr>
+		<td valign="top">8</td>
+		<td valign="top">7.65168</td>
+		<td valign="top">7.32548</td>
+		<td valign="top">7.01969</td>
+		<td valign="top">6.73274</td>
+		<td valign="top">6.46321</td>
+		<td valign="top">5.33493</td>
+		<td valign="top">4.48732</td>
+		<td valign="top">3.83716</td>
+		<td valign="top">3.32891</td>
+		<td valign="top">2.92470</td>
+	</tr>
+	<tr>
+		<td valign="top">9</td>
+		<td valign="top">8.56602</td>
+		<td valign="top">8.16224</td>
+		<td valign="top">7.78611</td>
+		<td valign="top">7.43533</td>
+		<td valign="top">7.10782</td>
+		<td valign="top">5.75902</td>
+		<td valign="top">4.77158</td>
+		<td valign="top">4.03097</td>
+		<td valign="top">3.46313</td>
+		<td valign="top">3.01900</td>
+	</tr>
+	<tr>
+		<td valign="top">10</td>
+		<td valign="top">9.47130</td>
+		<td valign="top">8.98259</td>
+		<td valign="top">8.53020</td>
+		<td valign="top">8.11090</td>
+		<td valign="top">7.72173</td>
+		<td valign="top">6.14457</td>
+		<td valign="top">5.01877</td>
+		<td valign="top">4.19247</td>
+		<td valign="top">3.57050</td>
+		<td valign="top">3.09154</td>
+	</tr>
+	<tr>
+		<td valign="top">11</td>
+		<td valign="top">10.36763</td>
+		<td valign="top">9.78685</td>
+		<td valign="top">9.25262</td>
+		<td valign="top">8.76048</td>
+		<td valign="top">8.30641</td>
+		<td valign="top">6.49506</td>
+		<td valign="top">5.23371</td>
+		<td valign="top">4.32706</td>
+		<td valign="top">3.65640</td>
+		<td valign="top">3.14734</td>
+	</tr>
+	<tr>
+		<td valign="top">12</td>
+		<td valign="top">11.25508</td>
+		<td valign="top">10.57534</td>
+		<td valign="top">9.95400</td>
+		<td valign="top">9.38507</td>
+		<td valign="top">8.86325</td>
+		<td valign="top">6.81369</td>
+		<td valign="top">5.42062</td>
+		<td valign="top">4.43922</td>
+		<td valign="top">3.72512</td>
+		<td valign="top">3.19026</td>
+	</tr>
+	<tr>
+		<td valign="top">13</td>
+		<td valign="top">12.13374</td>
+		<td valign="top">11.34837</td>
+		<td valign="top">10.63496</td>
+		<td valign="top">9.98565</td>
+		<td valign="top">9.39357</td>
+		<td valign="top">7.10336</td>
+		<td valign="top">5.58315</td>
+		<td valign="top">4.53268</td>
+		<td valign="top">3.78010</td>
+		<td valign="top">3.22328</td>
+	</tr>
+	<tr>
+		<td valign="top">14</td>
+		<td valign="top">13.00370</td>
+		<td valign="top">12.10625</td>
+		<td valign="top">11.29607</td>
+		<td valign="top">10.56312</td>
+		<td valign="top">9.89864</td>
+		<td valign="top">7.36669</td>
+		<td valign="top">5.72448</td>
+		<td valign="top">4.61057</td>
+		<td valign="top">3.82408</td>
+		<td valign="top">3.24867</td>
+	</tr>
+	<tr>
+		<td valign="top">15</td>
+		<td valign="top">13.86505</td>
+		<td valign="top">12.84926</td>
+		<td valign="top">11.93794</td>
+		<td valign="top">11.11839</td>
+		<td valign="top">10.37966</td>
+		<td valign="top">7.60608</td>
+		<td valign="top">5.84737</td>
+		<td valign="top">4.67547</td>
+		<td valign="top">3.85926</td>
+		<td valign="top">3.26821</td>
+	</tr>
+	<tr>
+		<td valign="top">16</td>
+		<td valign="top">14.71787</td>
+		<td valign="top">13.57771</td>
+		<td valign="top">12.56110</td>
+		<td valign="top">11.65230</td>
+		<td valign="top">10.83777</td>
+		<td valign="top">7.82371</td>
+		<td valign="top">5.95423</td>
+		<td valign="top">4.72956</td>
+		<td valign="top">3.88741</td>
+		<td valign="top">3.28324</td>
+	</tr>
+	<tr>
+		<td valign="top">17</td>
+		<td valign="top">15.56225</td>
+		<td valign="top">14.29187</td>
+		<td valign="top">13.16612</td>
+		<td valign="top">12.16567</td>
+		<td valign="top">11.27407</td>
+		<td valign="top">8.02155</td>
+		<td valign="top">6.04716</td>
+		<td valign="top">4.77463</td>
+		<td valign="top">3.90993</td>
+		<td valign="top">3.29480</td>
+	</tr>
+	<tr>
+		<td valign="top">18</td>
+		<td valign="top">16.39827</td>
+		<td valign="top">14.99203</td>
+		<td valign="top">13.75351</td>
+		<td valign="top">12.65930</td>
+		<td valign="top">11.68959</td>
+		<td valign="top">8.20141</td>
+		<td valign="top">6.12797</td>
+		<td valign="top">4.81219</td>
+		<td valign="top">3.92794</td>
+		<td valign="top">3.30369</td>
+	</tr>
+	<tr>
+		<td valign="top">19</td>
+		<td valign="top">17.22601</td>
+		<td valign="top">15.67846</td>
+		<td valign="top">14.32380</td>
+		<td valign="top">13.13394</td>
+		<td valign="top">12.08532</td>
+		<td valign="top">8.36492</td>
+		<td valign="top">6.19823</td>
+		<td valign="top">4.84350</td>
+		<td valign="top">3.94235</td>
+		<td valign="top">3.31053</td>
+	</tr>
+	<tr>
+		<td valign="top">20</td>
+		<td valign="top">18.04555</td>
+		<td valign="top">16.35143</td>
+		<td valign="top">14.87747</td>
+		<td valign="top">13.59033</td>
+		<td valign="top">12.46221</td>
+		<td valign="top">8.51356</td>
+		<td valign="top">6.25933</td>
+		<td valign="top">4.86958</td>
+		<td valign="top">3.95388</td>
+		<td valign="top">3.31579</td>
+	</tr>
+	<tr>
+		<td valign="top">25</td>
+		<td valign="top">22.02316</td>
+		<td valign="top">19.52346</td>
+		<td valign="top">17.41315</td>
+		<td valign="top">15.62208</td>
+		<td valign="top">14.09394</td>
+		<td valign="top">9.07704</td>
+		<td valign="top">6.46415</td>
+		<td valign="top">4.94759</td>
+		<td valign="top">3.98489</td>
+		<td valign="top">3.32861</td>
+	</tr>
+	<tr>
+		<td valign="top">30</td>
+		<td valign="top">25.80771</td>
+		<td valign="top">22.39646</td>
+		<td valign="top">19.60044</td>
+		<td valign="top">17.29203</td>
+		<td valign="top">15.37245</td>
+		<td valign="top">9.42691</td>
+		<td valign="top">6.56598</td>
+		<td valign="top">4.97894</td>
+		<td valign="top">3.99505</td>
+		<td valign="top">3.33206</td>
+	</tr>
+	<tr>
+		<td valign="top">40</td>
+		<td valign="top">32.83469</td>
+		<td valign="top">27.35548</td>
+		<td valign="top">23.11477</td>
+		<td valign="top">19.79277</td>
+		<td valign="top">17.15909</td>
+		<td valign="top">9.77905</td>
+		<td valign="top">6.64178</td>
+		<td valign="top">4.99660</td>
+		<td valign="top">3.99947</td>
+		<td valign="top">3.33324</td>
+	</tr>
+	<tr>
+		<td valign="top">50</td>
+		<td valign="top">39.19612</td>
+		<td valign="top">31.42361</td>
+		<td valign="top">25.72976</td>
+		<td valign="top">21.48218</td>
+		<td valign="top">18.25593</td>
+		<td valign="top">9.91481</td>
+		<td valign="top">6.66051</td>
+		<td valign="top">4.99945</td>
+		<td valign="top">3.99994</td>
+		<td valign="top">3.33333</td>
+	</tr>
+	<tr>
+		<td valign="top">60</td>
+		<td valign="top">44.95504</td>
+		<td valign="top">34.76089</td>
+		<td valign="top">27.67556</td>
+		<td valign="top">22.62349</td>
+		<td valign="top">18.92929</td>
+		<td valign="top">9.96716</td>
+		<td valign="top">6.66515</td>
+		<td valign="top">4.99991</td>
+		<td valign="top">3.99999</td>
+		<td valign="top">3.33333</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

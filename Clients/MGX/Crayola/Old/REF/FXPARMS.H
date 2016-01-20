@@ -1,0 +1,33 @@
+typedef LPTR (far *LPTRPROC)();
+
+typedef struct _FXParms
+	{							// filled by:
+    HANDLE      hInstance; 	    // caller's instance handle	app
+    HWND        hWnd;		    // caller's window frame	app
+    LPROC       AstralClockCursor; // AstralClockCursor proc	app
+    LPTRPROC    frame_set;  	// frame_set proc		app
+    LPTRPROC    frame_ptr; 	    // frame_ptr proc		app
+    LPROC       frame_write; 	// frame_write proc		app
+    COLORINFO   ActiveColor;	// Active color		app
+    COLORINFO   AlternateColor;	// Alternate color		app
+    LPFRAME     lpSrcFrame; 	// source frame ptr		app
+    LPFRAME     lpDstFrame;	    // destination frame ptr 	app
+    int         src_npix;	    // pixels / line in image	app
+    int         src_nlin;	    // numbers of lines in image	app
+    int         src_resolution;	// dpi				app
+    int         Depth;		    // data depth			app
+    LPTR        lpOut;		    // output data buffer		app
+    int         dst_npix;	    // pixels / line in image	dll
+    int         dst_nlin;	    // numbers of lines in image	dll
+    int         dst_resolution;	// dpi				dll
+    RECT        rOut;		    // output rectangle		dll
+    LPTRPROC    Message;	    // Ptr to Message Func		app
+    LPTRPROC    frame_open;	    // frame_open proc		app
+    LPTRPROC    frame_close;	// frame_close proc		app
+    int         DstDepth;	    // desination frame depth	dll
+    int         SwitchSet;      // switch setting
+    int         SlideSet;       // slider setting
+    } FXPARMS;
+typedef FXPARMS far *LPFXPARMS;
+
+

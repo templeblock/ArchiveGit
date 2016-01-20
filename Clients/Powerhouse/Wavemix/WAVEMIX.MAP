@@ -1,0 +1,615 @@
+
+ WAVMIX16
+
+ Start     Length     Name                   Class
+ 0001:0000 03D41H     _TEXT                  CODE
+ 0001:3D41 00074H     INIT_TEXT              CODE
+ 0001:3DC0 000EEH     COMDAT_SEG1            CODE
+ 0002:0000 00010H     NULL                   BEGDATA
+ 0002:0010 00968H     _DATA                  DATA
+ 0002:0978 0000EH     CDATA                  DATA
+ 0002:0986 00000H     XIFB                   DATA
+ 0002:0986 00000H     XIF                    DATA
+ 0002:0986 00000H     XIFE                   DATA
+ 0002:0986 00000H     XIB                    DATA
+ 0002:0986 00000H     XI                     DATA
+ 0002:0986 00000H     XIE                    DATA
+ 0002:0986 00000H     XPB                    DATA
+ 0002:0986 00000H     XP                     DATA
+ 0002:0986 00000H     XPE                    DATA
+ 0002:0986 00000H     XCB                    DATA
+ 0002:0986 00000H     XC                     DATA
+ 0002:0986 00000H     XCE                    DATA
+ 0002:0986 00000H     XCFB                   DATA
+ 0002:0986 00000H     XCFCRT                 DATA
+ 0002:0986 00000H     XCF                    DATA
+ 0002:0986 00000H     XCFE                   DATA
+ 0002:0986 00000H     XIFCB                  DATA
+ 0002:0986 00000H     XIFU                   DATA
+ 0002:0986 00000H     XIFL                   DATA
+ 0002:0986 00000H     XIFM                   DATA
+ 0002:0986 00000H     XIFCE                  DATA
+ 0002:0986 00000H     DBDATA                 DATA
+ 0002:0986 00000H     CONST                  CONST
+ 0002:0986 00008H     HDR                    MSG
+ 0002:098E 000D4H     MSG                    MSG
+ 0002:0A62 00002H     PAD                    MSG
+ 0002:0A64 00001H     EPAD                   MSG
+ 0002:0A66 00094H     _BSS                   BSS
+ 0002:0AFA 00000H     XOB                    BSS
+ 0002:0AFA 00000H     XO                     BSS
+ 0002:0AFA 00000H     XOE                    BSS
+ 0002:0AFA 00000H     XOFB                   BSS
+ 0002:0AFA 00000H     XOF                    BSS
+ 0002:0AFA 00000H     XOFE                   BSS
+ 0002:0B00 01266H     c_common               BSS
+
+ Origin   Group
+ 0002:0   DGROUP
+
+ Address   Export                  Alias
+
+ 0001:3E08 FigureProc              FigureProc
+ 0001:0FD4 WaveMixActivate         WaveMixActivate
+ 0001:2054 WaveMixCloseChannel     WaveMixCloseChannel
+ 0001:3B1E WaveMixCloseSession     WaveMixCloseSession
+ 0001:36EA WaveMixConfigureInit    WaveMixConfigureInit
+ 0001:1F36 WaveMixFlushChannel     WaveMixFlushChannel
+ 0001:2114 WaveMixFreeWave         WaveMixFreeWave
+ 0001:3E60 WaveMixGetInfo          WaveMixGetInfo
+ 0001:3E2E WaveMixInit             WaveMixInit
+ 0001:115A WaveMixOpenChannel      WaveMixOpenChannel
+ 0001:2D20 WaveMixOpenWave         WaveMixOpenWave
+ 0001:1A66 WaveMixPlay             WaveMixPlay
+ 0001:16F6 WaveMixPump             WaveMixPump
+ 0001:3E98 WEP                     WEP
+ 0001:3DC0 WndProc                 WndProc
+ 0001:0990 ___ExportedStub         ___ExportedStub
+
+  Address         Publics by Name
+
+ 0002:0264       ??_C@_00A@?$AA@
+ 0002:03D2       ??_C@_04DOFO@WAVE?$AA@
+ 0002:08BE       ??_C@_04LNAG@TRUE?$AA@
+ 0002:0972       ??_C@_05FLHP@debug?$AA@
+ 0002:07A4       ??_C@_05JOPB@Remix?$AA@
+ 0002:08C4       ??_C@_05LLOB@FALSE?$AA@
+ 0002:08CA       ??_C@_05NCED@Reset?$AA@
+ 0002:05FC       ??_C@_06DHDG@res?$CD?$CFu?$AA@
+ 0002:08AC       ??_C@_06OBCJ@cmixit?$AA@
+ 0002:079C       ??_C@_07BGO@general?$AA@
+ 0002:08D0       ??_C@_07HNJH@NoReset?$AA@
+ 0002:08B4       ??_C@_09GED@386?5mixit?$AA@
+ 0002:0778       ??_C@_0BH@KDOO@GetModuleFileName?$CI?$CJ?$DN?$CFs?$AA@
+ 0002:0534       ??_C@_0BI@GFKN@WAVE?5file?5is?5corrupted?4?$AA@
+ 0002:051A       ??_C@_0BJ@MGPC@This?5is?5not?5a?5WAVE?5file?4?$AA@
+ 0002:05C0       ??_C@_0BL@NKLA@Failed?5to?5read?5data?5chunk?4?$AA@
+ 0002:05A4       ??_C@_0BM@FJE@The?5data?5chunk?5has?5no?5data?4?$AA@
+ 0002:056A       ??_C@_0BM@PDNH@The?5file?5is?5not?5a?5PCM?5file?4?$AA@
+ 0002:0586       ??_C@_0BN@DOOD@WAVE?5file?5has?5no?5data?5chunk?4?$AA@
+ 0002:04FC       ??_C@_0BN@GKGF@Failed?5to?5open?5wave?5file?5?$CFs?4?$AA@
+ 0002:054C       ??_C@_0BN@GNNO@Failed?5to?5read?5format?5chunk?4?$AA@
+ 0002:06AA       ??_C@_0BN@PMJG@Device?5?$CFi?3?5?$CFs?6?7Version?5?$CFu?4?$CFu?$AA@
+ 0002:0226       ??_C@_0BO@OAKI@Invalid?5session?5handle?50x?$CF04X?$AA@
+ 0002:0244       ??_C@_0BP@HOJC@Unable?5to?5prepare?5wave?5header?4?$AA@
+ 0002:0422       ??_C@_0BP@KODC@Failed?5to?5lock?5?8WAVE?8?5resource?$AA@
+ 0002:05DC       ??_C@_0BP@LFHI@Failed?5to?5convert?5wave?5format?4?$AA@
+ 0002:0288       ??_C@_0CA@CKGK@Failed?5to?5write?5block?5to?5device?$AA@
+ 0002:0266       ??_C@_0CC@OPHF@Failed?5to?5create?5callback?5window@
+ 0002:03FE       ??_C@_0CD@EIFN@Failed?5to?5open?5?8WAVE?8?5resource?5?$CF@
+ 0002:03D8       ??_C@_0CF@IDD@Failed?5to?5open?5?8WAVE?8?5resource?5?8@
+ 0002:0306       ??_C@_0CJ@IHMK@NULL?5wave?5pointer?5passed?5to?5Wave@
+ 0002:03A6       ??_C@_0CM@KLIJ@The?5waveform?5device?5can?8t?5play?5t@
+ 0002:02D8       ??_C@_0CN@IOEL@Invalid?5session?5handle?5passed?5to@
+ 0002:02A8       ??_C@_0CP@PICJ@NULL?5parameters?5pointer?5passed?5t@
+ 0002:067A       ??_C@_0DA@LNDO@waveOutGetDevCaps?5failed?5?$CIerr?5?$CFu@
+ 0002:0612       ??_C@_0DC@COOE@unable?5to?5open?5wave?5output?5devic@
+ 0002:087A       ??_C@_0DC@HHNB@?$CFs?5is?5not?5compatible?5with?5the?5re@
+ 0002:0372       ??_C@_0DE@NLMF@You?5must?5open?5a?5channel?5before?5y@
+ 0002:0644       ??_C@_0DG@FAJA@?$CFd?5waveOut?5Devices?5have?5been?5det@
+ 0002:0330       ??_C@_0EC@EDLG@Wave?5device?5not?5allocated?0?5call?5@
+ 0002:04A2       ??_C@_0FK@LJHF@Failed?5to?5open?5memory?5file?0?5mmio@
+ 0002:0442       ??_C@_0GA@NDPK@Failed?5to?5open?5resource?0?5mmioOpe@
+ 0002:07EE       ??_C@_0HM@EEHK@?$CFs?5is?5a?5syncronous?5?$CIblocking?$CJ?5wa@
+ 0002:08D8       ??_C@_0IL@CAOB@Using?3?7?$CFs?4?6?7Remix?5?$DN?5?$CFs?6?7GoodGetP@
+ 0002:07B6       ??_C@_0L@OFMJ@WaveBlocks?$AA@
+ 0002:06C8       ??_C@_0LA@IGHC@This?5Application?5uses?5?$CFs?4DLL?5whi@
+ 0002:0790       ??_C@_0M@CNIN@ShowDevices?$AA@
+ 0002:07AA       ??_C@_0M@KEKC@GoodWavePos?$AA@
+ 0002:0604       ??_C@_0N@KGNG@WaveBlockLen?$AA@
+ 0002:0964       ??_C@_0N@PBFN@?2WAVEMIX?4INI?$AA@
+ 0002:07D0       ??_C@_0O@BCOD@WaveOutDevice?$AA@
+ 0002:07C2       ??_C@_0O@NKBF@SamplesPerSec?$AA@
+ 0002:07DE       ??_C@_0P@HIAC@Unknown?5Device?$AA@
+ 0002:086A       ??_C@_0P@PNKG@not?5compatible?$AA@
+ 0001:0A2E       ADDFACTOR
+ 0001:0C5E       ALLOCWAVEBLOCKS
+ 0001:268A       AVGSAMPLE
+ 0001:223E       BITSPERSAMPLEALIGN
+ 0001:23E4       CHANNELALIGN
+ 0001:0B22       CMIXIT
+ 0000:0000  Imp  CREATEWINDOW         (USER.41)
+ 0000:0000  Unr  DEBUGPUTCHAR
+ 0000:0000  Imp  DEFWINDOWPROC        (USER.107)
+ 0000:0000  Imp  DESTROYWINDOW        (USER.53)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0001:3284       FIGUREOUTDMABUFFERSIZE
+ 0001:3E08       FigureProc
+ 0000:0000  Imp  FINDRESOURCE         (KERNEL.60)
+ 0001:166C       FREEPLAYEDBLOCKS
+ 0000:0000  Imp  FREERESOURCE         (KERNEL.63)
+ 0001:0C0C       FREEWAVEBLOCKS
+ 0002:0B00       G
+ 0002:0C36       GACHANNELNODES
+ 0002:0B02       GACTIVESESSION
+ 0002:0C1C       GAWAVEBLOCK
+ 0001:0BE8       GETCHANNELNODE
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  GETMODULEFILENAME    (KERNEL.49)
+ 0000:0000  Imp  GETMODULEUSAGE       (KERNEL.48)
+ 0000:0000  Imp  GETPRIVATEPROFILEINT (KERNEL.127)
+ 0000:0000  Imp  GETSTOCKOBJECT       (GDI.87)
+ 0000:0000  Imp  GETSYSTEMDIRECTORY   (KERNEL.135)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0001:0EF6       GETWAVEDEVICE
+ 0000:0000  Imp  GETWINDOWSDIRECTORY  (KERNEL.134)
+ 0000:0000  Imp  GETWINFLAGS          (KERNEL.132)
+ 0002:00AC       GFCORRECTLYINSTALLED
+ 0002:01B2       GFCOUNT
+ 0002:0020       GFSHOW
+ 0002:0C34       GHDLLINST
+ 0002:01B4       GICOUNT
+ 0002:0022       GIDEBUG
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  GLOBALFREE           (KERNEL.17)
+ 0000:0000  Imp  GLOBALHANDLE         (KERNEL.21)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  GLOBALUNLOCK         (KERNEL.19)
+ 0002:0B06       GPFNMIXIT
+ 0002:0010       GPFORMAT
+ 0002:0B04       GPFREECHANNELNODES
+ 0002:00A4       GPLAYQUEUE
+ 0002:00AE       GSZ
+ 0002:0024       GSZAPPNAME
+ 0002:002E       GSZDEFAULT
+ 0002:0B08       GSZINIFILE
+ 0002:0036       GSZMEMERROR
+ 0000:0000  Imp  HMEMCPY              (KERNEL.348)
+ 0001:35FE       INIFILEEXISTS
+ 0001:0BC6       INITCHANNELNODES
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0001:3D83       LibEntry
+ 0001:3C74       LIBMAIN
+ 0000:0000  Imp  LOADCURSOR           (USER.173)
+ 0000:0000  Imp  LOADRESOURCE         (KERNEL.61)
+ 0000:0000  Imp  LOCALALLOC           (KERNEL.5)
+ 0000:0000  Imp  LOCALFREE            (KERNEL.7)
+ 0000:0000  Imp  LocalInit            (KERNEL.4)
+ 0000:0000  Imp  LOCALREALLOC         (KERNEL.6)
+ 0000:0000  Imp  LOCALSIZE            (KERNEL.10)
+ 0000:0000  Imp  LOCKRESOURCE         (KERNEL.62)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0000:0000  Imp  LSTRCMP              (USER.430)
+ 0000:0000  Imp  LSTRCPY              (KERNEL.88)
+ 0000:0000  Imp  LSTRLEN              (KERNEL.90)
+ 0000:0000  Imp  MESSAGEBEEP          (USER.104)
+ 0000:0000  Imp  MESSAGEBOX           (USER.1)
+ 0001:125E       MIXERPLAY
+ 0001:0010       MIXIT
+ 0000:0000  Imp  MMIOASCEND           (MMSYSTEM.1224)
+ 0000:0000  Imp  MMIOCLOSE            (MMSYSTEM.1211)
+ 0000:0000  Imp  MMIODESCEND          (MMSYSTEM.1223)
+ 0000:0000  Imp  MMIOOPEN             (MMSYSTEM.1210)
+ 0000:0000  Imp  MMIOREAD             (MMSYSTEM.1212)
+ 0001:09A4       MYWAVEOUTGETPOSITION
+ 0001:17F2       NORESETREMIX
+ 0000:0000  Imp  OPENFILE             (KERNEL.74)
+ 0000:0000  Imp  POSTMESSAGE          (USER.110)
+ 0001:3636       PRINTBADINSTALLMSG
+ 0000:0000  Imp  REGISTERCLASS        (USER.57)
+ 0001:0E70       RELEASEWAVEDEVICE
+ 0001:0D84       REMOVEFROMPLAYINGQUEUE
+ 0001:27C0       REPSAMPLE
+ 0001:1850       RESETREMIX
+ 0001:1A32       RESETWAVEPOSIFNOCHANNELDATA
+ 0002:0004       rsrvptrs
+ 0001:299E       SAMPLESPERSECALIGN
+ 0001:0A56       SETWAVEOUTPOSITION
+ 0001:355C       SHOWWAVEOUTDEVICES
+ 0000:0000  Imp  SNDPLAYSOUND         (MMSYSTEM.2)
+ 0001:0A42       SUBFACTOR
+ 0002:01AE       SZMAGIC
+ 0000:0000  Imp  TIMEGETTIME          (MMSYSTEM.607)
+ 0000:0000  Imp  UNLOCKSEGMENT        (KERNEL.24)
+ 0001:2C38       WAVEFORMATCONVERT
+ 0001:0FD4       WaveMixActivate
+ 0001:2054       WaveMixCloseChannel
+ 0001:3B1E       WaveMixCloseSession
+ 0001:36EA       WaveMixConfigureInit
+ 0001:1F36       WaveMixFlushChannel
+ 0001:2114       WaveMixFreeWave
+ 0001:3E60       WaveMixGetInfo
+ 0001:3E2E       WaveMixInit
+ 0001:3BB4       WAVEMIXINSTALLEDCORRECTLY
+ 0001:115A       WaveMixOpenChannel
+ 0001:2D20       WaveMixOpenWave
+ 0001:1A66       WaveMixPlay
+ 0001:16F6       WaveMixPump
+ 0000:0000  Imp  WAVEOUTCLOSE         (MMSYSTEM.405)
+ 0000:0000  Imp  WAVEOUTGETDEVCAPS    (MMSYSTEM.402)
+ 0000:0000  Imp  WAVEOUTGETNUMDEVS    (MMSYSTEM.401)
+ 0000:0000  Imp  WAVEOUTGETPOSITION   (MMSYSTEM.412)
+ 0000:0000  Imp  WAVEOUTOPEN          (MMSYSTEM.404)
+ 0000:0000  Imp  WAVEOUTPAUSE         (MMSYSTEM.409)
+ 0000:0000  Imp  WAVEOUTPREPAREHEADER (MMSYSTEM.406)
+ 0000:0000  Imp  WAVEOUTRESET         (MMSYSTEM.411)
+ 0000:0000  Imp  WAVEOUTRESTART       (MMSYSTEM.410)
+ 0000:0000  Imp  WAVEOUTUNPREPAREHEADER (MMSYSTEM.407)
+ 0000:0000  Imp  WAVEOUTWRITE         (MMSYSTEM.408)
+ 0001:3E98       WEP
+ 0001:3DC0       WndProc
+ 0002:01D9       _aseghi
+ 0002:01D7       _aseglo
+ 0002:0A66       _edata
+ 0002:1D66       _end
+ 0002:01EE       _errno
+ 0002:01CA       _STKHQQ
+ 0000:0000  Imp  _wsprintf            (USER.420)
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 0002:0220       __adbgmsg
+ 0000:D6D6  Abs  __aDBused
+ 0000:0000  Imp  __AHINCR             (KERNEL.114)
+ 0000:0000  Imp  __AHSHIFT            (KERNEL.113)
+ 0002:01E0       __aintdiv
+ 0002:0222       __amblksiz
+ 0001:074C       __amsg_exit
+ 0001:0344       __aNFaulrem
+ 0001:0366       __aNldiv
+ 0001:0400       __aNlmul
+ 0001:0432       __aNuldiv
+ 0001:0400       __aNulmul
+ 0001:0670       __aNulrem
+ 0001:02A0       __astart
+ 0001:0552       __cexit
+ 0002:021D       __child
+ 0001:051C       __cinit
+ 0001:0744       __cintDIV
+ 0002:01F9       __cpumode
+ 0001:05A5       __ctermsub
+ 0001:055C       __c_exit
+ 0002:01D6       __dllinit
+ 0002:01FA       __doserrno
+ 0002:0A66       __edata
+ 0002:1D66       __end
+ 0002:0216       __environ
+ 0002:021F       __exitflag
+ 0002:01E4       __fac
+ 0001:05F0       __FF_MSGBANNER
+ 0001:0881       __findlast
+ 0001:04B6       __fmemset
+ 0002:097A       __fpinit
+ 0000:9876  Abs  __fptaskdata
+ 0001:0710       __fptrap
+ 0001:0492       __fstrupr
+ 0001:08A2       __GetDGROUP
+ 0001:078C       __growseg
+ 0002:01CC       __hModule
+ 0001:081B       __incseg
+ 0002:01D2       __lpszCmdLine
+ 0001:0716       __myalloc
+ 0001:0742       __nearstub
+ 0002:01FC       __nfile
+ 0001:0906       __nfree
+ 0001:08B2       __nmalloc
+ 0001:06DA       __NMSG_TEXT
+ 0001:0705       __NMSG_WRITE
+ 0001:0980       __nmsize
+ 0001:032B       __nomain
+ 0001:091C       __nrealloc
+ 0002:01FA       __oserr
+ 0002:01FE       __osfile
+ 0002:01F5       __osmajor
+ 0002:01F4       __osminor
+ 0002:01F8       __osmode
+ 0002:01F4       __osver
+ 0002:01F6       __osversion
+ 0002:0218       __pgmptr
+ 0002:0224       __pnhNearHeap
+ 0001:0606       __setenvp
+ 0000:0000  Abs  __sizec
+ 0000:0000  Abs  __sized
+ 0001:04FE       __stubmain
+ 0002:01F0       __umaskval
+ 0002:01CE       __wDataSeg
+ 0001:025C       __wflags
+ 0002:01D0       __wHeapSize
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0002:01F3       __winmajor
+ 0002:01F2       __winminor
+ 0002:01F2       __winver
+ 0002:01DD       ___aDBrterr
+ 0002:01DB       ___aDBswpflg
+ 0002:0212       ___argc
+ 0002:0214       ___argv
+ 0001:0990       ___ExportedStub
+
+  Address         Publics by Value
+
+ 0000:0000  Imp  _wsprintf            (USER.420)
+ 0000:0000  Imp  WAVEOUTCLOSE         (MMSYSTEM.405)
+ 0000:0000  Imp  DESTROYWINDOW        (USER.53)
+ 0000:0000  Imp  GLOBALUNLOCK         (KERNEL.19)
+ 0000:0000  Imp  WAVEOUTPAUSE         (MMSYSTEM.409)
+ 0000:0000  Imp  LSTRLEN              (KERNEL.90)
+ 0000:0000  Imp  POSTMESSAGE          (USER.110)
+ 0000:0000  Imp  GETSYSTEMDIRECTORY   (KERNEL.135)
+ 0000:0000  Unr  DEBUGPUTCHAR
+ 0000:0000  Imp  DEFWINDOWPROC        (USER.107)
+ 0000:0000  Imp  FINDRESOURCE         (KERNEL.60)
+ 0000:0000  Imp  LocalInit            (KERNEL.4)
+ 0000:0000  Imp  GLOBALFREE           (KERNEL.17)
+ 0000:0000  Imp  MMIOREAD             (MMSYSTEM.1212)
+ 0000:0000  Imp  WAVEOUTUNPREPAREHEADER (MMSYSTEM.407)
+ 0000:0000  Imp  WAVEOUTOPEN          (MMSYSTEM.404)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:0000  Imp  GLOBALHANDLE         (KERNEL.21)
+ 0000:0000  Abs  __sizec
+ 0000:0000  Imp  FREERESOURCE         (KERNEL.63)
+ 0000:0000  Imp  WAVEOUTGETDEVCAPS    (MMSYSTEM.402)
+ 0000:0000  Imp  WAVEOUTGETNUMDEVS    (MMSYSTEM.401)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  HMEMCPY              (KERNEL.348)
+ 0000:0000  Abs  __sized
+ 0000:0000  Imp  MMIOASCEND           (MMSYSTEM.1224)
+ 0000:0000  Imp  WAVEOUTWRITE         (MMSYSTEM.408)
+ 0000:0000  Imp  WAVEOUTPREPAREHEADER (MMSYSTEM.406)
+ 0000:0000  Imp  GETMODULEFILENAME    (KERNEL.49)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0000:0000  Imp  GETWINFLAGS          (KERNEL.132)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  SNDPLAYSOUND         (MMSYSTEM.2)
+ 0000:0000  Imp  CREATEWINDOW         (USER.41)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  LOADCURSOR           (USER.173)
+ 0000:0000  Imp  GETPRIVATEPROFILEINT (KERNEL.127)
+ 0000:0000  Imp  GETSTOCKOBJECT       (GDI.87)
+ 0000:0000  Imp  __AHINCR             (KERNEL.114)
+ 0000:0000  Imp  LSTRCMP              (USER.430)
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  MESSAGEBEEP          (USER.104)
+ 0000:0000  Imp  OPENFILE             (KERNEL.74)
+ 0000:0000  Imp  LOCALREALLOC         (KERNEL.6)
+ 0000:0000  Imp  MMIOCLOSE            (MMSYSTEM.1211)
+ 0000:0000  Imp  UNLOCKSEGMENT        (KERNEL.24)
+ 0000:0000  Imp  MMIOOPEN             (MMSYSTEM.1210)
+ 0000:0000  Imp  LOADRESOURCE         (KERNEL.61)
+ 0000:0000  Imp  LSTRCPY              (KERNEL.88)
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  LOCALALLOC           (KERNEL.5)
+ 0000:0000  Imp  MESSAGEBOX           (USER.1)
+ 0000:0000  Imp  REGISTERCLASS        (USER.57)
+ 0000:0000  Imp  WAVEOUTRESTART       (MMSYSTEM.410)
+ 0000:0000  Imp  WAVEOUTRESET         (MMSYSTEM.411)
+ 0000:0000  Imp  TIMEGETTIME          (MMSYSTEM.607)
+ 0000:0000  Imp  LOCALFREE            (KERNEL.7)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  LOCALSIZE            (KERNEL.10)
+ 0000:0000  Imp  MMIODESCEND          (MMSYSTEM.1223)
+ 0000:0000  Imp  GETWINDOWSDIRECTORY  (KERNEL.134)
+ 0000:0000  Imp  WAVEOUTGETPOSITION   (MMSYSTEM.412)
+ 0000:0000  Imp  GETMODULEUSAGE       (KERNEL.48)
+ 0000:0000  Imp  LOCKRESOURCE         (KERNEL.62)
+ 0000:0000  Imp  __AHSHIFT            (KERNEL.113)
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __fptaskdata
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBused
+ 0000:D6D6  Abs  __aDBdoswp
+ 0001:0010       MIXIT
+ 0001:025C       __wflags
+ 0001:02A0       __astart
+ 0001:032B       __nomain
+ 0001:0344       __aNFaulrem
+ 0001:0366       __aNldiv
+ 0001:0400       __aNlmul
+ 0001:0400       __aNulmul
+ 0001:0432       __aNuldiv
+ 0001:0492       __fstrupr
+ 0001:04B6       __fmemset
+ 0001:04FE       __stubmain
+ 0001:051C       __cinit
+ 0001:0552       __cexit
+ 0001:055C       __c_exit
+ 0001:05A5       __ctermsub
+ 0001:05F0       __FF_MSGBANNER
+ 0001:0606       __setenvp
+ 0001:0670       __aNulrem
+ 0001:06DA       __NMSG_TEXT
+ 0001:0705       __NMSG_WRITE
+ 0001:0710       __fptrap
+ 0001:0716       __myalloc
+ 0001:0742       __nearstub
+ 0001:0744       __cintDIV
+ 0001:074C       __amsg_exit
+ 0001:078C       __growseg
+ 0001:081B       __incseg
+ 0001:0881       __findlast
+ 0001:08A2       __GetDGROUP
+ 0001:08B2       __nmalloc
+ 0001:0906       __nfree
+ 0001:091C       __nrealloc
+ 0001:0980       __nmsize
+ 0001:0990       ___ExportedStub
+ 0001:09A4       MYWAVEOUTGETPOSITION
+ 0001:0A2E       ADDFACTOR
+ 0001:0A42       SUBFACTOR
+ 0001:0A56       SETWAVEOUTPOSITION
+ 0001:0B22       CMIXIT
+ 0001:0BC6       INITCHANNELNODES
+ 0001:0BE8       GETCHANNELNODE
+ 0001:0C0C       FREEWAVEBLOCKS
+ 0001:0C5E       ALLOCWAVEBLOCKS
+ 0001:0D84       REMOVEFROMPLAYINGQUEUE
+ 0001:0E70       RELEASEWAVEDEVICE
+ 0001:0EF6       GETWAVEDEVICE
+ 0001:0FD4       WaveMixActivate
+ 0001:115A       WaveMixOpenChannel
+ 0001:125E       MIXERPLAY
+ 0001:166C       FREEPLAYEDBLOCKS
+ 0001:16F6       WaveMixPump
+ 0001:17F2       NORESETREMIX
+ 0001:1850       RESETREMIX
+ 0001:1A32       RESETWAVEPOSIFNOCHANNELDATA
+ 0001:1A66       WaveMixPlay
+ 0001:1F36       WaveMixFlushChannel
+ 0001:2054       WaveMixCloseChannel
+ 0001:2114       WaveMixFreeWave
+ 0001:223E       BITSPERSAMPLEALIGN
+ 0001:23E4       CHANNELALIGN
+ 0001:268A       AVGSAMPLE
+ 0001:27C0       REPSAMPLE
+ 0001:299E       SAMPLESPERSECALIGN
+ 0001:2C38       WAVEFORMATCONVERT
+ 0001:2D20       WaveMixOpenWave
+ 0001:3284       FIGUREOUTDMABUFFERSIZE
+ 0001:355C       SHOWWAVEOUTDEVICES
+ 0001:35FE       INIFILEEXISTS
+ 0001:3636       PRINTBADINSTALLMSG
+ 0001:36EA       WaveMixConfigureInit
+ 0001:3B1E       WaveMixCloseSession
+ 0001:3BB4       WAVEMIXINSTALLEDCORRECTLY
+ 0001:3C74       LIBMAIN
+ 0001:3D83       LibEntry
+ 0001:3DC0       WndProc
+ 0001:3E08       FigureProc
+ 0001:3E2E       WaveMixInit
+ 0001:3E60       WaveMixGetInfo
+ 0001:3E98       WEP
+ 0002:0004       rsrvptrs
+ 0002:0010       GPFORMAT
+ 0002:0020       GFSHOW
+ 0002:0022       GIDEBUG
+ 0002:0024       GSZAPPNAME
+ 0002:002E       GSZDEFAULT
+ 0002:0036       GSZMEMERROR
+ 0002:00A4       GPLAYQUEUE
+ 0002:00AC       GFCORRECTLYINSTALLED
+ 0002:00AE       GSZ
+ 0002:01AE       SZMAGIC
+ 0002:01B2       GFCOUNT
+ 0002:01B4       GICOUNT
+ 0002:01CA       _STKHQQ
+ 0002:01CC       __hModule
+ 0002:01CE       __wDataSeg
+ 0002:01D0       __wHeapSize
+ 0002:01D2       __lpszCmdLine
+ 0002:01D6       __dllinit
+ 0002:01D7       _aseglo
+ 0002:01D9       _aseghi
+ 0002:01DB       ___aDBswpflg
+ 0002:01DD       ___aDBrterr
+ 0002:01E0       __aintdiv
+ 0002:01E4       __fac
+ 0002:01EE       _errno
+ 0002:01F0       __umaskval
+ 0002:01F2       __winminor
+ 0002:01F2       __winver
+ 0002:01F3       __winmajor
+ 0002:01F4       __osminor
+ 0002:01F4       __osver
+ 0002:01F5       __osmajor
+ 0002:01F6       __osversion
+ 0002:01F8       __osmode
+ 0002:01F9       __cpumode
+ 0002:01FA       __doserrno
+ 0002:01FA       __oserr
+ 0002:01FC       __nfile
+ 0002:01FE       __osfile
+ 0002:0212       ___argc
+ 0002:0214       ___argv
+ 0002:0216       __environ
+ 0002:0218       __pgmptr
+ 0002:021D       __child
+ 0002:021F       __exitflag
+ 0002:0220       __adbgmsg
+ 0002:0222       __amblksiz
+ 0002:0224       __pnhNearHeap
+ 0002:0226       ??_C@_0BO@OAKI@Invalid?5session?5handle?50x?$CF04X?$AA@
+ 0002:0244       ??_C@_0BP@HOJC@Unable?5to?5prepare?5wave?5header?4?$AA@
+ 0002:0264       ??_C@_00A@?$AA@
+ 0002:0266       ??_C@_0CC@OPHF@Failed?5to?5create?5callback?5window@
+ 0002:0288       ??_C@_0CA@CKGK@Failed?5to?5write?5block?5to?5device?$AA@
+ 0002:02A8       ??_C@_0CP@PICJ@NULL?5parameters?5pointer?5passed?5t@
+ 0002:02D8       ??_C@_0CN@IOEL@Invalid?5session?5handle?5passed?5to@
+ 0002:0306       ??_C@_0CJ@IHMK@NULL?5wave?5pointer?5passed?5to?5Wave@
+ 0002:0330       ??_C@_0EC@EDLG@Wave?5device?5not?5allocated?0?5call?5@
+ 0002:0372       ??_C@_0DE@NLMF@You?5must?5open?5a?5channel?5before?5y@
+ 0002:03A6       ??_C@_0CM@KLIJ@The?5waveform?5device?5can?8t?5play?5t@
+ 0002:03D2       ??_C@_04DOFO@WAVE?$AA@
+ 0002:03D8       ??_C@_0CF@IDD@Failed?5to?5open?5?8WAVE?8?5resource?5?8@
+ 0002:03FE       ??_C@_0CD@EIFN@Failed?5to?5open?5?8WAVE?8?5resource?5?$CF@
+ 0002:0422       ??_C@_0BP@KODC@Failed?5to?5lock?5?8WAVE?8?5resource?$AA@
+ 0002:0442       ??_C@_0GA@NDPK@Failed?5to?5open?5resource?0?5mmioOpe@
+ 0002:04A2       ??_C@_0FK@LJHF@Failed?5to?5open?5memory?5file?0?5mmio@
+ 0002:04FC       ??_C@_0BN@GKGF@Failed?5to?5open?5wave?5file?5?$CFs?4?$AA@
+ 0002:051A       ??_C@_0BJ@MGPC@This?5is?5not?5a?5WAVE?5file?4?$AA@
+ 0002:0534       ??_C@_0BI@GFKN@WAVE?5file?5is?5corrupted?4?$AA@
+ 0002:054C       ??_C@_0BN@GNNO@Failed?5to?5read?5format?5chunk?4?$AA@
+ 0002:056A       ??_C@_0BM@PDNH@The?5file?5is?5not?5a?5PCM?5file?4?$AA@
+ 0002:0586       ??_C@_0BN@DOOD@WAVE?5file?5has?5no?5data?5chunk?4?$AA@
+ 0002:05A4       ??_C@_0BM@FJE@The?5data?5chunk?5has?5no?5data?4?$AA@
+ 0002:05C0       ??_C@_0BL@NKLA@Failed?5to?5read?5data?5chunk?4?$AA@
+ 0002:05DC       ??_C@_0BP@LFHI@Failed?5to?5convert?5wave?5format?4?$AA@
+ 0002:05FC       ??_C@_06DHDG@res?$CD?$CFu?$AA@
+ 0002:0604       ??_C@_0N@KGNG@WaveBlockLen?$AA@
+ 0002:0612       ??_C@_0DC@COOE@unable?5to?5open?5wave?5output?5devic@
+ 0002:0644       ??_C@_0DG@FAJA@?$CFd?5waveOut?5Devices?5have?5been?5det@
+ 0002:067A       ??_C@_0DA@LNDO@waveOutGetDevCaps?5failed?5?$CIerr?5?$CFu@
+ 0002:06AA       ??_C@_0BN@PMJG@Device?5?$CFi?3?5?$CFs?6?7Version?5?$CFu?4?$CFu?$AA@
+ 0002:06C8       ??_C@_0LA@IGHC@This?5Application?5uses?5?$CFs?4DLL?5whi@
+ 0002:0778       ??_C@_0BH@KDOO@GetModuleFileName?$CI?$CJ?$DN?$CFs?$AA@
+ 0002:0790       ??_C@_0M@CNIN@ShowDevices?$AA@
+ 0002:079C       ??_C@_07BGO@general?$AA@
+ 0002:07A4       ??_C@_05JOPB@Remix?$AA@
+ 0002:07AA       ??_C@_0M@KEKC@GoodWavePos?$AA@
+ 0002:07B6       ??_C@_0L@OFMJ@WaveBlocks?$AA@
+ 0002:07C2       ??_C@_0O@NKBF@SamplesPerSec?$AA@
+ 0002:07D0       ??_C@_0O@BCOD@WaveOutDevice?$AA@
+ 0002:07DE       ??_C@_0P@HIAC@Unknown?5Device?$AA@
+ 0002:07EE       ??_C@_0HM@EEHK@?$CFs?5is?5a?5syncronous?5?$CIblocking?$CJ?5wa@
+ 0002:086A       ??_C@_0P@PNKG@not?5compatible?$AA@
+ 0002:087A       ??_C@_0DC@HHNB@?$CFs?5is?5not?5compatible?5with?5the?5re@
+ 0002:08AC       ??_C@_06OBCJ@cmixit?$AA@
+ 0002:08B4       ??_C@_09GED@386?5mixit?$AA@
+ 0002:08BE       ??_C@_04LNAG@TRUE?$AA@
+ 0002:08C4       ??_C@_05LLOB@FALSE?$AA@
+ 0002:08CA       ??_C@_05NCED@Reset?$AA@
+ 0002:08D0       ??_C@_07HNJH@NoReset?$AA@
+ 0002:08D8       ??_C@_0IL@CAOB@Using?3?7?$CFs?4?6?7Remix?5?$DN?5?$CFs?6?7GoodGetP@
+ 0002:0964       ??_C@_0N@PBFN@?2WAVEMIX?4INI?$AA@
+ 0002:0972       ??_C@_05FLHP@debug?$AA@
+ 0002:097A       __fpinit
+ 0002:0A66       __edata
+ 0002:0A66       _edata
+ 0002:0B00       G
+ 0002:0B02       GACTIVESESSION
+ 0002:0B04       GPFREECHANNELNODES
+ 0002:0B06       GPFNMIXIT
+ 0002:0B08       GSZINIFILE
+ 0002:0C1C       GAWAVEBLOCK
+ 0002:0C34       GHDLLINST
+ 0002:0C36       GACHANNELNODES
+ 0002:1D66       _end
+ 0002:1D66       __end
+
+Program entry point at 0001:3d83

@@ -1,0 +1,692 @@
+//***********************************************************************
+IDD_SHOPPINGI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_SHOPPINGI GAMETABLE
+//***********************************************************************
+{
+"
+	// level 1 game settings
+	intro=intro1.wav,","
+	success=succi.wav,","
+//	soundtrack=sndtrack.wav,","
+	finditemwave=tada.wav,
+	wrongitemwave=tongue1.wav,","
+	gamearea=47 30 592 433,","
+	shoppercells=6,shoppercycle=8,","
+	moveinc=10,roadindex=162,scandistance=75,","
+	shoplistX=48,shoplistY=31,vertspace=33,","
+	shopperl=goatl.bmp,shopperr=goatr.bmp,shopperu=goatu.bmp,shopperd=goatd.bmp,","
+	itemsneeded=6,findinorder=0;","
+
+	// maze 1
+	bg=backgrnd.dib,shopperstart=0,vision=2,","
+	decision=342 60;","
+	//warp=
+	//stop=stopsign.bmp 5000 12000 3000 8000,","
+
+	// Shopping and list items
+	shopitem=candy.bmp,listnocheck=candy.bmp,listcheck=candy-c.bmp;","
+	shopitem=tix.bmp,listnocheck=tix.bmp,listcheck=tix-c.bmp;","
+	shopitem=flower.bmp,listnocheck=flower.bmp,listcheck=flower-c.bmp;","
+	shopitem=dice.bmp,listnocheck=dice.bmp,listcheck=dice-c.bmp;","
+	shopitem=piggy.bmp,listnocheck=piggy.bmp,listcheck=piggy-c.bmp;","
+	shopitem=fish.bmp,listnocheck=fish.bmp,listcheck=fish-c.bmp;","
+	shopitem=news.bmp,listnocheck=news.bmp,listcheck=news-c.bmp;","
+	shopitem=bread.bmp,listnocheck=bread.bmp,listcheck=bread-c.bmp;","
+	shopitem=book.bmp,listnocheck=book.bmp,listcheck=book-c.bmp;","
+	shopitem=apple.bmp,listnocheck=apple.bmp,listcheck=apple-c.bmp;","
+	shopitem=shirt.bmp,listnocheck=shirt.bmp,listcheck=shirt-c.bmp;","
+	shopitem=ball.bmp,listnocheck=ball.bmp,listcheck=ball-c.bmp;","
+
+	// Random shopping item locations - need at least as many entries
+	// as items
+	itemloc=117  61;","
+	itemloc=252  61;","
+	itemloc=389  61;","
+	itemloc=524  61;","
+	itemloc=117 216;","
+	itemloc=252 216;","
+	itemloc=389 216;","
+	itemloc=524 216;","
+	itemloc=117 370;","
+	itemloc=252 370;","
+	itemloc=389 370;","
+	itemloc=524 370;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANSHOPPINGI GAMETABLE
+//***********************************************************************
+{
+"
+	// level 1 game settings
+	intro=spintro1.wav,","
+	success=spsucci.wav,","
+//	soundtrack=sndtrack.wav,","
+	finditemwave=tada.wav,
+	wrongitemwave=tongue1.wav,","
+	gamearea=47 30 592 433,","
+	shoppercells=6,shoppercycle=8,","
+	moveinc=10,roadindex=162,scandistance=75,","
+	shoplistX=48,shoplistY=31,vertspace=33,","
+	shopperl=goatl.bmp,shopperr=goatr.bmp,shopperu=goatu.bmp,shopperd=goatd.bmp,","
+	itemsneeded=6,findinorder=0;","
+
+	// maze 1
+	bg=backgrnd.dib,shopperstart=0,vision=2,","
+	decision=342 60;","
+	//warp=
+	//stop=stopsign.bmp 5000 12000 3000 8000,","
+
+	// Shopping and list items
+	shopitem=candy.bmp,listnocheck=candy.bmp,listcheck=candy-c.bmp;","
+	shopitem=tix.bmp,listnocheck=tix.bmp,listcheck=tix-c.bmp;","
+	shopitem=flower.bmp,listnocheck=flower.bmp,listcheck=flower-c.bmp;","
+	shopitem=dice.bmp,listnocheck=dice.bmp,listcheck=dice-c.bmp;","
+	shopitem=piggy.bmp,listnocheck=piggy.bmp,listcheck=piggy-c.bmp;","
+	shopitem=fish.bmp,listnocheck=fish.bmp,listcheck=fish-c.bmp;","
+	shopitem=news.bmp,listnocheck=news.bmp,listcheck=news-c.bmp;","
+	shopitem=bread.bmp,listnocheck=bread.bmp,listcheck=bread-c.bmp;","
+	shopitem=book.bmp,listnocheck=book.bmp,listcheck=book-c.bmp;","
+	shopitem=apple.bmp,listnocheck=apple.bmp,listcheck=apple-c.bmp;","
+	shopitem=shirt.bmp,listnocheck=shirt.bmp,listcheck=shirt-c.bmp;","
+	shopitem=ball.bmp,listnocheck=ball.bmp,listcheck=ball-c.bmp;","
+
+	// Random shopping item locations - need at least as many entries
+	// as items
+	itemloc=117  61;","
+	itemloc=252  61;","
+	itemloc=389  61;","
+	itemloc=524  61;","
+	itemloc=117 216;","
+	itemloc=252 216;","
+	itemloc=389 216;","
+	itemloc=524 216;","
+	itemloc=117 370;","
+	itemloc=252 370;","
+	itemloc=389 370;","
+	itemloc=524 370;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SHOPPINGI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene10\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=291 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 446,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 442,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=options.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 443,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, fg=help.bmp, hint=helphint.wav, cmd=IDC_HELP;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_SPANSHOPPINGI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene10\\backgrnd.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=291 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,		hot=46 444,		flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=spprev.wav;","
+	/IDC_MAINMENU=0 0,		hot=307 442,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_MAINMENU,fg=main.bmp,hint=spmain.wav;","
+	/IDC_SOUNDBOX=0 0,		hot=218 446,	flags=noclip autobutton click notrans,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=spsounds.wav;","
+	/IDC_OPTIONS=0 0,		hot=389 442,	flags=noclip autobutton click notrans,cmd=IDC_OPTIONS,fg=options.bmp,hint=spoption.wav;","
+	/IDC_ACTIVITIES=0 0,	hot=136 443,	flags=noclip autobutton click notrans,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=spactivy.wav;","
+	/IDC_NEXT=0 0,			hot=557 444,	flags=noclip autobutton click alwaysenabled notrans,cmd=IDC_NEXT,fg=next.bmp,hint=spnext.wav;","
+	/IDC_HELP=0 0,			hot=484 444,	flags=noclip autobutton click notrans, fg=help.bmp, hint=sphelp1.wav, cmd=IDC_HELP;","
+
+",0
+} 
+
+//***********************************************************************
+IDD_SHOPPING1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_SHOPPING1 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 1 game settings
+	intro=intro1.wav,","
+	success=succ1.wav,","
+//	soundtrack=sndtrack.wav,","
+	finditemwave=tada.wav,
+	wrongitemwave=tongue1.wav,","
+	gamearea=47 30 592 433,","
+	shoppercells=6,shoppercycle=8,","
+	moveinc=10,roadindex=162,scandistance=75,","
+	shoplistX=48,shoplistY=31,vertspace=33,","
+	shopperl=goatl.bmp,shopperr=goatr.bmp,shopperu=goatu.bmp,shopperd=goatd.bmp,","
+	itemsneeded=6,findinorder=0;","
+
+	// maze 1
+	bg=backgrni.dib,shopperstart=0,vision=2,","
+	decision=342 60;","
+	//warp=
+	//stop=stopsign.bmp 5000 12000 3000 8000,","
+
+	// Shopping and list items
+	shopitem=candy.bmp,listnocheck=candy.bmp,listcheck=candy-c.bmp;","
+	shopitem=tix.bmp,listnocheck=tix.bmp,listcheck=tix-c.bmp;","
+	shopitem=flower.bmp,listnocheck=flower.bmp,listcheck=flower-c.bmp;","
+	shopitem=dice.bmp,listnocheck=dice.bmp,listcheck=dice-c.bmp;","
+	shopitem=piggy.bmp,listnocheck=piggy.bmp,listcheck=piggy-c.bmp;","
+	shopitem=fish.bmp,listnocheck=fish.bmp,listcheck=fish-c.bmp;","
+	shopitem=news.bmp,listnocheck=news.bmp,listcheck=news-c.bmp;","
+	shopitem=bread.bmp,listnocheck=bread.bmp,listcheck=bread-c.bmp;","
+	shopitem=book.bmp,listnocheck=book.bmp,listcheck=book-c.bmp;","
+	shopitem=apple.bmp,listnocheck=apple.bmp,listcheck=apple-c.bmp;","
+	shopitem=shirt.bmp,listnocheck=shirt.bmp,listcheck=shirt-c.bmp;","
+	shopitem=ball.bmp,listnocheck=ball.bmp,listcheck=ball-c.bmp;","
+
+	// Random shopping item locations - need at least as many entries
+	// as items
+	itemloc=117  61;","
+	itemloc=252  61;","
+	itemloc=389  61;","
+	itemloc=524  61;","
+	itemloc=117 216;","
+	itemloc=252 216;","
+	itemloc=389 216;","
+	itemloc=524 216;","
+	itemloc=117 370;","
+	itemloc=252 370;","
+	itemloc=389 370;","
+	itemloc=524 370;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANSHOPPING1 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 1 game settings
+	intro=spintro1.wav,","
+	success=spsucc1.wav,","
+//	soundtrack=sndtrack.wav,","
+	finditemwave=tada.wav,
+	wrongitemwave=tongue1.wav,","
+	gamearea=47 30 592 433,","
+	shoppercells=6,shoppercycle=8,","
+	moveinc=10,roadindex=162,scandistance=75,","
+	shoplistX=48,shoplistY=31,vertspace=33,","
+	shopperl=goatl.bmp,shopperr=goatr.bmp,shopperu=goatu.bmp,shopperd=goatd.bmp,","
+	itemsneeded=6,findinorder=0;","
+
+	// maze 1
+	bg=backgrni.dib,shopperstart=0,vision=2,","
+	decision=342 60;","
+	//warp=
+	//stop=stopsign.bmp 5000 12000 3000 8000,","
+
+	// Shopping and list items
+	shopitem=candy.bmp,listnocheck=candy.bmp,listcheck=candy-c.bmp;","
+	shopitem=tix.bmp,listnocheck=tix.bmp,listcheck=tix-c.bmp;","
+	shopitem=flower.bmp,listnocheck=flower.bmp,listcheck=flower-c.bmp;","
+	shopitem=dice.bmp,listnocheck=dice.bmp,listcheck=dice-c.bmp;","
+	shopitem=piggy.bmp,listnocheck=piggy.bmp,listcheck=piggy-c.bmp;","
+	shopitem=fish.bmp,listnocheck=fish.bmp,listcheck=fish-c.bmp;","
+	shopitem=news.bmp,listnocheck=news.bmp,listcheck=news-c.bmp;","
+	shopitem=bread.bmp,listnocheck=bread.bmp,listcheck=bread-c.bmp;","
+	shopitem=book.bmp,listnocheck=book.bmp,listcheck=book-c.bmp;","
+	shopitem=apple.bmp,listnocheck=apple.bmp,listcheck=apple-c.bmp;","
+	shopitem=shirt.bmp,listnocheck=shirt.bmp,listcheck=shirt-c.bmp;","
+	shopitem=ball.bmp,listnocheck=ball.bmp,listcheck=ball-c.bmp;","
+
+	// Random shopping item locations - need at least as many entries
+	// as items
+	itemloc=117  61;","
+	itemloc=252  61;","
+	itemloc=389  61;","
+	itemloc=524  61;","
+	itemloc=117 216;","
+	itemloc=252 216;","
+	itemloc=389 216;","
+	itemloc=524 216;","
+	itemloc=117 370;","
+	itemloc=252 370;","
+	itemloc=389 370;","
+	itemloc=524 370;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SHOPPING1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene10\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANSHOPPING1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene10\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SHOPPING2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_SHOPPING2 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 2 game settings
+	intro=intro2.wav,","
+	success=succ2.wav,","
+//	soundtrack=sndtrack.wav,","
+	finditemwave=tada.wav,
+	wrongitemwave=tongue1.wav,","
+	gamearea=47 30 592 433,","
+	shoppercells=6,shoppercycle=8,","
+	moveinc=10,roadindex=162,scandistance=50,","
+	shoplistX=48,shoplistY=31,vertspace=33,","
+	shopperl=goatl.bmp,shopperr=goatr.bmp,shopperu=goatu.bmp,shopperd=goatd.bmp,","
+	itemsneeded=9,findinorder=1;","
+
+	// maze 1
+	bg=backgrni.dib,shopperstart=0,vision=2,","
+	decision=342 60;","
+	//warp=
+	//stop=stopsign.bmp 5000 12000 3000 8000,","
+
+	// Shopping and list items
+	shopitem=candy-x.bmp,listnocheck=candy.bmp,listcheck=candy-c.bmp;","
+	shopitem=tix-x.bmp,listnocheck=tix.bmp,listcheck=tix-c.bmp;","
+	shopitem=flower-x.bmp,listnocheck=flower.bmp,listcheck=flower-c.bmp;","
+	shopitem=dice-x.bmp,listnocheck=dice.bmp,listcheck=dice-c.bmp;","
+	shopitem=piggy-x.bmp,listnocheck=piggy.bmp,listcheck=piggy-c.bmp;","
+	shopitem=fish-x.bmp,listnocheck=fish.bmp,listcheck=fish-c.bmp;","
+	shopitem=news-x.bmp,listnocheck=news.bmp,listcheck=news-c.bmp;","
+	shopitem=bread-x.bmp,listnocheck=bread.bmp,listcheck=bread-c.bmp;","
+	shopitem=book-x.bmp,listnocheck=book.bmp,listcheck=book-c.bmp;","
+	shopitem=apple-x.bmp,listnocheck=apple.bmp,listcheck=apple-c.bmp;","
+	shopitem=shirt-x.bmp,listnocheck=shirt.bmp,listcheck=shirt-c.bmp;","
+	shopitem=ball-x.bmp,listnocheck=ball.bmp,listcheck=ball-c.bmp;","
+
+	// Random shopping item locations - need at least as many entries
+	// as items
+	itemloc= 90  29;","
+	itemloc=226  29;","
+	itemloc=361  29;","
+	itemloc=497  29;","
+	itemloc= 90 184;","
+	itemloc=226 184;","
+	itemloc=361 184;","
+	itemloc=497 184;","
+	itemloc= 90 338;","
+	itemloc=226 338;","
+	itemloc=361 338;","
+	itemloc=497 338;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANSHOPPING2 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 2 game settings
+	intro=spintro2.wav,","
+	success=spsucc2.wav,","
+//	soundtrack=sndtrack.wav,","
+	finditemwave=tada.wav,
+	wrongitemwave=tongue1.wav,","
+	gamearea=47 30 592 433,","
+	shoppercells=6,shoppercycle=8,","
+	moveinc=10,roadindex=162,scandistance=50,","
+	shoplistX=48,shoplistY=31,vertspace=33,","
+	shopperl=goatl.bmp,shopperr=goatr.bmp,shopperu=goatu.bmp,shopperd=goatd.bmp,","
+	itemsneeded=9,findinorder=1;","
+
+	// maze 1
+	bg=backgrni.dib,shopperstart=0,vision=2,","
+	decision=342 60;","
+	//warp=
+	//stop=stopsign.bmp 5000 12000 3000 8000,","
+
+	// Shopping and list items
+	shopitem=candy-x.bmp,listnocheck=candy.bmp,listcheck=candy-c.bmp;","
+	shopitem=tix-x.bmp,listnocheck=tix.bmp,listcheck=tix-c.bmp;","
+	shopitem=flower-x.bmp,listnocheck=flower.bmp,listcheck=flower-c.bmp;","
+	shopitem=dice-x.bmp,listnocheck=dice.bmp,listcheck=dice-c.bmp;","
+	shopitem=piggy-x.bmp,listnocheck=piggy.bmp,listcheck=piggy-c.bmp;","
+	shopitem=fish-x.bmp,listnocheck=fish.bmp,listcheck=fish-c.bmp;","
+	shopitem=news-x.bmp,listnocheck=news.bmp,listcheck=news-c.bmp;","
+	shopitem=bread-x.bmp,listnocheck=bread.bmp,listcheck=bread-c.bmp;","
+	shopitem=book-x.bmp,listnocheck=book.bmp,listcheck=book-c.bmp;","
+	shopitem=apple-x.bmp,listnocheck=apple.bmp,listcheck=apple-c.bmp;","
+	shopitem=shirt-x.bmp,listnocheck=shirt.bmp,listcheck=shirt-c.bmp;","
+	shopitem=ball-x.bmp,listnocheck=ball.bmp,listcheck=ball-c.bmp;","
+
+	// Random shopping item locations - need at least as many entries
+	// as items
+	itemloc= 90  29;","
+	itemloc=226  29;","
+	itemloc=361  29;","
+	itemloc=497  29;","
+	itemloc= 90 184;","
+	itemloc=226 184;","
+	itemloc=361 184;","
+	itemloc=497 184;","
+	itemloc= 90 338;","
+	itemloc=226 338;","
+	itemloc=361 338;","
+	itemloc=497 338;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SHOPPING2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene10\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANSHOPPING2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene10\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip invisible click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SHOPPING3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+//***********************************************************************
+IDD_SHOPPING3 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 3 game settings
+	intro=intro3.wav,","
+	success=succ3.wav,","
+//	soundtrack=sndtrack.wav,","
+	finditemwave=tada.wav,
+	wrongitemwave=tongue1.wav,","
+	gamearea=47 30 592 433,","
+	shoppercells=6,shoppercycle=8,","
+	moveinc=10,roadindex=162,scandistance=40,","
+	shoplistX=48,shoplistY=31,vertspace=33,","
+	shopperl=goatl.bmp,shopperr=goatr.bmp,shopperu=goatu.bmp,shopperd=goatd.bmp,","
+	itemsneeded=12,findinorder=1;","
+
+	// maze 1
+	bg=backgrni.dib,shopperstart=0,vision=2,","
+	decision=342 60;","
+	//warp=
+	//stop=stopsign.bmp 5000 12000 3000 8000,","
+
+	// Shopping and list items
+	shopitem=candy-x.bmp,listnocheck=candy.bmp,listcheck=candy-c.bmp;","
+	shopitem=tix-x.bmp,listnocheck=tix.bmp,listcheck=tix-c.bmp;","
+	shopitem=flower-x.bmp,listnocheck=flower.bmp,listcheck=flower-c.bmp;","
+	shopitem=dice-x.bmp,listnocheck=dice.bmp,listcheck=dice-c.bmp;","
+	shopitem=piggy-x.bmp,listnocheck=piggy.bmp,listcheck=piggy-c.bmp;","
+	shopitem=fish-x.bmp,listnocheck=fish.bmp,listcheck=fish-c.bmp;","
+	shopitem=news-x.bmp,listnocheck=news.bmp,listcheck=news-c.bmp;","
+	shopitem=bread-x.bmp,listnocheck=bread.bmp,listcheck=bread-c.bmp;","
+	shopitem=book-x.bmp,listnocheck=book.bmp,listcheck=book-c.bmp;","
+	shopitem=apple-x.bmp,listnocheck=apple.bmp,listcheck=apple-c.bmp;","
+	shopitem=shirt-x.bmp,listnocheck=shirt.bmp,listcheck=shirt-c.bmp;","
+	shopitem=ball-x.bmp,listnocheck=ball.bmp,listcheck=ball-c.bmp;","
+
+	// Random shopping item locations - need at least as many entries
+	// as items
+	itemloc= 90  29;","
+	itemloc=226  29;","
+	itemloc=361  29;","
+	itemloc=497  29;","
+	itemloc= 90 184;","
+	itemloc=226 184;","
+	itemloc=361 184;","
+	itemloc=497 184;","
+	itemloc= 90 338;","
+	itemloc=226 338;","
+	itemloc=361 338;","
+	itemloc=497 338;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANSHOPPING3 GAMETABLE
+//***********************************************************************
+{
+"
+	// level 3 game settings
+	intro=spintro3.wav,","
+	success=spsucc3.wav,","
+//	soundtrack=sndtrack.wav,","
+	finditemwave=tada.wav,
+	wrongitemwave=tongue1.wav,","
+	gamearea=47 30 592 433,","
+	shoppercells=6,shoppercycle=8,","
+	moveinc=10,roadindex=162,scandistance=40,","
+	shoplistX=48,shoplistY=31,vertspace=33,","
+	shopperl=goatl.bmp,shopperr=goatr.bmp,shopperu=goatu.bmp,shopperd=goatd.bmp,","
+	itemsneeded=12,findinorder=1;","
+
+	// maze 1
+	bg=backgrni.dib,shopperstart=0,vision=2,","
+	decision=342 60;","
+	//warp=
+	//stop=stopsign.bmp 5000 12000 3000 8000,","
+
+	// Shopping and list items
+	shopitem=candy-x.bmp,listnocheck=candy.bmp,listcheck=candy-c.bmp;","
+	shopitem=tix-x.bmp,listnocheck=tix.bmp,listcheck=tix-c.bmp;","
+	shopitem=flower-x.bmp,listnocheck=flower.bmp,listcheck=flower-c.bmp;","
+	shopitem=dice-x.bmp,listnocheck=dice.bmp,listcheck=dice-c.bmp;","
+	shopitem=piggy-x.bmp,listnocheck=piggy.bmp,listcheck=piggy-c.bmp;","
+	shopitem=fish-x.bmp,listnocheck=fish.bmp,listcheck=fish-c.bmp;","
+	shopitem=news-x.bmp,listnocheck=news.bmp,listcheck=news-c.bmp;","
+	shopitem=bread-x.bmp,listnocheck=bread.bmp,listcheck=bread-c.bmp;","
+	shopitem=book-x.bmp,listnocheck=book.bmp,listcheck=book-c.bmp;","
+	shopitem=apple-x.bmp,listnocheck=apple.bmp,listcheck=apple-c.bmp;","
+	shopitem=shirt-x.bmp,listnocheck=shirt.bmp,listcheck=shirt-c.bmp;","
+	shopitem=ball-x.bmp,listnocheck=ball.bmp,listcheck=ball-c.bmp;","
+
+	// Random shopping item locations - need at least as many entries
+	// as items
+	itemloc= 90  29;","
+	itemloc=226  29;","
+	itemloc=361  29;","
+	itemloc=497  29;","
+	itemloc= 90 184;","
+	itemloc=226 184;","
+	itemloc=361 184;","
+	itemloc=497 184;","
+	itemloc= 90 338;","
+	itemloc=226 338;","
+	itemloc=361 338;","
+	itemloc=497 338;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SHOPPING3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene10\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=story.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=activity.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=mainmenu.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=helphint.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}
+
+//***********************************************************************
+IDD_SPANSHOPPING3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene10\\backgrni.dib,clip=CL CT CR CB,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,		hot=7 441,		flags=noclip autobutton click notrans, cmd=IDC_BACK,       fg=back.bmp, hint=spstory.wav;","
+	/IDC_ACTIVITIES=0 0,hot=136 443,	flags=noclip autobutton click notrans, cmd=IDC_ACTIVITIES, fg=activity.bmp, hint=spactivy.wav;","
+	/IDC_MAINMENU=0 0,	hot=307 442,	flags=noclip autobutton click notrans, cmd=IDC_MAINMENU,   fg=main.bmp, hint=spmain.wav;","
+	/IDC_HELP=0 0,		hot=484 444,	flags=noclip autobutton click notrans, cmd=IDC_HELP,       fg=help.bmp, hint=sphelp1.wav;","
+
+	/IDC_LEVEL1OFF=0 0,	hot=601 395,	flags=noclip           click,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0, hot=601 359,	flags=noclip           click,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0, hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,	hot=601 395,	flags=noclip invisible click,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,  hot=601 359,	flags=noclip invisible click,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,  hot=601 323,	flags=noclip           click,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+",0
+}

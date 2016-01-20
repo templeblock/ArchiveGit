@@ -1,0 +1,1 @@
+{* do we need to differentiate between mobilize and send2friend here? *}

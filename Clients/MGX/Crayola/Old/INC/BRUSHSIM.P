@@ -1,0 +1,47 @@
+// Source file: brushsim.c
+HMGXBRUSH CreateSimpleBrush( HMGXBRUSH hBrush );
+void DestroySimpleBrush(HMGXBRUSH hBrush);
+BOOL SimpleBrushBegin(HWND hWndIn, LPPIXMAP lpPixmapIn, int xOffset, int yOffset, HMGXBRUSH hBrush);
+void SimpleBrushStroke(int dx, int dy, int curs_x, int curs_y);
+BOOL SimpleBrushActive( void );
+void SimpleBrushEnd(BOOL fNoBrushDisplay);
+void SetSimpleBrushSize(HMGXBRUSH hBrush, int BrushSize);
+void SetSimpleBrushDDA(HMGXBRUSH hBrush, int iDDA);
+void SetSimpleBrushFeather(HMGXBRUSH hBrush, int Feather);
+BOOL SetSimpleBrushShape(HMGXBRUSH hBrush, int BrushShape);
+void SetSimpleBrushSource(HMGXBRUSH hBrush, LPFRAME lpFrame, LPSTR lpOptions );
+static void SetSourceFrameColors( LPFRAME lpSourceFrame );
+int SetSimpleBrushSpacing(HMGXBRUSH hBrush, int Spacing);
+int SetSimpleBrushOpacity(HMGXBRUSH hBrush, int Opacity);
+void SetSimpleBrushColor(HMGXBRUSH hBrush, LPCOLORINFO lpColorStruct);
+MERGE_MODE SetSimpleBrushMergeMode(HMGXBRUSH hBrush, MERGE_MODE MergeMode);
+int SetSimpleBrushStrokeMethod(HMGXBRUSH hBrush, int idStrokeMethod);
+int GetSimpleBrushSize(HMGXBRUSH hBrush);
+int GetSimpleBrushFeather(HMGXBRUSH hBrush);
+int GetSimpleBrushShape(HMGXBRUSH hBrush);
+int GetSimpleBrushSpacing(HMGXBRUSH hBrush);
+int GetSimpleBrushOpacity(HMGXBRUSH hBrush);
+MERGE_MODE GetSimpleBrushMergeMode(HMGXBRUSH hBrush, LPINT lpReadOnly);
+static void BrushStroke(int dx, int dy);
+static void BrushStrokeMyDDA(int dx, int dy);
+static void BrushStrokeDDA(int dx, int dy);
+static void ProcessRectList(int x, int y);
+static void BlitRect(LPRECT lpRect, LPTR lpBrushMask);
+static void LoadDropoutBrushMask( LPTR lpSrc, int dx, int dy, LPTR lpBrushMask );
+static void BlitToFrame( int x, int y, int dh, int dv, LPTR lpData, LPRECT lpRect);
+static void BlitToDisplay(LPRECT lpRect);
+static void SetBrushOpacity(LPTR lpSrc, LPTR lpDst, WORD Opacity, int iCount);
+static BOOL AllocBrushBuffers(LPMGXBRUSH lpBrush);
+static void FreeUpBrushBuffers( void );
+static BOOL SetupFrames(LPMGXBRUSH lpBrush, BOOL fBegin);
+static int ComputePattern( int xLast, int yLast, int x, int y, LPINT lpDirection, LPINT lpFlipX, LPINT lpFlipY );
+static void MProcessRectList (int x, int y);
+void SetSimpleBrushMirrorMode(HMGXBRUSH hBrush, BOOL fMirror);
+int SetSimpleBrushStyle( HMGXBRUSH hBrush, int BrushStyle );
+int SetSimpleBrushStylePressure( HMGXBRUSH hBrush, int StylePressure );
+int SetSimpleBrushFade( HMGXBRUSH hBrush, int FadeSize );
+int GetSimpleBrushStyle( HMGXBRUSH hBrush );
+int GetSimpleBrushStylePressure( HMGXBRUSH hBrush );
+int GetSimpleBrushFade( HMGXBRUSH hBrush );
+
+

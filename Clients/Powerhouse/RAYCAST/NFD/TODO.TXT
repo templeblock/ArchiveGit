@@ -1,0 +1,123 @@
+
+				WinAdv ToDo list
+
+1-Feb-95
+
+Done	1)	Add death screen for when Player dies and disable Player
+		movement when dead.
+
+Done	2)	Add sound trigger for monsters.  So if a shot is fired and a 
+		monster is near, it will trigger a OF_SEEN_PLAYER flag for itself.
+	(Note:	Any monster that can SEE the Player when the Player fires a
+		shot will have a OF_SEEN_PLAYER flag triggered.)
+
+2a)	After completing ToDo #2 above, I had ONE occasion where I entered
+	a room and found a monster moving; as if it had seen or heard me.
+	I don't know enough yet to know how bad this Bug is.
+
+3)	Pictures for Fists, Machine Gun and Rocket Launcher (selected weapon)
+
+Done	4)	Implement music (probably a DLL for MIDI stuff)
+
+5)	Add demo mode.
+
+6)	Create logo and add logo screen at startup, etc.
+
+Done	7)	Add up and down movement for walking, jumping, etc.
+		(will have to modify the Magic table and the ASM routines)
+	(Note:	All subordinate routines have Up/Down movement implemented.)
+
+Done	7a)	Add various Up/Down scenarios to game play (i.e. jump, walking
+		motion, dying, etc.)
+
+Done	8)	Finish implementation of New, Load, Save, Exit and Quit in File menu.
+
+Done	9)	Still seems to be a minor anomaly in the firing routine.  Sometimes,
+		without any other reason, shooting at a monster dead center does
+		not produce a hit.
+
+Done	9a)	Also, if the monster is point blank, it doesn't appear that firing
+		hits the monster at all?
+
+Done	10)	Convert MIDI music player CALLBACK routine to DLL for better quality
+		music.  The callback routine is suseptible to slow down (or speed up)
+		during CPU intense/slack time.
+
+Done	11)	Still seems to be a problem in the collision detection routine.
+		On occasion, I have been propelled into a wall cube!  This usually
+		happens when an object is close to a wall.
+
+Done	12)	Add volume control dialog for SoundFX and Music.
+
+Done	13)	Fix dialog background color problem due to palette change.
+
+Done	13a)	Could also check into doing a screen clear of WHOLE screen
+		background during startup.
+
+14)	Add distance sound level to sound routine.  Would like things that
+	are furture away to have a lower sound level.
+
+15)	Add sound mixer routine to play multiple sounds at one time.
+(Note:	Tried adding this routine but ran into a problem.  The MMSystem
+	waveOutGetPosition routine returns garbage.  Was not able to
+	determine position of a paused wave output.)
+
+Done	16)	Create map during Player movement for viewing by Player.
+	(Note:	Due to slow update of map (lots of pixel manipulation)
+		the map update is on demand only.  Either hit TAB or
+		click the mouse button on the map window.)
+
+Done	17)	Add keys possessed to status window.
+
+Done	18)	Create a cheap dialog box for modifying play parameters.
+	(Note:	Double right click mouse while in Help dialog to
+		get a confirmation box. Responding OK will set
+		Health to max, give Player all weapons with max
+		ammo and unlock all doors.)
+
+Done	19)	Modify the Object .ASM routines to skip top transparent pixels
+		more efficiently.
+	(Note:	These routines are optimized! They are very easy to break
+		if messed with without studying them very thoroughly.)
+
+Done	20)	Add multiple shots from some weapons (like shotgun)
+
+Done	21)	Correct weapon spread based on distance to object (closer gets
+		a wider spread; hits in the arm will wound, etc.)
+
+Done	22)	Fix TRACE of Player Health (now a LONG!)
+
+23)	Add projectile images to fired weapons. (Puffs of smoke when a
+	wall is hit, or an explosion when a rocket strikes)
+
+Done	24)	Add fighting between monsters if struck by another monster's
+		weapon fire.
+
+25)	Document some of the more complex sections of code.  Things can be
+	a little hard to follow, now.  And will get harder as they get more
+	complex.
+
+26)	Expand on maps!  Make the game either sequence through maps/levels
+	or let the player choose a level to play.
+
+27)	Always ***  O P T I M I Z E  ***
+
+Done	28)	Add low resolution graphics mode so that slower PCs can still play.
+
+Done	29)	Add objects that "hurt" to touch but can be jumped over by Player.
+		(black hole (open floor), swamp (needs floor images), etc.)
+
+30)	Add floor and/or ceiling tiles.
+(Note:	Floor outlines have been added. This improved appearance especially
+	with up/down motion and jumping.)
+
+Done	31)	Modify AE stucture so that object bitmap pointers do NOT reside
+		inside the structure.  I want to reduce the size of the structure
+		so that saved games will be smaller and the number of animation
+		bitmaps is increased.
+
+32)	Add scenery to the background.  A picture that stays stationary
+	(relative to compass direction) and looks like a distance scene
+	(like a mountain range).
+
+33)

@@ -1,0 +1,8 @@
+// Source file: COLOR.C
+void InitRGBtoCMYK( void );
+void EndRGBtoCMYK( void );
+VOID ClrRGBtoCMYK( LPRGB lpRGB, LPTR lpCyan, LPTR lpMagenta, LPTR lpYellow, LPTR lpBlack, int iCount, BOOL fCalibrate);
+VOID CorrectRGB( LPRGB lpRGB, int iCount, BOOL fCalibrate, BOOL fPS);
+VOID CorrectGray( LPTR lpGray, int iCount, BOOL fCalibrate, BOOL fPS);
+VOID ClrCMYKtoRGB( LPTR lpCyan, LPTR lpMagenta, LPTR lpYellow, LPTR lpBlack, LPRGB lpRGB, int iCount );
+

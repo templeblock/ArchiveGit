@@ -1,0 +1,15 @@
+// Source file: HELP.C
+void Help( int idTopic, LPARAM lParam );
+int HintLine( int id );
+int HintLineSpecial( int id, int idOffset );
+void ColorStatus( LPCOLORINFO lpColor, long lCount, LPSTR lpLabel, BOOL bDoubleClick);
+int Color2Status( LPCOLORINFO lpColor, BOOL fActive );
+void StartF1Help( void );
+void EndF1Help( void );
+void EnableF1Help( BOOL Bool );
+DWORD CALLBACK EXPORT KeyboardHookProc( int nCode, WPARAM wParam, LPARAM lParam );
+void StartContextHelp( void );
+void EndContextHelp( void );
+BOOL InContextHelpMode( void );
+DWORD CALLBACK EXPORT MessageHookProc( int nCode, WPARAM wParam, LPMSG lpMsg );
+

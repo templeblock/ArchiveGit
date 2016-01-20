@@ -1,0 +1,431 @@
+##############################################################################
+#                                                                            #
+#  (C) Copyright 1992 by Micrografx, Inc.  All rights reserved.              #
+#                                                                            #
+#  This material is confidential and considered a trade secret.              #
+#   Permission to use this work for any purpose must by obtained in writing  #
+#   from Micrografx Inc., 1303 Arapaho, Richardson, TX. 75081.               #
+#                                                                            #
+##############################################################################
+#
+#--- What is getting made - this is the name of this 'project'
+#
+PCHNAME=PP
+NOINSTALL=1
+REFDIR=..\..\ref
+MAKDIR=$(REFDIR)
+DEFAULTBUILD=$(OBJDIR) PPOBJS
+INCDIR=..\inc
+PROJFLAGS=-I$(INCDIR)
+
+PCHDST=..\INC
+PCHSRC=$(PCHDST)
+
+##############################################################################
+#
+#--- insert the standard stuff for applications and/or libs
+#
+!include "$(MAKDIR)\win.mak"
+
+##############################################################################
+#
+#--- Interesting files
+#
+ASMOBJS =\
+	$(OBJDIR)\enginea.obj \
+	$(OBJDIR)\mapping.obj
+
+OBJS    =\
+!IFNDEF NOPCH
+    $(OBJDIR)\pp.obj  \
+!ENDIF
+	$(OBJDIR)\about.obj \
+	$(OBJDIR)\appcmds.obj \
+	$(OBJDIR)\astral.obj \
+	$(OBJDIR)\automask.obj \
+	$(OBJDIR)\avi.obj \
+	$(OBJDIR)\aviutil.obj \
+	$(OBJDIR)\aviintf.obj \
+	$(OBJDIR)\blend.obj \
+	$(OBJDIR)\bomb.obj \
+	$(OBJDIR)\bruprocs.obj \
+	$(OBJDIR)\brush.obj \
+	$(OBJDIR)\calib.obj \
+	$(OBJDIR)\class.obj \
+	$(OBJDIR)\clrmng.obj \
+	$(OBJDIR)\cmask.obj \
+	$(OBJDIR)\cmdenabl.obj \
+	$(OBJDIR)\cmdlist.obj \
+	$(OBJDIR)\cmdmacro.obj \
+	$(OBJDIR)\cmdparms.obj \
+	$(OBJDIR)\cmdundo.obj \
+	$(OBJDIR)\color.obj \
+	$(OBJDIR)\combo.obj \
+	$(OBJDIR)\commands.obj \
+	$(OBJDIR)\constrai.obj \
+	$(OBJDIR)\controls.obj \
+	$(OBJDIR)\convto.obj \
+	$(OBJDIR)\ctxhelp.obj \
+	$(OBJDIR)\cursors.obj \
+	$(OBJDIR)\cut.obj \
+	$(OBJDIR)\dataitem.obj \
+	$(OBJDIR)\dca_acq.obj \
+	$(OBJDIR)\dca_glue.obj \
+	$(OBJDIR)\dcd_com.obj \
+	$(OBJDIR)\dda.obj \
+	$(OBJDIR)\defaults.obj \
+	$(OBJDIR)\dialog.obj \
+	$(OBJDIR)\dlgcms.obj \
+	$(OBJDIR)\dlgexpim.obj \
+	$(OBJDIR)\dlghisto.obj \
+	$(OBJDIR)\dlgjpeg.obj \
+	$(OBJDIR)\dlgrotim.obj \
+	$(OBJDIR)\dlgmgr.obj \
+	$(OBJDIR)\dlgmskld.obj \
+	$(OBJDIR)\dlgobjs.obj \
+	$(OBJDIR)\dlgscan.obj \
+	$(OBJDIR)\dlgsmap.obj \
+	$(OBJDIR)\dlgsumry.obj \
+	$(OBJDIR)\dlgsize.obj \
+	$(OBJDIR)\dlgtone.obj \
+	$(OBJDIR)\dlgtools.obj \
+	$(OBJDIR)\doccmds.obj \
+	$(OBJDIR)\doclist.obj \
+	$(OBJDIR)\drag.obj \
+	$(OBJDIR)\editpoly.obj \
+	$(OBJDIR)\effects.obj \
+	$(OBJDIR)\engine.obj \
+	$(OBJDIR)\epswrt.obj \
+	$(OBJDIR)\export.obj \
+	$(OBJDIR)\extname.obj \
+	$(OBJDIR)\fastbits.obj \
+	$(OBJDIR)\filt.obj \
+	$(OBJDIR)\filter.obj \
+	$(OBJDIR)\fileopt.obj \
+	$(OBJDIR)\findfile.obj \
+	$(OBJDIR)\fitpoly.obj \
+	$(OBJDIR)\flood.obj \
+	$(OBJDIR)\fonts.obj \
+	$(OBJDIR)\forum.obj \
+	$(OBJDIR)\gauss.obj \
+	$(OBJDIR)\getdev.obj \
+	$(OBJDIR)\grab.obj \
+	$(OBJDIR)\help.obj \
+	$(OBJDIR)\image.obj \
+	$(OBJDIR)\imgclip.obj \
+	$(OBJDIR)\imgcmd.obj \
+	$(OBJDIR)\imgedit.obj \
+	$(OBJDIR)\imgfunc.obj \
+	$(OBJDIR)\imghelp.obj \
+	$(OBJDIR)\imgio.obj \
+	$(OBJDIR)\imglist.obj \
+	$(OBJDIR)\imgold.obj \
+	$(OBJDIR)\imgpaint.obj \
+	$(OBJDIR)\imgutil.obj \
+	$(OBJDIR)\imprtrdr.obj \
+	$(OBJDIR)\initthrd.obj \
+	$(OBJDIR)\ipframe.obj \
+	$(OBJDIR)\macro.obj \
+	$(OBJDIR)\makepath.obj \
+	$(OBJDIR)\mail.obj \
+	$(OBJDIR)\map.obj \
+	$(OBJDIR)\marquee.obj \
+	$(OBJDIR)\maskutil.obj \
+	$(OBJDIR)\maskio.obj \
+	$(OBJDIR)\mdiframe.obj \
+	$(OBJDIR)\measure.obj \
+	$(OBJDIR)\message.obj \
+	$(OBJDIR)\monitor.obj \
+	$(OBJDIR)\objfloat.obj \
+	$(OBJDIR)\objutil.obj \
+	$(OBJDIR)\octools.obj \
+	$(OBJDIR)\olelistb.obj \
+	$(OBJDIR)\paledit.obj \
+	$(OBJDIR)\palette.obj \
+	$(OBJDIR)\palio.obj \
+	$(OBJDIR)\pallist.obj \
+	$(OBJDIR)\palprocs.obj \
+	$(OBJDIR)\paste.obj \
+	$(OBJDIR)\path.obj \
+	$(OBJDIR)\pcdui.obj \
+	$(OBJDIR)\pickpal.obj \
+	$(OBJDIR)\pickrgb.obj \
+	$(OBJDIR)\pixutil.obj \
+	$(OBJDIR)\plugin.obj \
+	$(OBJDIR)\popups.obj \
+	$(OBJDIR)\poly.obj \
+	$(OBJDIR)\pointutl.obj \
+	$(OBJDIR)\pplist.obj \
+	$(OBJDIR)\ppmodal.obj \
+	$(OBJDIR)\pptbars.obj \
+	$(OBJDIR)\prefs.obj \
+	$(OBJDIR)\print.obj \
+	$(OBJDIR)\prnprocs.obj \
+	$(OBJDIR)\prnstyle.obj \
+	$(OBJDIR)\process.obj \
+	$(OBJDIR)\propsht.obj \
+	$(OBJDIR)\ps.obj \
+	$(OBJDIR)\retouch.obj \
+	$(OBJDIR)\root.obj \
+	$(OBJDIR)\rotate.obj \
+	$(OBJDIR)\rulers.obj \
+	$(OBJDIR)\runtask.obj \
+	$(OBJDIR)\saveload.obj \
+	$(OBJDIR)\select.obj \
+	$(OBJDIR)\shapedit.obj \
+	$(OBJDIR)\smart.obj \
+	$(OBJDIR)\split.obj \
+	$(OBJDIR)\suminfo.obj \
+	$(OBJDIR)\suminfo2.obj \
+	$(OBJDIR)\svrdoc.obj \
+	$(OBJDIR)\svrdrop.obj \
+	$(OBJDIR)\svritem.obj \
+	$(OBJDIR)\svrview.obj \
+	$(OBJDIR)\tablet.obj \
+	$(OBJDIR)\tchroma.obj \
+	$(OBJDIR)\tcrop.obj \
+	$(OBJDIR)\taskman.obj \
+	$(OBJDIR)\tbardlgs.obj \
+	$(OBJDIR)\text.obj \
+	$(OBJDIR)\textime.obj \
+	$(OBJDIR)\toolproc.obj \
+	$(OBJDIR)\tracer.obj \
+	$(OBJDIR)\track.obj \
+	$(OBJDIR)\tcontrol.obj \
+	$(OBJDIR)\tdraw.obj \
+	$(OBJDIR)\tfill.obj \
+	$(OBJDIR)\thread.obj \
+	$(OBJDIR)\tobjsel.obj \
+	$(OBJDIR)\tpaint.obj \
+	$(OBJDIR)\tprobe.obj \
+	$(OBJDIR)\tselect.obj \
+	$(OBJDIR)\tshield.obj \
+	$(OBJDIR)\tstitch.obj \
+	$(OBJDIR)\ttext.obj \
+	$(OBJDIR)\ttform.obj \
+	$(OBJDIR)\view.obj \
+	$(OBJDIR)\viewcmds.obj \
+	$(OBJDIR)\viewcmd2.obj \
+	$(OBJDIR)\visual.obj \
+	$(OBJDIR)\vignette.obj \
+	$(OBJDIR)\winimage.obj \
+	$(OBJDIR)\winpal.obj \
+	$(OBJDIR)\winprocs.obj \
+	$(OBJDIR)\wintools.obj \
+	$(OBJDIR)\zoom.obj
+
+PPOBJS: $(OBJS)
+
+##############################################################################
+#
+#--- Implicit Rules
+#    make any you think you will need.  They can be identical in nature,
+#    but NMAKE wants have at least one for each possible virtual combination
+#
+FRAMEHDRS=\
+	$(REFDIR)\mgxframe.h
+
+LIBHDRS=\
+	$(REFDIR)\imgutil.h\
+	$(REFDIR)\superblt.h\
+	$(REFDIR)\types.h
+
+CTLHDRS=\
+	$(REFDIR)\ctllib.h
+	
+APPHDRS=\
+	$(INCDIR)\routines.h\
+	$(INCDIR)\image.h\
+	$(INCDIR)\cmdlist.h\
+	$(INCDIR)\color.h\
+	$(INCDIR)\app.h\
+	$(INCDIR)\avi.h\
+	$(INCDIR)\brush.h\
+	$(INCDIR)\shape.h\
+	$(INCDIR)\fileopt.h\
+	$(INCDIR)\engine.h\
+	$(INCDIR)\clrmng.h\
+	$(INCDIR)\cmdparms.h\
+	$(INCDIR)\objedit.h\
+	$(INCDIR)\gauss.h\
+	$(INCDIR)\tselect.h\
+	$(INCDIR)\tcontrol.h\
+	$(INCDIR)\tdraw.h\
+	$(INCDIR)\dialog.h\
+	$(INCDIR)\controls.h\
+	$(INCDIR)\taskman.h\
+	$(INCDIR)\map.h\
+	$(INCDIR)\data.h\
+	$(INCDIR)\share.h\
+	$(INCDIR)\imgcmd.h\
+	$(INCDIR)\imgio.h\
+	$(INCDIR)\thread.h
+
+PCHDEPEND=$(FRAMEHDRS) $(LIBHDRS) $(CTLHDRS) $(APPHDRS)
+
+##############################################################################
+#
+#--- Dependencies
+#
+$(OBJDIR)\appcmds.obj : {$(VPATH)}appcmds.cpp ..\inc\monitor.h ..\inc\propsht.h
+$(OBJDIR)\astral.obj : {$(VPATH)}astral.cpp ..\inc\data.h
+$(OBJDIR)\automask.obj : {$(VPATH)}automask.cpp
+$(OBJDIR)\avi.obj : {$(VPATH)}avi.cpp
+$(OBJDIR)\aviutil.obj : {$(VPATH)}aviutil.cpp
+$(OBJDIR)\aviintf.obj : {$(VPATH)}aviintf.cpp
+$(OBJDIR)\blend.obj : {$(VPATH)}blend.cpp
+$(OBJDIR)\bomb.obj : {$(VPATH)}bomb.cpp
+$(OBJDIR)\bruprocs.obj : {$(VPATH)}bruprocs.cpp
+$(OBJDIR)\brush.obj : {$(VPATH)}brush.cpp
+$(OBJDIR)\calib.obj : {$(VPATH)}calib.cpp
+$(OBJDIR)\class.obj : {$(VPATH)}class.cpp
+$(OBJDIR)\clrmng.obj : {$(VPATH)}clrmng.cpp
+$(OBJDIR)\cmask.obj : {$(VPATH)}cmask.cpp
+$(OBJDIR)\cmdenabl.obj : {$(VPATH)}cmdenabl.cpp ..\inc\cmdenabl.h
+$(OBJDIR)\cmdparms.obj : {$(VPATH)}cmdparms.cpp ..\inc\cmdparms.h
+$(OBJDIR)\cmdlist.obj : {$(VPATH)}cmdlist.cpp ..\inc\cmdtable.h ..\inc\cmdlist.h
+$(OBJDIR)\cmdmacro.obj : {$(VPATH)}cmdmacro.cpp ..\inc\cmdmacro.h
+$(OBJDIR)\color.obj : {$(VPATH)}color.cpp
+$(OBJDIR)\combo.obj : {$(VPATH)}combo.cpp
+$(OBJDIR)\commands.obj : {$(VPATH)}commands.cpp
+$(OBJDIR)\constrai.obj : {$(VPATH)}constrai.cpp
+$(OBJDIR)\controls.obj : {$(VPATH)}controls.cpp
+$(OBJDIR)\convto.obj : {$(VPATH)}convto.cpp
+$(OBJDIR)\ctlutil.obj : {$(VPATH)}ctlutil.cpp
+$(OBJDIR)\ctxhelp.obj : {$(VPATH)}ctxhelp.cpp
+$(OBJDIR)\cursors.obj : {$(VPATH)}cursors.cpp
+$(OBJDIR)\cut.obj : {$(VPATH)}cut.cpp
+$(OBJDIR)\dataitem.obj : {$(VPATH)}dataitem.cpp
+$(OBJDIR)\dca_acq.obj : {$(VPATH)}dca_acq.cpp
+$(OBJDIR)\dca_glue.obj : {$(VPATH)}dca_glue.cpp
+$(OBJDIR)\dcd_com.obj : {$(VPATH)}dcd_com.cpp
+$(OBJDIR)\dda.obj : {$(VPATH)}dda.cpp
+$(OBJDIR)\defaults.obj : {$(VPATH)}defaults.cpp
+$(OBJDIR)\dialog.obj : {$(VPATH)}dialog.cpp
+$(OBJDIR)\dlgcms.obj : {$(VPATH)}dlgcms.cpp
+$(OBJDIR)\dlgexpim.obj : {$(VPATH)}dlgexpim.cpp
+$(OBJDIR)\dlghisto.obj : {$(VPATH)}dlghisto.cpp
+$(OBJDIR)\dlgrotim.obj : {$(VPATH)}dlgrotim.cpp
+$(OBJDIR)\dlgjpeg.obj : {$(VPATH)}dlgjpeg.cpp
+$(OBJDIR)\dlgmskld.obj : {$(VPATH)}dlgmskld.cpp
+$(OBJDIR)\dlgmgr.obj : {$(VPATH)}dlgmgr.cpp
+$(OBJDIR)\dlgobjs.obj : {$(VPATH)}dlgobjs.cpp
+$(OBJDIR)\dlgscan.obj : {$(VPATH)}dlgscan.cpp
+$(OBJDIR)\dlgsmap.obj : {$(VPATH)}dlgsmap.cpp
+$(OBJDIR)\dlgsumry.obj : {$(VPATH)}dlgsumry.cpp
+$(OBJDIR)\dlgsize.obj : {$(VPATH)}dlgsize.cpp
+$(OBJDIR)\dlgtone.obj : {$(VPATH)}dlgtone.cpp
+$(OBJDIR)\doccmds.obj : {$(VPATH)}doccmds.cpp
+$(OBJDIR)\doclist.obj : {$(VPATH)}doclist.cpp
+$(OBJDIR)\drag.obj : {$(VPATH)}drag.cpp
+$(OBJDIR)\editpoly.obj : {$(VPATH)}editpoly.cpp
+$(OBJDIR)\effects.obj : {$(VPATH)}effects.cpp
+$(OBJDIR)\engine.obj : {$(VPATH)}engine.cpp
+$(OBJDIR)\epswrt.obj : {$(VPATH)}epswrt.cpp
+$(OBJDIR)\export.obj : {$(VPATH)}export.cpp
+$(OBJDIR)\extname.obj : {$(VPATH)}extname.cpp
+$(OBJDIR)\fastbits.obj : {$(VPATH)}fastbits.cpp
+$(OBJDIR)\filt.obj : {$(VPATH)}filt.cpp
+$(OBJDIR)\filter.obj : {$(VPATH)}filter.cpp
+$(OBJDIR)\fileopt.obj : {$(VPATH)}fileopt.cpp
+$(OBJDIR)\findfile.obj : {$(VPATH)}findfile.cpp
+$(OBJDIR)\fitpoly.obj : {$(VPATH)}fitpoly.cpp
+$(OBJDIR)\flood.obj : {$(VPATH)}flood.cpp
+$(OBJDIR)\fonts.obj : {$(VPATH)}fonts.cpp
+$(OBJDIR)\forum.obj : {$(VPATH)}forum.cpp
+$(OBJDIR)\mdiframe.obj : {$(VPATH)}mdiframe.cpp ..\inc\mdiframe.h
+$(OBJDIR)\gauss.obj : {$(VPATH)}gauss.cpp
+$(OBJDIR)\getdev.obj : {$(VPATH)}getdev.cpp
+$(OBJDIR)\grab.obj : {$(VPATH)}grab.cpp
+$(OBJDIR)\help.obj : {$(VPATH)}help.cpp
+$(OBJDIR)\image.obj : {$(VPATH)}image.cpp
+$(OBJDIR)\imgcmd.obj : {$(VPATH)}imgcmd.cpp
+$(OBJDIR)\initthrd.obj : {$(VPATH)}initthrd.cpp ..\inc\initthrd.h
+$(OBJDIR)\ipframe.obj : {$(VPATH)}ipframe.cpp
+$(OBJDIR)\macro.obj : {$(VPATH)}macro.cpp
+$(OBJDIR)\makepath.obj : {$(VPATH)}makepath.cpp
+$(OBJDIR)\mail.obj : {$(VPATH)}mail.cpp
+$(OBJDIR)\map.obj : {$(VPATH)}map.cpp
+$(OBJDIR)\marquee.obj : {$(VPATH)}marquee.cpp
+$(OBJDIR)\mask.obj : {$(VPATH)}mask.cpp
+$(OBJDIR)\maskio.obj : {$(VPATH)}maskio.cpp
+$(OBJDIR)\measure.obj : {$(VPATH)}measure.cpp
+$(OBJDIR)\message.obj : {$(VPATH)}message.cpp
+$(OBJDIR)\monitor.obj : {$(VPATH)}monitor.cpp ..\inc\monitor.h ..\inc\propsht.h
+$(OBJDIR)\objedit.obj : {$(VPATH)}objedit.cpp
+$(OBJDIR)\objfloat.obj : {$(VPATH)}objfloat.cpp
+$(OBJDIR)\olelistb.obj : {$(VPATH)}olelistb.cpp
+$(OBJDIR)\paledit.obj : {$(VPATH)}paledit.cpp
+$(OBJDIR)\palette.obj : {$(VPATH)}palette.cpp
+$(OBJDIR)\palio.obj : {$(VPATH)}palio.cpp
+$(OBJDIR)\pallist.obj : {$(VPATH)}pallist.cpp
+$(OBJDIR)\palprocs.obj : {$(VPATH)}palprocs.cpp
+$(OBJDIR)\paste.obj : {$(VPATH)}paste.cpp
+$(OBJDIR)\path.obj : {$(VPATH)}path.cpp
+$(OBJDIR)\pickrgb.obj : {$(VPATH)}pickrgb.cpp
+$(OBJDIR)\pickpal.obj : {$(VPATH)}pickpal.cpp
+$(OBJDIR)\pixmap.obj : {$(VPATH)}pixmap.cpp
+$(OBJDIR)\plugin.obj : {$(VPATH)}plugin.cpp
+$(OBJDIR)\popups.obj : {$(VPATH)}popups.cpp
+$(OBJDIR)\poly.obj : {$(VPATH)}poly.cpp
+$(OBJDIR)\pointutl.obj : {$(VPATH)}pointutl.cpp
+$(OBJDIR)\pplist.obj : {$(VPATH)}pplist.cpp
+$(OBJDIR)\ppmodal.obj : {$(VPATH)}ppmodal.cpp ..\inc\ppmodal.h
+$(OBJDIR)\pptbars.obj : {$(VPATH)}pptbars.cpp ..\inc\pptbars.h
+$(OBJDIR)\root.obj : {$(VPATH)}root.cpp
+$(OBJDIR)\prefs.obj : {$(VPATH)}prefs.cpp ..\inc\prefs.h ..\inc\propsht.h
+$(OBJDIR)\print.obj : {$(VPATH)}print.cpp
+$(OBJDIR)\prnprocs.obj : {$(VPATH)}prnprocs.cpp ..\inc\prnstyle.h ..\inc\propsht.h
+$(OBJDIR)\prnstyle.obj : {$(VPATH)}prnstyle.cpp ..\inc\prnstyle.h ..\inc\propsht.h
+$(OBJDIR)\process.obj : {$(VPATH)}process.cpp
+$(OBJDIR)\ps.obj : {$(VPATH)}ps.cpp
+$(OBJDIR)\retouch.obj : {$(VPATH)}retouch.cpp
+$(OBJDIR)\rotate.obj : {$(VPATH)}rotate.cpp
+$(OBJDIR)\rulers.obj : {$(VPATH)}rulers.cpp
+$(OBJDIR)\runtask.obj : {$(VPATH)}runtask.cpp
+$(OBJDIR)\saveload.obj : {$(VPATH)}saveload.cpp
+$(OBJDIR)\select.obj : {$(VPATH)}select.cpp
+$(OBJDIR)\shapeedit.obj : {$(VPATH)}shapeedit.cpp
+$(OBJDIR)\smart.obj : {$(VPATH)}smart.cpp
+$(OBJDIR)\split.obj : {$(VPATH)}split.cpp
+$(OBJDIR)\suminfo.obj : {$(VPATH)}suminfo.cpp
+$(OBJDIR)\suminfo2.obj : {$(VPATH)}suminfo2.cpp
+$(OBJDIR)\svrdoc.obj : {$(VPATH)}svrdoc.cpp
+$(OBJDIR)\svrdrop.obj : {$(VPATH)}svrdrop.cpp
+$(OBJDIR)\svritem.obj : {$(VPATH)}svritem.cpp
+$(OBJDIR)\svrview.obj : {$(VPATH)}svrview.cpp
+$(OBJDIR)\tablet.obj : {$(VPATH)}tablet.cpp
+$(OBJDIR)\taskman.obj : {$(VPATH)}taskman.cpp
+$(OBJDIR)\tchroma.obj : {$(VPATH)}tchroma.cpp
+$(OBJDIR)\tcrop.obj : {$(VPATH)}tcrop.cpp
+$(OBJDIR)\text.obj : {$(VPATH)}text.cpp		  
+$(OBJDIR)\textime.obj : {$(VPATH)}textime.cpp	..\inc\textime.h
+$(OBJDIR)\toolproc.obj : {$(VPATH)}toolproc.cpp
+$(OBJDIR)\tracer.obj : {$(VPATH)}tracer.cpp
+$(OBJDIR)\track.obj : {$(VPATH)}track.cpp
+$(OBJDIR)\tcontrol.obj : {$(VPATH)}tcontrol.cpp
+$(OBJDIR)\tdraw.obj : {$(VPATH)}tdraw.cpp
+$(OBJDIR)\tfill.obj : {$(VPATH)}tfill.cpp
+$(OBJDIR)\thread.obj : {$(VPATH)}thread.cpp ..\inc\thread.h
+$(OBJDIR)\tobjsel.obj : {$(VPATH)}tobjsel.cpp
+$(OBJDIR)\tpaint.obj : {$(VPATH)}tpaint.cpp
+$(OBJDIR)\tprobe.obj : {$(VPATH)}tprobe.cpp
+$(OBJDIR)\tselect.obj : {$(VPATH)}tselect.cpp
+$(OBJDIR)\tshield.obj : {$(VPATH)}tshield.cpp
+$(OBJDIR)\tstitch.obj : {$(VPATH)}tstitch.cpp
+$(OBJDIR)\ttext.obj : {$(VPATH)}ttext.cpp	
+$(OBJDIR)\ttform.obj : {$(VPATH)}ttform.cpp
+$(OBJDIR)\view.obj : {$(VPATH)}view.cpp
+$(OBJDIR)\visual.obj : {$(VPATH)}visual.cpp
+$(OBJDIR)\vignette.obj : {$(VPATH)}vignette.cpp
+$(OBJDIR)\winimage.obj : {$(VPATH)}winimage.cpp
+$(OBJDIR)\winpal.obj : {$(VPATH)}winpal.cpp
+$(OBJDIR)\winprocs.obj : {$(VPATH)}winprocs.cpp
+$(OBJDIR)\wintools.obj : {$(VPATH)}wintools.cpp
+$(OBJDIR)\zoom.obj : {$(VPATH)}zoom.cpp
+$(OBJDIR)\pcdui.obj : {$(VPATH)}pcdui.cpp
+$(OBJDIR)\viewcmds.obj : {$(VPATH)}viewcmds.cpp
+$(OBJDIR)\viewcmd2.obj : {$(VPATH)}viewcmd2.cpp
+$(OBJDIR)\imgutil.obj: {$(VPATH)}imgutil.cpp
+
+##############################################################################

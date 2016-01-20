@@ -1,0 +1,627 @@
+<HTML>
+	<HEAD>
+		<title>AmericanGreetings.com - Introducing Paper Cards</title><script language="javascript">
+<!--
+//Generic Open Window
+function OpenNewWindow(url,winwidth,winheight,bar)
+{
+  NewWindow = window.open(url,'descr','toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,copyhistory=no,width='+winwidth+',height='+winheight+',scrollbars='+bar)
+}
+//-->
+		</script>
+		<script language="javascript">
+	<!--
+	function IsValidPhoneNo(s)
+	{
+		var ValidChars=["-"," ","&nbsp;","(",")"]
+		var ch
+		var len = s.length
+		for(var i = 0; i < len; i++)
+		{
+			ch = s.charAt(i);
+			
+			if(isNaN(ch))
+			{
+				var j
+				for (j = 0; j < ValidChars.length; j++) 
+				{
+					if(ch == ValidChars[j])
+						break;
+				}
+				if(j == ValidChars.length)
+					return false;				
+			}
+			
+		}
+		return true;	
+	}
+
+	function isBlank(s) {
+		
+		var blankCharacters = [" ", "&nbsp;", "&#032;"];
+		var macMsg, space;	
+		macFlag = 0;
+		
+		for (var i = 0; i < blankCharacters.length; i++) {	
+			
+				s = s.replace(eval("/" + blankCharacters[i] + "/gi"), "");		
+			
+		} 
+		
+			
+		
+		return (s == "") ? true:false;
+	}
+
+	function HasBlank(s)
+	{
+		var blankCharacters = [" ", "&nbsp;", "&#032;"];
+		var ch
+		var len = s.length
+		for(var i = 0; i < len; i++)
+		{
+			ch = s.charAt(i);
+			for (var j = 0; j < blankCharacters.length; j++) 
+			{
+				if(ch == blankCharacters[j])
+					return true;
+			}		
+		}
+		return false;
+	}
+
+	//-->
+		</script>
+		<script LANGUAGE="javascript"> 
+<!--
+	function onClick_DeleteCards(sSrno)
+	{	
+		document.shoppingcart.DelCard.value = sSrno
+		document.shoppingcart.Job.value="Delete";
+		document.shoppingcart.submit();
+	}
+	 
+	function cardhome()
+	{
+		window.location = "FYSPage3.htm?nextmodule=home"
+	}
+		
+	function ChangeQty_onclick()
+	{
+		var sFlag;
+		sFlag=true
+		for (var i = 1; i <= document.shoppingcart.CardCount.value ; i++)
+		{
+				var nCount,sQty;
+				nCount = "changeQty" + i
+				sQty = (document.shoppingcart[nCount].value)
+				if (sQty == "")
+				   {
+				    alert("Please enter the number of cards.");
+				     document.shoppingcart[nCount].focus();
+				     sFlag = false
+				    }
+				else if ((sQty == 0) || (sQty < 0))
+					{
+				    alert("Number of cards must be greater than zero.");
+				     document.shoppingcart[nCount].focus();
+				     sFlag = false
+				    } 
+				else if (isNaN(sQty))  
+					{
+				    alert("Number of cards must be numeric.");
+				    document.shoppingcart[nCount].focus();
+				    sFlag = false
+				    } 
+			if (sFlag==false)
+			{
+				break;
+			}
+		}
+		if (sFlag==false)
+		{
+			return;
+		}
+
+		document.shoppingcart.Job.value="changeQty";
+		document.shoppingcart.submit();
+		return true;	
+	}
+	
+	function OnCheckOutWithCard()
+ 	{	
+		var Incomplete; 
+		var retOpt;
+		
+		Incomplete = document.shoppingcart.IncompleteTrans.value;	
+		
+		
+			if(!isBlank(document.shoppingcart.CouponId.value))
+			{
+				alert("Please click the Apply button for Coupon Redemption");				
+				return;
+			}
+			
+		alert("here");
+		if (Incomplete == "y")
+			{
+				retOpt = window.confirm ("There are incomplete cards in your shopping cart,\nClick on OK to continue with valid cards.");
+				if (retOpt)
+					{
+					document.shoppingcart.method = "POST";
+					document.shoppingcart.action = "FYSPage3.htm?nextmodule=billing";
+					document.shoppingcart.submit();
+					return;
+					}
+				else
+					return ;
+			}
+		else
+			{
+				alert("here 1");
+				document.shoppingcart.method = "POST";
+				document.shoppingcart.action = "FYSPage3.htm?nextmodule=billing";
+				document.shoppingcart.submit();
+				return;
+			}
+	}
+	
+	function OnClick_ApplyCouponId()
+	{	
+		if(isBlank(document.shoppingcart.CouponId.value))
+		{
+			alert("Enter CouponId.");
+			document.shoppingcart.CouponId.value = "";
+			document.shoppingcart.CouponId.focus();
+			return;
+		}
+		if(document.shoppingcart.CouponId.value.length < 10)
+		{	
+			alert("Invalid Redemption Code. Please check the code and try again.")		
+			document.shoppingcart.CouponId.focus()
+			return;
+		}
+		if(HasBlank(document.shoppingcart.CouponId.value)) 	
+		{
+			alert("CouponId can not contain blanks.")
+			document.shoppingcart.CouponId.focus()
+			return;
+		}		
+		document.shoppingcart.Job.value = "CouponId"
+		document.shoppingcart.method = "post"
+		document.shoppingcart.submit()
+	}
+	
+	function OnCheckOut()
+	{	
+		var Incomplete; 
+		
+		Incomplete = document.shoppingcart.IncompleteTrans.value;	
+		
+		
+			if(!isBlank(document.shoppingcart.CouponId.value))
+			{
+				alert("Please click the Apply button for Coupon Redemption");				
+				return;
+			}
+			
+		
+		if (Incomplete == "y")
+			{
+				alert ("Please provide shipping Information for\nthe card selected or remove the card.");
+				return;	
+			}
+		else
+			{
+				document.shoppingcart.method = "POST";
+				document.shoppingcart.action = "FYSPage3.htm?nextmodule=billing";
+				document.shoppingcart.submit();
+				return;
+			}
+	}
+	
+	
+	function Link_onClickAfterCheck(str,TargetLocation,sErrMsg,NextMod,ModAction)
+	{
+		var retOpt;	
+		retOpt = window.confirm (sErrMsg);  		
+		if (str == 0)
+		{		
+			if (retOpt)
+			{
+				window.location = TargetLocation;
+				return true;
+			}
+		}
+
+		if (str == 1) 
+		{		
+			if (retOpt)
+			{
+				document.Form.hdNextModule.value = NextMod;
+				document.Form.hdNextModAction.value = ModAction;
+				document.Form.submit();
+				return true;	
+			}
+		}
+	}
+ 
+//-->
+		</script>
+		<LINK title="SS" href="https://secure.4yoursoul.com/sitegraphics/C8/8_StyleSheet_win_ie.css"
+			type="text/css" rel="stylesheet">
+	</HEAD>
+	<body leftMargin="0" topMargin="0" marginwidth="0" marginheight="0" text="#000000" vLink="#efb642"
+		aLink="#efb642" link="#efb642" bgColor="#ffffff">
+		<CENTER>
+			<SCRIPT LANGUAGE="javascript">
+<!--
+	function fnAlertMsg(nShowMsg, sURL, sMessage ) //if nShowMsg > 0 then show alert msg
+	{
+		var retOpt;
+		if (nShowMsg > 0)
+		{
+			retOpt = window.confirm(sMessage);
+			if (retOpt)
+			{
+				document.location = sURL;
+			}
+		}
+		else
+		{
+			document.location = sURL;
+		}
+	}
+//-->
+			</SCRIPT>
+			<!--master table-->
+			<TABLE cellSpacing="0" cellPadding="0" width="770" bgColor="#ffffff" border="0" ID="Table3">
+				<TBODY>
+					<TR> <!--Top space-->
+						<TD vAlign="top" colspan="3" width="100%"><IMG height="5" src="https://secure.4yoursoul.com/sitegraphics/C8/8_space.gif" width="770"
+								border="0"></TD>
+					</TR>
+					<TR>
+						<TD vAlign="top" align="center" width="100%" BGColor="#e7e3e7">
+							<TABLE cellSpacing="0" cellPadding="0" border="0" width="100%" ID="Table4">
+								<TBODY>
+									<TR>
+										<!--left nav-->
+										<TD class="textb" vAlign="top" align="left" width="175">
+											<TABLE cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table5">
+												<TBODY>
+													<TR>
+														<TD BGColor="#e7e3e7" vAlign="middle" align="center" height="50"><IMG src="https://secure.4yoursoul.com/sitegraphics/C8/8_yellow_checkout.gif" border="0"></TD>
+													</TR>
+													<TR>
+														<TD vAlign="top">
+															<table border="0" valign="top" cellspacing="0" cellpadding="0" align="left" ID="Table6">
+																<tr>
+																	<td valign="top">
+																		<table border="0" WIDTH="100%" align="left" valign="top" cellspacing="0" cellpadding="0"
+																			leftmargin="0" topmargin="0" ID="Table7">
+																			<tr>
+																				<td valign="top">
+																					<table border="0" align="left" valign="top" cellspacing="0" cellpadding="0" ID="Table8">
+																						<tr>
+																							<td colspan="3" align="left" height="24" class="thumbsbold" valign="bottom">&nbsp;&nbsp;&nbsp;<font class="largetext" border="0">&nbsp;Instructions</font></td>
+																						</tr>
+																						<tr>
+																							<td colspan="3">&nbsp;</td>
+																						</tr>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td valign="top"><font class="thumbs">&nbsp;&nbsp;&nbsp;1.</font></td>
+																							<td align="left" valign="top">
+																								<font class="thumbs">&nbsp;Adjust Quantity:
+																									<br>
+																									Change the quantity in the associated field and click Update Cart. </font>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						<tr height="5">
+																							<td colspan="4"></td>
+																						</tr>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td valign="top"><font class="thumbs">&nbsp;&nbsp;&nbsp;2.</font></td>
+																							<td align="left" valign="top">
+																								<font class="thumbs">&nbsp;Checkout: Click&nbsp;<b>Checkout</b>. </font>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						<tr height="5">
+																							<td colspan="4"></td>
+																						</tr>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td valign="top"><font class="thumbs">&nbsp;&nbsp;&nbsp;3.</font></td>
+																							<td valign="top">
+																								<font class="thumbs">Delete&nbsp;Cards:<br>
+																									Click&nbsp;<b>Remove</b>.</font></td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						<tr height="5">
+																							<td colspan="4"></td>
+																						</tr>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td valign="top"><font class="thumbs">&nbsp;&nbsp;&nbsp;4.</font></td>
+																							<td valign="top">
+																								<font class="thumbs">Continue Card Shopping:<br>
+																									Click&nbsp;<b>Shop More</b>.</font></td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						<tr height="5">
+																							<td colspan="4"></td>
+																						</tr>
+																					</table>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</table>
+														</TD>
+													<TR>
+													</TR>
+												</TBODY>
+											</TABLE>
+											<BR>
+										</TD>
+										<!--end left nav-->
+										<!--space between left & right-->
+										<TD vAlign="top" align="center" width="5" bgColor="#ffffff"><IMG height="5" src="https://secure.4yoursoul.com/sitegraphics/C8/8_space.gif" width="5"
+												border="0"></TD>
+										<!--end of space between left & right-->
+										<!--right nav-->
+										<!-- this is the form tag action="/ShoppingCart/8/ShoppingCart.asp" -->
+										<TD vAlign="top" align="center" width="550" bgColor="#ffffff">
+											<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#f2b63a" ID="Table9">
+												<form name="shoppingcart" method="post" LANGUAGE="javascript"
+													ID="Form1">
+													<tr>
+														<td vAlign="top" align="right">
+															<table cellSpacing="0" cellPadding="0" width="100%" border="0" bgcolor="#ffffff" ID="Table10">
+																<TBODY>
+																	<tr>
+																		<td colspan="2">
+																			<TABLE valign="top" cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table11">
+																				<TBODY>
+																					<TR bgcolor="#f2b63a">
+																						<TD vAlign="middle" align="center"><IMG src="https://secure.4yoursoul.com/sitegraphics/C8/8_steps_1_1.gif" border="0"></TD>
+																						<TD vAlign="top" align="center">
+																							<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" ID="Table12">
+																								<tr>
+																									<td align="left">
+																										<IMG src="https://secure.4yoursoul.com/sitegraphics/C8/8_steps_4_2.gif">
+																									</td>
+																								</tr>
+																							</TABLE>
+																						</TD>
+																					</TR>
+																				</TBODY>
+																			</TABLE>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>&nbsp;&nbsp;</td>
+																		<td align="center">
+																			<!--///////////////////////////////////////////////////////-->
+																			<table border="0" align="center" valign="top" cellspacing="0" cellpadding="0" ID="Table13">
+																				<!--beg of tr-->
+																				<tr>
+																					<td>
+																						<br>
+																						<table width="100%" align="left" valign="Top" cellpadding="0" cellspacing="0" border="0"
+																							ID="Table14">
+																							<TBODY>
+																								<tr width="100%" class="navcolor2">
+																									<td align="center" width="7%"><font class="thumbsbold">Card</font></td>
+																									<td align="center" width="17%"><font class="thumbsbold">Ship To Information</font></td>
+																									<td align="center" width="5%"><font class="thumbsbold">Quantity</font></td>
+																									<td align="center" width="3%"><font class="thumbsbold">Price</font></td>
+																									<td align="center" width="7%"><font class="thumbsbold">Total Price</font></td>
+																									<td align="center" width="5%"></td>
+																								</tr>
+																								<tr width="100%" height="25">
+																									<td colspan="6"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_spacerWithColor.gif" width="550"
+																											height="2" border="0"></td>
+																								</tr>
+																								<tr height="1">
+																									<td height="1" colspan="6"></td>
+																								</tr>
+																								<tr class="thumbs" valign="top">
+																									<!--CARD-->
+																									<td align="center" valign="top" class="thumbs">
+																										<table border="0" valign="top" cellpadding="0" cellspacing="0" ID="Table15">
+																											<tr>
+																												<td>
+																													<table align="center" border="0" cellspacing="0" cellpadding="0" ID="Table16">
+																														<tr>
+																															<td background="https://secure.4yoursoul.com/sitegraphics/C8/8_v-babyshaddow.gif" width="59"
+																																height="79" align="left" valign="top">
+																																<a href="FYSPage3.htm?nextmodule=editcard&amp;action=reeditcard&amp;cdsrno={37AA50F8-7C37-4C3E-BCB8-F4AC21CEB72A}&amp;withtext=Y&amp;cardid=918&amp;bulkmail=n&amp;cardtype=C">
+																																	<img border="1" src="/images/thumbnailimages/full-bleed/text/9/918_FT.jpg" valign='top'
+																																		width="54" height="74"> </a>
+																															</td>
+																														</tr>
+																													</table>
+																												</td>
+																											</tr>
+																											<tr>
+																												<td valign="top">
+																													<table width="100%" height="0" border="0" cellspacing="0" cellpadding="0" ID="Table17">
+																														<tr>
+																															<td align="center">
+																																<a class="thumbsbrown" href="FYSPage3.htm?nextmodule=editcard&amp;action=reeditcard&amp;cdsrno={37AA50F8-7C37-4C3E-BCB8-F4AC21CEB72A}&amp;withtext=Y&amp;cardid=918&amp;bulkmail=n&amp;cardtype=C">
+																																	Edit</a></td>
+																														</tr>
+																														<tr>
+																															<td align="center">
+																																<a class="thumbsbrown" href="FYSPage3.htm?nextmodule=carddisplay&amp;action=replacecard&amp;cdsrno={37AA50F8-7C37-4C3E-BCB8-F4AC21CEB72A}&amp;cardtype=C">
+																																	Replace</a></FONT></td>
+																														</tr>
+																													</table>
+																												</td>
+																											</tr>
+																										</table>
+																									</td>
+																									<!--SHIP TO INFORMATION-->
+																									<td align="center" class="thumbs" valign="top">
+																										jim&nbsp;mcc<br>
+																										354<br>
+																										andover, MA&nbsp;01810<br>
+																										USA&nbsp;
+																										<br>
+																										<a class="thumbsbrown" href="FYSPage3.htm?nextmodule=shipping&amp;bulkmail=n&amp;cdsrno={37AA50F8-7C37-4C3E-BCB8-F4AC21CEB72A}&amp;cardtype=C">
+																											Edit Information</FONT></a><br>
+																										<br>
+																									</td>
+																									<!--Quantity-->
+																									<td class="thumbs" align="center" valign="top"><font class="thumbs"> <input type="text" id="changeQty1" name="changeQty1" value="1" size="1" maxlength="4">
+																										</font>
+																									</td>
+																									<input type="hidden" id="cdSrNo1" name="cdSrNo1" value="{37AA50F8-7C37-4C3E-BCB8-F4AC21CEB72A}">
+																									<input type="hidden" id="cdCardId1" name="cdCardId1" value="918"> <input type="hidden" id="cdCardType1" name="cdCardType1" value="C">
+																									<!--Price-->
+																									<td class="thumbs" align="center" valign="top"><font class="thumbs">2.95</font></td>
+																									<!--Total-->
+																									<td class="thumbs" align="center" valign="top"><font class="thumbs">2.95</font></td>
+																					</td>
+																					<td class="thumbs" align="left" valign="top">
+																						<a class="thumbsbrown" href="javascript: onClick_DeleteCards('{37AA50F8-7C37-4C3E-BCB8-F4AC21CEB72A}')">
+																							Remove</a>
+																					</td>
+																				</tr>
+																				<input type="hidden" id="IncompleteTrans" name="IncompleteTrans" value="n">
+																				<tr>
+																					<td colspan='7'>&nbsp;</td>
+																				</tr>
+																				<!--<tr><td colspan='7'>&nbsp;</td></tr>-->
+																				<tr align="right" height="10">
+																					<td colspan="6" align="left">&nbsp;</td>
+																				</tr>
+																				<tr height="25">
+																					<td colspan="6"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_spacerWithColor.gif" width="550"
+																							height="2" border="0"></td>
+																				</tr>
+																				<tr>
+																					<td colspan="6"><font class="thumbs">Do you have a special redemption code that you 
+																							would like to use?</font></td>
+																				</tr>
+																				<tr height="10">
+																					<td colspan="6"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif" width="550" height="2"
+																							border="0"></td>
+																				</tr>
+																				<tr>
+																					<td colspan="6">
+																						<table border="0" cellspacing="0" cellpadding="0" width="80%" ID="Table18">
+																							<tr>
+																								<td><font class="thumbs">Redemption code:</font></td>
+																								<td><input name="CouponId" id="CouponId" type="textbox" size="25" maxlength="10"></td>
+																								<td><a href="Javascript: OnClick_ApplyCouponId()"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_apply.gif" border="0"></a></td>
+																							</tr>
+																						</table>
+																					</td>
+																				<tr height="10">
+																					<td colspan="6"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif" width="550" height="2"
+																							border="0"></td>
+																				</tr>
+																				<tr>
+																					<td colspan="6"></td>
+																				</tr>
+																				<tr height="15">
+																					<td colspan="6" valign="bottom"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_spacerWithColor.gif" width="550"
+																							height="2" border="0"></td>
+																				</tr>
+																				<!--<tr align="right" height="20"><td colspan="6" align="left"><img src="_l_cart607line.gif" width="550" height="1" border="0" alt=""></td></tr>
+	<tr align="right" height=10><td colspan="6" align="left" ></td></tr>-->
+																				<!--<tr align="right" height=10><td colspan="6" align="left">&nbsp;</td></tr>-->
+																				<tr align="right">
+																					<td colspan="6" align="right">
+																						<table border="0" cellspacing="0" cellpadding="0" align="right" width="100%" ID="Table19">
+																							<tr width="100%" height="10">
+																								<td colspan="3"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_spacer.gif" width="550" height="2"
+																										border="0"></td>
+																							</tr>
+																							<tr>
+																								<td width="40%"><font class="thumbs">If you changed quantity status above, click on 
+																										this button to:</font></td>
+																								<td align="center"><a href="JavaScript: ChangeQty_onclick()"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_update_shopping_basket.gif"
+																											border="0"></a></td>
+																								<td align="right">
+																									<table border="0" cellspacing="0" width="100%" align="right" cellpadding="0" ID="Table20">
+																										<tr align="right">
+																											<td align="right"></td>
+																										</tr>
+																										<tr align="right">
+																											<td align="right">
+																												<font class="thumbs">Postage : $0.00</font>
+																											</td>
+																										</tr>
+																										<tr align="right">
+																											<td align="right">
+																												<font class="thumbs">Sales Tax : $0.00</font>
+																											</td>
+																										</tr>
+																										<tr align="right">
+																											<td align="right">
+																												<font class="thumbs"><b>SubTotal : $2.95</font> </B>
+																											</td>
+																										</tr>
+																									</table>
+																								</td>
+																								<td>&nbsp;&nbsp;</td>
+																							</tr>
+																							<tr width="100%" height="25">
+																								<td colspan="4"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_spacerWithColor.gif" width="550"
+																										height="2" border="0"></td>
+																							</tr>
+																						</table>
+																					</td>
+																				<tr align="right" height="20">
+																					<td colspan="6" align="left"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_l_cart607line.gif" width="550"
+																							height="1" border="0" alt=""></td>
+																				</tr>
+																				<tr align="right" height="10">
+																					<td colspan="6" align="left"></td>
+																				</tr>
+																				<input type="hidden" id="holdcdsrno" name="holdcdsrno">
+																				<tr align="right">
+																					<td colspan="3" align="left" valign="top"><font class='thumbs'><a class="thumbsbrown" href="ShoppingCart.asp?action=emptycart">Empty 
+																								My Shopping Basket</a></font></td>
+																					<!-- "Javascript: OnCheckOutWithCard()" ?nextmodule=billing -->
+																					<td colspan="3" align="right"><a href="FYSPage3.htm"> <img src="https://secure.4yoursoul.com/sitegraphics/C8/8_shopping_basket_checkout.gif"
+																								align="absright" border="0"></a>&nbsp;&nbsp;<br>
+																						<a href="FYSPage3.htm?nextmodule=carddisplay"><img src="https://secure.4yoursoul.com/sitegraphics/C8/8_continue card shopping.gif"
+																								align="absright" border="0"></a>&nbsp;&nbsp;</td>
+																				</tr>
+																				<tr align="right" height="10">
+																					<td colspan="6" align="left"></td>
+																				</tr>
+																			</table>
+																		</td>
+																	</tr>
+														</td>
+													</tr>
+													<input type="hidden" name="Job" id="Job"> <input type="hidden" name="DelCard" ID="Hidden1">
+													<input type="hidden" name="CardCount" id="CardCount" value="1">
+											</table>
+										</TD>
+									<tr>
+									</tr>
+								</TBODY>
+							</TABLE>
+						</TD>
+					<tr>
+						</FORM></tr>
+				</TBODY>
+			</TABLE>
+			</TD> 
+			<!--end of right nav--> </TR></TBODY></TABLE></TD></TR> 
+			<!--Footer--> 
+			</TBODY></TABLE>
+		</CENTER>
+	</body>
+</HTML>

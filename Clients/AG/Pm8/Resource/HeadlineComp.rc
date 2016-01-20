@@ -1,0 +1,1066 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "AppStudio.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "HeadlineCompResource.h"
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "AppStudio.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""HeadlineCompResource.h""\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""shared\\Headlines\\HeadlineComp.rc2""  // non-App Studio edited resources\r\n"
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DIALOG_EDIT_COMPENSATION_DEGREE DIALOG DISCARDABLE  0, 0, 153, 50
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit Compensation Degree"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Compensation Degree:",
+                    CONTROL_STATIC_COMPENSATION_DEGREE,7,10,72,8
+    EDITTEXT        CONTROL_EDIT_COMPENSATION_DEGREE,92,7,54,14,
+                    ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,25,28,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,92,28,54,14
+END
+
+DIALOG_PROPERTY_PAGE_ATTRIBUTES_TAB DIALOG DISCARDABLE  0, 0, 203, 157
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Attributes"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        CONTROL_COMBO_ATTRIBUTES_TAB_FONT,68,7,128,59,
+                    CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        CONTROL_COMBO_ATTRIBUTES_TAB_ESCAPEMENT,68,58,128,82,
+                    CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Regular",CONTROL_RADIO_ATTRIBUTES_TAB_REGULAR,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,68,82,39,14
+    CONTROL         "Tight",CONTROL_RADIO_ATTRIBUTES_TAB_TIGHT,"Button",
+                    BS_AUTORADIOBUTTON,119,82,34,14
+    CONTROL         "Loose",CONTROL_RADIO_ATTRIBUTES_TAB_LOOSE,"Button",
+                    BS_AUTORADIOBUTTON,163,82,34,14
+    PUSHBUTTON      "&Edit Degree",CONTROL_BUTTON_ATTRIBUTES_TAB_EDIT_DEGREE,
+                    120,103,54,14
+    CONTROL         "Kerning",CONTROL_CHECKBOX_ATTRIBUTES_TAB_KERNING,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,69,112,40,10
+    CONTROL         "Leading",CONTROL_CHECKBOX_ATTRIBUTES_TAB_LEADING,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,69,98,41,10
+    EDITTEXT        CONTROL_EDIT_ATTRIBUTES_TAB_SCALE1,69,132,17,14,
+                    ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        CONTROL_EDIT_ATTRIBUTES_TAB_SCALE2,120,132,17,14,
+                    ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        CONTROL_EDIT_ATTRIBUTES_TAB_SCALE3,172,132,17,14,
+                    ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Font:",CONTROL_STATIC_ATTRIBUTES_TAB_FONT,38,9,16,8
+    LTEXT           "Escapement:",CONTROL_STATIC_ATTRIBUTES_TAB_ESCAPEMENT,
+                    11,60,46,8
+    GROUPBOX        "Line Scaling",CONTROL_STATIC_ATTRIBUTES_TAB_SCALING,7,
+                    124,189,26
+    LTEXT           "Scale 1:",CONTROL_STATIC_ATTRIBUTES_TAB_SCALE1,34,135,
+                    28,8
+    LTEXT           "Scale 2:",CONTROL_STATIC_ATTRIBUTES_TAB_SCALE2,89,135,
+                    28,8
+    LTEXT           "Scale 3:",CONTROL_STATIC_ATTRIBUTES_TAB_SCALE3,140,135,
+                    28,8
+    CONTROL         "Button1",CONTROL_BUTTON_ATTRIBUTES_TAB_LEFTJUST,"Button",
+                    BS_OWNERDRAW | WS_TABSTOP,68,43,14,11
+    CONTROL         "Button1",CONTROL_BUTTON_ATTRIBUTES_TAB_CENTERJUST,
+                    "Button",BS_OWNERDRAW | WS_TABSTOP,86,43,14,11
+    CONTROL         "Button1",CONTROL_BUTTON_ATTRIBUTES_TAB_RIGHTJUST,"Button",
+                    BS_OWNERDRAW | WS_TABSTOP,104,43,14,11
+    CONTROL         "Button1",CONTROL_BUTTON_ATTRIBUTES_TAB_FULLJUST,"Button",
+                    BS_OWNERDRAW | WS_TABSTOP,122,43,14,11
+    CONTROL         "Button1",CONTROL_BUTTON_ATTRIBUTES_TAB_BOLD,"Button",
+                    BS_OWNERDRAW | WS_TABSTOP,68,27,14,11
+    CONTROL         "Button1",CONTROL_BUTTON_ATTRIBUTES_TAB_ITALIC,"Button",
+                    BS_OWNERDRAW | WS_TABSTOP,86,27,14,11
+    CONTROL         "Button1",CONTROL_BUTTON_ATTRIBUTES_TAB_UNDERLINE,"Button",
+                    BS_OWNERDRAW | WS_TABSTOP,104,27,14,11
+    LTEXT           "Compensation:",
+                    CONTROL_STATIC_ATTRIBUTES_TAB_COMPENSATION,7,82,48,8
+    LTEXT           "Style:",CONTROL_STATIC_ATTRIBUTES_TAB_STYLE,36,29,18,8
+    LTEXT           "Justification:",
+                    CONTROL_STATIC_ATTRIBUTES_TAB_JUSTIFICATION,14,43,40,8
+END
+
+IDD_PPG_SHAPE DIALOG DISCARDABLE  0, 0, 235, 156
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Shape"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Non-Distort",IDC_RD_NON_DISTORT,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,7,12,58,14
+    CONTROL         "Follow Path",IDC_RD_FOLLOW_PATH,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,7,24,58,14
+    CONTROL         "Warp Shape",IDC_RD_WARP_SHAPE,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,7,36,58,14
+    CONTROL         "Alternate Baseline",IDC_RD_ALT_BASELINE,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,81,0,72,14
+    CONTROL         "Shear",IDC_RD_SHEAR,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,81,12,57,12
+    CONTROL         "Alternate Shear Rotate",IDC_RD_ALT_SHEAR,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,81,24,90,14
+    CONTROL         "Alternate Shear Shear",IDC_RD_ALT_SHEAR_SHEAR,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,81,36,84,14
+    CONTROL         "Distort",IDC_CB_NON_DISTORT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,3,51,10
+    EDITTEXT        CONTROL_EDIT_SHAPE_SHEAR_ANGLE,40,51,18,12,
+                    ES_AUTOHSCROLL
+    EDITTEXT        CONTROL_EDIT_SHAPE_ROTATION,123,51,18,12,ES_AUTOHSCROLL
+    EDITTEXT        CONTROL_EDIT_SHAPE_ALT_PERCENT,197,51,18,12,
+                    ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Angle:",CONTROL_STATIC_SHAPE_SHEAR_ANGLE,15,53,22,10
+    LTEXT           "Rotation:",CONTROL_STATIC_SHAPE_ROTATION,90,53,29,10
+    LTEXT           "Alt %:",CONTROL_STATIC_SHAPE_ALT_PERCENT,174,53,20,10
+    CONTROL         "Button1",IDC_BTN_SHAPE1,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,12,66,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE2,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,55,66,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE3,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,98,66,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE4,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,141,66,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE5,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,185,66,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE6,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,12,98,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE7,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,55,98,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE8,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,98,98,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE9,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,141,98,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE10,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,185,98,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE11,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,12,130,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE12,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,55,130,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE13,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,98,130,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE14,"Button",BS_OWNERDRAW | 
+                    WS_DISABLED | WS_TABSTOP,141,130,35,26
+    CONTROL         "Button1",IDC_BTN_SHAPE15,"Button",BS_OWNERDRAW | 
+                    WS_DISABLED | WS_TABSTOP,185,130,35,26
+    CONTROL         "Button1",IDC_BTN_SELECTED_BMP,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,173,1,35,26
+END
+
+IDD_PPG_OUTLINE DIALOG DISCARDABLE  0, 0, 235, 156
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Outline"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Stroke",IDC_RD_STROKE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,9,0,65,8
+    CONTROL         "Fill",IDC_RD_FILL,"Button",BS_AUTORADIOBUTTON,9,8,65,8
+    CONTROL         "Stroke && Fill",IDC_RD_STROKE_FILL,"Button",
+                    BS_AUTORADIOBUTTON,9,16,65,8
+    CONTROL         "Heavy",IDC_RD_HEAVY,"Button",BS_AUTORADIOBUTTON,9,24,65,
+                    8
+    CONTROL         "Double",IDC_RD_DOUBLE,"Button",BS_AUTORADIOBUTTON,9,32,
+                    65,8
+    CONTROL         "Blurred",IDC_RD_BLURRED,"Button",BS_AUTORADIOBUTTON,9,
+                    40,65,8
+    CONTROL         "Triple",IDC_RD_TRIPLE,"Button",BS_AUTORADIOBUTTON,9,48,
+                    65,8
+    CONTROL         "Hairline Double",IDC_RD_HAIRLINEDBL,"Button",
+                    BS_AUTORADIOBUTTON,9,56,65,8
+    CONTROL         "Double Hairline",IDC_RD_DBLHAIRLINE,"Button",
+                    BS_AUTORADIOBUTTON,9,64,65,8
+    CONTROL         "Embossed",IDC_RD_EMBOSSED,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED,9,72,65,8
+    CONTROL         "Debossed",IDC_RD_DEBOSSED,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED,9,80,65,8
+    CONTROL         "SoftEmbossed",IDC_RD_SOFTEMBOSSED,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,9,88,65,8
+    CONTROL         "SoftDebossed",IDC_RD_SOFTDEBOSSED,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,9,96,65,8
+    CONTROL         "Rounded",IDC_RD_ROUNDED,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED,9,104,65,8
+    CONTROL         "Glint",IDC_RD_GLINT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED,9,112,65,8
+    CONTROL         "SimpleFillStroke",IDC_RD_SIMPLEFILLSTROKE,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,9,120,65,8
+    CONTROL         "Hairline",IDC_RD_HAIRLINE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,13,145,35,8
+    CONTROL         "Thin",IDC_RD_THIN,"Button",BS_AUTORADIOBUTTON,54,145,32,
+                    8
+    CONTROL         "Medium",IDC_RD_MED,"Button",BS_AUTORADIOBUTTON,87,145,
+                    40,8
+    CONTROL         "Thick",IDC_RD_THICK,"Button",BS_AUTORADIOBUTTON,130,145,
+                    35,8
+    CONTROL         "Extra Thick",IDC_RD_THICK2,"Button",BS_AUTORADIOBUTTON,
+                    167,145,47,8
+    COMBOBOX        IDC_CMB_STROKE_COLOR,81,47,70,84,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_CMB_FILL_COLOR,156,47,70,84,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CMB_SHADOW_COLOR,81,90,70,95,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CMB_HILITE_COLOR,156,90,70,95,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Line Weight",IDC_GP_LINEWEIGHT,10,130,225,26,WS_GROUP
+    GROUPBOX        "Colors",IDC_GP_COLORS,75,13,155,105
+    LTEXT           "Stroke",IDC_S_STROKE,81,33,70,12
+    LTEXT           "Fill",IDC_S_FILL,156,33,70,12
+    LTEXT           "Shadow",IDC_S_SHADOW,81,77,70,12
+    LTEXT           "Hilite",IDC_S_HILITE,156,77,70,12
+END
+
+IDD_PPG_EFFECTS DIALOG DISCARDABLE  0, 0, 235, 156
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Effects"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "No Effects",CONTROL_RADIO_BTN_EFFECTS_NO_EFFECTS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,15,9,55,10
+    CONTROL         "Simple Stack",CONTROL_RADIO_BTN_EFFECTS_SIMPLE_STACK,
+                    "Button",BS_AUTORADIOBUTTON,15,19,55,10
+    CONTROL         "Spin Stack",CONTROL_RADIO_BTN_EFFECTS_SPIN_STACK,"Button",
+                    BS_AUTORADIOBUTTON,15,29,55,10
+    CONTROL         "Psuedo Perspective Stack",
+                    CONTROL_RADIO_BTN_EFFECTS_PSUEDO_PERSPECTIVE_STACK,
+                    "Button",BS_AUTORADIOBUTTON,15,39,100,10
+    CONTROL         "Solid Extrusion",
+                    CONTROL_RADIO_BTN_EFFECTS_SOLID_EXTRUSION,"Button",
+                    BS_AUTORADIOBUTTON,15,49,60,10
+    CONTROL         "Psuedo Perspective Extrusion",
+                    CONTROL_RADIO_BTN_EFFECTS_PSUEDO_PERSPECTIVE_EXTRUSION,
+                    "Button",BS_AUTORADIOBUTTON,15,59,110,10
+    CONTROL         "Illuminated Extrusion",
+                    CONTROL_RADIO_BTN_EFFECTS_ILLUMINATED_EXTRUSION,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,15,69,80,10
+    EDITTEXT        CONTROL_EDIT_EFFECTS_STAGES,188,7,30,15,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    EDITTEXT        CONTROL_EDIT_EFFECTS_STACK_DEPTH,188,21,30,15,
+                    ES_AUTOHSCROLL
+    EDITTEXT        CONTROL_EDIT_EFFECTS_VANISHING_POINTX,188,35,22,15,
+                    ES_AUTOHSCROLL
+    EDITTEXT        CONTROL_EDIT_EFFECTS_VANISHING_POINTY,208,35,22,15,
+                    ES_AUTOHSCROLL
+    COMBOBOX        CONTROL_COMBO_EFFECTS_COLOR,188,49,40,121,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Blend:",CONTROL_CHECKBOX_EFFECTS_BLEND,"Button",
+                    BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,155,62,41,10
+    COMBOBOX        CONTROL_COMBO_EFFECTS_BLEND_COLOR,187,70,40,115,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "No Shadow",CONTROL_RADIO_BTN_EFFECTS_NO_SHADOW,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,15,93,55,10
+    CONTROL         "Drop Shadow",CONTROL_RADIO_BTN_EFFECTS_DROP_SHADOW,
+                    "Button",BS_AUTORADIOBUTTON,15,104,55,10
+    CONTROL         "Soft Drop Shadow",
+                    CONTROL_RADIO_BTN_EFFECTS_SOFT_DROP_SHADOW,"Button",
+                    BS_AUTORADIOBUTTON,15,115,75,10
+    CONTROL         "Cast Shadow",CONTROL_RADIO_BTN_EFFECTS_CAST_SHADOW,
+                    "Button",BS_AUTORADIOBUTTON | WS_DISABLED,15,126,55,10
+    CONTROL         "Soft Cast Shadow",
+                    CONTROL_RADIO_BTN_EFFECTS_SOFT_CAST_SHADOW,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,15,137,85,10
+    EDITTEXT        CONTROL_EDIT_EFFECTS_SHADOW_DEPTH,188,89,30,15,
+                    ES_AUTOHSCROLL
+    EDITTEXT        CONTROL_EDIT_FX_SHADOW_VANISHING_POINTX,188,104,22,15,
+                    ES_AUTOHSCROLL
+    EDITTEXT        CONTROL_EDIT_FX_SHADOW_VANISHING_POINTY,208,104,22,15,
+                    ES_AUTOHSCROLL
+    COMBOBOX        CONTROL_COMBO_FX_SHADOW_COLOR,188,119,40,111,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Blend:",CONTROL_CHECKBOX_EFFECTS_SHADOW_BLEND,"Button",
+                    BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,156,131,41,10
+    COMBOBOX        CONTROL_COMBO_FX_SHADOW_BLEND_COLOR,188,140,40,105,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Depth:",CONTROL_STATIC_EFFECTS_SHADOW_DEPTH,157,93,24,8
+    LTEXT           "Vanishing Pt (X,Y):",
+                    CONTROL_STATIC_EFFECTS_SHADOW_VANISHING_PT,119,107,61,8
+    LTEXT           "Color:",CONTROL_STATIC_EFFECTS_SHADOW_COLOR,158,120,25,
+                    10
+    LTEXT           "Blend Color:",CONTROL_STATIC_EFFECTS_SHADOW_BLEND_COLOR,
+                    139,143,39,8
+    LTEXT           "# Stages:",CONTROL_STATIC_EFFECTS_EFFECTS_STAGES,147,10,
+                    35,10
+    LTEXT           "Depth:",CONTROL_STATIC_EFFECTS_EFFECTS_DEPTH,156,23,24,
+                    8
+    LTEXT           "Vanishing Pt (X,Y):",
+                    CONTROL_STATIC_EFFECTS_VANISHING_PT,120,37,61,8
+    LTEXT           "Color:",CONTROL_STATIC_EFFECTS_COLOR,158,51,25,10
+    GROUPBOX        "",CONTROL_GROUPBOX_EFFECTS_EFFECTS,0,0,230,85
+    GROUPBOX        "",CONTROL_GROUPBOX_EFFECTS_SHADOWS,0,85,230,70
+    LTEXT           "Blend Color:",CONTROL_STATIC_EFFECTS_BLEND_COLOR,138,73,
+                    39,8
+END
+
+IDD_PPG_BEHIND_EFFECTS DIALOG DISCARDABLE  0, 0, 235, 156
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Behind Effects"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "No Frame",IDC_RD_NOFRAME,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,5,18,65,8
+    CONTROL         "Silhouette ",IDC_RD_SILHOUETTE,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,5,29,65,8
+    CONTROL         "Emboss",IDC_RD_EMBOSS,"Button",BS_AUTORADIOBUTTON,5,40,
+                    65,8
+    CONTROL         "Deboss",IDC_RD_DEBOSS,"Button",BS_AUTORADIOBUTTON,5,51,
+                    65,8
+    COMBOBOX        IDC_CMB_FILL_COLOR,81,47,70,84,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_CMB_HILITE_COLOR,156,47,70,84,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CMB_SHADOW_COLOR,81,90,70,95,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Colors",IDC_GP_COLORS,75,13,155,105
+    LTEXT           "Fill",IDC_STATIC_FILL_COLOR,80,35,70,10
+    LTEXT           "Hilite",IDC_STATIC_HILITE_COLOR,155,35,70,10
+    LTEXT           "Shadow",IDC_STATIC_SHADOW_COLOR,80,80,70,10
+END
+
+IDD_HEADLINE_DLG DIALOGEX 0, 0, 346, 223
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create a Headline"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_HEADLINE_TEXT,7,11,152,30,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    CONTROL         "&ReadyMade",IDC_READYMADE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,31,48,57,10
+    CONTROL         "&Customize",CONTROL_CUSTOMIZE,"Button",
+                    BS_AUTORADIOBUTTON,97,48,48,10
+    LTEXT           " These ReadyMades are provided to give you\n a creative jumpstart.  Choose a ReadyMade\n Headline and customize it by selecting the\n Customize radio button above.",
+                    IDC_STATIC_TEXT,7,63,152,36,0,WS_EX_CLIENTEDGE
+    LTEXT           "",CONTROL_PREVIEW,173,11,166,88,0,WS_EX_CLIENTEDGE
+    LISTBOX         IDC_READYMADES,7,113,332,82,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Tab1",IDC_TABS,"SysTabControl32",TCS_FIXEDWIDTH | NOT 
+                    WS_VISIBLE | WS_GROUP | WS_TABSTOP,7,102,332,93
+    PUSHBUTTON      "Save As...",IDC_SAVEAS,119,201,50,14,NOT WS_VISIBLE
+    DEFPUSHBUTTON   "OK",IDOK,174,201,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,229,201,50,14
+    PUSHBUTTON      "&Help",ID_HELP,284,201,50,14
+    LTEXT           "Enter Headline &Text Here:",IDC_STATIC,7,1,83,8
+END
+
+IDD_FACE_PAGE DIALOG DISCARDABLE  0, 0, 328, 78
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "&Color",IDC_STATIC,0,1,47,25
+    PUSHBUTTON      "Color",IDC_COLOR,4,11,37,11,BS_BITMAP
+    LISTBOX         IDC_IMAGE_LIST,51,3,273,72,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+END
+
+IDD_SHAPE_PAGE DIALOG DISCARDABLE  0, 0, 328, 78
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "&Color",IDC_STATIC,0,1,47,25
+    PUSHBUTTON      "Color",IDC_COLOR,4,11,37,11,BS_BITMAP
+    CONTROL         "&Warp Text",IDC_DISTORT,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,3,32,45,10
+    GROUPBOX        "Orientation",IDC_STATIC,0,46,47,28
+    CONTROL         "Horz",IDC_HORIZONTAL,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | WS_GROUP,4,56,19,14
+    CONTROL         "Vert",IDC_VERTICAL,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,23,56,19,14
+    LISTBOX         IDC_IMAGE_LIST,51,3,273,72,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+END
+
+IDD_OUTLINE_PAGE DIALOG DISCARDABLE  0, 0, 328, 78
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "&Color",IDC_STATIC,0,1,48,25
+    PUSHBUTTON      "Color",IDC_COLOR,5,11,37,11,BS_BITMAP
+    LISTBOX         IDC_IMAGE_LIST,51,3,273,72,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+    GROUPBOX        "Glow",IDC_STATIC,0,27,48,47
+    CONTROL         "&Glow",IDC_OUTLINE_GLOW,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_PUSHLIKE | WS_TABSTOP,5,37,37,32
+END
+
+IDD_DEPTH_PAGE DIALOG DISCARDABLE  0, 0, 328, 78
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "&Color",IDC_STATIC,0,1,47,25
+    PUSHBUTTON      "Color",IDC_COLOR,4,11,37,11,BS_BITMAP | WS_GROUP
+    GROUPBOX        "Depth Angle",IDC_DEPTH_STATIC,0,27,50,47
+    LISTBOX         IDC_IMAGE_LIST,51,3,273,72,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+END
+
+IDD_POSITION_PAGE DIALOG DISCARDABLE  0, 0, 328, 78
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_IMAGE_LIST,51,3,273,72,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+END
+
+IDD_PROPORTION_PAGE DIALOG DISCARDABLE  0, 0, 328, 78
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_IMAGE_LIST,51,3,273,72,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+END
+
+IDD_HEADLINE_FONT DIALOGEX 0, 0, 153, 37
+STYLE DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "&Font:",IDC_STATIC,1,4,17,8
+    COMBOBOX        IDC_FONTLIST,22,2,128,86,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "",IDC_STATIC,22,18,37,17,0,WS_EX_CLIENTEDGE
+    CONTROL         "Bold",IDC_BOLD,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | 
+                    WS_TABSTOP,25,20,16,13
+    CONTROL         "Italic",IDC_ITALIC,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,41,20,16,13
+    LTEXT           "",IDC_STATIC,80,18,69,17,0,WS_EX_CLIENTEDGE
+    CONTROL         "Left",IDC_JUSTIFY_LEFT,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | WS_GROUP,83,20,16,13
+    CONTROL         "Ctr",IDC_JUSTIFY_CENTER,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE,99,20,16,13
+    CONTROL         "Rgt",IDC_JUSTIFY_RIGHT,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE,115,20,16,13
+    CONTROL         "Full",IDC_JUSTIFY_FULL,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE,131,20,16,13
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+DIALOG_PROPERTY_PAGE_ATTRIBUTES_TAB DLGINIT
+BEGIN
+    CONTROL_COMBO_ATTRIBUTES_TAB_ESCAPEMENT, 0x403, 19, 0
+0x2d2d, 0x2c3e, 0x5420, 0x706f, 0x5420, 0x206f, 0x6f42, 0x7474, 0x6d6f, 
+"\000" 
+    CONTROL_COMBO_ATTRIBUTES_TAB_ESCAPEMENT, 0x403, 19, 0
+0x6f54, 0x2070, 0x6f54, 0x4220, 0x746f, 0x6f74, 0x2c6d, 0x2d20, 0x3e2d, 
+"\000" 
+    0
+END
+
+IDD_PPG_OUTLINE DLGINIT
+BEGIN
+    IDC_CMB_STROKE_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    IDC_CMB_STROKE_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    IDC_CMB_STROKE_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    IDC_CMB_STROKE_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    IDC_CMB_STROKE_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    IDC_CMB_STROKE_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    IDC_CMB_STROKE_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    IDC_CMB_STROKE_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    IDC_CMB_STROKE_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    IDC_CMB_STROKE_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    IDC_CMB_STROKE_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    IDC_CMB_FILL_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    IDC_CMB_FILL_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    IDC_CMB_FILL_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    IDC_CMB_FILL_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    IDC_CMB_FILL_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    IDC_CMB_FILL_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    IDC_CMB_FILL_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    IDC_CMB_FILL_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    IDC_CMB_FILL_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    IDC_CMB_FILL_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    IDC_CMB_FILL_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    IDC_CMB_SHADOW_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    IDC_CMB_SHADOW_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    IDC_CMB_SHADOW_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    IDC_CMB_SHADOW_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    IDC_CMB_SHADOW_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    IDC_CMB_HILITE_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    IDC_CMB_HILITE_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    IDC_CMB_HILITE_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    IDC_CMB_HILITE_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    IDC_CMB_HILITE_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    IDC_CMB_HILITE_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    IDC_CMB_HILITE_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    IDC_CMB_HILITE_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    IDC_CMB_HILITE_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    IDC_CMB_HILITE_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    IDC_CMB_HILITE_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    0
+END
+
+IDD_PPG_EFFECTS DLGINIT
+BEGIN
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    CONTROL_COMBO_EFFECTS_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    CONTROL_COMBO_EFFECTS_BLEND_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    CONTROL_COMBO_FX_SHADOW_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    CONTROL_COMBO_FX_SHADOW_BLEND_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    0
+END
+
+IDD_PPG_BEHIND_EFFECTS DLGINIT
+BEGIN
+    IDC_CMB_FILL_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    IDC_CMB_FILL_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    IDC_CMB_FILL_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    IDC_CMB_FILL_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    IDC_CMB_FILL_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    IDC_CMB_FILL_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    IDC_CMB_FILL_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    IDC_CMB_FILL_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    IDC_CMB_FILL_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    IDC_CMB_FILL_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    IDC_CMB_FILL_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    IDC_CMB_HILITE_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    IDC_CMB_HILITE_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    IDC_CMB_HILITE_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    IDC_CMB_HILITE_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    IDC_CMB_HILITE_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    IDC_CMB_HILITE_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    IDC_CMB_HILITE_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    IDC_CMB_HILITE_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    IDC_CMB_HILITE_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    IDC_CMB_HILITE_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    IDC_CMB_HILITE_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 6, 0
+0x6c42, 0x6361, 0x006b, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 7, 0
+0x6559, 0x6c6c, 0x776f, "\000" 
+    IDC_CMB_SHADOW_COLOR, 0x403, 8, 0
+0x614d, 0x6567, 0x746e, 0x0061, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 4, 0
+0x6552, 0x0064, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 5, 0
+0x7943, 0x6e61, "\000" 
+    IDC_CMB_SHADOW_COLOR, 0x403, 6, 0
+0x7247, 0x6565, 0x006e, 
+    IDC_CMB_SHADOW_COLOR, 0x403, 5, 0
+0x6c42, 0x6575, "\000" 
+    IDC_CMB_SHADOW_COLOR, 0x403, 5, 0
+0x7247, 0x7961, "\000" 
+    IDC_CMB_SHADOW_COLOR, 0x403, 11, 0
+0x694c, 0x6867, 0x2074, 0x7247, 0x7961, "\000" 
+    IDC_CMB_SHADOW_COLOR, 0x403, 10, 0
+0x6144, 0x6b72, 0x4720, 0x6172, 0x0079, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_STYLE_BOLDD         BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_STYLE_BOLDD.bmp"
+IDB_STYLE_BOLDU         BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_STYLE_BOLDU.bmp"
+IDB_STYLE_ITALICD       BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_STYLE_ITALICD.bmp"
+IDB_STYLE_ITALICU       BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_STYLE_ITALICU.bmp"
+IDB_STYLE_UNDERLINED    BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_STYLE_UNDERLINED.bmp"
+IDB_STYLE_UNDERLINEU    BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_STYLE_UNDERLINEU.bmp"
+IDB_JUST_CENTERD        BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_JUST_CENTERD.bmp"
+IDB_JUST_CENTERU        BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_JUST_CENTERU.bmp"
+IDB_JUST_FULLD          BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_JUST_FULLD.bmp"
+IDB_JUST_FULLU          BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_JUST_FULLU.bmp"
+IDB_JUST_LEFTD          BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_JUST_LEFTD.bmp"
+IDB_JUST_LEFTU          BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_JUST_LEFTU.bmp"
+IDB_JUST_RIGHTD         BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_JUST_RIGHTD.bmp"
+IDB_JUST_RIGHTU         BITMAP  DISCARDABLE     "Shared\\button bmps\\TempBmps\\IDB_JUST_RIGHTU.bmp"
+IDB_PATH_1              BITMAP  DISCARDABLE     "Shared\\button bmps\\shape\\IDB_PATH_1.bmp"
+IDB_PATH_2              BITMAP  DISCARDABLE     "Shared\\button bmps\\shape\\IDB_PATH_2.bmp"
+IDB_PATH_3              BITMAP  DISCARDABLE     "Shared\\button bmps\\shape\\IDB_PATH_3.bmp"
+IDB_PATH_4              BITMAP  DISCARDABLE     "Shared\\button bmps\\shape\\IDB_PATH_4.bmp"
+IDB_SHAPE_A1            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_A1.bmp"
+IDB_SHAPE_A2            BITMAP  DISCARDABLE     "Shared\\button bmps\\shape\\IDB_SHAPE_A2.bmp"
+IDB_SHAPE_A3            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_A3.bmp"
+IDB_SHAPE_B1            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_B1.bmp"
+IDB_SHAPE_B2            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_B2.bmp"
+IDB_SHAPE_B3            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_B3.bmp"
+IDB_SHAPE_C1            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_C1.bmp"
+IDB_SHAPE_C2            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_C2.bmp"
+IDB_SHAPE_C3            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_C3.bmp"
+IDB_SHAPE_D1            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_D1.bmp"
+IDB_SHAPE_D2            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_D2.bmp"
+IDB_SHAPE_D3            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_D3.bmp"
+IDB_SHAPE_E1            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_E1.bmp"
+IDB_SHAPE_E2            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_E2.bmp"
+IDB_SHAPE_E3            BITMAP  DISCARDABLE     "Shared\\button bmps\\Shape\\IDB_SHAPE_E3.bmp"
+IDB_HEADLINE_FACES      BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineFaces.bmp"
+IDB_HEADLINE_ORIENTATION BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineOrientation.bmp"
+IDB_HEADLINE_SHAPES     BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineShapes.bmp"
+IDB_HEADLINE_POSITIONS  BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlinePositions.bmp"
+IDB_HEADLINE_SHADOWS    BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineShadows.bmp"
+IDB_HEADLINE_DEPTHS     BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineDepths.bmp"
+IDB_HEADLINE_DEPTHS2    BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineDepths2.bmp"
+IDB_HEADLINE_OUTLINES   BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineOutlines.bmp"
+IDB_HEADLINE_GLOW       BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineGlow.bmp"
+IDB_HEADLINE_PROPORTION BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineProportion.bmp"
+IDB_HEADLINE_SHAPES_VERT BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineShapesVert.bmp"
+IDB_HEADLINE_PROPORTION_DISTORT BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineProportionDistort.bmp"
+IDB_HEADLINE_PATHS      BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlinePaths.bmp"
+IDB_HEADLINE_PATHS_VERT BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlinePathsVert.bmp"
+IDB_HEADLINE_TOOLBAR_TEXT BITMAP  DISCARDABLE     "Shared\\Headlines\\HeadlineText.bmp"
+IDB_HEADLINE_READYMADE000 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\HORZ_RMH01.BMP"
+IDB_HEADLINE_READYMADE001 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\HORZ_RMH02.BMP"
+IDB_HEADLINE_READYMADE002 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\HORZ_RMH03.BMP"
+IDB_HEADLINE_READYMADE003 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\HORZ_RMH04.BMP"
+IDB_HEADLINE_READYMADE004 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\amazone1_h.BMP"
+IDB_HEADLINE_READYMADE005 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\amazone2_h.BMP"
+IDB_HEADLINE_READYMADE006 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\americana_h.BMP"
+IDB_HEADLINE_READYMADE007 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\aurora_h.BMP"
+IDB_HEADLINE_READYMADE008 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\bauer_bodoni_h.BMP"
+IDB_HEADLINE_READYMADE009 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\bazooka_h.BMP"
+IDB_HEADLINE_READYMADE010 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\bell_gothic_h.BMP"
+IDB_HEADLINE_READYMADE011 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\bernhard_h.BMP"
+IDB_HEADLINE_READYMADE012 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\block_h.BMP"
+IDB_HEADLINE_READYMADE013 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\boulder_h.BMP"
+IDB_HEADLINE_READYMADE014 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\broadview_h.BMP"
+IDB_HEADLINE_READYMADE015 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\broadway_h.BMP"
+IDB_HEADLINE_READYMADE016 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\caesar_h.BMP"
+IDB_HEADLINE_READYMADE017 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\calligrapher2_h.BMP"
+IDB_HEADLINE_READYMADE018 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\cezanne_h.BMP"
+IDB_HEADLINE_READYMADE019 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\chaucer_h.BMP"
+IDB_HEADLINE_READYMADE020 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\christie_h.BMP"
+IDB_HEADLINE_READYMADE021 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\cloister_h.BMP"
+IDB_HEADLINE_READYMADE022 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\continuum_h.BMP"
+IDB_HEADLINE_READYMADE023 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\cooper_h.BMP"
+IDB_HEADLINE_READYMADE024 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\copperplate_h.BMP"
+IDB_HEADLINE_READYMADE025 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\cornerstone_h.BMP"
+IDB_HEADLINE_READYMADE026 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\cotillion_h.BMP"
+IDB_HEADLINE_READYMADE027 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\crate_h.BMP"
+IDB_HEADLINE_READYMADE028 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\cuckoo_h.BMP"
+IDB_HEADLINE_READYMADE029 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\diner_h.BMP"
+IDB_HEADLINE_READYMADE030 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\executive_h.BMP"
+IDB_HEADLINE_READYMADE031 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\exotic_h.BMP"
+IDB_HEADLINE_READYMADE032 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\franciscan_h.BMP"
+IDB_HEADLINE_READYMADE033 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\freeform_h.BMP"
+IDB_HEADLINE_READYMADE034 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\geometric_h.BMP"
+IDB_HEADLINE_READYMADE035 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\geoslab_h.BMP"
+IDB_HEADLINE_READYMADE036 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\heather_h.BMP"
+IDB_HEADLINE_READYMADE037 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\herald_h.BMP"
+IDB_HEADLINE_READYMADE038 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\informal_h.BMP"
+IDB_HEADLINE_READYMADE039 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\intrepid_h.BMP"
+IDB_HEADLINE_READYMADE040 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\jester2_h.BMP"
+IDB_HEADLINE_READYMADE041 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\kaufmann_h.BMP"
+IDB_HEADLINE_READYMADE042 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\long_island_h.BMP"
+IDB_HEADLINE_READYMADE043 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\lydian_h.BMP"
+IDB_HEADLINE_READYMADE044 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\mariah_h.BMP"
+IDB_HEADLINE_READYMADE045 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\market_h.BMP"
+IDB_HEADLINE_READYMADE046 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\moderne_h.BMP"
+IDB_HEADLINE_READYMADE047 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\old_century1_h.BMP"
+IDB_HEADLINE_READYMADE048 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\old_century2_h.BMP"
+IDB_HEADLINE_READYMADE049 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\onyx_h.BMP"
+IDB_HEADLINE_READYMADE050 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\partridge_h.BMP"
+IDB_HEADLINE_READYMADE051 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\pegasus1_h.BMP"
+IDB_HEADLINE_READYMADE052 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\pegasus2_h.BMP"
+IDB_HEADLINE_READYMADE053 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\percival1_h.BMP"
+IDB_HEADLINE_READYMADE054 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\percival2_h.BMP"
+IDB_HEADLINE_READYMADE055 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\poster_h.BMP"
+IDB_HEADLINE_READYMADE056 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\pythagoras_h.BMP"
+IDB_HEADLINE_READYMADE057 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\rockstone_h.BMP"
+IDB_HEADLINE_READYMADE058 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\sceptre_h.BMP"
+IDB_HEADLINE_READYMADE059 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\scratch_h.BMP"
+IDB_HEADLINE_READYMADE060 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\sherwood_h.BMP"
+IDB_HEADLINE_READYMADE061 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\signboard_h.BMP"
+IDB_HEADLINE_READYMADE062 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\snell_h.BMP"
+IDB_HEADLINE_READYMADE063 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\socket_h.BMP"
+IDB_HEADLINE_READYMADE064 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\steamer_h.BMP"
+IDB_HEADLINE_READYMADE065 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\storybook_h.BMP"
+IDB_HEADLINE_READYMADE066 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\subway_h.BMP"
+IDB_HEADLINE_READYMADE067 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\tabitha_h.BMP"
+IDB_HEADLINE_READYMADE068 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\teletype_h.BMP"
+IDB_HEADLINE_READYMADE069 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\treasure_h.BMP"
+IDB_HEADLINE_READYMADE070 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\tristan_h.BMP"
+IDB_HEADLINE_READYMADE071 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\tubular_h.BMP"
+IDB_HEADLINE_READYMADE072 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\typo_upright_h.BMP"
+IDB_HEADLINE_READYMADE073 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\university_roman_h.BMP"
+IDB_HEADLINE_READYMADE074 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\vagabond_h.BMP"
+IDB_HEADLINE_READYMADE075 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\vaground_h.BMP"
+IDB_HEADLINE_READYMADE076 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\varsity_h.BMP"
+IDB_HEADLINE_READYMADE077 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\willow_h.BMP"
+IDB_HEADLINE_READYMADE078 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\windsor_h.BMP"
+IDB_HEADLINE_READYMADE079 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\zapf_humanist_H.BMP"
+IDB_HEADLINE_READYMADE100 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\americana_v.BMP"
+IDB_HEADLINE_READYMADE101 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\aurora_v.BMP"
+IDB_HEADLINE_READYMADE102 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\bell_gothic_v.BMP"
+IDB_HEADLINE_READYMADE103 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\boulder_v.BMP"
+IDB_HEADLINE_READYMADE104 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\continuum_v.BMP"
+IDB_HEADLINE_READYMADE105 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\cooper_v.BMP"
+IDB_HEADLINE_READYMADE106 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\cuckoo_v.BMP"
+IDB_HEADLINE_READYMADE107 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\denmark_v.BMP"
+IDB_HEADLINE_READYMADE108 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\geometric1_v.BMP"
+IDB_HEADLINE_READYMADE109 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\geometric2_v.BMP"
+IDB_HEADLINE_READYMADE110 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\herald1_v.BMP"
+IDB_HEADLINE_READYMADE111 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\herald2_v.BMP"
+IDB_HEADLINE_READYMADE112 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\incised_v.BMP"
+IDB_HEADLINE_READYMADE113 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\informal_v.BMP"
+IDB_HEADLINE_READYMADE114 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\long_island_v.BMP"
+IDB_HEADLINE_READYMADE115 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\market_v.BMP"
+IDB_HEADLINE_READYMADE116 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\pickwick_v.BMP"
+IDB_HEADLINE_READYMADE117 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\pythagoras_v.BMP"
+IDB_HEADLINE_READYMADE118 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\unicorn_v.BMP"
+IDB_HEADLINE_READYMADE119 BITMAP  DISCARDABLE     "Shared\\Headlines\\ReadyMades\\vaground_v.BMP"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// ARCS
+//
+
+PATH_SHAPE_10           ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath10.Arcs"
+PATH_SHAPE_20           ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath20.Arcs"
+PATH_SHAPE_30           ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath30.Arcs"
+PATH_SHAPE_40           ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath40.Arcs"
+PATH_SHAPE_50           ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath50.Arcs"
+PATH_SHAPE_60           ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath60.Arcs"
+PATH_SHAPE_70           ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath70.Arcs"
+PATH_SHAPE_80           ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath80.Arcs"
+PATH_SHAPE_90           ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath90.Arcs"
+PATH_SHAPE_100          ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath100.Arcs"
+PATH_SHAPE_110          ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath110.Arcs"
+PATH_SHAPE_120          ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath120.Arcs"
+PATH_SHAPE_130          ARCS    DISCARDABLE     "Shared\\WarpShapes\\HeadlinePath130.Arcs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// WARP
+//
+
+WARP_SHAPE_OVAL         WARP    DISCARDABLE     "Shared\\WarpShapes\\Oval.warp"
+WARP_SHAPE_OVALLOWERHALF WARP    DISCARDABLE     "Shared\\WarpShapes\\OvalLowerHalf.Warp"
+WARP_SHAPE_OVALUPPERHALF WARP    DISCARDABLE     "Shared\\WarpShapes\\OvalUpperHalf.Warp"
+WARP_SHAPE_RECTSLANTLEFT WARP    DISCARDABLE     "Shared\\WarpShapes\\RectSlantLeft.Warp"
+WARP_SHAPE_RECTSLANTRIGHT WARP    DISCARDABLE     "Shared\\WarpShapes\\RectSlantRight.Warp"
+WARP_SHAPE_RECTTALL     WARP    DISCARDABLE     "Shared\\WarpShapes\\RectTall.Warp"
+WARP_SHAPE_TRAPEZOIDWIDEBOTTOM WARP    DISCARDABLE     "Shared\\WarpShapes\\TrapezoidWideBottom.Warp"
+WARP_SHAPE_TRAPEZOIDWIDELEFT WARP    DISCARDABLE     "Shared\\WarpShapes\\TrapezoidWideLeft.Warp"
+WARP_SHAPE_TRAPEZOIDWIDERIGHT WARP    DISCARDABLE     "Shared\\WarpShapes\\TrapezoidWideRight.Warp"
+WARP_SHAPE_TRAPEZOIDWIDETOP WARP    DISCARDABLE     "Shared\\WarpShapes\\TrapezoidWideTop.Warp"
+WARP_SHAPE_DIAMOND      WARP    DISCARDABLE     "Shared\\WarpShapes\\Diamond.Warp"
+WARP_SHAPE_TRIANGLE     WARP    DISCARDABLE     "Shared\\WarpShapes\\Triangle.Warp"
+WARP_SHAPE_BOWTIE       WARP    DISCARDABLE     "Shared\\WarpShapes\\BowTie.Warp"
+WARP_SHAPE_ARC          WARP    DISCARDABLE     "Shared\\WarpShapes\\Arc.Warp"
+WARP_SHAPE_1_1          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape110.Warp"
+WARP_SHAPE_1_2          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape120.Warp"
+WARP_SHAPE_1_3          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape130.Warp"
+WARP_SHAPE_1_4          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape140.Warp"
+WARP_SHAPE_1_5          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape150.Warp"
+WARP_SHAPE_1_7          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape170.Warp"
+WARP_SHAPE_1_6          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape160.Warp"
+WARP_SHAPE_1_8          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape180.Warp"
+WARP_SHAPE_2_1          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape210.Warp"
+WARP_SHAPE_2_2          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape220.Warp"
+WARP_SHAPE_2_3          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape230.Warp"
+WARP_SHAPE_2_4          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape240.Warp"
+WARP_SHAPE_2_5          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape250.Warp"
+WARP_SHAPE_2_6          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape260.Warp"
+WARP_SHAPE_2_7          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape270.Warp"
+WARP_SHAPE_2_8          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape280.Warp"
+WARP_SHAPE_3_1          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape310.Warp"
+WARP_SHAPE_3_2          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape320.Warp"
+WARP_SHAPE_3_4          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape340.Warp"
+WARP_SHAPE_3_5          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape350.Warp"
+WARP_SHAPE_3_3          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape330.Warp"
+WARP_SHAPE_3_6          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape360.Warp"
+WARP_SHAPE_3_7          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape370.Warp"
+WARP_SHAPE_3_8          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape380.Warp"
+WARP_SHAPE_4_1          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape410.Warp"
+WARP_SHAPE_4_2          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape420.Warp"
+WARP_SHAPE_4_3          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape430.Warp"
+WARP_SHAPE_4_4          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape440.Warp"
+WARP_SHAPE_4_5          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape450.Warp"
+WARP_SHAPE_4_6          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape460.Warp"
+WARP_SHAPE_4_7          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape470.Warp"
+WARP_SHAPE_4_8          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape480.Warp"
+WARP_SHAPE_5_1          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape510.Warp"
+WARP_SHAPE_5_2          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape520.Warp"
+WARP_SHAPE_5_3          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape530.Warp"
+WARP_SHAPE_5_4          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape540.Warp"
+WARP_SHAPE_5_5          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape550.Warp"
+WARP_SHAPE_5_6          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape560.Warp"
+WARP_SHAPE_5_7          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape570.Warp"
+WARP_SHAPE_5_8          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape580.Warp"
+WARP_SHAPE_6_1          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape610.Warp"
+WARP_SHAPE_6_2          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape620.Warp"
+WARP_SHAPE_6_3          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape630.Warp"
+WARP_SHAPE_6_4          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape640.Warp"
+WARP_SHAPE_6_5          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape650.Warp"
+WARP_SHAPE_6_6          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape660.Warp"
+WARP_SHAPE_6_7          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape670.Warp"
+WARP_SHAPE_6_8          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape680.Warp"
+WARP_SHAPE_7_1          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape710.Warp"
+WARP_SHAPE_7_2          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape720.Warp"
+WARP_SHAPE_7_3          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape730.Warp"
+WARP_SHAPE_8_1          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape810.Warp"
+WARP_SHAPE_8_2          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape820.Warp"
+WARP_SHAPE_8_3          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape830.Warp"
+WARP_SHAPE_8_4          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape840.Warp"
+WARP_SHAPE_8_5          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape850.Warp"
+WARP_SHAPE_8_6          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape860.Warp"
+WARP_SHAPE_9_1          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape910.Warp"
+WARP_SHAPE_9_2          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape920.Warp"
+WARP_SHAPE_9_3          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape930.Warp"
+WARP_SHAPE_9_4          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape940.Warp"
+WARP_SHAPE_9_5          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape950.Warp"
+WARP_SHAPE_9_6          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape960.Warp"
+WARP_SHAPE_9_7          WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape970.Warp"
+WARP_SHAPE_10_1         WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape1010.Warp"
+WARP_SHAPE_10_2         WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape1020.Warp"
+WARP_SHAPE_10_3         WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape1030.Warp"
+WARP_SHAPE_10_4         WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape1040.Warp"
+WARP_SHAPE_10_5         WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape1050.Warp"
+WARP_SHAPE_10_6         WARP    DISCARDABLE     "Shared\\WarpShapes\\HeadlineShape1060.Warp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_HEADLINE_COMPONENT_CREATION "Headline"
+    STRING_HEADLINE_COMPONENT_DEFAULT_FONT "NewZurica"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_UNDO_EDIT_HEADLINE "&Undo Edit Headline\tCtrl+Z"
+    STRING_REDO_EDIT_HEADLINE "&Redo Edit Headline\tCtrl+Y"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STRING_HEADLINE_FACE_TAB "F&ace"
+    STRING_HEADLINE_SHAPE_TAB "&Shape"
+    STRING_HEADLINE_POSITION_TAB "Pos&ition"
+    STRING_HEADLINE_OUTLINE_TAB "&Outline"
+    STRING_HEADLINE_SHADOW_TAB "&Shadow"
+    STRING_HEADLINE_DEPTH_TAB "&Depth"
+    STRING_HEADLINE_PROPORTION_TAB "&Proportion"
+    STRING_HEADLINE_VERTICAL_TEXT_REQUIREMENT 
+                            "Vertical Headlines are limited to one line of text."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "shared\Headlines\HeadlineComp.rc2"  // non-App Studio edited resources
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

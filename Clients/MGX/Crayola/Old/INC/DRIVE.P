@@ -1,0 +1,5 @@
+// Source file: drive.c
+#ifndef STATIC16 // only in new framelib
+UINT GetExtendedDriveType (int Drive);
+#endif
+

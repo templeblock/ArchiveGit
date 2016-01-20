@@ -1,0 +1,24 @@
+// (c) Copyright 1995 MICROGRAFX, Inc., All Rights Reserved.
+// This material is confidential and a trade secret.
+// Permission to use this work for any purpose must be obtained
+// in writing from: MICROGRAFX, 1303 E Arapaho, Richardson, TX
+
+#include "id.h"
+
+///////////////////////////////////////////////////////////////////////////
+// 	THIS FILE CONTAIN FONT FACE-NAMES FOR VARIOUS LOCALES.
+// 	NOTHING IN THIS FILE SHOULD BE MODIFIED FOR LOCALIZATION EXCEPT BY THE 
+// 	DEVELOPMENT TEAM.
+///////////////////////////////////////////////////////////////////////////
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+// used in combo.cpp
+#ifdef PP_JAPANESE
+IDS_FONTFACENAME 		"ÇlÇr ÉSÉVÉbÉN"
+#else
+IDS_FONTFACENAME		"MS Sans Serif" 
+#endif
+END
+
+

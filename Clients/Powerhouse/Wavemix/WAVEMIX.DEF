@@ -1,0 +1,35 @@
+; 
+;   THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+;   KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+;   IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
+;   PURPOSE.
+; 
+;   Copyright (c) 1993, 1994  Microsoft Corporation.  All Rights Reserved.
+; 
+ 
+LIBRARY      WAVMIX16
+DESCRIPTION  'Realtime Wave Mixing DLL (c) Microsoft 1993'
+EXETYPE      WINDOWS
+CODE	     PRELOAD FIXED
+DATA	     PRELOAD FIXED SINGLE
+HEAPSIZE     16192
+;STACKSIZE    2048
+
+EXPORTS
+    WEP						@1   RESIDENTNAME
+	WndProc					@2
+	WaveMixInit				@3
+	WaveMixActivate			@4
+    WaveMixOpenWave			@5
+	WaveMixOpenChannel		@6
+	WaveMixPlay				@7
+	WaveMixFlushChannel		@8
+	WaveMixCloseChannel		@9
+	WaveMixFreeWave			@10
+	WaveMixCloseSession 	@11
+	WaveMixPump				@12
+	FigureProc				@13
+	WaveMixGetInfo      	@14
+	WaveMixConfigureInit	@15
+
+

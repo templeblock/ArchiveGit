@@ -1,0 +1,6 @@
+If you've already created projects in @@N, this is where you can view and select them. 
+
+If you have created numerous projects, you may want to sort them by Type, Category, or Tone. Or, type in a keyword and I'll search for you.
+
+Note: If you decide you'd rather work on one of a Ready-Made, just select PrintMaster under Project Type and select the type of project you want to work on.
+ 

@@ -1,0 +1,11 @@
+[MSVC Status File]
+Version=1.00
+ProjectType=10
+External=1
+DebugBuildCmd=NMAKE /f CPO4.MAK
+ReleaseBuildCmd=NMAKE /f CPO4.MAK
+RebuildOption=/a
+BuildMode=1
+TargetName=N:\DEV\SRC\TOOLS\ALIAS\CPO4.EXE
+BrkptCount=0
+WatchCount=0

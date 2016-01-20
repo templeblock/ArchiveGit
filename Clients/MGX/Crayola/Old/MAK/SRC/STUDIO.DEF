@@ -1,0 +1,119 @@
+NAME        STUDIO
+DESCRIPTION 'Crayola Art Studio'
+
+EXETYPE     WINDOWS
+
+CODE        MOVEABLE DISCARDABLE LOADONCALL
+DATA        MOVEABLE SINGLE      PRELOAD
+
+STUB        'LOADSTUB.EXE'
+
+HEAPSIZE    2000
+STACKSIZE   14000
+
+SEGMENTS
+	ASMCODE CLASS 'ASMCODE' FIXED LOADONCALL READWRITE
+
+EXPORTS
+; General exports
+;	AstralWndProc		                @1
+;	WndImageProc		                @2
+;	EnumFunc			                @3
+;	AbortTest			                @4
+;	MessageHookProc		                @5
+;	KeyboardHookProc	                @6
+; Custom control exports
+;	IconControl			                @12
+;	Color2Control		                @15
+;	SpinControl			                @16
+;	ToyControl			                @18
+;	midiKeyBProc		                @19
+;	TextBlockControl	                @20
+;	EditControl			                @21
+;	RulerControl		                @23
+;	ImageControl		                @28
+;	CreateEditControl	                @32
+; Dialog proc exports
+;	DlgMainProc			                @42
+;	DlgHeraldProc		                @47
+;	DlgToyProc			                @48
+;	DlgAboutProc		                @49
+;	DlgCrayonProc		                @53
+;	DlgDrawShapesProc	                @54
+;	DlgEffectsProc		                @57
+;	DlgFillProc			                @58
+;	DlgFnAbort			                @59
+;	DlgFullScreenViewProc	            @61
+;	DlgGalleryProc		                @62
+;	DlgLinesProc		                @68
+;	DlgMarkerProc		                @69
+;	DlgOpenProc			                @71
+;	DlgPaintProc		                @72
+;	DlgEraserProc		                @73
+;	DlgPrintSetupProc	                @77
+;	DlgPrefProc			                @81
+;    DlgRoomOpening                      @100
+;    DlgRoomWhoAreYou                    @101
+;    DlgRoomArtRoom                      @102
+;    DlgRoomBadges                       @103
+;    DlgRoomBooks                        @104
+;    DlgRoomCertificates                 @105
+;    DlgRoomGallery                      @106
+;    DlgRoomHidden                       @107
+;    DlgRoomJokes                        @108
+;    DlgRoomMazes                        @110
+;    DlgRoomMixup                        @111
+;    DlgRoomPaper                        @112
+;    DlgRoomPlacemats                    @113
+;    DlgRoomPreview                      @114
+;    DlgRoomPuzzle		                @115
+;    DlgRoomPuzzleStart		            @116
+;	DlgRoomSlideshow					@117
+;	DlgRoomSlidePlay					@118
+;    DlgRoomSpotDot   		            @119
+;    DlgRoomWorld     		            @120
+;    DlgJokePhone     		            @121
+;	DlgStatusBoxProc	                @150
+;	DlgTextProc			                @151
+;	DlgTransformerProc	                @152
+;	DlgWarningProc		                @153
+;	DlgStampProc		                @154
+;	DlgComboProc		                @155
+;    DlgRegisterProc		                @156
+;	DlgSlideEffProc						@157
+;	DlgFloppyProc						@158
+; Exports for OLE server methods
+;	ServerCreateDoc		                @170
+;	ServerCreateDocFromTemplate         @171
+;	ServerOpenDoc  		                @172
+;	ServerEditDoc  		                @173
+;	ServerExecute		                @174
+;	ServerExit   		                @175
+;	ServerRelease		                @176
+;	DocClose     		                @177
+;	DocGetObject		                @178
+;	DocExecute  		                @179
+;	DocRelease  		                @180
+;	DocSave     		                @181
+;	DocSetColorScheme	                @182
+;	DocSetDocDimensions	                @183
+;	DocSetHostNames  	                @184
+;	ObjDoVerb        	                @185
+;	ObjEnumFormats		                @186
+;	ObjGetData    		                @187
+;	ObjQueryProtocol	                @188
+;	ObjRelease    		                @189
+;	ObjSetBounds		                @190
+;	ObjSetColorScheme	                @191
+;	ObjSetData  		                @192
+;	ObjSetTargetDevice	                @193
+;	ObjShow				                @194
+; Exports to the Plug-in filter DLL's
+;	_DLL_AstralClockCursor	            @300
+;	_DLL_frame_set			            @301
+;	_DLL_frame_ptr			            @302
+;	_DLL_frame_write		            @303
+;	_DLL_frame_open			            @304
+;	_DLL_frame_close		            @305
+;	_DLL_Message			            @306
+

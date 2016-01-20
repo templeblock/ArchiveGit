@@ -1,0 +1,87 @@
+<html id="main" style="WIDTH:350px; HEIGHT:205px">
+	<head>
+		<TITLE>Hp Design Studio</TITLE>
+		<script>
+			var noShowDlgChk = 1;
+			
+			function SetShowDlg()
+			{
+				if (noShowDlgChk == 1)
+					noShowDlgChk = 0;
+				else
+					noShowDlgChk = 1;
+			}
+			
+			function BuildReturnValue(btnClick)
+			{
+				var ReturnValue = 'BtnClick=' + btnClick + ';NoShowDlg=' + noShowDlgChk;
+				window.returnValue = ReturnValue;
+				window.close();
+			}
+		</script>
+		<script language="javascript" src="MessageBox.js"></script>
+		<style type="text/css"> body { font-family:Verdana,sans-serif; font-size:1pt; margin:0px; padding:3px; background-color:#ffffff;}
+	</style>
+	</head>
+	<body onload="Load()" onselectstart="return false;" onmouseover="this.style.cursor='default'"
+		marginheight="0" marginwidth="0" topmargin="0" leftmargin="0">
+		<table height="100%" width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0">
+			<tr height="5">
+				<td></td>
+			</tr>
+			<tr height="*" bgcolor="#ffffff">
+				<td width="100%" valign="middle" height="244">
+					<table height="100%" width="100%" cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<td width="14"></td>
+							<td width="14"></td>
+							<td width="*" id="message">
+								<span id="TxtSpan1" style="FONT-WEIGHT:400;FONT-SIZE:11px;COLOR:#000000;FONT-FAMILY:arial">
+								HP Design Studio Software Update performs scheduled checks for new or updated 
+								software. Installing it will ensure that HP Design Studio continues to operate 
+								at it's highest level of performance.
+								<br>
+								<br>
+								<br>
+								<br>
+								Would you like to check for Updates now?
+								<br>
+								<br>
+								<br>
+								<br>
+								Note: <br>
+								Please make sure you have an internet connection prior to clicking YES or NO. 
+								If an update is available, HP Design Studio will need to be restarted.
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
+								<INPUT id="Checkbox1" type="checkbox" name="Checkbox1" checked onclick="SetShowDlg()">
+								Do not show this again.
+							</span>
+							</td>
+							<td width="44"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr height="24" bgcolor="#ffffff">
+				<td width="100%" align="right">
+					<div style="width:240px; padding:12px; float:right; margin-left:100px;">
+						<div style="width:84px; display:inline;" tabindex="1" hidefocus="true" onmouseover="OverEx('yes_down.gif', 'cYES')"
+							onmouseout="OutEx('yes_up.gif', 'cYES')" onmousedown="DownEx('yes_down.gif', 'cYES')"
+							onmouseup="UpEx('yes_up.gif', 'cYES')" onclick="BuildReturnValue('YES');">
+							<img id="cYES" src="yes_up.gif">
+						</div>
+						<div style="width:84px; display:inline;" tabindex="1" hidefocus="true" onmouseover="OverEx('no_down.gif', 'cNO')"
+							onmouseout="OutEx('no_up.gif', 'cNO')" onmousedown="DownEx('no_down.gif', 'cNO')"
+							onmouseup="UpEx('no_up.gif', 'cNO')" onclick="BuildReturnValue('NO');">
+							<img id="cNO" src="no_up.gif">
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

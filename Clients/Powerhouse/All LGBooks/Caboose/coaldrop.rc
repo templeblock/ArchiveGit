@@ -1,0 +1,638 @@
+//***********************************************************************
+IDD_COALDROPI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_COALDROPI GAMETABLE
+//***********************************************************************
+{
+"
+	// target coal pieces
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+
+	matchesneeded=8;","
+	dropspeed=180,droptimer=10;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=282;","
+	cartbmp=cart.bmp,cartcells=9,cartspeed=500;","
+	gamearea=47 30 592 433;","
+	introwave=intro1.wav,gotonewave=13train6.wav;","
+	successlevel=succi.wav;","
+	keyboardmove=20;","
+	scoreloc=52 40,scorewidth=15,scorebmp=digits.bmp,scorecells=11;","
+	c1scoreloc=183 40;","
+	c2scoreloc=394 40;","
+
+",0
+}
+
+//***********************************************************************
+IDD_COALDROPI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene13\\backi.bmp,clip=CL CT CR CB, flags=hintson,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,  hot=31 444,  flags=noclip click autobutton alwaysenabled ,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=prev.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=mainmenu.wav;","
+	/IDC_SOUNDBOX=0 0, hot=213 446,  flags=noclip click autobutton,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=soundbox.wav;","
+	/IDC_OPTIONS=0 0, hot=406 443,  flags=noclip click autobutton,cmd=IDC_OPTIONS,fg=options.bmp,hint=options.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=needhelp.wav;","
+	/IDC_NEXT=0 0,     hot=568 444,  flags=noclip click autobutton alwaysenabled,cmd=IDC_NEXT,fg=next.bmp,hint=next.wav;"," 
+",0
+} 
+
+//***********************************************************************
+IDD_COALDROP1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_COALDROP1 GAMETABLE
+//***********************************************************************
+{
+"
+	// target coal pieces
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+
+	matchesneeded=8;","
+	dropspeed=180,droptimer=10;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=282;","
+	cartbmp=cart.bmp,cartcells=9,cartspeed=500;","
+	gamearea=47 30 592 433;","
+	introwave=intro1.wav,gotonewave=13train6.wav;","
+	successlevel=succ1.wav succ1.wav succ1.wav succ1.wav;","
+	keyboardmove=20;","
+	scoreloc=52 40,scorewidth=15,scorebmp=digits.bmp,scorecells=11;","
+	c1scoreloc=183 40;","
+	c2scoreloc=394 40;","
+
+",0
+}
+
+//***********************************************************************
+IDD_COALDROP1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene13\\back1.bmp,clip=CL CT CR CB, flags=hintson,","
+	
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK, fg=back.bmp, hint=story.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=mainmenu.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+//	/HELP=0 0,     hot=504 444,   flags=noclip click autobutton notrans,cmd=IDC_HELP,fg=help.bmp, wave=help.wav, hint=needhelp.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=needhelp.wav;","
+	
+	
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans		  ,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+",0
+}
+
+//***********************************************************************
+IDD_COALDROP2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_COALDROP2 GAMETABLE
+//***********************************************************************
+{
+"
+	// target coal pieces
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+
+	matchesneeded=10;","
+	dropspeed=200,droptimer=10;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=282;","
+	cartbmp=cart.bmp,cartcells=9,cartspeed=500;","
+	gamearea=47 30 592 433;","
+	introwave=intro2.wav,gotonewave=13train6.wav;","
+	successlevel=succ2.wav succ2.wav succ2.wav succ2.wav;","
+	keyboardmove=20;","
+	scoreloc=52 40,scorewidth=15,scorebmp=digits.bmp,scorecells=11;","
+	c1scoreloc=132 40;","
+	c2scoreloc=281 40;","
+	c3scoreloc=440 40;","
+
+",0
+}
+
+//***********************************************************************
+IDD_COALDROP2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene13\\back2.bmp,clip=CL CT CR CB, flags=hintson,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK, fg=back.bmp, hint=story.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=mainmenu.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=needhelp.wav;","
+	
+	
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans,		   cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+
+",0
+}
+
+//***********************************************************************
+IDD_COALDROP3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_COALDROP3 GAMETABLE
+//***********************************************************************
+{
+"
+	// target coal pieces
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+
+	matchesneeded=12;","
+	dropspeed=220,droptimer=10;","
+	screenleftedge=48,screenrightedge=591,screenbottom=282;","
+	cartbmp=cart.bmp,cartcells=9,cartspeed=500;","
+	gamearea=47 30 592 433;","
+	introwave=intro3.wav,gotonewave=13train6.wav;","
+	successlevel=succ3.wav succ3.wav succ3.wav succ3.wav;","
+	keyboardmove=20;","
+	scoreloc=52 40,scorewidth=15,scorebmp=digits.bmp,scorecells=11;","
+	c1scoreloc=121 40;","
+	c2scoreloc=240 40;","
+	c3scoreloc=356 40;","
+	c4scoreloc=477 40;","
+
+",0
+}
+
+
+//***********************************************************************
+IDD_COALDROP3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene13\\back3.bmp,clip=CL CT CR CB, flags=hintson,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK, fg=back.bmp, hint=story.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=mainmenu.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=activity.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=needhelp.wav;","
+	
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans,		   cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+",0	
+}
+
+
+//***********************************************************************
+IDD_SPANCOALDROPI SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_SPANCOALDROPI GAMETABLE
+//***********************************************************************
+{
+"
+	// target coal pieces
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+
+	matchesneeded=8;","
+	dropspeed=180,droptimer=10;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=282;","
+	cartbmp=cart.bmp,cartcells=9,cartspeed=500;","
+	gamearea=47 30 592 433;","
+	introwave=spintro1.wav,gotonewave=13train6.wav;","
+	successlevel=spsucci.wav spsucci.wav spsucci.wav spsucci.wav;","
+	keyboardmove=20;","
+	scoreloc=52 40,scorewidth=15,scorebmp=digits.bmp,scorecells=11;","
+	c1scoreloc=183 40;","
+	c2scoreloc=394 40;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANCOALDROPI JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene13\\backi.bmp,clip=CL CT CR CB, flags=hintson,","
+
+	prev=TRANS_PREV,","
+	next=TRANS_NEXT,","
+	jump=TRANS_JUMP;","
+
+//*** Page Number ***//                                                              
+                                                              
+	/PAGE=0 0,			pos=282 0,fg=page.bmp,flags=noclip;","
+
+//****** These are the lines for the buttons on the action strip ******//
+
+	/IDC_PREVIOUS=0 0,  hot=31 444,  flags=noclip click autobutton alwaysenabled ,cmd=IDC_PREVIOUS,fg=prev.bmp,hint=sprev.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=sactctr.wav;","
+	/IDC_SOUNDBOX=0 0, hot=213 446,  flags=noclip click autobutton,cmd=IDC_SOUNDBOX,fg=sound.bmp,hint=ssndbox.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=smainmnu.wav;","
+	/IDC_OPTIONS=0 0, hot=406 443,  flags=noclip click autobutton,cmd=IDC_OPTIONS,fg=options.bmp,hint=soptscrn.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=sneedhlp.wav;","
+	/IDC_NEXT=0 0,     hot=568 444,  flags=noclip click autobutton alwaysenabled,cmd=IDC_NEXT,fg=next.bmp,hint=snext.wav;","
+",0
+} 
+
+//***********************************************************************
+IDD_SPANCOALDROP1 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_SPANCOALDROP1 GAMETABLE
+//***********************************************************************
+{
+"
+	// target coal pieces
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+	item=rock1.bmp,tcells=1,fcells=0;","
+
+	matchesneeded=8;","
+	dropspeed=180,droptimer=10;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=282;","
+	cartbmp=cart.bmp,cartcells=9,cartspeed=500;","
+	gamearea=47 30 592 433;","
+	introwave=spintro1.wav,gotonewave=13train6.wav;","
+	successlevel=spsucc1.wav spsucc1.wav spsucc1.wav spsucc1.wav;","
+	keyboardmove=20;","
+	scoreloc=52 40,scorewidth=15,scorebmp=digits.bmp,scorecells=11;","
+	c1scoreloc=183 40;","
+	c2scoreloc=394 40;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANCOALDROP1 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene13\\back1.bmp,clip=CL CT CR CB, flags=hintson,","
+	
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK,fg=back.bmp, hint=sgoback.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=sactctr.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=smainmnu.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=sneedhlp.wav;","
+	
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans,		   cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+",0
+}
+
+//***********************************************************************
+IDD_SPANCOALDROP2 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_SPANCOALDROP2 GAMETABLE
+//***********************************************************************
+{
+"
+	// target coal pieces
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+	item=rock2.bmp,tcells=1,fcells=0;","
+
+	matchesneeded=10;","
+	dropspeed=200,droptimer=10;","/*tenths of a sec.*/
+	screenleftedge=48,screenrightedge=591,screenbottom=282;","
+	cartbmp=cart.bmp,cartcells=9,cartspeed=500;","
+	gamearea=47 30 592 433;","
+	introwave=spintro2.wav,gotonewave=13train6.wav;","
+	successlevel=spsucc2.wav spsucc2.wav spsucc2.wav spsucc2.wav;","
+	keyboardmove=20;","
+	scoreloc=52 40,scorewidth=15,scorebmp=digits.bmp,scorecells=11;","
+	c1scoreloc=132 40;","
+	c2scoreloc=281 40;","
+	c3scoreloc=440 40;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANCOALDROP2 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene13\\back2.bmp,clip=CL CT CR CB, flags=hintson,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK,fg=back.bmp, hint=sgoback.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=sactctr.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=smainmnu.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=sneedhlp.wav;","
+	
+	
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans,		   cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans invisible,cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+
+",0
+}
+
+//***********************************************************************
+IDD_SPANCOALDROP3 SCENE // The logo scene
+//***********************************************************************
+STAGE ""
+PROPS
+{					 
+	TOONHOLDER()
+}
+
+
+//***********************************************************************
+IDD_SPANCOALDROP3 GAMETABLE
+//***********************************************************************
+{
+"
+	// target coal pieces
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+	item=rock3.bmp,tcells=1,fcells=0;","
+
+	matchesneeded=12;","
+	dropspeed=220,droptimer=10;","
+	screenleftedge=48,screenrightedge=591,screenbottom=282;","
+	cartbmp=cart.bmp,cartcells=9,cartspeed=500;","
+	gamearea=47 30 592 433;","
+	introwave=spintro3.wav,gotonewave=13train6.wav;","
+	successlevel=spsucc3.wav spsucc3.wav spsucc3.wav spsucc3.wav;","
+	keyboardmove=20;","
+	scoreloc=52 40,scorewidth=15,scorebmp=digits.bmp,scorecells=11;","
+	c1scoreloc=121 40;","
+	c2scoreloc=240 40;","
+	c3scoreloc=356 40;","
+	c4scoreloc=477 40;","
+
+",0
+}
+
+
+//***********************************************************************
+IDD_SPANCOALDROP3 JUMPTABLE
+//***********************************************************************
+{
+"
+	bg=scene13\\back3.bmp,clip=CL CT CR CB, flags=hintson,","
+
+	prev=TRANS_NONE,","
+	next=TRANS_NONE,","
+	jump=NOFADE CLIP TRANS_REPLACE 1 1;","
+
+	/IDC_BACK=0 0,			hot=10 442,		flags=noclip autobutton click notrans, cmd=IDC_BACK,fg=back.bmp, hint=sgoback.wav;","
+	/IDC_ACTIVITIES=0 0, hot=112 444,  flags=noclip click autobutton,cmd=IDC_ACTIVITIES,fg=activity.bmp,hint=sactctr.wav;","
+	/IDC_MAINMENU=0 0, hot=305 437,	flags=noclip click autobutton alwaysenabled,cmd=IDC_MAINMENU,fg=whistle.bmp,hint=smainmnu.wav;","
+	/IDC_HELP=0 0,     hot=504 444,   flags=noclip autobutton notrans,cmd=IDC_HELP,fg=help.bmp, hint=sneedhlp.wav;","
+	
+	/IDC_LEVEL1OFF=0 0,		hot=601 395,	flags=noclip notrans,cmd=IDC_LEVEL1,show=/IDC_LEVEL1ON,hide=/IDC_LEVEL2ON /IDC_LEVEL3ON,fg=lvl1off.bmp;","
+	/IDC_LEVEL2OFF=0 0,		hot=601 349,	flags=noclip notrans,cmd=IDC_LEVEL2,show=/IDC_LEVEL2ON,hide=/IDC_LEVEL1ON /IDC_LEVEL3ON,fg=lvl2off.bmp;","
+	/IDC_LEVEL3OFF=0 0,		hot=601 303,	flags=noclip notrans,cmd=IDC_LEVEL3,show=/IDC_LEVEL3ON,hide=/IDC_LEVEL1ON /IDC_LEVEL2ON,fg=lvl3off.bmp;","
+	/IDC_LEVEL1ON=0 0,		hot=601 395,	flags=noclip notrans invisible,cmd=IDC_LEVEL1,fg=lvl1on.bmp;","
+	/IDC_LEVEL2ON=0 0,		hot=601 349,	flags=noclip notrans invisible,cmd=IDC_LEVEL2,fg=lvl2on.bmp;","
+	/IDC_LEVEL3ON=0 0,		hot=601 303,	flags=noclip notrans,		   cmd=IDC_LEVEL3,fg=lvl3on.bmp;","
+	
+",0	
+}

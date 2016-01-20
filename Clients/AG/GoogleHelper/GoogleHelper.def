@@ -1,0 +1,7 @@
+LIBRARY	GoogleHelper
+
+EXPORTS
+	GoogleValidate			@1
+	InstallGoogleToolbar	@2
+	ShowGoogleTerms			@3
+	ShowGooglePrivacyPolicy	@4

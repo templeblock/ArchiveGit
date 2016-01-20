@@ -1,0 +1,42 @@
+.LOG
+
+6:33AM  2/26/95
+
+	Some Timing Analysis
+
+timing intervals approximately five minutes.
+initial STANDARD timing achieved with the following enabled:
+	cross hairs
+	pistol sight
+	music
+	sound fx
+	background paints
+	status window
+	map windows
+
+10.42	Standard
+12.29	wo/walls drawn
+15.33	wo/walls or objects drawn
+18.00	wo/everything (except background(fastest possible, 55ms interval))
+
+
+6:38AM  3/4/95
+
+converted xRay, yRay and long_sqrt functions to inline functions.
+this reduced execution time by eliminating the overhead of passing
+parameters via the stack.
+
+10.79	Standard
+
+6:44AM  3/28/95
+
+timing intervals after adding:
+	floor squares
+	up/down movement (jogging, jumping)
+	low/high resolution modes
+
+ 9.63	Standard (old map)
+14.92	low resolution mode (old map)
+10.66	Standard (new map)
+15.66	low resolution mode (new map)
+

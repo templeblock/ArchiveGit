@@ -1,0 +1,7 @@
+; ngsres32.def : Declares the module parameters for the DLL.
+
+LIBRARY      NGSRES32
+DESCRIPTION  'NGSRES32 PrintMaster Addon HUB 32-bit Resources'
+
+EXPORTS
+    ; Explicit exports can go here

@@ -1,0 +1,28 @@
+// Source file: winpal.c
+void SaveSystemPalette(HWND hWnd);
+void RestoreSystemPalette( HWND hWnd );
+HPALETTE CopySystemPalette( void );
+HPALETTE CopyPalette( HPALETTE hPal );
+HPALETTE CreateCustomPalette( LPRGB lpRGBmap, int iEntries );
+void ApplyMap(int dirty);
+void ApplyMapToFrame(LPFRAME lpFrame);
+LPTR MapGetPackedLut(LPTR lpDst,LPTR HLut,LPTR SLut,LPTR MLut,LPTR RLut,LPTR GLut,LPTR BLut);
+void MapSetPackedLut(LPTR lpLuts);
+BOOL MapSetupLuts( LPTR HLut, LPTR SLut, LPTR MLut, LPTR RLut, LPTR GLut, LPTR BLut );
+void ResetAllMaps( void );
+void ResetBandAllMaps(WORD wBand);
+static void map_proc(int y, int left, int right, LPTR lpSrc, LPTR lpDst, int depth );
+void MapGray( LPTR lpGray );
+void MapRGB( LPTR lpRed, LPTR lpGreen, LPTR lpBlue );
+void MapCMYK( LPTR lpC, LPTR lpM, LPTR lpY, LPTR lpK );
+BOOL AnimateMap( LPMAP lpMap, BOOL fDoGamma);
+void MapPreview( void );
+void UndoMapPreview( void );
+static void MapPreviewProc( int x, int y, int dx, int depth, LPTR lpSrc, LPTR lpDst, LPTR lpMsk, LPMASK lpMask);
+static void Map8(LPTR lpDst, LPTR lpSrc, LPTR lpMsk, int dx);
+static void Map24(LPTR lpDst, LPTR lpSrc, LPTR lpMsk, int dx);
+static void Map32(LPTR lpDst, LPTR lpSrc, LPTR lpMsk, int dx);
+BOOL Previewing( void );
+int DisplayMappedImage( HDC hDC, LPFRAME lpFrame, LPRECT lpSourceRect, POINT destPoint, LPTR lpOutBuffer, int xDiva, int yDiva);
+
+
