@@ -1,0 +1,417 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0F28106F-A136-4960-A28F-97FA7AC9D5AA}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TrumpBubbles</RootNamespace>
+    <AssemblyName>TrumpBubbles</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>TrumpBubbles.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>TrumpBubbles.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Theming.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls" />
+    <Reference Include="System.Windows.Controls.Navigation" />
+    <Reference Include="Telerik.Windows.Controls, Version=2010.1.309.1030, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddAccountHome.xaml.cs">
+      <DependentUpon>AddAccountHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AutoshipHome.xaml..cs" />
+    <Compile Include="Pages\CartHome.xaml.cs">
+      <DependentUpon>CartHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DefaultHome.xaml.cs">
+      <DependentUpon>DefaultHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StoreHome.xaml.cs">
+      <DependentUpon>StoreHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmailManagerHome.xaml.cs">
+      <DependentUpon>EmailManagerHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecognitionHome.xaml.cs">
+      <DependentUpon>RecognitionHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ResourceLibraryHome.xaml.cs">
+      <DependentUpon>ResourceLibraryHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InfoXchangeHome.xaml.cs">
+      <DependentUpon>InfoXchangeHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BubbleMaximized.xaml.cs">
+      <DependentUpon>BubbleMaximized.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BubbleMinimized.xaml.cs">
+      <DependentUpon>BubbleMinimized.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BubbleMinimizedPanel.cs" />
+    <Compile Include="Views\BubbleNormal.xaml.cs">
+      <DependentUpon>BubbleNormal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BubblePageBase.cs" />
+    <Compile Include="Model\BubbleData.cs" />
+    <Compile Include="Pages\AccountHome.xaml.cs">
+      <DependentUpon>AccountHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsHome.xaml.cs">
+      <DependentUpon>ReportsHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resx\ResxResources.resx.cs" />
+    <Compile Include="Resx\ResxResources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResxResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ShawnsBubbleNormal.xaml.cs">
+      <DependentUpon>ShawnsBubbleNormal.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Resource Include="Assets\Styles.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Assets\BubbleStyles.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Converters.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ResourceDictionary.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\AddAccountHome.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\AutoshipHome.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\CartHome.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\DefaultHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="Pages\StoreHome.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\EmailManagerHome.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\RecognitionHome.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ResourceLibraryHome.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\InfoXchangeHome.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BubbleMaximized.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BubbleMinimized.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BubbleNormal.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\AccountHome.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ReportsHome.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShawnsBubbleNormal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PostBuild.bat" />
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}</Project>
+      <Name>ClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resx\ResxResources.resx">
+      <LastGenOutput>ResxResources1.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AccountHome\Bubble1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AccountHome\Bubble7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AccountHome\Bubble2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AccountHome\Bubble3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AccountHome\Bubble4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AccountHome\Bubble5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AccountHome\Bubble6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportsHome\Bubble1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportsHome\Bubble7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportsHome\Bubble2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportsHome\Bubble3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportsHome\Bubble4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportsHome\Bubble5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportsHome\Bubble6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InfoXchangeHome\Bubble1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InfoXchangeHome\Bubble2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ResourceLibraryHome\Bubble1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ResourceLibraryHome\Bubble2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrderHome\Bubble1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrderHome\Bubble7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrderHome\Bubble2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrderHome\Bubble3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrderHome\Bubble4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrderHome\Bubble5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrderHome\Bubble6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\RecognitionHome\Bubble1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Test1Page\Bubble1.png" />
+    <Resource Include="Images\Test1Page\Bubble2.png" />
+    <Resource Include="Images\Test1Page\Bubble3.png" />
+    <Resource Include="Images\Test1Page\Bubble4.png" />
+    <Resource Include="Images\Test1Page\Bubble5.png" />
+    <Resource Include="Images\Test1Page\Bubble6.png" />
+    <Resource Include="Images\Test1Page\Bubble7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportsHome\Bubble10.png" />
+    <Resource Include="Images\ReportsHome\Bubble11.png" />
+    <Resource Include="Images\ReportsHome\Bubble12.png" />
+    <Resource Include="Images\ReportsHome\Bubble8.png" />
+    <Resource Include="Images\ReportsHome\Bubble9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Test1Page\Bubble8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_ReferencedBinaries\RadControls for Silverlight Q1 2010\Telerik.Windows.Controls.dll" />
+    <None Include="_ReferencedBinaries\RadControls for Silverlight Q1 2010\Telerik.Windows.Controls.extmap.xml" />
+    <None Include="_ReferencedBinaries\RadControls for Silverlight Q1 2010\Telerik.Windows.Controls.pdb" />
+    <None Include="_ReferencedBinaries\RadControls for Silverlight Q1 2010\Telerik.Windows.Controls.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AddAccountHome\Bubble1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\EmailManagerHome\Bubble1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StoreHome\Bubble1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StoreHome\Bubble2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StoreHome\Bubble3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\View.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportsHome\icon_reports_acctstatus.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_activecust.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_activecustactivity.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_assignedleads.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_business.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_CAP.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_commission.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_downlinepurch.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_enrolleeFSW.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_execsummary.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_execsummaryalt.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_main.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_mycustomers.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_quickview.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_rankchecklist.png" />
+    <Resource Include="Images\ReportsHome\icon_reports_volume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportsHome\icon_searchmydownline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrderHome\ShoppingCart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\v3.0\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>call "$(ProjectDir)PostBuild.bat" "$(TargetDir)$(TargetName).xap" "$(ProjectDir)..\..\..\TrumpNetworkBackOffice\TrumpWebSite\ClientBin"
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

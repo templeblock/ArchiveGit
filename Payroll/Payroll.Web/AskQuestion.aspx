@@ -78,7 +78,7 @@
 														The email address we have for you:
 													</td>
 													<td colspan="2" align="left">
-														jmccurdy@facetofacesoftware.com
+														admin@discountpayroll.net
 													</td>
 												</tr>
 												<tr>

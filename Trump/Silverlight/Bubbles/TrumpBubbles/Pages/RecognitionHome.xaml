@@ -1,0 +1,27 @@
+﻿<app:BubblePageBase x:Class="TrumpBubbles.RecognitionHome" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpBubbles"
+	xmlns:Toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+	Title="Trump Recognition" NavigationCacheMode="Required"
+>
+	<Grid>
+		<!--<ScrollViewer>-->
+		<Grid Width="930" HorizontalAlignment="Center">
+			<StackPanel>
+				<!--Maximized-->
+				<Grid>
+					<app:BubbleMaximized ContentTag="x_Content1" SelectedItem="x_Content1" IsShown="True" HideClose="True"
+						Title="Recognition" 
+						IconSourceUri="../Images/RecognitionHome/Bubble1.png" 
+						SourceUrl="./Recognition/Default.aspx" 
+						HtmlHeight="0" />
+				</Grid>
+			</StackPanel>
+		</Grid>
+		<!--</ScrollViewer>-->
+	</Grid>
+</app:BubblePageBase>

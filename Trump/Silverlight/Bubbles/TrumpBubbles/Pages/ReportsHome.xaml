@@ -1,0 +1,266 @@
+﻿<app:BubblePageBase x:Class="TrumpBubbles.ReportsHome" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpBubbles"
+	xmlns:Toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+	Title="Trump Reports" NavigationCacheMode="Required"
+>
+	<Grid>
+		<!--<ScrollViewer>-->
+		<Grid Width="930" HorizontalAlignment="Center">
+			<!--Normal-->
+			<Toolkit:WrapPanel Style="{StaticResource NormalContainerStyle}">
+				<app:BubbleNormal ContentTag="x_Content1" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Assigned Leads" 
+						IconSourceUri="../Images/ReportsHome/icon_reports_assignedleads.png" 
+						CallToActionText="View Assigned Leads"
+						ExternalLink="./ReportCriteria.aspx?ReportID=302">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="Leads assigned to your account in the last 60 days." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				
+				<app:BubbleNormal ContentTag="x_Content2" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Account Status" 
+						IconSourceUri="../Images/ReportsHome/icon_reports_acctstatus.png"
+						CallToActionText="View Account Status">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A list of your account details for the month." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content3" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Commission Statement" 
+						IconSourceUri="../Images/ReportsHome/icon_reports_commission.png"
+						CallToActionText="View Commission Statement">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A summary of your commissions, with monthly payment details." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal> 
+				<app:BubbleNormal ContentTag="x_Content4" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Rank Checklist" 
+						IconSourceUri="../Images/ReportsHome/icon_reports_rankchecklist.png"
+						CallToActionText="View Rank Checklist">
+					<app:BubbleNormal.ItemContent>
+					<TextBlock TextWrapping="Wrap" Text="Find out what it takes to get to the next level. Compare your values this month with the requirements for your desired Ideal Health Director Rank." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content5" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="CAP Report" 
+						IconSourceUri="../Images/ReportsHome/icon_reports_CAP.png"
+						CallToActionText="View CAP Report"
+						ExternalLink="./ReportCriteria.aspx?ReportID=156">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A list of accounts in your downline that are approaching qualification for the Car Awards Program." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content6" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Downline Purchases" 
+						ExternalLink="./ReportCriteria.aspx?ReportID=275"
+						IconSourceUri="../Images/ReportsHome/icon_reports_downlinepurch.png"
+						CallToActionText="View Downline Purchases">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="Find purchases for specific products in your downline by the date of purchase." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+
+				<app:BubbleNormal ContentTag="x_Content7" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Downline Search" 
+						IconSourceUri="../Images/ReportsHome/icon_searchmydownline.png"
+						CallToActionText="View Downline Search">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A customizable query that allows you to view a simple or complex view of your downline activity." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal> 
+				<app:BubbleNormal ContentTag="x_Content8" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Enrollee FastStart Way" 
+						IconSourceUri="../Images/ReportsHome/icon_reports_enrolleeFSW.png"
+						CallToActionText="View Enrollee FastStart Way">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A report that is filled out by the Enroller that indicates if the Enrollee purchased his first FastStart Way order at the FastStart Way price." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+                <app:BubbleNormal ContentTag="x_Content9" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="QuickView Report" 
+ExternalLink="./QuickViewPopup.aspx"
+						IconSourceUri="../Images/ReportsHome/icon_reports_quickview.png"
+						CallToActionText="View QuickView Report">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A searchable report that allows you to find marketers in your downline." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal> 
+                    <app:BubbleNormal ContentTag="x_Content10" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Volume Report" 
+						IconSourceUri="../Images/ReportsHome/icon_reports_volume.png"
+						CallToActionText="View Volume Report">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A summary of volume by level in each of your legs." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content11" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Active Customers" 
+						ExternalLink="./ReportCriteria.aspx?ReportID=174"
+						IconSourceUri="../Images/ReportsHome/icon_reports_activecust.png"
+						CallToActionText="View Active Customers">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A list of your active customers, with contact information." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal> 
+				<app:BubbleNormal ContentTag="x_Content12" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="All Customers" 
+ExternalLink="./ReportCriteria.aspx?ReportID=179" 
+								  IconSourceUri="../Images/ReportsHome/icon_reports_mycustomers.png"
+						CallToActionText="View All Customers">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A list of all your customers, with current status and contact information." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+
+				<app:BubbleNormal ContentTag="x_Content13" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Active Customers Activity" 
+						IconSourceUri="../Images/ReportsHome/icon_reports_activecustactivity.png"
+						ExternalLink="./ReportCriteria.aspx?ReportID=225"
+					    CallToActionText="View Active Customers Activity">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A list of your active customers latest purchasing activity." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content14" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Executive Summary" 
+						IconSourceUri="../Images/ReportsHome/icon_reports_execsummary.png"
+						CallToActionText="View Executive Summary">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="A searchable list of details by account and month." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+			</Toolkit:WrapPanel>
+			<StackPanel>
+				<!--Minimized
+				<app:BubbleMinimizedPanel Style="{StaticResource MinimizedPanelStyle}" IsShown="{Binding MinimizedBubblesAreShown}">
+					<StackPanel Orientation="Horizontal">
+						<app:BubbleMinimized ContentTag="x_Content1"
+							Title="Assigned Leads"  
+							IconSourceUri="../Images/ReportsHome/Bubble1.png" />
+						<app:BubbleMinimized ContentTag="x_Content2"
+							Title="Account Status"  
+							IconSourceUri="../Images/ReportsHome/Bubble2.png" />
+						<app:BubbleMinimized ContentTag="x_Content3"
+							Title="Commission Statement"  
+							IconSourceUri="../Images/ReportsHome/Bubble3.png" />
+						<app:BubbleMinimized ContentTag="x_Content4"
+							Title="Rank Checklist"  
+							IconSourceUri="../Images/ReportsHome/Bubble4.png" />
+						<app:BubbleMinimized ContentTag="x_Content5"
+							Title="CAP Report"  
+							IconSourceUri="../Images/ReportsHome/Bubble5.png" />
+						<app:BubbleMinimized ContentTag="x_Content6"
+							Title="Downline Purchases"  
+							IconSourceUri="../Images/ReportsHome/Bubble6.png" />
+						<app:BubbleMinimized ContentTag="x_Content7"
+							Title="Downline Search"  
+							IconSourceUri="../Images/ReportsHome/Bubble7.png" />
+						<app:BubbleMinimized ContentTag="x_Content8"
+							Title="Enrollee FastStart Way"  
+							IconSourceUri="../Images/ReportsHome/Bubble7.png" />
+						<app:BubbleMinimized ContentTag="x_Content9"
+							Title="QuickView Report"  
+							IconSourceUri="../Images/ReportsHome/Bubble8.png" />
+						<app:BubbleMinimized ContentTag="x_Content10"
+							Title="Volume Report"  
+							IconSourceUri="../Images/ReportsHome/Bubble8.png" />
+						<app:BubbleMinimized ContentTag="x_Content11"
+							Title="Active Customers"  
+							IconSourceUri="../Images/ReportsHome/Bubble9.png" />
+						<app:BubbleMinimized ContentTag="x_Content12"
+							Title="All Customers"  
+							IconSourceUri="../Images/ReportsHome/Bubble10.png" />
+						<app:BubbleMinimized ContentTag="x_Content13"
+							Title="Active Customers Activity"  
+							IconSourceUri="../Images/ReportsHome/Bubble11.png" />
+						<app:BubbleMinimized ContentTag="x_Content14"
+							Title="Executive Summary"  
+							IconSourceUri="../Images/ReportsHome/Bubble12.png" />
+					</StackPanel>
+					<c:Spacer c:StretchPanel.Length="*" />
+				</app:BubbleMinimizedPanel>
+				-->
+				<!--Maximized-->
+				<Grid>
+					<app:BubbleMaximized ContentTag="x_Content1" SelectedItem="{Binding MaximizedContent}"
+						Title="Assigned Leads"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_assignedleads.png" 
+						SourceUrl="./ReportCriteria.aspx?ReportID=302" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content2" SelectedItem="{Binding MaximizedContent}"
+						Title="Account Status"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_acctstatus.png" 
+						SourceUrl="./AccountStatus.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content3" SelectedItem="{Binding MaximizedContent}"
+						Title="Commission Statement"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_commission.png" 
+						SourceUrl="./CommissionSummary.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content4" SelectedItem="{Binding MaximizedContent}"
+						Title="Rank Checklist"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_rankchecklist.png" 
+						SourceUrl="./RankCheckListReport.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content5" SelectedItem="{Binding MaximizedContent}"
+						Title="CAP Report"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_CAP.png" 
+						SourceUrl="./ReportCriteria.aspx?ReportID=156" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content6" SelectedItem="{Binding MaximizedContent}"
+						Title="Downline Purchases"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_downlinepurch.png" 
+						SourceUrl="./ReportCriteria.aspx?ReportID=275" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content7" SelectedItem="{Binding MaximizedContent}"
+						Title="Downline Search"  
+						IconSourceUri="../Images/ReportsHome/icon_searchmydownline.png" 
+						SourceUrl="./SearchMyDownline.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content8" SelectedItem="{Binding MaximizedContent}"
+						Title="Enrollee FastStart Way"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_enrolleeFSW.png" 
+						SourceUrl="./EnrolleeFastStart.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content9" SelectedItem="{Binding MaximizedContent}"
+						Title="QuickView Report"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_quickview.png" 
+						SourceUrl="./QuickViewPopup.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content10" SelectedItem="{Binding MaximizedContent}"
+						Title="Volume Report"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_volume.png" 
+						SourceUrl="./CommissionLevelMap.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content11" SelectedItem="{Binding MaximizedContent}"
+						Title="Active Customers"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_activecust.png" 
+						SourceUrl="./ReportCriteria.aspx?ReportID=174" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content12" SelectedItem="{Binding MaximizedContent}"
+						Title="All Customers"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_mycustomers.png" 
+						SourceUrl="./ReportCriteria.aspx?ReportID=179" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content13" SelectedItem="{Binding MaximizedContent}"
+						Title="Active Customers Activity"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_activecustactivity.png" 
+						SourceUrl="./ReportCriteria.aspx?ReportID=225" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content14" SelectedItem="{Binding MaximizedContent}"
+						Title="Executive Summary"  
+						IconSourceUri="../Images/ReportsHome/icon_reports_execsummary.png" 
+						SourceUrl="./ExecutiveSummary.aspx" 
+						HtmlHeight="0" />
+				</Grid>
+			</StackPanel>
+		</Grid>
+		<!--</ScrollViewer>-->
+	</Grid>
+</app:BubblePageBase>

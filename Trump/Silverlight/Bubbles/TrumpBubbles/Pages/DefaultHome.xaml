@@ -1,0 +1,102 @@
+﻿<app:BubblePageBase x:Class="TrumpBubbles.DefaultHome" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpBubbles"
+	xmlns:Toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+	Title="Dashboard" NavigationCacheMode="Required"
+>
+    <Grid>
+        <!--<ScrollViewer>-->
+        <Grid Width="930" HorizontalAlignment="Center">
+            <!--Normal-->
+            <Toolkit:WrapPanel>
+                <app:BubbleNormal ContentTag="x_Content1" IsShown="{Binding NormalBubblesAreShown}" 
+						Title="Rewards Planner" 
+						ExternalLink="GoalApplication.aspx"
+						IconSourceUri="../Images/ReportsHome/icon_reports_downlinepurch.png"
+						CallToActionText="Launch Goal Planner">
+                    <app:BubbleNormal.ItemContent>
+                        <TextBlock TextWrapping="Wrap" Text="The Rewards Planner is designed to help you achieve your desired Pin level goal in the most efficient way possible." />
+                    </app:BubbleNormal.ItemContent>
+                </app:BubbleNormal>
+                <app:BubbleNormal ContentTag="x_Content2" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Recognition" 
+						IconSourceUri="../Images/RecognitionHome/Bubble1.png" 
+						CallToActionText="View Recognition Gallery">
+                    <app:BubbleNormal.ItemContent>
+                        <TextBlock TextWrapping="Wrap" Text="See who has been recognized for various Pin levels." />
+                    </app:BubbleNormal.ItemContent>
+                </app:BubbleNormal>
+                <app:BubbleNormal ContentTag="x_Content3" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Upload Profile Image" 
+						IconSourceUri="../Images/RecognitionHome/Bubble1.png" 
+						CallToActionText="Upload your profile image">
+                    <app:BubbleNormal.ItemContent>
+                        <TextBlock TextWrapping="Wrap" Text="View and change the image for your profile." />
+                    </app:BubbleNormal.ItemContent>
+                </app:BubbleNormal>
+                
+                <app:BubbleNormal ContentTag="x_Content4" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Shop For Yourself"
+						IconSourceUri="../Images/StoreHome/Bubble1.png"
+						CallToActionText="Shop For Yourself">
+                    <app:BubbleNormal.ItemContent>
+                        <TextBlock TextWrapping="Wrap" Text="Treat yourself to some fine Trump Network products." />
+                    </app:BubbleNormal.ItemContent>
+                </app:BubbleNormal>
+                <app:BubbleNormal ContentTag="x_Content5" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Shop For A Marketer"
+						IconSourceUri="../Images/StoreHome/Bubble2.png"
+						CallToActionText="Shop For A Marketer">
+                    <app:BubbleNormal.ItemContent>
+                        <TextBlock TextWrapping="Wrap" Text="Shop for a marketer in your downline." />
+                    </app:BubbleNormal.ItemContent>
+                </app:BubbleNormal>
+                <app:BubbleNormal ContentTag="x_Content6" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Shop For A Customer"
+						IconSourceUri="../Images/StoreHome/Bubble3.png"
+						CallToActionText="Shop For A Customer">
+                    <app:BubbleNormal.ItemContent>
+                        <TextBlock TextWrapping="Wrap" Text="Shop for a customer in your downline." />
+                    </app:BubbleNormal.ItemContent>
+                </app:BubbleNormal>
+            </Toolkit:WrapPanel>
+            <StackPanel>
+
+                <!--Maximized-->
+                <Grid>
+                    <app:BubbleMaximized ContentTag="x_Content2" SelectedItem="{Binding MaximizedContent}"
+						Title="Recognition" 
+						IconSourceUri="../Images/RecognitionHome/Bubble1.png" 
+						SourceUrl="./Recognition/Recognition/Default.aspx" 
+						HtmlHeight="0" />
+                    <app:BubbleMaximized ContentTag="x_Content3" SelectedItem="{Binding MaximizedContent}"
+						Title="Upload Profile Image" 
+						IconSourceUri="../Images/StoreHome/Bubble1.png" 
+						SourceUrl="./Account/UploadProfileImage.aspx" 
+						HtmlHeight="0" />
+                    <app:BubbleMaximized ContentTag="x_Content4" SelectedItem="{Binding MaximizedContent}"
+						Title="Shop For Yourself" 
+						IconSourceUri="../Images/StoreHome/Bubble1.png" 
+						SourceUrl="./Store/Search.aspx" 
+						HtmlHeight="0" />
+                    <app:BubbleMaximized ContentTag="x_Content5" SelectedItem="{Binding MaximizedContent}"
+						Title="Shop For A Marketer" 
+						IconSourceUri="../Images/StoreHome/Bubble2.png" 
+						SourceUrl="./Reports/SearchMyDownline.aspx" 
+						HtmlHeight="0" />
+                    <app:BubbleMaximized ContentTag="x_Content6" SelectedItem="{Binding MaximizedContent}"
+						Title="Shop For A Customer" 
+						IconSourceUri="../Images/StoreHome/Bubble3.png" 
+						SourceUrl="./Account/ManageCustomers.aspx" 
+						HtmlHeight="0" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <!--</ScrollViewer>-->
+    </Grid>
+</app:BubblePageBase>
+

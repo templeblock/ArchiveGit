@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="TrumpBubbles.BubbleMaximized"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+	xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+>
+	<UserControl.RenderTransformOrigin>
+		<Point X=".5" Y=".5" />
+	</UserControl.RenderTransformOrigin>
+
+	<UserControl.RenderTransform>
+		<TransformGroup>
+			<ScaleTransform ScaleX="0" ScaleY="0" />
+			<TranslateTransform X="0" Y="0" />
+		</TransformGroup>
+	</UserControl.RenderTransform>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Border Style="{StaticResource MaximizedBubbleTopOuterBorderStyle}">
+		 <Border Style="{StaticResource MaximizedBubbleTopInnerBorderStyle}">
+			<Grid>
+				<StackPanel>
+					<c:StretchPanel x:Name="x_Header" Orientation="Horizontal" Style="{StaticResource BubbleHeader}" MouseLeftButtonUp="OnBubbleCloseClick">
+						<Image x:Name="x_Icon" Style="{StaticResource IconImage}" />
+						<c:Spacer MinWidth="5" />
+						<TextBlock x:Name="x_Title" Style="{StaticResource HeaderTitleMaximized}" />
+						<c:Spacer c:StretchPanel.Length="*" />
+						<TextBlock x:Name="x_Debug" />
+					</c:StretchPanel>
+				</StackPanel>
+				<TextBlock x:Name="x_CloseText" Style="{StaticResource CloseText}" MouseLeftButtonUp="OnBubbleCloseClick" />
+				<Image x:Name="x_CloseImage" Style="{StaticResource CloseImage}" MouseLeftButtonUp="OnBubbleCloseClick" />
+			</Grid>
+		   </Border>
+		</Border>
+		<Border Grid.Row="1" Style="{StaticResource MaximizedBubbleBottomOuterBorderStyle}" >
+		 <Border Style="{StaticResource MaximizedBubbleBottomInnerBorderStyle}"> 
+			<Grid>
+				<StackPanel>
+					
+					<Grid Style="{StaticResource HtmlContainer}">
+						<telerik:RadHtmlPlaceholder x:Name="x_HtmlPlaceholder" Background="Transparent" Visibility="Collapsed" />
+					</Grid>
+				</StackPanel>
+			</Grid>
+		 </Border>
+		</Border>
+	</Grid>
+</UserControl>

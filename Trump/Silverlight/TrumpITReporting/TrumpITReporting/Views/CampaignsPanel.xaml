@@ -1,0 +1,630 @@
+﻿<UserControl x:Class="TrumpITReporting.CampaignsPanel"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="ignore"
+	xmlns:ignore="http://unique/ignore"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpITReporting"
+	xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:Toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	xmlns:DataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+	xmlns:hdt="clr-namespace:System.Windows;assembly=System.Windows.Controls"
+	xmlns:Charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+	xmlns:DataGrid="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	xmlns:DataPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+>
+	<!--xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"-->
+	<Grid x:Name="LayoutRoot">
+		<c:StretchPanel x:Name="x_CampaignWrapPanel">
+			<c:StretchPanel.Resources>
+				<ItemsPanelTemplate x:Key="WrappingItemsPanelTemplate">
+					<Toolkit:WrapPanel />
+				</ItemsPanelTemplate>
+			</c:StretchPanel.Resources>
+			<Border x:Name="x_DetailsHeader" CornerRadius="10,10,0,0">
+				<Border.Background>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#80000000" Offset="0"/>
+						<GradientStop Color="#00000000" Offset="1"/>
+					</LinearGradientBrush>
+				</Border.Background>
+				<c:StretchPanel Orientation="Horizontal" Margin="10">
+					<c:StretchPanel>
+						<TextBlock Text="Now Showing:" Foreground="White" Effect="{StaticResource TextDropShadowEffect}" />
+						<c:Spacer MinHeight="5" />
+						<Border BorderBrush="White" BorderThickness="1" CornerRadius="3" Padding="5,1,5,1">
+							<TextBlock Text="12 of 49 Campaigns" Foreground="White" Effect="{StaticResource TextDropShadowEffect}" />
+						</Border>
+					</c:StretchPanel>
+					<c:Spacer MinWidth="20" />
+					<c:StretchPanel>
+						<TextBlock Text="Sort by: " Foreground="White" Effect="{StaticResource TextDropShadowEffect}" />
+						<c:Spacer MinHeight="5" />
+						<ComboBox c:StretchPanel.Length="*" Width="150" SelectedIndex="0">
+							<ComboBoxItem Content="Name" />
+							<ComboBoxItem Content="Date" />
+							<ComboBoxItem Content="Type" />
+							<ComboBoxItem Content="Newest" />
+							<ComboBoxItem Content="Oldest" />
+						</ComboBox>
+					</c:StretchPanel>
+					<c:Spacer MinWidth="20" />
+					<c:StretchPanel c:StretchPanel.Length="*" HorizontalAlignment="Left">
+						<TextBlock Text="Filter by Campaign type:" Foreground="White" Effect="{StaticResource TextDropShadowEffect}" />
+						<c:Spacer MinHeight="5" />
+						<ComboBox Width="150" SelectedIndex="0">
+							<ComboBoxItem>
+								<ComboBoxItem.Content>
+									<DataInput:Label Content="3D Trilogy" />
+								</ComboBoxItem.Content>
+							</ComboBoxItem>
+							<ComboBoxItem>
+								<ComboBoxItem.Content>
+									<DataInput:Label Content="Trump Towers" />
+								</ComboBoxItem.Content>
+							</ComboBoxItem>
+							<ComboBoxItem>
+								<ComboBoxItem.Content>
+									<DataInput:Label Content="Opus" />
+								</ComboBoxItem.Content>
+							</ComboBoxItem>
+						</ComboBox>
+					</c:StretchPanel>
+				</c:StretchPanel>
+			</Border>
+			<ListBox x:Name="x_CampaignList" c:StretchPanel.Length="*" VerticalAlignment="Stretch"
+					Background="Transparent"
+					ItemsPanel="{StaticResource WrappingItemsPanelTemplate}"
+					ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+					ItemsSource="{Binding CampaignsData}" SelectionChanged="OnCampaignSelectionChanged">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Grid Width="215" Height="155" Margin="20,20,20,20">
+							<Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Effect="{StaticResource DropShadowEffect}">
+								<c:StretchPanel>
+									<Grid>
+										<Border CornerRadius="10,10,0,0" Visibility="{Binding IsSelected, Converter={StaticResource BoolToCollased}}">
+											<Border.Background>
+												<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+													<GradientStop Color="#FF030303" Offset="0.022"/>
+													<GradientStop Color="#FF5E5E5E" Offset="0.983"/>
+												</LinearGradientBrush>
+											</Border.Background>
+										</Border>
+										<Border CornerRadius="10,10,0,0" Visibility="{Binding IsSelected, Converter={StaticResource BoolToVisible}}">
+											<Border.Background>
+												<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+													<GradientStop Color="#FF070604" Offset="0.047"/>
+													<GradientStop Color="#FF887245" Offset="0.979"/>
+												</LinearGradientBrush>
+											</Border.Background>
+										</Border>
+										<c:StretchPanel Orientation="Horizontal" Margin="10,5,10,5">
+											<Image Source="{Binding CampaignType, Converter={StaticResource StringFormatter}, ConverterParameter='../Images/CampaignType{0}.png'}" Stretch="Uniform" Width="35" Height="35" VerticalAlignment="Center" />
+											<c:Spacer MinWidth="10" />
+											<c:StretchPanel c:StretchPanel.Length="*">
+												<TextBlock FontSize="13" Foreground="#FF999999" Text="{Binding CampaignTypeName}" />
+												<Rectangle Height="1" Margin="-10,2,-10,2">
+													<Rectangle.Fill>
+														<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+															<GradientStop Color="#FF2E2E2E" Offset="0.012"/>
+															<GradientStop Color="Black" Offset="0.352"/>
+															<GradientStop Color="Black" Offset="0.654"/>
+															<GradientStop Color="#FF2D2D2D" Offset="0.976"/>
+														</LinearGradientBrush>
+													</Rectangle.Fill>
+												</Rectangle>
+												<TextBlock FontSize="13" Foreground="White" FontWeight="Bold" Text="{Binding CampaignCategory}" />
+											</c:StretchPanel>
+										</c:StretchPanel>
+									</Grid>
+									<Grid c:StretchPanel.Length="*" >
+										<Border CornerRadius="0,0,10,10" Visibility="{Binding IsSelected, Converter={StaticResource BoolToCollased}}">
+											<Border.Background>
+												<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+													<GradientStop Color="#FFFAFAFA" Offset="0.381"/>
+													<GradientStop Color="#FFE7E7E7" Offset="0.682"/>
+													<GradientStop Color="#FFB7B7B7" Offset="0.99"/>
+												</LinearGradientBrush>
+											</Border.Background>
+										</Border>
+										<Border CornerRadius="0,0,10,10" Visibility="{Binding IsSelected, Converter={StaticResource BoolToVisible}}">
+											<Border.Background>
+												<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+													<GradientStop Color="#FFF7F3EC" Offset="0.077"/>
+													<GradientStop Color="#FFEBE2D2" Offset="0.628"/>
+													<GradientStop Color="#FFD7C6A4" Offset="0.99"/>
+												</LinearGradientBrush>
+											</Border.Background>
+										</Border>
+										<StackPanel Margin="30,10,30,10">
+											<TextBlock FontSize="15" Foreground="#FF333333" FontWeight="Bold" Text="{Binding Name}" />
+											<Rectangle Height="1" Margin="-30,5,-30,5" >
+												<Rectangle.Fill>
+													<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+														<GradientStop Color="#FFF8F8F8" Offset="0.004"/>
+														<GradientStop Color="#FFC6C6C6" Offset="0.235"/>
+														<GradientStop Color="#FF999999" Offset="0.349"/>
+														<GradientStop Color="#FF999999" Offset="0.654"/>
+														<GradientStop Color="#FFC6C6C6" Offset="0.768"/>
+														<GradientStop Color="#FFF7F7F7" Offset="0.99"/>
+													</LinearGradientBrush>
+												</Rectangle.Fill>
+											</Rectangle>
+											<StackPanel Orientation="Horizontal">
+												<c:Spacer MinWidth="13" />
+												<TextBlock FontSize="13" Foreground="#FF666666" Text="Date: " />
+												<TextBlock FontSize="13" Foreground="#FF333333" Text="{Binding Date}" />
+											</StackPanel>
+											<StackPanel Orientation="Horizontal">
+												<c:Spacer MinWidth="13" />
+												<TextBlock FontSize="13" Foreground="#FF666666" Text="Sales: " />
+												<TextBlock FontSize="13" Foreground="#FF333333" FontWeight="Bold" Text="{Binding Value, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" />
+											</StackPanel>
+											<c:Spacer MinHeight="5" />
+											<StackPanel Visibility="{Binding IsSelected, Converter={StaticResource BoolToVisible}}">
+												<Button Style="{StaticResource FlatButtonBlue}" FontSize="11" Content="Show Campaign Details &gt;&gt;" Click="OnCampaignSeeDetailsClick" Tag="{Binding}" Cursor="Hand" />
+											</StackPanel>
+										</StackPanel>
+									</Grid>
+								</c:StretchPanel>
+							</Border>
+						</Grid>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</c:StretchPanel>
+		<c:StretchPanel x:Name="x_CampaignDetails" Visibility="Collapsed" Orientation="Horizontal">
+			<c:StretchPanel>
+				<Grid Width="215" Height="155">
+					<Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Effect="{StaticResource DropShadowEffect}">
+						<c:StretchPanel>
+							<Grid>
+								<Border CornerRadius="10,10,0,0">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FF070604" Offset="0.047"/>
+											<GradientStop Color="#FF887245" Offset="0.979"/>
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<c:StretchPanel Orientation="Horizontal" Margin="10,5,10,5">
+									<!--<Image Source="{Binding CampaignType, Converter={StaticResource StringFormatter}, ConverterParameter='../Images/CampaignType{0}.png'}" Stretch="Uniform" Width="35" Height="35" VerticalAlignment="Center" />-->
+									<Image Source="../Images/CampaignType1.png" Stretch="Uniform" Width="35" Height="35" VerticalAlignment="Center" />
+									<c:Spacer MinWidth="10" />
+									<c:StretchPanel c:StretchPanel.Length="*">
+										<!--<TextBlock FontSize="13" Foreground="#FF999999" Text="{Binding CampaignTypeName}" />-->
+										<TextBlock FontSize="13" Foreground="#FF999999" Text="3D Trilogy" />
+										<Rectangle Height="1" Margin="-10,2,-10,2">
+											<Rectangle.Fill>
+												<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+													<GradientStop Color="#FF2E2E2E" Offset="0.012"/>
+													<GradientStop Color="Black" Offset="0.352"/>
+													<GradientStop Color="Black" Offset="0.654"/>
+													<GradientStop Color="#FF2D2D2D" Offset="0.976"/>
+												</LinearGradientBrush>
+											</Rectangle.Fill>
+										</Rectangle>
+										<!--<TextBlock FontSize="13" Foreground="White" FontWeight="Bold" Text="{Binding CampaignCategory}" />-->
+										<TextBlock FontSize="13" Foreground="White" FontWeight="Bold" Text="Business Opportunities" />
+									</c:StretchPanel>
+								</c:StretchPanel>
+							</Grid>
+							<Grid c:StretchPanel.Length="*" >
+								<Border CornerRadius="0,0,10,10">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFF7F3EC" Offset="0.077"/>
+											<GradientStop Color="#FFEBE2D2" Offset="0.628"/>
+											<GradientStop Color="#FFD7C6A4" Offset="0.99"/>
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<StackPanel Margin="30,10,30,10">
+									<!--<TextBlock FontSize="15" Foreground="#FF333333" FontWeight="Bold" Text="{Binding Name}" />-->
+									<TextBlock FontSize="15" Foreground="#FF333333" FontWeight="Bold" Text="My 3D trilogy 1" />
+									<Rectangle Height="1" Margin="-30,5,-30,5" >
+										<Rectangle.Fill>
+											<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+												<GradientStop Color="#FFF8F8F8" Offset="0.004"/>
+												<GradientStop Color="#FFC6C6C6" Offset="0.235"/>
+												<GradientStop Color="#FF999999" Offset="0.349"/>
+												<GradientStop Color="#FF999999" Offset="0.654"/>
+												<GradientStop Color="#FFC6C6C6" Offset="0.768"/>
+												<GradientStop Color="#FFF7F7F7" Offset="0.99"/>
+											</LinearGradientBrush>
+										</Rectangle.Fill>
+									</Rectangle>
+									<StackPanel Orientation="Horizontal">
+										<c:Spacer MinWidth="13" />
+										<TextBlock FontSize="13" Foreground="#FF666666" Text="Date: " />
+										<!--<TextBlock FontSize="13" Foreground="#FF333333" Text="{Binding Date}" />-->
+										<TextBlock FontSize="13" Foreground="#FF333333" Text="02/07/2009" />
+									</StackPanel>
+									<StackPanel Orientation="Horizontal">
+										<c:Spacer MinWidth="13" />
+										<TextBlock FontSize="13" Foreground="#FF666666" Text="Sales: " />
+										<!--<TextBlock FontSize="13" Foreground="#FF333333" FontWeight="Bold" Text="{Binding Value, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" />-->
+										<TextBlock FontSize="13" Foreground="#FF333333" FontWeight="Bold" Text="$184.26" />
+									</StackPanel>
+									<c:Spacer MinHeight="5" />
+									<StackPanel>
+										<Button Style="{StaticResource FlatButtonBlue}" FontSize="11" Content="&lt;&lt; Close Campaign Details" Click="OnCampaignCloseDetailsClick" Tag="{Binding}" Cursor="Hand" />
+									</StackPanel>
+								</StackPanel>
+							</Grid>
+						</c:StretchPanel>
+					</Border>
+				</Grid>
+				<c:Spacer MinHeight="10" />
+				<Controls:TreeView c:StretchPanel.Length="*" FontSize="11" Background="Transparent" BorderThickness="0">
+					<Controls:TreeViewItem Header="Overview" IsExpanded="True" x:Name="x_TreeOverview" >
+						<Controls:TreeViewItem Header="● Profits" x:Name="x_TreeProfits" IsSelected="True"  />
+						<Controls:TreeViewItem Header="● Revenue" x:Name="x_TreeRevenue" />
+						<Controls:TreeViewItem Header="● Cost" x:Name="x_TreeCost" />
+						<Controls:TreeViewItem Header="● Closing Strategies" x:Name="x_TreeStrategies" />
+						<Controls:TreeViewItem Header="● Closed List" x:Name="x_TreeClosed" />
+					</Controls:TreeViewItem>
+					<Controls:TreeViewItem Header="● My Prospects" x:Name="x_TreeProspects" />
+					<Controls:TreeViewItem Header="Invitations" IsExpanded="True" x:Name="x_TreeInvitations" >
+						<Controls:TreeViewItem Header="● Emails" x:Name="x_TreeEmails" />
+						<Controls:TreeViewItem Header="● Postcards" x:Name="x_TreePostcards" />
+						<Controls:TreeViewItem Header="● Social Media" x:Name="x_TreeSocial" />
+					</Controls:TreeViewItem>
+					<Controls:TreeViewItem Header="Campaign Activities" IsExpanded="True" x:Name="x_TreeActivities" >
+						<Controls:TreeViewItem Header="● Video" x:Name="x_TreeVideo" />
+						<Controls:TreeViewItem Header="● Trump VIP" x:Name="x_TreeTrumpVIP" />
+						<Controls:TreeViewItem Header="● In Person Event" x:Name="x_TreeInPerson" />
+					</Controls:TreeViewItem>
+					<Controls:TreeViewItem Header="● Product Offers" x:Name="x_TreeOffers" />
+					<Controls:TreeView.ItemTemplate>
+						<hdt:HierarchicalDataTemplate ItemsSource="{Binding Packages}">
+							<StackPanel Orientation="Horizontal">
+								<Button Style="{StaticResource FlatButtonBlue}" FontSize="11" Content="● Overview" Tag="{Binding}" Cursor="Hand" />
+							</StackPanel>
+						</hdt:HierarchicalDataTemplate>
+					</Controls:TreeView.ItemTemplate>
+				</Controls:TreeView>
+			</c:StretchPanel>
+			<c:Spacer MinWidth="15" />
+			<Border c:StretchPanel.Length="*" Background="White" BorderThickness="1" BorderBrush="DarkGray">
+					<Grid>
+						<Grid x:Name="x_ExpanderProfits" Visibility="{Binding IsSelected, ElementName=x_TreeProfits, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="5">
+									<TextBlock Text="Profits" FontSize="20" Foreground="CornflowerBlue" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" c:StretchPanel.Length="*">
+									<c:StretchPanel Margin="5,0,5,5" MinWidth="200">
+										<TextBlock Text=" " />
+										<c:StretchPanel Orientation="Horizontal">
+											<TextBlock Text="Total Profit: " />
+											<TextBlock Text="{Binding SuccessTotal, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+										</c:StretchPanel>
+										<TextBlock Text=" " />
+										<TextBlock Text="Profit Breakdown" FontSize="14" FontWeight="Bold" />
+										<TextBlock Text=" " />
+										<ItemsControl ItemsSource="{Binding SuccessData}" IsTabStop="False">
+											<ItemsControl.ItemTemplate>
+												<DataTemplate>
+													<c:StretchPanel Orientation="Horizontal">
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Name, Converter={StaticResource StringFormatter}, ConverterParameter='\{0}: '}" />
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Value, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+													</c:StretchPanel>
+												</DataTemplate>
+											</ItemsControl.ItemTemplate>
+										</ItemsControl>
+									</c:StretchPanel>
+									<c:StretchPanel Margin="0,0,5,5" c:StretchPanel.Length="*">
+										<Charting:Chart LegendStyle="{StaticResource HiddenLegend}" c:StretchPanel.Length="*" MinWidth="100" MinHeight="100">
+											<Charting:Chart.Series>
+												<Charting:ColumnSeries ItemsSource="{Binding SuccessData}" IndependentValueBinding="{Binding Name}" DependentValueBinding="{Binding Value}" />
+											</Charting:Chart.Series>
+										</Charting:Chart>
+										<!--<telerikChart:RadChart ItemsSource="{Binding SuccessData}" Background="Transparent" c:StretchPanel.Length="*" />-->
+									</c:StretchPanel>
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderRevenue" Visibility="{Binding IsSelected, ElementName=x_TreeRevenue, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="5">
+									<TextBlock Text="Revenue" FontSize="20" Foreground="CornflowerBlue" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" c:StretchPanel.Length="*">
+									<c:StretchPanel Margin="5,0,5,5" MinWidth="200">
+										<TextBlock Text=" " />
+										<c:StretchPanel Orientation="Horizontal">
+											<TextBlock Text="Total Revenue: " />
+											<TextBlock Text="{Binding RevenueTotal, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+										</c:StretchPanel>
+										<TextBlock Text=" " />
+										<TextBlock Text="Revenue Breakdown" FontSize="14" FontWeight="Bold" />
+										<TextBlock Text=" " />
+										<ItemsControl ItemsSource="{Binding RevenueData}" IsTabStop="False">
+											<ItemsControl.ItemTemplate>
+												<DataTemplate>
+													<c:StretchPanel Orientation="Horizontal">
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Name, Converter={StaticResource StringFormatter}, ConverterParameter='\{0}: '}" />
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Value, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+													</c:StretchPanel>
+												</DataTemplate>
+											</ItemsControl.ItemTemplate>
+										</ItemsControl>
+									</c:StretchPanel>
+									<c:StretchPanel Margin="0,5,5,5" c:StretchPanel.Length="*">
+										<Charting:Chart LegendStyle="{StaticResource HiddenLegend}" c:StretchPanel.Length="*" MinWidth="100" MinHeight="100">
+											<Charting:Chart.Series>
+												<Charting:PieSeries ItemsSource="{Binding RevenueData}" IndependentValueBinding="{Binding Name}" DependentValueBinding="{Binding Value}" />
+											</Charting:Chart.Series>
+										</Charting:Chart>
+										<!--<telerikChart:RadChart ItemsSource="{Binding RevenueData}" Background="Transparent" c:StretchPanel.Length="*" />-->
+									</c:StretchPanel>
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderCost" Visibility="{Binding IsSelected, ElementName=x_TreeCost, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="5">
+									<TextBlock Text="Costs" FontSize="20" Foreground="CornflowerBlue" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" c:StretchPanel.Length="*">
+									<c:StretchPanel Margin="5,0,5,5" MinWidth="200">
+										<TextBlock Text=" " />
+										<c:StretchPanel Orientation="Horizontal">
+											<TextBlock Text="Total Cost: " />
+											<TextBlock Text="{Binding CostTotal, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+										</c:StretchPanel>
+										<TextBlock Text=" " />
+										<TextBlock Text="Cost Breakdown" FontSize="14" FontWeight="Bold" />
+										<TextBlock Text=" " />
+										<ItemsControl ItemsSource="{Binding CostData}" IsTabStop="False">
+											<ItemsControl.ItemTemplate>
+												<DataTemplate>
+													<c:StretchPanel Orientation="Horizontal">
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Name, Converter={StaticResource StringFormatter}, ConverterParameter='\{0}: '}" />
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Value, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+													</c:StretchPanel>
+												</DataTemplate>
+											</ItemsControl.ItemTemplate>
+										</ItemsControl>
+									</c:StretchPanel>
+									<c:StretchPanel Margin="0,5,5,5" c:StretchPanel.Length="*">
+										<Charting:Chart LegendStyle="{StaticResource HiddenLegend}" c:StretchPanel.Length="*" MinWidth="100" MinHeight="100">
+											<Charting:Chart.Series>
+												<Charting:PieSeries ItemsSource="{Binding CostData}" IndependentValueBinding="{Binding Name}" DependentValueBinding="{Binding Value}" />
+											</Charting:Chart.Series>
+										</Charting:Chart>
+										<!--<telerikChart:RadChart ItemsSource="{Binding CostData}" Background="Transparent" c:StretchPanel.Length="*" />-->
+									</c:StretchPanel>
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderStrategies" Visibility="{Binding IsSelected, ElementName=x_TreeStrategies, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="5">
+									<TextBlock Text="Closing Strategies: " FontSize="18" />
+									<TextBlock Text="{Binding Name}" FontSize="20" Foreground="CornflowerBlue" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" c:StretchPanel.Length="*">
+									<c:StretchPanel Margin="5,0,5,5" MinWidth="200">
+										<TextBlock Text=" " />
+										<c:StretchPanel Orientation="Horizontal">
+											<TextBlock Text="Total Closes: " />
+											<TextBlock Text="{Binding ClosingTotal, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+										</c:StretchPanel>
+										<TextBlock Text=" " />
+										<TextBlock Text="Closing Breakdown" FontSize="14" FontWeight="Bold" />
+										<TextBlock Text=" " />
+										<ItemsControl ItemsSource="{Binding ClosingData}" IsTabStop="False">
+											<ItemsControl.ItemTemplate>
+												<DataTemplate>
+													<c:StretchPanel Orientation="Horizontal">
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Name, Converter={StaticResource StringFormatter}, ConverterParameter='\{0}: '}" />
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Count}" Foreground="CornflowerBlue" />
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Percentage, Converter={StaticResource StringFormatter}, ConverterParameter=' ({0}%)'}" Foreground="CornflowerBlue" />
+													</c:StretchPanel>
+												</DataTemplate>
+											</ItemsControl.ItemTemplate>
+										</ItemsControl>
+									</c:StretchPanel>
+									<c:StretchPanel Margin="0,0,5,5" c:StretchPanel.Length="*">
+										<Charting:Chart LegendStyle="{StaticResource HiddenLegend}" c:StretchPanel.Length="*" MinWidth="100" MinHeight="100">
+											<Charting:Chart.Series>
+												<Charting:ColumnSeries ItemsSource="{Binding ClosingData}" IndependentValueBinding="{Binding Name}" DependentValueBinding="{Binding Count}" />
+											</Charting:Chart.Series>
+										</Charting:Chart>
+										<!--<telerikChart:RadChart ItemsSource="{Binding ClosingData}" Background="Transparent" c:StretchPanel.Length="*" />-->
+									</c:StretchPanel>
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderClosed" Visibility="{Binding IsSelected, ElementName=x_TreeClosed, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<TextBlock Text="People Who Have Closed as Part of This Campaign" Margin="5" />
+								<app:PersonsPanel c:StretchPanel.Length="*" Margin="5" />
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderProspects" Visibility="{Binding IsSelected, ElementName=x_TreeProspects, Converter={StaticResource BoolToVisible}}">
+							<app:PersonsPanel Margin="5" />
+						</Grid>
+						<Grid x:Name="x_ExpanderEmails" Visibility="{Binding IsSelected, ElementName=x_TreeEmails, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="5">
+									<TextBlock Text="Email Reporting: " FontSize="18" />
+									<TextBlock Text="{Binding Name}" FontSize="20" Foreground="CornflowerBlue" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" c:StretchPanel.Length="*">
+									<c:StretchPanel Margin="5,0,5,5" MinWidth="200">
+										<TextBlock Text=" " />
+										<c:StretchPanel Orientation="Horizontal">
+											<TextBlock Text="Total Emails Sent: " />
+											<TextBlock Text="{Binding EmailTotal, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+										</c:StretchPanel>
+										<TextBlock Text=" " />
+										<TextBlock Text="Email Breakdown" FontSize="14" FontWeight="Bold" />
+										<TextBlock Text=" " />
+										<ItemsControl ItemsSource="{Binding EmailData}" IsTabStop="False">
+											<ItemsControl.ItemTemplate>
+												<DataTemplate>
+													<c:StretchPanel Orientation="Horizontal">
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Name, Converter={StaticResource StringFormatter}, ConverterParameter='\{0}: '}" />
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Value, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+													</c:StretchPanel>
+												</DataTemplate>
+											</ItemsControl.ItemTemplate>
+										</ItemsControl>
+									</c:StretchPanel>
+									<c:StretchPanel Margin="0,5,5,5" c:StretchPanel.Length="*">
+										<Charting:Chart LegendStyle="{StaticResource HiddenLegend}" c:StretchPanel.Length="*" MinWidth="100" MinHeight="100">
+											<Charting:Chart.Series>
+												<Charting:PieSeries ItemsSource="{Binding EmailData}" IndependentValueBinding="{Binding Name}" DependentValueBinding="{Binding Value}" />
+											</Charting:Chart.Series>
+										</Charting:Chart>
+										<!--<telerikChart:RadChart ItemsSource="{Binding EmailData}" Background="Transparent" c:StretchPanel.Length="*" />-->
+									</c:StretchPanel>
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderSocial" Visibility="{Binding IsSelected, ElementName=x_TreeSocial, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="5">
+									<TextBlock Text="Social Media Reporting: " FontSize="18" />
+									<TextBlock Text="{Binding Name}" FontSize="20" Foreground="CornflowerBlue" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" c:StretchPanel.Length="*">
+									<c:StretchPanel Margin="5,0,5,5" MinWidth="200">
+										<TextBlock Text=" " />
+										<c:StretchPanel Orientation="Horizontal">
+											<TextBlock Text="Total Social Media: " />
+											<TextBlock Text="{Binding SocialTotal, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+										</c:StretchPanel>
+										<TextBlock Text=" " />
+										<TextBlock Text="Social Breakdown" FontSize="14" FontWeight="Bold" />
+										<TextBlock Text=" " />
+										<ItemsControl ItemsSource="{Binding SocialData}" IsTabStop="False">
+											<ItemsControl.ItemTemplate>
+												<DataTemplate>
+													<c:StretchPanel Orientation="Horizontal">
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Name, Converter={StaticResource StringFormatter}, ConverterParameter='\{0}: '}" />
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Value, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+													</c:StretchPanel>
+												</DataTemplate>
+											</ItemsControl.ItemTemplate>
+										</ItemsControl>
+									</c:StretchPanel>
+									<c:StretchPanel Margin="0,5,5,5" c:StretchPanel.Length="*">
+										<Charting:Chart LegendStyle="{StaticResource HiddenLegend}" c:StretchPanel.Length="*" MinWidth="100" MinHeight="100">
+											<Charting:Chart.Series>
+												<Charting:PieSeries ItemsSource="{Binding SocialData}" IndependentValueBinding="{Binding Name}" DependentValueBinding="{Binding Value}" />
+											</Charting:Chart.Series>
+										</Charting:Chart>
+										<!--<telerikChart:RadChart ItemsSource="{Binding SocialData}" Background="Transparent" c:StretchPanel.Length="*" />-->
+									</c:StretchPanel>
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderPostcards" Visibility="{Binding IsSelected, ElementName=x_TreePostcards, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="5">
+									<TextBlock Text="Direct Mail Reporting: " FontSize="18" />
+									<TextBlock Text="{Binding Name}" FontSize="20" Foreground="CornflowerBlue" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" c:StretchPanel.Length="*">
+									<c:StretchPanel Margin="5,0,5,5" MinWidth="200">
+										<TextBlock Text=" " />
+										<c:StretchPanel Orientation="Horizontal">
+											<TextBlock Text="Total Postcards Sent: " />
+											<TextBlock Text="{Binding PostcardTotal, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+										</c:StretchPanel>
+										<TextBlock Text=" " />
+										<TextBlock Text="Postcard Breakdown" FontSize="14" FontWeight="Bold" />
+										<TextBlock Text=" " />
+										<ItemsControl ItemsSource="{Binding PostcardData}" IsTabStop="False">
+											<ItemsControl.ItemTemplate>
+												<DataTemplate>
+													<c:StretchPanel Orientation="Horizontal">
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Name, Converter={StaticResource StringFormatter}, ConverterParameter='\{0}: '}" />
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Value, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+													</c:StretchPanel>
+												</DataTemplate>
+											</ItemsControl.ItemTemplate>
+										</ItemsControl>
+									</c:StretchPanel>
+									<c:StretchPanel Margin="0,5,5,5" c:StretchPanel.Length="*">
+										<Charting:Chart LegendStyle="{StaticResource HiddenLegend}" c:StretchPanel.Length="*" MinWidth="100" MinHeight="100">
+											<Charting:Chart.Series>
+												<Charting:PieSeries ItemsSource="{Binding PostcardData}" IndependentValueBinding="{Binding Name}" DependentValueBinding="{Binding Value}" />
+											</Charting:Chart.Series>
+										</Charting:Chart>
+										<!--<telerikChart:RadChart ItemsSource="{Binding PostcardData}" Background="Transparent" c:StretchPanel.Length="*" />-->
+									</c:StretchPanel>
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderVideo" Visibility="{Binding IsSelected, ElementName=x_TreeVideo, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel c:StretchPanel.Length="*" VerticalAlignment="Center">
+									<TextBlock Text="Video Content Here..." HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="300" />
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderTrumpVIP" Visibility="{Binding IsSelected, ElementName=x_TreeTrumpVIP, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel c:StretchPanel.Length="*" VerticalAlignment="Center">
+									<TextBlock Text="TrumpVIP Content Here..." HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="300" />
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderInPerson" Visibility="{Binding IsSelected, ElementName=x_TreeInPerson, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel c:StretchPanel.Length="*" VerticalAlignment="Center">
+									<TextBlock Text="In Person Event Content Here..." HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="300" />
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+						<Grid x:Name="x_ExpanderOffers" Visibility="{Binding IsSelected, ElementName=x_TreeOffers, Converter={StaticResource BoolToVisible}}">
+							<c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" Margin="5">
+									<TextBlock Text="Product Offers: " FontSize="18" />
+									<TextBlock Text="{Binding Name}" FontSize="20" Foreground="CornflowerBlue" />
+								</c:StretchPanel>
+								<c:StretchPanel Orientation="Horizontal" c:StretchPanel.Length="*">
+									<c:StretchPanel Margin="5,0,5,5" MinWidth="200">
+										<TextBlock Text=" " />
+										<c:StretchPanel Orientation="Horizontal">
+											<TextBlock Text="Total Closes: " />
+											<TextBlock Text="{Binding OffersTotal, Converter={StaticResource StringFormatter}, ConverterParameter='\{0:c}'}" Foreground="CornflowerBlue" />
+										</c:StretchPanel>
+										<TextBlock Text=" " />
+										<TextBlock Text="Offers Breakdown" FontSize="14" FontWeight="Bold" />
+										<TextBlock Text=" " />
+										<ItemsControl ItemsSource="{Binding OffersData}" IsTabStop="False">
+											<ItemsControl.ItemTemplate>
+												<DataTemplate>
+													<c:StretchPanel Orientation="Horizontal">
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Name, Converter={StaticResource StringFormatter}, ConverterParameter='\{0}: '}" />
+														<TextBlock Style="{StaticResource CommonTextBlock}" Text="{Binding Count, Converter={StaticResource StringFormatter}, ConverterParameter=' ({0} units)'}" Foreground="CornflowerBlue" />
+													</c:StretchPanel>
+												</DataTemplate>
+											</ItemsControl.ItemTemplate>
+										</ItemsControl>
+									</c:StretchPanel>
+									<c:StretchPanel Margin="0,0,5,5" c:StretchPanel.Length="*">
+										<Charting:Chart LegendStyle="{StaticResource HiddenLegend}" c:StretchPanel.Length="*" MinWidth="100" MinHeight="100">
+											<Charting:Chart.Series>
+												<Charting:ColumnSeries ItemsSource="{Binding OffersData}" IndependentValueBinding="{Binding Name}" DependentValueBinding="{Binding Count}" />
+											</Charting:Chart.Series>
+										</Charting:Chart>
+										<!--<telerikChart:RadChart ItemsSource="{Binding OffersData}" Background="Transparent" c:StretchPanel.Length="*" />-->
+									</c:StretchPanel>
+								</c:StretchPanel>
+							</c:StretchPanel>
+						</Grid>
+					</Grid>
+				</Border>
+		</c:StretchPanel>
+	</Grid>
+</UserControl>

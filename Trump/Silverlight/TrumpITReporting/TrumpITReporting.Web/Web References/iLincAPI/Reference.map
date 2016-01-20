@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://webservice.ilinc.com/cgi-bin/ilinc/api/webservice/ilinc-api.pl?WSDL" filename="iLincAPI.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://webservice.ilinc.com/cgi-bin/ilinc/api/webservice/ilinc-api.xsd" filename="ilinc-api.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

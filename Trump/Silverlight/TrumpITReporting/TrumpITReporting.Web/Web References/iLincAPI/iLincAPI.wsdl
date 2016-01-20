@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="urn:iLincAPI" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="iLincAPI" targetNamespace="urn:iLincAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:iLincAPI">
+      <xsd:include schemaLocation="http://webservice.ilinc.com/cgi-bin/ilinc/api/webservice/ilinc-api.xsd" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AddUserBasicRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:AddUserBasicType" />
+  </wsdl:message>
+  <wsdl:message name="AddUserBasicResponse">
+    <wsdl:part name="return" type="tns:AddUserBasicResponseType" />
+  </wsdl:message>
+  <wsdl:message name="EditUserBasicResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="EditUserBasicRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:EditUserBasicType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserBasic">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetUserBasicType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserBasicResponse">
+    <wsdl:part name="return" type="tns:GetUserBasicResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AddUserAuthorityLevelRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:UserAuthorityLevelType" />
+  </wsdl:message>
+  <wsdl:message name="AddUserAuthorityLevelResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserAuthorityLevelRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:UserAuthorityLevelType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserAuthorityLevelResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetDivisionIDRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetDivisionIDType" />
+  </wsdl:message>
+  <wsdl:message name="GetDivisionIDResponse">
+    <wsdl:part name="return" type="tns:GetDivisionIDResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorityLevelIDRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetAuthorityLevelIDType" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorityLevelIDResponse">
+    <wsdl:part name="return" type="tns:GetAuthorityLevelIDResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguageIDRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetLanguageIDType" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguageIDResponse">
+    <wsdl:part name="return" type="tns:GetLanguageIDResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIDRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetUserIDType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIDResponse">
+    <wsdl:part name="return" type="tns:GetUserIDResponseType" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserStatusRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:ChangeUserStatusType" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserStatusResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:AuthenticateUserType" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupIDRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetGroupIDType" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupIDResponse">
+    <wsdl:part name="return" type="tns:GetGroupIDResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupMemberRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GroupMemberType" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupMemberResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveGroupMemberRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GroupMemberType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveGroupMemberResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AddActivityBasicRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:AddActivityBasicType" />
+  </wsdl:message>
+  <wsdl:message name="AddActivityBasicResponse">
+    <wsdl:part name="return" type="tns:AddActivityBasicResponseType" />
+  </wsdl:message>
+  <wsdl:message name="EditActivityBasicRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:EditActivityBasicType" />
+  </wsdl:message>
+  <wsdl:message name="EditActivityBasicResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityIDRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetActivityIDType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityIDResponse">
+    <wsdl:part name="return" type="tns:GetActivityIDResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetStandingActivityIDRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetStandingActivityIDType" />
+  </wsdl:message>
+  <wsdl:message name="GetStandingActivityIDResponse">
+    <wsdl:part name="return" type="tns:GetStandingActivityIDResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityBasicRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetActivityBasicType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityBasicResponse">
+    <wsdl:part name="parameter" type="tns:GetActivityBasicResponseType" />
+  </wsdl:message>
+  <wsdl:message name="EditActivityScheduleRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:EditActivityScheduleType" />
+  </wsdl:message>
+  <wsdl:message name="EditActivityScheduleResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="RegisterAllUsersRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:RegisterAllUsersType" />
+  </wsdl:message>
+  <wsdl:message name="RegisterAllUsersResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="UnregisterAllUsersRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:UnregisterAllUsersType" />
+  </wsdl:message>
+  <wsdl:message name="UnregisterAllUsersResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AddActivityAttendeeRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:AddActivityAttendeeType" />
+  </wsdl:message>
+  <wsdl:message name="AddActivityAttendeeResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveActivityAttendeeRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:RemoveActivityAttendeeType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveActivityAttendeeResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="SendInviteeEmailRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:SendInviteeEmailType" />
+  </wsdl:message>
+  <wsdl:message name="SendInviteeEmailResponse">
+    <wsdl:part name="return" type="tns:SendInviteeEmailResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityFieldIDRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetActivityFieldIDType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityFieldIDResponose">
+    <wsdl:part name="return" type="tns:GetActivityFieldIDResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityFieldPropertiesRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetActivityFieldPropertiesType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityFieldPropertiesResponse">
+    <wsdl:part name="return" type="tns:GetActivityFieldPropertiesResponseType" />
+  </wsdl:message>
+  <wsdl:message name="EditActivityFieldValueRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:EditActivityFieldValueType" />
+  </wsdl:message>
+  <wsdl:message name="EditActivityFieldValueResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityScheduleRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetActivityScheduleType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityScheduleResponse">
+    <wsdl:part name="return" type="tns:GetActivityScheduleResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityAttendeesRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetActivityAttendeesType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityAttendeesResponse">
+    <wsdl:part name="return" type="tns:GetActivityAttendeesResponseType" />
+  </wsdl:message>
+  <wsdl:message name="ChangeActivityStatusRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:ChangeActivityStatusType" />
+  </wsdl:message>
+  <wsdl:message name="ChangeActivityStatusResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetJoinURLRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetJoinURLType" />
+  </wsdl:message>
+  <wsdl:message name="GetJoinURLResponse">
+    <wsdl:part name="return" type="tns:GetJoinURLResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetJoinHTMLRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetJoinHTMLType" />
+  </wsdl:message>
+  <wsdl:message name="GetJoinHTMLResponse">
+    <wsdl:part name="return" type="tns:GetJoinHTMLResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetJoinNowURLRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetJoinNowURLType" />
+  </wsdl:message>
+  <wsdl:message name="GetJoinNowURLResponse">
+    <wsdl:part name="return" type="tns:GetJoinNowURLResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetJoinNowHTMLRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetJoinNowHTMLType" />
+  </wsdl:message>
+  <wsdl:message name="GetJoinNowHTMLResponse">
+    <wsdl:part name="return" type="tns:GetJoinNowHTMLResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetUploadUserPictureURLRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetUploadUserPictureURLType" />
+  </wsdl:message>
+  <wsdl:message name="GetUploadUserPictureURLResponse">
+    <wsdl:part name="return" type="tns:GetUploadUserPictureURLResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPictureRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetUserPictureType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPictureResponse">
+    <wsdl:part name="return" type="tns:GetUserPictureResponseType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserPictureRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:RemoveUserPictureType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserPictureResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionDataRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetSessionDataType" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionDataResponse">
+    <wsdl:part name="return" type="tns:GetSessionDataResponseType" />
+  </wsdl:message>
+  <wsdl:message name="ConvertTimeZoneRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:ConvertTimeZoneType" />
+  </wsdl:message>
+  <wsdl:message name="ConvertTimeZoneResponse">
+    <wsdl:part name="return" type="tns:ConvertTimeZoneResponseType" />
+  </wsdl:message>
+  <wsdl:message name="EncryptTextRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:EncryptTextType" />
+  </wsdl:message>
+  <wsdl:message name="EncryptTextResponse">
+    <wsdl:part name="return" type="tns:EncryptTextResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AddActivityRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:AddActivityType" />
+  </wsdl:message>
+  <wsdl:message name="AddActivityResponse">
+    <wsdl:part name="return" type="tns:AddActivityResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AddUserRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:AddUserType" />
+  </wsdl:message>
+  <wsdl:message name="AddUserResponse">
+    <wsdl:part name="return" type="tns:AddUserResponseType" />
+  </wsdl:message>
+  <wsdl:message name="EditActivityInSessionRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:EditActivityInSessionType" />
+  </wsdl:message>
+  <wsdl:message name="EditActivityInSessionResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityInSessionRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetActivityInSessionType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityInSessionResponse">
+    <wsdl:part name="return" type="tns:GetActivityInSessionResponseType" />
+  </wsdl:message>
+  <wsdl:message name="ConvertGuestToUserRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:ConvertGuestToUserType" />
+  </wsdl:message>
+  <wsdl:message name="ConvertGuestToUserResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="UserCanCopyRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:UserCanCopyType" />
+  </wsdl:message>
+  <wsdl:message name="UserCanCopyResponse">
+    <wsdl:part name="return" type="tns:UserCanCopyResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginURLRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetLoginURLType" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginURLResponse">
+    <wsdl:part name="return" type="tns:GetLoginURLResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRegistrationRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetUserRegistrationType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRegistrationResponse">
+    <wsdl:part name="return" type="tns:GetUserRegistrationResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:AddGroupType" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupResponse">
+    <wsdl:part name="return" type="tns:AddGroupResponseType" />
+  </wsdl:message>
+  <wsdl:message name="ChangeGroupStatusRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:ChangeGroupStatusType" />
+  </wsdl:message>
+  <wsdl:message name="ChangeGroupStatusResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AddDivisionRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:AddDivisionType" />
+  </wsdl:message>
+  <wsdl:message name="AddDivisionResponse">
+    <wsdl:part name="return" type="tns:AddDivisionResponseType" />
+  </wsdl:message>
+  <wsdl:message name="EditDivisionRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:EditDivisionType" />
+  </wsdl:message>
+  <wsdl:message name="EditDivisionResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDivisionStatusRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:ChangeDivisionStatusType" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDivisionStatusResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGreenMeterRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetUserGreenMeterType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGreenMeterResponse">
+    <wsdl:part name="return" type="tns:GetGreenMeterResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetClientGreenMeterRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetClientGreenMeterType" />
+  </wsdl:message>
+  <wsdl:message name="GetClientGreenMeterResponse">
+    <wsdl:part name="return" type="tns:GetGreenMeterResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityGreenMeterRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetActivityGreenMeterType" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityGreenMeterResponse">
+    <wsdl:part name="return" type="tns:GetGreenMeterResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetGreenMeterRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetGreenMeterType" />
+  </wsdl:message>
+  <wsdl:message name="GetGreenMeterResponse">
+    <wsdl:part name="return" type="tns:GetFullGreenMeterResponseType" />
+  </wsdl:message>
+  <wsdl:message name="SetGreenMeterDefaultsRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:SetGreenMeterDefaultsType" />
+  </wsdl:message>
+  <wsdl:message name="SetGreenMeterDefaultsResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AddContentRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:AddContentType" />
+  </wsdl:message>
+  <wsdl:message name="AddContentResponse">
+    <wsdl:part name="return" type="tns:AddContentResponseType" />
+  </wsdl:message>
+  <wsdl:message name="EditContentRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:EditContentType" />
+  </wsdl:message>
+  <wsdl:message name="EditContentResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetContentRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetContentType" />
+  </wsdl:message>
+  <wsdl:message name="GetContentResponse">
+    <wsdl:part name="return" type="tns:GetContentResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetContentIDRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetContentIDType" />
+  </wsdl:message>
+  <wsdl:message name="GetContentIDResponse">
+    <wsdl:part name="return" type="tns:GetContentIDResponseType" />
+  </wsdl:message>
+  <wsdl:message name="GetContentInstanceIDRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:GetContentInstanceIDType" />
+  </wsdl:message>
+  <wsdl:message name="GetContentInstanceIDResponse">
+    <wsdl:part name="return" type="tns:GetContentInstanceIDResponseType" />
+  </wsdl:message>
+  <wsdl:message name="AddActivityContentInstanceRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:AddActivityContentInstanceType" />
+  </wsdl:message>
+  <wsdl:message name="AddActivityContentInstanceResponse">
+    <wsdl:part name="return" type="tns:AddActivityContentInstanceResponseType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveActivityContentInstanceRequest">
+    <wsdl:part name="Authorization" type="tns:AuthorizationType" />
+    <wsdl:part name="parameters" type="tns:RemoveActivityContentInstanceType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveActivityContentInstanceResponse">
+    <wsdl:part name="return" type="tns:StandardResponseType" />
+  </wsdl:message>
+  <wsdl:portType name="iLincAPIPort">
+    <wsdl:operation name="AddUserBasic">
+      <wsdl:input message="tns:AddUserBasicRequest" />
+      <wsdl:output message="tns:AddUserBasicResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EditUserBasic">
+      <wsdl:input message="tns:EditUserBasicRequest" />
+      <wsdl:output message="tns:EditUserBasicResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserAuthorityLevel">
+      <wsdl:input message="tns:AddUserAuthorityLevelRequest" />
+      <wsdl:output message="tns:AddUserAuthorityLevelResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserAuthorityLevel">
+      <wsdl:input message="tns:RemoveUserAuthorityLevelRequest" />
+      <wsdl:output message="tns:RemoveUserAuthorityLevelResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDivisionID">
+      <wsdl:input message="tns:GetDivisionIDRequest" />
+      <wsdl:output message="tns:GetDivisionIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorityLevelID">
+      <wsdl:input message="tns:GetAuthorityLevelIDRequest" />
+      <wsdl:output message="tns:GetAuthorityLevelIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguageID">
+      <wsdl:input message="tns:GetLanguageIDRequest" />
+      <wsdl:output message="tns:GetLanguageIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserID">
+      <wsdl:input message="tns:GetUserIDRequest" />
+      <wsdl:output message="tns:GetUserIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserBasic">
+      <wsdl:input message="tns:GetUserBasic" />
+      <wsdl:output message="tns:GetUserBasicResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserStatus">
+      <wsdl:input message="tns:ChangeUserStatusRequest" />
+      <wsdl:output message="tns:ChangeUserStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input message="tns:AuthenticateUserRequest" />
+      <wsdl:output message="tns:AuthenticateUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupID">
+      <wsdl:input message="tns:GetGroupIDRequest" />
+      <wsdl:output message="tns:GetGroupIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupMember">
+      <wsdl:input message="tns:AddGroupMemberRequest" />
+      <wsdl:output message="tns:AddGroupMemberResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGroupMember">
+      <wsdl:input message="tns:RemoveGroupMemberRequest" />
+      <wsdl:output message="tns:RemoveGroupMemberResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddActivityBasic">
+      <wsdl:input message="tns:AddActivityBasicRequest" />
+      <wsdl:output message="tns:AddActivityBasicResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EditActivityBasic">
+      <wsdl:input message="tns:EditActivityBasicRequest" />
+      <wsdl:output message="tns:EditActivityBasicResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EditActivitySchedule">
+      <wsdl:input message="tns:EditActivityScheduleRequest" />
+      <wsdl:output message="tns:EditActivityScheduleResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterAllUsers">
+      <wsdl:input message="tns:RegisterAllUsersRequest" />
+      <wsdl:output message="tns:RegisterAllUsersResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterAllUsers">
+      <wsdl:input message="tns:UnregisterAllUsersRequest" />
+      <wsdl:output message="tns:UnregisterAllUsersResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddActivityAttendee">
+      <wsdl:input message="tns:AddActivityAttendeeRequest" />
+      <wsdl:output message="tns:AddActivityAttendeeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActivityAttendee">
+      <wsdl:input message="tns:RemoveActivityAttendeeRequest" />
+      <wsdl:output message="tns:RemoveActivityAttendeeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInviteeEmail">
+      <wsdl:input message="tns:SendInviteeEmailRequest" />
+      <wsdl:output message="tns:SendInviteeEmailResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityID">
+      <wsdl:input message="tns:GetActivityIDRequest" />
+      <wsdl:output message="tns:GetActivityIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStandingActivityID">
+      <wsdl:input message="tns:GetStandingActivityIDRequest" />
+      <wsdl:output message="tns:GetStandingActivityIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityFieldID">
+      <wsdl:input message="tns:GetActivityFieldIDRequest" />
+      <wsdl:output message="tns:GetActivityFieldIDResponose" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityFieldProperties">
+      <wsdl:input message="tns:GetActivityFieldPropertiesRequest" />
+      <wsdl:output message="tns:GetActivityFieldPropertiesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EditActivityFieldValue">
+      <wsdl:input message="tns:EditActivityFieldValueRequest" />
+      <wsdl:output message="tns:EditActivityFieldValueResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityBasic">
+      <wsdl:input message="tns:GetActivityBasicRequest" />
+      <wsdl:output message="tns:GetActivityBasicResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivitySchedule">
+      <wsdl:input message="tns:GetActivityScheduleRequest" />
+      <wsdl:output message="tns:GetActivityScheduleResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityAttendees">
+      <wsdl:input message="tns:GetActivityAttendeesRequest" />
+      <wsdl:output message="tns:GetActivityAttendeesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeActivityStatus">
+      <wsdl:input message="tns:ChangeActivityStatusRequest" />
+      <wsdl:output message="tns:ChangeActivityStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJoinURL">
+      <wsdl:input message="tns:GetJoinURLRequest" />
+      <wsdl:output message="tns:GetJoinURLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJoinHTML">
+      <wsdl:input message="tns:GetJoinHTMLRequest" />
+      <wsdl:output message="tns:GetJoinHTMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJoinNowURL">
+      <wsdl:input message="tns:GetJoinNowURLRequest" />
+      <wsdl:output message="tns:GetJoinNowURLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJoinNowHTML">
+      <wsdl:input message="tns:GetJoinNowHTMLRequest" />
+      <wsdl:output message="tns:GetJoinNowHTMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUploadUserPictureURL">
+      <wsdl:input message="tns:GetUploadUserPictureURLRequest" />
+      <wsdl:output message="tns:GetUploadUserPictureURLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPicture">
+      <wsdl:input message="tns:GetUserPictureRequest" />
+      <wsdl:output message="tns:GetUserPictureResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserPicture">
+      <wsdl:input message="tns:RemoveUserPictureRequest" />
+      <wsdl:output message="tns:RemoveUserPictureResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionData">
+      <wsdl:input message="tns:GetSessionDataRequest" />
+      <wsdl:output message="tns:GetSessionDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertTimeZone">
+      <wsdl:input message="tns:ConvertTimeZoneRequest" />
+      <wsdl:output message="tns:ConvertTimeZoneResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptText">
+      <wsdl:input message="tns:EncryptTextRequest" />
+      <wsdl:output message="tns:EncryptTextResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddActivity">
+      <wsdl:input message="tns:AddActivityRequest" />
+      <wsdl:output message="tns:AddActivityResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input message="tns:AddUserRequest" />
+      <wsdl:output message="tns:AddUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EditActivityInSession">
+      <wsdl:input message="tns:EditActivityInSessionRequest" />
+      <wsdl:output message="tns:EditActivityInSessionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityInSession">
+      <wsdl:input message="tns:GetActivityInSessionRequest" />
+      <wsdl:output message="tns:GetActivityInSessionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertGuestToUser">
+      <wsdl:input message="tns:ConvertGuestToUserRequest" />
+      <wsdl:output message="tns:ConvertGuestToUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UserCanCopy">
+      <wsdl:input message="tns:UserCanCopyRequest" />
+      <wsdl:output message="tns:UserCanCopyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <wsdl:input message="tns:GetLoginURLRequest" />
+      <wsdl:output message="tns:GetLoginURLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRegistration">
+      <wsdl:input message="tns:GetUserRegistrationRequest" />
+      <wsdl:output message="tns:GetUserRegistrationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <wsdl:input message="tns:AddGroupRequest" />
+      <wsdl:output message="tns:AddGroupResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeGroupStatus">
+      <wsdl:input message="tns:ChangeGroupStatusRequest" />
+      <wsdl:output message="tns:ChangeGroupStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDivision">
+      <wsdl:input message="tns:AddDivisionRequest" />
+      <wsdl:output message="tns:AddDivisionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDivision">
+      <wsdl:input message="tns:EditDivisionRequest" />
+      <wsdl:output message="tns:EditDivisionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDivisionStatus">
+      <wsdl:input message="tns:ChangeDivisionStatusRequest" />
+      <wsdl:output message="tns:ChangeDivisionStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGreenMeter">
+      <wsdl:input message="tns:GetUserGreenMeterRequest" />
+      <wsdl:output message="tns:GetUserGreenMeterResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientGreenMeter">
+      <wsdl:input message="tns:GetClientGreenMeterRequest" />
+      <wsdl:output message="tns:GetClientGreenMeterResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityGreenMeter">
+      <wsdl:input message="tns:GetActivityGreenMeterRequest" />
+      <wsdl:output message="tns:GetActivityGreenMeterResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGreenMeter">
+      <wsdl:input message="tns:GetGreenMeterRequest" />
+      <wsdl:output message="tns:GetGreenMeterResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGreenMeterDefaults">
+      <wsdl:input message="tns:SetGreenMeterDefaultsRequest" />
+      <wsdl:output message="tns:SetGreenMeterDefaultsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContent">
+      <wsdl:input message="tns:AddContentRequest" />
+      <wsdl:output message="tns:AddContentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EditContent">
+      <wsdl:input message="tns:EditContentRequest" />
+      <wsdl:output message="tns:EditContentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContent">
+      <wsdl:input message="tns:GetContentRequest" />
+      <wsdl:output message="tns:GetContentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentID">
+      <wsdl:input message="tns:GetContentIDRequest" />
+      <wsdl:output message="tns:GetContentIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentInstanceID">
+      <wsdl:input message="tns:GetContentInstanceIDRequest" />
+      <wsdl:output message="tns:GetContentInstanceIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddActivityContentInstance">
+      <wsdl:input message="tns:AddActivityContentInstanceRequest" />
+      <wsdl:output message="tns:AddActivityContentInstanceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActivityContentInstance">
+      <wsdl:input message="tns:RemoveActivityContentInstanceRequest" />
+      <wsdl:output message="tns:RemoveActivityContentInstanceResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAP" type="tns:iLincAPIPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="AddUserBasic">
+      <soap:operation soapAction="urn:iLincAPI/AddUserBasic" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditUserBasic">
+      <soap:operation soapAction="urn:iLincAPI/EditUserBasic" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserBasic">
+      <soap:operation soapAction="urn:iLincAPI/GetUserBasic" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserAuthorityLevel">
+      <soap:operation soapAction="urn:iLincAPI/AddUserAuthorityLevel" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserAuthorityLevel">
+      <soap:operation soapAction="urn:iLincAPI/RemoveUserAuthorityLevel" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDivisionID">
+      <soap:operation soapAction="urn:iLincAPI/GetDivisionID" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorityLevelID">
+      <soap:operation soapAction="urn:iLincAPI/GetAuthorityLevelID" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguageID">
+      <soap:operation soapAction="urn:iLincAPI/GetLanguageID" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserID">
+      <soap:operation soapAction="urn:iLincAPI/GetUserID" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserStatus">
+      <soap:operation soapAction="urn:iLincAPI/ChangeUserStatus" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="urn:iLincAPI/AuthenticateUser" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupID">
+      <soap:operation soapAction="urn:iLincAPI/GetGroupID" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupMember">
+      <soap:operation soapAction="urn:iLincAPI/AddGroupMember" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGroupMember">
+      <soap:operation soapAction="urn:iLincAPI/RemoveGroupMember" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActivityBasic">
+      <soap:operation soapAction="urn:iLincAPI/AddActivityBasic" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditActivityBasic">
+      <soap:operation soapAction="urn:iLincAPI/EditActivityBasic" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityID">
+      <soap:operation soapAction="urn:iLincAPI/GetActivityID" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStandingActivityID">
+      <soap:operation soapAction="urn:iLincAPI/GetStandingActivityID" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityBasic">
+      <soap:operation soapAction="urn:iLincAPI/GetActivityBasic" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditActivitySchedule">
+      <soap:operation soapAction="urn:iLincAPI/EditActivitySchedule" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterAllUsers">
+      <soap:operation soapAction="urn:iLincAPI/RegisterAllUsers" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterAllUsers">
+      <soap:operation soapAction="urn:iLincAPI/UnregisterAllUsers" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActivityAttendee">
+      <soap:operation soapAction="urn:iLincAPI/AddActivityAttendee" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActivityAttendee">
+      <soap:operation soapAction="urn:iLincAPI/RemoveActivityAttendee" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInviteeEmail">
+      <soap:operation soapAction="urn:iLincAPI/SendInviteeEmail" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityFieldID">
+      <soap:operation soapAction="urn:iLincAPI/GetActivityFieldID" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityFieldProperties">
+      <soap:operation soapAction="urn:iLincAPI/GetActivityFieldProperties" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditActivityFieldValue">
+      <soap:operation soapAction="urn:iLincAPI/EditActivityFieldValue" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivitySchedule">
+      <soap:operation soapAction="urn:iLincAPI/GetActivitySchedule" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityAttendees">
+      <soap:operation soapAction="urn:iLincAPI/GetActivityAttendees" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeActivityStatus">
+      <soap:operation soapAction="urn:iLincAPI/ChangeActivityStatus" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJoinURL">
+      <soap:operation soapAction="urn:iLincAPI/GetJoinURL" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJoinHTML">
+      <soap:operation soapAction="urn:iLincAPI/GetJoinHTML" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJoinNowURL">
+      <soap:operation soapAction="urn:iLincAPI/GetJoinNowURL" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJoinNowHTML">
+      <soap:operation soapAction="urn:iLincAPI/GetJoinNowHTML" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUploadUserPictureURL">
+      <soap:operation soapAction="urn:iLincAPI/GetUploadUserPictureURL" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPicture">
+      <soap:operation soapAction="urn:iLincAPI/GetUserPicture" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserPicture">
+      <soap:operation soapAction="urn:iLincAPI/RemoveUserPicture" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionData">
+      <soap:operation soapAction="urn:iLincAPI/GetSessionData" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertTimeZone">
+      <soap:operation soapAction="urn:iLincAPI/ConvertTimeZone" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptText">
+      <soap:operation soapAction="urn:iLincAPI/EncryptText" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActivity">
+      <soap:operation soapAction="urn:iLincAPI/AddActivity" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="urn:iLincAPI/AddUser" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditActivityInSession">
+      <soap:operation soapAction="urn:iLincAPI/EditActivityInSession" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityInSession">
+      <soap:operation soapAction="urn:iLincAPI/GetActivityInSession" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertGuestToUser">
+      <soap:operation soapAction="urn:iLincAPI/ConvertGuestToUser" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserCanCopy">
+      <soap:operation soapAction="urn:iLincAPI/UserCanCopy" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <soap:operation soapAction="urn:iLincAPI/GetLoginURL" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRegistration">
+      <soap:operation soapAction="urn:iLincAPI/GetUserRegistration" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <soap:operation soapAction="urn:iLincAPI/AddGroup" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeGroupStatus">
+      <soap:operation soapAction="urn:iLincAPI/ChangeGroupStatus" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDivision">
+      <soap:operation soapAction="urn:iLincAPI/AddDivision" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDivision">
+      <soap:operation soapAction="urn:iLincAPI/EditDivision" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDivisionStatus">
+      <soap:operation soapAction="urn:iLincAPI/ChangeDivisionStatus" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGreenMeter">
+      <soap:operation soapAction="urn:iLincAPI/GetUserGreenMeter" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientGreenMeter">
+      <soap:operation soapAction="urn:iLincAPI/GetClientGreenMeter" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityGreenMeter">
+      <soap:operation soapAction="urn:iLincAPI/GetActivityGreenMeter" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGreenMeter">
+      <soap:operation soapAction="urn:iLincAPI/GetGreenMeter" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGreenMeterDefaults">
+      <soap:operation soapAction="urn:iLincAPI/SetGreenMeterDefaults" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContent">
+      <soap:operation soapAction="urn:iLincAPI/AddContent" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditContent">
+      <soap:operation soapAction="urn:iLincAPI/EditContent" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContent">
+      <soap:operation soapAction="urn:iLincAPI/GetContent" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentID">
+      <soap:operation soapAction="urn:iLincAPI/GetContentID" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentInstanceID">
+      <soap:operation soapAction="urn:iLincAPI/GetContentInstanceID" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActivityContentInstance">
+      <soap:operation soapAction="urn:iLincAPI/AddActivityContentInstance" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActivityContentInstance">
+      <soap:operation soapAction="urn:iLincAPI/RemoveActivityContentInstance" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:iLincAPI" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="iLincAPI">
+    <wsdl:port name="iLincAPIPort" binding="tns:SOAP">
+      <soap:address location="http://webservice.ilinc.com/perl/ilinc/api/webservice/listener.pl" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

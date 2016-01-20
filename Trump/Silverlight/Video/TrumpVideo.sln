@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrumpVideo", "TrumpVideo\TrumpVideo.csproj", "{8D2BE439-AF1E-40A7-9140-0FBA3AC9491E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41} = {DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrumpVideo.Web", "TrumpVideo.Web\TrumpVideo.Web.csproj", "{4C5AA86F-54D2-409D-92C1-04C15F7C7CEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "..\ClassLibrary\ClassLibrary.csproj", "{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D2BE439-AF1E-40A7-9140-0FBA3AC9491E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D2BE439-AF1E-40A7-9140-0FBA3AC9491E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D2BE439-AF1E-40A7-9140-0FBA3AC9491E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D2BE439-AF1E-40A7-9140-0FBA3AC9491E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C5AA86F-54D2-409D-92C1-04C15F7C7CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C5AA86F-54D2-409D-92C1-04C15F7C7CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C5AA86F-54D2-409D-92C1-04C15F7C7CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C5AA86F-54D2-409D-92C1-04C15F7C7CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

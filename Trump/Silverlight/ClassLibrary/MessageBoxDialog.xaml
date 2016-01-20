@@ -1,0 +1,34 @@
+﻿<c:DialogPanel x:Class="ClassLibrary.MessageBoxDialog"
+	xmlns="http://schemas.microsoft.com/client/2007" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+	EnterKey="OnOkClick"
+	EscapeKey="OnCancelClick"
+>
+	<!--
+	-->
+	<Grid>
+		<Rectangle Style="{StaticResource DialogRectangleStyle}" />
+		<StackPanel Margin="18">
+			<TextBlock Style="{StaticResource DialogTitleStyle}" x:Name="x_Title" Text="(Title)" />
+			<c:Spacer MinHeight="10" />
+			<StackPanel Orientation="Horizontal">
+				<Image x:Name="x_Icon" Margin="0,0,10,0" VerticalAlignment="Top" Width="32" Stretch="Uniform">
+					<Image.Effect>
+						<DropShadowEffect Color="#FF434343" />
+					</Image.Effect>
+				</Image>
+				<TextBlock x:Name="x_Text" MaxWidth="500" Margin="0,8,0,8" Text="(Text)" TextWrapping="Wrap" />
+			</StackPanel>
+			<c:Spacer MinHeight="4" />
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+				<Button x:Name="x_Yes" Content="Yes" Click="OnYesClick" Margin="8" />
+				<Button x:Name="x_No" Content="No" Click="OnNoClick" Margin="8" />
+				<Button x:Name="x_OK" Content="OK" Click="OnOkClick" Margin="8" />
+				<Button x:Name="x_Cancel" Content="Cancel" Click="OnCancelClick" Margin="8" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</c:DialogPanel>

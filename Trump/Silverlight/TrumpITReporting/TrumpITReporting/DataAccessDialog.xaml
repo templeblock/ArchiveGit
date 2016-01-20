@@ -1,0 +1,73 @@
+﻿<c:DialogPanel x:Class="TrumpITReporting.DataAccessDialog"
+	xmlns="http://schemas.microsoft.com/client/2007"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	xmlns:DataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+	xmlns:DataGrid="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+	EscapeKey="OnCancelClick"
+>
+	<Grid Width="800" Height="600">
+		<Rectangle Style="{StaticResource DialogRectangleStyle}" Fill="{StaticResource FrameBackgroundBrush}"/>
+		<ScrollViewer>
+			<StackPanel MaxWidth="680">
+				<c:Spacer MinHeight="10" />
+				<StackPanel Orientation="Horizontal" Width="600">
+					<DataInput:Label Content="Logged In AccountID: " Width="200" HorizontalAlignment="Right" />
+					<TextBox x:Name="x_AccountID" Text="5382707" Width="100" />
+				</StackPanel>
+				<c:Spacer MinHeight="10" />
+				<Button Content="Search Persons" Click="OnGetPersonFromAccountIDClick"/>
+				<c:Spacer MinHeight="10" />
+				<DataInput:Label Content="Person Table:"/>
+				<DataGrid:DataGrid x:Name="x_PersonDataGrid" Width="600" Height="200" AutoGenerateColumns="True" SelectionMode="Single" CanUserReorderColumns="False" CanUserSortColumns="True" IsReadOnly="True">
+				</DataGrid:DataGrid>
+
+				<c:Spacer MinHeight="10" />
+				<Button Content="Search Campaigns" Click="OnGetCampaignFromAccountIDClick"/>
+				<c:Spacer MinHeight="10" />
+				<DataInput:Label Content="Campaign Table:"/>
+				<DataGrid:DataGrid x:Name="x_CampaignDataGrid" Width="600" Height="200" AutoGenerateColumns="True" SelectionMode="Single" CanUserReorderColumns="False" CanUserSortColumns="True" IsReadOnly="True">
+				</DataGrid:DataGrid>
+
+				<c:Spacer MinHeight="10" />
+				<Button Content="Search Marketing Leads" Click="OnGetMarketingLeadFromAccountIDClick"/>
+				<c:Spacer MinHeight="10" />
+				<DataInput:Label Content="MarketingLead Table:"/>
+				<DataGrid:DataGrid x:Name="x_MarketingLeadDataGrid" Width="600" Height="200" AutoGenerateColumns="True" SelectionMode="Single" CanUserReorderColumns="False" CanUserSortColumns="True" IsReadOnly="True">
+				</DataGrid:DataGrid>
+
+				<c:Spacer MinHeight="10" />
+				<StackPanel Orientation="Horizontal" Width="600">
+					<DataInput:Label Content="iLinc UserID: " Width="100" HorizontalAlignment="Right" />
+					<TextBox x:Name="x_UserID" Text="6861412" Width="100" />
+					<Button Content="Search" Click="OnGetSessionFromUserIDClick"/>
+				</StackPanel>
+				<c:Spacer MinHeight="5" />
+				<StackPanel Orientation="Horizontal" Width="600">
+					<DataInput:Label Content="iLinc ActivityID: " Width="100" HorizontalAlignment="Right" />
+					<TextBox x:Name="x_ActivityID" Text="3097313" Width="100" />
+					<Button Content="Search" Click="OnGetSessionFromActivityIDClick"/>
+				</StackPanel>
+				<c:Spacer MinHeight="10" />
+				<DataInput:Label Content="iLinc Session Data:"/>
+				<DataGrid:DataGrid x:Name="x_DataGrid" Width="600" Height="200" AutoGenerateColumns="True" SelectionMode="Single" CanUserReorderColumns="False" CanUserSortColumns="True" IsReadOnly="True">
+				</DataGrid:DataGrid>
+
+				<c:Spacer MinHeight="10" />
+				<StackPanel Orientation="Horizontal" Width="600">
+					<DataInput:Label Content="AddressID: " Width="100" HorizontalAlignment="Right" />
+					<TextBox x:Name="x_AddressID" Text="6861412" Width="100" />
+					<Button Content="Search" Click="OnGetAddressFromAddressIDClick"/>
+				</StackPanel>
+				<c:Spacer MinHeight="10" />
+				<DataInput:Label Content="Address Table:"/>
+				<DataGrid:DataGrid x:Name="x_AddressDataGrid" Width="600" Height="200" AutoGenerateColumns="True" SelectionMode="Single" CanUserReorderColumns="False" CanUserSortColumns="True" IsReadOnly="True">
+				</DataGrid:DataGrid>
+
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</c:DialogPanel>

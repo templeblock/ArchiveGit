@@ -1,0 +1,196 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/client/2007"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+	xmlns:datavis="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+	xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+>
+	<!-- Constants -->
+	<sys:Double x:Key="FontSize">14</sys:Double>
+	<sys:String x:Key="FontFamily">Trebuchet MS</sys:String>
+	<SolidColorBrush x:Key="FontBrush" Color="#FF303030" />
+
+	<LinearGradientBrush x:Key="CommonChartBackground" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="White" Offset="0" />
+		<GradientStop Color="Lemonchiffon" Offset="1" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="CommonAreaSeriesBackground" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="#8000FF00" Offset="0" />
+		<GradientStop Color="#80FFFFFF" Offset="1.5" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="AlternateAreaSeriesBackground" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="#80FF0000" Offset="0" />
+		<GradientStop Color="#80FFFFFF" Offset="1.5" />
+	</LinearGradientBrush>
+
+	<!-- Common Explicit Key'd Styles to base Implicit styles on -->
+	<Style x:Key="BaseStyle" TargetType="Control">
+		<Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+		<Setter Property="FontSize" Value="{StaticResource FontSize}" />
+		<Setter Property="Foreground" Value="{StaticResource FontBrush}" />
+	</Style>
+	<Style x:Key="BaseStyleCentered" TargetType="Control" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+	<Style x:Key="CommonTitle" TargetType="datavis:Title" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="FontSize" Value="26" />
+		<Setter Property="Foreground" Value="Green" />
+		<Setter Property="FontWeight" Value="Bold" />
+	</Style>
+	<Style x:Key="CommonLegend" TargetType="datavis:Legend" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="Margin" Value="10,0,0,0" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="BorderBrush" Value="Transparent" />
+		<Setter Property="Background" Value="Transparent" />
+		<!--<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="VerticalContentAlignment" Value="Top" />-->
+	</Style>
+	<Style x:Key="HiddenLegend" TargetType="datavis:Legend" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="Width" Value="0" />
+		<Setter Property="Height" Value="0" />
+	</Style>
+	<!-- ChartArea: The Panel that houses the PlotArea and Axes -->
+	<Style x:Key="CommonChartArea" TargetType="Panel">
+		<!--<Setter Property="Background" Value="Yellow" />-->
+	</Style>
+	<!-- PlotArea: The Panel that houses the GridLines and Series DataPoints -->
+	<Style x:Key="CommonPlotAreaForPieCharts" TargetType="Panel">
+		<Setter Property="Background" Value="{StaticResource CommonChartBackground}" />
+	</Style>
+	<Style x:Key="CommonPlotArea" TargetType="Panel">
+		<Setter Property="Background" Value="{StaticResource CommonChartBackground}" />
+	</Style>
+	<!-- Chart: The Control that houses the Title, Legend, and ChartArea -->
+	<Style x:Key="CommonChart" TargetType="charting:Chart" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="TitleStyle" Value="{StaticResource CommonTitle}" />
+		<Setter Property="LegendStyle" Value="{StaticResource CommonLegend}" />
+		<Setter Property="ChartAreaStyle" Value="{StaticResource CommonChartArea}" />
+		<Setter Property="PlotAreaStyle" Value="{StaticResource CommonPlotArea}" />
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="Background" Value="Transparent" />
+		<!--<Setter Property="Title" Value="Title" />-->
+		<!--<Setter Property="LegendTitle" Value="Legend" />-->
+	</Style>
+	<DropShadowEffect x:Key="DialogDropShadow" />
+	<Style x:Key="CommonAreaSeriesPath" TargetType="Path">
+		<Setter Property="StrokeThickness" Value="1" />
+		<Setter Property="Stroke" Value="DarkGray" />
+		<Setter Property="Effect" Value="{StaticResource DialogDropShadow}" />
+	</Style>
+
+	<ControlTemplate x:Key="CommonAreaSeriesDataPointTemplate" TargetType="charting:AreaDataPoint">
+		<!--Comment out data points from the default template; just an empty template-->
+		<Grid x:Name="Root" Opacity="1">
+			<!--<ToolTipService.ToolTip>
+				<StackPanel Margin="2,2,2,2">
+					<ContentControl Content="{TemplateBinding FormattedDependentValue}" />
+					<ContentControl Content="{TemplateBinding FormattedIndependentValue}" />
+				</StackPanel>
+			</ToolTipService.ToolTip>
+			<Ellipse StrokeThickness="{TemplateBinding BorderThickness}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" />-->
+		</Grid>
+	</ControlTemplate>
+	<Style x:Key="CommonAreaSeriesDataPoint" TargetType="charting:AreaDataPoint" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="Background" Value="{StaticResource CommonAreaSeriesBackground}" />
+		<Setter Property="Template" Value="{StaticResource CommonAreaSeriesDataPointTemplate}" />
+		<!--<Setter Property="IndependentValueStringFormat" Value="{}{0:yyyy}" />
+		<Setter Property="DependentValueStringFormat" Value="{}{0:c0}" />
+		<Setter Property="BorderBrush" Value="White" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="IsTabStop" Value="False" />-->
+	</Style>
+	<Style x:Key="AlternateAreaSeriesDataPoint" TargetType="charting:AreaDataPoint" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="Background" Value="{StaticResource AlternateAreaSeriesBackground}" />
+		<Setter Property="Template" Value="{StaticResource CommonAreaSeriesDataPointTemplate}" />
+	</Style>
+
+	<ControlTemplate x:Key="CommonLineSeriesDataPointTemplate" TargetType="charting:LineDataPoint">
+		<!--Comment out data points from the default template; just an empty template-->
+		<Grid x:Name="Root" Opacity="1">
+			<!--<ToolTipService.ToolTip>
+				<StackPanel Margin="2,2,2,2">
+					<ContentControl Content="{TemplateBinding FormattedDependentValue}" />
+					<ContentControl Content="{TemplateBinding FormattedIndependentValue}" />-->
+					<!--Example of how to access the bound business object-->
+					<!--<ContentControl Content="{Binding Amount}" DataContext="{TemplateBinding DataContext}" />-->
+				<!--</StackPanel>
+			</ToolTipService.ToolTip>-->
+			<!--<Ellipse StrokeThickness="{TemplateBinding BorderThickness}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" />-->
+		</Grid>
+	</ControlTemplate>
+	<Style x:Key="CommonLineSeriesDataPoint" TargetType="charting:LineDataPoint" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="IndependentValueStringFormat" Value="{}{0:yyyy}" />
+		<Setter Property="DependentValueStringFormat" Value="{}{0:c0}" />
+		<Setter Property="Background" Value="#FF0077CC" />
+		<Setter Property="BorderBrush" Value="White" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="Template" Value="{StaticResource CommonLineSeriesDataPointTemplate}" />
+	</Style>
+	<Style x:Key="CommonLineSeriesPolyline" TargetType="Polyline">
+		<Setter Property="StrokeThickness" Value="5" />
+		<Setter Property="Effect" Value="{StaticResource DialogDropShadow}" />
+	</Style>
+
+	<ControlTemplate x:Key="CommonColumnSeriesDataPointTemplate" TargetType="charting:ColumnDataPoint">
+		<Grid x:Name="Root" Opacity="1">
+			<ToolTipService.ToolTip>
+				<StackPanel Margin="2,2,2,2">
+					<ContentControl Content="{TemplateBinding FormattedDependentValue}" />
+					<ContentControl Content="{TemplateBinding FormattedIndependentValue}" />
+					<!--Example of how to access the bound business object-->
+					<!--<ContentControl Content="{Binding Amount}" DataContext="{TemplateBinding DataContext}" />-->
+				</StackPanel>
+			</ToolTipService.ToolTip>
+			<Rectangle StrokeThickness="{TemplateBinding BorderThickness}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" />
+		</Grid>
+	</ControlTemplate>
+	<Style x:Key="CommonColumnSeriesDataPoint" TargetType="charting:ColumnDataPoint" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="DependentValueStringFormat" Value="{}{0:c0}" />
+		<Setter Property="Background" Value="#FF0077CC" />
+		<Setter Property="BorderBrush" Value="White" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="Template" Value="{StaticResource CommonColumnSeriesDataPointTemplate}" />
+	</Style>
+
+	<Style x:Key="CommonPieSeriesDataPoint" TargetType="charting:PieDataPoint" BasedOn="{StaticResource BaseStyle}">
+		<Setter Property="DependentValueStringFormat" Value="{}{0:c0}" />
+	</Style>
+
+	<!-- Implicit non-Key'd Styles BasedOn Common Explicit Key'd Styles above -->
+	<Style TargetType="charting:Chart" BasedOn="{StaticResource CommonChart}">
+	</Style>
+	<Style TargetType="charting:AreaSeries">
+		<Setter Property="DataPointStyle" Value="{StaticResource CommonAreaSeriesDataPoint}" />
+		<Setter Property="PathStyle" Value="{StaticResource CommonAreaSeriesPath}" />
+	</Style>
+	<Style TargetType="charting:LineSeries">
+		<Setter Property="DataPointStyle" Value="{StaticResource CommonLineSeriesDataPoint}" />
+		<Setter Property="PolylineStyle" Value="{StaticResource CommonLineSeriesPolyline}" />
+	</Style>
+	<Style TargetType="charting:ColumnSeries">
+		<!-- We must reference the ColumnSeries styles directly since, unlike the other chart types, ImplicitStyleManager does not work -->
+		<Setter Property="DataPointStyle" Value="{StaticResource CommonColumnSeriesDataPoint}" />
+	</Style>
+	<Style TargetType="charting:PieSeries">
+		<!--<Setter Property="DataPointStyle" Value="{StaticResource CommonPieSeriesDataPoint}" />-->
+		<!--<Setter Property="Palette" Value="{StaticResource }" />-->
+	</Style>
+
+	<!-- Other Explicit Key'd styles -->
+	<Style x:Key="DateTimeAxisLabel" TargetType="charting:DateTimeAxisLabel">
+		<Setter Property="StringFormat" Value="{}{0:yyyy}" />
+	</Style>
+	<Style x:Key="CurrencyAxisLabel" TargetType="charting:NumericAxisLabel">
+		<Setter Property="StringFormat" Value="{}{0:c0}" />
+	</Style>
+
+	<!-- Custom control templates -->
+
+</ResourceDictionary>

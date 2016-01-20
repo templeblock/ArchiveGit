@@ -1,0 +1,142 @@
+﻿<app:BubblePageBase x:Class="TrumpBubbles.AccountHome" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpBubbles"
+	xmlns:Toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+	Title="Trump My Account" NavigationCacheMode="Required"
+>
+	<Grid>
+		<!--<ScrollViewer>-->
+		<Grid Width="930" HorizontalAlignment="Center">
+			<!--Normal-->
+			<Toolkit:WrapPanel>
+				<app:BubbleNormal ContentTag="x_Content1" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Household"
+						IconSourceUri="../Images/AccountHome/Bubble1.png"
+						CallToActionText="View Manage Household">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="Add or edit your household members and companies as well as change household login information." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content2" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Customers"
+						IconSourceUri="../Images/AccountHome/Bubble2.png"
+						CallToActionText="View Manage Customers">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="View details about your customers. Under construction..." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content4" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Addresses" 
+						IconSourceUri="../Images/AccountHome/Bubble4.png" 
+						CallToActionText="View Manage Addresses">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="Edit and add new mailing and shipping addresses." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content5" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Payments" 
+						IconSourceUri="../Images/AccountHome/Bubble5.png"
+						CallToActionText="View Manage Payments">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="View the status of your payments. Under construction ... " />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content6" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Settings" 
+						IconSourceUri="../Images/AccountHome/Bubble6.png"
+						CallToActionText="View Manage Settings">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="Control your account settings: newsletter E-mail opt in/out, add AutoShip Discounting to your personal AutoShips and change your password. " />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content7" IsShown="{Binding NormalBubblesAreShown}"
+						Title="View Order Status" 
+						IconSourceUri="../Images/AccountHome/Bubble7.png"
+						CallToActionText="View Order Status">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="View the status of your order(s). Under construction ... " />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content8" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Upload Profile Image" 
+						IconSourceUri="../Images/RecognitionHome/Bubble1.png" 
+						CallToActionText="Upload your profile image">
+                    <app:BubbleNormal.ItemContent>
+                        <TextBlock TextWrapping="Wrap" Text="View and change the image for your profile." />
+                    </app:BubbleNormal.ItemContent>
+                </app:BubbleNormal>
+                
+			</Toolkit:WrapPanel>
+			<StackPanel>
+				<!--Minimized 
+				<app:BubbleMinimizedPanel Style="{StaticResource MinimizedPanelStyle}" IsShown="{Binding MinimizedBubblesAreShown}">
+					<StackPanel Orientation="Horizontal">
+						<app:BubbleMinimized ContentTag="x_Content1" 
+							Title="Manage Household" 
+							IconSourceUri="../Images/AccountHome/Bubble1.png" />
+						<app:BubbleMinimized ContentTag="x_Content2"
+							Title="Manage Customers" 
+							IconSourceUri="../Images/AccountHome/Bubble2.png" />
+						<app:BubbleMinimized ContentTag="x_Content4" 
+							Title="Manage Addresses" 
+							IconSourceUri="../Images/AccountHome/Bubble4.png" />
+						<app:BubbleMinimized ContentTag="x_Content5" 
+							Title="Manage Payments" 
+							IconSourceUri="../Images/AccountHome/Bubble5.png" />
+						<app:BubbleMinimized ContentTag="x_Content6" 
+							Title="Manage Settings" 
+							IconSourceUri="../Images/AccountHome/Bubble6.png" />
+						<app:BubbleMinimized ContentTag="x_Content7" 
+							Title="View Order Status" 
+							IconSourceUri="../Images/AccountHome/Bubble7.png" />
+					</StackPanel>
+					<c:Spacer c:StretchPanel.Length="*" />
+				</app:BubbleMinimizedPanel>
+				-->
+				<!--Maximized-->
+				<Grid>
+					<app:BubbleMaximized ContentTag="x_Content1" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Household" 
+						IconSourceUri="../Images/AccountHome/Bubble1.png" 
+						SourceUrl="./ManageMembers.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content2" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Customers" 
+						IconSourceUri="../Images/AccountHome/Bubble2.png" 
+						SourceUrl="./ManageCustomers.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content4" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Addresses" 
+						IconSourceUri="../Images/AccountHome/Bubble4.png" 
+						SourceUrl="./ManageAddress.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content5" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Payments" 
+						IconSourceUri="../Images/AccountHome/Bubble5.png" 
+						SourceUrl="./ManagePayments.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content6" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Settings" 
+						IconSourceUri="../Images/AccountHome/Bubble6.png" 
+						SourceUrl="./ManageSettings.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content7" SelectedItem="{Binding MaximizedContent}"
+						Title="View Order Status" 
+						IconSourceUri="../Images/AccountHome/Bubble7.png" 
+						SourceUrl="./OrderStatus.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content8" SelectedItem="{Binding MaximizedContent}"
+						Title="Upload Profile Image" 
+						IconSourceUri="../Images/StoreHome/Bubble1.png" 
+						SourceUrl="./UploadProfileImage.aspx" 
+						HtmlHeight="0" />
+				</Grid>
+			</StackPanel>
+		</Grid>
+		<!--</ScrollViewer>-->
+	</Grid>
+</app:BubblePageBase>

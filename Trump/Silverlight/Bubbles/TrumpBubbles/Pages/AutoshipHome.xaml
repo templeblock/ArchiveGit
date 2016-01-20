@@ -1,0 +1,92 @@
+﻿<app:BubblePageBase x:Class="TrumpBubbles.AutoshipHome" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpBubbles"
+	xmlns:Toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+	Title="Autoship" NavigationCacheMode="Required"
+>
+	<Grid>
+		<!--<ScrollViewer>-->
+		<Grid Width="930" HorizontalAlignment="Center">
+			<!--Normal-->
+			<Toolkit:WrapPanel Style="{StaticResource NormalContainerStyle}">
+				<app:BubbleNormal ContentTag="x_Content1" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Edit an Existing AutoShip"
+						IconSourceUri="../Images/AccountHome/Bubble2.png"
+						CallToActionText="Edit an Existing AutoShip">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="Change the products in your current AutoShip." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content2" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Create a New AutoShip" 
+						IconSourceUri="../Images/AccountHome/Bubble3.png"
+						CallToActionText="Create a New AutoShip">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="Create an AutoShip here." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content3" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Combine AutoShips" 
+						IconSourceUri="../Images/AccountHome/Bubble4.png" 
+						CallToActionText="Combine AutoShips">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="Combine AutoShips to increase your savings!" />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+			</Toolkit:WrapPanel>
+			<StackPanel>
+				<!--Minimized 
+				<app:BubbleMinimizedPanel Style="{StaticResource MinimizedPanelStyle}" IsShown="{Binding MinimizedBubblesAreShown}">
+					<StackPanel Orientation="Horizontal">
+						<app:BubbleMinimized ContentTag="x_Content1" 
+							Title="Manage Household" 
+							IconSourceUri="../Images/AccountHome/Bubble1.png" />
+						<app:BubbleMinimized ContentTag="x_Content2"
+							Title="Manage Customers" 
+							IconSourceUri="../Images/AccountHome/Bubble2.png" />
+						<app:BubbleMinimized ContentTag="x_Content3"
+							Title="Manage Autoships" 
+							IconSourceUri="../Images/AccountHome/Bubble3.png" />
+						<app:BubbleMinimized ContentTag="x_Content4" 
+							Title="Manage Addresses" 
+							IconSourceUri="../Images/AccountHome/Bubble4.png" />
+						<app:BubbleMinimized ContentTag="x_Content5" 
+							Title="Manage Payments" 
+							IconSourceUri="../Images/AccountHome/Bubble5.png" />
+						<app:BubbleMinimized ContentTag="x_Content6" 
+							Title="Manage Settings" 
+							IconSourceUri="../Images/AccountHome/Bubble6.png" />
+						<app:BubbleMinimized ContentTag="x_Content7" 
+							Title="View Order Status" 
+							IconSourceUri="../Images/AccountHome/Bubble7.png" />
+					</StackPanel>
+					<c:Spacer c:StretchPanel.Length="*" />
+				</app:BubbleMinimizedPanel>
+				-->
+				<!--Maximized-->
+				<Grid>
+					<app:BubbleMaximized ContentTag="x_Content1" SelectedItem="{Binding MaximizedContent}"
+						Title="Edit an Existing AutoShip" 
+						IconSourceUri="../Images/AccountHome/Bubble2.png" 
+						SourceUrl="./AutoShipSelection.aspx?ID=Edit" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content2" SelectedItem="{Binding MaximizedContent}"
+						Title="Create a New AutoShip" 
+						IconSourceUri="../Images/AccountHome/Bubble3.png" 
+						SourceUrl="./AutoShipProperties.aspx?ID=Create" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content3" SelectedItem="{Binding MaximizedContent}"
+						Title="Combine AutoShips" 
+						IconSourceUri="../Images/AccountHome/Bubble4.png" 
+						SourceUrl="./AutoShipSelection.aspx?ID=Combine" 
+						HtmlHeight="0" />
+				</Grid>
+			</StackPanel>
+		</Grid>
+		<!--</ScrollViewer>-->
+	</Grid>
+</app:BubblePageBase>

@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="TrumpBubbles.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpBubbles"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+    xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+>
+	<UserControl.Resources>
+	</UserControl.Resources>
+
+	<c:StretchPanel x:Name="x_LayoutRoot">
+		<navigation:Frame x:Name="x_NavigationFrame" c:StretchPanel.Length="*" Navigated="OnFrameNavigated" NavigationFailed="OnFrameNavigationFailed">
+			<navigation:Frame.UriMapper>
+				<uriMapper:UriMapper>
+					<!--<uriMapper:UriMapping Uri="" MappedUri="/Pages/AccountHome.xaml"/>-->
+					<uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Pages/{pageName}.xaml"/>
+				</uriMapper:UriMapper>
+			</navigation:Frame.UriMapper>
+		</navigation:Frame>
+		<StackPanel x:Name="x_LinksPanel" Orientation="Horizontal" Visibility="Collapsed">
+			<TextBlock Text="show other pages: " />
+			<HyperlinkButton TargetName="x_NavigationFrame" NavigateUri="/AccountHome" Content="account"/>
+			<HyperlinkButton TargetName="x_NavigationFrame" NavigateUri="/AddAccountHome" Content="addaccount"/>
+			<HyperlinkButton TargetName="x_NavigationFrame" NavigateUri="/EmailManagerHome" Content="emailmanager"/>
+			<HyperlinkButton TargetName="x_NavigationFrame" NavigateUri="/InfoXchangeHome" Content="infoXchange"/>
+			<HyperlinkButton TargetName="x_NavigationFrame" NavigateUri="/RecognitionHome" Content="recognition"/>
+			<HyperlinkButton TargetName="x_NavigationFrame" NavigateUri="/ReportsHome" Content="reports"/>
+			<HyperlinkButton TargetName="x_NavigationFrame" NavigateUri="/ResourceLibraryHome" Content="resource"/>
+			<HyperlinkButton TargetName="x_NavigationFrame" NavigateUri="/StoreHome" Content="store"/>
+			<HyperlinkButton TargetName="x_NavigationFrame" NavigateUri="/Test1Page" Content="test1"/>
+			<HyperlinkButton TargetName="x_NavigationFrame" NavigateUri="/Test2Page" Content="test2"/>
+		</StackPanel>
+	</c:StretchPanel>
+
+</UserControl>

@@ -1,0 +1,2231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tns="urn:iLincAPI" targetNamespace="urn:iLincAPI" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="ClientID" type="xsd:string" />
+  <xsd:element name="AuthorizedUser">
+    <xsd:complexType>
+      <xsd:choice>
+        <xsd:element ref="tns:AuthorizedUserName" />
+        <xsd:element ref="tns:AuthorizedUserID" />
+      </xsd:choice>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AuthorizedUserName" type="xsd:string" />
+  <xsd:element name="AuthorizedUserID" type="xsd:string" />
+  <xsd:element name="AuthorizedPassword" type="xsd:string" />
+  <xsd:element default="10.0" name="APIVersion" type="xsd:string" />
+  <xsd:element default="001" name="Reference" type="xsd:string" />
+  <xsd:element name="ErrorID" type="xsd:integer" />
+  <xsd:element name="ErrorStr" type="xsd:string" />
+  <xsd:element name="UserID" type="xsd:string" />
+  <xsd:element name="EncryptedUserID" type="xsd:string" />
+  <xsd:element name="UserName">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1" />
+        <xsd:maxLength value="255" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="UserType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="user" />
+        <xsd:enumeration value="guest" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="FirstName">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1" />
+        <xsd:maxLength value="40" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="LastName">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1" />
+        <xsd:maxLength value="40" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="Password">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="14" />
+        <xsd:minLength value="4" />
+        <xsd:pattern value="[A-Za-z0-9\-_]{4,14}" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="EmailAddress">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="4" />
+        <xsd:maxLength value="64" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="TimeZone" type="xsd:string" />
+  <xsd:element name="LanguageID" type="xsd:string" />
+  <xsd:element name="PhoneNumber">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:pattern value="[0-9()-.+ ]{1,20}" />
+        <xsd:minLength value="1" />
+        <xsd:maxLength value="20" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="PrimaryDialIn">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:pattern value="[0-9()-.+ ]{1,20}" />
+        <xsd:minLength value="1" />
+        <xsd:maxLength value="20" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AlternateDialIn">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1" />
+        <xsd:maxLength value="20" />
+        <xsd:pattern value="[0-9()-.+ ]{1,20}" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ModeratorCode">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1" />
+        <xsd:maxLength value="16" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="Passcode">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1" />
+        <xsd:maxLength value="16" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="MuteOnEntry">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="DivisionID" type="xsd:string" />
+  <xsd:element name="CeilingDivisionID" type="xsd:int" />
+  <xsd:element name="UserAccountType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="named" />
+        <xsd:enumeration value="concurrent" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="Status">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="active" />
+        <xsd:enumeration value="inactive" />
+        <xsd:enumeration value="delete" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AuthorityLevelID" type="xsd:int" />
+  <xsd:element name="AuthorityLevelName" type="xsd:string" />
+  <xsd:element name="DivisionTitle" type="xsd:string" />
+  <xsd:element name="LanguageName" type="xsd:string" />
+  <xsd:element name="GroupID" type="xsd:string" />
+  <xsd:element name="GroupName" type="xsd:string" />
+  <xsd:element name="MemberID" type="xsd:string" />
+  <xsd:element name="IsGroup">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ActivityID" type="xsd:string" />
+  <xsd:element name="EncryptedActivityID" type="xsd:string" />
+  <xsd:element name="ActivityType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="class" />
+        <xsd:enumeration value="meeting" />
+        <xsd:enumeration value="conference" />
+        <xsd:enumeration value="support" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="Title">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="1000" />
+        <xsd:pattern value="[^&lt;&gt;]{0,1000}" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="Description">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="2000" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="OwnerID" type="xsd:string" />
+  <xsd:element name="LeaderID" type="xsd:string" />
+  <xsd:element name="TeleconferenceType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="none" />
+        <xsd:enumeration value="unique" />
+        <xsd:enumeration value="leader" />
+        <xsd:enumeration value="other" />
+        <xsd:enumeration value="dialout" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="MaxScore" type="xsd:string" />
+  <xsd:element name="MasteryScore" type="xsd:string" />
+  <xsd:element name="ControlledBy">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="leader" />
+        <xsd:enumeration value="anyone" />
+        <xsd:enumeration value="restrictedleader" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="JoinMessage">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="127" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AESEncryption">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="on" />
+        <xsd:enumeration value="off" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AnonymousType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="full" />
+        <xsd:enumeration value="partial" />
+        <xsd:enumeration value="off" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AttendeePhotos">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="on" />
+        <xsd:enumeration value="off" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AttendeeTextChat">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="on" />
+        <xsd:enumeration value="off" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AttendeePublicChat">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="on" />
+        <xsd:enumeration value="off" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AttendeePrivateChat">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="on" />
+        <xsd:enumeration value="off" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AttendeeLimit" type="xsd:string" />
+  <xsd:element name="WaitingList">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="on" />
+        <xsd:enumeration value="off" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="RemoteControlHideDesktopWallpaper">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="on" />
+        <xsd:enumeration value="off" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ScheduleType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="open" />
+        <xsd:enumeration value="single" />
+        <xsd:enumeration value="recurring" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="StartDate" type="xsd:string" />
+  <xsd:element name="Duration" type="xsd:int" />
+  <xsd:element name="JoinBuffer" type="xsd:int" />
+  <xsd:element name="OptionID" type="xsd:int" />
+  <xsd:element name="OptionValue" type="xsd:int" />
+  <xsd:element name="Sharing">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="standard" />
+        <xsd:enumeration value="enhanced" />
+        <xsd:enumeration value="custom" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="SharingSpeedLimit">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="lowdialup" />
+        <xsd:enumeration value="highdialup" />
+        <xsd:enumeration value="dsl" />
+        <xsd:enumeration value="fastdsl" />
+        <xsd:enumeration value="cable" />
+        <xsd:enumeration value="fastcable" />
+        <xsd:enumeration value="lan" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="SharingColorDepth">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="grayscale" />
+        <xsd:enumeration value="standard" />
+        <xsd:enumeration value="enhanced" />
+        <xsd:enumeration value="true" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AudioQuality">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="off" />
+        <xsd:enumeration value="low" />
+        <xsd:enumeration value="medium" />
+        <xsd:enumeration value="high" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="VoipMuteOnEntry">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="VideoQuality">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="off" />
+        <xsd:enumeration value="low" />
+        <xsd:enumeration value="medium" />
+        <xsd:enumeration value="high" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="VideoSize">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="small" />
+        <xsd:enumeration value="medium" />
+        <xsd:enumeration value="large" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AutoAdjustVideo">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="DivisionIDAndBelow">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AttendeeID" type="xsd:string" />
+  <xsd:element name="IsAssistant">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="SendInviteEmail">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ActivityTitle" type="xsd:string" />
+  <xsd:element name="ActivityFieldID" type="xsd:string" />
+  <xsd:element name="ActivityFieldValue" type="xsd:string" />
+  <xsd:element name="FieldName" type="xsd:string" />
+  <xsd:element name="FieldType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="checkbox" />
+        <xsd:enumeration value="textfield" />
+        <xsd:enumeration value="textarea" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ValueType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="alpha" />
+        <xsd:enumeration value="num" />
+        <xsd:enumeration value="alphanum" />
+        <xsd:enumeration value="date" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="IsRequired">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="0" />
+        <xsd:enumeration value="1" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="IsSecure">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="0" />
+        <xsd:enumeration value="1" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="CharMin" type="xsd:int" />
+  <xsd:element name="CharMax" type="xsd:int" />
+  <xsd:complexType name="AttendeeType">
+    <xsd:sequence>
+      <xsd:element ref="tns:IsGroup" />
+      <xsd:element ref="tns:AttendeeID" />
+      <xsd:element ref="tns:IsAssistant" />
+      <xsd:element ref="tns:Passcode" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:PersonalPIN" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Attendee" type="tns:AttendeeType" />
+  <xsd:complexType name="AttendeeDataType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:Attendee" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AttendeeData" type="tns:AttendeeDataType" />
+  <xsd:element name="JoinURL" type="xsd:string" />
+  <xsd:element name="JoinHTML" type="xsd:string" />
+  <xsd:element name="LeaderUserName" type="xsd:string" />
+  <xsd:element name="LeaderEmailAddress" type="xsd:string" />
+  <xsd:element name="LeaderFirstName" type="xsd:string" />
+  <xsd:element name="LeaderLastName" type="xsd:string" />
+  <xsd:element name="LeaderPassword" type="xsd:string" />
+  <xsd:element name="CreateAsNewActivity">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="instant" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="UploadURL" type="xsd:string" />
+  <xsd:element name="EndDate" type="xsd:string" />
+  <xsd:element name="JoinTime" type="xsd:string" />
+  <xsd:element name="LeaveTime" type="xsd:string" />
+  <xsd:complexType name="SessionType">
+    <xsd:sequence>
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:UserID" />
+      <xsd:element ref="tns:JoinTime" />
+      <xsd:element ref="tns:LeaveTime" />
+      <xsd:element ref="tns:Duration" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Session" type="tns:SessionType" />
+  <xsd:complexType name="SessionDataType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:Session" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SessionData" type="tns:SessionDataType" />
+  <xsd:element name="From">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="ilinc" />
+        <xsd:enumeration value="java" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="To">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="ilinc" />
+        <xsd:enumeration value="java" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="Text" type="xsd:string" />
+  <xsd:element name="Method">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="1" />
+        <xsd:enumeration value="2" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="EncryptedText" type="xsd:string" />
+  <xsd:element name="StartPageURL" type="xsd:string" />
+  <xsd:element name="WebSyncURL" type="xsd:string" />
+  <xsd:element name="ExitURL" type="xsd:string" />
+  <xsd:element name="ExitURLGuestsOnly">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="on" />
+        <xsd:enumeration value="off" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AutoRecord">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AutoRecordStart">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="auto" />
+        <xsd:enumeration value="prompt" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AutoRecordStop">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="exit" />
+        <xsd:enumeration value="dismiss" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AutoRecordRemoveAccess">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="AutoRecordRemoveAccessDays" type="xsd:int" />
+  <xsd:element name="PaletteDisplay">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="none" />
+        <xsd:enumeration value="collapsed" />
+        <xsd:enumeration value="expanded" />
+        <xsd:enumeration value="undocked" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:simpleType name="PaletteDisplayAttrType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="none" />
+      <xsd:enumeration value="collapsed" />
+      <xsd:enumeration value="expanded" />
+      <xsd:enumeration value="undocked" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PaletteDisplayType">
+    <xsd:all>
+      <xsd:element name="Lead" type="tns:PaletteDisplayAttrType" />
+      <xsd:element name="Asst" type="tns:PaletteDisplayAttrType" />
+      <xsd:element name="Part" type="tns:PaletteDisplayAttrType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:element name="FloorHolderDisplay" type="tns:PaletteDisplayType" />
+  <xsd:element name="AttendeesDisplay" type="tns:PaletteDisplayType" />
+  <xsd:element name="FeedbackDisplay" type="tns:PaletteDisplayType" />
+  <xsd:element name="ChatDisplay" type="tns:PaletteDisplayType" />
+  <xsd:simpleType name="PaletteDisplayMinAttrType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="hidden" />
+      <xsd:enumeration value="collapsed" />
+      <xsd:enumeration value="expanded" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PaletteDisplayMinType">
+    <xsd:all>
+      <xsd:element name="Lead" type="tns:PaletteDisplayMinAttrType" />
+      <xsd:element name="Asst" type="tns:PaletteDisplayMinAttrType" />
+      <xsd:element name="Part" type="tns:PaletteDisplayMinAttrType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:element name="FloorHolderMinDisplay" type="tns:PaletteDisplayMinType" />
+  <xsd:element name="AttendeesMinDisplay" type="tns:PaletteDisplayMinType" />
+  <xsd:element name="FeedbackMinDisplay" type="tns:PaletteDisplayMinType" />
+  <xsd:element name="ChatMinDisplay" type="tns:PaletteDisplayMinType" />
+  <xsd:simpleType name="PaletteYesNoAttrType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="yes" />
+      <xsd:enumeration value="no" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PaletteYesNoType">
+    <xsd:all>
+      <xsd:element name="Lead" type="tns:PaletteYesNoAttrType" />
+      <xsd:element name="Asst" type="tns:PaletteYesNoAttrType" />
+      <xsd:element name="Part" type="tns:PaletteYesNoAttrType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:element name="CanDockUndockFloorHolder" type="tns:PaletteYesNoType" />
+  <xsd:element name="FloorHolderPIP" type="tns:PaletteYesNoType" />
+  <xsd:element name="ShareVideoOnJoin" type="tns:PaletteYesNoType" />
+  <xsd:element name="DisplayHandRaise" type="tns:PaletteYesNoType" />
+  <xsd:element name="DisplayParticipationMeter" type="tns:PaletteYesNoType" />
+  <xsd:element name="DisplayFeedback" type="tns:PaletteYesNoType" />
+  <xsd:element name="DisplayAudioStatus" type="tns:PaletteYesNoType" />
+  <xsd:element name="DisplayVideoStatus" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanGlimpse" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanDismissAllParticipants" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanSendInvite" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanFileTransfer" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanViewScores" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanCreateBreakOutGroups" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanDockUndockAttendees" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanSaveChat" type="tns:PaletteYesNoType" />
+  <xsd:element name="ChatEmoticons" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanDockUndockChat" type="tns:PaletteYesNoType" />
+  <xsd:element name="ContentTabDisplay" type="tns:PaletteYesNoType" />
+  <xsd:element name="FreeContentTabMovement" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanCloseContentTab" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanAddContent" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanLaunchSharing" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanFloorHolderTakeControl" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanLaunchPowerboard" type="tns:PaletteYesNoType" />
+  <xsd:element name="PowerboardFreeMovement" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanSavePowerboard" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanPrintPowerboard" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanLaunchSyncBrowser" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanLaunchWebSync" type="tns:PaletteYesNoType" />
+  <xsd:element name="SyncBrowserFreeMovement" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanLaunchQnA" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanLaunchPolling" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanLaunchAudioVideoLink" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanLaunchMediaLink" type="tns:PaletteYesNoType" />
+  <xsd:element name="PromptToSaveChatOnExit" type="tns:PaletteYesNoType" />
+  <xsd:element name="PromptToSaveAttendeesOnExit" type="tns:PaletteYesNoType" />
+  <xsd:element name="PromptToDismissAttendeesOnExit" type="tns:PaletteYesNoType" />
+  <xsd:element name="PlayAlertOnAttendeeJoin" type="tns:PaletteYesNoType" />
+  <xsd:element name="PlayAlertOnAttendeeLeave" type="tns:PaletteYesNoType" />
+  <xsd:element name="PlayAlertOnAttendeeHandRaise" type="tns:PaletteYesNoType" />
+  <xsd:element name="PlayAlertOnChat" type="tns:PaletteYesNoType" />
+  <xsd:element name="SeparateFloorHolder" type="tns:PaletteYesNoType" />
+  <xsd:element name="DisplayAttendeeList" type="tns:PaletteYesNoType" />
+  <xsd:element name="SeparateFloorHolderMin" type="tns:PaletteYesNoType" />
+  <xsd:element name="DisplayAttendeeListMin" type="tns:PaletteYesNoType" />
+  <xsd:element name="CanShareVideo" type="tns:PaletteYesNoType" />
+  <xsd:element name="GreenMeter" type="tns:PaletteYesNoType" />
+  <xsd:element name="DisplayGlimpsePrompt" type="tns:PaletteYesNoType" />
+  <xsd:element name="HideVideo" type="tns:PaletteYesNoType" />
+  <xsd:element name="HideAudio" type="tns:PaletteYesNoType" />
+  <xsd:element name="HideGreenMeter" type="tns:PaletteYesNoType" />
+  <xsd:element name="HideSharing" type="tns:PaletteYesNoType" />
+  <xsd:element name="HidePowerboard" type="tns:PaletteYesNoType" />
+  <xsd:element name="HideWebSync" type="tns:PaletteYesNoType" />
+  <xsd:element name="HidePolling" type="tns:PaletteYesNoType" />
+  <xsd:element name="HideMediaLink" type="tns:PaletteYesNoType" />
+  <xsd:complexType name="AuthorizationType">
+    <xsd:all>
+      <xsd:element ref="tns:APIVersion" />
+      <xsd:element ref="tns:ClientID" />
+      <xsd:element ref="tns:AuthorizedUserName" />
+      <xsd:element ref="tns:AuthorizedPassword" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="AddUserBasicType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:UserType" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:UserName" />
+      <xsd:element ref="tns:FirstName" />
+      <xsd:element ref="tns:LastName" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Password" />
+      <xsd:element ref="tns:EmailAddress" />
+      <xsd:element minOccurs="0" ref="tns:TimeZone" />
+      <xsd:element minOccurs="0" ref="tns:LanguageID" />
+      <xsd:element minOccurs="0" ref="tns:PhoneNumber" />
+      <xsd:element minOccurs="0" ref="tns:PrimaryDialIn" />
+      <xsd:element minOccurs="0" ref="tns:AlternateDialIn" />
+      <xsd:element minOccurs="0" ref="tns:ModeratorCode" />
+      <xsd:element minOccurs="0" ref="tns:Passcode" />
+      <xsd:element minOccurs="0" ref="tns:MuteOnEntry" />
+      <xsd:element minOccurs="0" ref="tns:DivisionID" />
+      <xsd:element minOccurs="0" ref="tns:CeilingDivisionID" />
+      <xsd:element minOccurs="0" ref="tns:UserAccountType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="EditUserBasicType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+      <xsd:element minOccurs="0" ref="tns:UserName" />
+      <xsd:element minOccurs="0" ref="tns:FirstName" />
+      <xsd:element minOccurs="0" ref="tns:LastName" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Password" />
+      <xsd:element minOccurs="0" ref="tns:EmailAddress" />
+      <xsd:element minOccurs="0" ref="tns:TimeZone" />
+      <xsd:element minOccurs="0" ref="tns:LanguageID" />
+      <xsd:element minOccurs="0" ref="tns:PhoneNumber" />
+      <xsd:element minOccurs="0" ref="tns:PrimaryDialIn" />
+      <xsd:element minOccurs="0" ref="tns:AlternateDialIn" />
+      <xsd:element minOccurs="0" ref="tns:ModeratorCode" />
+      <xsd:element minOccurs="0" ref="tns:Passcode" />
+      <xsd:element minOccurs="0" ref="tns:MuteOnEntry" />
+      <xsd:element minOccurs="0" ref="tns:DivisionID" />
+      <xsd:element minOccurs="0" ref="tns:CeilingDivisionID" />
+      <xsd:element minOccurs="0" ref="tns:UserAccountType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="ConvertGuestToUserType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+      <xsd:element minOccurs="1" maxOccurs="1" ref="tns:UserName" />
+      <xsd:element minOccurs="0" ref="tns:FirstName" />
+      <xsd:element minOccurs="0" ref="tns:LastName" />
+      <xsd:element ref="tns:Password" />
+      <xsd:element minOccurs="0" ref="tns:EmailAddress" />
+      <xsd:element minOccurs="0" ref="tns:TimeZone" />
+      <xsd:element minOccurs="0" ref="tns:LanguageID" />
+      <xsd:element minOccurs="0" ref="tns:PhoneNumber" />
+      <xsd:element minOccurs="0" ref="tns:PrimaryDialIn" />
+      <xsd:element minOccurs="0" ref="tns:AlternateDialIn" />
+      <xsd:element minOccurs="0" ref="tns:ModeratorCode" />
+      <xsd:element minOccurs="0" ref="tns:Passcode" />
+      <xsd:element minOccurs="0" ref="tns:MuteOnEntry" />
+      <xsd:element minOccurs="0" ref="tns:DivisionID" />
+      <xsd:element minOccurs="0" ref="tns:CeilingDivisionID" />
+      <xsd:element minOccurs="0" ref="tns:UserAccountType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetDivisionIDType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:DivisionTitle" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetAuthorityLevelIDType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:AuthorityLevelName" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetLanguageIDType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:LanguageName" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetUserIDType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element minOccurs="0" ref="tns:UserName" />
+      <xsd:element minOccurs="0" ref="tns:EmailAddress" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:FirstName" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:LastName" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetUserBasicType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="AuthenticateUserType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element minOccurs="0" ref="tns:UserID" />
+      <xsd:element minOccurs="0" ref="tns:UserName" />
+      <xsd:element ref="tns:Password" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetGroupIDType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:GroupName" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="AddActivityBasicType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ActivityType" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Title" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Description" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:OwnerID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:LeaderID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:TeleconferenceType" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:PrimaryDialIn" />
+      <xsd:element minOccurs="0" ref="tns:AlternateDialIn" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ModeratorCode" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Passcode" />
+      <xsd:element minOccurs="0" ref="tns:MuteOnEntry" />
+      <xsd:element minOccurs="0" ref="tns:MaxScore" />
+      <xsd:element minOccurs="0" ref="tns:MasteryScore" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ControlledBy" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Password" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:JoinMessage" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AESEncryption" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AnonymousType" />
+      <xsd:element minOccurs="0" ref="tns:AttendeeTextChat" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AttendeeLimit" />
+      <xsd:element minOccurs="0" ref="tns:WaitingList" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AudioQuality" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:VideoQuality" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:VideoSize" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AutoAdjustVideo" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ActivityIDToCopy" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:BridgeEntryType" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:BridgeExitType" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ExternalApp" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ExternalRef" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="EditActivityBasicType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element minOccurs="1" maxOccurs="1" ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Title" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Description" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:OwnerID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:LeaderID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:TeleconferenceType" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:PrimaryDialIn" />
+      <xsd:element minOccurs="0" ref="tns:AlternateDialIn" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ModeratorCode" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Passcode" />
+      <xsd:element minOccurs="0" ref="tns:MuteOnEntry" />
+      <xsd:element minOccurs="0" ref="tns:MaxScore" />
+      <xsd:element minOccurs="0" ref="tns:MasteryScore" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ControlledBy" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Password" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:JoinMessage" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AESEncryption" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AnonymousType" />
+      <xsd:element minOccurs="0" ref="tns:AttendeeTextChat" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AttendeeLimit" />
+      <xsd:element minOccurs="0" ref="tns:WaitingList" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AudioQuality" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:VideoQuality" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:VideoSize" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AutoAdjustVideo" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:BridgeEntryType" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:BridgeExitType" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ExternalApp" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ExternalRef" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="EditActivityScheduleType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ActivityID" />
+      <xsd:element ref="tns:ScheduleType" />
+      <xsd:element minOccurs="0" ref="tns:StartDate" />
+      <xsd:element minOccurs="0" ref="tns:TimeZone" />
+      <xsd:element minOccurs="0" ref="tns:Duration" />
+      <xsd:element minOccurs="0" ref="tns:JoinBuffer" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="RegisterAllUsersType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" ref="tns:DivisionID" />
+      <xsd:element minOccurs="0" ref="tns:DivisionIDAndBelow" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="UnregisterAllUsersType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityIDType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element minOccurs="0" ref="tns:ActivityTitle" />
+      <xsd:element minOccurs="0" ref="tns:ActivityFieldID" />
+      <xsd:element minOccurs="0" ref="tns:ActivityFieldValue" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityFieldIDType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:FieldName" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityFieldPropertiesType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityFieldID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="EditActivityFieldValueType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:ActivityFieldID" />
+      <xsd:element ref="tns:ActivityFieldValue" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityBasicType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityScheduleType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityCommunicationType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityAttendeesType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetJoinURLType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" ref="tns:UserID" />
+      <xsd:element minOccurs="0" ref="tns:FirstName" />
+      <xsd:element minOccurs="0" ref="tns:LastName" />
+      <xsd:element minOccurs="0" ref="tns:EmailAddress" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetJoinHTMLType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:UserID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetJoinNowURLType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:UserID" />
+      <xsd:element minOccurs="0" ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" ref="tns:ActivityTitle" />
+      <xsd:element minOccurs="0" ref="tns:ActivityType" />
+      <xsd:element minOccurs="0" ref="tns:UserName" />
+      <xsd:element minOccurs="0" ref="tns:Password" />
+      <xsd:element minOccurs="0" ref="tns:FirstName" />
+      <xsd:element minOccurs="0" ref="tns:LastName" />
+      <xsd:element minOccurs="0" ref="tns:EmailAddress" />
+      <xsd:element minOccurs="0" ref="tns:LeaderID" />
+      <xsd:element minOccurs="0" ref="tns:LeaderUserName" />
+      <xsd:element minOccurs="0" ref="tns:LeaderEmailAddress" />
+      <xsd:element minOccurs="0" ref="tns:LeaderFirstName" />
+      <xsd:element minOccurs="0" ref="tns:LeaderLastName" />
+      <xsd:element minOccurs="0" ref="tns:LeaderPassword" />
+      <xsd:element minOccurs="0" ref="tns:CreateAsNewActivity" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetJoinNowHTMLType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element minOccurs="0" ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" ref="tns:ActivityTitle" />
+      <xsd:element minOccurs="0" ref="tns:ActivityType" />
+      <xsd:element minOccurs="0" ref="tns:UserName" />
+      <xsd:element minOccurs="0" ref="tns:Password" />
+      <xsd:element minOccurs="0" ref="tns:FirstName" />
+      <xsd:element minOccurs="0" ref="tns:LastName" />
+      <xsd:element minOccurs="0" ref="tns:EmailAddress" />
+      <xsd:element minOccurs="0" ref="tns:LeaderID" />
+      <xsd:element minOccurs="0" ref="tns:LeaderUserName" />
+      <xsd:element minOccurs="0" ref="tns:LeaderEmailAddress" />
+      <xsd:element minOccurs="0" ref="tns:LeaderFirstName" />
+      <xsd:element minOccurs="0" ref="tns:LeaderLastName" />
+      <xsd:element minOccurs="0" ref="tns:LeaderPassword" />
+      <xsd:element minOccurs="0" ref="tns:CreateAsNewActivity" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetUploadUserPictureURLType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetSessionDataType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element minOccurs="0" ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" ref="tns:UserID" />
+      <xsd:element minOccurs="0" ref="tns:StartDate" />
+      <xsd:element minOccurs="0" ref="tns:EndDate" />
+      <xsd:element minOccurs="0" ref="tns:TimeZone" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="ConvertTimeZoneType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:TimeZone" />
+      <xsd:element ref="tns:From" />
+      <xsd:element ref="tns:To" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="EncryptTextType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:Method" />
+      <xsd:element ref="tns:Text" />
+      <xsd:element minOccurs="0" ref="tns:UserID" />
+      <xsd:element minOccurs="0" ref="tns:UserName" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="EditActivityInSessionType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:StartPageURL" />
+      <xsd:element ref="tns:WebSyncURL" />
+      <xsd:element ref="tns:ExitURL" />
+      <xsd:element ref="tns:ExitURLGuestsOnly" />
+      <xsd:element ref="tns:AutoRecord" />
+      <xsd:element ref="tns:AutoRecordStart" />
+      <xsd:element ref="tns:AutoRecordStop" />
+      <xsd:element ref="tns:AutoRecordRemoveAccess" />
+      <xsd:element ref="tns:AutoRecordRemoveAccessDays" />
+      <xsd:element ref="tns:Sharing" />
+      <xsd:element minOccurs="0" ref="tns:SharingSpeedLimit" />
+      <xsd:element minOccurs="0" ref="tns:SharingColorDepth" />
+      <xsd:element minOccurs="0" ref="tns:FloorHolderDisplay" />
+      <xsd:element minOccurs="0" ref="tns:FloorHolderMinDisplay" />
+      <xsd:element minOccurs="0" ref="tns:CanDockUndockFloorHolder" />
+      <xsd:element minOccurs="0" ref="tns:FloorHolderPIP" />
+      <xsd:element minOccurs="0" ref="tns:AttendeesDisplay" />
+      <xsd:element minOccurs="0" ref="tns:AttendeesMinDisplay" />
+      <xsd:element minOccurs="0" ref="tns:ShareVideoOnJoin" />
+      <xsd:element minOccurs="0" ref="tns:DisplayHandRaise" />
+      <xsd:element minOccurs="0" ref="tns:DisplayParticipationMeter" />
+      <xsd:element minOccurs="0" ref="tns:DisplayFeedback" />
+      <xsd:element minOccurs="0" ref="tns:DisplayAudioStatus" />
+      <xsd:element minOccurs="0" ref="tns:DisplayVideoStatus" />
+      <xsd:element minOccurs="0" ref="tns:CanGlimpse" />
+      <xsd:element minOccurs="0" ref="tns:CanDismissAllParticipants" />
+      <xsd:element minOccurs="0" ref="tns:CanSendInvite" />
+      <xsd:element minOccurs="0" ref="tns:CanFileTransfer" />
+      <xsd:element minOccurs="0" ref="tns:CanViewScores" />
+      <xsd:element minOccurs="0" ref="tns:CanCreateBreakOutGroups" />
+      <xsd:element minOccurs="0" ref="tns:CanDockUndockAttendees" />
+      <xsd:element minOccurs="0" ref="tns:FeedbackDisplay" />
+      <xsd:element minOccurs="0" ref="tns:FeedbackMinDisplay" />
+      <xsd:element minOccurs="0" ref="tns:ChatDisplay" />
+      <xsd:element minOccurs="0" ref="tns:ChatMinDisplay" />
+      <xsd:element minOccurs="0" ref="tns:CanSaveChat" />
+      <xsd:element minOccurs="0" ref="tns:ChatEmoticons" />
+      <xsd:element minOccurs="0" ref="tns:CanDockUndockChat" />
+      <xsd:element minOccurs="0" ref="tns:ContentTabDisplay" />
+      <xsd:element minOccurs="0" ref="tns:FreeContentTabMovement" />
+      <xsd:element minOccurs="0" ref="tns:CanCloseContentTab" />
+      <xsd:element minOccurs="0" ref="tns:CanAddContent" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchSharing" />
+      <xsd:element minOccurs="0" ref="tns:CanFloorHolderTakeControl" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchPowerboard" />
+      <xsd:element minOccurs="0" ref="tns:PowerboardFreeMovement" />
+      <xsd:element minOccurs="0" ref="tns:CanSavePowerboard" />
+      <xsd:element minOccurs="0" ref="tns:CanPrintPowerboard" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchSyncBrowser" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchWebSync" />
+      <xsd:element minOccurs="0" ref="tns:SyncBrowserFreeMovement" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchQnA" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchPolling" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchAudioVideoLink" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchMediaLink" />
+      <xsd:element minOccurs="0" ref="tns:PromptToSaveChatOnExit" />
+      <xsd:element minOccurs="0" ref="tns:PromptToSaveAttendeesOnExit" />
+      <xsd:element minOccurs="0" ref="tns:PromptToDismissAttendeesOnExit" />
+      <xsd:element minOccurs="0" ref="tns:PlayAlertOnAttendeeJoin" />
+      <xsd:element minOccurs="0" ref="tns:PlayAlertOnAttendeeLeave" />
+      <xsd:element minOccurs="0" ref="tns:PlayAlertOnAttendeeHandRaise" />
+      <xsd:element minOccurs="0" ref="tns:PlayAlertOnChat" />
+      <xsd:element minOccurs="0" ref="tns:SeparateFloorHolder" />
+      <xsd:element minOccurs="0" ref="tns:DisplayAttendeeList" />
+      <xsd:element minOccurs="0" ref="tns:SeparateFloorHolderMin" />
+      <xsd:element minOccurs="0" ref="tns:DisplayAttendeeListMin" />
+      <xsd:element minOccurs="0" ref="tns:CanShareVideo" />
+      <xsd:element minOccurs="0" ref="tns:GreenMeter" />
+      <xsd:element minOccurs="0" ref="tns:DisplayGlimpsePrompt" />
+      <xsd:element minOccurs="0" ref="tns:HideVideo" />
+      <xsd:element minOccurs="0" ref="tns:HideAudio" />
+      <xsd:element minOccurs="0" ref="tns:HideGreenMeter" />
+      <xsd:element minOccurs="0" ref="tns:HideSharing" />
+      <xsd:element minOccurs="0" ref="tns:HidePowerboard" />
+      <xsd:element minOccurs="0" ref="tns:HideWebSync" />
+      <xsd:element minOccurs="0" ref="tns:HidePolling" />
+      <xsd:element minOccurs="0" ref="tns:HideMediaLink" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityInSessionType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="StandardResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:element name="StandardResponse" type="tns:StandardResponseType" />
+  <xsd:complexType name="AddUserBasicResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:UserID" />
+      <xsd:element ref="tns:EncryptedUserID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:UserName" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetDivisionIDResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:DivisionID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetAuthorityLevelIDResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:AuthorityLevelID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetLanguageIDResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:LanguageID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetUserIDResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:UserID" />
+      <xsd:element ref="tns:EncryptedUserID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetUserBasicResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:UserType" />
+      <xsd:element ref="tns:UserName" />
+      <xsd:element ref="tns:FirstName" />
+      <xsd:element ref="tns:LastName" />
+      <xsd:element ref="tns:EmailAddress" />
+      <xsd:element ref="tns:TimeZone" />
+      <xsd:element ref="tns:LanguageID" />
+      <xsd:element ref="tns:PhoneNumber" />
+      <xsd:element ref="tns:PrimaryDialIn" />
+      <xsd:element ref="tns:AlternateDialIn" />
+      <xsd:element ref="tns:ModeratorCode" />
+      <xsd:element ref="tns:Passcode" />
+      <xsd:element minOccurs="0" ref="tns:MuteOnEntry" />
+      <xsd:element ref="tns:DivisionID" />
+      <xsd:element ref="tns:CeilingDivisionID" />
+      <xsd:element ref="tns:Status" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:PersonalPIN" />
+      <xsd:element ref="tns:EncryptedDivisionID" />
+      <xsd:element ref="tns:UserAccountType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetGroupIDResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:GroupID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="AddActivityBasicResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:EncryptedActivityID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityIDResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:EncryptedActivityID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityFieldIDResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ActivityFieldID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityFieldPropertiesResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:FieldName" />
+      <xsd:element ref="tns:ValueType" />
+      <xsd:element ref="tns:Description" />
+      <xsd:element ref="tns:FieldType" />
+      <xsd:element ref="tns:IsRequired" />
+      <xsd:element ref="tns:IsSecure" />
+      <xsd:element ref="tns:CharMin" />
+      <xsd:element ref="tns:CharMax" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityBasicResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ActivityType" />
+      <xsd:element ref="tns:Title" />
+      <xsd:element ref="tns:Description" />
+      <xsd:element ref="tns:OwnerID" />
+      <xsd:element ref="tns:EncryptedOwnerID" />
+      <xsd:element ref="tns:LeaderID" />
+      <xsd:element ref="tns:EncryptedLeaderID" />
+      <xsd:element ref="tns:TeleconferenceType" />
+      <xsd:element ref="tns:PrimaryDialIn" />
+      <xsd:element ref="tns:AlternateDialIn" />
+      <xsd:element ref="tns:ModeratorCode" />
+      <xsd:element ref="tns:Passcode" />
+      <xsd:element minOccurs="0" ref="tns:MuteOnEntry" />
+      <xsd:element minOccurs="0" ref="tns:MaxScore" />
+      <xsd:element minOccurs="0" ref="tns:MasteryScore" />
+      <xsd:element ref="tns:ControlledBy" />
+      <xsd:element ref="tns:Password" />
+      <xsd:element ref="tns:JoinMessage" />
+      <xsd:element ref="tns:AESEncryption" />
+      <xsd:element ref="tns:AnonymousType" />
+      <xsd:element minOccurs="0" ref="tns:AttendeeTextChat" />
+      <xsd:element ref="tns:AttendeeLimit" />
+      <xsd:element minOccurs="0" ref="tns:WaitingList" />
+      <xsd:element ref="tns:AudioQuality" />
+      <xsd:element ref="tns:VoipMuteOnEntry" />
+      <xsd:element ref="tns:VideoQuality" />
+      <xsd:element ref="tns:VideoSize" />
+      <xsd:element ref="tns:AutoAdjustVideo" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:BridgeEntryType" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:BridgeExitType" />
+      <xsd:element ref="tns:ExternalRef" />
+      <xsd:element ref="tns:ExternalApp" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityScheduleResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ScheduleType" />
+      <xsd:element minOccurs="0" ref="tns:StartDate" />
+      <xsd:element minOccurs="0" ref="tns:TimeZone" />
+      <xsd:element minOccurs="0" ref="tns:Duration" />
+      <xsd:element minOccurs="0" ref="tns:JoinBuffer" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurCycle" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurCycleOption" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurDayNum" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurEndDateFrequency" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurEndDateOption" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurFrequency" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurMonday" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurTuesday" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurWednesday" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurThursday" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurFriday" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurSaturday" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurSunday" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:RecurMonthNum" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityAttendeesResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:AttendeeData" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetJoinURLResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:JoinURL" />
+      <xsd:element minOccurs="0" ref="tns:UserID" />
+      <xsd:element minOccurs="0" ref="tns:EncryptedUserID" />
+      <xsd:element minOccurs="0" ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" ref="tns:EncryptedActivityID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetJoinHTMLResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:JoinHTML" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetJoinNowURLResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:JoinURL" />
+      <xsd:element minOccurs="0" ref="tns:UserID" />
+      <xsd:element minOccurs="0" ref="tns:EncryptedUserID" />
+      <xsd:element minOccurs="0" ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" ref="tns:EncryptedActivityID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetJoinNowHTMLResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:JoinHTML" />
+      <xsd:element minOccurs="0" ref="tns:UserID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetUploadUserPictureURLResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:UploadURL" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetSessionDataResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:SessionData" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="ConvertTimeZoneResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:TimeZone" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="EncryptTextResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:EncryptedText" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityInSessionResponseType">
+    <xsd:all>
+      <xsd:element minOccurs="0" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:StartPageURL" />
+      <xsd:element ref="tns:WebSyncURL" />
+      <xsd:element ref="tns:ExitURL" />
+      <xsd:element ref="tns:ExitURLGuestsOnly" />
+      <xsd:element ref="tns:AutoRecord" />
+      <xsd:element ref="tns:AutoRecordStart" />
+      <xsd:element ref="tns:AutoRecordStop" />
+      <xsd:element ref="tns:AutoRecordRemoveAccess" />
+      <xsd:element ref="tns:AutoRecordRemoveAccessDays" />
+      <xsd:element ref="tns:Sharing" />
+      <xsd:element minOccurs="0" ref="tns:SharingSpeedLimit" />
+      <xsd:element minOccurs="0" ref="tns:SharingColorDepth" />
+      <xsd:element minOccurs="0" ref="tns:FloorHolderDisplay" />
+      <xsd:element minOccurs="0" ref="tns:FloorHolderMinDisplay" />
+      <xsd:element minOccurs="0" ref="tns:CanDockUndockFloorHolder" />
+      <xsd:element minOccurs="0" ref="tns:FloorHolderPIP" />
+      <xsd:element minOccurs="0" ref="tns:AttendeesDisplay" />
+      <xsd:element minOccurs="0" ref="tns:AttendeesMinDisplay" />
+      <xsd:element minOccurs="0" ref="tns:ShareVideoOnJoin" />
+      <xsd:element minOccurs="0" ref="tns:DisplayHandRaise" />
+      <xsd:element minOccurs="0" ref="tns:DisplayParticipationMeter" />
+      <xsd:element minOccurs="0" ref="tns:DisplayFeedback" />
+      <xsd:element minOccurs="0" ref="tns:DisplayAudioStatus" />
+      <xsd:element minOccurs="0" ref="tns:DisplayVideoStatus" />
+      <xsd:element minOccurs="0" ref="tns:CanGlimpse" />
+      <xsd:element minOccurs="0" ref="tns:CanDismissAllParticipants" />
+      <xsd:element minOccurs="0" ref="tns:CanSendInvite" />
+      <xsd:element minOccurs="0" ref="tns:CanFileTransfer" />
+      <xsd:element minOccurs="0" ref="tns:CanViewScores" />
+      <xsd:element minOccurs="0" ref="tns:CanCreateBreakOutGroups" />
+      <xsd:element minOccurs="0" ref="tns:CanDockUndockAttendees" />
+      <xsd:element minOccurs="0" ref="tns:FeedbackDisplay" />
+      <xsd:element minOccurs="0" ref="tns:FeedbackMinDisplay" />
+      <xsd:element minOccurs="0" ref="tns:ChatDisplay" />
+      <xsd:element minOccurs="0" ref="tns:ChatMinDisplay" />
+      <xsd:element minOccurs="0" ref="tns:CanSaveChat" />
+      <xsd:element minOccurs="0" ref="tns:ChatEmoticons" />
+      <xsd:element minOccurs="0" ref="tns:CanDockUndockChat" />
+      <xsd:element minOccurs="0" ref="tns:ContentTabDisplay" />
+      <xsd:element minOccurs="0" ref="tns:FreeContentTabMovement" />
+      <xsd:element minOccurs="0" ref="tns:CanCloseContentTab" />
+      <xsd:element minOccurs="0" ref="tns:CanAddContent" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchSharing" />
+      <xsd:element minOccurs="0" ref="tns:CanFloorHolderTakeControl" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchPowerboard" />
+      <xsd:element minOccurs="0" ref="tns:PowerboardFreeMovement" />
+      <xsd:element minOccurs="0" ref="tns:CanSavePowerboard" />
+      <xsd:element minOccurs="0" ref="tns:CanPrintPowerboard" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchSyncBrowser" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchWebSync" />
+      <xsd:element minOccurs="0" ref="tns:SyncBrowserFreeMovement" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchQnA" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchPolling" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchAudioVideoLink" />
+      <xsd:element minOccurs="0" ref="tns:CanLaunchMediaLink" />
+      <xsd:element minOccurs="0" ref="tns:PromptToSaveChatOnExit" />
+      <xsd:element minOccurs="0" ref="tns:PromptToSaveAttendeesOnExit" />
+      <xsd:element minOccurs="0" ref="tns:PromptToDismissAttendeesOnExit" />
+      <xsd:element minOccurs="0" ref="tns:PlayAlertOnAttendeeJoin" />
+      <xsd:element minOccurs="0" ref="tns:PlayAlertOnAttendeeLeave" />
+      <xsd:element minOccurs="0" ref="tns:PlayAlertOnAttendeeHandRaise" />
+      <xsd:element minOccurs="0" ref="tns:PlayAlertOnChat" />
+      <xsd:element minOccurs="0" ref="tns:SeparateFloorHolder" />
+      <xsd:element minOccurs="0" ref="tns:DisplayAttendeeList" />
+      <xsd:element minOccurs="0" ref="tns:SeparateFloorHolderMin" />
+      <xsd:element minOccurs="0" ref="tns:DisplayAttendeeListMin" />
+      <xsd:element minOccurs="0" ref="tns:CanShareVideo" />
+      <xsd:element minOccurs="0" ref="tns:GreenMeter" />
+      <xsd:element minOccurs="0" ref="tns:DisplayGlimpsePrompt" />
+      <xsd:element minOccurs="0" ref="tns:HideVideo" />
+      <xsd:element minOccurs="0" ref="tns:HideAudio" />
+      <xsd:element minOccurs="0" ref="tns:HideGreenMeter" />
+      <xsd:element minOccurs="0" ref="tns:HideSharing" />
+      <xsd:element minOccurs="0" ref="tns:HidePowerboard" />
+      <xsd:element minOccurs="0" ref="tns:HideWebSync" />
+      <xsd:element minOccurs="0" ref="tns:HidePolling" />
+      <xsd:element minOccurs="0" ref="tns:HideMediaLink" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:element name="ActivityIDToCopy" type="xsd:int" />
+  <xsd:element name="ObjectID" type="xsd:int" />
+  <xsd:element name="ObjectType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="activity" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:complexType name="UserCanCopyType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+      <xsd:element ref="tns:ObjectID" />
+      <xsd:element ref="tns:ObjectType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UserCanCopyResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:CanCopy" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="CanCopy">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:complexType name="AddActivityAttendeeType">
+    <xsd:all>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AttendeeID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:FirstName" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:LastName" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:EmailAddress" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:IsAssistant" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:IsGroup" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:SendInviteEmail" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="RemoveActivityAttendeeType">
+    <xsd:all>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:AttendeeID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:IsAssistant" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:IsGroup" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="UserAuthorityLevelType">
+    <xsd:all>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:UserID" />
+      <xsd:element ref="tns:AuthorityLevelID" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="AddUserType">
+    <xsd:all>
+      <xsd:element name="AddUserBasic" type="tns:AddUserBasicType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="AddUserAuthorityLevel" type="tns:UserAuthorityLevelType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="AddUserResponseType">
+    <xsd:all>
+      <xsd:element name="AddUserBasicResponse" type="tns:AddUserBasicResponseType" />
+      <xsd:element name="AddUserAuthorityLevelResponse" type="tns:StandardResponseType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="ChangeUserStatusType">
+    <xsd:all>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+      <xsd:element ref="tns:Status" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="GroupMemberType">
+    <xsd:all>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:GroupID" />
+      <xsd:element ref="tns:MemberID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:IsGroup" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="AddActivityType">
+    <xsd:all>
+      <xsd:element name="AddActivityBasic" type="tns:AddActivityBasicType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="EditActivitySchedule" type="tns:EditActivityScheduleType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="AddActivityAttendee" type="tns:AddActivityAttendeeType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="AddActivityResponseType">
+    <xsd:all>
+      <xsd:element name="AddActivityBasicResponse" type="tns:AddActivityBasicResponseType" />
+      <xsd:element name="EditActivityScheduleResponse" type="tns:StandardResponseType" />
+      <xsd:element name="AddActivityAttendeeResponse" type="tns:StandardResponseType" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="ChangeActivityStatusType">
+    <xsd:all>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:Status" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:element name="UserRoleType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="user" />
+        <xsd:enumeration value="instructor" />
+        <xsd:enumeration value="assistant" />
+        <xsd:enumeration value="user|instructor" />
+        <xsd:enumeration value="user|assistant" />
+        <xsd:enumeration value="instructor|assistant" />
+        <xsd:enumeration value="user|instructor|assistant" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="IncludeExpired">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:complexType name="GetUserRegistrationType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:UserRoleType" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:IncludeExpired" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:StartDate" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:EndDate" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:TimeZone" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UserRegistrationType">
+    <xsd:sequence>
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:EncryptedActivityID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="UserRegistration" type="tns:UserRegistrationType" />
+  <xsd:complexType name="UserRegistrationDataType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:UserRegistration" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="UserRegistrationData" type="tns:UserRegistrationDataType" />
+  <xsd:complexType name="GetUserRegistrationResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:UserRegistrationData" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetLoginURLType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetLoginURLResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:LoginURL" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="LoginURL" type="xsd:string" />
+  <xsd:complexType name="AddGroupType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:GroupName" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Description" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddGroupResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:GroupID" />
+      <xsd:element ref="tns:EncryptedGroupID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="DistanceUnits">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="mi" />
+        <xsd:enumeration value="km" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="CO2SavingsUnits">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="lb" />
+        <xsd:enumeration value="kg" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="Distance" type="xsd:int" />
+  <xsd:element name="CO2Savings" type="xsd:int" />
+  <xsd:complexType name="GetUserGreenMeterType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:OwnerID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:DistanceUnits" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:CO2SavingsUnits" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:CostUnits" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetClientGreenMeterType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ClientID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:DistanceUnits" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:CO2SavingsUnits" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:CostUnits" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetActivityGreenMeterType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:DistanceUnits" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:CO2SavingsUnits" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:CostUnits" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetGreenMeterResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:Distance" />
+      <xsd:element ref="tns:DistanceUnits" />
+      <xsd:element ref="tns:CO2Savings" />
+      <xsd:element ref="tns:CO2SavingsUnits" />
+      <xsd:element ref="tns:CostSavings" />
+      <xsd:element ref="tns:CostUnits" />
+      <xsd:element ref="tns:GasSavings" />
+      <xsd:element ref="tns:GasUnits" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetGreenMeterType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:OwnerID" />
+      <xsd:element ref="tns:ClientID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:CO2SavingsUnits" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:DistanceUnits" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:CostUnits" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GreenMeterDataType">
+    <xsd:sequence>
+      <xsd:element ref="tns:Distance" />
+      <xsd:element ref="tns:DistanceUnits" />
+      <xsd:element ref="tns:CO2Savings" />
+      <xsd:element ref="tns:CO2SavingsUnits" />
+      <xsd:element ref="tns:CostSavings" />
+      <xsd:element ref="tns:CostUnits" />
+      <xsd:element ref="tns:GasSavings" />
+      <xsd:element ref="tns:GasUnits" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="UserGreenMeterData" type="tns:GreenMeterDataType" />
+  <xsd:element name="ClientGreenMeterData" type="tns:GreenMeterDataType" />
+  <xsd:complexType name="GetFullGreenMeterResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ShowGreenMeter" />
+      <xsd:element ref="tns:ShowCO2Savings" />
+      <xsd:element ref="tns:ShowDistance" />
+      <xsd:element ref="tns:ShowCostSavings" />
+      <xsd:element ref="tns:DefaultDisplay" />
+      <xsd:element ref="tns:DefaultMode" />
+      <xsd:element ref="tns:UserGreenMeterData" />
+      <xsd:element ref="tns:ClientGreenMeterData" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ChangeGroupStatusType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:GroupID" />
+      <xsd:element ref="tns:Status" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="EncryptedGroupID" type="xsd:string" />
+  <xsd:element default="tones" name="BridgeEntryType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="none" />
+        <xsd:enumeration value="tones" />
+        <xsd:enumeration value="namerecord" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element default="tones" name="BridgeExitType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="none" />
+        <xsd:enumeration value="tones" />
+        <xsd:enumeration value="namerecord" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="PersonalPIN" type="xsd:string" />
+  <xsd:element name="ContentType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="presentation" />
+        <xsd:enumeration value="powerboard" />
+        <xsd:enumeration value="recording" />
+        <xsd:enumeration value="websync" />
+        <xsd:enumeration value="medialink" />
+        <xsd:enumeration value="file" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ContentTitle">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="1000" />
+        <xsd:pattern value="[^&lt;&gt;]{0,1000}" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ContentID" type="xsd:string" />
+  <xsd:element name="ContentURL" type="xsd:string" />
+  <xsd:element name="EncryptedContentID" type="xsd:string" />
+  <xsd:complexType name="AddContentType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:Reference" />
+      <xsd:element ref="tns:ContentTitle" />
+      <xsd:element ref="tns:ContentType" />
+      <xsd:element ref="tns:OwnerID" />
+      <xsd:element ref="tns:ContentURL" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Description" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentPages" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentWidth" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentResolution" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentFormat" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddContentResponseType">
+    <xsd:sequence>
+      <xsd:element ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ContentID" />
+      <xsd:element ref="tns:EncryptedContentID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EditContentType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ContentID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentTitle" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:OwnerID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentURL" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Status" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Description" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentPages" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentWidth" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentResolution" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentFormat" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetContentType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:Reference" />
+      <xsd:element ref="tns:ContentID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetContentResponseType">
+    <xsd:sequence>
+      <xsd:element ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ContentTitle" />
+      <xsd:element ref="tns:ContentType" />
+      <xsd:element ref="tns:OwnerID" />
+      <xsd:element ref="tns:EncryptedOwnerID" />
+      <xsd:element ref="tns:ContentURL" />
+      <xsd:element ref="tns:Status" />
+      <xsd:element ref="tns:Description" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentPages" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentWidth" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentResolution" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ContentFormat" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetContentIDType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ContentTitle" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetContentIDResponseType">
+    <xsd:sequence>
+      <xsd:element ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ContentID" />
+      <xsd:element ref="tns:EncryptedContentID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetContentInstanceIDType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:ContentID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetContentInstanceIDResponseType">
+    <xsd:sequence>
+      <xsd:element ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ContentInstanceID" />
+      <xsd:element ref="tns:EncryptedContentInstanceID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ContentInstanceID" type="xsd:string" />
+  <xsd:element name="EncryptedContentInstanceID" type="xsd:string" />
+  <xsd:complexType name="AddActivityContentInstanceType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:ContentID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:IsAutoStart" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:IsHidden" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ShowSession" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ShowHome" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ShowPublic" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ShowEmail" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddActivityContentInstanceResponseType">
+    <xsd:sequence>
+      <xsd:element ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element ref="tns:ContentInstanceID" />
+      <xsd:element ref="tns:EncryptedContentInstanceID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RemoveActivityContentInstanceType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element ref="tns:ContentInstanceID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="EncryptedOwnerID" type="xsd:string" />
+  <xsd:element name="EncryptedLeaderID" type="xsd:string" />
+  <xsd:element name="ContentPages" type="xsd:int" />
+  <xsd:element name="ContentWidth">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="688" />
+        <xsd:enumeration value="984" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ContentResolution">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="1024x768" />
+        <xsd:enumeration value="1280x800" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ContentFormat">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="gif" />
+        <xsd:enumeration value="jpg" />
+        <xsd:enumeration value="png" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="IsAutoStart">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="IsHidden">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ShowSession">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ShowHome">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ShowPublic">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ShowEmail">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:simpleType name="RecurOneZeroType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="1" />
+      <xsd:enumeration value="0" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="RecurCycle" type="xsd:string" />
+  <xsd:element name="RecurCycleOption" type="xsd:string" />
+  <xsd:element name="RecurDayNum" type="xsd:string" />
+  <xsd:element name="RecurEndDateFrequency" type="xsd:string" />
+  <xsd:element name="RecurEndDateOption" type="xsd:string" />
+  <xsd:element name="RecurFrequency" type="xsd:string" />
+  <xsd:element name="RecurMonday" type="tns:RecurOneZeroType" />
+  <xsd:element name="RecurTuesday" type="tns:RecurOneZeroType" />
+  <xsd:element name="RecurWednesday" type="tns:RecurOneZeroType" />
+  <xsd:element name="RecurThursday" type="tns:RecurOneZeroType" />
+  <xsd:element name="RecurFriday" type="tns:RecurOneZeroType" />
+  <xsd:element name="RecurSaturday" type="tns:RecurOneZeroType" />
+  <xsd:element name="RecurSunday" type="tns:RecurOneZeroType" />
+  <xsd:element name="RecurMonthNum" type="xsd:string" />
+  <xsd:element name="EncryptedDivisionID" type="xsd:string" />
+  <xsd:element name="ParentDivisionID" type="xsd:string" />
+  <xsd:complexType name="AddDivisionType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:DivisionTitle" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Description" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ParentDivisionID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddDivisionResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:DivisionID" />
+      <xsd:element ref="tns:EncryptedDivisionID" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EditDivisionType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:DivisionID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:DivisionTitle" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Description" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ParentDivisionID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ChangeDivisionStatusType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:DivisionID" />
+      <xsd:element name="Status" type="tns:DivisionStatusType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="DivisionStatusType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="delete" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="CostSavings" type="xsd:int" />
+  <xsd:element name="CostUnits">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="dollar" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="GasSavings" type="xsd:int" />
+  <xsd:element name="GasUnits">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="gal" />
+        <xsd:enumeration value="l" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ShowCO2Savings">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ShowDistance">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ShowCostSavings">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="ShowGreenMeter">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="no" />
+        <xsd:enumeration value="yes" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="DefaultMode">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="site" />
+        <xsd:enumeration value="user" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="DefaultDisplay">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="co2" />
+        <xsd:enumeration value="cost" />
+        <xsd:enumeration value="distance" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:complexType name="SetGreenMeterDefaultsType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:DefaultMode" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:DefaultDisplay" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ExternalApp" type="xsd:string" />
+  <xsd:element name="ExternalRef" type="xsd:string" />
+  <xsd:complexType name="GetUserPictureType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetUserPictureResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:UploadURL" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:PictureURL" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:DeleteURL" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Permissions" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PictureURL" type="xsd:string" />
+  <xsd:element name="DeleteURL" type="xsd:string" />
+  <xsd:element name="Permissions">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="none" />
+        <xsd:enumeration value="view-only" />
+        <xsd:enumeration value="modify" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:complexType name="RemoveUserPictureType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:UserID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="StandingOwnerID" type="xsd:string" />
+  <xsd:complexType name="GetStandingActivityIDType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:StandingOwnerID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetStandingActivityIDResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ErrorID" />
+      <xsd:element ref="tns:ErrorStr" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:EncryptedActivityID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SendInviteeEmailItemType">
+    <xsd:all>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:Reference" />
+      <xsd:element ref="tns:ActivityID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:AttendeeID" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:FirstName" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:LastName" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:EmailAddress" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="tns:IsGroup" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:element name="SendInviteeEmailItem" type="tns:SendInviteeEmailItemType" />
+  <xsd:complexType name="SendInviteeEmailType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:SendInviteeEmailItem" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SendInviteeEmailResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" ref="tns:StandardResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

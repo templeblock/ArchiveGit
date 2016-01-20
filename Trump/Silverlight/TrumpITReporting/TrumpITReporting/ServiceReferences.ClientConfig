@@ -1,0 +1,43 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_LanguageService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None">
+                        <transport>
+                            <extendedProtectionPolicy policyEnforcement="Never" />
+                        </transport>
+                    </security>
+                </binding>
+                <binding name="XigniteHistoricalSoap" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None">
+                        <transport>
+                            <extendedProtectionPolicy policyEnforcement="Never" />
+                        </transport>
+                    </security>
+                </binding>
+            </basicHttpBinding>
+            <customBinding>
+                <binding name="CustomBinding_DBService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647">
+                        <extendedProtectionPolicy policyEnforcement="Never" />
+                    </httpTransport>
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://api.microsofttranslator.com/V1/Soap.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_LanguageService"
+                contract="TranslatorService.LanguageService" name="BasicHttpBinding_LanguageService" />
+            <endpoint address="http://www.xignite.com/xHistorical.asmx" binding="basicHttpBinding"
+                bindingConfiguration="XigniteHistoricalSoap" contract="XigniteHistoricalService.XigniteHistoricalSoap"
+                name="XigniteHistoricalSoap" />
+            <endpoint address="http://localhost:55823/Services/DBService.svc"
+                binding="customBinding" bindingConfiguration="CustomBinding_DBService"
+                contract="DBService.DBService" name="CustomBinding_DBService" />
+        </client>
+    </system.serviceModel>
+</configuration>

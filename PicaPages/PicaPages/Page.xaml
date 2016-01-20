@@ -1,0 +1,206 @@
+﻿<UserControl x:Name="x_UserControl" x:Class="PicaPages.Page"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:Toolkit="clr-namespace:Microsoft.Windows.Controls;assembly=Microsoft.Windows.Controls"
+  	xmlns:f="clr-namespace:PicaPages;assembly=PicaPages"
+	xmlns:r="clr-namespace:RichTextBox;assembly=RichTextBox"
+	Width="1024"
+	Height="768"
+	xmlns:theming="clr-namespace:Microsoft.Windows.Controls.Theming;assembly=Microsoft.Windows.Controls.Theming"
+	theming:ImplicitStyleManager.ApplyMode="Auto"
+	theming:ImplicitStyleManager.ResourceDictionaryUri="Themes;component/Microsoft.Windows.Controls.Theming.RainierOrange.xaml"
+>
+	<Grid x:Name="x_LayoutRoot" ShowGridLines="False">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Grid.Background>
+			<LinearGradientBrush EndPoint="1.4,1.184" StartPoint="-0.557,0.086">
+				<GradientStop Color="#FFE5E4AF" Offset="0"/>
+				<GradientStop Color="#FFFFFFFF" Offset="0.75"/>
+				<GradientStop Color="#FFE5E4AF" Offset="1"/>
+				<GradientStop Color="#FFFFFFFF" Offset="0.5"/>
+			</LinearGradientBrush>
+		</Grid.Background>
+		<Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="#FFAAC1E1" Height="80" x:Name="x_CommandPanel">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<Image Grid.Column="0" x:Name="x_Logo" Source="PicaPagesLogo.png" Width="Auto" Stretch="None"/>
+			<Grid Grid.Column="1" x:Name="x_CommandPanelLeft">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+				<StackPanel Grid.Row="0" Orientation="Horizontal" x:Name="x_CommandButtonsPanel">
+					<Button Content="Order This Book" Height="25" x:Name="x_OrderBook" Width="120" Margin="5,5,5,5" ToolTipService.ToolTip="Order a professionally printed copy of your photo book"/>
+					<Button Content="Preview" Height="25" x:Name="x_PreviewBook" Width="Auto" Margin="5,5,5,5" ToolTipService.ToolTip="View a preview of your photo book"/>
+					<Button Content="Save" Height="25" x:Name="x_SaveBook" Width="Auto" Margin="5,5,5,5" ToolTipService.ToolTip="Save your photo book"/>
+					<Button Content="Print" Height="25" x:Name="x_PrintBook" Width="Auto" Margin="5,5,5,5" ToolTipService.ToolTip="Print your photo book"/>
+					<Button Content="Publish" Height="25" x:Name="x_Publish" Width="Auto" Margin="5,5,5,5" ToolTipService.ToolTip="Publish the book to the web"/>
+					<Button Content="Create a New Book" Height="25" x:Name="x_CreateBook" Margin="5,5,5,5" ToolTipService.ToolTip="Create a new photo book" Width="121"/>
+				</StackPanel>
+				<StackPanel Grid.Row="1" Orientation="Horizontal" x:Name="x_BookTitlePanel">
+					<TextBlock VerticalAlignment="Center" Text="Book Title:" TextWrapping="NoWrap" x:Name="x_BookTitleLabel" Margin="5,0,0,0"/>
+					<HyperlinkButton Content="Allison's Baby Book" x:Name="x_BookTitle" FontSize="20" VerticalAlignment="Center" Margin="10,0,0,0" />
+				</StackPanel>
+			</Grid>
+			<StackPanel Grid.Column="2" />
+			<StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" x:Name="x_CommandPanelRight">
+				<StackPanel Orientation="Vertical" VerticalAlignment="Center">
+					<HyperlinkButton Content="Send Us Feedback!" Height="Auto" x:Name="x_SendFeedback" Width="120" ToolTipService.ToolTip="Send us your feedback and your thoughts about the application" Margin="3,3,3,3" />
+					<HyperlinkButton Content="About PicaPages" Height="Auto" x:Name="x_About" Width="120" ToolTipService.ToolTip="Get more information about PicaPages" Margin="3,3,3,3"/>
+					<HyperlinkButton Content="Tell A Friend" Height="Auto" x:Name="x_TellFriend" Width="120" ToolTipService.ToolTip="Tell a friend about PicaPages" Margin="3,3,3,3"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+					<Button Content="Help" Height="25" x:Name="x_Help" Margin="5,5,5,5" Width="42" ToolTipService.ToolTip="Get more help"/>
+					<Button Content="X" Height="25" x:Name="x_CloseBook" Width="26" Margin="5,5,5,5" ToolTipService.ToolTip="Close this book and return to the site"/>
+				</StackPanel>
+			</StackPanel>
+		</Grid>
+		<Controls:TabControl Grid.Column="0" Grid.Row="1" Width="200" TabStripPlacement="Top" x:Name="x_ToolsTabPanel" BorderThickness="0,0,0,0">
+			<Controls:TabItem Header="Page Layouts" x:Name="x_LayoutsTabItem">
+				<ScrollViewer x:Name="x_LayoutsScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+					<ScrollViewer.Content>
+						<f:LayoutsPanel x:Name="x_LayoutsPanel">
+							<Toolkit:WrapPanel x:Name="x_LayoutsIconPanel" />
+						</f:LayoutsPanel>
+					</ScrollViewer.Content>
+				</ScrollViewer>
+			</Controls:TabItem>
+			<Controls:TabItem Header="Covers" x:Name="x_CoversTabItem">
+				<ScrollViewer x:Name="x_CoversScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+					<ScrollViewer.Content>
+						<f:CoversPanel x:Name="x_CoversPanel">
+							<Toolkit:WrapPanel x:Name="x_CoversIconPanel" />
+						</f:CoversPanel>
+					</ScrollViewer.Content>
+				</ScrollViewer>
+			</Controls:TabItem>
+			<Controls:TabItem Header="Backgrounds" x:Name="x_BackgroundsTabItem">
+				<ScrollViewer x:Name="x_BackgroundsScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+					<ScrollViewer.Content>
+						<f:BackgroundsPanel x:Name="x_BackgroundsPanel">
+							<Toolkit:WrapPanel x:Name="x_BackgroundsIconPanel" />
+						</f:BackgroundsPanel>
+					</ScrollViewer.Content>
+				</ScrollViewer>
+			</Controls:TabItem>
+			<Controls:TabItem Header="Corners" x:Name="x_CornersTabItem">
+				<ScrollViewer x:Name="x_CornersScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+					<ScrollViewer.Content>
+						<f:CornersPanel x:Name="x_CornersPanel">
+							<Toolkit:WrapPanel x:Name="x_CornersIconPanel" />
+						</f:CornersPanel>
+					</ScrollViewer.Content>
+				</ScrollViewer>
+			</Controls:TabItem>
+			<Controls:TabItem Header="Share with Friends" x:Name="x_FriendsTabItem">
+				<StackPanel Orientation="Vertical" x:Name="x_FriendsPanel" VerticalAlignment="Center" HorizontalAlignment="Center">
+					<TextBlock Text="Share with Friends controls" />
+				</StackPanel>
+			</Controls:TabItem>
+			<!--<Controls:TabItem Header="Photo Tools" x:Name="x_PhotoToolsTabItem">
+				<StackPanel Orientation="Vertical" x:Name="x_PhotoToolsPanel" VerticalAlignment="Center" HorizontalAlignment="Center">
+					<TextBlock Text="Photo Tools controls" />
+				</StackPanel>
+			</Controls:TabItem>-->
+			<Controls:TabItem Header="Text" x:Name="x_TextToolsTabItem">
+				<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+					<ScrollViewer.Content>
+						<StackPanel Orientation="Vertical" x:Name="x_TextToolsPanel">
+							<r:RichText x:Name="x_RichText1" />
+						</StackPanel>
+					</ScrollViewer.Content>
+				</ScrollViewer>
+			</Controls:TabItem>
+		</Controls:TabControl>
+		<Grid Grid.Column="1" Grid.Row="1" x:Name="x_MainPanel">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid Grid.Row="0" Background="#FFCDCDCD" x:Name="x_TextToolsRow">
+				<r:RichTextTools x:Name="x_RichText2" Height="35" />
+			</Grid>
+			<Grid Grid.Row="1" x:Name="x_PageRow">
+				<Grid Margin="10,10,10,10" x:Name="x_PagesRow">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Image Grid.Column="0" x:Name="x_PageLeft" Source="Page1.jpg"/>
+					<Image Grid.Column="1" x:Name="x_PageRight" Source="Page2.jpg"/>
+				</Grid>
+			</Grid>
+			<Grid Grid.Row="2" Background="#FFCDCDCD" x:Name="x_PageButtonRow">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" x:Name="x_PageButtonRowLeft">
+					<Button Content="DP" Height="25" x:Name="x_DoublePage" Width="25" Margin="5,5,5,5" ToolTipService.ToolTip="Select a double page view"/>
+					<Button Content="SP" Height="25" x:Name="x_SinglePage" Width="25" Margin="5,5,5,5" ToolTipService.ToolTip="Select a single page view"/>
+					<Button Content="&lt;&lt;" Height="25" x:Name="x_PrevPage" Width="25" Margin="5,5,5,5" ToolTipService.ToolTip="View the previous page"/>
+					<Slider Height="25" Margin="5,5,5,5" x:Name="x_PageSlider" ToolTipService.ToolTip="Select a page to view" Width="171"/>
+					<Button Content="&gt;&gt;" Height="25" x:Name="x_NextPage" Width="25" Margin="5,5,5,5" ToolTipService.ToolTip="View the next page"/>
+				</StackPanel>
+				<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" x:Name="x_PageButtonRowCenter">
+					<TextBlock Text="Page 1 of 20" TextWrapping="NoWrap" Width="Auto" FontSize="20" x:Name="x_PageNumbers" Margin="0,5,0,5" />
+				</StackPanel>
+				<StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" x:Name="x_PageButtonRowRight">
+					<Button Content="+ &lt;" Height="25" x:Name="x_InsertPageBefore" Width="32" Margin="5,5,5,5" ToolTipService.ToolTip="Insert a new page before the current page"/>
+					<Button Content="+ &gt;" Height="25" x:Name="x_InsertPageAfter" Width="32" Margin="5,5,5,5" ToolTipService.ToolTip="Insert a new page after the current page"/>
+					<Button Content="Move &lt;" Height="25" x:Name="x_MovePageToFront1" Margin="5,5,5,5" Width="50" ToolTipService.ToolTip="Move the current page towards the front of the book"/>
+					<Button Content="Move &gt;" Height="25" x:Name="x_MovePageToBack" Width="50" Margin="5,5,5,5" ToolTipService.ToolTip="Move the current page towards the back of the book"/>
+					<Button Content="Clear" Height="25" x:Name="x_ClearPage" Width="50" Margin="5,5,5,5" ToolTipService.ToolTip="Remove all of the contents from the current page"/>
+					<Button Content="X" Height="25" x:Name="x_DeletePage" Width="32" Margin="5,5,5,5" ToolTipService.ToolTip="Delete the current page"/>
+				</StackPanel>
+			</Grid>
+		</Grid>
+		<Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Height="117" x:Name="x_PhotosPanelMain">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid Grid.Column="0" Width="200" Background="#FF7291AA" x:Name="x_PhotosSelector">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<TextBlock Grid.Column="0" x:Name="x_PhotosLabel" FontSize="22" Text="Photos" TextWrapping="NoWrap" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+					<TextBlock.RenderTransform>
+						<TransformGroup>
+							<RotateTransform Angle="-90"/>
+						</TransformGroup>
+					</TextBlock.RenderTransform>
+				</TextBlock>
+				<StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+					<RadioButton Content="All" x:Name="x_PhotosAll" ToolTipService.ToolTip="View all of your photos " Margin="5,5,5,5"/>
+					<RadioButton Margin="5,5,5,5" x:Name="x_PhotosNotUsed" ToolTipService.ToolTip="View only those photos not used in this book" Content="Not Used"/>
+					<RadioButton Content="Used" Margin="5,5,5,5" x:Name="x_PhotosUsed" ToolTipService.ToolTip="View only those photos used in this book"/>
+					<Button Height="25" Content="Add Photos" Width="80" Margin="5,5,5,5" x:Name="x_AddPhotos" ToolTipService.ToolTip="Add more photos form your computer, Flickr, or the web"/>
+				</StackPanel>
+			</Grid>
+			<ScrollViewer Grid.Column="1" x:Name="x_PhotosScrollViewer" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
+				<ScrollViewer.Content>
+					<f:PhotosPanel x:Name="x_PhotosPanel" Background="#FF8FA8BB">
+						<StackPanel x:Name="x_PhotosIconPanel" Orientation="Horizontal" />
+					</f:PhotosPanel>
+				</ScrollViewer.Content>
+			</ScrollViewer>
+		</Grid>
+	</Grid>
+</UserControl>

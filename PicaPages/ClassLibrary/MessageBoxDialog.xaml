@@ -1,0 +1,16 @@
+﻿<UserControl
+	x:Class="ClassLibrary.MessageBoxDialog"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+>
+	<Border BorderBrush="#FF5B5B5B" BorderThickness="2" Background="#FF2D2D2D" CornerRadius="15">
+		<StackPanel Margin="8">
+			<TextBlock x:Name="x_Title" Margin="8" TextWrapping="NoWrap" FontSize="12" FontWeight="Bold" Text="(Title)" FontFamily="Verdana" Foreground="#FFF4B42C" />
+			<TextBlock x:Name="x_Text" MaxWidth="500" Margin="8" TextWrapping="Wrap" FontSize="12" FontWeight="Normal" Text="(Text)" FontFamily="Verdana" Foreground="#FFBBB8B3" />
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+				<Button x:Name="x_OK" Margin="8" Content="OK" Click="OkButton_Click" Width="100" Height="32" />
+				<Button x:Name="x_Cancel" Margin="8" Content="Cancel" Click="CancelButton_Click" Width="100" Height="32" />
+			</StackPanel>
+		</StackPanel>
+	</Border>
+</UserControl>

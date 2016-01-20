@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IDBService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://www.dreamnit.com/FutureMoneyWebServices/DBService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDBService"
+                contract="DBService.IDBService" name="BasicHttpBinding_IDBService" />
+        </client>
+    </system.serviceModel>
+</configuration>

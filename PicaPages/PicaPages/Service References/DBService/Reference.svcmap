@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c5ce8a8d-799c-4ffb-8440-0d6714c8965c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.dreamnit.com/FutureMoneyWebServices/DBService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DBService.disco" MetadataType="Disco" ID="505cd48f-3965-4abb-bd60-5282c4a83476" SourceId="1" SourceUrl="http://www.dreamnit.com/FutureMoneyWebServices/DBService.svc?disco" />
+    <MetadataFile FileName="DBService.wsdl" MetadataType="Wsdl" ID="b8c32eb8-5511-4bcb-b49a-92f5ceac0d9b" SourceId="1" SourceUrl="http://www.dreamnit.com/FutureMoneyWebServices/DBService.svc?wsdl" />
+    <MetadataFile FileName="DBService1.wsdl" MetadataType="Wsdl" ID="f4a3f244-e0b6-4a47-b867-3c986c80fc10" SourceId="1" SourceUrl="http://www.dreamnit.com/FutureMoneyWebServices/DBService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="DBService.xsd" MetadataType="Schema" ID="f48dd625-7e41-4076-abb3-85a8311e21cc" SourceId="1" SourceUrl="http://www.dreamnit.com/FutureMoneyWebServices/DBService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

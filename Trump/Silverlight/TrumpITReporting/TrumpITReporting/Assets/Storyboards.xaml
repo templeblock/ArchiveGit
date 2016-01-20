@@ -1,0 +1,31 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+>
+		<Storyboard x:Key="RotateZForward">
+			<DoubleAnimation Duration="00:00:01.00" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+				<DoubleAnimation.EasingFunction>
+					<BackEase EasingMode="EaseOut" Amplitude="1.25" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+		</Storyboard>
+
+		<Storyboard x:Key="RotateZReverse">
+			<DoubleAnimation Duration="00:00:00.50" To="-90" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+				<DoubleAnimation.EasingFunction>
+					<BackEase EasingMode="EaseIn" Amplitude="1.25" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+		</Storyboard>
+
+		<Storyboard x:Key="OpacityForward">
+			<DoubleAnimation Duration="00:00:00.25" To="1" Storyboard.TargetProperty="Opacity">
+			</DoubleAnimation>
+		</Storyboard>
+
+		<Storyboard x:Key="OpacityReverse">
+			<DoubleAnimation Duration="00:00:00.25" To="0" Storyboard.TargetProperty="Opacity">
+			</DoubleAnimation>
+		</Storyboard>
+
+</ResourceDictionary>

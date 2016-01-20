@@ -1,0 +1,127 @@
+﻿<app:BubblePageBase x:Class="TrumpBubbles.Test1Page" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpBubbles"
+	xmlns:Toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+	Title="Trump Test1" NavigationCacheMode="Required"
+>
+	<Grid>
+		<!--<ScrollViewer>-->
+		<Grid Width="930" HorizontalAlignment="Center">
+			<!--Normal-->
+			<Toolkit:WrapPanel>
+				<app:BubbleNormal ContentTag="x_Content1" IsShown="{Binding NormalBubblesAreShown}" HideOpen="True"
+						Title="Manage Household"
+						IconSourceUri="../Images/Test1Page/Bubble1.png"
+						TextContent="Add or edit your household members and companies as well as change household login information." />
+				<app:BubbleNormal ContentTag="x_Content2" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Settings"
+						IconSourceUri="../Images/Test1Page/Bubble2.png"
+						TextContent="Control your account settings: newsletter E-mail opt in/out, add AutoShip Discounting to your personal AutoShips and change your password. " />
+				<app:BubbleNormal ContentTag="x_Content3" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Addresses" 
+						IconSourceUri="../Images/Test1Page/Bubble3.png"
+						TextContent="Edit and add new mailing and shipping addresses." />
+				<app:BubbleNormal ContentTag="x_Content4" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Customers" 
+						IconSourceUri="../Images/Test1Page/Bubble4.png" 
+						TextContent="View details about your customers. Under construction..." />
+				<app:BubbleNormal ContentTag="x_Content5" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Registrations" 
+						IconSourceUri="../Images/Test1Page/Bubble5.png" 
+						TextContent="View Your Conference Registrations. Under Construction ... " />
+				<app:BubbleNormal ContentTag="x_Content6" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Autoships" 
+						IconSourceUri="../Images/Test1Page/Bubble6.png" 
+						TextContent="Create new and Edit existing autoships. Add items to and combine autoships. Under construction... " />
+				<app:BubbleNormal ContentTag="x_Content7" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Order Status" 
+						IconSourceUri="../Images/Test1Page/Bubble7.png" 
+						TextContent="View the status of your order(s). Under construction ... " />
+				<app:BubbleNormal ContentTag="x_Content8" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Manage Payments" 
+						IconSourceUri="../Images/Test1Page/Bubble8.png" 
+						TextContent="View the status of your payments. Under construction ... " />
+			</Toolkit:WrapPanel>
+			<StackPanel>
+				<!--Minimized-->
+				<app:BubbleMinimizedPanel Style="{StaticResource MinimizedPanelStyle}" IsShown="{Binding MinimizedBubblesAreShown}">
+					<StackPanel Orientation="Horizontal">
+						<app:BubbleMinimized ContentTag="x_Content1" 
+							Title="Manage Household" 
+							IconSourceUri="../Images/Test1Page/Bubble1.png" />
+						<app:BubbleMinimized ContentTag="x_Content2"
+							Title="Manage Settings" 
+							IconSourceUri="../Images/Test1Page/Bubble2.png" />
+						<app:BubbleMinimized ContentTag="x_Content3"
+							Title="Manage Addresses" 
+							IconSourceUri="../Images/Test1Page/Bubble3.png" />
+						<app:BubbleMinimized ContentTag="x_Content4" 
+							Title="Manage Customers" 
+							IconSourceUri="../Images/Test1Page/Bubble4.png" />
+						<app:BubbleMinimized ContentTag="x_Content5" 
+							Title="Manage Registrations" 
+							IconSourceUri="../Images/Test1Page/Bubble5.png" />
+						<app:BubbleMinimized ContentTag="x_Content6" 
+							Title="Manage Autoships" 
+							IconSourceUri="../Images/Test1Page/Bubble6.png" />
+						<app:BubbleMinimized ContentTag="x_Content7" 
+							Title="Order Status" 
+							IconSourceUri="../Images/Test1Page/Bubble7.png" />
+						<app:BubbleMinimized ContentTag="x_Content8" 
+							Title="Manage Payments" 
+							IconSourceUri="../Images/Test1Page/Bubble8.png" />
+					</StackPanel>
+					<c:Spacer c:StretchPanel.Length="*" />
+				</app:BubbleMinimizedPanel>
+				<!--Maximized-->
+				<Grid>
+					<app:BubbleMaximized ContentTag="x_Content1" SelectedItem="{Binding MaximizedContent}" HideClose="True"
+						Title="Manage Household" 
+						IconSourceUri="../Images/Test1Page/Bubble1.png" 
+						SourceUrl="./TestPage200.html" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content2" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Settings" 
+						IconSourceUri="../Images/Test1Page/Bubble2.png" 
+						SourceUrl="./TestPage300.html" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content3" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Addresses" 
+						IconSourceUri="../Images/Test1Page/Bubble3.png" 
+						SourceUrl="./TestPage400.html" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content4" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Customers" 
+						IconSourceUri="../Images/Test1Page/Bubble4.png" 
+						SourceUrl="./TestPage500.html" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content5" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Registrations" 
+						IconSourceUri="../Images/Test1Page/Bubble5.png" 
+						SourceUrl="./TestPage600.html" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content6" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Autoships" 
+						IconSourceUri="../Images/Test1Page/Bubble6.png" 
+						SourceUrl="./TestPage700.html" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content7" SelectedItem="{Binding MaximizedContent}"
+						Title="Order Status" 
+						IconSourceUri="../Images/Test1Page/Bubble7.png" 
+						SourceUrl="./TestPage800.html" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content8" SelectedItem="{Binding MaximizedContent}"
+						Title="Manage Payments" 
+						IconSourceUri="../Images/Test1Page/Bubble8.png" 
+						SourceUrl="http://silverlight.net/" 
+						HtmlHeight="400" />
+				</Grid>
+			</StackPanel>
+		</Grid>
+		<!--</ScrollViewer>-->
+	</Grid>
+</app:BubblePageBase>

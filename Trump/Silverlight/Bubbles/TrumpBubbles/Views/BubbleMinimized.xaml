@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="TrumpBubbles.BubbleMinimized"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+>
+	<UserControl.RenderTransformOrigin>
+		<Point X=".5" Y=".5" />
+	</UserControl.RenderTransformOrigin>
+
+	<UserControl.RenderTransform>
+		<TransformGroup>
+			<ScaleTransform ScaleX="0" ScaleY="0" />
+			<TranslateTransform X="0" Y="0" />
+		</TransformGroup>
+	</UserControl.RenderTransform>
+
+	<UserControl.Resources>
+		<Style x:Key="ContentScalerStyle" TargetType="c:ContentScaler">
+			<Setter Property="HorizontalAlignment" Value="Center" />
+			<Setter Property="VerticalAlignment" Value="Top" />
+		</Style>
+	</UserControl.Resources>
+
+	<c:ContentScaler Style="{StaticResource ContentScalerStyle}" >
+		<c:ContentScaler.ItemContent>
+			<Grid MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Background="Transparent">
+				<Border Style="{StaticResource MinimizedBubbleBorderStyle}" MouseLeftButtonUp="OnBubbleOpenClick">
+					<Grid>
+						<StackPanel x:Name="x_Header" Orientation="Horizontal" Style="{StaticResource BubbleHeader}">
+							<Image x:Name="x_Icon" Style="{StaticResource MinimizedIconImage}" />
+							<Grid x:Name="x_ShowHidePanel" Style="{StaticResource ShowHidePanel}">
+								<TextBlock x:Name="x_Title" Style="{StaticResource MinimizedHeaderTitle}" FontSize="12" />
+							</Grid>
+						</StackPanel>
+					</Grid>
+				</Border>
+			</Grid>
+		</c:ContentScaler.ItemContent>
+	</c:ContentScaler>
+</UserControl>

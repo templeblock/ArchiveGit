@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <assembly>
+    <name>Telerik.Windows.Controls</name>
+    <version>2010.1.0422.1030</version>
+    <publickeytoken>5803cfa389c90ce7</publickeytoken>
+    <relpath>Telerik.Windows.Controls.dll</relpath>
+    <extension downloadUri="Telerik.Windows.Controls.zip" />
+  </assembly>
+</manifest>

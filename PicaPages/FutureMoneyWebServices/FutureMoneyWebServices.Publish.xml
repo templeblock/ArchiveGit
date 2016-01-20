@@ -1,0 +1,20 @@
+<publishData>
+  <publishTarget publishUrl="ftp://0076365|dreamnitcom@ftp.dreamnitcom.web701.discountasp.net/FutureMoneyWebServices/">
+    <file relUrl="DBService.svc" publishTime="05/09/2008 09:59:16" />
+    <file relUrl="bin/FutureMoneyWebServices.dll" publishTime="09/10/2008 09:01:26" />
+    <file relUrl="bin/FutureMoneyWebServices.pdb" publishTime="09/10/2008 09:01:26" />
+    <file relUrl="Web.config" publishTime="06/20/2008 13:34:06" />
+    <file relUrl="clientaccesspolicy.xml" publishTime="06/19/2008 13:10:00" />
+    <file relUrl="DebugThis.aspx" publishTime="05/08/2008 18:17:00" />
+    <file relUrl="crossdomain.xml" publishTime="06/19/2008 13:10:00" />
+  </publishTarget>
+  <publishTarget publishUrl="ftp://facetofacesoftwa@facetofacesoftware.com/FutureMoneyWebServices/">
+    <file relUrl="DBService.svc" publishTime="05/09/2008 09:59:16" />
+    <file relUrl="bin/FutureMoneyWebServices.dll" publishTime="09/10/2008 08:57:27" />
+    <file relUrl="crossdomain.xml" publishTime="06/19/2008 13:10:00" />
+    <file relUrl="bin/FutureMoneyWebServices.pdb" publishTime="09/10/2008 08:57:27" />
+    <file relUrl="clientaccesspolicy.xml" publishTime="06/19/2008 13:10:00" />
+    <file relUrl="DebugThis.aspx" publishTime="05/08/2008 18:17:00" />
+    <file relUrl="Web.config" publishTime="06/20/2008 13:34:06" />
+  </publishTarget>
+</publishData>

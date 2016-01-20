@@ -1,0 +1,64 @@
+﻿<app:BubblePageBase x:Class="TrumpBubbles.InfoXchangeHome" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpBubbles"
+	xmlns:Toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+	Title="Trump InfoXchange" NavigationCacheMode="Required"
+>
+	<Grid>
+		<!--<ScrollViewer>-->
+		<Grid Width="930" HorizontalAlignment="Center">
+			<!--Normal-->
+			<Toolkit:WrapPanel Style="{StaticResource NormalContainerStyle}">
+				<app:BubbleNormal ContentTag="x_Content1" IsShown="{Binding NormalBubblesAreShown}"
+						Title="MeetingXchange"
+						IconSourceUri="../Images/InfoXchangeHome/Bubble1.png"
+						CallToActionText="View MeetingXchange">
+					<app:BubbleNormal.ItemContent>
+							<TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+				<app:BubbleNormal ContentTag="x_Content2" IsShown="{Binding NormalBubblesAreShown}"
+						Title="Training     Xchange"
+						IconSourceUri="../Images/InfoXchangeHome/Bubble2.png"
+						CallToActionText="View TrainingXchange">
+					<app:BubbleNormal.ItemContent>
+						<TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat." />
+					</app:BubbleNormal.ItemContent>
+				</app:BubbleNormal>
+			</Toolkit:WrapPanel>
+			<StackPanel>
+				<!--Minimized
+				<app:BubbleMinimizedPanel Style="{StaticResource MinimizedPanelStyle}" IsShown="{Binding MinimizedBubblesAreShown}">
+					<StackPanel Orientation="Horizontal">
+						<app:BubbleMinimized ContentTag="x_Content1" 
+							Title="MeetingXchange" 
+							IconSourceUri="../Images/InfoXchangeHome/Bubble1.png" />
+						<app:BubbleMinimized ContentTag="x_Content2"
+							Title="TrainingXchange" 
+							IconSourceUri="../Images/InfoXchangeHome/Bubble2.png" />
+					</StackPanel>
+					<c:Spacer c:StretchPanel.Length="*" />
+				</app:BubbleMinimizedPanel> 
+				-->
+				<!--Maximized-->
+				<Grid>
+					<app:BubbleMaximized ContentTag="x_Content1" SelectedItem="{Binding MaximizedContent}"
+						Title="MeetingXchange" 
+						IconSourceUri="../Images/InfoXchangeHome/Bubble1.png" 
+						SourceUrl="./InfoXchange/MeetingXchange.aspx" 
+						HtmlHeight="0" />
+					<app:BubbleMaximized ContentTag="x_Content2" SelectedItem="{Binding MaximizedContent}"
+						Title="TrainingXchange" 
+						IconSourceUri="../Images/InfoXchangeHome/Bubble2.png" 
+						SourceUrl="./InfoXchange/TrainingXchange.aspx" 
+						HtmlHeight="0" />
+				</Grid>
+			</StackPanel>
+		</Grid>
+		<!--</ScrollViewer>-->
+	</Grid>
+</app:BubblePageBase>

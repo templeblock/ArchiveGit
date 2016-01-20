@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="TrumpITReporting.MainPage"
+	xmlns="http://schemas.microsoft.com/client/2007"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpITReporting"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+	xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:ToolkitTheming="clr-namespace:System.Windows.Controls.Theming;assembly=System.Windows.Controls.Theming.Toolkit"
+	ToolkitTheming:ImplicitStyleManager.ApplyMode="Auto"
+>
+	<UserControl.Resources>
+		<ResourceDictionary Source="Assets/Storyboards.xaml"/>
+	</UserControl.Resources>
+	<Canvas x:Name="x_LayoutRoot">
+		<Grid Background="#FFDDC195">
+			<Grid>
+				<Image Source="Images/TrumpHeader.png" Height="179" Stretch="Fill" VerticalAlignment="Top" />
+			</Grid>
+			<c:StretchPanel>
+				<c:StretchPanel>
+					<c:StretchPanel Orientation="Horizontal" Margin="20,5,20,0">
+						<Image Source="Images/MiniLogo.png" Stretch="Uniform" VerticalAlignment="Center" />
+						<c:Spacer MinWidth="5" />
+						<Grid Margin="0,0,5,5">
+							<TextBlock Text="{Binding Resource.AppName, Source={StaticResource ResxResources}}" FontSize="24" Margin="2,2,-2,-2" Foreground="Black" />
+							<TextBlock Text="{Binding Resource.AppName, Source={StaticResource ResxResources}}" FontSize="24">
+								<TextBlock.Foreground>
+									<ImageBrush ImageSource="Images/LogoBackground.jpg" />
+								</TextBlock.Foreground>
+								<TextBlock.Effect>
+									<DropShadowEffect Color="Black" BlurRadius="5" />
+								</TextBlock.Effect>
+							</TextBlock>
+						</Grid>
+						<c:Spacer c:StretchPanel.Length="*" />
+						<c:StretchPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="2">
+							<Button Style="{StaticResource FlatButton}" Content="DATA" Click="OnDataAccessClick" Foreground="#FF998668" />
+							<c:Spacer MinWidth="5" />
+							<Button Style="{StaticResource FlatButton}" Content="FULLSCREEN" Click="OnFullScreenClick" Foreground="#FF998668" />
+							<c:Spacer MinWidth="5" />
+							<Button Style="{StaticResource FlatButton}" Click="OnCloseWindow">
+								<Button.Content>
+									<StackPanel Orientation="Horizontal">
+										<TextBlock Text="CLOSE TRUMPIT REPORTING" Foreground="#FF998668" />
+										<c:Spacer MinWidth="5" />
+										<Image Source="Images/Close2.png" Stretch="Uniform" VerticalAlignment="Center" />
+									</StackPanel>
+								</Button.Content>
+							</Button>
+						</c:StretchPanel>
+					</c:StretchPanel>
+					<!--<Controls:TabControl x:Name="x_NavigationSelector" Style="{StaticResource MainTabControl}" SelectionChanged="OnNavigationTabChanged" >
+						<Controls:TabItem Style="{StaticResource MainTabItem}" Header="Reporting" Tag="/Reporting">
+							<Controls:TabControl Tag="SubNavigationContainer" Style="{StaticResource SubTabControl}" SelectionChanged="OnNavigationTabChanged">
+								<Controls:TabItem Style="{StaticResource SubTabItem}" Header="Home" Tag="/Reporting/Home" />
+							</Controls:TabControl>
+						</Controls:TabItem>
+						<Controls:TabItem Style="{StaticResource MainTabItem}" Header="Test" Tag="/Test"/>
+					</Controls:TabControl>-->
+					<c:StretchPanel x:Name="x_NavigationSelector" Orientation="Horizontal">
+						<!--<RadioButton GroupName="Navigation" Click="OnNavigationButtonClick" Content="Reporting" Tag="/Reporting/Home" IsChecked="True" x:Name="x_NavigationSelector" />
+						<RadioButton GroupName="Navigation" Click="OnNavigationButtonClick" Content="Test1" Tag="/Test1/Home" />
+						<RadioButton GroupName="Navigation" Click="OnNavigationButtonClick" Content="Test2" Tag="/Test2/Home" />-->
+					</c:StretchPanel>
+				</c:StretchPanel>
+				<Grid c:StretchPanel.Length="*">
+					<navigation:Frame x:Name="x_NavigationFrame">
+						<navigation:Frame.UriMapper>
+							<uriMapper:UriMapper>
+								<uriMapper:UriMapping Uri="" MappedUri="/Views/ReportingPage.xaml" />
+								<uriMapper:UriMapping Uri="/Reporting/Home" MappedUri="/Views/ReportingPage.xaml" />
+
+								<!-- The password reset command falls through to here -->
+								<uriMapper:UriMapping Uri="/{mainCommand}/{subCommand}" MappedUri="/Views/WelcomePage.xaml#/{mainCommand}{subCommand}" />
+								<uriMapper:UriMapping Uri="/{mainCommand}" MappedUri="/Views/WelcomePage.xaml#/{mainCommand}" />
+							</uriMapper:UriMapper>
+						</navigation:Frame.UriMapper>
+					</navigation:Frame>
+				</Grid>
+			</c:StretchPanel>
+		</Grid>
+	</Canvas>
+</UserControl>

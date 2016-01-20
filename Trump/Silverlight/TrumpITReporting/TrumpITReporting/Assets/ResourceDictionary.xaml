@@ -1,0 +1,14 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:app="clr-namespace:TrumpITReporting"
+>
+	<!-- Resx resources -->
+	<app:ResxResources x:Key="ResxResources"/>
+
+	<!-- Effects resources -->
+	<DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="3" BlurRadius="6" Direction="300" Opacity="0.5" />
+	<DropShadowEffect x:Key="TextDropShadowEffect" ShadowDepth="3" BlurRadius="6" Direction="300" Opacity="0.85" />
+
+</ResourceDictionary>

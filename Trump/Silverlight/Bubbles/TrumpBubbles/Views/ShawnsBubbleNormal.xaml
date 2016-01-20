@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="TrumpBubbles.Views.ShawnsBubbleNormal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+    >
+    <Grid>
+        <Border Style="{StaticResource NormalBubbleBorderStyle}">
+            <Grid>
+                <StackPanel>
+                    <StackPanel x:Name="x_Header" Orientation="Horizontal" Style="{StaticResource BubbleHeader}" MouseLeftButtonUp="OnBubbleOpenClick">
+                        <Image x:Name="x_Icon" Style="{StaticResource IconImage}" />
+                        <c:Spacer MinWidth="5" />
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock x:Name="x_OpenText" Style="{StaticResource OpenText}" />
+                                    <Image x:Name="x_OpenImage" Style="{StaticResource OpenImage}" MouseLeftButtonUp="OnBubbleOpenClick" />
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock x:Name="x_Title" Style="{StaticResource HeaderTitle}" />
+                        </StackPanel>
+                    </StackPanel>
+                    <Rectangle Style="{StaticResource RectangleRule}" />
+                    <TextBlock x:Name="x_TextContent" Style="{StaticResource TextContent}" />
+                    <ContentControl Name="x_ItemContent" Style="{StaticResource ItemContent}" />
+                    <Rectangle Style="{StaticResource RectangleRule}" />
+                    <TextBlock x:Name="x_ExternalLink" Style="{StaticResource ExternalLink}" Text="Open In New Window" />
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

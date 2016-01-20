@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Service="TrumpITReporting.Web.DBService" Factory="TrumpITReporting.Web.DBServiceHostFactory" CodeBehind="DBService.svc.cs" %>

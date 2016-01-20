@@ -1,0 +1,115 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+>
+	<DropShadowEffect x:Key="BubbleDropShadowEffect" ShadowDepth="3" BlurRadius="6" Direction="300" Opacity="0.5" />
+	<RadialGradientBrush x:Key="BubbleBorder_Background" Center="0.25,0.25" RadiusX="0.75" RadiusY="0.75" GradientOrigin="0,0" >
+		<GradientStop Color="White" Offset="0"/>
+		<GradientStop Color="Gainsboro" Offset="1"/>
+	</RadialGradientBrush>
+	<Style x:Key="BubbleRadioButton" TargetType="RadioButton">
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="Background" Value="{StaticResource BubbleBorder_Background}"/>
+		<Setter Property="BorderThickness" Value="0"/>
+		<Setter Property="Effect" Value="{StaticResource BubbleDropShadowEffect}"/>
+		<Setter Property="Padding" Value="7"/>
+		<Setter Property="Margin" Value="5"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="RadioButton">
+					<Grid Margin="{TemplateBinding Margin}">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Normal"/>
+								<VisualState x:Name="MouseOver">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="MouseOverElements" Storyboard.TargetProperty="Opacity">
+											<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Pressed">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="MouseOverElements" Storyboard.TargetProperty="Opacity">
+											<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Disabled">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledElements" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<SplineDoubleKeyFrame KeyTime="0" Value="0.55"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup x:Name="CheckStates">
+								<VisualState x:Name="Checked">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="CheckedElements" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+										</DoubleAnimationUsingKeyFrames>
+										<ColorAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(UIElement.Foreground).(SolidColorBrush.Color)">
+											<SplineColorKeyFrame KeyTime="0" Value="#FFF5E3A9" />
+										</ColorAnimationUsingKeyFrames>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundUncheckedElements" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+										</DoubleAnimationUsingKeyFrames>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundCheckedElements" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Unchecked">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundUncheckedElements" Storyboard.TargetProperty="BorderThickness">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,0" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundCheckedElements" Storyboard.TargetProperty="BorderThickness">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,0" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup x:Name="FocusStates">
+								<VisualState x:Name="Focused">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="FocusedElement" Storyboard.TargetProperty="Opacity">
+											<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Unfocused" />
+							</VisualStateGroup>
+							<VisualStateGroup x:Name="ValidationStates">
+								<VisualState x:Name="Valid"/>
+								<VisualState x:Name="InvalidUnfocused" />
+								<VisualState x:Name="InvalidFocused" />
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Grid Cursor="{TemplateBinding Cursor}">
+							<Border x:Name="BackgroundUncheckedElements" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Effect="{StaticResource BubbleDropShadowEffect}" />
+							<Border x:Name="BackgroundCheckedElements" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Effect="{StaticResource BubbleDropShadowEffect}" Opacity="0" />
+						</Grid>
+						<Grid x:Name="ContentPresenterElements" Margin="{TemplateBinding Padding}">
+							<ContentControl x:Name="ContentPresenter" IsTabStop="False" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+							<Grid x:Name="FocusedElement" Opacity="0">
+								<!--<Ellipse Width="5" Height="5" Fill="#FFF7E6AD" HorizontalAlignment="Right" VerticalAlignment="Center" IsHitTestVisible="false" />-->
+							</Grid>
+						</Grid>
+						<Grid x:Name="CheckedElements" Opacity="0">
+							<!--<Image Source="../Images/ArrowV.png" Stretch="None" Margin="0,0,0,-12" HorizontalAlignment="Center" VerticalAlignment="Bottom" />-->
+						</Grid>
+						<Grid x:Name="MouseOverElements" Opacity="0">
+							<!--<Image Source="../Images/ArrowV.png" Stretch="None" Margin="0,0,0,-12" HorizontalAlignment="Center" VerticalAlignment="Bottom" />-->
+						</Grid>
+						<Rectangle x:Name="DisabledElements" Opacity="0" RadiusX="10" RadiusY="10" Fill="White" IsHitTestVisible="false" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

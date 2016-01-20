@@ -1,0 +1,59 @@
+﻿<Grid x:Name="x_ParentLayoutRoot"
+	xmlns="http://schemas.microsoft.com/client/2007"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+>
+	<Grid x:Name="x_LayoutRoot">
+		<Grid.Background>
+			<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+				<GradientStop Color="White" Offset="0" />
+				<GradientStop Color="#DDC195" Offset="1" />
+			</LinearGradientBrush>
+		</Grid.Background>
+		<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+			<Grid Height="109" Width="109" Background="Transparent">
+				<Canvas>
+					<Ellipse x:Name="x_BottomShadow" Width="116" Height="15" Canvas.Left="-3.5" Canvas.Top="100">
+						<Ellipse.Fill>
+							<RadialGradientBrush>
+								<GradientStop Color="#CCFFFFFF" Offset="0"/>
+								<GradientStop Color="#00000000" Offset="0.991"/>
+							</RadialGradientBrush>
+						</Ellipse.Fill>
+					</Ellipse>
+				</Canvas>
+				<Grid x:Name="x_Logo" RenderTransformOrigin="0.5,0.5">
+					<Grid.Triggers>
+						<EventTrigger RoutedEvent="Grid.Loaded">
+							<EventTrigger.Actions>
+								<BeginStoryboard>
+									<!--<Storyboard x:Name="x_Storyboard">
+										<DoubleAnimation Storyboard.TargetName="x_LogoTransform" To="360" Duration="0:0:1.0" RepeatBehavior="Forever" Storyboard.TargetProperty="Angle" />
+									</Storyboard>-->
+									<Storyboard x:Name="x_Storyboard">
+										<DoubleAnimation Storyboard.TargetName="x_LogoProjection" To="360" Duration="0:0:1.0" RepeatBehavior="Forever" Storyboard.TargetProperty="RotationY" />
+									</Storyboard>
+								</BeginStoryboard>
+							</EventTrigger.Actions>
+						</EventTrigger>
+					</Grid.Triggers>
+					<Grid.Projection>
+						<PlaneProjection x:Name="x_LogoProjection" RotationY="0" />
+					</Grid.Projection>
+					<!--<Grid.RenderTransform>
+						<RotateTransform x:Name="x_LogoTransform" Angle="0" />
+					</Grid.RenderTransform>-->
+					<Image Source="../SplashScreen.png" Stretch="Uniform" VerticalAlignment="Top" />
+				</Grid>
+			</Grid>
+			<Grid MinHeight="15" />
+			<Grid HorizontalAlignment="Center">
+				<Rectangle x:Name="x_RectBorder" HorizontalAlignment="Left" Height="7" Width="200" Stroke="#FFC8C8C8" StrokeThickness="1" />
+				<Rectangle x:Name="x_RectBar" HorizontalAlignment="Left" Height="7" Width="0" Fill="#FFC8C8C8" />
+			</Grid>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+				<TextBlock Text="Loading TrumpIT Reporting " FontFamily="Trebuchet MS" FontSize="18" />
+				<TextBlock x:Name="x_Label" FontFamily="Trebuchet MS" FontSize="18" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</Grid>

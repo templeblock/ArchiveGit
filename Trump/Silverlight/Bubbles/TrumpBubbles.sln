@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrumpBubbles", "TrumpBubbles\TrumpBubbles.csproj", "{0F28106F-A136-4960-A28F-97FA7AC9D5AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrumpBubbles.Web", "TrumpBubbles.Web\TrumpBubbles.Web.csproj", "{CECBBEC4-1173-47DB-8922-61DA884A5396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "..\ClassLibrary\ClassLibrary.csproj", "{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F28106F-A136-4960-A28F-97FA7AC9D5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F28106F-A136-4960-A28F-97FA7AC9D5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F28106F-A136-4960-A28F-97FA7AC9D5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F28106F-A136-4960-A28F-97FA7AC9D5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CECBBEC4-1173-47DB-8922-61DA884A5396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECBBEC4-1173-47DB-8922-61DA884A5396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECBBEC4-1173-47DB-8922-61DA884A5396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECBBEC4-1173-47DB-8922-61DA884A5396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA4B633A-DA4C-4E50-AF5C-3E7247AC0A41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

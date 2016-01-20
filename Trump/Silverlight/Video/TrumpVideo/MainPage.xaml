@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="TrumpVideo.MainPage"
+	xmlns="http://schemas.microsoft.com/client/2007"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+	xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+	xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+	xmlns:player="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.MediaPlayer"
+	xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+	xmlns:app="clr-namespace:TrumpVideo"
+>
+	<UserControl.Resources>
+		<app:IntToIntValueConverter x:Key="IntToIntValueConverter" />
+		<ControlTemplate x:Key="ImageButton" >
+			<Grid Cursor="Hand">
+				<ContentPresenter x:Name="contentPresenter" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Padding}" />
+			</Grid>
+		</ControlTemplate>
+	</UserControl.Resources>
+	<Border BorderBrush="DimGray" BorderThickness="16" CornerRadius="25">
+		<Border.Background>
+			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+				<GradientStop Color="#FFE8E8E8" Offset="0.006"/>
+				<GradientStop Color="#FFBFBFBF" Offset="0.227"/>
+				<GradientStop Color="#FF969696" Offset="0.343"/>
+				<GradientStop Color="#FF8F8F8F" Offset="0.411"/>
+				<GradientStop Color="#FFCBCBCB" Offset="0.52"/>
+				<GradientStop Color="#FFD7D7D7" Offset="0.563"/>
+				<GradientStop Color="#FFCCCCCC" Offset="0.564"/>
+				<GradientStop Color="#FFA3A3A3" Offset="0.566"/>
+				<GradientStop Color="#FF8D8D8D" Offset="0.569"/>
+				<GradientStop Color="#FF2D2D2D" Offset="0.762"/>
+			</LinearGradientBrush>
+		</Border.Background>
+		<Grid>
+			<c:StretchPanel>
+				<c:StretchPanel Margin="10">
+					<TextBlock Text="SILHOUETTE SOLUTION TESTIMONIALS" FontFamily="Trebuchet MS" Foreground="Black" FontSize="20" />
+					<c:Spacer MinHeight="4" />
+					<Rectangle Height="1">
+						<Rectangle.Fill>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+								<GradientStop Color="#69000000" Offset="0" />
+								<GradientStop Color="#00000000" Offset="1" />
+							</LinearGradientBrush>
+						</Rectangle.Fill>
+					</Rectangle>
+				</c:StretchPanel>
+				<telerikNavigation:RadCoverFlow c:StretchPanel.Length="*"
+						OffsetY="80" 
+						DistanceBetweenItems="100" DistanceFromSelectedItem="10" 
+						CameraViewpoint="Center" IsReflectionEnabled="True" 
+						SelectionChanged="OnCoverFlowSelectionChanged"  
+						x:Name="x_CoverFlow" ItemsSource="{Binding}">
+					<telerikNavigation:RadCoverFlow.ItemTemplate>
+						<DataTemplate>
+							<Border Width="225" Height="225">
+								<Border.Effect>
+									<DropShadowEffect BlurRadius="4" Direction="326" ShadowDepth="3.7" />
+								</Border.Effect>
+								<Grid>
+									<Image Source="{Binding ImageSource}" Stretch="Fill" />
+									<Rectangle x:Name="x_ShadowMask" Fill="#60000000" />
+									<Border Loaded="OnInfoItemLoaded" Visibility="Collapsed" VerticalAlignment="Bottom">
+										<Border.Background>
+											<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+												<GradientStop Color="#A5999999" Offset="0" />
+												<GradientStop Color="#99272727" Offset="1" />
+											</LinearGradientBrush>
+										</Border.Background>
+
+										<c:StretchPanel Orientation="Horizontal" Margin="12,0,12,12">
+											<Button Template="{StaticResource ImageButton}" Click="OnPlayClick" HorizontalAlignment="Center" Tag="{Binding Link}">
+												<Button.Content>
+													<Image Source="../Images/Play.png" Stretch="Uniform" Width="32" />
+												</Button.Content>
+											</Button>
+											<TextBlock c:StretchPanel.Length="*" TextWrapping="Wrap" Text="{Binding Title}" Foreground="White">
+												<TextBlock.Effect>
+													<DropShadowEffect BlurRadius="4" Direction="326" ShadowDepth="3.7" />
+												</TextBlock.Effect>
+											</TextBlock>
+										</c:StretchPanel>
+									</Border>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</telerikNavigation:RadCoverFlow.ItemTemplate>
+				</telerikNavigation:RadCoverFlow>
+				<ScrollBar Width="430" Height="16" Margin="0,2,0,0" telerik:StyleManager.Theme="Windows7" 
+						Orientation="Horizontal" SmallChange="1" LargeChange="3" Minimum="0" 
+						Value="{Binding SelectedIndex, ElementName=x_CoverFlow, Mode=TwoWay}"
+						Maximum="{Binding ItemsSource.Count, ElementName=x_CoverFlow, Converter={StaticResource IntToIntValueConverter}, ConverterParameter=-1}" />
+				<c:Spacer MinHeight="5" />
+			</c:StretchPanel>
+			<Grid x:Name="x_MediaPlayerContainer" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<app:VideoControl Width="638" Height="400" />
+				<!--<player:RadMediaPlayer Width="550" Height="400" telerik:StyleManager.Theme="Windows7" AutoReverse="True" IsPlaylistVisible="False" EnableFullScreenIcon="True" IsTextSearchEnabled="False"  AutoPlaylistAdvance="False" >
+					<player:RadMediaItem telerik:StyleManager.Theme="Windows7" IsTextSearchEnabled="False" />
+				</player:RadMediaPlayer>-->
+				<Button Template="{StaticResource ImageButton}" Click="OnCloseClick" VerticalAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,5,0,0" >
+					<Button.Content>
+						<Image Source="../Images/Close.png" Stretch="Uniform" Width="25" />
+					</Button.Content>
+				</Button>
+			</Grid>
+			<!--<c:StretchPanel x:Name="x_MediaPlayerContainer" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<Border BorderBrush="DarkGray" BorderThickness="1" >
+					<MediaElement Width="300" Height="200" Stretch="Fill" x:Name="x_MediaPlayer"/>
+				</Border>
+				<StackPanel Orientation="Horizontal">
+					<Button Height="30" Width="50" Content="Play" x:Name="btnPlay" Click="btnPlay_Click"/>
+					<Button Height="30" Width="50" Content="Pause" x:Name="btnPause" Click="btnPause_Click"/>
+					<Button Height="30" Width="50" Content="Stop" x:Name="btnStop" Click="btnStop_Click"/>
+					<Button Height="30" Width="50" Content="Mute" x:Name="btnMute" Click="btnMute_Click"/>
+					<TextBlock Height="18" Width="89.5" Text="Volume: " TextWrapping="Wrap" Foreground="#FFFFFFFF"/>
+					<Slider Height="29" Width="179.25" x:Name="ControlVolume" Maximum="100" ValueChanged="ControlVolume_ValueChanged"/>
+					<Button Content="Close" Click="OnCloseClick" VerticalAlignment="Top" HorizontalAlignment="Right" />
+				</StackPanel>
+			</c:StretchPanel>-->
+			<!--<Grid x:Name="x_MediaPlayerContainer" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+					<player:RadMediaPlayer telerik:StyleManager.Theme="Windows7" Style="{StaticResource MediaPlayerStyle}" Width="500" Height="400" AutoReverse="True" IsPlaylistVisible="False" EnableFullScreenIcon="True" IsTextSearchEnabled="False"  AutoPlaylistAdvance="False" >
+						<player:RadMediaItem telerik:StyleManager.Theme="Windows7" Style="{StaticResource MediaItemStyle}" IsTextSearchEnabled="False" />
+					</player:RadMediaPlayer>
+					<Button Content="X" Width="20" Height="20" Click="OnCloseClick" VerticalAlignment="Top" HorizontalAlignment="Right" />
+				</Grid>-->
+		</Grid>
+	</Border>
+</UserControl>

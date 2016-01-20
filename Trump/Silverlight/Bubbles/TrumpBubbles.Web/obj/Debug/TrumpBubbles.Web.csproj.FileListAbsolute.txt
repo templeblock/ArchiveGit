@@ -1,0 +1,5 @@
+C:\My Projects\Trump\ttnweb_trunk\Silverlight\Bubbles\TrumpBubbles.Web\bin\TrumpBubbles.Web.dll
+C:\My Projects\Trump\ttnweb_trunk\Silverlight\Bubbles\TrumpBubbles.Web\bin\TrumpBubbles.Web.pdb
+C:\My Projects\Trump\ttnweb_trunk\Silverlight\Bubbles\TrumpBubbles.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\My Projects\Trump\ttnweb_trunk\Silverlight\Bubbles\TrumpBubbles.Web\obj\Debug\TrumpBubbles.Web.dll
+C:\My Projects\Trump\ttnweb_trunk\Silverlight\Bubbles\TrumpBubbles.Web\obj\Debug\TrumpBubbles.Web.pdb
