@@ -1,0 +1,120 @@
+<SmartAssemblyProject ProjectID="{922b31cd-bbfd-4740-a248-9987408e22d3}" Version="2.0">
+    <MainAssemblyFileName>.\Money\Bin\Release\Money.dll</MainAssemblyFileName>
+    <Configuration Name="Release">
+        <ApplicationName />
+        <Destination DestinationFileName=".\Money\Bin\Release\Money_sa.dll" />
+        <Assemblies>
+            <Assembly AssemblyName="ClassLibrary, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="1">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" ObfuscationLevel="3" />
+                    <ResourcesCompression />
+                    <ResourcesPruning />
+                </Merging>
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="DeepEarth, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="1">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                    <ResourcesCompression />
+                    <ResourcesPruning />
+                </Merging>
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="AuthMemberProfileRole, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="1">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                </Merging>
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="System.Windows.Controls.Data, Culture=neutral, PublicKeyToken=3d8c6023c75a3242">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="DeepEarth.Provider.VirtualEarth, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="1">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                </Merging>
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="DeepEarth.Provider, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="1">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                </Merging>
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="FutureMoney, Culture=neutral, PublicKeyToken=null">
+                <Merging>
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="1">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                    <ResourcesCompression />
+                    <ResourcesPruning />
+                </Merging>
+            </Assembly>
+            <Assembly AssemblyName="Money, Culture=neutral, PublicKeyToken=null">
+                <Merging>
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="1">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" ObfuscationLevel="3" />
+                    <ResourcesCompression />
+                    <ResourcesPruning />
+                </Merging>
+            </Assembly>
+            <Assembly AssemblyName="System.ComponentModel.DataAnnotations, Culture=neutral, PublicKeyToken=ddd0da4d3e678217">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="DropDownMenu, Culture=neutral, PublicKeyToken=null">
+                <Merging />
+                <Embedding />
+            </Assembly>
+        </Assemblies>
+        <Options>
+            <Obfuscation FieldsNameMangling="3" NameMangling="3" />
+            <ExceptionReporting />
+            <StrongNameSigning Sign="0" />
+            <StringsEncoding Encode="1" UseCache="1" />
+            <OtherOptimizations SealClasses="1" />
+            <OtherProtections AddIncorrectMetadata="0" AddMetadataStream="0" />
+            <Debugging CreatePDB="0" />
+        </Options>
+    </Configuration>
+</SmartAssemblyProject>

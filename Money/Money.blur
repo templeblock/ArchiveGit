@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Assemblur xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:xmlns:metapropeller-com:assemblur">
+  <!--Copyright ©2007 MetaPropeller-->
+  <!--This is an auto-generated file. Do not modify it manually.-->
+  <Project version="1.1">
+    <Properties />
+    <Assemblies>
+      <Assembly override="false">
+        <Path>C:\My Projects\Money\Money.Web\ClientBin\YinYangMoney.xap</Path>
+      </Assembly>
+    </Assemblies>
+    <Builds />
+    <ProbingPaths />
+    <Options verbose="false" preset="auto" autoExclusion="true" />
+    <SignWith />
+    <OutputFolder />
+    <Analyze />
+    <Rename>
+      <Options renamingScheme="LowercaseLetters" namespaceObfuscationType="remove" />
+      <MappingFile>
+        <Path>.xml</Path>
+      </MappingFile>
+      <ExcludeTypes />
+      <ExcludeResources />
+    </Rename>
+  </Project>
+</Assemblur>
